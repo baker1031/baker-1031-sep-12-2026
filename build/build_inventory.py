@@ -13,12 +13,12 @@ footcss = between('  /* ---------- Footer ---------- */', '  /* ---------- Stick
 badgecss = between('  .badge{', '  .ratings__disclosure') if '  .ratings__disclosure' in h else between('  .badge{', '\n\n')
 navhtml = re.search(r'<header class="nav" id="nav">.*?</header>', h, flags=re.S).group(0)
 navhtml = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img src="{{LOGO}}" alt="Baker 1031"', navhtml)
-navhtml = navhtml.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest"').replace('href="#results"', 'href="/#results"').replace('href="#request-access"', 'href="/register"')
+navhtml = navhtml.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest"').replace('href="#results"', 'href="/results"').replace('href="#request-access"', 'href="/register"')
 # mark Invest as current
 navhtml = navhtml.replace('<a href="/invest">', '<a href="/invest" aria-current="page">')
 foot = re.search(r'<footer class="footer">.*?</footer>', h, flags=re.S).group(0)
 foot = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img src="{{LOGO}}" alt="Baker 1031"', foot)
-foot = foot.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest"').replace('href="#results"', 'href="/#results"').replace('href="#request-access"', 'href="/register"')
+foot = foot.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest"').replace('href="#results"', 'href="/results"').replace('href="#request-access"', 'href="/register"')
 navjs = between("  // Nav: shadow once scrolled; mobile menu toggle", "})();\n</script>")
 
 # ---- inventory: Airtable "Investment Offerings" -> DST Offerings (pulled 2026-09-13 into offerings.json; images cached in at_imgs/) ----
