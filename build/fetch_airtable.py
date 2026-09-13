@@ -14,7 +14,7 @@ import json, os, sys, time, urllib.request, urllib.parse, urllib.error
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.environ.get('SITE_ROOT') or os.path.dirname(HERE)
-TOKEN = os.environ.get('AIRTABLE_TOKEN')
+TOKEN = (os.environ.get('AIRTABLE_TOKEN') or '').strip()
 BASE = os.environ.get('AIRTABLE_BASE', 'appQOBBscRLzaWv8G')
 TABLE = os.environ.get('AIRTABLE_TABLE', 'tblzgE24oqN8d5VZj')
 OUT_JSON = os.path.join(HERE, 'offerings.json')
@@ -131,7 +131,17 @@ def localize_docs(recs):
 def main():
     if not TOKEN:
         print('AIRTABLE_TOKEN not set — keeping the committed offerings.json snapshot.'); return 0
-    recs = [normalize(r) for r in fetch_records()]
+    try:
+        recs = [normalize(r) for r in fetch_records()]
+    except urllib.error.HTTPError as e:
+        # A bad or under-scoped token must not take the site down: keep the committed snapshot and say so loudly.
+        hint = {401: 'the token is invalid or expired (legacy Airtable API keys no longer work — create a personal access token)',
+                403: 'the token has no access to the Investment Offerings base or lacks the data.records:read scope',
+                404: 'base/table id not found for this token'}.get(e.code, '')
+        print(f'WARNING: Airtable returned HTTP {e.code}{" — " + hint if hint else ""}. Keeping the committed offerings.json snapshot; fix AIRTABLE_TOKEN in Netlify to resume Airtable-driven builds.')
+        return 0
+    except (urllib.error.URLError, TimeoutError) as e:
+        print(f'WARNING: Airtable unreachable ({e}). Keeping the committed offerings.json snapshot.'); return 0
     recs = [o for o in recs if o.get('name') and o.get('slug')]
     recs.sort(key=lambda o: o['name'].lower())
     os.makedirs(IMG_DIR, exist_ok=True)

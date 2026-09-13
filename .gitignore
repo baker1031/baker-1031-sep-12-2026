@@ -33,3 +33,6 @@ __pycache__/
 assets/media/offerings/*
 !assets/media/offerings/*-card.jpg
 !assets/media/offerings/*-hero.jpg
+
+# Local Netlify folder
+.netlify
