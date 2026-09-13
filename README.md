@@ -27,7 +27,7 @@ Run it locally from the repo root: `pip install -r requirements.txt && python3 b
 | `/invest/` | `build/build_inventory.py` | Available Investments — skeleton + blur until logged in |
 | `/offerings/<slug>/` | `build/build_offering.py` | One page per DST offering; documents under `/offerings/<slug>/docs/` are hard-gated at the edge |
 | `/results/` | `results/index.html` | Full-cycle results (1,009 deals). `/performance/` from the old site 301s here |
-| `/learn/`, `/learn/<slug>/` | `build/build_articles.py` | Learn library + category filter |
+| `/learn/`, `/learn/<slug>/` | `build/build_articles.py` | Learn library + category filter — **soft-gated**: served in full to crawlers (paywalled-content schema), visitors see the opening and a log-in card |
 | `/sponsors/…`, `/markets/…`, `/glossary/…`, `/property-types/…`, `/calculators/…`, `/audiences/…`, `/strategies/…` | `build/build_pages.py` | Section pages from `content/pages/` |
 | `/contact/`, `/schedule-call/`, `/schedule-consultation/`, `/process/` | `content/pages/` | |
 | `/privacy/`, `/terms/`, `/disclosures/`, `/reg-bi/`, `/ccpa/`, `/accessibility/`, `/commitment-to-privacy/` | `content/pages/` | Policy pages |
@@ -85,11 +85,27 @@ Deploys are triggered three ways, all needing the site's **build hook** (Netlify
 
 ## One-time Netlify setup (new site)
 
-1. Import the repo; build settings come from `netlify.toml`.
-2. Environment variables: `AIRTABLE_TOKEN` (read on Investment Offerings, read+write on Investor Access), `SESSION_SECRET`
-   (`openssl rand -hex 32`), `NETLIFY_BUILD_HOOK`, and the CRM/email keys copied from the previous site: `GHL_Key`, `GHL_LOCATION_ID`,
-   `RESEND_API_KEY`, `PORTAL_SYNC_KEY`, `SCHEDULE_CALL_URL`, `CRS_RECEIPT_TO`.
-3. Point `baker1031.com` at the new site when ready; the old site's function URLs (`/api/*`) are the same paths here.
+Netlify → the new project → **Site configuration → Environment variables → Add a variable** (scope: all, all deploy contexts).
+Most values already exist on the previous project (`baker1031-v2`): open its Environment variables page, click a value to reveal it, copy.
+
+| Variable | Where it comes from | Used by |
+| --- | --- | --- |
+| `AIRTABLE_TOKEN` | Copy from `baker1031-v2`, or create at airtable.com/create/tokens with scopes `data.records:read` + `data.records:write` and access to both bases (Investment Offerings, Investor Access) | Build (offerings, photos, documents), login, "Deals Reviewed", rebuild watcher, reminders |
+| `SESSION_SECRET` | Copy from `baker1031-v2` (or generate a new one: `openssl rand -hex 32` in Terminal) | Signs the login cookie; the auth function and the edge gate must share it |
+| `NETLIFY_BUILD_HOOK` | New project → Site configuration → Build & deploy → Continuous deployment → **Build hooks → Add build hook** (name "Airtable", branch main) → copy the URL | Rebuild watcher (every 15 min) — without it the watcher only reports |
+| `GHL_Key` | Copy from `baker1031-v2` (GoHighLevel private-integration token, starts with `pit-`) | Leads, opportunity stage moves, portal sync |
+| `GHL_LOCATION_ID` | Copy from `baker1031-v2` | Same |
+| `RESEND_API_KEY` | Copy from `baker1031-v2` | Registration confirmations, portal welcome emails, deadline reminders |
+| `PORTAL_SYNC_KEY` | Copy from `baker1031-v2` — it must match the key in the GoHighLevel workflow that calls `/api/portal-sync` | Portal sync, manual runs of the watcher/reminders |
+| `SCHEDULE_CALL_URL` | Set to `/schedule-call/` (the "call needed" login message links here) | Login |
+| `CRS_RECEIPT_TO` | Optional; defaults to crs@baker1031.com | Form CRS receipt emails |
+
+Optional: `SESSION_DAYS` (login length, default 30), `INDEXNOW_KEY` (Bing IndexNow), `GHL_PIPELINE_ID` / `GHL_STAGE_ID` overrides.
+
+After adding variables: **Deploys → Trigger deploy → Clear cache and deploy site** once, so the edge gate picks up `SESSION_SECRET`.
+Then add the same build-hook URL as the GitHub secret `NETLIFY_BUILD_HOOK` (repo → Settings → Secrets and variables → Actions) for the hourly safety net.
+
+At cutover, also point the GoHighLevel workflow's portal-sync webhook at the new domain (same path `/api/portal-sync`, same key).
 
 ## Before launch
 

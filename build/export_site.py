@@ -146,8 +146,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Netlify build hook
-        if: ${{ secrets.NETLIFY_BUILD_HOOK != '' }}
-        run: curl -fsS -X POST -d '{}' "${{ secrets.NETLIFY_BUILD_HOOK }}"
+        env:
+          HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "NETLIFY_BUILD_HOOK secret not set - nothing to do"; exit 0; fi
+          curl -fsS -X POST -d '{}' "$HOOK"
 ''')
 
 # ---- generate everything exactly the way the Netlify build does (no token here -> snapshot + no doc download) -------

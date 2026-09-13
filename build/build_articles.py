@@ -191,6 +191,19 @@ def load_articles(build_date):
         print(f'[articles] NOTE: {len(unresolved)} legacy link targets have no page (links dropped, text kept): ' + ', '.join(f'{t} ({n})' for t, n in items[:12]))
     return arts
 
+def gate_card(path, title, body):
+    return f'''<div class="gate" role="region" aria-label="Log in to continue">
+  <div class="gate__card">
+    <h2>{title}</h2>
+    <p>{body}</p>
+    <div class="gate__actions">
+      <a class="btn" href="/login/?next={path}">Log In</a>
+      <a class="btn btn--secondary" href="/register/">Create an Account</a>
+    </div>
+    <p class="gate__note">Educational content for registered investors. Nothing here is an offer to sell or a solicitation to buy any security.</p>
+  </div>
+</div>'''
+
 def article_main(a, html, related_rows, is_hub):
     byline = '' if is_hub else f'''
     <div class="byline">
@@ -215,7 +228,7 @@ def article_main(a, html, related_rows, is_hub):
     <h2 class="h3">More from Learn</h2>
 {related_rows}
   </section>'''
-    return f'''<main>
+    return f'''<main class="main--gated">
 
   <section class="mast mast--light artmast">
     <div class="crumbs"><a href="/">Home</a> <span>/</span> <a href="/learn/">Learn</a> <span>/</span> {esc(a['title'])}</div>
@@ -224,9 +237,12 @@ def article_main(a, html, related_rows, is_hub):
   </section>
 
   <section class="sec bg-white" style="padding-top:48px">
+    <div class="lockwrap lockwrap--article">
+{gate_card('/learn/' + a['slug'] + '/', 'Log in to keep reading', 'The Learn library is available to registered Baker 1031 investors. Log in with the email address on your account, or create one — it takes a few minutes.')}
     <div class="prose">
 {html}
 <div class="footnote">{esc(EDU_DISCLAIMER)}</div>
+    </div>
     </div>
   </section>
 {authorbox}{more}
@@ -242,6 +258,7 @@ def article_main(a, html, related_rows, is_hub):
 def article_json(a, canonical, is_hub):
     graph = [{
         '@type': 'Article', 'headline': a['title'], 'description': a['desc'], 'mainEntityOfPage': canonical,
+        'isAccessibleForFree': False, 'hasPart': {'@type': 'WebPageElement', 'isAccessibleForFree': False, 'cssSelector': '.lockwrap--article'},
         **({'dateModified': a['iso']} if a['iso'] else {}),
         'author': {'@type': 'Person', '@id': SITE + '/#jerry', 'name': 'Jerry Baker', 'jobTitle': 'Founder & Managing Principal',
                    'worksFor': {'@id': SITE + '/#org'}, 'sameAs': ['https://brokercheck.finra.org/individual/summary/7537416']},
@@ -347,6 +364,8 @@ def build(build_date=None):
 
   <div class="featured" id="featured">{featured_html}</div>
 
+  <div class="lockwrap lockwrap--learn">
+{gate_card('/learn/', 'Log in to browse the library', 'The Learn library is available to registered Baker 1031 investors. Log in with the email address on your account, or create one — it takes a few minutes.')}
   <div class="filterbar">
     <div class="filterbar-in" id="pills"></div>
   </div>
@@ -354,6 +373,7 @@ def build(build_date=None):
   <div class="artlist">
     <div id="rows">{rows_html}</div>
     <div class="empty" id="empty" style="display:none;">No articles in this category yet.</div>
+  </div>
   </div>
 
 </main>'''

@@ -831,6 +831,33 @@ a.featured, .featured a.wrap{ display:block; color:inherit; text-decoration:none
 .cta-band .h2{ margin:0; }
 .cta-band .p-main{ margin:16px 0 0; max-width:52ch; color:var(--grey); }
 .cta-band .btn-row{ margin-top:26px; }
+/* ===== soft gate (Learn library): the full page is served to everyone — search engines read it — but a visitor who
+   isn't logged in sees a teaser, the rest blurred under the same gate card the inventory uses. Pure CSS keyed off
+   <html class="is-logged-in"> (set before first paint from the b31_ui cookie), so nothing flashes either way. ===== */
+.lockwrap{ position:relative; }
+.gate{ display:none; position:absolute; left:50%; top:48px; transform:translateX(-50%); z-index:3; width:min(560px, calc(100% - 8px)); }
+html:not(.is-logged-in) .gate{ display:block; }
+.gate__card{ background:var(--white); border:1px solid var(--hair-strong); border-radius:10px; padding:32px 32px 28px; text-align:center; box-shadow:0 24px 48px -24px rgba(0,0,0,.28), 0 2px 6px rgba(0,0,0,.06); }
+.gate__card h2{ margin:0 0 10px; font-size:clamp(22px,2.4vw,28px); font-weight:700; line-height:1.15; letter-spacing:-.02em; }
+.gate__card p{ margin:0 0 20px; font-size:15px; line-height:1.6; color:var(--grey); }
+.gate__actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.gate__note{ margin:20px 0 0 !important; font-size:13px !important; color:var(--grey-light) !important; }
+/* article: the opening stays readable, everything after it is blurred and fades out */
+html:not(.is-logged-in) .lockwrap--article .prose{
+  max-height:820px; overflow:hidden; pointer-events:none; user-select:none;
+  -webkit-mask-image:linear-gradient(to bottom, #000 34%, transparent 96%); mask-image:linear-gradient(to bottom, #000 34%, transparent 96%);
+}
+html:not(.is-logged-in) .lockwrap--article .prose > :nth-child(n+3){ filter:blur(3px); }
+.lockwrap--article .gate{ top:auto; bottom:64px; }
+html:not(.is-logged-in) .main--gated .authorbox, html:not(.is-logged-in) .main--gated .more{ display:none; }
+/* learn index: featured article + category filters stay, the list is blurred under the card */
+html:not(.is-logged-in) .lockwrap--learn .artlist{
+  max-height:900px; overflow:hidden; pointer-events:none; user-select:none; filter:blur(3px);
+  -webkit-mask-image:linear-gradient(to bottom, #000 45%, transparent 100%); mask-image:linear-gradient(to bottom, #000 45%, transparent 100%);
+}
+html:not(.is-logged-in) .lockwrap--learn .filterbar{ pointer-events:none; }
+@media (max-width:900px){ .gate{ top:24px; } .gate__card{ padding:24px 20px 22px; } .lockwrap--article .gate{ bottom:32px; } }
+
 /* contact page cards (the source markup had no styles for these) */
 .cgrid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin:0 0 8px; }
 .ccard{ border:1px solid var(--hair); border-radius:var(--radius); padding:18px 20px; background:#fff; }
