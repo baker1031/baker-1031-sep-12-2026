@@ -1,0 +1,14 @@
+# Safety net: ask Netlify to rebuild every hour so Airtable edits show up even if the automation misses one.
+# Add the Netlify build-hook URL as a repository secret named NETLIFY_BUILD_HOOK; without it this workflow does nothing.
+name: Rebuild site from Airtable
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Netlify build hook
+        if: ${{ secrets.NETLIFY_BUILD_HOOK != '' }}
+        run: curl -fsS -X POST -d '{}' "${{ secrets.NETLIFY_BUILD_HOOK }}"

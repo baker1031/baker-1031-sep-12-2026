@@ -1,2 +1,6 @@
 .DS_Store
 node_modules/
+# full-resolution originals are downloaded from Airtable during the Netlify build, not committed
+assets/media/offerings/*
+!assets/media/offerings/*-card.jpg
+!assets/media/offerings/*-hero.jpg

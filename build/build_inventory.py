@@ -1,7 +1,16 @@
-import re, json, random
-h = open('/home/claude/hero-jerry.html').read()
-a = json.load(open('assets.json'))
-deals = json.load(open('deal_imgs.json'))
+import re, json, random, os
+# Repo mode: SITE_ROOT points at the checked-out site; the homepage (index.html) supplies the nav/footer and
+# shared assets are referenced by path. Scratch mode (no SITE_ROOT) is the original Cowork build layout.
+ROOT = os.environ.get('SITE_ROOT')
+HERE = os.path.dirname(os.path.abspath(__file__))
+if ROOT:
+    h = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
+    a = { 'logo':'/assets/media/logo.png', 'jerry':'/assets/media/jerry-baker.jpg', 'skyline':'/assets/media/sf-skyline.png' }
+    deals = []
+else:
+    h = open('/home/claude/hero-jerry.html').read()
+    a = json.load(open('assets.json'))
+    deals = json.load(open('deal_imgs.json'))
 
 def between(start, end, src=h):
     i = src.index(start); j = src.index(end, i); return src[i:j]
@@ -23,13 +32,18 @@ navjs = between("  // Nav: shadow once scrolled; mobile menu toggle", "})();\n</
 
 # ---- inventory: Airtable "Investment Offerings" -> DST Offerings (pulled 2026-09-13 into offerings.json; images cached in at_imgs/) ----
 import base64, os
-AT = json.load(open('offerings.json'))
+AT = json.load(open(os.path.join(HERE, 'offerings.json'), encoding='utf-8'))
 # Rating badge = Coverage Review, except a Rejected availability status wins.
 RATING_MAP = { 'Preferred':'highly', 'Common':'approved', 'Not Preferred':'specialized', 'Insufficient Data':'specialized' }
 def rating_of(o):
     if o['status'] == 'Rejected': return 'rejected'
     return RATING_MAP.get(o['coverage'] or '', 'specialized')
 def img_of(slug):
+    if ROOT:
+        d = os.path.join(ROOT, 'assets/media/offerings')
+        for name in (slug + '-card.jpg', slug + '.jpg', slug + '.png', slug + '.webp'):
+            if os.path.exists(os.path.join(d, name)): return '/assets/media/offerings/' + name
+        return ''
     f = 'at_imgs/' + slug + '.jpg'
     return 'data:image/jpeg;base64,' + base64.b64encode(open(f, 'rb').read()).decode() if os.path.exists(f) else ''
 def loc_label(states):
@@ -399,7 +413,7 @@ try{ var _s = JSON.parse(localStorage.getItem('b1031-session') || 'null'); if(_s
         <label class="sort">Sort by
           <select class="select" id="sort">
             <option value="name">Name — A to Z</option>
-            <option value="rec">Recommended</option>
+            <option value="rec">Featured</option>
             <option value="yield-desc">Current yield — high to low</option>
             <option value="ltv-asc">LTV — low to high</option>
             <option value="ltv-desc">LTV — high to low</option>
@@ -807,7 +821,11 @@ try{ var _s = JSON.parse(localStorage.getItem('b1031-session') || 'null'); if(_s
 </body>
 </html>
 '''
-open('inventory_template.html','w').write(page)
+open(os.path.join(HERE, 'inventory_template.html'), 'w', encoding='utf-8').write(page)
 out = page.replace('{{LOGO}}', a['logo']).replace('{{SKYLINE}}', a['skyline'])
-open('/home/claude/inventory.html','w').write(out)
+if ROOT:
+    os.makedirs(os.path.join(ROOT, 'invest'), exist_ok=True)
+    open(os.path.join(ROOT, 'invest', 'index.html'), 'w', encoding='utf-8').write(out)
+else:
+    open('/home/claude/inventory.html', 'w', encoding='utf-8').write(out)
 print('built', len(out))

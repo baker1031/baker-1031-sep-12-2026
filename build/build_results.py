@@ -190,7 +190,7 @@ page = r'''<!DOCTYPE html>
         <tfoot id="spfoot"></tfoot>
       </table>
     </div>
-    <p class="legend"><span class="star" aria-hidden="true">★</span> Preferred sponsor — a firm I’ve worked with repeatedly and continue to recommend. Success rate is the share of a sponsor’s full-cycle deals that returned investors’ capital or better (equity multiple of 1.0x or higher). Where a sponsor didn’t report a figure it’s shown as “—” and left out of that average.</p>
+    <p class="legend"><span class="star" aria-hidden="true">★</span> Preferred sponsor — a firm I’ve worked with repeatedly and whose full-cycle track record I follow closely. Success rate is the share of a sponsor’s full-cycle deals that returned investors’ capital or better (equity multiple of 1.0x or higher). Where a sponsor didn’t report a figure it’s shown as “—” and left out of that average.</p>
   </section>
 
   <section class="sec" id="assets">

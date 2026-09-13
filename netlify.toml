@@ -1,5 +1,11 @@
 [build]
   publish = "."
+  # Pull the latest DST Offerings from Airtable and regenerate /invest and /offerings/* on every deploy.
+  # Set AIRTABLE_TOKEN in Netlify (Site configuration -> Environment variables). Without it the committed snapshot is used.
+  command = "python3 build/build.py"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
 
 # clean URLs are directories with index.html; keep a couple of friendly aliases
 [[redirects]]

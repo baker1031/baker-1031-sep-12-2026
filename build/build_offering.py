@@ -1,9 +1,17 @@
-import re, json
-h = open('/home/claude/hero-jerry.html').read()
-inv = open('build_inventory.py').read()
-a = json.load(open('assets.json'))
-deals = json.load(open('deal_imgs.json'))
-img = {d['title']: d['img'] for d in deals}
+import re, json, os
+# Repo mode: SITE_ROOT points at the checked-out site; the homepage (index.html) supplies the nav/footer and
+# shared assets are referenced by path. Scratch mode (no SITE_ROOT) is the original Cowork build layout.
+ROOT = os.environ.get('SITE_ROOT')
+HERE = os.path.dirname(os.path.abspath(__file__))
+if ROOT:
+    h = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
+    a = { 'logo':'/assets/media/logo.png', 'jerry':'/assets/media/jerry-baker.jpg', 'skyline':'/assets/media/sf-skyline.png' }
+    deals = []
+else:
+    h = open('/home/claude/hero-jerry.html').read()
+    a = json.load(open('assets.json'))
+    deals = json.load(open('deal_imgs.json'))
+inv = open(os.path.join(HERE, 'build_inventory.py'), encoding='utf-8').read()
 
 def between(start, end, src=h):
     i = src.index(start); j = src.index(end, i); return src[i:j]
@@ -23,7 +31,7 @@ tipcss = between('  /* rating tooltip: Jerry\'s explanation from the homepage */
 
 # ---- offering data: Airtable "Investment Offerings" -> DST Offerings (offerings.json; images cached in at_imgs/) ----
 import base64, os, html as _html
-AT = json.load(open('offerings.json'))
+AT = json.load(open(os.path.join(HERE, 'offerings.json'), encoding='utf-8'))
 RATING_MAP = { 'Preferred':'highly', 'Common':'approved', 'Not Preferred':'specialized', 'Insufficient Data':'specialized' }
 RATING_TEXT = {
   'highly': 'The investment passes our review, and I particularly like the sponsor, business plan, underwriting, and terms. I’ll explain what earned it that second thumb.',
@@ -34,8 +42,20 @@ RATING_TEXT = {
 def esc(x): return _html.escape(str(x if x is not None else ''), quote=True)
 def paras(text): return [esc(t.strip()) for t in re.split(r'\n\s*\n|\n', text or '') if t.strip()]
 def img_of(slug):
+    if ROOT:
+        d = os.path.join(ROOT, 'assets/media/offerings')
+        for name in (slug + '-hero.jpg', slug + '.jpg', slug + '.png', slug + '.webp'):
+            if os.path.exists(os.path.join(d, name)): return '/assets/media/offerings/' + name
+        return ''
     f = 'at_imgs/' + slug + '.jpg'
     return 'data:image/jpeg;base64,' + base64.b64encode(open(f, 'rb').read()).decode() if os.path.exists(f) else ''
+def full_of(slug):
+    # the untouched original as uploaded to Airtable (any format), linked from the offering photo
+    if not ROOT: return ''
+    d = os.path.join(ROOT, 'assets/media/offerings')
+    for ext in ('jpg', 'png', 'webp', 'gif'):
+        if os.path.exists(os.path.join(d, f'{slug}.{ext}')): return f'/assets/media/offerings/{slug}.{ext}'
+    return ''
 def make_O(r):
     types = r['types'] or []; locs = r['locations'] or []
     rating = 'rejected' if r['status'] == 'Rejected' else RATING_MAP.get(r['coverage'] or '', 'specialized')
@@ -55,7 +75,7 @@ def make_O(r):
         amortization=esc('—' if allcash else (r['amort'] or '—')),
         registration=esc(r['registration'] or '—'), propertyTypes=esc(' · '.join(types) or '—'),
         holdTarget=(f"{r['hold']:g} years" if r['hold'] else '—'),
-        photos=[img_of(r['slug'])],
+        photos=[img_of(r['slug'])], photoFull=full_of(r['slug']),
         overview=paras(r['description']),
         highlights=[esc(h) for h in r['highlights']],
         props=[dict(addr=esc(a.strip())) for a in (r['addresses'] or '').split(';') if a.strip()],
@@ -84,7 +104,7 @@ def render(O):
         props_title = f'Property addresses <span class="sec__count">{len(O["props"])}</span>' 
     cf = [(i, v) for i, v in enumerate(O['cashflow']) if v is not None]
     cf_basis = (' <span style="font-weight:400;text-transform:none;letter-spacing:0">· ' + O['cfBasis'] + '</span>') if O['cfBasis'] else ''
-    cf_note = ('<p class="cfnote">' + O['cfDisclosure'] + '</p>') if O['cfDisclosure'] else ''
+    cf_note = ''   # PPM projection notes are not shown on the page
     cf_hidden = '' if cf else ' hidden'
     cf_head = ''.join(f'<th class="num">Yr {i+1}</th>' for i, v in cf)
     cf_row = ''.join(f'<td class="num">{v:.2f}%</td>' for i, v in cf)
@@ -334,7 +354,7 @@ def render(O):
 
       <div class="body">
         <div>
-          <div class="photo"><img src="''' + O['photos'][0] + r'''" alt="''' + O['name'] + r'''"></div>
+          <div class="photo">''' + (('<a href="' + O['photoFull'] + '" target="_blank" rel="noopener" title="Open the full-resolution photo">') if O['photoFull'] else '') + r'''<img src="''' + O['photos'][0] + r'''" alt="''' + O['name'] + r'''">''' + ('</a>' if O['photoFull'] else '') + r'''</div>
           <section class="sec" id="overview">
             <h2>Overview</h2>
             ''' + overview + r'''
@@ -470,16 +490,27 @@ def render(O):
     return page
 
 
-# ---- build: one page per offering under /home/claude/offerings/, plus offering.html as the sample (Passco Allure DST) ----
-os.makedirs('/home/claude/offerings', exist_ok=True)
+# ---- build: one page per offering (repo: offerings/<slug>/index.html; scratch: /home/claude/offerings/<slug>.html + offering.html sample) ----
 SAMPLE = 'passco-allure-dst'
+built = set()
 for rec in AT:
     O = make_O(rec)
     page = render(O)
     out = page.replace('{{LOGO}}', a['logo']).replace('{{SKYLINE}}', a['skyline']).replace('{{JERRY}}', a['jerry'])
-    open('/home/claude/offerings/' + O['slug'] + '.html', 'w').write(out)
-    if O['slug'] == SAMPLE:
-        open('offering_template.html', 'w').write(page)
-        open('/home/claude/offering.html', 'w').write(out)
-        print('sample built', len(out))
+    if ROOT:
+        d = os.path.join(ROOT, 'offerings', O['slug']); os.makedirs(d, exist_ok=True)
+        open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(out); built.add(O['slug'])
+    else:
+        os.makedirs('/home/claude/offerings', exist_ok=True)
+        open('/home/claude/offerings/' + O['slug'] + '.html', 'w', encoding='utf-8').write(out)
+        if O['slug'] == SAMPLE:
+            open(os.path.join(HERE, 'offering_template.html'), 'w', encoding='utf-8').write(page)
+            open('/home/claude/offering.html', 'w', encoding='utf-8').write(out)
+            print('sample built', len(out))
+if ROOT:
+    # an offering deleted (or renamed) in Airtable disappears from the site on the next build
+    import shutil
+    for slug in os.listdir(os.path.join(ROOT, 'offerings')):
+        if slug not in built and os.path.isdir(os.path.join(ROOT, 'offerings', slug)):
+            shutil.rmtree(os.path.join(ROOT, 'offerings', slug)); print('removed stale page', slug)
 print('offering pages', len(AT))
