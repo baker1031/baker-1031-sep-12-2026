@@ -1,0 +1,369 @@
+"""Learn library: content/articles/*.md -> /learn/<slug>/ + /learn/ index.
+Python port of the article pipeline in the previous site's build.js (front matter, legacy-link rewriting,
+category map, FAQ schema, excerpt, disclaimers, hub pages, related rows, JSON-LD), rendered into the 2026 shell.
+
+Env: SITE_ROOT (output root; default /home/claude/site), CONTENT_SRC (dir holding articles/; default <SITE_ROOT>/content).
+"""
+import re, os, sys, json, html as _html
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import content_shell as cs
+from markdown_it import MarkdownIt
+
+OUT = os.environ.get('SITE_ROOT', '/home/claude/site')
+CONTENT = os.environ.get('CONTENT_SRC', os.path.join(OUT, 'content'))
+ARTICLES = os.path.join(CONTENT, 'articles')
+SITE = 'https://baker1031.com'
+esc = cs.esc
+
+EDU_DISCLAIMER = 'This article is published for educational purposes only. It may contain errors or information that has become outdated, and it is not tax, investment, legal, or accounting advice. Do not rely on it when making investment or tax decisions: review the offering documents (including the PPM) for any investment you are considering, and speak with your attorney or CPA about your specific situation before acting.'
+VERIFIED_DISCLOSURE = 'Securities offered through Aurora Securities, Inc. (ASI), CRD #46147, SEC #8-51322, member FINRA/SIPC. Gerald F. “Jerry” Baker, III is a registered representative of ASI (FINRA CRD #7537416). Baker 1031 Investments, LLC is independent of ASI and is not a registered broker-dealer or investment adviser.'
+PLACEHOLDER = '[Placeholder regulatory disclosure — replace with verified entity names, CRD numbers, and registrations.]'
+
+HUB_SLUGS = {'about', 'fees', 'jerry-baker-bio', 'methodology', 'for-advisors-cpas', 'for-agents-brokers',
+             'top-1031-dst-sponsor-firms', 'delaware-statutory-trusts', '1031-exchanges', 'reits',
+             '721-exchange-upreit', 'mineral-royalty-interests', 'opportunity-zone-funds'}
+HUB_TYPE = {'about': 'AboutPage', 'jerry-baker-bio': 'ProfilePage'}
+
+md_engine = MarkdownIt('commonmark', {'html': True, 'linkify': False, 'typographer': False}).enable(['table', 'strikethrough'])
+
+def parse_front_matter(text):
+    m = re.match(r'^---\n(.*?)\n---\n?', text, re.S)
+    if not m: return {}, text
+    fm = {}
+    for line in m.group(1).split('\n'):
+        i = line.find(':')
+        if i > 0: fm[line[:i].strip()] = re.sub(r'^["\']|["\']$', '', line[i + 1:].strip())
+    return fm, text[m.end():]
+
+CAT_MAP = {
+    'REIT': 'REITs', 'Delaware Statutory Trust': 'Delaware Statutory Trusts', 'DST Basics': 'Delaware Statutory Trusts',
+    'Opportunity Zones': 'Opportunity Zone Funds', 'Mineral & Royalty': 'Oil & Gas Royalties', 'Oil & Gas': 'Oil & Gas Royalties',
+    'UPREIT': '721 Exchange', '1031 Exchange, DSTs': '1031 Exchange', 'Definitive Guide': '1031 Exchange',
+    'Definitive Guide · 2026': '1031 Exchange', 'Capital Gains': 'Capital Gains & Tax', 'Tax Forms': 'Capital Gains & Tax',
+    'Net Investment Income Tax': 'Capital Gains & Tax', 'Real Estate Tax Center': 'Capital Gains & Tax',
+    'Comparison': 'Strategy & Comparisons', 'Strategy': 'Strategy & Comparisons',
+    'For Tax Advisors': 'For Advisors', 'For Agents & Brokers': 'For Advisors',
+}
+def article_category(fm, slug):
+    c = re.sub(r'^["\']|["\']$', '', (fm.get('category') or fm.get('source_category') or '')).strip()
+    c = CAT_MAP.get(c, c)
+    if c: return c
+    s = slug.lower()
+    if re.search(r'(^|-)dst(-|$)|statutory', s): return 'Delaware Statutory Trusts'
+    if re.search(r'721|upreit', s): return '721 Exchange'
+    if 'reit' in s: return 'REITs'
+    if re.search(r'opportunity|qoz|qof', s): return 'Opportunity Zone Funds'
+    if re.search(r'oil|gas|mineral|royalt', s): return 'Oil & Gas Royalties'
+    return '1031 Exchange'
+
+MONTHS = {m: f'{i:02d}' for i, m in enumerate(['january','february','march','april','may','june','july','august','september','october','november','december'], 1)}
+def iso_date(text):
+    text = str(text or '')
+    m = re.search(r'([A-Za-z]+)\s+(20\d\d)', text)
+    if m and m.group(1).lower() in MONTHS: return f'{m.group(2)}-{MONTHS[m.group(1).lower()]}'
+    y = re.search(r'20\d\d', text); return y.group(0) if y else None
+
+def strip_md(t):
+    t = re.sub(r'\*\*|__|`', '', t); t = re.sub(r'\[([^\]]+)\]\([^)]*\)', r'\1', t); return re.sub(r'\s+', ' ', t).strip()
+
+def extract_faq(md):
+    m = re.search(r'^##\s+(?:Frequently Asked Questions|FAQs?)[^\n]*\n(.*?)(?=^##\s|\Z)', md, re.M | re.S)
+    if not m: return []
+    out = []
+    for p in re.split(r'^###\s+', m.group(1), flags=re.M)[1:]:
+        nl = p.find('\n')
+        if nl < 0: continue
+        q, a = strip_md(p[:nl]), strip_md(p[nl + 1:])
+        if q and a: out.append({'q': q, 'a': a})
+    return out
+
+def first_paragraph(md):
+    for block in re.split(r'\n\s*\n', md):
+        t = block.strip()
+        if not t or re.match(r'^#|^-|^\*|^>|^\||^\d+\.', t): continue
+        t = re.sub(r'\*\*|__|\*|_|`', '', t); t = re.sub(r'\[([^\]]+)\]\([^)]*\)', r'\1', t)
+        return re.sub(r'\s+', ' ', t)
+    return ''
+
+ALIAS = {'1031-exchange-into-dst': '1031-exchange-into-a-dst-passive-option', '1031-exchange': '1031-exchange-guide',
+         'glossary': '1031-exchange-glossary-of-terms', 'how-to-invest-in-a-dst': 'how-to-buy-a-dst-step-by-step-process',
+         'agent-guide-dst': 'for-agents-brokers', 'cpa-guide-dst': 'for-advisors-cpas', 'sponsors': 'top-1031-dst-sponsor-firms',
+         'glossary-step-up-in-basis': '1031-exchange-glossary-of-terms', 'data-center': 'data-center-dsts-explained'}
+URL_ALIAS = {'contact': '/contact/', 'investments': '/invest/', 'calculators': '/calculators/',
+             '1031-exchange-deadline-calculator-45-180': '/calculators/deadline/',
+             '1031-exchange-calculator-estimate-deferred-tax': '/calculators/deferred-tax/',
+             'capital-gains-tax-calculator': '/calculators/deferred-tax/',
+             'capital-gains-tax-calculator-property-sales': '/calculators/deferred-tax/',
+             'depreciation-recapture-calculator': '/calculators/deferred-tax/',
+             'sell-vs-1031-exchange-calculator': '/calculators/sell-vs-exchange/',
+             'ltv-calculator-1031-debt-matching': '/calculators/replacement-property/',
+             'debt-replacement-ltv-calculator': '/calculators/replacement-property/',
+             '1031-replacement-property-value-calculator': '/calculators/replacement-property/'}
+
+def clean_article_body(md, slug_set, unresolved):
+    schema_desc = None
+    sd = re.search(r'"description"\s*:\s*"([^"]{40,300})"', md)
+    if sd: schema_desc = sd.group(1)
+    embedded_title = embedded_desc = None
+    if re.search(r'<!DOCTYPE html>', md, re.I):
+        et = re.search(r'<title>([^<]+)</title>', md, re.I)
+        if et: embedded_title = re.sub(r'\s*\|\s*Baker 1031[^|]*$', '', et.group(1), flags=re.I).strip()
+        ed = re.search(r'<meta\s+name="description"\s+content="([^"]{40,300})"', md, re.I)
+        if ed: embedded_desc = ed.group(1)
+        md = re.sub(r'<!DOCTYPE html>', '', md, flags=re.I)
+        md = re.sub(r'<head[^>]*>.*?</head>', '', md, flags=re.I | re.S)
+        md = re.sub(r'</?html[^>]*>', '', md, flags=re.I)
+        md = re.sub(r'</?body[^>]*>', '', md, flags=re.I)
+    md = re.sub(r'^##\s+Structured Metadata.*?(?=^##\s|\Z)', '', md, flags=re.M | re.S)
+    md = re.sub(r'<script.*?</script>', '', md, flags=re.S)
+    md = re.sub(r'<footer.*?</footer>', '', md, flags=re.S)
+    md = re.sub(r'^\[Home\]\([^)]*\).*$', '', md, flags=re.M)
+    md = re.sub(r'^Navigation:.*$', '', md, flags=re.M)
+    md = re.sub(r'^[-*]?\s*\[?Back to All [A-Za-z ]+\]?\([^)]*\)(\s*(?:·|&middot;)\s*\[[^\]]*\]\([^)]*\))*\s*$', '', md, flags=re.M)
+    md = re.sub(r'^[^#\n]{0,90}Updated\s+[A-Z][a-z]+\s+20\d\d[^\n]*min read\s*$', '', md, flags=re.M)
+    md = re.sub(r'^[A-Za-z ·]{0,24}Baker 1031 Research\s*(?:·|&middot;)?\s*Updated\s+[A-Z][a-z]+\s+20\d\d\s*$', '', md, flags=re.M)
+    md = re.sub(r'^\*\*Author profile note\.\*\*.*$', '', md, flags=re.M)
+    md = re.sub(r'^###\s+Author profile note\s*$.*?(?=^#{2,3}\s|\Z)', '', md, flags=re.M | re.S)
+    md = md.replace('https://baker1031.com/about/jerry-baker/', 'https://baker1031.com/learn/jerry-baker-bio/')
+    md = md.replace('https://baker1031.com/assets/img/jerry-baker.jpg', 'https://baker1031.com/assets/img/jerry-baker.webp')
+    # retired paths on the new site
+    md = md.replace('](/offerings/)', '](/invest/)').replace('href="/offerings/"', 'href="/invest/"')
+    md = md.replace('](/request-access/)', '](/register/)').replace('href="/request-access/"', 'href="/register/"')
+
+    def md_link(m):
+        t = m.group(1)
+        if t == 'baker1031': return '](/)'
+        if t == 'insights': return '](/learn/)'
+        if t == 'jerry-baker-bio': return '](/learn/jerry-baker-bio/)'
+        if t == 'faq': return '](/#faq)'
+        if t in URL_ALIAS: return f']({URL_ALIAS[t]})'
+        if t in ALIAS and ALIAS[t] in slug_set: return f'](/learn/{ALIAS[t]}/)'
+        if t in slug_set: return f'](/learn/{t}/)'
+        unresolved[t] = unresolved.get(t, 0) + 1
+        return '](UNRESOLVED)'
+    md = re.sub(r'\]\(([a-z0-9-]+)\.html(#[^)]*)?\)', md_link, md)
+    md = re.sub(r'\[([^\]]+)\]\(UNRESOLVED\)', r'\1', md)
+
+    def html_link(m):
+        t = m.group(1)
+        if t == 'baker1031': return 'href="/"'
+        if t == 'insights': return 'href="/learn/"'
+        if t == 'jerry-baker-bio': return 'href="/learn/jerry-baker-bio/"'
+        if t in slug_set: return f'href="/learn/{t}/"'
+        return 'href="/learn/"'
+    md = re.sub(r'href="([a-z0-9-]+)\.html(#[^"]*)?"', html_link, md)
+    md = re.sub(r'\n{3,}', '\n\n', md)
+    return md, schema_desc, embedded_title, embedded_desc
+
+def render_md(body):
+    html = md_engine.render(body)
+    html = re.sub(r'<table\b[^>]*>', lambda m: '<div class="tblwrap">' + m.group(0), html).replace('</table>', '</table></div>')
+    return html
+
+def load_articles(build_date):
+    files = sorted(f for f in os.listdir(ARTICLES) if f.endswith('.md'))
+    slug_set = {f[:-3] for f in files}
+    unresolved = {}
+    arts = []
+    for f in files:
+        slug = f[:-3]
+        fm, raw = parse_front_matter(open(os.path.join(ARTICLES, f), encoding='utf-8').read())
+        md, schema_desc, emb_title, emb_desc = clean_article_body(raw, slug_set, unresolved)
+        body = md.replace(PLACEHOLDER, VERIFIED_DISCLOSURE)
+        body = re.sub(r'^\*\*Category:\*\*[^\n]*\n(\*\*(Research|Updated|Reading time|Author|Filed under):\*\*[^\n]*\n?)+', '', body, count=1, flags=re.M)
+        h1 = re.search(r'^#\s+(.+)$', body, re.M)
+        title = fm.get('title') or fm.get('page_title') or fm.get('seo_title') or emb_title or (h1.group(1).strip() if h1 else slug)
+        if h1: body = body.replace(h1.group(0), '', 1).lstrip()
+        excerpt_src = first_paragraph(body)
+        desc = fm.get('meta_description') or schema_desc or emb_desc or excerpt_src
+        if len(desc) > 158: desc = desc[:desc.rfind(' ', 0, 156)] + '…'
+        if len(desc) < 100: desc = (re.sub(r'[.\s]+$', '', desc) + '. ' if desc else '') + 'Expert 1031 exchange and DST guidance from Baker 1031 Investments.'
+        page_script = re.sub(r'^["\']|["\']$', '', fm.get('page_script', '')).strip()
+        updated = fm.get('updated') or fm.get('source_updated') or ''
+        read = fm.get('source_read_time', '')
+        when = ' · '.join(x for x in [updated, read] if x) or build_date
+        excerpt = excerpt_src[:excerpt_src.rfind(' ', 0, 201)] + '…' if len(excerpt_src) > 200 else excerpt_src
+        arts.append(dict(slug=slug, title=title, body=body, category=article_category(fm, slug), desc=desc, page_script=page_script,
+                         excerpt=excerpt, when=when, updated=updated, read=read, iso=iso_date(updated), faq=extract_faq(body)))
+    arts.sort(key=lambda a: a['title'].casefold())
+    if unresolved:
+        items = sorted(unresolved.items(), key=lambda kv: -kv[1])
+        print(f'[articles] NOTE: {len(unresolved)} legacy link targets have no page (links dropped, text kept): ' + ', '.join(f'{t} ({n})' for t, n in items[:12]))
+    return arts
+
+def article_main(a, html, related_rows, is_hub):
+    byline = '' if is_hub else f'''
+    <div class="byline">
+      <span class="who">Jerry Baker</span>
+      <span class="role">Founder &amp; Managing Principal, Baker 1031 Investments</span>
+      <span class="dot">|</span>
+      <span class="when">{esc(a['when'])}</span>
+    </div>'''
+    authorbox = '' if is_hub else '''
+  <section class="sec authorbox">
+    <div class="label">ABOUT THE AUTHOR</div>
+    <div class="who">Jerry Baker</div>
+    <p>Jerry Baker is the founder and managing principal of Baker 1031 Investments, a founder-led real estate securities brokerage helping accredited investors evaluate 1031-eligible strategies. His perspective comes from more than a decade in institutional real estate and a 60-year family legacy in the business. Securities offered through Aurora Securities, Inc., member FINRA/SIPC.</p>
+    <div class="links">
+      <a href="/learn/jerry-baker-bio/">About Jerry</a>
+      <a href="https://brokercheck.finra.org/individual/summary/7537416" target="_blank" rel="noopener">Verify on BrokerCheck</a>
+      <a href="/register/">Get started</a>
+    </div>
+  </section>'''
+    more = '' if is_hub else f'''
+  <section class="sec more">
+    <h2 class="h3">More from Learn</h2>
+{related_rows}
+  </section>'''
+    return f'''<main>
+
+  <section class="mast mast--light artmast">
+    <div class="crumbs"><a href="/">Home</a> <span>/</span> <a href="/learn/">Learn</a> <span>/</span> {esc(a['title'])}</div>
+    <p class="cat">{esc(a['category'])}</p>
+    <h1>{esc(a['title'])}</h1>{byline}
+  </section>
+
+  <section class="sec bg-white" style="padding-top:48px">
+    <div class="prose">
+{html}
+<div class="footnote">{esc(EDU_DISCLAIMER)}</div>
+    </div>
+  </section>
+{authorbox}{more}
+  <section class="sec cta-band">
+    <span class="eyebrow">Next step</span>
+    <h2 class="h2">Questions about your exchange?</h2>
+    <p class="p-main">Tell me where you are in the process and I&rsquo;ll tell you, plainly, whether a 1031 into a DST is a fit.</p>
+    <div class="btn-row"><a class="btn" href="/register/">Get started</a><a class="btn btn--secondary" href="/contact/">Contact</a></div>
+  </section>
+
+</main>'''
+
+def article_json(a, canonical, is_hub):
+    graph = [{
+        '@type': 'Article', 'headline': a['title'], 'description': a['desc'], 'mainEntityOfPage': canonical,
+        **({'dateModified': a['iso']} if a['iso'] else {}),
+        'author': {'@type': 'Person', '@id': SITE + '/#jerry', 'name': 'Jerry Baker', 'jobTitle': 'Founder & Managing Principal',
+                   'worksFor': {'@id': SITE + '/#org'}, 'sameAs': ['https://brokercheck.finra.org/individual/summary/7537416']},
+        'publisher': {'@type': 'Organization', '@id': SITE + '/#org', 'name': 'Baker 1031 Investments', 'url': SITE + '/',
+                      'logo': {'@type': 'ImageObject', 'url': SITE + '/assets/media/logo.png'}},
+    }, {
+        '@type': 'BreadcrumbList', 'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': SITE + '/'},
+            {'@type': 'ListItem', 'position': 2, 'name': 'Learn', 'item': SITE + '/learn/'},
+            {'@type': 'ListItem', 'position': 3, 'name': a['title'], 'item': canonical}],
+    }]
+    if is_hub:
+        graph[0] = {'@type': HUB_TYPE.get(a['slug'], 'WebPage'), 'name': a['title'], 'description': a['desc'], 'url': canonical,
+                    'publisher': {'@type': 'Organization', '@id': SITE + '/#org', 'name': 'Baker 1031 Investments', 'url': SITE + '/'},
+                    **({'mainEntity': {'@type': 'Person', '@id': SITE + '/#jerry', 'name': 'Jerry Baker', 'jobTitle': 'Founder & Managing Principal',
+                                       'sameAs': ['https://brokercheck.finra.org/individual/summary/7537416']}} if a['slug'] == 'jerry-baker-bio' else {})}
+    if a['faq']:
+        graph.append({'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': f['q'], 'acceptedAnswer': {'@type': 'Answer', 'text': f['a']}} for f in a['faq']]})
+    return '<script type="application/ld+json">' + json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False).replace('</', '<\\/') + '</script>'
+
+INDEX_JS = '''<script>
+  // Rows are server-rendered; pills just show/hide them by data-cat.
+  (function () {
+    var rows = Array.prototype.slice.call(document.querySelectorAll('.art-row'));
+    var cats = ['All'];
+    rows.forEach(function (r) { var c = r.getAttribute('data-cat'); if (c && cats.indexOf(c) < 0) cats.push(c); });
+    var pillsEl = document.getElementById('pills');
+    var active = 'All';
+    function apply() {
+      var n = 0;
+      rows.forEach(function (r) {
+        var show = active === 'All' || r.getAttribute('data-cat') === active;
+        r.style.display = show ? '' : 'none';
+        if (show) n++;
+      });
+      document.getElementById('empty').style.display = n ? 'none' : 'block';
+      var fc = document.getElementById('fcount');
+      if (fc) fc.textContent = n + ' article' + (n === 1 ? '' : 's');
+      Array.prototype.forEach.call(pillsEl.querySelectorAll('.pill'), function (p) {
+        p.classList.toggle('active', p.dataset.cat === active);
+      });
+    }
+    pillsEl.innerHTML = cats.map(function (c) {
+      return '<button type="button" class="pill" data-cat="' + c + '">' + c + '</button>';
+    }).join('') + '<span class="fcount" id="fcount"></span>';
+    pillsEl.addEventListener('click', function (e) {
+      var p = e.target.closest('.pill');
+      if (p) { active = p.dataset.cat; apply(); }
+    });
+    apply();
+  })();
+</script>'''
+
+def build(build_date=None):
+    import datetime
+    build_date = build_date or datetime.date.today().strftime('%B %-d, %Y')
+    if not os.path.isdir(ARTICLES):
+        print('[articles] skipped: no', ARTICLES); return []
+    arts = load_articles(build_date)
+    js_dir = os.path.join(OUT, 'assets', 'js')
+    for a in arts:
+        canonical = f"{SITE}/learn/{a['slug']}/"
+        html = render_md(a['body'])
+        related = [x for x in arts if x is not a and x['category'] == a['category']][:3] or [x for x in arts if x is not a][:3]
+        rows = '\n'.join(f'<a class="more-row" href="/learn/{r["slug"]}/"><span class="t">{esc(r["title"])}</span><span class="c">{esc(r["category"])}</span></a>' for r in related)
+        is_hub = a['slug'] in HUB_SLUGS
+        t = a['title']
+        title_tag = f'{t} | Baker 1031 Investments' if len(t) <= 34 else (f'{t} | Baker 1031' if len(t) <= 47 else t)
+        body_end = ''
+        if a['page_script']:
+            if not os.path.exists(os.path.join(js_dir, a['page_script'])):
+                raise SystemExit(f"{a['slug']}: page_script {a['page_script']} does not exist in assets/js")
+            body_end = f'<script src="/assets/js/{a["page_script"]}" defer></script>'
+        page = cs.page(title=title_tag, desc=a['desc'], canonical=canonical, main_html=article_main(a, html, rows, is_hub),
+                       head_extra=article_json(a, canonical, is_hub), body_end=body_end, current='learn')
+        d = os.path.join(OUT, 'learn', a['slug']); os.makedirs(d, exist_ok=True)
+        open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(page)
+    # remove stale article dirs (renamed/deleted articles)
+    keep = {a['slug'] for a in arts}
+    learn_dir = os.path.join(OUT, 'learn')
+    for name in os.listdir(learn_dir) if os.path.isdir(learn_dir) else []:
+        p = os.path.join(learn_dir, name)
+        if os.path.isdir(p) and name not in keep:
+            import shutil; shutil.rmtree(p)
+
+    featured = next((a for a in arts if a['slug'] == '1031-exchange-guide'), arts[0] if arts else None)
+    rows_html = '\n'.join(
+        f'<a class="art-row" data-cat="{esc(a["category"])}" href="/learn/{a["slug"]}/"><div class="cat">{esc(a["category"])}</div>'
+        f'<div><div class="t">{esc(a["title"])}</div><div class="ex">{esc(a["excerpt"])}</div></div>'
+        f'<div class="meta"><b>Jerry Baker</b>{esc(" · ".join(x for x in [a["updated"], a["read"]] if x))}</div></a>' for a in arts)
+    featured_html = '' if not featured else (
+        f'<a class="wrap" href="/learn/{featured["slug"]}/"><div class="flag">FEATURED · {esc(featured["category"])}</div>'
+        f'<h2>{esc(featured["title"])}</h2><p>{esc(featured["excerpt"])}</p>'
+        f'<div class="by"><b>Jerry Baker</b> · Founder &amp; Managing Principal · {esc(featured["when"])}</div><div class="read">Read the article</div></a>')
+    main = f'''<main>
+
+  <section class="mast mast--light">
+    <div class="crumbs"><a href="/">Home</a> <span>/</span> Learn</div>
+    <p class="eyebrow">Education</p>
+    <h1>Learn</h1>
+    <p class="p-main">Plain-English education on 1031 exchanges, DSTs, and the decisions behind them. Written by Jerry Baker; no jargon, no sales pitch.</p>
+  </section>
+
+  <div class="featured" id="featured">{featured_html}</div>
+
+  <div class="filterbar">
+    <div class="filterbar-in" id="pills"></div>
+  </div>
+
+  <div class="artlist">
+    <div id="rows">{rows_html}</div>
+    <div class="empty" id="empty" style="display:none;">No articles in this category yet.</div>
+  </div>
+
+</main>'''
+    index = cs.page(title='Learn: 1031 Exchange & DST Education | Baker 1031 Investments',
+                    desc=f'{len(arts)} plain-English articles on 1031 exchanges, Delaware Statutory Trusts, 721 exchanges, and the tax decisions behind them, written by Jerry Baker.',
+                    canonical=SITE + '/learn/', main_html=main, body_end=INDEX_JS, current='learn')
+    os.makedirs(learn_dir, exist_ok=True)
+    open(os.path.join(learn_dir, 'index.html'), 'w', encoding='utf-8').write(index)
+    print(f'[articles] wrote learn/ ({len(arts)} articles + index)')
+    return arts
+
+if __name__ == '__main__':
+    build()

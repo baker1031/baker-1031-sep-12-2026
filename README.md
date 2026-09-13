@@ -1,59 +1,99 @@
-# Baker 1031 Investments — website (Sept 12, 2026 build)
+# Baker 1031 Investments — website (Sept 2026 rebuild)
 
-Static site, no framework. Deploy the repo root on Netlify (`netlify.toml` sets `publish = "."`).
+Static site, no framework. Deploy the repo root on Netlify (`netlify.toml`: `publish = "."`, build `python3 build/build.py`).
+Every URL from the previous site's sitemap resolves here — either as a rebuilt page or as a 301 to its new home.
+
+## What's committed vs. what the build generates
+
+| Committed (edit these) | Generated on every deploy (git-ignored) |
+| --- | --- |
+| `index.html` — homepage; **its nav and footer are copied into every generated page** | `/invest/` (Available Investments) and `/offerings/<slug>/` from Airtable |
+| `register/`, `login/`, `results/`, `update-my-info/` | `/learn/` + `/learn/<slug>/` (531 articles) from `content/articles/*.md` |
+| `content/articles/*.md` — the Learn library (front matter + Markdown) | sponsors, markets, glossary, property-types, calculators, audiences, strategies, contact, scheduling, process, policy pages, 404 from `content/pages/**` |
+| `content/pages/**/index.html` — section pages as `<main>` fragments + a metadata comment | `/assets/css/site.css`, `sitemap.xml`, `robots.txt`, `llms.txt`, `build-info.json` |
+| `assets/` — media, sponsor logos, PDFs, videos, fonts, page scripts (originals of property photos excluded) | full-resolution property photos and offering documents (downloaded from Airtable) |
+| `build/` — the Python build, `netlify/` — functions + edge gate | |
+
+Run it locally from the repo root: `pip install -r requirements.txt && python3 build/build.py` (Python 3.9+). Without
+`AIRTABLE_TOKEN` the committed `build/offerings.json` snapshot is used and no documents are downloaded.
 
 ## Pages
 
-| URL | File | Notes |
+| URL | Source | Notes |
 | --- | --- | --- |
 | `/` | `index.html` | Homepage |
-| `/register/` | `register/index.html` | Typeform-style registration (Cal.com scheduler on the final step) |
-| `/login/` | `login/index.html` | Email-only login. **Demo stub** — see below |
-| `/invest/` | `invest/index.html` | Available Investments (gated: skeleton + blur until logged in) |
-| `/offerings/<slug>/` | `offerings/<slug>/index.html` | One page per DST offering (generated from Airtable on each deploy) |
-| `/results/` | `results/index.html` | Full-cycle results (1,009 deals), sponsor + asset-class roll-ups |
+| `/register/` | `register/index.html` | Registration; posts to `/api/lead` (GoHighLevel) when the acknowledgments are accepted, then books on Cal.com |
+| `/login/` | `login/index.html` | Email-only login via `/api/auth` (Investor Access base) |
+| `/invest/` | `build/build_inventory.py` | Available Investments — skeleton + blur until logged in |
+| `/offerings/<slug>/` | `build/build_offering.py` | One page per DST offering; documents under `/offerings/<slug>/docs/` are hard-gated at the edge |
+| `/results/` | `results/index.html` | Full-cycle results (1,009 deals). `/performance/` from the old site 301s here |
+| `/learn/`, `/learn/<slug>/` | `build/build_articles.py` | Learn library + category filter |
+| `/sponsors/…`, `/markets/…`, `/glossary/…`, `/property-types/…`, `/calculators/…`, `/audiences/…`, `/strategies/…` | `build/build_pages.py` | Section pages from `content/pages/` |
+| `/contact/`, `/schedule-call/`, `/schedule-consultation/`, `/process/` | `content/pages/` | |
+| `/privacy/`, `/terms/`, `/disclosures/`, `/reg-bi/`, `/ccpa/`, `/accessibility/`, `/commitment-to-privacy/` | `content/pages/` | Policy pages |
+| `/update-my-info/` | `update-my-info/index.html` | Standalone form linked from investor emails (`/api/my-info`) |
+| `/form-crs` | redirect | → `/assets/docs/aurora-form-crs.pdf` |
 
-Not built yet: `/learn`, `/form-crs`, `/privacy`, `/terms`, `/disclosures` (linked from the footer).
+Old URLs: `/offerings/` → `/invest/`, `/request-access/` → `/register/`, `/performance/` → `/results/`,
+`/current-offerings/` → `/invest/`, `/privacy-policy/` → `/privacy/` (edge gate, 301).
+
+## Editing content
+
+- **An article**: edit `content/articles/<slug>.md`. Front matter keys used: `title`, `meta_description`, `category`,
+  `updated`, `source_read_time`, `page_script` (a file in `assets/js/`). Legacy `slug.html` links are rewritten to `/learn/<slug>/`.
+  A new `.md` file becomes a new page; deleting one removes the page.
+- **A section page** (sponsor, market, glossary term…): edit its fragment in `content/pages/…/index.html`. The comment at the top
+  carries `title`, `description`, `nav` (which nav item is highlighted) and optional `noindex`. New folders become new pages.
+- **Nav / footer**: edit `index.html`; every generated page picks it up on the next build. (`register/`, `login/`, `results/` carry their own copy.)
+- **Offerings**: Airtable only (see below).
 
 ## Data sources
 
-- **Investment Offerings** → Airtable base `appQOBBscRLzaWv8G`, table *DST Offerings* (`tblzgE24oqN8d5VZj`). `build/offerings.json` is the last snapshot; property photos live in `assets/media/offerings/`: `-card.jpg` (800px, inventory cards) and `-hero.jpg` (1600px, offering page) are committed; the full-resolution original (`<slug>.<jpg|png|webp>`, up to ~10 MB each) is downloaded from Airtable during the Netlify build and hosted alongside them — the offering photo links to it. Originals are git-ignored so the repo stays small.
-- **Investor Access** → Airtable base `appiKLSyAUmP0h8cJ`, table *Investors* (`tblbuFMpfv5R4DIyp`). The login page ships a two-address demo list; production must check the address server-side (never ship the investor list to the browser). The build never reads this base.
+- **Investment Offerings** → Airtable base `appQOBBscRLzaWv8G`, table *DST Offerings* (`tblzgE24oqN8d5VZj`). `build/offerings.json` is the last snapshot.
+  Property photos: `assets/media/offerings/<slug>-card.jpg` (800px) and `-hero.jpg` (1600px) are committed; the full-resolution original is
+  downloaded during the build and linked from the offering photo. Documents (PPMs, supplements) are downloaded during the build to
+  `offerings/<slug>/docs/` and served only to logged-in investors.
+- **Investor Access** → Airtable base `appiKLSyAUmP0h8cJ`, table *Investors* (`tblbuFMpfv5R4DIyp`) — read only by the auth function at
+  request time. The build never touches it and the list never reaches the browser.
 - **Full-cycle results** → `build/fullcycle.tsv`.
 
-Rating badge = Coverage Review (Preferred → Highly Approved, Common → Approved, Not Preferred / Insufficient Data → Specialized); an Availability Status of Rejected shows the Rejected badge.
+Rating badge = Coverage Review (Preferred → Highly Approved, Common → Approved, Not Preferred / Insufficient Data → Specialized);
+an Availability Status of Rejected shows the Rejected badge.
+
+## Login and the gate
+
+`POST /api/auth` (`netlify/functions/auth.mjs`) looks the email up in Investor Access: `Approved` → signed HttpOnly session cookie
+(`b31_session`, 30 days) plus a readable companion cookie `b31_ui` holding the first name, which every page reads before first paint to
+show "Welcome, First!" / Log Out and unlock `/invest/` and offering details; `Call Needed` → schedule-a-call message; otherwise "no account".
+Each page load re-verifies with `{action:'me'}`, so revoking access in Airtable logs the person out on their next page view. Viewing an
+offering appends it to the investor's "Deals Reviewed" (`track_view`) and promotes their GoHighLevel opportunity. The edge gate
+(`netlify/edge-functions/gate.js`) hard-gates offering documents and 301s the old URLs; pages themselves stay public for search.
 
 ## Keeping the site in sync with Airtable
 
-Every Netlify deploy runs `python3 build/build.py`, which:
+Every deploy runs `python3 build/build.py`: `fetch_airtable.py` (records, photos, documents) → `build_inventory.py` → `build_offering.py`
+(adds pages for new records, deletes pages for removed ones — a renamed deal changes its slug and URL) → `build_pages.py` →
+`build_articles.py` → `build_meta.py`.
 
-1. `build/fetch_airtable.py` — pulls every DST Offerings record, refreshes `build/offerings.json`, downloads any new or replaced photo (full resolution) and derives the card/hero sizes. Skipped when `AIRTABLE_TOKEN` is not set (the committed snapshot is used instead).
-2. `build/build_inventory.py` — regenerates `/invest/index.html`.
-3. `build/build_offering.py` — regenerates `/offerings/<slug>/index.html` for every record and deletes pages for records that no longer exist. A new record in Airtable gets a page automatically; renaming a deal changes its slug (and URL) because the slug is a formula on Investment Name.
+Deploys are triggered three ways, all needing the site's **build hook** (Netlify → Site configuration → Build & deploy → Build hooks):
 
-**One-time setup**
+1. `netlify/functions/rebuild-watcher.mjs` runs every 15 minutes, compares Airtable's *Last Modified* with `/build-info.json` and POSTs
+   the hook when an offering changed. Set `NETLIFY_BUILD_HOOK` in the site's environment variables.
+2. Optional, instant: Airtable → Automations → *When a record is updated / created* (table DST Offerings) → *Run script*:
+   `await fetch('PASTE_THE_BUILD_HOOK_URL', { method: 'POST' });` (scripting actions need an Airtable Team plan).
+3. Safety net: GitHub → repo Settings → Secrets → `NETLIFY_BUILD_HOOK`; `.github/workflows/rebuild.yml` then asks for a rebuild once an hour.
 
-1. Airtable → Developer hub → create a personal access token with scope `data.records:read` and access to the *Investment Offerings* base only.
-2. Netlify → Site configuration → Environment variables → add `AIRTABLE_TOKEN` with that value.
-3. Netlify → Site configuration → Build & deploy → Build hooks → add one named "Airtable" and copy its URL.
-4. Airtable → Automations → new automation: trigger *When a record is updated* (table DST Offerings, all fields), action *Run script*:
+## One-time Netlify setup (new site)
 
-   ```js
-   await fetch('PASTE_THE_BUILD_HOOK_URL', { method: 'POST' });
-   ```
-
-   Add a second automation with trigger *When a record is created* and the same action. (Scripting actions need an Airtable Team plan or higher; if that's not available, use step 5 alone.)
-5. Optional safety net: GitHub → repo Settings → Secrets → add `NETLIFY_BUILD_HOOK` with the same URL. `.github/workflows/rebuild.yml` then asks Netlify to rebuild once an hour, so an edit never waits longer than that.
-
-Deploys take about a minute. Nothing is committed back to the repo by the build; the repo's snapshot is only a fallback.
+1. Import the repo; build settings come from `netlify.toml`.
+2. Environment variables: `AIRTABLE_TOKEN` (read on Investment Offerings, read+write on Investor Access), `SESSION_SECRET`
+   (`openssl rand -hex 32`), `NETLIFY_BUILD_HOOK`, and the CRM/email keys copied from the previous site: `GHL_Key`, `GHL_LOCATION_ID`,
+   `RESEND_API_KEY`, `PORTAL_SYNC_KEY`, `SCHEDULE_CALL_URL`, `CRS_RECEIPT_TO`.
+3. Point `baker1031.com` at the new site when ready; the old site's function URLs (`/api/*`) are the same paths here.
 
 ## Before launch
 
-- Wire `/login/` to a real endpoint (sets a session cookie; the pages currently read `localStorage['b1031-session']`) and gate `/invest/` and `/offerings/*` server-side.
-- Remove the temporary step-jumper on `/register/` (marked `TEMPORARY` in the file).
-- Wire the registration form's `window.onLeadBooked(answers)` hook to GoHighLevel.
-- Confirm Cal.com's `attendeePhoneNumber` prefill with a test booking.
-
-## Rebuilding
-
-Locally: `AIRTABLE_TOKEN=... python3 build/build.py` from the repo root (needs Python 3.9+ and `pip install pillow`). `build_login.py`, `build_results.py` and `export_site.py` are the Cowork-session scripts that produced the committed static pages; they expect that session's scratch layout and are kept for reference.
+- Set the environment variables above (until `AIRTABLE_TOKEN` + `SESSION_SECRET` are set, logging in reports the service as unreachable).
+- Do a test login with an Approved address and a test registration (check the GoHighLevel contact + opportunity).
+- Confirm Cal.com's phone prefill with a test booking.
+- Search Console: submit `https://baker1031.com/sitemap.xml` after cutover.

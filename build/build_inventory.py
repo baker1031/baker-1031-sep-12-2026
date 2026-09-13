@@ -72,7 +72,7 @@ page = r'''<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <script>/* approved-investor gate: mark the document before first paint so gated content never flashes */
-try{ var _s = JSON.parse(localStorage.getItem('b1031-session') || 'null'); if(_s && _s.email) document.documentElement.classList.add('is-logged-in'); }catch(e){}</script>
+try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.classList.add('is-logged-in'); }catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Available Investments — Baker 1031 Investments</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">

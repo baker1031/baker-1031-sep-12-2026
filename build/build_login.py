@@ -173,19 +173,14 @@ page = r'''<!DOCTYPE html>
   function looksLikeEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e); }
 
   // ---- Approved-investor check ----
-  // Production: replace with a request to the login endpoint, e.g.
-  //   fetch('/api/login', { method:'POST', body: JSON.stringify({ email:e }) }).then(r => r.json())
-  // which looks the address up in Airtable → Investor Access (appiKLSyAUmP0h8cJ) → Investors (tblbuFMpfv5R4DIyp) by Email Address
-  // (case-insensitive) and returns { found, accessLevel:'Approved'|'Call Needed', first: <First Name> }. The list is never shipped to the browser.
-  // Demo stand-in for the approved-investor list: email -> first name. Replace with the endpoint above.
-  var DEMO_APPROVED = { 'jane@example.com': 'Jane', 'jerry@baker1031.com': 'Jerry' };
+  // POST /api/auth {action:'login', email} (Netlify function) looks the address up in Airtable → Investor Access →
+  // Investors by Email Address, case-insensitively, and returns { status: 'ok' | 'call_needed' | 'not_found' }.
+  // On 'ok' it sets the HttpOnly session cookie and the readable `b31_ui` companion (first name). The list
+  // itself never reaches the browser.
   function lookup(e){
-    return new Promise(function(resolve){
-      setTimeout(function(){
-        var k = String(e).toLowerCase(), hit = Object.prototype.hasOwnProperty.call(DEMO_APPROVED, k);   // match case-insensitively
-        resolve({ found: hit, accessLevel:'Approved', first: hit ? DEMO_APPROVED[k] : '' });
-      }, 450);
-    });
+    return fetch('/api/auth', { method:'POST', headers:{ 'content-type':'application/json' }, credentials:'same-origin',
+                 body: JSON.stringify({ action:'login', email:e }) })
+      .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
   }
   // Where to go after logging in: ?next=/invest (same-site paths only), default the investments page.
   var nextParam = (function(){ try { var n = new URLSearchParams(window.location.search).get('next') || ''; return /^\/[^\/\\]/.test(n) ? n : '/invest'; } catch(e){ return '/invest'; } })();
@@ -206,17 +201,25 @@ page = r'''<!DOCTYPE html>
     submit.disabled = true; submit.firstChild.textContent = 'Checking… ';
     lookup(e).then(function(res){
       submit.disabled = false; submit.firstChild.textContent = 'Log in ';
-      if(!res.found){
+      if(res.status === 'not_found'){
         showError('That email doesn’t match an account on file. Try again and check the spelling closely, or <a href="' + create.href + '">create a new account</a> with this address.');
         input.focus(); input.select();
         return;
       }
+      if(res.status === 'call_needed'){
+        var url = res.scheduleUrl || '/contact';
+        showError('<strong>One more step.</strong> Regulations require a short introductory call before I can share current investments. <a href="' + url + '">Schedule your call</a> and access opens right after.');
+        return;
+      }
+      if(res.status !== 'ok'){ showError('Something went wrong on our end. Please try again in a moment, or email <a href="mailto:invest@baker1031.com">invest@baker1031.com</a>.'); return; }
       clearError();
-      ok.innerHTML = '<strong>Welcome back' + (res.first ? ', ' + res.first : '') + '.</strong> Sending you to your investments…';
+      ok.innerHTML = '<strong>Welcome back' + (res.firstName ? ', ' + res.firstName : '') + '.</strong> Sending you to your investments…';
       ok.classList.add('is-on');
-      // Production: the endpoint sets the session cookie. Here the session lives in localStorage so the nav and gated pages can read it.
-      try { localStorage.setItem('b1031-session', JSON.stringify({ email:e, first:res.first || '', accessLevel:res.accessLevel, at:new Date().toISOString() })); } catch(err){}
+      try { if(window.b1031 && window.b1031.setUi) window.b1031.setUi(res.firstName); } catch(err){}
       setTimeout(function(){ window.location.href = nextParam; }, 900);
+    }).catch(function(){
+      submit.disabled = false; submit.firstChild.textContent = 'Log in ';
+      showError('The login service isn’t reachable right now. Please try again in a moment, or email <a href="mailto:invest@baker1031.com">invest@baker1031.com</a>.');
     });
   });
 })();

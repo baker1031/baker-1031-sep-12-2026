@@ -1,4 +1,4 @@
-# Safety net: ask Netlify to rebuild every hour so Airtable edits show up even if the automation misses one.
+# Safety net: ask Netlify to rebuild every hour so Airtable edits show up even if the watcher misses one.
 # Add the Netlify build-hook URL as a repository secret named NETLIFY_BUILD_HOOK; without it this workflow does nothing.
 name: Rebuild site from Airtable
 on:

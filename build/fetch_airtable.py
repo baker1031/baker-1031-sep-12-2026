@@ -102,6 +102,32 @@ def derive(original, slug):
         out = im if w <= width else im.resize((width, round(h * width / w)), Image.LANCZOS)
         out.save(os.path.join(IMG_DIR, f'{slug}{suffix}.jpg'), 'JPEG', quality=q, optimize=True, progressive=True)
 
+def safe_name(s):
+    import re
+    return re.sub(r'\s+', ' ', re.sub(r'[\/\\:*?"<>|#%]+', '_', str(s or 'document'))).strip()[:120]
+
+def localize_docs(recs):
+    """Offering documents (PPMs, supplements) are served from offerings/<slug>/docs/<file> so the edge gate can
+    hard-gate them behind a login. Airtable attachment URLs expire within hours, so the files are downloaded at
+    build time (skipped when a file of the same size is already present). Each record gets docs[i]['rel']."""
+    if os.environ.get('SKIP_DOCS'): return 0
+    n = 0
+    for o in recs:
+        if not o['docs']: continue
+        ddir = os.path.join(ROOT, 'offerings', o['slug'], 'docs'); os.makedirs(ddir, exist_ok=True)
+        used = set()
+        for d in o['docs']:
+            name = safe_name(d['filename'])
+            while name.lower() in used:
+                stem, ext = os.path.splitext(name); name = stem + '_1' + ext
+            used.add(name.lower())
+            dest = os.path.join(ddir, name)
+            if not (os.path.exists(dest) and d.get('size') and os.path.getsize(dest) == d['size']):
+                if not download(d['url'], dest):
+                    continue
+            d['rel'] = f"/offerings/{o['slug']}/docs/{name}"; n += 1
+    return n
+
 def main():
     if not TOKEN:
         print('AIRTABLE_TOKEN not set — keeping the committed offerings.json snapshot.'); return 0
@@ -123,8 +149,9 @@ def main():
         if download(im['url'], dest):                # full-resolution original, as uploaded to Airtable
             derive(dest, o['slug'])
             open(stamp, 'w').write(src_id); fetched += 1
+    ndocs = localize_docs(recs)
     json.dump(recs, open(OUT_JSON, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
-    print(f'offerings: {len(recs)} records, {fetched} photos refreshed')
+    print(f'offerings: {len(recs)} records, {fetched} photos refreshed, {ndocs} documents')
     return 0
 
 if __name__ == '__main__':

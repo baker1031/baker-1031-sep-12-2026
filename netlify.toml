@@ -1,23 +1,120 @@
+# Baker 1031 Investments — Netlify configuration
+# Build: Airtable + content sources -> static pages (python3 build/build.py). Auth: serverless function + edge gate.
+#
+# Required environment variables (Site configuration -> Environment variables):
+#   AIRTABLE_TOKEN       personal access token — data.records:read on Investment Offerings AND
+#                        data.records:read+write on Investor Access (login, "Deals Reviewed")
+#   SESSION_SECRET       long random string (e.g. `openssl rand -hex 32`); shared by the auth function and the edge gate
+#   NETLIFY_BUILD_HOOK   this site's build hook URL (Build & deploy -> Build hooks) — used by the Airtable rebuild watcher
+# Used by the CRM / email functions (copy from the previous site's settings):
+#   GHL_Key, GHL_LOCATION_ID, RESEND_API_KEY, PORTAL_SYNC_KEY, SCHEDULE_CALL_URL, CRS_RECEIPT_TO
+# Optional (defaults are baked in): AIRTABLE_BASE, AIRTABLE_TABLE, ACCESS_BASE_ID, ACCESS_TABLE_ID, SESSION_DAYS
+
 [build]
   publish = "."
-  # Pull the latest DST Offerings from Airtable and regenerate /invest and /offerings/* on every deploy.
-  # Set AIRTABLE_TOKEN in Netlify (Site configuration -> Environment variables). Without it the committed snapshot is used.
   command = "python3 build/build.py"
 
 [build.environment]
   PYTHON_VERSION = "3.11"
 
-# clean URLs are directories with index.html; keep a couple of friendly aliases
+[functions]
+  directory = "netlify/functions"
+
+# Production is main only; any other branch gets a preview URL that must never be indexed.
+[context.branch-deploy.environment]
+  ROBOTS_NOINDEX = "true"
+[context.deploy-preview.environment]
+  ROBOTS_NOINDEX = "true"
+
+# Daily 1031 deadline reminders (8am PT): reads Airtable dates, emails via Resend, logs to the row's "Reminder Log".
+[functions."deadline-reminders"]
+  schedule = "0 15 * * *"
+
+# Every 15 minutes: rebuild if an offering changed in Airtable since the last publish
+# (compares Last Modified vs /build-info.json, then POSTs NETLIFY_BUILD_HOOK).
+[functions."rebuild-watcher"]
+  schedule = "*/15 * * * *"
+
+# Friendly API paths for the browser.
 [[redirects]]
-  from = "/offerings"
-  to = "/invest/"
-  status = 301
+  from = "/api/auth"
+  to = "/.netlify/functions/auth"
+  status = 200
+[[redirects]]
+  from = "/api/lead"
+  to = "/.netlify/functions/lead"
+  status = 200
+[[redirects]]
+  from = "/api/login-link"
+  to = "/.netlify/functions/login-link"
+  status = 200
+[[redirects]]
+  from = "/api/my-info"
+  to = "/.netlify/functions/my-info"
+  status = 200
+[[redirects]]
+  from = "/api/portal-sync"
+  to = "/.netlify/functions/portal-sync"
+  status = 200
+[[redirects]]
+  from = "/api/reminders-off"
+  to = "/.netlify/functions/reminders-off"
+  status = 200
+
+# Friendly aliases. Old-site URLs (/offerings/, /request-access/, /performance/, /current-offerings/…) are
+# 301-redirected by the edge gate (netlify/edge-functions/gate.js), which sees every request first.
 [[redirects]]
   from = "/index.html"
   to = "/"
   status = 301
+[[redirects]]
+  from = "/form-crs"
+  to = "/assets/docs/aurora-form-crs.pdf"
+  status = 301
+[[redirects]]
+  from = "/form-crs/"
+  to = "/assets/docs/aurora-form-crs.pdf"
+  status = 301
 
+# The gate runs on every path; its own allowlist decides what is public. It hard-gates /offerings/<slug>/docs/.
+[[edge_functions]]
+  path = "/*"
+  function = "gate"
+
+# Long-cache static assets; HTML revalidates every request.
 [[headers]]
-  for = "/assets/*"
+  for = "/assets/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+[[headers]]
+  for = "/assets/video/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+[[headers]]
+  for = "/assets/sponsors/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+[[headers]]
+  for = "/assets/docs/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+[[headers]]
+  for = "/offerings/*/docs/*"
+  [headers.values]
+    Cache-Control = "private, no-store"

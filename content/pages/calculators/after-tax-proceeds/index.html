@@ -1,0 +1,53 @@
+<!--meta
+title: After-Tax Sale Proceeds Calculator | Baker 1031 Investments
+description: Compare the check you would net from a taxable sale of investment real estate against the equity a fully deferred 1031 exchange keeps invested.
+nav: learn
+-->
+<main>
+<section class="mast mast--light">
+  <div class="crumbs"><a href="/">Home</a><span>/</span><span style="opacity:1;color:inherit">After-tax proceeds</span></div>
+  <span class="eyebrow">Tools</span>
+  <h1 class="h1">After-Tax Sale Proceeds</h1>
+  <p class="p-main">What actually reaches you at closing.</p>
+</section>
+<section class="sec bg-white" style="padding-top:56px">
+  <div class="shell shell--left">
+    <aside class="rail"><h4>Calculators</h4><a href="/calculators/after-tax-proceeds/" aria-current="page">After-tax proceeds</a><a href="/calculators/boot/">Boot</a><a href="/calculators/cap-rate/">Cap rate</a><a href="/calculators/cash-on-cash/">Cash-on-cash</a><a href="/calculators/deadline/">45 / 180-day deadlines</a><a href="/calculators/deferred-tax/">Deferred tax</a><a href="/calculators/depreciation-recapture/">Depreciation recapture</a><a href="/calculators/dst-yield/">DST yield</a><a href="/calculators/replacement-property/">Replacement property</a><a href="/calculators/sell-vs-exchange/">Sell vs exchange</a><a href="/calculators/tax-adjusted-yield/">Tax-adjusted yield</a></aside>
+    <div class="prose">
+<div class="calcbox"><div class="grid"><div><label for="sale">Sale price</label><input inputmode="numeric" data-money id="sale" placeholder="$2,000,000"></div>
+<div><label for="costs">Selling costs &amp; commissions</label><input inputmode="numeric" data-money id="costs" placeholder="$120,000"></div>
+<div><label for="payoff">Mortgage payoff at closing</label><input inputmode="numeric" data-money id="payoff" placeholder="$700,000 — $0 if free and clear"></div>
+<div><label for="tax">Estimated total tax if sold outright</label><input inputmode="numeric" data-money id="tax" placeholder="Use the Deferred Tax Estimator"></div></div></div>
+<div class="results" id="results" hidden><div class="rrow"><span class="rk">Equity at closing (before tax)</span><span class="rv" id="req"></span></div>
+<div class="rrow"><span class="rk">Estimated tax on an outright sale</span><span class="rv" id="rtaxv"></span></div>
+<div class="rrow big"><span class="rk">After-tax proceeds if you sell</span><span class="rv" id="rafter"></span></div>
+<div class="warn" id="rmsg"></div></div>
+<p class="calcnote">Get the tax figure from the Deferred Tax Estimator or, better, from your CPA — it drives the whole comparison.</p>
+<div class="fineprint">This calculator is a simplified educational illustration, not tax or investment advice. It uses the figures you enter and standard federal rates without your full tax picture (basis adjustments, carryforwards, AMT, state specifics, and filing details are not modeled). Actual results are determined by your tax returns as prepared by your CPA. Review the PPM for any investment you consider and confirm every figure with your CPA and attorney before acting.</div>
+<p style="margin-top:34px;"><a href="/calculators/">&larr; All calculators</a></p>
+    </div>
+  </div>
+</section>
+</main>
+<!--scripts-->
+<script>
+function n(id){var v=document.getElementById(id).value.replace(/[^0-9.]/g,'');return v?parseFloat(v):0}
+function usd(v){return '$'+Math.round(v).toLocaleString('en-US')}
+function pctf(v){return (v*100).toFixed(1)+'%'}
+function set(id,v){document.getElementById(id).textContent=v}
+function money(el){el.addEventListener('blur',function(){var v=el.value.replace(/[^0-9.]/g,'');if(v)el.value='$'+Math.round(parseFloat(v)).toLocaleString('en-US')})}
+document.querySelectorAll('input[data-money]').forEach(money);
+document.querySelectorAll('input,select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+
+function calc(){
+  var sale=n('sale'), costs=n('costs'), payoff=n('payoff'), tax=n('tax');
+  var R=document.getElementById('results');
+  if(!sale){R.hidden=true;return}
+  var netValue=sale-costs;
+  var equity=Math.max(0,netValue-payoff);
+  var after=Math.max(0,equity-tax);
+  set('req',usd(equity)); set('rtaxv',usd(tax)); set('rafter',usd(after));
+  set('rmsg', equity>0? 'A taxable sale shrinks your working capital by '+Math.round(tax/equity*100)+'%. A full 1031 exchange keeps the entire '+usd(equity)+' invested — the tax is deferred, not forgiven, and generally remains due when the deferral ends unless a later step (another exchange, a 721 transaction, or the basis step-up at death) changes that.' : '');
+  R.hidden=false;
+}</script>
+<!--/scripts-->

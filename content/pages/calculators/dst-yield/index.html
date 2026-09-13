@@ -1,0 +1,50 @@
+<!--meta
+title: DST Income Illustrator | Baker 1031 Investments
+description: Translate a projected DST distribution rate into estimated monthly and annual distributions for a given investment amount. Educational illustration only.
+nav: learn
+-->
+<main>
+<section class="mast mast--light">
+  <div class="crumbs"><a href="/">Home</a><span>/</span><span style="opacity:1;color:inherit">DST yield</span></div>
+  <span class="eyebrow">Tools</span>
+  <h1 class="h1">DST Income Illustrator</h1>
+  <p class="p-main">Illustrated distributions on an investment amount.</p>
+</section>
+<section class="sec bg-white" style="padding-top:56px">
+  <div class="shell shell--left">
+    <aside class="rail"><h4>Calculators</h4><a href="/calculators/after-tax-proceeds/">After-tax proceeds</a><a href="/calculators/boot/">Boot</a><a href="/calculators/cap-rate/">Cap rate</a><a href="/calculators/cash-on-cash/">Cash-on-cash</a><a href="/calculators/deadline/">45 / 180-day deadlines</a><a href="/calculators/deferred-tax/">Deferred tax</a><a href="/calculators/depreciation-recapture/">Depreciation recapture</a><a href="/calculators/dst-yield/" aria-current="page">DST yield</a><a href="/calculators/replacement-property/">Replacement property</a><a href="/calculators/sell-vs-exchange/">Sell vs exchange</a><a href="/calculators/tax-adjusted-yield/">Tax-adjusted yield</a></aside>
+    <div class="prose">
+<div class="calcbox"><div class="grid"><div><label for="amt">Investment amount</label><input inputmode="numeric" data-money id="amt" placeholder="$500,000"></div>
+<div><label for="rate">Projected annual distribution rate (%)</label><input inputmode="decimal" id="rate" placeholder="e.g. 4.5 — from the sponsor&rsquo;s projections"></div></div></div>
+<div class="results" id="results" hidden><div class="rrow big"><span class="rk">Illustrated annual distribution</span><span class="rv" id="rann"></span></div>
+<div class="rrow"><span class="rk">Illustrated monthly distribution</span><span class="rv" id="rmon"></span></div>
+<div class="rrow"><span class="rk">Illustrated quarterly distribution</span><span class="rv" id="rq"></span></div>
+<div class="warn" id="rmsg"></div></div>
+<p class="calcnote">This is an illustration of multiplication, not a projection, an offer, or a recommendation. DST interests are offered only by private placement memorandum to accredited investors; distributions are not guaranteed, may include return of capital, and past or projected rates do not assure future results. Review the PPM&rsquo;s risk factors and cash-flow assumptions with your advisors before investing.</p>
+<div class="fineprint">This calculator is a simplified educational illustration, not tax or investment advice. It uses the figures you enter and standard federal rates without your full tax picture (basis adjustments, carryforwards, AMT, state specifics, and filing details are not modeled). Actual results are determined by your tax returns as prepared by your CPA. Review the PPM for any investment you consider and confirm every figure with your CPA and attorney before acting.</div>
+<p style="margin-top:34px;"><a href="/calculators/">&larr; All calculators</a></p>
+    </div>
+  </div>
+</section>
+</main>
+<!--scripts-->
+<script>
+function n(id){var v=document.getElementById(id).value.replace(/[^0-9.]/g,'');return v?parseFloat(v):0}
+function usd(v){return '$'+Math.round(v).toLocaleString('en-US')}
+function pctf(v){return (v*100).toFixed(1)+'%'}
+function set(id,v){document.getElementById(id).textContent=v}
+function money(el){el.addEventListener('blur',function(){var v=el.value.replace(/[^0-9.]/g,'');if(v)el.value='$'+Math.round(parseFloat(v)).toLocaleString('en-US')})}
+document.querySelectorAll('input[data-money]').forEach(money);
+document.querySelectorAll('input,select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+
+function calc(){
+  var amt=n('amt');
+  var rate=(parseFloat(document.getElementById('rate').value)||0)/100;
+  var R=document.getElementById('results');
+  if(!amt||!rate){R.hidden=true;return}
+  var annual=amt*rate;
+  set('rann',usd(annual)); set('rmon',usd(annual/12)); set('rq',usd(annual/4));
+  set('rmsg','At a projected '+(rate*100).toFixed(2)+'% rate, '+usd(amt)+' would illustrate roughly '+usd(annual/12)+' per month. Actual distributions are set by the trust&rsquo;s real cash flow: they can be lower, higher, paid from reserves, or suspended entirely, and the rate typically changes over the hold.');
+  R.hidden=false;
+}</script>
+<!--/scripts-->

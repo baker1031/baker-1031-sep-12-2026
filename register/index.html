@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Get Started with Jerry — Baker 1031 Investments</title>
-<meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
@@ -483,22 +482,6 @@
   }
 
 
-  /* TEMPORARY dev step-jumper — delete before launch */
-  .devjump{
-    position:fixed; left:16px; bottom:16px; z-index:60;
-    display:flex; align-items:center; gap:6px;
-    padding:6px 8px 6px 10px;
-    background:#111; color:#fff; border-radius:999px;
-    font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
-    box-shadow:0 6px 20px rgba(0,0,0,.25);
-  }
-  .devjump span{ margin-right:4px; opacity:.7; }
-  .devjump button{
-    min-width:26px; height:26px; padding:0 6px; border-radius:13px;
-    border:1px solid rgba(255,255,255,.35); background:transparent; color:#fff;
-    font:inherit; font-size:12px; cursor:pointer;
-  }
-  .devjump button:hover, .devjump button.is-on{ background:var(--accent); border-color:var(--accent); }
 
   /* ---------- Footer ---------- */
   .footer{ background:var(--white); }
@@ -1854,7 +1837,33 @@
     if(missing.length){ missing[0].focus(); return false; }
     answers.acknowledgments = boxes.map(function(b){ return b.name; });
     answers.acknowledgedAt = new Date().toISOString();
+    submitLead();
     return true;
+  }
+  // CRM hand-off: POST /api/lead (Netlify function -> GoHighLevel contact + note + "Leads / Registered" opportunity),
+  // in the shape the previous request-access form used. Fired once, when the acknowledgments are accepted; never
+  // blocks the person, and a failure is only logged (the Cal.com booking that follows is independent).
+  var leadSent = false;
+  function submitLead(){
+    if(leadSent) return; leadSent = true;
+    var exchange = !!(answers.is1031 && answers.is1031.indexOf('Yes') === 0);
+    var payload = {
+      firstName: answers.firstName || '', lastName: answers.lastName || '', email: answers.email || '', phone: answers.phone || '',
+      role: answers.role || '', path: exchange ? 'exchange' : 'cash',
+      objectives: exchange ? ['Planning a 1031 exchange'] : [],
+      fit: answers.is1031 || '', equity: answers.equity || null, debt: answers.debt || null,
+      saleDate: answers.saleDate || null, saleDateStatus: answers.saleDateStatus || null,
+      marital: answers.maritalStatus || '', netWorth: answers.netWorth || '', income: answers.householdIncome || '',
+      accreditedLikely: answers.accreditedLikely, phoneRegion: answers.phoneRegion || '',
+      acknowledgments: { usPerson: true, accredited: true, productScope: true, formCrs: true, list: answers.acknowledgments || [] },
+      submittedAt: answers.acknowledgedAt, source: 'register-2026'
+    };
+    try {
+      fetch('/api/lead', { method:'POST', headers:{ 'content-type':'application/json' }, body: JSON.stringify(payload), keepalive:true })
+        .then(function(r){ if(!r.ok) console.warn('lead not delivered', r.status); })
+        .catch(function(e){ console.warn('lead not delivered', e); });
+      if(window.gtag) gtag('event', 'generate_lead', { method: 'register_form' });
+    } catch(e){}
   }
   form.addEventListener('change', function(e){
     if(e.target.matches && e.target.matches('.ack input')){
@@ -2076,21 +2085,6 @@
   Array.prototype.forEach.call(form.querySelectorAll('.step'), function(sec){ var pg = sec.querySelector('.qpage'); if(pg && !sec.querySelector('.qpage.is-active')) pg.classList.add('is-active'); });
   typeBubble(sectionOf(steps[0]).querySelector('.jerry__bubble'));
 
-  /* ===== TEMPORARY: dev step-jumper (delete this block before launch) ===== */
-  (function(){
-    var dev = document.createElement('div');
-    dev.className = 'devjump';
-    dev.innerHTML = '<span>Dev: jump to step</span>';
-    steps.forEach(function(st, i){
-      var b = document.createElement('button'); b.type = 'button'; b.textContent = st.dataset.step;
-      b.addEventListener('click', function(){ go(i); });
-      dev.appendChild(b);
-    });
-    document.body.appendChild(dev);
-    var sync = function(){ Array.prototype.forEach.call(dev.querySelectorAll('button'), function(b, i){ b.classList.toggle('is-on', i === current); }); };
-    form.addEventListener('transitionend', sync); dev.addEventListener('click', function(){ setTimeout(sync, 50); }); sync();
-  })();
-  /* ===== /TEMPORARY ===== */
 })();
 </script>
 

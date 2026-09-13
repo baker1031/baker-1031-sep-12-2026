@@ -1854,7 +1854,33 @@
     if(missing.length){ missing[0].focus(); return false; }
     answers.acknowledgments = boxes.map(function(b){ return b.name; });
     answers.acknowledgedAt = new Date().toISOString();
+    submitLead();
     return true;
+  }
+  // CRM hand-off: POST /api/lead (Netlify function -> GoHighLevel contact + note + "Leads / Registered" opportunity),
+  // in the shape the previous request-access form used. Fired once, when the acknowledgments are accepted; never
+  // blocks the person, and a failure is only logged (the Cal.com booking that follows is independent).
+  var leadSent = false;
+  function submitLead(){
+    if(leadSent) return; leadSent = true;
+    var exchange = !!(answers.is1031 && answers.is1031.indexOf('Yes') === 0);
+    var payload = {
+      firstName: answers.firstName || '', lastName: answers.lastName || '', email: answers.email || '', phone: answers.phone || '',
+      role: answers.role || '', path: exchange ? 'exchange' : 'cash',
+      objectives: exchange ? ['Planning a 1031 exchange'] : [],
+      fit: answers.is1031 || '', equity: answers.equity || null, debt: answers.debt || null,
+      saleDate: answers.saleDate || null, saleDateStatus: answers.saleDateStatus || null,
+      marital: answers.maritalStatus || '', netWorth: answers.netWorth || '', income: answers.householdIncome || '',
+      accreditedLikely: answers.accreditedLikely, phoneRegion: answers.phoneRegion || '',
+      acknowledgments: { usPerson: true, accredited: true, productScope: true, formCrs: true, list: answers.acknowledgments || [] },
+      submittedAt: answers.acknowledgedAt, source: 'register-2026'
+    };
+    try {
+      fetch('/api/lead', { method:'POST', headers:{ 'content-type':'application/json' }, body: JSON.stringify(payload), keepalive:true })
+        .then(function(r){ if(!r.ok) console.warn('lead not delivered', r.status); })
+        .catch(function(e){ console.warn('lead not delivered', e); });
+      if(window.gtag) gtag('event', 'generate_lead', { method: 'register_form' });
+    } catch(e){}
   }
   form.addEventListener('change', function(e){
     if(e.target.matches && e.target.matches('.ack input')){

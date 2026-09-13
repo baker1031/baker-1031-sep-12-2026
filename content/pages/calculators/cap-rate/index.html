@@ -1,0 +1,47 @@
+<!--meta
+title: Cap Rate Calculator | Baker 1031 Investments
+description: Calculate a property’s capitalization rate from its net operating income and value or purchase price.
+nav: learn
+-->
+<main>
+<section class="mast mast--light">
+  <div class="crumbs"><a href="/">Home</a><span>/</span><span style="opacity:1;color:inherit">Cap rate</span></div>
+  <span class="eyebrow">Tools</span>
+  <h1 class="h1">Cap Rate</h1>
+  <p class="p-main">Net operating income against value.</p>
+</section>
+<section class="sec bg-white" style="padding-top:56px">
+  <div class="shell shell--left">
+    <aside class="rail"><h4>Calculators</h4><a href="/calculators/after-tax-proceeds/">After-tax proceeds</a><a href="/calculators/boot/">Boot</a><a href="/calculators/cap-rate/" aria-current="page">Cap rate</a><a href="/calculators/cash-on-cash/">Cash-on-cash</a><a href="/calculators/deadline/">45 / 180-day deadlines</a><a href="/calculators/deferred-tax/">Deferred tax</a><a href="/calculators/depreciation-recapture/">Depreciation recapture</a><a href="/calculators/dst-yield/">DST yield</a><a href="/calculators/replacement-property/">Replacement property</a><a href="/calculators/sell-vs-exchange/">Sell vs exchange</a><a href="/calculators/tax-adjusted-yield/">Tax-adjusted yield</a></aside>
+    <div class="prose">
+<div class="calcbox"><div class="grid"><div><label for="noi">Annual net operating income (NOI)</label><input inputmode="numeric" data-money id="noi" placeholder="$120,000 — income after operating expenses, before debt service"></div>
+<div><label for="val">Property value or purchase price</label><input inputmode="numeric" data-money id="val" placeholder="$2,000,000"></div></div></div>
+<div class="results" id="results" hidden><div class="rrow big"><span class="rk">Capitalization rate</span><span class="rv" id="rcap"></span></div>
+<div class="warn" id="rmsg"></div></div>
+<p class="calcnote">NOI should exclude debt service, income taxes, and capital expenditures. Sponsors and appraisers can define NOI differently — when comparing offerings, check what each PPM includes.</p>
+<div class="fineprint">This calculator is a simplified educational illustration, not tax or investment advice. It uses the figures you enter and standard federal rates without your full tax picture (basis adjustments, carryforwards, AMT, state specifics, and filing details are not modeled). Actual results are determined by your tax returns as prepared by your CPA. Review the PPM for any investment you consider and confirm every figure with your CPA and attorney before acting.</div>
+<p style="margin-top:34px;"><a href="/calculators/">&larr; All calculators</a></p>
+    </div>
+  </div>
+</section>
+</main>
+<!--scripts-->
+<script>
+function n(id){var v=document.getElementById(id).value.replace(/[^0-9.]/g,'');return v?parseFloat(v):0}
+function usd(v){return '$'+Math.round(v).toLocaleString('en-US')}
+function pctf(v){return (v*100).toFixed(1)+'%'}
+function set(id,v){document.getElementById(id).textContent=v}
+function money(el){el.addEventListener('blur',function(){var v=el.value.replace(/[^0-9.]/g,'');if(v)el.value='$'+Math.round(parseFloat(v)).toLocaleString('en-US')})}
+document.querySelectorAll('input[data-money]').forEach(money);
+document.querySelectorAll('input,select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+
+function calc(){
+  var noi=n('noi'), val=n('val');
+  var R=document.getElementById('results');
+  if(!noi||!val){R.hidden=true;return}
+  var cap=noi/val;
+  set('rcap',(cap*100).toFixed(2)+'%');
+  set('rmsg','Every 0.25% of cap-rate movement on this NOI changes the implied value by about '+usd(Math.abs(noi/cap - noi/(cap+.0025)))+'. Cap rate says nothing about financing, capital reserves, lease rollover, or growth — two properties at the same cap rate can be very different investments.');
+  R.hidden=false;
+}</script>
+<!--/scripts-->

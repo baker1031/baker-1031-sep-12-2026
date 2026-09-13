@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <script>/* approved-investor gate: mark the document before first paint so gated content never flashes */
-try{ var _s = JSON.parse(localStorage.getItem('b1031-session') || 'null'); if(_s && _s.email) document.documentElement.classList.add('is-logged-in'); }catch(e){}</script>
+try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.classList.add('is-logged-in'); }catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Available Investments — Baker 1031 Investments</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -521,7 +521,7 @@ try{ var _s = JSON.parse(localStorage.getItem('b1031-session') || 'null'); if(_s
     </nav>
     <div class="nav__actions">
       <a class="nav__login" href="/login">Log In</a>
-      <a class="btn nav__cta" href="/register">Get Started</a>
+      <a class="btn nav__cta" href="/register/">Get Started</a>
       <span class="nav__user" hidden>Welcome, <span class="nav__user-name" data-user-first></span>!</span>
       <button class="nav__logout" type="button" hidden>Log Out</button>
       <button class="nav__menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
@@ -633,7 +633,7 @@ try{ var _s = JSON.parse(localStorage.getItem('b1031-session') || 'null'); if(_s
       <a href="/results">Results</a>
       <a href="/learn">Learn</a>
       <a href="/login">Log In</a>
-      <a href="/register">Get Started</a>
+      <a href="/register/">Get Started</a>
     </div>
     <div class="footer__col">
       <p class="footer__label">Verify</p>
@@ -670,22 +670,50 @@ try{ var _s = JSON.parse(localStorage.getItem('b1031-session') || 'null'); if(_s
     if (e.target.tagName === 'A'){ links.classList.remove('is-open'); menu.setAttribute('aria-expanded','false'); }
   });
 
-  // Session (client-side stand-in): the login page stores { email, first } once an address clears the approved list.
-  // Production: read the session from the auth cookie / endpoint instead of localStorage.
-  var SESSION_KEY = 'b1031-session';
-  function readSession(){ try { var s = JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); return s && s.email ? s : null; } catch(e){ return null; } }
-  function endSession(){ try { localStorage.removeItem(SESSION_KEY); } catch(e){} }
-  window.b1031 = { session: readSession, logout: endSession, SESSION_KEY: SESSION_KEY };
+  // Session. The login API (/api/auth, a Netlify function backed by the Investor Access base) sets an
+  // HttpOnly session cookie plus a readable companion cookie `b31_ui` holding the investor's first name,
+  // so the header can render logged-in before any request. Each page load re-verifies with the server
+  // (action "me"); a revoked or expired login clears the companion cookie and re-renders locked.
+  function readCookie(n){ var m = document.cookie.match(new RegExp('(?:^|;\\s*)' + n + '=([^;]*)')); return m ? decodeURIComponent(m[1]) : null; }
+  function readSession(){ var f = readCookie('b31_ui'); return f ? { first: f } : null; }
+  function setUi(first){ document.cookie = 'b31_ui=' + encodeURIComponent(first || 'Investor') + '; Path=/; Max-Age=2592000; SameSite=Lax'; }
+  function clearUi(){ document.cookie = 'b31_ui=; Path=/; Max-Age=0; SameSite=Lax'; }
+  function api(action, extra){
+    var body = extra || {}; body.action = action;
+    return fetch('/api/auth', { method:'POST', headers:{ 'content-type':'application/json' }, credentials:'same-origin', body: JSON.stringify(body) })
+      .then(function(r){ return r.json(); });
+  }
+  function endSession(){ clearUi(); document.documentElement.classList.remove('is-logged-in'); return api('logout').catch(function(){}); }
   var user = readSession();
   var loginEl = nav.querySelector('.nav__login'), ctaEl = nav.querySelector('.nav__cta');
   var userEl = nav.querySelector('.nav__user'), outEl = nav.querySelector('.nav__logout');
+  var nameEl = userEl.querySelector('[data-user-first]');
   if (user){
-    var first = user.first || String(user.email).split('@')[0];
-    userEl.querySelector('[data-user-first]').textContent = first;
+    nameEl.textContent = user.first;
     loginEl.hidden = true; ctaEl.hidden = true; userEl.hidden = false; outEl.hidden = false;
     document.documentElement.classList.add('is-logged-in');
   }
-  outEl.addEventListener('click', function(){ endSession(); window.location.href = '/'; });
+  outEl.addEventListener('click', function(){ endSession().then(function(){ window.location.href = '/'; }); });
+  // Verify the session with the server. A stale cookie (access revoked, session expired) is dropped and the
+  // page re-renders locked. If the API is unreachable the optimistic state stands.
+  function verify(){
+    if (!user) return Promise.resolve(false);
+    return api('me').then(function(d){
+      if (d && d.authed){
+        try { sessionStorage.removeItem('b31-relock'); } catch(e){}
+        if (d.firstName && d.firstName !== user.first){ setUi(d.firstName); nameEl.textContent = d.firstName; }
+        return true;
+      }
+      clearUi();
+      try { if (!sessionStorage.getItem('b31-relock')) { sessionStorage.setItem('b31-relock', '1'); window.location.reload(); } } catch(e){ window.location.reload(); }
+      return false;
+    }).catch(function(){ return true; });
+  }
+  window.b1031 = { session: readSession, logout: endSession, api: api, setUi: setUi, verify: verify };
+  verify();
+  // Offering pages: record the first view on the investor's record ("Deals Reviewed").
+  var offeringSlug = document.body.getAttribute('data-offering');
+  if (user && offeringSlug) api('track_view', { slug: offeringSlug }).catch(function(){});
 })();
 </script>
 

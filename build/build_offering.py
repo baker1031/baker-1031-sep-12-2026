@@ -81,7 +81,7 @@ def make_O(r):
         props=[dict(addr=esc(a.strip())) for a in (r['addresses'] or '').split(';') if a.strip()],
         cashflow=[(v * 100 if isinstance(v, (int, float)) else None) for v in r['income']],
         cfBasis=esc(r['cfBasis'] or ''), cfDisclosure=esc(r['cfDisclosure'] or ''), postForecast=esc(r['postForecast'] or ''),
-        docs=[(esc(re.sub(r'\.(pdf|docx?|xlsx?|pptx?)$', '', d['filename'], flags=re.I)), '') for d in r['docs']],
+        docs=[(esc(re.sub(r'\.(pdf|docx?|xlsx?|pptx?)$', '', d['filename'], flags=re.I)), esc(d.get('rel') or '')) for d in r['docs']],
         notes=paras(r['notes']),
         features=[], risks=[],
     )
@@ -111,7 +111,9 @@ def render(O):
     cf_stack = ''.join(f'<div><dt>Year {i+1}</dt><dd>{v:.2f}%</dd></div>' for i, v in cf)
     features = ''.join(f'<li>{x}</li>' for x in O['features'])
     risks = ''.join(f'<li>{x}</li>' for x in O['risks'])
-    docs = ''.join(f'<li><a class="doc" href="#" data-doc="{i}"><span class="doc__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 17H16" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 13H12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 2.5V3C13 5.82843 13 7.24264 13.8787 8.12132C14.7574 9 16.1716 9 19 9H19.5M20 10.6569V14C20 17.7712 20 19.6569 18.8284 20.8284C17.6569 22 15.7712 22 12 22C8.22876 22 6.34315 22 5.17157 20.8284C4 19.6569 4 17.7712 4 14V9.45584C4 6.21082 4 4.58831 4.88607 3.48933C5.06508 3.26731 5.26731 3.06508 5.48933 2.88607C6.58831 2 8.21082 2 11.4558 2C12.1614 2 12.5141 2 12.8372 2.11401C12.9044 2.13772 12.9702 2.165 13.0345 2.19575C13.3436 2.34355 13.593 2.593 14.0919 3.09188L18.8284 7.82843C19.4065 8.40649 19.6955 8.69552 19.8478 9.06306C20 9.4306 20 9.83935 20 10.6569Z" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="doc__name">{t}</span></a></li>' for i,(t,m) in enumerate(O['docs']))
+    def _doc_open(i, m):
+        return '<li><a class="doc" href="%s" data-doc="%d"%s>' % (m or '#', i, ' target="_blank" rel="noopener"' if m else '')
+    docs = ''.join(_doc_open(i, m) + f'<span class="doc__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 17H16" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 13H12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 2.5V3C13 5.82843 13 7.24264 13.8787 8.12132C14.7574 9 16.1716 9 19 9H19.5M20 10.6569V14C20 17.7712 20 19.6569 18.8284 20.8284C17.6569 22 15.7712 22 12 22C8.22876 22 6.34315 22 5.17157 20.8284C4 19.6569 4 17.7712 4 14V9.45584C4 6.21082 4 4.58831 4.88607 3.48933C5.06508 3.26731 5.26731 3.06508 5.48933 2.88607C6.58831 2 8.21082 2 11.4558 2C12.1614 2 12.5141 2 12.8372 2.11401C12.9044 2.13772 12.9702 2.165 13.0345 2.19575C13.3436 2.34355 13.593 2.593 14.0919 3.09188L18.8284 7.82843C19.4065 8.40649 19.6955 8.69552 19.8478 9.06306C20 9.4306 20 9.83935 20 10.6569Z" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="doc__name">{t}</span></a></li>' for i,(t,m) in enumerate(O['docs']))
     notes = ''.join(f'<p>{x}</p>' for x in O['notes'])
     overview = ''.join(f'<p>{x}</p>' for x in O['overview'])
 
@@ -120,7 +122,7 @@ def render(O):
     <head>
     <meta charset="utf-8">
     <script>/* approved-investor gate: mark the document before first paint so gated content never flashes */
-    try{ var _s = JSON.parse(localStorage.getItem('b1031-session') || 'null'); if(_s && _s.email) document.documentElement.classList.add('is-logged-in'); }catch(e){}</script>
+    try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.classList.add('is-logged-in'); }catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>''' + O['name'] + r''' — Baker 1031 Investments</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -319,7 +321,7 @@ def render(O):
       }
     </style>
     </head>
-    <body id="top">
+    <body id="top" data-offering="''' + O['slug'] + r'''">
 
     ''' + navhtml + r'''
 
@@ -473,8 +475,9 @@ def render(O):
         document.getElementById('notes-gate').hidden = true;
         document.getElementById('notes-body').hidden = false;
       });
-      // documents (placeholder links)
-      Array.prototype.forEach.call(document.querySelectorAll('.doc'), function(a){ a.addEventListener('click', function(e){ e.preventDefault(); }); });
+      // documents: files are downloaded at build time into offerings/<slug>/docs/ and hard-gated at the edge;
+      // a doc that has no file yet stays a placeholder.
+      Array.prototype.forEach.call(document.querySelectorAll('.doc'), function(a){ if(a.getAttribute('href') === '#') a.addEventListener('click', function(e){ e.preventDefault(); }); });
     })();
     </script>
 

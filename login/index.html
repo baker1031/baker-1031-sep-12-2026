@@ -381,22 +381,50 @@
     if (e.target.tagName === 'A'){ links.classList.remove('is-open'); menu.setAttribute('aria-expanded','false'); }
   });
 
-  // Session (client-side stand-in): the login page stores { email, first } once an address clears the approved list.
-  // Production: read the session from the auth cookie / endpoint instead of localStorage.
-  var SESSION_KEY = 'b1031-session';
-  function readSession(){ try { var s = JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); return s && s.email ? s : null; } catch(e){ return null; } }
-  function endSession(){ try { localStorage.removeItem(SESSION_KEY); } catch(e){} }
-  window.b1031 = { session: readSession, logout: endSession, SESSION_KEY: SESSION_KEY };
+  // Session. The login API (/api/auth, a Netlify function backed by the Investor Access base) sets an
+  // HttpOnly session cookie plus a readable companion cookie `b31_ui` holding the investor's first name,
+  // so the header can render logged-in before any request. Each page load re-verifies with the server
+  // (action "me"); a revoked or expired login clears the companion cookie and re-renders locked.
+  function readCookie(n){ var m = document.cookie.match(new RegExp('(?:^|;\\s*)' + n + '=([^;]*)')); return m ? decodeURIComponent(m[1]) : null; }
+  function readSession(){ var f = readCookie('b31_ui'); return f ? { first: f } : null; }
+  function setUi(first){ document.cookie = 'b31_ui=' + encodeURIComponent(first || 'Investor') + '; Path=/; Max-Age=2592000; SameSite=Lax'; }
+  function clearUi(){ document.cookie = 'b31_ui=; Path=/; Max-Age=0; SameSite=Lax'; }
+  function api(action, extra){
+    var body = extra || {}; body.action = action;
+    return fetch('/api/auth', { method:'POST', headers:{ 'content-type':'application/json' }, credentials:'same-origin', body: JSON.stringify(body) })
+      .then(function(r){ return r.json(); });
+  }
+  function endSession(){ clearUi(); document.documentElement.classList.remove('is-logged-in'); return api('logout').catch(function(){}); }
   var user = readSession();
   var loginEl = nav.querySelector('.nav__login'), ctaEl = nav.querySelector('.nav__cta');
   var userEl = nav.querySelector('.nav__user'), outEl = nav.querySelector('.nav__logout');
+  var nameEl = userEl.querySelector('[data-user-first]');
   if (user){
-    var first = user.first || String(user.email).split('@')[0];
-    userEl.querySelector('[data-user-first]').textContent = first;
+    nameEl.textContent = user.first;
     loginEl.hidden = true; ctaEl.hidden = true; userEl.hidden = false; outEl.hidden = false;
     document.documentElement.classList.add('is-logged-in');
   }
-  outEl.addEventListener('click', function(){ endSession(); window.location.href = '/'; });
+  outEl.addEventListener('click', function(){ endSession().then(function(){ window.location.href = '/'; }); });
+  // Verify the session with the server. A stale cookie (access revoked, session expired) is dropped and the
+  // page re-renders locked. If the API is unreachable the optimistic state stands.
+  function verify(){
+    if (!user) return Promise.resolve(false);
+    return api('me').then(function(d){
+      if (d && d.authed){
+        try { sessionStorage.removeItem('b31-relock'); } catch(e){}
+        if (d.firstName && d.firstName !== user.first){ setUi(d.firstName); nameEl.textContent = d.firstName; }
+        return true;
+      }
+      clearUi();
+      try { if (!sessionStorage.getItem('b31-relock')) { sessionStorage.setItem('b31-relock', '1'); window.location.reload(); } } catch(e){ window.location.reload(); }
+      return false;
+    }).catch(function(){ return true; });
+  }
+  window.b1031 = { session: readSession, logout: endSession, api: api, setUi: setUi, verify: verify };
+  verify();
+  // Offering pages: record the first view on the investor's record ("Deals Reviewed").
+  var offeringSlug = document.body.getAttribute('data-offering');
+  if (user && offeringSlug) api('track_view', { slug: offeringSlug }).catch(function(){});
 })();
 </script>
 <script>
@@ -418,19 +446,14 @@
   function looksLikeEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e); }
 
   // ---- Approved-investor check ----
-  // Production: replace with a request to the login endpoint, e.g.
-  //   fetch('/api/login', { method:'POST', body: JSON.stringify({ email:e }) }).then(r => r.json())
-  // which looks the address up in Airtable → Investor Access (appiKLSyAUmP0h8cJ) → Investors (tblbuFMpfv5R4DIyp) by Email Address
-  // (case-insensitive) and returns { found, accessLevel:'Approved'|'Call Needed', first: <First Name> }. The list is never shipped to the browser.
-  // Demo stand-in for the approved-investor list: email -> first name. Replace with the endpoint above.
-  var DEMO_APPROVED = { 'jane@example.com': 'Jane', 'jerry@baker1031.com': 'Jerry' };
+  // POST /api/auth {action:'login', email} (Netlify function) looks the address up in Airtable → Investor Access →
+  // Investors by Email Address, case-insensitively, and returns { status: 'ok' | 'call_needed' | 'not_found' }.
+  // On 'ok' it sets the HttpOnly session cookie and the readable `b31_ui` companion (first name). The list
+  // itself never reaches the browser.
   function lookup(e){
-    return new Promise(function(resolve){
-      setTimeout(function(){
-        var k = String(e).toLowerCase(), hit = Object.prototype.hasOwnProperty.call(DEMO_APPROVED, k);   // match case-insensitively
-        resolve({ found: hit, accessLevel:'Approved', first: hit ? DEMO_APPROVED[k] : '' });
-      }, 450);
-    });
+    return fetch('/api/auth', { method:'POST', headers:{ 'content-type':'application/json' }, credentials:'same-origin',
+                 body: JSON.stringify({ action:'login', email:e }) })
+      .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
   }
   // Where to go after logging in: ?next=/invest (same-site paths only), default the investments page.
   var nextParam = (function(){ try { var n = new URLSearchParams(window.location.search).get('next') || ''; return /^\/[^\/\\]/.test(n) ? n : '/invest'; } catch(e){ return '/invest'; } })();
@@ -451,17 +474,25 @@
     submit.disabled = true; submit.firstChild.textContent = 'Checking… ';
     lookup(e).then(function(res){
       submit.disabled = false; submit.firstChild.textContent = 'Log in ';
-      if(!res.found){
+      if(res.status === 'not_found'){
         showError('That email doesn’t match an account on file. Try again and check the spelling closely, or <a href="' + create.href + '">create a new account</a> with this address.');
         input.focus(); input.select();
         return;
       }
+      if(res.status === 'call_needed'){
+        var url = res.scheduleUrl || '/contact';
+        showError('<strong>One more step.</strong> Regulations require a short introductory call before I can share current investments. <a href="' + url + '">Schedule your call</a> and access opens right after.');
+        return;
+      }
+      if(res.status !== 'ok'){ showError('Something went wrong on our end. Please try again in a moment, or email <a href="mailto:invest@baker1031.com">invest@baker1031.com</a>.'); return; }
       clearError();
-      ok.innerHTML = '<strong>Welcome back' + (res.first ? ', ' + res.first : '') + '.</strong> Sending you to your investments…';
+      ok.innerHTML = '<strong>Welcome back' + (res.firstName ? ', ' + res.firstName : '') + '.</strong> Sending you to your investments…';
       ok.classList.add('is-on');
-      // Production: the endpoint sets the session cookie. Here the session lives in localStorage so the nav and gated pages can read it.
-      try { localStorage.setItem('b1031-session', JSON.stringify({ email:e, first:res.first || '', accessLevel:res.accessLevel, at:new Date().toISOString() })); } catch(err){}
+      try { if(window.b1031 && window.b1031.setUi) window.b1031.setUi(res.firstName); } catch(err){}
       setTimeout(function(){ window.location.href = nextParam; }, 900);
+    }).catch(function(){
+      submit.disabled = false; submit.firstChild.textContent = 'Log in ';
+      showError('The login service isn’t reachable right now. Please try again in a moment, or email <a href="mailto:invest@baker1031.com">invest@baker1031.com</a>.');
     });
   });
 })();

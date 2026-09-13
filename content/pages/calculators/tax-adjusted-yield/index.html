@@ -1,0 +1,52 @@
+<!--meta
+title: Tax-Adjusted Yield Comparison | Baker 1031 Investments
+description: Compare income investments on an after-tax basis: enter a distribution yield, the portion sheltered by depreciation, and your marginal tax rate.
+nav: learn
+-->
+<main>
+<section class="mast mast--light">
+  <div class="crumbs"><a href="/">Home</a><span>/</span><span style="opacity:1;color:inherit">Tax-adjusted yield</span></div>
+  <span class="eyebrow">Tools</span>
+  <h1 class="h1">Tax-Adjusted Yield</h1>
+  <p class="p-main">What a sheltered distribution is really worth.</p>
+</section>
+<section class="sec bg-white" style="padding-top:56px">
+  <div class="shell shell--left">
+    <aside class="rail"><h4>Calculators</h4><a href="/calculators/after-tax-proceeds/">After-tax proceeds</a><a href="/calculators/boot/">Boot</a><a href="/calculators/cap-rate/">Cap rate</a><a href="/calculators/cash-on-cash/">Cash-on-cash</a><a href="/calculators/deadline/">45 / 180-day deadlines</a><a href="/calculators/deferred-tax/">Deferred tax</a><a href="/calculators/depreciation-recapture/">Depreciation recapture</a><a href="/calculators/dst-yield/">DST yield</a><a href="/calculators/replacement-property/">Replacement property</a><a href="/calculators/sell-vs-exchange/">Sell vs exchange</a><a href="/calculators/tax-adjusted-yield/" aria-current="page">Tax-adjusted yield</a></aside>
+    <div class="prose">
+<div class="calcbox"><div class="grid"><div><label for="yld">Distribution yield (%)</label><input inputmode="decimal" id="yld" placeholder="e.g. 4.5"></div>
+<div><label for="shel">Portion sheltered by depreciation (%)</label><input inputmode="decimal" id="shel" placeholder="e.g. 60 — from the sponsor&rsquo;s projections"></div>
+<div class="full"><label for="rate">Your combined marginal tax rate on ordinary income (%)</label><input inputmode="decimal" id="rate" placeholder="e.g. 40 — federal + state"></div></div></div>
+<div class="results" id="results" hidden><div class="rrow big"><span class="rk">After-tax yield</span><span class="rv" id="rafter"></span></div>
+<div class="rrow big"><span class="rk">Taxable-equivalent yield</span><span class="rv" id="rteq"></span></div>
+<div class="warn" id="rmsg"></div></div>
+<p class="calcnote">Depreciation shelter defers tax rather than eliminating it: sheltered distributions reduce your basis, which generally increases recapture and gain when the investment ends (a subsequent 1031 or 721 transaction may defer it again). Shelter percentages are sponsor projections that change year to year. Not tax advice — model your situation with your CPA.</p>
+<div class="fineprint">This calculator is a simplified educational illustration, not tax or investment advice. It uses the figures you enter and standard federal rates without your full tax picture (basis adjustments, carryforwards, AMT, state specifics, and filing details are not modeled). Actual results are determined by your tax returns as prepared by your CPA. Review the PPM for any investment you consider and confirm every figure with your CPA and attorney before acting.</div>
+<p style="margin-top:34px;"><a href="/calculators/">&larr; All calculators</a></p>
+    </div>
+  </div>
+</section>
+</main>
+<!--scripts-->
+<script>
+function n(id){var v=document.getElementById(id).value.replace(/[^0-9.]/g,'');return v?parseFloat(v):0}
+function usd(v){return '$'+Math.round(v).toLocaleString('en-US')}
+function pctf(v){return (v*100).toFixed(1)+'%'}
+function set(id,v){document.getElementById(id).textContent=v}
+function money(el){el.addEventListener('blur',function(){var v=el.value.replace(/[^0-9.]/g,'');if(v)el.value='$'+Math.round(parseFloat(v)).toLocaleString('en-US')})}
+document.querySelectorAll('input[data-money]').forEach(money);
+document.querySelectorAll('input,select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+
+function calc(){
+  var y=(parseFloat(document.getElementById('yld').value)||0)/100;
+  var s=Math.min(100,(parseFloat(document.getElementById('shel').value)||0))/100;
+  var t=Math.min(99,(parseFloat(document.getElementById('rate').value)||0))/100;
+  var R=document.getElementById('results');
+  if(!y||!t){R.hidden=true;return}
+  var after=y*(1-t*(1-s));
+  var teq=after/(1-t);
+  set('rafter',(after*100).toFixed(2)+'%'); set('rteq',(teq*100).toFixed(2)+'%');
+  set('rmsg','With '+(s*100).toFixed(0)+'% of the distribution sheltered, the '+(y*100).toFixed(2)+'% yield keeps '+(after*100).toFixed(2)+'% after tax. A fully taxable investment would need to pay about '+(teq*100).toFixed(2)+'% to leave you the same income at your '+(t*100).toFixed(0)+'% rate.');
+  R.hidden=false;
+}</script>
+<!--/scripts-->

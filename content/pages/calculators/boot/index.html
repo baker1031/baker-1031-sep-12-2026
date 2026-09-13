@@ -1,0 +1,64 @@
+<!--meta
+title: Boot Calculator | Baker 1031 Investments
+description: Calculate cash boot and mortgage boot in a proposed 1031 exchange and see how much would be taxable, so the deal can be structured to defer fully.
+nav: learn
+-->
+<main>
+<section class="mast mast--light">
+  <div class="crumbs"><a href="/">Home</a><span>/</span><span style="opacity:1;color:inherit">Boot</span></div>
+  <span class="eyebrow">Tools</span>
+  <h1 class="h1">Boot Calculator</h1>
+  <p class="p-main">Cash and mortgage boot, and what triggers them.</p>
+</section>
+<section class="sec bg-white" style="padding-top:56px">
+  <div class="shell shell--left">
+    <aside class="rail"><h4>Calculators</h4><a href="/calculators/after-tax-proceeds/">After-tax proceeds</a><a href="/calculators/boot/" aria-current="page">Boot</a><a href="/calculators/cap-rate/">Cap rate</a><a href="/calculators/cash-on-cash/">Cash-on-cash</a><a href="/calculators/deadline/">45 / 180-day deadlines</a><a href="/calculators/deferred-tax/">Deferred tax</a><a href="/calculators/depreciation-recapture/">Depreciation recapture</a><a href="/calculators/dst-yield/">DST yield</a><a href="/calculators/replacement-property/">Replacement property</a><a href="/calculators/sell-vs-exchange/">Sell vs exchange</a><a href="/calculators/tax-adjusted-yield/">Tax-adjusted yield</a></aside>
+    <div class="prose">
+<div class="calcbox"><div class="grid"><div><label for="sale">Sale price (relinquished property)</label><input inputmode="numeric" data-money id="sale" placeholder="$2,000,000"></div>
+<div><label for="costs">Selling costs &amp; commissions</label><input inputmode="numeric" data-money id="costs" placeholder="$120,000"></div>
+<div><label for="payoff">Mortgage payoff at closing</label><input inputmode="numeric" data-money id="payoff" placeholder="$700,000 — $0 if free and clear"></div>
+<div><label for="gain">Total gain on the sale (optional)</label><input inputmode="numeric" data-money id="gain" placeholder="Optional — caps the taxable amount"></div>
+<div><label for="rprice">Replacement property purchase price</label><input inputmode="numeric" data-money id="rprice" placeholder="$1,700,000"></div>
+<div><label for="rdebt">Debt on the replacement property</label><input inputmode="numeric" data-money id="rdebt" placeholder="$500,000"></div>
+<div class="full"><label for="addcash">Fresh cash you are adding at closing</label><input inputmode="numeric" data-money id="addcash" placeholder="$0 — outside money can offset debt relief"></div></div></div>
+<div class="results" id="results" hidden><div class="rrow"><span class="rk">Cash boot (equity not reinvested)</span><span class="rv" id="rcash"></span></div>
+<div class="rrow"><span class="rk">Mortgage boot (debt relief not replaced)</span><span class="rv" id="rmort"></span></div>
+<div class="rrow"><span class="rk">Total boot</span><span class="rv" id="rtotal"></span></div>
+<div class="rrow big"><span class="rk">Estimated taxable amount</span><span class="rv" id="rtax"></span></div>
+<div class="warn" id="rmsg"></div></div>
+<p class="calcnote">Simplified netting: fresh cash offsets debt relief, and boot is taxed only up to your total gain. Exchange-expense treatment, seller financing, and closing prorations can all shift the real answer — your CPA and qualified intermediary run the final numbers.</p>
+<div class="fineprint">This calculator is a simplified educational illustration, not tax or investment advice. It uses the figures you enter and standard federal rates without your full tax picture (basis adjustments, carryforwards, AMT, state specifics, and filing details are not modeled). Actual results are determined by your tax returns as prepared by your CPA. Review the PPM for any investment you consider and confirm every figure with your CPA and attorney before acting.</div>
+<p style="margin-top:34px;"><a href="/calculators/">&larr; All calculators</a></p>
+    </div>
+  </div>
+</section>
+</main>
+<!--scripts-->
+<script>
+function n(id){var v=document.getElementById(id).value.replace(/[^0-9.]/g,'');return v?parseFloat(v):0}
+function usd(v){return '$'+Math.round(v).toLocaleString('en-US')}
+function pctf(v){return (v*100).toFixed(1)+'%'}
+function set(id,v){document.getElementById(id).textContent=v}
+function money(el){el.addEventListener('blur',function(){var v=el.value.replace(/[^0-9.]/g,'');if(v)el.value='$'+Math.round(parseFloat(v)).toLocaleString('en-US')})}
+document.querySelectorAll('input[data-money]').forEach(money);
+document.querySelectorAll('input,select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+
+function calc(){
+  var sale=n('sale'), costs=n('costs'), payoff=n('payoff'), rprice=n('rprice'), rdebt=n('rdebt'), addcash=n('addcash'), gain=n('gain');
+  var R=document.getElementById('results');
+  if(!sale||!rprice){R.hidden=true;return}
+  var netValue=sale-costs;
+  var equity=Math.max(0, netValue-payoff);
+  var equityIn=Math.max(0, Math.min(equity, rprice-rdebt-addcash));
+  var cashBoot=Math.max(0, equity-equityIn);
+  var mortBoot=Math.max(0, payoff-rdebt-addcash-cashBoot);
+  var totalBoot=cashBoot+mortBoot;
+  var taxable= gain>0? Math.min(totalBoot,gain) : totalBoot;
+  set('rcash',usd(cashBoot)); set('rmort',usd(mortBoot)); set('rtotal',usd(totalBoot)); set('rtax',usd(taxable));
+  var msg;
+  if(totalBoot<1){ msg='No boot on these numbers — the exchange fully defers. You are trading equal or up in value, reinvesting all equity, and replacing all debt.'; }
+  else { msg='To defer fully: acquire at least '+usd(netValue)+' of replacement property, reinvest all '+usd(equity)+' of equity, and replace the '+usd(payoff)+' of debt (new debt or fresh cash both count). Boot does not fail the exchange — it just makes '+usd(taxable)+' of it taxable.'; }
+  document.getElementById('rmsg').textContent=msg;
+  R.hidden=false;
+}</script>
+<!--/scripts-->

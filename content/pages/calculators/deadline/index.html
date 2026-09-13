@@ -1,0 +1,58 @@
+<!--meta
+title: 45/180-Day Deadline Calculator | Baker 1031 Investments
+description: Enter your sale closing date to calculate the 45-day identification deadline and 180-day completion deadline for a 1031 exchange.
+nav: learn
+-->
+<main>
+<section class="mast mast--light">
+  <div class="crumbs"><a href="/">Home</a><span>/</span><span style="opacity:1;color:inherit">45 / 180-day deadlines</span></div>
+  <span class="eyebrow">Tools</span>
+  <h1 class="h1">45 / 180-Day Deadlines</h1>
+  <p class="p-main">Both clocks start the day your sale closes.</p>
+</section>
+<section class="sec bg-white" style="padding-top:56px">
+  <div class="shell shell--left">
+    <aside class="rail"><h4>Calculators</h4><a href="/calculators/after-tax-proceeds/">After-tax proceeds</a><a href="/calculators/boot/">Boot</a><a href="/calculators/cap-rate/">Cap rate</a><a href="/calculators/cash-on-cash/">Cash-on-cash</a><a href="/calculators/deadline/" aria-current="page">45 / 180-day deadlines</a><a href="/calculators/deferred-tax/">Deferred tax</a><a href="/calculators/depreciation-recapture/">Depreciation recapture</a><a href="/calculators/dst-yield/">DST yield</a><a href="/calculators/replacement-property/">Replacement property</a><a href="/calculators/sell-vs-exchange/">Sell vs exchange</a><a href="/calculators/tax-adjusted-yield/">Tax-adjusted yield</a></aside>
+    <div class="prose">
+<div class="calcbox"><div class="grid"><div class="full"><label for="close">Sale closing date</label><input type="date" id="close"></div></div></div>
+<div class="results" id="results" hidden><div class="rrow big"><span class="rk">45-day identification deadline</span><span class="rv" id="r45"></span></div>
+<div class="rrow"><span class="rk">Identification clock</span><span class="rv" id="l45"></span></div>
+<div class="rrow big"><span class="rk">180-day completion deadline</span><span class="rv" id="r180"></span></div>
+<div class="rrow"><span class="rk">Completion clock</span><span class="rv" id="l180"></span></div>
+<div class="warn" id="wk"></div></div>
+<p class="calcnote">Your 180-day period can be shorter if your tax return due date (with extensions not yet filed) arrives first — a detail worth raising with your CPA when a sale closes late in the year.</p>
+<div class="fineprint">This calculator is a simplified educational illustration, not tax or investment advice. It uses the figures you enter and standard federal rates without your full tax picture (basis adjustments, carryforwards, AMT, state specifics, and filing details are not modeled). Actual results are determined by your tax returns as prepared by your CPA. Review the PPM for any investment you consider and confirm every figure with your CPA and attorney before acting.</div>
+<p style="margin-top:34px;"><a href="/calculators/">&larr; All calculators</a></p>
+    </div>
+  </div>
+</section>
+</main>
+<!--scripts-->
+<script>
+function n(id){var v=document.getElementById(id).value.replace(/[^0-9.]/g,'');return v?parseFloat(v):0}
+function usd(v){return '$'+Math.round(v).toLocaleString('en-US')}
+function pctf(v){return (v*100).toFixed(1)+'%'}
+function set(id,v){document.getElementById(id).textContent=v}
+function money(el){el.addEventListener('blur',function(){var v=el.value.replace(/[^0-9.]/g,'');if(v)el.value='$'+Math.round(parseFloat(v)).toLocaleString('en-US')})}
+document.querySelectorAll('input[data-money]').forEach(money);
+document.querySelectorAll('input,select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+
+function fmt(d){return d.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}
+function calc(){
+  var v=document.getElementById('close').value; var R=document.getElementById('results');
+  if(!v){R.hidden=true;return}
+  var d0=new Date(v+'T12:00:00');
+  var d45=new Date(d0); d45.setDate(d45.getDate()+45);
+  var d180=new Date(d0); d180.setDate(d180.getDate()+180);
+  var today=new Date(); today.setHours(12,0,0,0);
+  var left45=Math.ceil((d45-today)/86400000), left180=Math.ceil((d180-today)/86400000);
+  set('r45',fmt(d45)); set('r180',fmt(d180));
+  set('l45', left45>=0? left45+' days remaining' : 'passed '+(-left45)+' days ago');
+  set('l180', left180>=0? left180+' days remaining' : 'passed '+(-left180)+' days ago');
+  var w=[];
+  if([0,6].indexOf(d45.getDay())>=0) w.push('Your 45-day date falls on a weekend.');
+  if([0,6].indexOf(d180.getDay())>=0) w.push('Your 180-day date falls on a weekend.');
+  document.getElementById('wk').textContent = w.length? w.join(' ')+' The deadline is still the calendar date — the IRS does not move it to the next business day. Confirm treatment with your qualified intermediary.' : '';
+  R.hidden=false;
+}</script>
+<!--/scripts-->
