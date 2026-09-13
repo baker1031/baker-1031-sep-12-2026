@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log in — Baker 1031 Investments</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#000; --white:#fff;
+    --accent:rgb(13,157,216); --accent-hover:rgb(10,135,187); --accent-soft:#F1F9FF;
+    --grey:#4B5563; --grey-light:#6B7280; --hair:#E5E7EB; --hair-strong:#CBD2D9; --error:#DC2626;
+    --radius:6px;
+    --font:"Special Gothic", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{ margin:0; background:var(--white); color:var(--black); font-family:var(--font); line-height:1.5; -webkit-font-smoothing:antialiased; min-height:100vh; display:flex; flex-direction:column; }
+  ::selection{ background:var(--accent); color:var(--white); }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:12px 20px; background:var(--accent); color:var(--white);
+    border:1px solid var(--accent); border-radius:var(--radius);
+    font:inherit; font-size:14px; font-weight:600; text-decoration:none; cursor:pointer;
+    transition:background .18s ease, border-color .18s ease;
+  }
+  .btn:hover{ background:var(--accent-hover); border-color:var(--accent-hover); }
+  .btn svg{ width:16px; height:16px; }
+  .btn[disabled]{ opacity:.6; cursor:default; }
+
+  /* ---------- Sticky nav (from the homepage) ---------- */
+  /* ---------- Sticky nav ---------- */
+  .nav{
+    position:sticky; top:0; z-index:60;
+    background:rgba(255,255,255,.92);
+    -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+    border-bottom:1px solid #E5E7EB;
+    transition:box-shadow .2s ease;
+  }
+  .nav.is-scrolled{ box-shadow:0 2px 12px rgba(0,0,0,.06); }
+  .nav__inner{
+    max-width:calc(1200px + 48px);
+    margin:0 auto;
+    padding:0 24px;
+    height:56px;
+    display:flex;
+    align-items:center;
+    gap:32px;
+  }
+  .nav__logo{ display:flex; align-items:center; flex:0 0 auto; }
+  .nav__logo img{ height:24px; width:auto; display:block; }
+  .nav__links{ display:flex; align-items:center; gap:26px; margin-left:24px; }
+  .nav__links a{
+    display:inline-grid;
+    align-items:center;
+    justify-items:center;
+    font-size:14px;
+    font-weight:600;
+    color:#4B5563;
+    text-decoration:none;
+    padding:6px 0;
+    line-height:1.2;
+    overflow:hidden;
+    perspective:400px;
+  }
+  /* two faces stacked in one grid cell: the typeset word rolls up and out, the handwritten one rolls in from below */
+  .nav__links a > span{
+    grid-area:1 / 1;
+    display:block;
+    transition:transform .32s cubic-bezier(.22,1,.36,1), opacity .32s ease;
+    backface-visibility:hidden;
+  }
+  .nav__links a .nav__hand{
+    font-family:var(--hand);
+    font-size:20px;
+    font-weight:600;
+    line-height:1;
+    color:var(--accent);
+    transform:translateY(110%) rotateX(-90deg);
+    opacity:0;
+    white-space:nowrap;
+  }
+  .nav__links a:hover .nav__word,
+  .nav__links a:focus-visible .nav__word{ transform:translateY(-110%) rotateX(90deg); opacity:0; }
+  .nav__links a:hover .nav__hand,
+  .nav__links a:focus-visible .nav__hand{ transform:none; opacity:1; }
+  @media (prefers-reduced-motion:reduce){
+    .nav__links a > span{ transition:none; }
+  }
+  .nav__actions{ margin-left:auto; display:flex; align-items:center; gap:18px; }
+  .nav__login{
+    font-size:14px;
+    font-weight:600;
+    color:#4B5563;
+    text-decoration:none;
+    transition:color .15s ease;
+  }
+  .nav__login:hover{ color:var(--accent); }
+  .nav__cta{ margin:0; padding:8px 16px; font-size:13.5px; }
+  /* logged-in state: greeting + Log Out replace Log In / Get Started */
+  .nav__actions [hidden]{ display:none !important; }
+  .nav__user{ font-size:14px; font-weight:600; color:var(--black); white-space:nowrap; }
+  .nav__user-name{ color:var(--accent); }
+  .nav__logout{
+    font:inherit; font-size:14px; font-weight:600; color:#4B5563;
+    background:none; border:0; padding:0; cursor:pointer; white-space:nowrap;
+    transition:color .15s ease;
+  }
+  .nav__logout:hover{ color:var(--accent); }
+  .nav__menu{
+    display:none;
+    width:36px; height:36px;
+    padding:8px;
+    background:none; border:0; cursor:pointer;
+    flex-direction:column; justify-content:space-between;
+  }
+  .nav__menu span{ display:block; height:2px; background:var(--black); border-radius:1px; }
+
+
+  /* ---------- Login stage ---------- */
+  .stage{
+    flex:1 0 auto; position:relative; overflow:hidden;
+    min-height:760px;
+    background:var(--white);
+    display:flex; align-items:flex-start; justify-content:center;
+    padding:96px 24px 0;
+  }
+  .stage__sky{ position:absolute; left:0; right:0; bottom:-2px; pointer-events:none; opacity:.9; }
+  .stage__sky img{ display:block; width:100%; height:auto; }
+  .box{
+    position:relative; z-index:1;
+    width:100%; max-width:460px;
+    background:var(--white); border:1px solid var(--hair-strong); border-radius:10px;
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+    padding:36px 36px 32px;
+    margin-bottom:220px;
+  }
+  .box h1{ margin:0 0 6px; font-size:28px; font-weight:700; line-height:1.15; letter-spacing:-.02em; }
+  .box h1 .hand{ font-family:var(--hand); font-weight:600; color:var(--accent); font-size:1.3em; line-height:.8; display:inline-block; transform:rotate(-3deg) translateY(.04em); margin-right:.08em; }
+  .box__sub{ margin:0 0 26px; font-size:14.5px; color:var(--grey); }
+  .box__sub a{ color:var(--accent); font-weight:600; text-decoration:none; }
+  .box__sub a:hover{ text-decoration:underline; text-underline-offset:3px; }
+  .field{ display:flex; flex-direction:column; }
+  .field label{ font-size:13px; font-weight:600; color:var(--grey); margin-bottom:8px; }
+  .field input{
+    appearance:none; width:100%; font:inherit; font-size:17px; color:var(--black);
+    background:var(--white); border:1px solid var(--hair-strong); border-radius:var(--radius);
+    padding:12px 14px; outline:none; transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .field input::placeholder{ color:#B4BAC3; }
+  .field input:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(13,157,216,.18); }
+  .field.is-invalid input{ border-color:var(--error); box-shadow:0 0 0 3px rgba(220,38,38,.12); }
+  .field .btn{ width:100%; margin-top:14px; padding:13px 20px; font-size:15px; }
+  .err{
+    display:none; margin:12px 0 0; padding:12px 14px;
+    border:1px solid #FECACA; border-left:3px solid var(--error); border-radius:var(--radius); background:#FEF2F2;
+    font-size:13.5px; line-height:1.5; color:#7F1D1D;
+  }
+  .err.is-on{ display:block; }
+  .err a{ color:var(--accent); font-weight:600; text-decoration:none; }
+  .err a:hover{ text-decoration:underline; text-underline-offset:3px; }
+  .ok{
+    display:none; margin:12px 0 0; padding:12px 14px;
+    border:1px solid #CFE9F7; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
+    font-size:13.5px; line-height:1.5; color:var(--grey);
+  }
+  .ok.is-on{ display:block; }
+  .ok strong{ color:var(--black); }
+  .box__help{ margin:22px 0 0; padding-top:18px; border-top:1px solid var(--hair); font-size:12.5px; line-height:1.5; color:var(--grey-light); }
+  .box__help a{ color:var(--grey-light); text-decoration:underline; text-decoration-style:dotted; text-decoration-color:var(--accent); text-underline-offset:3px; }
+  .box__help a:hover{ color:var(--accent); }
+
+  .rule{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; width:100%; }
+  .rule::before{ content:""; display:block; height:1px; background:#E5E7EB; }
+  .rule--strong::before{ height:2px; background:#CBD2D9; }
+
+  /* ---------- Footer (from the homepage) ---------- */
+  /* ---------- Footer ---------- */
+  .footer{ background:var(--white); }
+  .rule--strong::before{ height:2px; background:#CBD2D9; }
+  .footer__inner{
+    max-width:calc(1200px + 48px);
+    margin:0 auto;
+    padding:56px 24px 40px;
+    display:grid;
+    grid-template-columns:minmax(0,1.5fr) minmax(0,1.1fr) minmax(0,.7fr) minmax(0,.7fr);
+    gap:32px 48px;
+  }
+  .footer__brand img{ height:22px; width:auto; display:block; margin-bottom:16px; }
+  .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#4B5563; }
+  .footer__brand a{ color:#4B5563; text-decoration:none; }
+  .footer__brand a:hover{ color:var(--accent); }
+  .footer__brand .footer__blurb{ max-width:46ch; }
+  .footer__office{
+    font-style:normal;
+    margin:0 0 14px;
+    font-size:13.5px; line-height:1.6; color:#4B5563;
+  }
+  .footer__office strong{ display:block; font-weight:600; color:var(--black); }
+  .footer__col .footer__office a{ display:inline; padding:0; font-size:inherit; }
+  .footer__col .footer__office a:hover{ color:var(--accent); }
+  .footer__disclosure a{ color:#6B7280; text-decoration:underline; text-underline-offset:2px; }
+  .footer__disclosure a:hover{ color:var(--accent); }
+  .footer__label{
+    margin:0 0 10px;
+    font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--accent);
+  }
+  .footer__col a{
+    display:block;
+    padding:4px 0;
+    font-size:14px;
+    color:#4B5563;
+    text-decoration:none;
+    transition:color .15s ease;
+  }
+  .footer__col a:hover{ color:var(--black); }
+  .footer__disclosure{
+    grid-column:1 / -1;
+    padding-top:28px;
+    border-top:1px solid #E5E7EB;
+  }
+  .footer__disclosure p{ margin:0 0 10px; font-size:11px; line-height:1.55; color:#6B7280; }
+  .footer__copy{ color:#9CA3AF !important; }
+
+  /* ---------- Skyline illustration ---------- */
+  .skyline{
+    background:var(--white);
+    padding-top:56px;
+    overflow:hidden;
+  }
+  .skyline img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+
+
+  @media (max-width:900px){
+    .nav__inner{ gap:16px; height:54px; }
+    .nav__links{
+      display:none;
+      position:absolute; left:0; right:0; top:54px;
+      flex-direction:column; align-items:stretch; gap:0;
+      margin:0; padding:8px 20px 12px;
+      background:var(--white);
+      border-bottom:1px solid #E5E7EB;
+      box-shadow:0 12px 24px rgba(0,0,0,.08);
+    }
+    .nav__links.is-open{ display:flex; }
+    .nav__links a{ padding:12px 0; border-bottom:1px solid #F0F1F3; font-size:15px; }
+    .nav__links a{ justify-items:start; }
+    .nav__links a .nav__hand{ font-size:22px; }
+    .nav__links a:last-child{ border-bottom:0; }
+    .nav__logo img{ height:18px; }
+    .nav__actions{ gap:12px; }
+    .nav__login{ font-size:13px; white-space:nowrap; }
+    .nav__user{ font-size:13px; }
+    .nav__logout{ font-size:13px; }
+    .nav__cta{ padding:7px 11px; font-size:12.5px; white-space:nowrap; }
+    .nav__cta svg{ display:none; }
+    .nav__menu{ display:flex; width:30px; padding:7px 4px; }
+    .stage{ padding:40px 20px 0; min-height:560px; }
+    .box{ padding:28px 22px 24px; margin-bottom:150px; }
+    .box h1{ font-size:24px; }
+    .footer__inner{ grid-template-columns:1fr 1fr; padding:40px 20px 32px; }
+    .footer__brand{ grid-column:1 / -1; }
+    .footer__offices{ grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; column-gap:24px; }
+    .footer__offices .footer__label{ grid-column:1 / -1; }
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="/" aria-label="Baker 1031 — home">
+      <img src="/assets/media/logo.png" alt="Baker 1031" width="655" height="120">
+    </a>
+    <nav class="nav__links" id="nav-links" aria-label="Primary">
+      <a href="/"><span class="nav__word">Home</span><span class="nav__hand" aria-hidden="true">Home</span></a>
+      <a href="/invest"><span class="nav__word">Invest</span><span class="nav__hand" aria-hidden="true">Invest</span></a>
+      <a href="/#results"><span class="nav__word">Results</span><span class="nav__hand" aria-hidden="true">Results</span></a>
+      <a href="/learn"><span class="nav__word">Learn</span><span class="nav__hand" aria-hidden="true">Learn</span></a>
+    </nav>
+    <div class="nav__actions">
+      <a class="nav__login" href="/login">Log In</a>
+      <a class="btn nav__cta" href="/register">Get Started</a>
+      <span class="nav__user" hidden>Welcome, <span class="nav__user-name" data-user-first></span>!</span>
+      <button class="nav__logout" type="button" hidden>Log Out</button>
+      <button class="nav__menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="stage">
+  <div class="stage__sky" aria-hidden="true"><img src="/assets/media/sf-skyline.png" alt="" width="2000" height="459"></div>
+  <div class="box">
+    <h1>Welcome back!</h1>
+    <p class="box__sub">New to Baker 1031 Investments? <a href="/register" id="create">Create an account</a></p>
+    <form id="login" novalidate>
+      <div class="field" id="field">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" inputmode="email" spellcheck="false" autocapitalize="off" autofocus>
+        <button class="btn" type="submit" id="submit">
+          Log in
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <p class="err" id="err" role="alert" aria-live="polite"></p>
+      <p class="ok" id="ok" role="status" aria-live="polite"></p>
+    </form>
+    <p class="box__help">Trouble logging in? Email <a href="mailto:invest@baker1031.com">invest@baker1031.com</a> or call <a href="tel:+14159650552">(415) 965-0552</a>.</p>
+  </div>
+</main>
+
+<div class="rule rule--strong" aria-hidden="true"></div>
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img src="/assets/media/logo.png" alt="Baker 1031" width="655" height="120">
+      <p class="footer__blurb">Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.</p>
+      <p><a href="mailto:jerry@baker1031.com">jerry@baker1031.com</a></p>
+    </div>
+    <div class="footer__col footer__offices">
+      <p class="footer__label">Offices</p>
+      <address class="footer__office">
+        <strong>San Francisco</strong>
+        1700 Montgomery St, Ste 108<br>San Francisco, CA 94111<br>
+        <a href="tel:+14159650552">(415) 965-0552</a>
+      </address>
+      <address class="footer__office">
+        <strong>Los Angeles</strong>
+        2100 E Grand Ave, 1st Floor<br>El Segundo, CA 90245<br>
+        <a href="tel:+13108964227">(310) 896-4227</a>
+      </address>
+    </div>
+    <div class="footer__col">
+      <p class="footer__label">Site</p>
+      <a href="/">Home</a>
+      <a href="/invest">Invest</a>
+      <a href="/#results">Results</a>
+      <a href="/learn">Learn</a>
+      <a href="/login">Log In</a>
+      <a href="/register">Get Started</a>
+    </div>
+    <div class="footer__col">
+      <p class="footer__label">Verify</p>
+      <a href="https://brokercheck.finra.org/firm/summary/46147" rel="noopener">FINRA BrokerCheck</a>
+      <a href="/form-crs">Form CRS</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Use</a>
+      <a href="/disclosures">Disclosures</a>
+    </div>
+    <div class="footer__disclosure">
+      <p>Securities are offered through Aurora Securities, Inc., member <a href="https://www.finra.org/" rel="noopener">FINRA</a>/<a href="https://www.sipc.org/" rel="noopener">SIPC</a>. Baker 1031 Investments, LLC is independent of Aurora Securities, Inc. and is not a registered broker-dealer or investment adviser. <a href="https://brokercheck.finra.org/firm/summary/46147" rel="noopener">Check Aurora Securities, Inc. on FINRA BrokerCheck</a>. This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security. Offerings are made only by a sponsor’s private placement memorandum, are available solely to accredited investors, and are subject to suitability requirements. Real estate investments involve substantial risk, including illiquidity, potential loss of principal, and market and interest-rate risk. DST interests are long-term investments and generally cannot be sold on demand. Past performance, including full-cycle results shown on this site, is not a guarantee of future results. Baker 1031 Investments is not a tax or legal advisor. Prospective investors should consult their own CPA and attorney regarding their individual circumstances before investing.</p>
+      <p class="footer__copy">© 2026 Baker 1031 Investments. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Nav: shadow once scrolled; mobile menu toggle
+  var nav = document.getElementById('nav');
+  var links = document.getElementById('nav-links');
+  var menu = nav.querySelector('.nav__menu');
+  function onScroll(){ nav.classList.toggle('is-scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  menu.addEventListener('click', function(){
+    var open = links.classList.toggle('is-open');
+    menu.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.addEventListener('click', function(e){
+    if (e.target.tagName === 'A'){ links.classList.remove('is-open'); menu.setAttribute('aria-expanded','false'); }
+  });
+
+  // Session (client-side stand-in): the login page stores { email, first } once an address clears the approved list.
+  // Production: read the session from the auth cookie / endpoint instead of localStorage.
+  var SESSION_KEY = 'b1031-session';
+  function readSession(){ try { var s = JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); return s && s.email ? s : null; } catch(e){ return null; } }
+  function endSession(){ try { localStorage.removeItem(SESSION_KEY); } catch(e){} }
+  window.b1031 = { session: readSession, logout: endSession, SESSION_KEY: SESSION_KEY };
+  var user = readSession();
+  var loginEl = nav.querySelector('.nav__login'), ctaEl = nav.querySelector('.nav__cta');
+  var userEl = nav.querySelector('.nav__user'), outEl = nav.querySelector('.nav__logout');
+  if (user){
+    var first = user.first || String(user.email).split('@')[0];
+    userEl.querySelector('[data-user-first]').textContent = first;
+    loginEl.hidden = true; ctaEl.hidden = true; userEl.hidden = false; outEl.hidden = false;
+    document.documentElement.classList.add('is-logged-in');
+  }
+  outEl.addEventListener('click', function(){ endSession(); window.location.href = '/'; });
+})();
+</script>
+<script>
+(function(){
+  var form = document.getElementById('login'), field = document.getElementById('field'), input = document.getElementById('email');
+  var err = document.getElementById('err'), ok = document.getElementById('ok'), submit = document.getElementById('submit'), create = document.getElementById('create');
+
+  // Keep the "Create an account" link carrying whatever they've typed
+  function syncCreate(){
+    var v = clean(input.value);
+    create.href = '/register' + (v ? '?email=' + encodeURIComponent(v) : '');
+  }
+  function clean(raw){
+    var e = (raw || '').trim().replace(/^mailto:/i, '').replace(/^[<"'(\[\s]+|[>"')\]\s]+$/g, '').replace(/\s+/g, '').replace(/[.,;:]+$/, '');
+    var at = e.lastIndexOf('@');
+    if(at > -1) e = e.slice(0, at) + '@' + e.slice(at + 1).replace(/,/g, '.').toLowerCase();
+    return e;
+  }
+  function looksLikeEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e); }
+
+  // ---- Approved-investor check ----
+  // Production: replace with a request to the login endpoint, e.g.
+  //   fetch('/api/login', { method:'POST', body: JSON.stringify({ email:e }) }).then(r => r.json())
+  // which looks the address up in Airtable → Investor Access (appiKLSyAUmP0h8cJ) → Investors (tblbuFMpfv5R4DIyp) by Email Address
+  // (case-insensitive) and returns { found, accessLevel:'Approved'|'Call Needed', first: <First Name> }. The list is never shipped to the browser.
+  // Demo stand-in for the approved-investor list: email -> first name. Replace with the endpoint above.
+  var DEMO_APPROVED = { 'jane@example.com': 'Jane', 'jerry@baker1031.com': 'Jerry' };
+  function lookup(e){
+    return new Promise(function(resolve){
+      setTimeout(function(){
+        var k = String(e).toLowerCase(), hit = Object.prototype.hasOwnProperty.call(DEMO_APPROVED, k);   // match case-insensitively
+        resolve({ found: hit, accessLevel:'Approved', first: hit ? DEMO_APPROVED[k] : '' });
+      }, 450);
+    });
+  }
+  // Where to go after logging in: ?next=/invest (same-site paths only), default the investments page.
+  var nextParam = (function(){ try { var n = new URLSearchParams(window.location.search).get('next') || ''; return /^\/[^\/\\]/.test(n) ? n : '/invest'; } catch(e){ return '/invest'; } })();
+
+  function showError(html){ err.innerHTML = html; err.classList.add('is-on'); ok.classList.remove('is-on'); field.classList.add('is-invalid'); }
+  function clearError(){ err.classList.remove('is-on'); field.classList.remove('is-invalid'); }
+
+  input.addEventListener('input', function(){ clearError(); syncCreate(); });
+  syncCreate();
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var e = clean(input.value);
+    if(e !== input.value) input.value = e;
+    syncCreate();
+    if(!e){ showError('Please enter your email address.'); input.focus(); return; }
+    if(!looksLikeEmail(e)){ showError('That doesn’t look like a complete email address — could you double-check it?'); input.focus(); return; }
+    submit.disabled = true; submit.firstChild.textContent = 'Checking… ';
+    lookup(e).then(function(res){
+      submit.disabled = false; submit.firstChild.textContent = 'Log in ';
+      if(!res.found){
+        showError('That email doesn’t match an account on file. Try again and check the spelling closely, or <a href="' + create.href + '">create a new account</a> with this address.');
+        input.focus(); input.select();
+        return;
+      }
+      clearError();
+      ok.innerHTML = '<strong>Welcome back' + (res.first ? ', ' + res.first : '') + '.</strong> Sending you to your investments…';
+      ok.classList.add('is-on');
+      // Production: the endpoint sets the session cookie. Here the session lives in localStorage so the nav and gated pages can read it.
+      try { localStorage.setItem('b1031-session', JSON.stringify({ email:e, first:res.first || '', accessLevel:res.accessLevel, at:new Date().toISOString() })); } catch(err){}
+      setTimeout(function(){ window.location.href = nextParam; }, 900);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

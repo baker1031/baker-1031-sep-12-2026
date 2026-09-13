@@ -1,0 +1,2098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Started with Jerry — Baker 1031 Investments</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#000;
+    --white:#fff;
+    --accent:rgb(13,157,216);
+    --accent-hover:rgb(10,135,187);
+    --accent-soft:#F1F9FF;
+    --grey:#4B5563;
+    --grey-light:#6B7280;
+    --hair:#E5E7EB;
+    --hair-strong:#CBD2D9;
+    --error:#DC2626;
+    --radius:6px;
+    --font:"Special Gothic", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
+    --nav-h:56px;
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--black);
+    font-family:var(--font);
+    font-weight:400;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+  ::selection{ background:var(--accent); color:var(--white); }
+
+  /* ---------- Nav (same as homepage, trimmed) ---------- */
+  .nav{
+    position:sticky; top:0; z-index:40;
+    background:rgba(255,255,255,.9);
+    -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--hair);
+  }
+  .nav__inner{
+    max-width:calc(1200px + 48px);
+    margin:0 auto;
+    padding:0 24px;
+    height:var(--nav-h);
+    display:flex; align-items:center; gap:32px;
+  }
+  .nav__logo{ display:flex; align-items:center; }
+  .nav__logo img{ height:24px; width:auto; display:block; }
+  .nav__right{ margin-left:auto; display:flex; align-items:center; gap:18px; font-size:13.5px; color:var(--grey); }
+  .nav__right a{ color:var(--grey); text-decoration:none; }
+  .nav__right a:hover{ color:var(--accent); }
+  .nav__right .dot{ width:3px; height:3px; border-radius:50%; background:var(--hair-strong); }
+
+  /* ---------- Progress ---------- */
+  .progress{ height:3px; background:var(--hair); }
+  .progress__bar{
+    height:100%; width:0; background:var(--accent);
+    transition:width .5s cubic-bezier(.22,1,.36,1);
+  }
+
+  /* ---------- Page intro ---------- */
+  .intro{
+    padding:44px 0 8px;
+    border-bottom:1px solid var(--hair);
+    margin-bottom:8px;
+  }
+  .intro__title{
+    margin:0 0 12px;
+    font-size:clamp(30px,3vw,40px);
+    font-weight:700;
+    line-height:1.1;
+    letter-spacing:-.02em;
+    color:var(--black);
+  }
+  .intro__title .hand{
+    font-family:var(--hand);
+    font-weight:600;
+    color:var(--accent);
+    font-size:1.3em;
+    line-height:.8;
+    display:inline-block;
+    transform:rotate(-3deg) translateY(.04em);
+  }
+  .intro__copy{
+    margin:0 0 24px;
+    max-width:720px;
+    font-size:16px;
+    line-height:1.65;
+    color:var(--grey);
+  }
+
+  /* ---------- Form shell ---------- */
+  .shell{
+    flex:1;
+    max-width:calc(1200px + 48px);
+    width:100%;
+    margin:0 auto;
+    padding:0 24px;
+    display:flex;
+    flex-direction:column;
+  }
+  .stage{
+    position:relative;
+    flex:1;
+    display:grid;
+  }
+  .step{
+    grid-area:1 / 1;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);
+    gap:48px 96px;
+    align-items:start;
+    padding:40px 0 56px;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(40px);
+    transition:opacity .45s ease, transform .55s cubic-bezier(.22,1,.36,1), visibility 0s linear .55s;
+    pointer-events:none;
+  }
+  .step.is-active{
+    opacity:1; visibility:visible; transform:none;
+    transition:opacity .45s ease .1s, transform .55s cubic-bezier(.22,1,.36,1) .1s, visibility 0s;
+    pointer-events:auto;
+  }
+  .step.is-leaving{ transform:translateY(-40px); }
+  .step.is-back{ transform:translateY(40px); }
+
+  /* ---------- Jerry aside ---------- */
+  .jerry{ min-width:0; padding-top:6px; }
+  .jerry__photo{
+    width:132px; height:132px;
+    border-radius:50%;
+    object-fit:cover; object-position:50% 50%;
+    display:block;
+    margin-bottom:22px;
+    box-shadow:0 0 0 4px var(--white), 0 0 0 5px var(--hair);
+  }
+  .jerry__bubble{
+    position:relative;
+    padding:20px 22px;
+    border:1px solid var(--hair);
+    border-radius:12px;
+    background:var(--white);
+    font-size:16px;
+    line-height:1.65;
+    color:var(--grey);
+    max-width:440px;
+  }
+  .jerry__bubble::before,
+  .jerry__bubble::after{
+    content:""; position:absolute; left:32px; width:0; height:0;
+    border-left:10px solid transparent; border-right:10px solid transparent;
+  }
+  .jerry__bubble::before{ top:-11px; border-bottom:11px solid var(--hair); }
+  .jerry__bubble::after{ top:-10px; border-bottom:11px solid var(--white); }
+  .jerry__bubble p{ margin:0; }
+  /* the full message is laid out invisibly so the bubble is its final size from the start;
+     the typed copy sits on top and simply fills it in */
+  .jerry__ghost{ visibility:hidden; }
+  .jerry__bubble .typed{ position:absolute; top:20px; left:22px; right:22px; }
+  .jerry__bubble strong{ color:var(--black); font-weight:600; }
+  /* typing cursor while the bubble "talks" */
+  .jerry__bubble.is-typing .typed::after{
+    content:""; display:inline-block; width:2px; height:1em; margin-left:2px;
+    background:var(--accent); vertical-align:-.15em;
+    animation:blink .9s steps(2) infinite;
+  }
+  @keyframes blink{ to{ opacity:0; } }
+
+  /* ---------- Question side ---------- */
+  .q{ min-width:0; max-width:640px; }
+  .q__num{
+    display:flex; align-items:center; gap:8px;
+    margin:0 0 14px;
+    font-size:13px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--accent);
+  }
+  .q__num svg{ width:14px; height:14px; }
+  .q__title{
+    margin:0 0 28px;
+    font-size:clamp(26px,2.6vw,34px);
+    font-weight:700;
+    line-height:1.15;
+    letter-spacing:-.02em;
+    color:var(--black);
+  }
+  .q__title .hand{
+    font-family:var(--hand);
+    font-weight:600;
+    color:var(--accent);
+    font-size:1.25em;
+    line-height:.8;
+    display:inline-block;
+    transform:rotate(-3deg);
+    margin-right:.08em;
+  }
+
+  .fields{ display:grid; grid-template-columns:1fr 1fr; gap:22px 20px; }
+  .field{ display:flex; flex-direction:column; min-width:0; }
+  .field--full{ grid-column:1 / -1; }
+  .field label{
+    font-size:13px; font-weight:600; color:var(--grey);
+    margin-bottom:8px;
+  }
+  .field input{
+    appearance:none;
+    width:100%;
+    font:inherit; font-size:18px;
+    color:var(--black);
+    background:transparent;
+    border:0; border-bottom:2px solid var(--hair-strong);
+    border-radius:0;
+    padding:8px 0 10px;
+    outline:none;
+    transition:border-color .2s ease;
+  }
+  .field input::placeholder{ color:#B4BAC3; }
+  .field input:focus{ border-bottom-color:var(--accent); }
+  .field.is-invalid input{ border-bottom-color:var(--error); }
+  .field__err{
+    display:none;
+    margin-top:8px;
+    font-size:12.5px; color:var(--error);
+  }
+  .field.is-invalid .field__err{ display:block; }
+
+  /* name-case suggestion */
+  .suggest{
+    margin-top:10px;
+    padding:12px 14px;
+    border:1px solid #CFE9F7;
+    border-left:3px solid var(--accent);
+    border-radius:var(--radius);
+    background:var(--accent-soft);
+    font-size:13.5px; line-height:1.5; color:var(--grey);
+  }
+  .suggest__q{ margin:0 0 8px; }
+  .suggest__q b{ color:var(--black); font-weight:600; }
+  .suggest__why{ display:block; font-size:12.5px; color:var(--grey-light); margin-top:2px; }
+  .suggest__actions{ display:flex; flex-wrap:wrap; gap:8px; }
+  .suggest__btn{
+    font:inherit; font-size:13px; font-weight:600;
+    padding:7px 12px; border-radius:var(--radius); cursor:pointer;
+    border:1px solid var(--accent); background:var(--accent); color:var(--white);
+    transition:background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .suggest__btn:hover{ background:var(--accent-hover); border-color:var(--accent-hover); }
+  .suggest__btn--ghost{ background:var(--white); color:var(--grey); border-color:#D1D5DB; }
+  .suggest__btn--ghost:hover{ background:var(--white); color:var(--accent); border-color:var(--accent); }
+  .suggest__hint{ margin:8px 0 0; font-size:12.5px; color:var(--grey-light); }
+  .suggest.is-required{ border-color:#FECACA; border-left-color:var(--error); background:#FEF2F2; }
+  .suggest__must{ display:none; margin:0 0 8px; font-size:12.5px; font-weight:600; color:var(--error); }
+  .suggest.is-required .suggest__must{ display:block; }
+
+  .q__actions{ display:flex; align-items:center; gap:18px; margin-top:36px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 22px;
+    background:var(--accent); color:var(--white);
+    border:1px solid var(--accent); border-radius:var(--radius);
+    font:inherit; font-size:15px; font-weight:600; letter-spacing:.01em;
+    text-decoration:none; cursor:pointer;
+    transition:background .18s ease, border-color .18s ease, transform .18s ease;
+  }
+  .btn:hover{ background:var(--accent-hover); border-color:var(--accent-hover); }
+  .btn:active{ transform:translateY(1px); }
+  .btn svg{ width:16px; height:16px; }
+  .btn--ghost{
+    background:transparent; color:var(--grey);
+    border-color:#D1D5DB;
+  }
+  .btn--ghost:hover{ background:transparent; color:var(--accent); border-color:var(--accent); }
+  .hint{ font-size:12.5px; color:var(--grey-light); }
+  .hint kbd{
+    font:inherit; font-size:11px; font-weight:600;
+    padding:2px 6px; border:1px solid var(--hair-strong); border-radius:4px; background:#F9FAFB;
+    margin-right:4px;
+  }
+  .q__privacy{
+    margin:26px 0 0;
+    font-size:12px; line-height:1.55; color:var(--grey-light);
+    max-width:520px;
+  }
+  .q__privacy a{ color:var(--grey-light); text-decoration:underline; text-decoration-style:dotted; text-decoration-color:var(--accent); text-underline-offset:3px; }
+  .q__privacy a:hover{ color:var(--accent); }
+
+  /* ---------- Step 2: progressive sub-questions & choice cards ---------- */
+  .sub__q{
+    margin:0 0 14px;
+    font-size:18px; font-weight:600; line-height:1.35; color:var(--black);
+  }
+  .choices{ display:grid; gap:10px; outline:none; }
+  .choices--row{ grid-template-columns:repeat(2, minmax(0, 160px)); }
+  .choice{
+    display:flex; align-items:center; gap:12px;
+    width:100%; text-align:left;
+    padding:12px 14px;
+    font:inherit; font-size:15.5px; line-height:1.4; color:var(--black);
+    background:var(--white);
+    border:1px solid var(--hair-strong); border-radius:var(--radius);
+    cursor:pointer;
+    transition:border-color .15s ease, background .15s ease, box-shadow .15s ease;
+  }
+  .choice:hover{ border-color:var(--accent); background:var(--accent-soft); }
+  .choice:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(13,157,216,.25); border-color:var(--accent); }
+  .choice[aria-checked="true"]{ border-color:var(--accent); background:var(--accent-soft); box-shadow:inset 0 0 0 1px var(--accent); }
+  .choice__key{
+    flex:0 0 auto;
+    width:24px; height:24px;
+    display:inline-flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:700;
+    color:var(--grey); background:var(--white);
+    border:1px solid var(--hair-strong); border-radius:4px;
+  }
+  .choice[aria-checked="true"] .choice__key,
+  .choice:hover .choice__key{ color:var(--white); background:var(--accent); border-color:var(--accent); }
+  .sub__err{ display:none; margin:8px 0 0; font-size:12.5px; color:var(--error); }
+  .step.is-error .sub__err{ display:block; }
+  .step.is-error .choice{ border-color:#FCA5A5; }
+  .choices.is-error + .sub__err{ display:block; }
+  .choices.is-error .choice{ border-color:#FCA5A5; }
+  .inline{ margin-top:18px; animation:rise .4s cubic-bezier(.22,1,.36,1) both; }
+  .field__help{ margin:-2px 0 12px; font-size:14px; line-height:1.5; color:var(--grey); max-width:560px; }
+  .qpage > .field > label, .sub__q{ display:block; }
+  .qpage .field label{ font-size:18px; font-weight:600; color:var(--black); margin-bottom:8px; }
+  .money{ display:flex; align-items:baseline; gap:6px; border-bottom:2px solid var(--hair-strong); transition:border-color .2s ease; }
+  .money:focus-within{ border-bottom-color:var(--accent); }
+  .field.is-invalid .money{ border-bottom-color:var(--error); }
+  .money__sym{ font-size:22px; font-weight:600; color:var(--grey-light); }
+  .money input{ border:0 !important; font-size:24px !important; font-weight:600; padding:6px 0 8px !important; }
+  input[type="date"]{ font-size:20px; max-width:280px; }
+  input[type="date"]::-webkit-calendar-picker-indicator{ cursor:pointer; opacity:.6; }
+  .lbl-sold, .lbl-future{ display:none !important; }
+  .is-sold .lbl-sold, .is-future .lbl-future{ display:block !important; }
+  /* acknowledgments */
+  .acks{ display:grid; gap:10px; }
+  .ack{
+    display:flex; align-items:flex-start; gap:14px;
+    padding:14px 16px;
+    border:1px solid var(--hair-strong); border-radius:var(--radius);
+    background:var(--white); cursor:pointer;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .ack:hover{ border-color:var(--accent); }
+  .ack input{ position:absolute; opacity:0; width:0; height:0; }
+  .ack__box{
+    flex:0 0 auto; width:22px; height:22px; margin-top:1px;
+    border:2px solid var(--hair-strong); border-radius:5px; background:var(--white);
+    display:inline-flex; align-items:center; justify-content:center; color:var(--white);
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .ack__box svg{ width:14px; height:14px; opacity:0; transform:scale(.6); transition:opacity .15s ease, transform .15s ease; }
+  .ack input:checked ~ .ack__box{ background:var(--accent); border-color:var(--accent); }
+  .ack input:checked ~ .ack__box svg{ opacity:1; transform:none; }
+  .ack input:focus-visible ~ .ack__box{ box-shadow:0 0 0 3px rgba(13,157,216,.25); }
+  .ack input:checked ~ .ack__text{ color:var(--black); }
+  .ack__text{ font-size:15px; line-height:1.5; color:var(--grey); }
+  .ack__text a{ color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
+  .ack.is-missing{ border-color:#FCA5A5; background:#FEF2F2; }
+  .qpage.is-error [data-ack-err]{ display:block; }
+
+  /* review cards */
+  .review{ display:grid; gap:14px; }
+  .card{
+    border:1px solid var(--hair-strong); border-radius:var(--radius);
+    background:var(--white); padding:18px 20px;
+  }
+  .card__head{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; }
+  .card__title{ margin:0; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--grey-light); }
+  .card__edit{
+    font:inherit; font-size:13px; font-weight:600; color:var(--accent);
+    background:none; border:0; padding:0; cursor:pointer;
+    text-decoration:underline; text-decoration-style:dotted; text-underline-offset:3px;
+  }
+  .card__edit:hover{ color:var(--accent-hover); }
+  .profile{ display:flex; align-items:center; gap:16px; }
+  .avatar{
+    flex:0 0 auto; width:56px; height:56px; border-radius:50%;
+    background:var(--accent-soft); color:var(--accent);
+    display:inline-flex; align-items:center; justify-content:center;
+    font-size:20px; font-weight:700; letter-spacing:.02em;
+    border:1px solid #CFE9F7;
+  }
+  .profile__name{ margin:0; font-size:20px; font-weight:700; letter-spacing:-.01em; color:var(--black); }
+  .profile__role{ margin:2px 0 0; font-size:14px; color:var(--grey); }
+  .profile__contact{ margin:6px 0 0; font-size:14px; color:var(--grey); display:flex; flex-wrap:wrap; gap:4px 14px; }
+  .profile__contact span{ white-space:nowrap; }
+  .kv{ display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:14px 20px; margin:0; }
+  .kv div{ min-width:0; }
+  .kv dt{ font-size:12px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--grey-light); margin:0 0 3px; }
+  .kv dd{ margin:0; font-size:17px; font-weight:600; color:var(--black); letter-spacing:-.01em; }
+  .kv dd small{ display:block; font-size:12.5px; font-weight:400; color:var(--grey); letter-spacing:0; margin-top:2px; }
+  .kv dd.is-accent{ color:var(--accent); }
+  .kv--2{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+  .kv--4{ grid-template-columns:repeat(4, minmax(0,1fr)); }
+  @media (max-width:900px){ .kv--4{ grid-template-columns:repeat(2, minmax(0,1fr)); } }
+  .card__note{ margin:12px 0 0; font-size:12px; line-height:1.5; color:var(--grey-light); }
+  .card__divider{ height:1px; background:var(--hair); margin:14px 0; }
+  /* final pages */
+  .q--wide{ max-width:none; }
+  /* schedule page: normal two-column header, then the calendar spans the full content width beneath */
+  .step--sched{ grid-template-columns:1fr; row-gap:20px; }
+  .step--sched .q{ max-width:none; display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 24px; }
+  .step--sched .q .q__num{ flex-basis:100%; margin-bottom:6px; }
+  .step--sched .q .q__title{ margin:0; }
+  .step--sched .q .field__help{ margin-left:auto; }
+  .step--sched .field__help{ margin:0; max-width:none; }
+  .sched{ grid-column:1 / -1; min-width:0; }
+  .cal-embed{ width:100%; }
+  .cal-embed iframe{ display:block; }
+  .sched .q__back{ margin-top:20px; }
+  .booked{
+    display:flex; align-items:flex-start; gap:12px;
+    margin:0 0 16px; padding:14px 16px;
+    border:1px solid #CFE9F7; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
+    font-size:15px; line-height:1.5; color:var(--grey);
+  }
+  .booked svg{ flex:0 0 auto; width:20px; height:20px; color:var(--accent); margin-top:2px; }
+  .booked p{ margin:0; } .booked strong{ color:var(--black); }
+  .done__copy{ margin:0 0 20px; font-size:17px; line-height:1.65; color:var(--black); max-width:560px; }
+  .done__note{
+    display:flex; align-items:flex-start; gap:12px;
+    padding:14px 16px; max-width:560px;
+    border:1px solid #CFE9F7; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
+    font-size:14px; line-height:1.5; color:var(--grey);
+  }
+  .done__note svg{ flex:0 0 auto; width:20px; height:20px; color:var(--accent); margin-top:1px; }
+  .done__note p{ margin:0; }
+  .step--final .q__actions{ margin-top:28px; }
+  @media (max-width:900px){
+    .step--sched .q .field__help{ margin-left:0; }
+  }
+  /* inner pages of a step: only this block changes, the note and title above stay put */
+  .qpage{ display:none; }
+  .qpage.is-active{ display:block; animation:rise .4s cubic-bezier(.22,1,.36,1) both; }
+  .inline .field label{ font-size:16px; font-weight:600; color:var(--black); margin-bottom:6px; }
+  .inline .q__actions{ margin-top:22px; }
+  @keyframes rise{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
+  @media (prefers-reduced-motion:reduce){ .inline{ animation:none; } }
+  /* recap of answers so far, shown beside the follow-up questions */
+  .recap{ margin:0; max-width:440px; }
+  .recap div{ padding:10px 0; border-top:1px solid var(--hair); }
+  .recap div:last-child{ border-bottom:1px solid var(--hair); }
+  .recap dt{ font-size:11.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--grey-light); margin:0 0 2px; }
+  .recap dd{ margin:0; font-size:14.5px; line-height:1.45; color:var(--black); }
+  .recap dd a{ margin-left:6px; font-size:12px; color:var(--grey-light); text-decoration:underline; text-decoration-style:dotted; text-decoration-color:var(--accent); text-underline-offset:3px; cursor:pointer; }
+  .recap dd a:hover{ color:var(--accent); }
+  .field textarea{
+    appearance:none; width:100%; resize:none;
+    font:inherit; font-size:18px; line-height:1.5; color:var(--black);
+    background:transparent; border:0; border-bottom:2px solid var(--hair-strong); border-radius:0;
+    padding:8px 0 10px; outline:none;
+    transition:border-color .2s ease;
+  }
+  .field textarea::placeholder{ color:#B4BAC3; }
+  .field textarea:focus{ border-bottom-color:var(--accent); }
+  .field.is-invalid textarea{ border-bottom-color:var(--error); }
+  .field__meta{ display:flex; justify-content:space-between; gap:12px; align-items:baseline; }
+  .field__meta .field__err{ margin-top:8px; }
+  .field__count{ margin-top:8px; margin-left:auto; font-size:12px; color:var(--grey-light); }
+  .field__count.is-ok{ color:var(--accent); }
+
+  .q__back{ margin:22px 0 0; }
+  .linkbtn{
+    font:inherit; font-size:13px; color:var(--grey-light);
+    background:none; border:0; padding:0; cursor:pointer;
+    text-decoration:underline; text-decoration-style:dotted; text-decoration-color:var(--accent); text-underline-offset:3px;
+  }
+  .linkbtn:hover{ color:var(--accent); }
+  @media (max-width:900px){
+    .choices--row{ grid-template-columns:1fr 1fr; }
+  }
+
+
+  /* TEMPORARY dev step-jumper — delete before launch */
+  .devjump{
+    position:fixed; left:16px; bottom:16px; z-index:60;
+    display:flex; align-items:center; gap:6px;
+    padding:6px 8px 6px 10px;
+    background:#111; color:#fff; border-radius:999px;
+    font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
+    box-shadow:0 6px 20px rgba(0,0,0,.25);
+  }
+  .devjump span{ margin-right:4px; opacity:.7; }
+  .devjump button{
+    min-width:26px; height:26px; padding:0 6px; border-radius:13px;
+    border:1px solid rgba(255,255,255,.35); background:transparent; color:#fff;
+    font:inherit; font-size:12px; cursor:pointer;
+  }
+  .devjump button:hover, .devjump button.is-on{ background:var(--accent); border-color:var(--accent); }
+
+  /* ---------- Footer ---------- */
+  .footer{ background:var(--white); }
+  .rule--strong::before{ height:2px; background:#CBD2D9; }
+  .footer__inner{
+    max-width:calc(1200px + 48px);
+    margin:0 auto;
+    padding:56px 24px 40px;
+    display:grid;
+    grid-template-columns:minmax(0,1.5fr) minmax(0,1.1fr) minmax(0,.7fr) minmax(0,.7fr);
+    gap:32px 48px;
+  }
+  .footer__brand img{ height:22px; width:auto; display:block; margin-bottom:16px; }
+  .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#4B5563; }
+  .footer__brand a{ color:#4B5563; text-decoration:none; }
+  .footer__brand a:hover{ color:var(--accent); }
+  .footer__brand .footer__blurb{ max-width:46ch; }
+  .footer__office{
+    font-style:normal;
+    margin:0 0 14px;
+    font-size:13.5px; line-height:1.6; color:#4B5563;
+  }
+  .footer__office strong{ display:block; font-weight:600; color:var(--black); }
+  .footer__col .footer__office a{ display:inline; padding:0; font-size:inherit; }
+  .footer__col .footer__office a:hover{ color:var(--accent); }
+  .footer__disclosure a{ color:#6B7280; text-decoration:underline; text-underline-offset:2px; }
+  .footer__disclosure a:hover{ color:var(--accent); }
+  .footer__label{
+    margin:0 0 10px;
+    font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--accent);
+  }
+  .footer__col a{
+    display:block;
+    padding:4px 0;
+    font-size:14px;
+    color:#4B5563;
+    text-decoration:none;
+    transition:color .15s ease;
+  }
+  .footer__col a:hover{ color:var(--black); }
+  .footer__disclosure{
+    grid-column:1 / -1;
+    padding-top:28px;
+    border-top:1px solid #E5E7EB;
+  }
+  .footer__disclosure p{ margin:0 0 10px; font-size:11px; line-height:1.55; color:#6B7280; }
+  .footer__copy{ color:#9CA3AF !important; }
+
+  /* ---------- Skyline illustration ---------- */
+  .skyline{
+    background:var(--white);
+    padding-top:56px;
+    overflow:hidden;
+  }
+  .skyline img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+
+  .rule{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; }
+  .rule::before{ content:""; display:block; height:1px; background:#E5E7EB; }
+  .rule--strong::before{ height:2px; background:#CBD2D9; }
+  .shell{ flex:1 0 auto; }
+  @media (max-width:900px){
+    .footer__inner{ grid-template-columns:1fr 1fr; padding:40px 20px 32px; }
+    .skyline{ padding-top:32px; }
+    .footer__brand{ grid-column:1 / -1; }
+    .footer__offices{ grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; column-gap:24px; }
+    .footer__offices .footer__label{ grid-column:1 / -1; }
+  }
+
+  /* ---------- Footer strip ---------- */
+  .foot{
+    height:72px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    border-top:1px solid var(--hair);
+    font-size:12px; color:var(--grey-light);
+  }
+  .foot__nav{ display:flex; gap:6px; }
+  .foot__nav button{
+    width:36px; height:36px; border-radius:var(--radius);
+    border:1px solid #D1D5DB; background:var(--white); color:var(--grey);
+    display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .foot__nav button:hover:not(:disabled){ color:var(--accent); border-color:var(--accent); }
+  .foot__nav button:disabled{ opacity:.35; cursor:default; }
+  .foot__nav svg{ width:14px; height:14px; }
+
+  /* ---------- Placeholder step ---------- */
+  .placeholder{
+    grid-column:1 / -1;
+    justify-self:center;
+    text-align:center;
+    max-width:520px;
+    padding:48px 0;
+  }
+  .placeholder__hand{
+    font-family:var(--hand); font-size:34px; font-weight:600; color:var(--accent);
+    display:block; margin-bottom:10px; transform:rotate(-2deg);
+  }
+  .placeholder p{ margin:0 0 20px; color:var(--grey); font-size:16px; }
+  .placeholder .devseg{ font-size:13px; color:var(--grey-light); } .placeholder .devseg strong{ color:var(--accent); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .nav__inner{ padding:0 20px; }
+    .nav__logo img{ height:18px; }
+    .shell{ padding:0 20px; }
+    .intro{ padding:28px 0 4px; }
+    .step{
+      grid-template-columns:1fr;
+      gap:24px;
+      align-items:start;
+      padding:28px 0 40px;
+    }
+    /* on small screens the form comes first; Jerry's note follows it as a compact aside */
+    .jerry--recap{ display:none; }   /* keep the small screens short: no recap column */
+    .jerry{
+      order:2;
+      display:grid; grid-template-columns:56px 1fr; gap:14px; align-items:start;
+      padding:20px 0 0; margin-top:4px;
+      border-top:1px solid var(--hair);
+    }
+    .q{ order:1; }
+    .jerry__photo{ width:56px; height:56px; margin:0; }
+    .jerry__bubble{ font-size:14.5px; line-height:1.55; padding:14px 16px; }
+    .jerry__bubble .typed{ top:14px; left:16px; right:16px; }
+    .jerry__bubble::before,.jerry__bubble::after{
+      left:-11px; top:18px;
+      border-top:10px solid transparent; border-bottom:10px solid transparent; border-left:0;
+    }
+    .jerry__bubble::before{ border-right:11px solid var(--hair); }
+    .jerry__bubble::after{ left:-10px; border-right:11px solid var(--white); }
+    .fields{ grid-template-columns:1fr; gap:18px; }
+    .q__actions .hint{ display:none; }
+    .btn{ width:100%; justify-content:center; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .step, .progress__bar, .btn{ transition:none; }
+    .jerry__bubble.is-typing .typed::after{ animation:none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="/" aria-label="Baker 1031 — home">
+      <img src="/assets/media/logo.png" alt="Baker 1031" width="655" height="120">
+    </a>
+    <div class="nav__right">
+      <span>Already working with Jerry?</span>
+      <a href="/login">Log in</a>
+    </div>
+  </div>
+  <div class="progress" aria-hidden="true"><div class="progress__bar" id="progress"></div></div>
+</header>
+
+<main class="shell">
+  <header class="intro">
+    <h1 class="intro__title">Get Started with <span class="hand">Jerry</span></h1>
+    <p class="intro__copy">This short form collects some basic information and gives me a little background on your situation so I can prepare for our conversation. It takes only a few minutes, and the final step is to schedule a call with me.</p>
+  </header>
+
+  <form class="stage" id="form" novalidate autocomplete="on">
+
+    <!-- ===== Step 1: contact info ===== -->
+    <section class="step is-active" data-step="1" aria-labelledby="q1-title">
+      <aside class="jerry" aria-label="A note from Jerry">
+        <img class="jerry__photo" src="/assets/media/jerry-baker.jpg" alt="Jerry Baker" width="132" height="132">
+        <div class="jerry__bubble is-typing" id="bubble-1">
+          <p class="jerry__ghost" aria-hidden="true">Hi, I’m Jerry Baker. Not only am I the founder of Baker 1031, but I’m also going to be the person helping you explore your investment options. Let’s get started with some basic contact information.</p>
+          <p class="typed" data-text="Hi, I’m Jerry Baker. Not only am I the founder of Baker 1031, but I’m also going to be the person helping you explore your investment options. Let’s get started with some basic contact information."></p>
+        </div>
+      </aside>
+
+      <div class="q">
+        <p class="q__num">
+          <span>1</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Contact information</span>
+        </p>
+        <h2 class="q__title" id="q1-title">I’m excited to get started. Can I get some basic contact information?</h2>
+
+        <div class="fields">
+          <div class="field">
+            <label for="first">First name</label>
+            <input id="first" name="firstName" type="text" placeholder="Jane" autocomplete="given-name" required data-name="first">
+            <span class="field__err">Please enter your first name.</span>
+            <div class="suggest" hidden></div>
+          </div>
+          <div class="field">
+            <label for="last">Last name</label>
+            <input id="last" name="lastName" type="text" placeholder="Investor" autocomplete="family-name" required data-name="last">
+            <span class="field__err">Please enter your last name.</span>
+            <div class="suggest" hidden></div>
+          </div>
+          <div class="field field--full">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="jane@example.com" autocomplete="email" inputmode="email" required data-email spellcheck="false" autocapitalize="off">
+            <span class="field__err" data-default="That email doesn’t look right — could you double-check it?">That email doesn’t look right — could you double-check it?</span>
+            <div class="suggest" hidden></div>
+          </div>
+          <div class="field field--full">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" placeholder="(415) 555-1234" autocomplete="tel" inputmode="tel" required data-phone>
+            <span class="field__err" data-default="Please enter a 10-digit phone number.">Please enter a 10-digit phone number.</span>
+            <div class="suggest" hidden></div>
+          </div>
+        </div>
+
+        <div class="q__actions">
+          <button class="btn" type="submit" data-next>
+            Continue
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="hint"><kbd>Enter ↵</kbd> to continue</span>
+        </div>
+        <p class="q__privacy">Your information is used only to set up your account and to let me follow up with you. It is never sold or shared with third parties. See the <a href="/privacy">privacy policy</a>.</p>
+      </div>
+    </section>
+
+    <!-- ===== Step 2: about you (two inner pages; the note and title stay put, only the question swaps) ===== -->
+    <section class="step">
+      <aside class="jerry" aria-label="A note from Jerry">
+        <img class="jerry__photo" src="/assets/media/jerry-baker.jpg" alt="Jerry Baker" width="132" height="132">
+        <div class="jerry__bubble is-typing">
+          <p class="jerry__ghost" aria-hidden="true"></p>
+          <p class="typed" data-template="I’m excited to be working with you, {first}. Let’s get to know you a little better so I can tailor the rest of the registration process."></p>
+        </div>
+      </aside>
+      <div class="q">
+        <p class="q__num">
+          <span>2</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>About you</span>
+        </p>
+        <h2 class="q__title">Nice to meet you, <span class="hand" data-first>there</span>. Let’s get started.</h2>
+
+        <div class="qpage" data-step="2" data-choice-step="role">
+        <p class="sub__q">What best describes you and your role in this investment?</p>
+        <div class="choices" tabindex="-1" role="radiogroup" data-choice="role">
+          <button type="button" class="choice" role="radio" aria-checked="false" data-value="investor"><span class="choice__key">A</span><span>I’m the person making the investment.</span></button>
+          <button type="button" class="choice" role="radio" aria-checked="false" data-value="realtor"><span class="choice__key">B</span><span>I’m a realtor, agent, or broker assisting the investor.</span></button>
+          <button type="button" class="choice" role="radio" aria-checked="false" data-value="family"><span class="choice__key">C</span><span>I’m a loved one or friend assisting the investor.</span></button>
+          <button type="button" class="choice" role="radio" aria-checked="false" data-value="professional"><span class="choice__key">D</span><span>I’m an attorney, CPA, or investment advisor assisting the investor.</span></button>
+          <button type="button" class="choice" role="radio" aria-checked="false" data-value="other"><span class="choice__key">E</span><span>Other — I’ll explain.</span></button>
+        </div>
+        <p class="sub__err">Please choose one.</p>
+        <div class="inline" data-inline-for="other" hidden>
+          <div class="field">
+            <label for="assist-other">Please tell me a little about your role.</label>
+            <input id="assist-other" name="assistRoleOther" type="text" placeholder="e.g. Trustee of the family trust" data-minlen="3" autocomplete="off">
+            <span class="field__err">Please enter at least 3 characters.</span>
+            <div class="q__actions">
+            <button class="btn" type="submit" data-next>
+              Continue
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <span class="hint"><kbd>Enter ↵</kbd> to continue</span>
+          </div>
+        </div>
+        </div>
+        <p class="q__back"><button type="button" class="linkbtn" data-prev>← Back</button></p>
+        </div>
+
+        <div class="qpage" data-step="2b" data-choice-step="situation">
+        <p class="sub__q"><span data-you="Which best describes your situation?" data-them="Which best describes the investor’s situation?">Which best describes your situation?</span></p>
+        <div class="choices" tabindex="-1" role="radiogroup" data-choice="situation">
+          <button type="button" class="choice" role="radio" aria-checked="false" data-value="identification"><span class="choice__key">A</span><span data-you="I’ve sold a property and I’m actively in my 45-day identification period." data-them="The investor has sold a property and is actively in their 45-day identification period.">I’ve sold a property and I’m actively in my 45-day identification period.</span></button>
+          <button type="button" class="choice" role="radio" aria-checked="false" data-value="listed"><span class="choice__key">B</span><span data-you="I have a property listed for sale and plan to complete a 1031 exchange." data-them="The investor has a property listed for sale and plans to complete a 1031 exchange.">I have a property listed for sale and plan to complete a 1031 exchange.</span></button>
+          <button type="button" class="choice" role="radio" aria-checked="false" data-value="future"><span class="choice__key">C</span><span data-you="I’m planning a 1031 exchange in the future." data-them="The investor is planning a 1031 exchange in the future.">I’m planning a 1031 exchange in the future.</span></button>
+          <button type="button" class="choice" role="radio" aria-checked="false" data-value="none"><span class="choice__key">D</span><span data-you="This investment isn’t part of a 1031 exchange." data-them="The investment isn’t part of a 1031 exchange.">This investment isn’t part of a 1031 exchange.</span></button>
+        </div>
+        <p class="sub__err">Please choose one.</p>
+        <div class="inline" data-inline-for="none" hidden>
+          <div class="field">
+            <label for="help-text" data-you="No problem. How can I help you?" data-them="No problem. How can I help?">No problem. How can I help you?</label>
+            <textarea id="help-text" name="helpText" rows="2" placeholder="Tell me a little about what you’re looking to do…" data-minlen="20"></textarea>
+            <div class="field__meta"><span class="field__err">Please enter at least 20 characters.</span><span class="field__count" aria-live="polite">20 characters minimum</span></div>
+            <div class="q__actions">
+            <button class="btn" type="submit" data-next>
+              Continue
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <span class="hint"><kbd>Enter ↵</kbd> to continue</span>
+          </div>
+        </div>
+        </div>
+        <p class="q__back"><button type="button" class="linkbtn" data-prev>← Back</button></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Step 3: the 1031 exchange (skipped when the investment isn’t part of an exchange) ===== -->
+    <section class="step" data-when="situation!=none">
+      <aside class="jerry" aria-label="A note from Jerry">
+        <img class="jerry__photo" src="/assets/media/jerry-baker.jpg" alt="Jerry Baker" width="132" height="132">
+        <div class="jerry__bubble is-typing">
+          <p class="jerry__ghost" aria-hidden="true"></p>
+          <p class="typed" data-template="We’re moving on to learning more about your investment. Can you share some details about your 1031 exchange? Estimates and best guesses are fine at this stage of the process." data-template-them="We’re moving on to learning more about the investment. Can you share some details about the investor’s 1031 exchange? Estimates and best guesses are fine at this stage of the process."></p>
+        </div>
+      </aside>
+      <div class="q">
+        <p class="q__num">
+          <span>3</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>The 1031 exchange</span>
+        </p>
+        <h2 class="q__title"><span class="hand" data-first>There</span> — let’s talk about the 1031 exchange.</h2>
+
+        <!-- 3: equity -->
+        <div class="qpage" data-step="3" data-when="situation!=none" data-validate="equity">
+          <div class="field field--money">
+            <label for="equity" data-you="How much equity do you plan to invest?" data-them="How much equity does the investor plan to invest?">How much equity do you plan to invest?</label>
+            <p class="field__help" data-you="The cash from your sale that will go into the exchange, after paying off any loan and closing costs. A rough number is fine." data-them="The cash from the investor’s sale that will go into the exchange, after paying off any loan and closing costs. A rough number is fine.">The cash from your sale that will go into the exchange, after paying off any loan and closing costs. A rough number is fine.</p>
+            <div class="money"><span class="money__sym">$</span><input id="equity" name="equity" type="text" inputmode="decimal" placeholder="500,000" autocomplete="off" data-money></div>
+            <span class="field__err" data-default="Please enter the equity amount.">Please enter the equity amount.</span>
+            <div class="suggest" hidden></div>
+          </div>
+        <div class="q__actions">
+          <button class="btn" type="submit" data-next>
+            Continue
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="hint"><kbd>Enter ↵</kbd> to continue</span>
+        </div>
+          <p class="q__back"><button type="button" class="linkbtn" data-prev>← Back</button></p>
+        </div>
+
+        <!-- 3b: debt -->
+        <div class="qpage" data-step="3b" data-when="situation!=none" data-choice-step="hasDebt">
+          <p class="sub__q" data-you="Do you have debt to replace?" data-them="Does the investor have debt to replace?">Do you have debt to replace?</p>
+          <p class="field__help" data-you="If there’s a loan on the property you’re selling, a 1031 exchange generally needs to replace that debt (or add cash) to fully defer the tax." data-them="If there’s a loan on the property being sold, a 1031 exchange generally needs to replace that debt (or add cash) to fully defer the tax.">If there’s a loan on the property you’re selling, a 1031 exchange generally needs to replace that debt (or add cash) to fully defer the tax.</p>
+          <div class="choices choices--row" tabindex="-1" role="radiogroup" data-choice="hasDebt">
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="yes"><span class="choice__key">Y</span><span>Yes</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="no"><span class="choice__key">N</span><span>No</span></button>
+          </div>
+          <p class="sub__err">Please choose one.</p>
+          <div class="inline" data-inline-for="yes" hidden>
+            <div class="field field--money">
+              <label for="debt" data-you="How much debt do you need to replace?" data-them="How much debt does the investor need to replace?">How much debt do you need to replace?</label>
+              <div class="money"><span class="money__sym">$</span><input id="debt" name="debt" type="text" inputmode="decimal" placeholder="300,000" autocomplete="off" data-money data-minlen="1"></div>
+              <span class="field__err">Please enter the debt amount.</span>
+            </div>
+            <div class="q__actions">
+              <button class="btn" type="submit" data-next>
+                Continue
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <span class="hint"><kbd>Enter ↵</kbd> to continue</span>
+            </div>
+          </div>
+          <p class="q__back"><button type="button" class="linkbtn" data-prev>← Back</button></p>
+        </div>
+
+        <!-- 3c: sale date -->
+        <div class="qpage" data-step="3c" data-when="situation!=none" data-validate="saleDate">
+          <div class="field">
+            <label for="sale-date" class="lbl-sold" data-you="When did your property sell?" data-them="When did the investor’s property sell?">When did your property sell?</label>
+            <label for="sale-date" class="lbl-future" data-you="When do you expect the sale of your property to close?" data-them="When does the investor expect the sale of their property to close?">When do you expect the sale of your property to close?</label>
+            <p class="field__help lbl-sold">The closing date of the sale — the day the 45- and 180-day clocks started.</p>
+            <p class="field__help lbl-future">An estimate is fine — pick the closest date you have in mind.</p>
+            <input id="sale-date" name="saleDate" type="date" autocomplete="off">
+            <span class="field__err" data-default="Please enter a date.">Please enter a date.</span>
+            <div class="suggest" hidden></div>
+          </div>
+        <div class="q__actions">
+          <button class="btn" type="submit" data-next>
+            Continue
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="hint"><kbd>Enter ↵</kbd> to continue</span>
+        </div>
+          <p class="q__back"><button type="button" class="linkbtn" data-prev>← Back</button></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Step 4: accredited investor (investors only) ===== -->
+    <section class="step" data-when="role=investor">
+      <aside class="jerry" aria-label="A note from Jerry">
+        <img class="jerry__photo" src="/assets/media/jerry-baker.jpg" alt="Jerry Baker" width="132" height="132">
+        <div class="jerry__bubble is-typing">
+          <p class="jerry__ghost" aria-hidden="true"></p>
+          <p class="typed" data-template="Sorry to get overly personal, {first}. But, our regulators require us to verify you’re an accredited investor prior to investing."></p>
+        </div>
+      </aside>
+      <div class="q">
+        <p class="q__num">
+          <span>4</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Accredited investor</span>
+        </p>
+        <h2 class="q__title">I need to make sure you’re an accredited investor.</h2>
+
+        <!-- 4: marital status -->
+        <div class="qpage" data-step="4" data-when="role=investor" data-choice-step="maritalStatus">
+          <p class="sub__q">What is your marital status?</p>
+          <p class="field__help">This matters because the accredited-investor thresholds can be met individually or jointly with a spouse or partner.</p>
+          <div class="choices" tabindex="-1" role="radiogroup" data-choice="maritalStatus">
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="single"><span class="choice__key">A</span><span>Single</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="married"><span class="choice__key">B</span><span>Married</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="partner"><span class="choice__key">C</span><span>Domestic partnership</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="divorced"><span class="choice__key">D</span><span>Divorced or separated</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="widowed"><span class="choice__key">E</span><span>Widowed</span></button>
+          </div>
+          <p class="sub__err">Please choose one.</p>
+          <p class="q__back"><button type="button" class="linkbtn" data-prev>← Back</button></p>
+        </div>
+
+        <!-- 4b: net worth -->
+        <div class="qpage" data-step="4b" data-when="role=investor" data-choice-step="netWorth">
+          <p class="sub__q" data-single="What is your net worth, excluding your primary residence?" data-joint="What is your combined net worth with your spouse or partner, excluding your primary residence?">What is your net worth, excluding your primary residence?</p>
+          <p class="field__help">Leave out the value of your primary home (and the mortgage on it). Your best estimate is fine.</p>
+          <div class="choices" tabindex="-1" role="radiogroup" data-choice="netWorth">
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="Under $1,000,000"><span class="choice__key">A</span><span>Under $1,000,000</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="$1,000,000 – $2,499,999"><span class="choice__key">B</span><span>$1,000,000 – $2,499,999</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="$2,500,000 – $4,999,999"><span class="choice__key">C</span><span>$2,500,000 – $4,999,999</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="$5,000,000 – $9,999,999"><span class="choice__key">D</span><span>$5,000,000 – $9,999,999</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="$10,000,000 or more"><span class="choice__key">E</span><span>$10,000,000 or more</span></button>
+          </div>
+          <p class="sub__err">Please choose one.</p>
+          <p class="q__back"><button type="button" class="linkbtn" data-prev>← Back</button></p>
+        </div>
+
+        <!-- 4c: income -->
+        <div class="qpage" data-step="4c" data-when="role=investor" data-choice-step="householdIncome">
+          <p class="sub__q" data-single="What is your estimated annual income?" data-joint="What is your estimated annual household income?">What is your estimated annual household income?</p>
+          <p class="field__help" data-single="Roughly what you earned in each of the last two years and expect to earn this year." data-joint="You and your spouse or partner combined — roughly what you earned in each of the last two years and expect to earn this year.">Roughly what you earned in each of the last two years and expect to earn this year.</p>
+          <div class="choices" tabindex="-1" role="radiogroup" data-choice="householdIncome">
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="Under $200,000"><span class="choice__key">A</span><span>Under $200,000</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="$200,000 – $299,999"><span class="choice__key">B</span><span>$200,000 – $299,999</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="$300,000 – $499,999"><span class="choice__key">C</span><span>$300,000 – $499,999</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="$500,000 – $999,999"><span class="choice__key">D</span><span>$500,000 – $999,999</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="$1,000,000 or more"><span class="choice__key">E</span><span>$1,000,000 or more</span></button>
+          </div>
+          <p class="sub__err">Please choose one.</p>
+          <div class="suggest" data-accred-note hidden></div>
+          <div class="q__actions" data-accred-actions hidden>
+            <button class="btn" type="submit" data-next>
+              Continue
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <span class="hint"><kbd>Enter ↵</kbd> to continue</span>
+          </div>
+          <p class="q__back"><button type="button" class="linkbtn" data-prev>← Back</button></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Step 5: verify (everyone) ===== -->
+    <section class="step">
+      <aside class="jerry" aria-label="A note from Jerry">
+        <img class="jerry__photo" src="/assets/media/jerry-baker.jpg" alt="Jerry Baker" width="132" height="132">
+        <div class="jerry__bubble is-typing">
+          <p class="jerry__ghost" aria-hidden="true"></p>
+          <p class="typed" data-template="We’re at the finish line, {first}. Thanks for sticking with it. I know it’s a lot of information, but it helps me prepare for our first meeting."></p>
+        </div>
+      </aside>
+      <div class="q">
+        <p class="q__num">
+          <span>5</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Verify</span>
+        </p>
+        <h2 class="q__title">Verify some final information.</h2>
+
+        <!-- 5: acknowledgments -->
+        <div class="qpage" data-step="5" data-validate="acks">
+          <p class="sub__q">Please check each box to confirm.</p>
+          <div class="acks">
+            <label class="ack">
+              <input type="checkbox" name="ackAccredited">
+              <span class="ack__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 14L8.5 17.5L19 6.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="ack__text" data-you="I verify that I meet the definition of an accredited investor." data-them="I understand that the investor must meet the definition of an accredited investor.">I verify that I meet the definition of an accredited investor.</span>
+            </label>
+            <label class="ack">
+              <input type="checkbox" name="ackNotAdvisors">
+              <span class="ack__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 14L8.5 17.5L19 6.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="ack__text">I understand that Jerry Baker and Baker 1031 Investments are not CPAs, attorneys, or registered investment advisers (RIAs). Please consult with your personal tax, legal, and investment advisors.</span>
+            </label>
+            <label class="ack">
+              <input type="checkbox" name="ackDst">
+              <span class="ack__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 14L8.5 17.5L19 6.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="ack__text">I understand that Baker 1031 Investments primarily offers Delaware Statutory Trust (DST) property investments, not sole-ownership investment opportunities.</span>
+            </label>
+            <label class="ack">
+              <input type="checkbox" name="ackCrs">
+              <span class="ack__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 14L8.5 17.5L19 6.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="ack__text">I have reviewed the <a href="https://files.brokercheck.finra.org/crs_46147.pdf" target="_blank" rel="noopener">Form CRS (Customer Relationship Summary)</a>, and I understand that I can request an additional copy at any time.</span>
+            </label>
+          </div>
+          <p class="sub__err" data-ack-err>Please check each box to continue.</p>
+          <div class="q__actions">
+            <button class="btn" type="submit" data-next>
+              Continue
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <span class="hint"><kbd>Enter ↵</kbd> to continue</span>
+          </div>
+          <p class="q__back"><button type="button" class="linkbtn" data-prev>← Back</button></p>
+        </div>
+
+        <!-- 5b: review -->
+        <div class="qpage" data-step="5b" data-validate="segment">
+          <p class="sub__q">Here’s what I have. Does everything look right?</p>
+          <div class="review" data-review></div>
+          <div class="q__actions">
+            <button class="btn" type="submit" data-next>
+              Looks good — continue
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <span class="hint"><kbd>Enter ↵</kbd> to continue</span>
+          </div>
+          <p class="q__back"><button type="button" class="linkbtn" data-prev>← Back</button></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Step 6: schedule a call (qualified 1031 investors) ===== -->
+    <section class="step step--final step--sched" data-step="6" data-when="segment=qualified-1031-investor">
+      <div class="q">
+        <p class="q__num">
+          <span>6</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Schedule</span>
+        </p>
+        <h2 class="q__title">Let’s schedule our call.</h2>
+        <p class="field__help">A 25-minute introductory call. Pick any time that works — you’ll get a confirmation by email.</p>
+      </div>
+      <div class="sched">
+        <div class="booked" data-booked hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"/><path d="M8 12.5L10.5 15L16 9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p><strong>You’re booked.</strong> <span data-booked-when></span> A confirmation is on its way to <span data-booked-email></span>.</p>
+        </div>
+        <div class="cal-embed" id="my-cal-inline-25min"></div>
+        <p class="q__back"><button type="button" class="linkbtn" data-prev>← Back to review</button></p>
+      </div>
+    </section>
+
+    <!-- ===== Step 6b: thank-you (everyone else) ===== -->
+    <section class="step step--final" data-step="6b" data-when="segment!=qualified-1031-investor">
+      <aside class="jerry" aria-label="A note from Jerry">
+        <img class="jerry__photo" src="/assets/media/jerry-baker.jpg" alt="Jerry Baker" width="132" height="132">
+        <div class="jerry__bubble is-typing">
+          <p class="jerry__ghost" aria-hidden="true"></p>
+          <p class="typed" data-template="Thanks for sticking with me, {first}. Keep an eye on your inbox — I’ll be in touch shortly."></p>
+        </div>
+      </aside>
+      <div class="q">
+        <p class="q__num">
+          <span>6</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>All set</span>
+        </p>
+        <h2 class="q__title">Welcome to Baker 1031 Investments<span data-if-name>, <span class="hand" data-first data-suffix="!">there!</span></span><span data-no-name hidden>!</span></h2>
+        <p class="done__copy">Thank you for taking the time to submit your information. I’m taking a look at your submission and will send you an email shortly with next steps.</p>
+        <div class="done__note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6L8.91302 9.91697C11.4616 11.361 12.5384 11.361 15.087 9.91697L22 6" stroke-linejoin="round"/><path d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z" stroke-linejoin="round"/></svg>
+          <p>If you don’t see an email from me or my team in the next 15 minutes, please check your spam or junk folder.</p>
+        </div>
+        <div class="q__actions">
+          <a class="btn btn--ghost" href="/">Return to the homepage</a>
+        </div>
+      </div>
+    </section>
+
+  </form>
+
+  <div class="foot">
+    <span id="foot-count">Step 1 of 2</span>
+    <div class="foot__nav" aria-label="Step navigation">
+      <button type="button" id="foot-prev" aria-label="Previous step" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.9998 15C17.9998 15 13.5809 9.00001 11.9998 9C10.4187 8.99999 5.99985 15 5.99985 15" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" id="foot-next" aria-label="Next step">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</main>
+
+<div class="rule rule--strong" aria-hidden="true"></div>
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img src="/assets/media/logo.png" alt="Baker 1031" width="655" height="120">
+      <p class="footer__blurb">Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.</p>
+      <p><a href="mailto:jerry@baker1031.com">jerry@baker1031.com</a></p>
+    </div>
+    <div class="footer__col footer__offices">
+      <p class="footer__label">Offices</p>
+      <address class="footer__office">
+        <strong>San Francisco</strong>
+        1700 Montgomery St, Ste 108<br>San Francisco, CA 94111<br>
+        <a href="tel:+14159650552">(415) 965-0552</a>
+      </address>
+      <address class="footer__office">
+        <strong>Los Angeles</strong>
+        2100 E Grand Ave, 1st Floor<br>El Segundo, CA 90245<br>
+        <a href="tel:+13108964227">(310) 896-4227</a>
+      </address>
+    </div>
+    <div class="footer__col">
+      <p class="footer__label">Site</p>
+      <a href="/">Home</a>
+      <a href="/#type-1031">Invest</a>
+      <a href="/#results">Results</a>
+      <a href="/learn">Learn</a>
+      <a href="/login">Log In</a>
+      <a href="/register">Get Started</a>
+    </div>
+    <div class="footer__col">
+      <p class="footer__label">Verify</p>
+      <a href="https://brokercheck.finra.org/firm/summary/46147" rel="noopener">FINRA BrokerCheck</a>
+      <a href="/form-crs">Form CRS</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Use</a>
+      <a href="/disclosures">Disclosures</a>
+    </div>
+    <div class="footer__disclosure">
+      <p>Securities are offered through Aurora Securities, Inc., member <a href="https://www.finra.org/" rel="noopener">FINRA</a>/<a href="https://www.sipc.org/" rel="noopener">SIPC</a>. Baker 1031 Investments, LLC is independent of Aurora Securities, Inc. and is not a registered broker-dealer or investment adviser. <a href="https://brokercheck.finra.org/firm/summary/46147" rel="noopener">Check Aurora Securities, Inc. on FINRA BrokerCheck</a>. This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security. Offerings are made only by a sponsor’s private placement memorandum, are available solely to accredited investors, and are subject to suitability requirements. Real estate investments involve substantial risk, including illiquidity, potential loss of principal, and market and interest-rate risk. DST interests are long-term investments and generally cannot be sold on demand. Past performance, including full-cycle results shown on this site, is not a guarantee of future results. Baker 1031 Investments is not a tax or legal advisor. Prospective investors should consult their own CPA and attorney regarding their individual circumstances before investing.</p>
+      <p class="footer__copy">© 2026 Baker 1031 Investments. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Skyline illustration -->
+<div class="skyline" aria-hidden="true">
+  <img src="/assets/media/sf-skyline.png" alt="" width="2000" height="459">
+</div>
+
+<script>
+(function(){
+  var form = document.getElementById('form');
+  // A "page" is anything with data-step: a whole section, or a .qpage inside a section that hosts several questions.
+  var steps = Array.prototype.slice.call(form.querySelectorAll('[data-step]'));
+  var sectionOf = function(pg){ return pg.classList.contains('step') ? pg : pg.closest('.step'); };
+  var progress = document.getElementById('progress');
+  var footCount = document.getElementById('foot-count');
+  var footPrev = document.getElementById('foot-prev');
+  var footNext = document.getElementById('foot-next');
+  var current = 0;
+  var answers = {};
+  window.__answers = answers;   // handy for wiring the submission later
+
+  /* ---- Jerry "talks": type the bubble text out ---- */
+  function typeBubble(bubble){
+    if(!bubble || bubble.dataset.done) return;
+    bubble.dataset.done = '1';
+    var el = bubble.querySelector('.typed');
+    if(el.dataset.template){
+      var them = !!s2.role && s2.role !== 'investor';
+      var tpl = (them && el.dataset.templateThem) || el.dataset.template;
+      el.dataset.text = answers.firstName ? tpl.replace('{first}', answers.firstName) : tpl.replace(/,\s*\{first\}/, '').replace(/\{first\},\s*/, '').replace('{first}', 'there');
+      var ghost = bubble.querySelector('.jerry__ghost'); if(ghost) ghost.textContent = el.dataset.text;
+    }
+    var text = el.dataset.text || '';
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce){ el.textContent = text; bubble.classList.remove('is-typing'); return; }
+    var i = 0;
+    el.textContent = '';
+    (function tick(){
+      if(i <= text.length){
+        el.textContent = text.slice(0, i);
+        var ch = text.charAt(i - 1);
+        i++;
+        setTimeout(tick, /[.,!?]/.test(ch) ? 140 : 18);
+      } else {
+        setTimeout(function(){ bubble.classList.remove('is-typing'); }, 900);
+      }
+    })();
+  }
+
+  /* ---- name-case checks (first / last name) ---- */
+  function isUpper(c){ return c !== c.toLowerCase() && c === c.toUpperCase(); }
+  function isLower(c){ return c !== c.toUpperCase() && c === c.toLowerCase(); }
+  function isAlpha(c){ return /\p{L}/u.test(c); }
+  function letters(str){ return str.split('').filter(isAlpha); }
+  // Capitalise the first character and any character following a space, hyphen or apostrophe.
+  function titleCase(str){
+    return str.replace(/(^|[\s\-'’])(\p{L})/gu, function(m, pre, ch){ return pre + ch.toUpperCase(); });
+  }
+  function capAt(str, i){ return str.slice(0, i) + str.charAt(i).toUpperCase() + str.slice(i + 1); }
+  function lowerAt(str, i){ return str.slice(0, i) + str.charAt(i).toLowerCase() + str.slice(i + 1); }
+
+  // Returns null when the name looks fine, otherwise {why, options:[...]} with suggested fixes.
+  function checkName(raw, kind){
+    var v = raw.trim();
+    if(!v) return null;
+    var L = letters(v);
+    if(!L.length) return null;
+    var upper = L.filter(isUpper).length, lower = L.filter(isLower).length;
+    var lc = v.toLowerCase();
+
+    /* ---- global rules ---- */
+    if(upper === 0){
+      var lowPart = kind === 'last' && /^((?:van|von|de|da|di|du|der|del|della|la|le)(?:\s+(?:der|den|de|la|le|los|las|del))*)\s+(.+)$/i.exec(v);
+      if(lowPart){
+        // "de la rosa" → offer the lowercase-particle form first, then fully capitalised
+        return { why:'The main surname is usually capitalised.', options:[lowPart[1].toLowerCase().replace(/\s+/g,' ') + ' ' + titleCase(lowPart[2]), titleCase(v)] };
+      }
+      return { why:'Names usually start with a capital letter.', options:[titleCase(v)] };
+    }
+    if(lower === 0 && L.length > 2){
+      return { why:'This looks like it was typed in all capitals.', options:[titleCase(lc)] };
+    }
+    if(isLower(L[0]) && L.length > 1 && L.slice(1).every(isUpper)){
+      return { why:'This looks like Caps Lock was on.', options:[titleCase(lc)] };
+    }
+
+    if(kind === 'first'){
+      // leading capital
+      var fi = v.search(/\p{L}/u);
+      if(isLower(v.charAt(fi))){
+        return { why:'First names usually start with a capital letter.', options:[capAt(v, fi)] };
+      }
+      // letter after a hyphen / apostrophe should be capitalised
+      var m = /[\-'’](\p{Ll})/u.exec(v);
+      if(m){
+        var fixed = v.replace(/([\-'’])(\p{Ll})/gu, function(x, p, c){ return p + c.toUpperCase(); });
+        return { why:'The letter after a hyphen or apostrophe is usually capitalised.', options:[fixed] };
+      }
+      // Capitals in a row after a lowercase letter (partial Caps Lock: JaNE, MaRK), unless the whole name is two letters
+      if(L.length !== 2 && (/\p{Lu}{3,}/u.test(v) || /\p{Ll}\p{Lu}{2,}/u.test(v))){
+        return { why:'This looks like Caps Lock was on for part of the name.', options:[titleCase(lc)] };
+      }
+    }
+
+    if(kind === 'last'){
+      // Prefixes that almost always take a capital next: Mc (McDonald), O' (O'Brien), D' (D'Angelo).
+      // Mac and Fitz are deliberately NOT checked — Macdonald/MacDonald, Mackenzie, Fitzgerald and
+      // Fitzpatrick are all standard spellings, so flagging them would mostly be wrong.
+      var pre = /^(Mc|O['’]|D['’])(\p{Ll})/u.exec(v);
+      if(pre){
+        var fixedP = capAt(v, pre[1].length);
+        return { why:'Names starting with ' + pre[1] + ' usually capitalise the next letter.', options:[fixedP] };
+      }
+      // Hyphenated surnames: Smith-jones → Smith-Jones
+      if(/-(\p{Ll})/u.test(v)){
+        var fixedH = v.replace(/(-)(\p{Ll})/gu, function(x, h, c){ return h + c.toUpperCase(); });
+        return { why:'The letter after a hyphen is usually capitalised.', options:[fixedH] };
+      }
+      // Capitalised particle with an uncapitalised surname: "De la rosa" → "de la Rosa" / "De La Rosa"
+      var part = /^((?:Van|Von|De|Da|Di|Du|Der|Del|Della|La|Le)(?:\s+(?:der|den|de|la|le|los|las|del))*)\s+(.+)$/i.exec(v);
+      if(part){
+        var particle = part[1], rest = part[2];
+        var restLetters = letters(rest);
+        var restHasCap = restLetters.some(isUpper);
+        var particleHasCap = letters(particle).some(isUpper);
+        if(particleHasCap && !restHasCap){
+          var lowParticle = particle.toLowerCase().replace(/\s+/g, ' ');
+          var asTyped = particle.replace(/\s+/g, ' ') + ' ' + titleCase(rest.toLowerCase());
+          var opts = [asTyped, lowParticle + ' ' + titleCase(rest.toLowerCase()), titleCase(v.toLowerCase())];
+          opts = opts.filter(function(o, i){ return opts.indexOf(o) === i; });
+          return { why:'The main surname is usually capitalised.', options:opts };
+        }
+      }
+    }
+    return null;
+  }
+
+  // Per-field resolution: the user must accept a fix or choose to keep the value as typed.
+  var nameState = {};   // id -> { value, resolved }
+  function renderSuggest(field, input, result){
+    var box = field.querySelector('.suggest');
+    if(!box) return;
+    if(!result){ box.hidden = true; box.innerHTML = ''; return; }
+    var html = '<p class="suggest__must">' + esc(result.must || 'Please choose an option or correct this before continuing.') + '</p>';
+    if(result.options.length){
+      html += '<p class="suggest__q">Did you mean <b>' + esc(result.options[0]) + '</b>?' +
+              '<span class="suggest__why">' + esc(result.why) + '</span></p>';
+    } else {
+      html += '<p class="suggest__q">' + esc(result.why) + '</p>';
+    }
+    html += '<div class="suggest__actions">';
+    result.options.forEach(function(o){
+      html += '<button type="button" class="suggest__btn" data-use="' + esc(o) + '">Use “' + esc(o) + '”</button>';
+    });
+    if(result.actions){
+      result.actions.forEach(function(a){ html += '<button type="button" class="suggest__btn' + (a.primary ? '' : ' suggest__btn--ghost') + '" data-act="' + esc(a.act) + '">' + esc(a.label) + '</button>'; });
+    } else {
+      html += '<button type="button" class="suggest__btn suggest__btn--ghost" data-keep>' + (result.keepLabel ? esc(result.keepLabel) : 'Keep “' + esc(input.value.trim()) + '”') + '</button>';
+    }
+    html += '</div>';
+    if(result.hint) html += '<p class="suggest__hint">' + esc(result.hint) + '</p>';
+    box.innerHTML = html;
+    box.hidden = false;
+  }
+  function esc(str){ return String(str).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+  // Evaluate a name field. Returns true if OK to continue.
+  function checkNameField(field, strict){
+    var input = field.querySelector('input[data-name]');
+    if(!input) return true;
+    var v = input.value.trim();
+    var st = nameState[input.id];
+    if(st && st.value === v && st.resolved){ renderSuggest(field, input, null); return true; }
+    var result = checkName(v, input.dataset.name);
+    nameState[input.id] = { value:v, resolved:!result };
+    renderSuggest(field, input, result);
+    var box = field.querySelector('.suggest');
+    if(result && strict){ box.classList.add('is-required'); }
+    return !result;
+  }
+  form.addEventListener('click', function(e){
+    var use = e.target.closest('[data-use]');
+    var keep = e.target.closest('[data-keep]');
+    if(!use && !keep) return;
+    var field = e.target.closest('.field');
+    var input = field.querySelector('input');
+    if(use) input.value = use.getAttribute('data-use');
+    if(input.dataset.email !== undefined){ emailState[input.value.trim()] = true; }
+    else if(input.dataset.phone !== undefined){ phoneAck = input.value; answers.residencyAcknowledged = true; }
+    else if(input.id === 'sale-date'){ dateAck = input.value; }
+    else if(input.id === 'equity'){ equityAck = moneyValue(input); }
+    else { nameState[input.id] = { value:input.value.trim(), resolved:true }; }
+    renderSuggest(field, input, null);
+    field.classList.remove('is-invalid');
+  });
+  form.addEventListener('focusout', function(e){
+    var input = e.target;
+    if(input.matches && input.matches('input[data-name]')) checkNameField(input.closest('.field'), false);
+    if(input.matches && input.matches('input[data-email]') && input.value.trim()) checkEmailField(input.closest('.field'), false);
+    if(input.matches && input.matches('input[data-phone]') && input.value.trim()) checkPhoneField(input.closest('.field'), false);
+  });
+  form.addEventListener('input', function(e){
+    var input = e.target;
+    if(input.matches && input.matches('input[data-name]')){
+      var st = nameState[input.id];
+      if(st && st.value !== input.value.trim()){
+        delete nameState[input.id];
+        renderSuggest(input.closest('.field'), input, null);
+      }
+    }
+    if(input.matches && input.matches('input[data-email]') || input.matches && input.matches('input[data-phone]')){
+      renderSuggest(input.closest('.field'), input, null);
+    }
+  });
+
+  /* ---- email checks ---- */
+  // Domains that are exactly right — never "corrected", and used as fuzzy-match targets.
+  var KNOWN_DOMAINS = [
+    'gmail.com','googlemail.com','yahoo.com','ymail.com','rocketmail.com','hotmail.com','outlook.com','live.com','msn.com',
+    'icloud.com','me.com','mac.com','aol.com','mail.com','gmx.com','gmx.net','protonmail.com','proton.me','pm.me','zoho.com','hey.com',
+    'comcast.net','xfinity.com','att.net','sbcglobal.net','bellsouth.net','pacbell.net','verizon.net','cox.net','charter.net',
+    'spectrum.net','earthlink.net','optonline.net','frontier.com','windstream.net','centurylink.net','roadrunner.com','rr.com',
+    'yahoo.co.uk','hotmail.co.uk','outlook.co.uk','btinternet.com','yahoo.ca','sympatico.ca','rogers.com','shaw.ca','telus.net'
+  ];
+  // Only these get offered as corrections (a typo is far more likely to be aiming at a big provider).
+  var MAJOR_DOMAINS = ['gmail.com','yahoo.com','hotmail.com','outlook.com','icloud.com','aol.com','comcast.net','att.net','sbcglobal.net','verizon.net','msn.com','live.com','protonmail.com','me.com'];
+  // Explicit typos that fuzzy matching would miss or that need a specific answer.
+  var DOMAIN_TYPOS = {
+    'gamil.com':'gmail.com','gmial.com':'gmail.com','gmaill.com':'gmail.com','gmal.com':'gmail.com','gmail.con':'gmail.com','gmail.co':'gmail.com',
+    'gmail.cm':'gmail.com','gmail.om':'gmail.com','gmailcom':'gmail.com','gnail.com':'gmail.com','gmali.com':'gmail.com','gimail.com':'gmail.com','gmail.comm':'gmail.com',
+    'yaho.com':'yahoo.com','yhoo.com':'yahoo.com','yahooo.com':'yahoo.com','yahoo.con':'yahoo.com','yahoo.co':'yahoo.com','yaoo.com':'yahoo.com','yahoocom':'yahoo.com',
+    'hotmial.com':'hotmail.com','hotmal.com':'hotmail.com','hotmail.con':'hotmail.com','hotmai.com':'hotmail.com','hotmail.co':'hotmail.com','hotmailcom':'hotmail.com','hotmali.com':'hotmail.com',
+    'outlok.com':'outlook.com','outloo.com':'outlook.com','outlook.con':'outlook.com','outlook.co':'outlook.com','outlokk.com':'outlook.com','outlookcom':'outlook.com',
+    'icloud.con':'icloud.com','iclud.com':'icloud.com','icluod.com':'icloud.com','icloud.co':'icloud.com','icloudcom':'icloud.com',
+    'aol.con':'aol.com','aol.co':'aol.com','comcast.nte':'comcast.net','comcast.ent':'comcast.net','comcast.com':'comcast.net','sbcglobal.com':'sbcglobal.net','verizon.com':'verizon.net','att.com':'att.net'
+  };
+  var TLD_TYPOS = { 'con':'com','cmo':'com','ocm':'com','comm':'com','cm':'com','vom':'com','xom':'com','nte':'net','ent':'net','nett':'net','ogr':'org','orgg':'org','og':'org','eud':'edu','deu':'edu' };
+  var DISPOSABLE = ['mailinator.com','guerrillamail.com','10minutemail.com','tempmail.com','temp-mail.org','yopmail.com','trashmail.com','sharklasers.com','getnada.com','dispostable.com','throwawaymail.com','maildrop.cc','fakeinbox.com'];
+  var ROLE_LOCAL = /^(info|sales|admin|support|noreply|no-reply|donotreply|contact|office|help|billing|webmaster|postmaster|abuse|marketing)$/;
+
+  // Damerau–Levenshtein (with transpositions) — enough to catch swapped/dropped/doubled letters.
+  function editDistance(a, b){
+    var m = a.length, n = b.length, d = [], i, j;
+    for(i = 0; i <= m; i++){ d[i] = [i]; }
+    for(j = 0; j <= n; j++){ d[0][j] = j; }
+    for(i = 1; i <= m; i++){
+      for(j = 1; j <= n; j++){
+        var cost = a.charAt(i-1) === b.charAt(j-1) ? 0 : 1;
+        d[i][j] = Math.min(d[i-1][j] + 1, d[i][j-1] + 1, d[i-1][j-1] + cost);
+        if(i > 1 && j > 1 && a.charAt(i-1) === b.charAt(j-2) && a.charAt(i-2) === b.charAt(j-1)){
+          d[i][j] = Math.min(d[i][j], d[i-2][j-2] + 1);
+        }
+      }
+    }
+    return d[m][n];
+  }
+
+  // Step 1: silent clean-ups that never need the user's attention. Returns the cleaned string.
+  function cleanEmail(raw){
+    var e = (raw || '').trim();
+    e = e.replace(/^mailto:/i, '');
+    e = e.replace(/^[<"'(\[\s]+|[>"')\]\s]+$/g, '');   // pasted "<jane@x.com>" or quotes
+    e = e.replace(/\s+/g, '');                             // stray spaces anywhere
+    e = e.replace(/[.,;:]+$/, '');                          // trailing punctuation from a copied sentence
+    e = e.replace(/＠/g, '@').replace(/[。｡]/g, '.');       // full-width characters from some mobile keyboards
+    var at = e.lastIndexOf('@');
+    if(at > -1){
+      var local = e.slice(0, at), domain = e.slice(at + 1);
+      domain = domain.replace(/,/g, '.').toLowerCase();   // commas for dots; domains are case-insensitive
+      e = local + '@' + domain;
+    }
+    return e;
+  }
+
+  // Step 2: returns { error } for a hard problem, { suggest:{why, options} } for a likely typo, or {} when fine.
+  function checkEmail(e){
+    if(!e) return { error:'Please enter your email address.' };
+    if(e.indexOf('@') === -1){
+      // "janegmail.com" — the @ was dropped in front of a known provider
+      for(var k = 0; k < MAJOR_DOMAINS.length; k++){
+        var dom = MAJOR_DOMAINS[k];
+        if(e.length > dom.length && e.slice(-dom.length).toLowerCase() === dom){
+          return { suggest:{ why:'It looks like the @ was left out.', options:[e.slice(0, -dom.length) + '@' + dom] } };
+        }
+      }
+      return { error:'Missing the @ symbol.' };
+    }
+    if((e.match(/@/g) || []).length > 1) return { error:'There’s more than one @ symbol.' };
+    var parts = e.split('@'), local = parts[0], domain = parts[1];
+    if(!local) return { error:'Missing the part before the @.' };
+    if(!domain) return { error:'Missing the domain after the @ (e.g. gmail.com).' };
+    if(/^\.|\.$/.test(local)) return { error:'The part before the @ can’t start or end with a period.' };
+    if(/\.\./.test(e)) return { error:'Contains two periods in a row.' };
+    if(/[^A-Za-z0-9.!#$%&'*+\/=?^_`{|}~-]/.test(local)) return { error:'The part before the @ has a character that isn’t allowed.' };
+    if(local.length > 64 || e.length > 254) return { error:'That email address is too long.' };
+    if(domain.indexOf('.') === -1){
+      // "gmailcom" → gmail.com ; otherwise it just needs a suffix
+      var fixed = DOMAIN_TYPOS[domain];
+      if(fixed) return { suggest:{ why:'It looks like the period before the domain suffix was left out.', options:[local + '@' + fixed] } };
+      return { error:'The domain is missing its suffix (e.g. .com).' };
+    }
+    if(/^[-.]|[-.]$/.test(domain) || /\.-|-\./.test(domain)) return { error:'The domain can’t start or end with a period or hyphen.' };
+    if(/[^a-z0-9.-]/.test(domain)) return { error:'The domain has a character that isn’t allowed.' };
+    var labels = domain.split('.'), tld = labels[labels.length - 1];
+    if(tld.length < 2) return { error:'The domain suffix is too short (e.g. .com).' };
+    if(/^\d+$/.test(tld)) return { error:'The domain suffix can’t be only numbers.' };
+
+    /* ---- likely typos: offered as Use / Keep ---- */
+    if(DOMAIN_TYPOS[domain]){
+      return { suggest:{ why:'This looks like a misspelling of ' + DOMAIN_TYPOS[domain] + '.', options:[local + '@' + DOMAIN_TYPOS[domain]] } };
+    }
+    if(KNOWN_DOMAINS.indexOf(domain) === -1){
+      // repeated suffix: gmail.com.com
+      if(labels.length >= 3 && labels[labels.length-1] === labels[labels.length-2]){
+        var d2 = labels.slice(0, -1).join('.');
+        if(KNOWN_DOMAINS.indexOf(d2) > -1) return { suggest:{ why:'The domain suffix is repeated.', options:[local + '@' + d2] } };
+      }
+      // suffix typo on an otherwise-known domain: jane@gmail.cmo
+      if(TLD_TYPOS[tld]){
+        var d3 = labels.slice(0, -1).join('.') + '.' + TLD_TYPOS[tld];
+        return { suggest:{ why:'The suffix .' + tld + ' looks like a typo for .' + TLD_TYPOS[tld] + '.', options:[local + '@' + d3] } };
+      }
+      // fuzzy match against the big providers (one or two slips in a domain of 6+ characters)
+      var best = null, bestD = 99;
+      for(var i = 0; i < MAJOR_DOMAINS.length; i++){
+        var dist = editDistance(domain, MAJOR_DOMAINS[i]);
+        if(dist < bestD){ bestD = dist; best = MAJOR_DOMAINS[i]; }
+      }
+      if(best && domain.length >= 6 && bestD <= (domain.length >= 9 ? 2 : 1)){
+        return { suggest:{ why:'This looks like a misspelling of ' + best + '.', options:[local + '@' + best] } };
+      }
+    }
+    if(DISPOSABLE.indexOf(domain) > -1){
+      return { error:'Please use a permanent email address rather than a temporary one — I’ll need to reach you about your exchange.' };
+    }
+    if(ROLE_LOCAL.test(local.toLowerCase())){
+      return { suggest:{ why:'This looks like a shared or department mailbox. A personal address makes it easier for me to reach you directly.', options:[] } };
+    }
+    return {};
+  }
+
+  var emailState = {};   // value -> resolved
+  function checkEmailField(field, strict, live){
+    var input = field.querySelector('input[data-email]');
+    var err = field.querySelector('.field__err');
+    var cleaned = cleanEmail(input.value);
+    if(!live && cleaned !== input.value) input.value = cleaned;   // never rewrite the field while the user is still typing
+    var r = checkEmail(cleaned);
+    err.textContent = r.error || err.dataset.default;
+    field.classList.toggle('is-invalid', !!r.error);
+    if(r.error){ renderSuggest(field, input, null); return false; }
+    if(r.suggest && !emailState[cleaned]){
+      renderSuggest(field, input, r.suggest);
+      if(strict) field.querySelector('.suggest').classList.add('is-required');
+      return false;
+    }
+    renderSuggest(field, input, null);
+    return true;
+  }
+
+  /* ---- validation ---- */
+  function validateField(field){
+    var input = field.querySelector('input');
+    var v = input.value.trim();
+    var ok = true;
+    if(input.required && !v) ok = false;
+    else if(input.dataset.email !== undefined) return checkEmailField(field, true);
+    else if(input.dataset.phone !== undefined) return checkPhoneField(field, true);
+    field.classList.toggle('is-invalid', !ok);
+    if(ok && input.dataset.name) ok = checkNameField(field, true);
+    return ok;
+  }
+  function validateStep(step){
+    var fields = Array.prototype.slice.call(step.querySelectorAll('.field'));
+    var firstBad = null;
+    fields.forEach(function(f){ if(!validateField(f) && !firstBad) firstBad = f; });
+    if(firstBad){
+      var sug = firstBad.querySelector('.suggest:not([hidden]) button');
+      (sug || firstBad.querySelector('input')).focus();
+      return false;
+    }
+    fields.forEach(function(f){ var i = f.querySelector('input'); answers[i.name] = i.value.trim(); });
+    return true;
+  }
+  form.addEventListener('input', function(e){
+    if(e.target.dataset.minlen !== undefined) return;   // step-2 text fields handle themselves
+    var field = e.target.closest('.field');
+    if(!field || !field.classList.contains('is-invalid')) return;
+    if(e.target.dataset.email !== undefined) checkEmailField(field, false, true);
+    else if(e.target.dataset.phone !== undefined) checkPhoneField(field, false);
+    else validateField(field);
+  });
+
+  /* ---- phone: formatting + region check ---- */
+  // Canadian area codes (North American Numbering Plan, Canada)
+  var CA_AREA = ['204','226','236','249','250','257','263','289','306','343','354','365','367','368','382','387','403','416','418','428','431','437','438','450','460','468','474','506','514','519','548','568','579','581','584','587','604','613','639','647','672','683','705','709','742','753','778','780','782','807','819','825','867','873','879','902','905'];
+  // Other non-U.S. countries that share the +1 country code (Caribbean etc.)
+  var NANP_OTHER = {'242':'the Bahamas','246':'Barbados','264':'Anguilla','268':'Antigua and Barbuda','284':'the British Virgin Islands','345':'the Cayman Islands','441':'Bermuda','473':'Grenada','649':'Turks and Caicos','658':'Jamaica','664':'Montserrat','721':'Sint Maarten','758':'Saint Lucia','767':'Dominica','784':'St. Vincent and the Grenadines','809':'the Dominican Republic','829':'the Dominican Republic','849':'the Dominican Republic','868':'Trinidad and Tobago','869':'St. Kitts and Nevis','876':'Jamaica'};
+  // U.S. geographic area codes in service (all 50 states + DC), plus the territories: 340 USVI, 670 N. Mariana, 671 Guam, 684 Am. Samoa, 787/939 Puerto Rico
+  var US_AREA = ['201','202','203','205','206','207','208','209','210','212','213','214','215','216','217','218','219','220','223','224','225','227','228','229','231','234','235','239','240','248','251','252','253','254','256','260','262','267','269','270','272','274','276','279','281','283','301','302','303','304','305','307','308','309','310','312','313','314','315','316','317','318','319','320','321','323','325','326','327','329','330','331','332','334','336','337','339','340','341','346','347','350','351','352','353','357','360','361','363','364','380','385','386','401','402','404','405','406','407','408','409','410','412','413','414','415','417','419','423','424','425','430','432','434','435','436','440','442','443','445','447','448','457','458','463','464','469','470','472','475','478','479','480','484','501','502','503','504','505','507','508','509','510','512','513','515','516','517','518','520','530','531','534','539','540','541','551','557','559','561','562','563','564','567','570','571','572','573','574','575','580','582','585','586','601','602','603','605','606','607','608','609','610','612','614','615','616','617','618','619','620','621','623','624','626','628','629','630','631','636','640','641','645','646','650','651','656','657','659','660','661','662','667','669','670','671','678','679','680','681','682','684','686','689','701','702','703','704','706','707','708','712','713','714','715','716','717','718','719','720','724','725','726','727','728','730','731','732','734','737','738','740','743','747','754','757','760','762','763','765','769','770','771','772','773','774','775','779','781','785','786','787','801','802','803','804','805','806','808','810','812','813','814','815','816','817','818','820','821','826','828','830','831','832','835','837','838','839','840','843','845','847','848','850','854','856','857','858','859','860','861','862','863','864','865','870','872','878','901','903','904','906','907','908','909','910','912','913','914','915','916','917','918','919','920','924','925','928','929','930','931','934','936','937','938','939','940','941','943','945','947','948','949','951','952','954','956','959','970','971','972','973','975','978','979','980','983','984','985','986','989'];
+  // Non-geographic codes that are never someone's personal number: toll-free, premium-rate, personal-communication (5XX)
+  var NONGEO = /^(8(00|33|44|55|66|77|88)|900|5(00|2[1-9]|33|44|66|77|88))$/;
+  var COUNTRY_CODES = {'52':'Mexico','44':'the United Kingdom','61':'Australia','49':'Germany','33':'France','34':'Spain','39':'Italy','81':'Japan','82':'South Korea','86':'China','91':'India','55':'Brazil','54':'Argentina','57':'Colombia','56':'Chile','51':'Peru','63':'the Philippines','64':'New Zealand','65':'Singapore','66':'Thailand','971':'the United Arab Emirates','972':'Israel','353':'Ireland','31':'the Netherlands','41':'Switzerland','46':'Sweden','47':'Norway','45':'Denmark','48':'Poland','7':'Russia','27':'South Africa','20':'Egypt','90':'Turkey','60':'Malaysia','62':'Indonesia','84':'Vietnam','92':'Pakistan','852':'Hong Kong','886':'Taiwan','380':'Ukraine','30':'Greece','351':'Portugal','32':'Belgium','43':'Austria','420':'Czechia','36':'Hungary','40':'Romania','98':'Iran','966':'Saudi Arabia','974':'Qatar','965':'Kuwait','961':'Lebanon','962':'Jordan','234':'Nigeria','254':'Kenya','233':'Ghana','506':'Costa Rica','507':'Panama','502':'Guatemala','503':'El Salvador','504':'Honduras','505':'Nicaragua','593':'Ecuador','598':'Uruguay','591':'Bolivia','58':'Venezuela','53':'Cuba','509':'Haiti'};
+
+  // Normalise what was typed into { digits, intl } — intl means the user signalled a country code (+, 00 or 011).
+  function parsePhone(raw){
+    var v = (raw || '').trim();
+    var intl = v.charAt(0) === '+';
+    var d = v.replace(/\D/g, '');
+    if(!intl && /^(011|00)\d{7,}/.test(d)){ intl = true; d = d.replace(/^(011|00)/, ''); }
+    if(!intl && d.length >= 12){ intl = true; }                   // too long for a domestic number
+    if(!intl && d.length === 11 && d.charAt(0) === '1'){ d = d.slice(1); }
+    if(intl && d.length === 11 && d.charAt(0) === '1'){ intl = false; d = d.slice(1); }   // "+1 415…" is still North American
+    return { digits:d, intl:intl };
+  }
+  function formatPhone(raw){
+    var pp = parsePhone(raw), d = pp.digits;
+    if(pp.intl) return '+' + d.slice(0, 15);
+    if(d.length > 10) return d.slice(0, 15);   // keep typing: one more digit turns it into an international number
+    if(d.length > 6) return '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6);
+    if(d.length > 3) return '(' + d.slice(0,3) + ') ' + d.slice(3);
+    if(d.length > 0) return '(' + d;
+    return '';
+  }
+  // Returns { error } | { region:'CA'|'MX'|'INTL', where } | { region:'US' }
+  function checkPhone(raw){
+    var pp = parsePhone(raw), d = pp.digits;
+    if(pp.intl){
+      if(d.length < 8) return { error:'That international number looks too short.' };
+      var codes = Object.keys(COUNTRY_CODES).sort(function(a,b){ return b.length - a.length; });
+      for(var i = 0; i < codes.length; i++){
+        if(d.indexOf(codes[i]) === 0){
+          return { region: codes[i] === '52' ? 'MX' : 'INTL', where: COUNTRY_CODES[codes[i]] };
+        }
+      }
+      if(d.length < 8) return { error:'That international number looks too short.' };
+      return { region:'INTL', where:'outside the U.S.' };
+    }
+    if(d.length !== 10) return { error:'Please enter a 10-digit phone number.' };
+    var area = d.slice(0,3), exch = d.slice(3,6), line = d.slice(6);
+    // obviously made-up numbers: 999-999-9999, 123-456-7890, 555-01XX, repeated or sequential digits
+    if(/^(\d)\1{9}$/.test(d) || /^(\d)\1{6}$/.test(d.slice(3)) ||
+       /^(0123456789|1234567890|9876543210|0987654321)$/.test(d) || /^(\d)\1{2}(\d)\2{2}(\d)\3{3}$/.test(d) ||
+       (exch === '555' && /^01\d\d$/.test(line)) || /^(\d)\1{5}$/.test(exch + line.slice(0,3)) ){
+      return { error:'That doesn’t look like a real phone number — please enter the number where I can reach you.' };
+    }
+    if(/^[01]/.test(area) || /11$/.test(area) || /^[01]/.test(exch) || /11$/.test(exch)) return { error:'That doesn’t look like a valid phone number — could you double-check it?' };
+    if(NONGEO.test(area)) return { error:'Toll-free and premium numbers can’t be used here — please enter a personal mobile or landline number.' };
+    if(US_AREA.indexOf(area) === -1 && CA_AREA.indexOf(area) === -1 && !NANP_OTHER[area]){
+      return { error:'The area code ' + area + ' isn’t in service — could you double-check it?' };
+    }
+    if(CA_AREA.indexOf(area) > -1) return { region:'CA', where:'Canada' };
+    if(NANP_OTHER[area]) return { region:'INTL', where:NANP_OTHER[area] };
+    return { region:'US' };
+  }
+
+  var phone = document.getElementById('phone');
+  var phoneAck = null;   // the formatted number the user acknowledged the residency note for
+  phone.addEventListener('input', function(){
+    var caret = phone.selectionStart, atEnd = caret === phone.value.length;
+    phone.value = formatPhone(phone.value);
+    if(!atEnd) try { phone.setSelectionRange(caret, caret); } catch(e){}
+  });
+  function checkPhoneField(field, strict){
+    var input = field.querySelector('input[data-phone]');
+    var err = field.querySelector('.field__err');
+    var r = checkPhone(input.value);
+    err.textContent = r.error || err.dataset.default;
+    field.classList.toggle('is-invalid', !!r.error);
+    answers.phoneRegion = r.region || '';
+    if(r.error){ renderSuggest(field, input, null); return false; }
+    if(r.region !== 'US' && phoneAck !== input.value){
+      var label = r.region === 'CA' ? 'This looks like a Canadian phone number.'
+                : r.region === 'MX' ? 'This looks like a phone number from Mexico.'
+                : 'This looks like a phone number from ' + r.where + '.';
+      renderSuggest(field, input, {
+        why: label + ' Please note that our investment opportunities are available only to U.S. citizens and lawful permanent residents.',
+        options: [],
+        keepLabel: 'I’m a U.S. citizen or lawful permanent resident — continue',
+        hint: 'Otherwise, please enter a U.S. phone number.'
+      });
+      if(strict) field.querySelector('.suggest').classList.add('is-required');
+      return false;
+    }
+    renderSuggest(field, input, null);
+    return true;
+  }
+
+  /* ---- Conditional steps (one question per page; branch pages are skipped when their condition isn't met) ---- */
+  var s2 = {};   // working state for the "about you" pages; only `role` and `is1031` are written to answers
+  function cond(w){
+    if(!w) return true;
+    var m = /^(\w+)(!=|=)(.*)$/.exec(w);
+    // an unanswered key never hides a page (so jumping into a section still walks through all of it)
+    var v = s2[m[1]] !== undefined ? s2[m[1]] : answers[m[1]];
+    if(v === undefined) return true;
+    return m[2] === '=' ? v === m[3] : v !== m[3];
+  }
+  function applies(step){
+    var sec = sectionOf(step);
+    return cond(step.dataset.when) && (sec === step || cond(sec.dataset.when));
+  }
+  function route(){ return steps.filter(applies); }
+  function applyMarital(){
+    var joint = s2.maritalStatus === 'married' || s2.maritalStatus === 'partner';
+    Array.prototype.forEach.call(form.querySelectorAll('[data-single]'), function(el){ el.textContent = joint ? el.dataset.joint : el.dataset.single; });
+  }
+  function applyPronouns(){
+    applyMarital();
+    var them = !!s2.role && s2.role !== 'investor';
+    Array.prototype.forEach.call(form.querySelectorAll('[data-you]'), function(el){ el.textContent = them ? el.dataset.them : el.dataset.you; });
+  }
+  // Accredited-investor test on the ranges given: net worth ≥ $1M (ex. primary residence), or income ≥ $200k individual / ≥ $300k joint.
+  function recordAccreditation(){
+    if(s2.role !== 'investor'){ delete answers.maritalStatus; delete answers.netWorth; delete answers.householdIncome; delete answers.accreditedLikely; return; }
+    var MS = { single:'Single', married:'Married', partner:'Domestic partnership', divorced:'Divorced or separated', widowed:'Widowed' };
+    if(s2.maritalStatus) answers.maritalStatus = MS[s2.maritalStatus];
+    if(s2.netWorth) answers.netWorth = s2.netWorth;
+    if(s2.householdIncome) answers.householdIncome = s2.householdIncome;
+    if(s2.netWorth && s2.householdIncome){
+      var joint = s2.maritalStatus === 'married' || s2.maritalStatus === 'partner';
+      var nwOk = s2.netWorth !== 'Under $1,000,000';
+      var incOk = joint ? !/^(Under \$200,000|\$200,000)/.test(s2.householdIncome) : s2.householdIncome !== 'Under $200,000';
+      answers.accreditedLikely = nwOk || incOk;
+    }
+  }
+  var ROLE = { investor:'Investor', realtor:'Realtor, agent, or broker', family:'Loved one or friend', professional:'Attorney, CPA, or investment advisor' };
+  var STAGE = { identification:'Yes — in 45-day identification period', listed:'Yes — property listed for sale', future:'Yes — planning a future exchange' };
+  // Collapse the branch into two collected fields.
+  // role:   Investor | Realtor, agent, or broker | Loved one or friend | Attorney, CPA, or investment advisor | Other: <text>
+  // is1031: Yes — in 45-day identification period | Yes — property listed for sale | Yes — planning a future exchange | No: <how we can help>
+  function collapseAbout(){
+    if(s2.role === 'other') answers.role = 'Other: ' + (s2.assistRoleOther || '').trim();
+    else if(s2.role) answers.role = ROLE[s2.role];
+    else delete answers.role;
+    if(s2.situation === 'none') answers.is1031 = 'No: ' + (s2.helpText || '').trim();
+    else if(s2.situation) answers.is1031 = STAGE[s2.situation];
+    else delete answers.is1031;
+  }
+  function renderRecap(){
+    var rows = [];
+    if(s2.role) rows.push(['Your role', s2.role === 'investor' ? 'The person making the investment' : s2.role === 'other' ? ('Other' + (s2.assistRoleOther ? ' — ' + s2.assistRoleOther.trim() : '')) : ROLE[s2.role] + ', assisting the investor', '2']);
+    var html = rows.map(function(r){ return '<div><dt>' + esc(r[0]) + '</dt><dd>' + esc(r[1]) + '<a data-goto="' + r[2] + '">change</a></dd></div>'; }).join('');
+    Array.prototype.forEach.call(form.querySelectorAll('[data-recap]'), function(el){ el.innerHTML = html; });
+  }
+  // choice pages: pick → record → auto-advance
+  form.addEventListener('click', function(e){
+    var btn = e.target.closest('.choice'); if(!btn) return;
+    var grp = btn.closest('[data-choice]'), step = btn.closest('[data-step]');
+    Array.prototype.forEach.call(grp.querySelectorAll('.choice'), function(b){ b.setAttribute('aria-checked', b === btn ? 'true' : 'false'); });
+    var key = grp.dataset.choice, val = btn.dataset.value;
+    if(key === 'situation' && s2.situation !== val){ delete answers.equity; delete answers.debt; delete answers.saleDate; delete answers.saleDateStatus; }
+    if(key === 'role' && val !== 'investor'){ delete answers.maritalStatus; delete answers.netWorth; delete answers.householdIncome; delete answers.accreditedLikely; }
+    s2[key] = val;
+    step.classList.remove('is-error');
+    // an option with an inline follow-up (Other / not a 1031) reveals it instead of advancing
+    var inlineShown = false;
+    var boxes = Array.prototype.filter.call(step.querySelectorAll('[data-inline-for]'), function(b){ return b.previousElementSibling && (b.previousElementSibling === grp || b.previousElementSibling.previousElementSibling === grp); });
+    Array.prototype.forEach.call(boxes, function(box){
+      var on = box.dataset.inlineFor === val;
+      box.hidden = !on;
+      if(!on){ Array.prototype.forEach.call(box.querySelectorAll('input, textarea'), function(i){ i.value = ''; delete s2[i.name]; i.closest('.field').classList.remove('is-invalid'); }); }
+      else { inlineShown = true; setTimeout(function(){ box.querySelector('input, textarea').focus(); }, 80); }
+    });
+    grp.classList.remove('is-error');
+    applyPronouns(); collapseAbout();
+    if(key === 'householdIncome' || key === 'netWorth' || key === 'maritalStatus') recordAccreditation();
+    if(key === 'householdIncome' && answers.accreditedLikely === false){
+      // thresholds not met on these answers: say so, but let them continue
+      var noteBox = step.querySelector('[data-accred-note]');
+      noteBox.innerHTML = '<p class="suggest__must">A quick heads-up before you continue.</p>' +
+        '<p class="suggest__q">Based on these answers, you may not meet the accredited-investor definition on net worth or income alone. There are other ways to qualify — certain professional licenses, or investing through a qualifying entity or trust — so let’s talk it through on our call.</p>';
+      noteBox.hidden = false;
+      step.querySelector('[data-accred-actions]').hidden = false;
+      setTimeout(function(){ step.querySelector('[data-next]').focus(); }, 80);
+      inlineShown = true;
+    } else if(key === 'householdIncome'){
+      step.querySelector('[data-accred-note]').hidden = true;
+      step.querySelector('[data-accred-actions]').hidden = true;
+    }
+    if(!inlineShown) setTimeout(function(){ next(); }, 260);
+  });
+  // "change" links in the recap
+  form.addEventListener('click', function(e){
+    var a = e.target.closest('[data-goto]'); if(!a) return;
+    var idx = steps.findIndex(function(st){ return st.dataset.step === a.dataset.goto; });
+    if(idx > -1) go(idx);
+  });
+  // text pages
+  form.addEventListener('input', function(e){
+    var el = e.target; if(el.dataset.minlen === undefined) return;
+    s2[el.name] = el.value;
+    var field = el.closest('.field'), min = +el.dataset.minlen, len = el.value.trim().length;
+    if(field.classList.contains('is-invalid') && len >= min) field.classList.remove('is-invalid');
+    var counter = field.querySelector('.field__count');
+    if(counter){
+      counter.textContent = len >= min ? '✓ ' + len + ' characters' : (min - len) + ' more character' + (min - len === 1 ? '' : 's') + ' needed';
+      counter.classList.toggle('is-ok', len >= min);
+    }
+    if(el.tagName === 'TEXTAREA'){ el.style.height = 'auto'; el.style.height = el.scrollHeight + 'px'; }
+    collapseAbout();
+  });
+  function validateAbout(step){
+    if(step.dataset.choiceStep){
+      var first = null;
+      step.dataset.choiceStep.split(' ').forEach(function(key){
+        var grp = step.querySelector('[data-choice="' + key + '"]');
+        if(!s2[key]){ grp.classList.add('is-error'); first = first || grp; return; }
+        var box = grp.parentElement.querySelector('[data-inline-for="' + s2[key] + '"]');
+        if(box && !box.hidden){
+          var inp = box.querySelector('input, textarea');
+          var okLen = inp.dataset.money !== undefined ? moneyValue(inp) > 0 : inp.value.trim().length >= +inp.dataset.minlen;
+          if(!okLen){ inp.closest('.field').classList.add('is-invalid'); first = first || inp; }
+        }
+      });
+      if(first){ first.focus(); return false; }
+      collapseAbout();
+      if(step.dataset.choiceStep === 'hasDebt') answers.debt = s2.hasDebt === 'yes' ? moneyValue(step.querySelector('#debt')) : 0;
+      return true;
+    }
+    if(step.dataset.textStep){
+      var input = step.querySelector('[name="' + step.dataset.textStep + '"]');
+      if(input.value.trim().length < +input.dataset.minlen){ input.closest('.field').classList.add('is-invalid'); input.focus(); return false; }
+      collapseAbout();
+      return true;
+    }
+    return true;
+  }
+
+  /* ---- Section 3: money fields, sale date ---- */
+  function moneyValue(input){ var d = input.value.replace(/[^\d.]/g, ''); return d ? Math.round(parseFloat(d)) : NaN; }
+  function fmtMoney(n){ return isNaN(n) ? '' : n.toLocaleString('en-US'); }
+  form.addEventListener('input', function(e){
+    var el = e.target; if(el.dataset.money === undefined) return;
+    var raw = el.value.replace(/[^\d]/g, '').slice(0, 12);
+    el.value = raw ? Number(raw).toLocaleString('en-US') : '';
+    el.closest('.field').classList.remove('is-invalid');
+    if(el.id === 'equity'){ equityAck = null; renderSuggest(el.closest('.field'), el, null); }
+  });
+  function syncSaleDateLabels(){
+    var pg = form.querySelector('[data-step="3c"]');
+    var sold = s2.situation === 'identification';
+    pg.classList.toggle('is-sold', sold); pg.classList.toggle('is-future', !sold);
+  }
+  var dateAck = null, equityAck = null;
+  function validateExchange(step){
+    var kind = step.dataset.validate;
+    if(kind === 'equity'){
+      var inp = step.querySelector('#equity'), field = inp.closest('.field'), err = field.querySelector('.field__err');
+      var v = moneyValue(inp);
+      var bad = isNaN(v) || v <= 0 ? err.dataset.default : v < 10000 ? 'That seems low for an exchange — please double-check the amount (enter the full number, e.g. 500,000).' : v > 500000000 ? 'That seems high — please double-check the amount.' : '';
+      err.textContent = bad || err.dataset.default;
+      field.classList.toggle('is-invalid', !!bad);
+      if(bad){ renderSuggest(field, inp, null); inp.focus(); return false; }
+      if(v < 100000 && equityAck !== v){
+        renderSuggest(field, inp, { must:'A quick heads-up before you continue.', why:'Many investment opportunities have a $100,000 minimum. We can still talk — some options start lower — but I want to set expectations up front.', options:[], keepLabel:'Understood — continue' });
+        field.querySelector('.suggest').classList.add('is-required');
+        return false;
+      }
+      renderSuggest(field, inp, null);
+      answers.equity = v;
+      return true;
+    }
+    if(kind === 'saleDate'){
+      var di = step.querySelector('#sale-date'), dfield = di.closest('.field'), derr = dfield.querySelector('.field__err');
+      if(!di.value){ dfield.classList.add('is-invalid'); di.focus(); return false; }
+      var d = new Date(di.value + 'T12:00:00'), today = new Date(); today.setHours(12,0,0,0);
+      var days = Math.round((today - d) / 86400000);   // positive = in the past
+      var sold = s2.situation === 'identification';
+      var them = !!s2.role && s2.role !== 'investor';
+      var note = null;
+      if(!sold && days > 0){
+        // a past date on a "listed / planning" path: the sale has probably already happened
+        note = { must:'Please confirm before continuing.',
+                 why:'That date is in the past. ' + (them ? 'Has the property already sold — is the investor already in their 1031 exchange?' : 'Has your property already sold — are you already in your 1031 exchange?'),
+                 actions:[ { act:'sold', label: them ? 'Yes — it has sold' : 'Yes — it has sold', primary:true }, { act:'fixdate', label:'No — I’ll pick a future date' } ] };
+      } else if(sold && days < 0){
+        note = { must:'Please confirm before continuing.',
+                 why:'That date is in the future, but you said the property has already sold. Has the sale not closed yet?',
+                 actions:[ { act:'notyet', label:'Right — it hasn’t closed yet', primary:true }, { act:'fixdate', label:'I’ll fix the date' } ] };
+      } else if(sold && days > 180){
+        note = { must:'A quick heads-up before you continue.',
+                 why:'Based on that date, ' + (them ? 'the investor is' : 'you’re') + ' outside the 180-day window of the 1031 exchange. Let’s still talk — there may be other options worth exploring.',
+                 keepLabel:'Continue anyway' };
+      } else if(sold && days > 45){
+        note = { must:'A quick heads-up before you continue.',
+                 why:'Based on that date, ' + (them ? 'the investor is' : 'you’re') + ' outside the 45-day identification window of the 1031 exchange. Let’s still talk — there may be options depending on what was identified.',
+                 keepLabel:'Continue anyway' };
+      }
+      if(note && dateAck !== di.value){
+        note.options = [];
+        renderSuggest(dfield, di, note);
+        dfield.querySelector('.suggest').classList.add('is-required');
+        return false;
+      }
+      renderSuggest(dfield, di, null);
+      answers.saleDate = di.value;
+      answers.saleDateStatus = sold ? 'actual' : 'estimated';
+      return true;
+    }
+    return true;
+  }
+  function setSituation(val){
+    var grp = form.querySelector('[data-choice="situation"]');
+    Array.prototype.forEach.call(grp.querySelectorAll('.choice'), function(b){ b.setAttribute('aria-checked', b.dataset.value === val ? 'true' : 'false'); });
+    s2.situation = val;
+    collapseAbout(); syncSaleDateLabels(); applyPronouns();
+  }
+  form.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-act]'); if(!btn) return;
+    var act = btn.dataset.act, field = btn.closest('.field'), di = field.querySelector('#sale-date');
+    if(act === 'sold'){ setSituation('identification'); renderSuggest(field, di, null); next(); }       // re-runs the date check in "sold" mode (45/180-day notes still apply)
+    if(act === 'notyet'){ setSituation('listed'); renderSuggest(field, di, null); next(); }
+    if(act === 'fixdate'){ renderSuggest(field, di, null); di.value = ''; di.focus(); }
+  });
+  form.addEventListener('input', function(e){ if(e.target.id === 'sale-date'){ dateAck = null; renderSuggest(e.target.closest('.field'), e.target, null); e.target.closest('.field').classList.remove('is-invalid'); } });
+
+  /* ---- Section 5: acknowledgments + review ---- */
+  function validateAcks(step){
+    var boxes = Array.prototype.slice.call(step.querySelectorAll('.ack input'));
+    var missing = boxes.filter(function(b){ return !b.checked; });
+    boxes.forEach(function(b){ b.closest('.ack').classList.toggle('is-missing', !b.checked); });
+    step.classList.toggle('is-error', missing.length > 0);
+    if(missing.length){ missing[0].focus(); return false; }
+    answers.acknowledgments = boxes.map(function(b){ return b.name; });
+    answers.acknowledgedAt = new Date().toISOString();
+    return true;
+  }
+  form.addEventListener('change', function(e){
+    if(e.target.matches && e.target.matches('.ack input')){
+      e.target.closest('.ack').classList.remove('is-missing');
+      var step = e.target.closest('[data-step]');
+      if(!step.querySelector('.ack input:not(:checked)')) step.classList.remove('is-error');
+    }
+  });
+  function money(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+  function fmtDate(iso){ var d = new Date(iso + 'T12:00:00'); return d.toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }); }
+  function addDays(iso, n){ var d = new Date(iso + 'T12:00:00'); d.setDate(d.getDate() + n); return d.toISOString().slice(0,10); }
+  function stepIndex(name){ return steps.findIndex(function(st){ return st.dataset.step === name; }); }
+  function renderReview(){
+    var box = form.querySelector('[data-review]'); if(!box) return;
+    var them = !!s2.role && s2.role !== 'investor';
+    var initials = ((answers.firstName || '?').charAt(0) + (answers.lastName || '').charAt(0)).toUpperCase();
+    var html = '';
+    // profile
+    html += '<div class="card"><div class="card__head"><h3 class="card__title">Your profile</h3><button type="button" class="card__edit" data-goto="1">Edit</button></div>' +
+      '<div class="profile"><div class="avatar" aria-hidden="true">' + esc(initials) + '</div><div>' +
+      '<p class="profile__name">' + esc((answers.firstName || '') + ' ' + (answers.lastName || '')) + '</p>' +
+      '<p class="profile__role">' + esc(answers.role || '') + (them ? ' <button type="button" class="card__edit" data-goto="2">edit</button>' : '') + '</p>' +
+      '<p class="profile__contact"><span>' + esc(answers.email || '') + '</span><span>' + esc(answers.phone || '') + '</span></p>' +
+      '</div></div></div>';
+    // 1031 exchange
+    if(answers.is1031 && answers.is1031.indexOf('Yes') === 0 && answers.equity){
+      var eq = answers.equity || 0, debt = answers.debt || 0, total = eq + debt;
+      var ltv = total ? Math.round(debt / total * 100) : 0;
+      var est = answers.saleDateStatus === 'estimated';
+      var d45 = answers.saleDate ? addDays(answers.saleDate, 45) : null, d180 = answers.saleDate ? addDays(answers.saleDate, 180) : null;
+      var today = new Date(); today.setHours(12,0,0,0);
+      var left45 = d45 ? Math.ceil((new Date(d45 + 'T12:00:00') - today) / 86400000) : null;
+      var left180 = d180 ? Math.ceil((new Date(d180 + 'T12:00:00') - today) / 86400000) : null;
+      html += '<div class="card"><div class="card__head"><h3 class="card__title">' + (them ? 'The investor’s 1031 exchange' : 'Your 1031 exchange') + '</h3><button type="button" class="card__edit" data-goto="2b">Edit</button></div>' +
+        '<dl class="kv kv--2">' +
+        '<div><dt>Status</dt><dd>' + esc(answers.is1031.replace(/^Yes — /, '').replace(/^\w/, function(c){ return c.toUpperCase(); })) + '</dd></div>' +
+        '<div><dt>' + (est ? 'Expected sale date' : 'Sale closed') + '</dt><dd>' + fmtDate(answers.saleDate) + (est ? '<small>estimated</small>' : '') + '</dd></div>' +
+        '<div><dt>45-day identification deadline</dt><dd>' + fmtDate(d45) + '<small>' + (est ? 'if the sale closes as expected' : (left45 > 0 ? left45 + ' day' + (left45 === 1 ? '' : 's') + ' remaining' : 'passed')) + '</small></dd></div>' +
+        '<div><dt>180-day exchange deadline</dt><dd>' + fmtDate(d180) + '<small>' + (est ? 'if the sale closes as expected' : (left180 > 0 ? left180 + ' day' + (left180 === 1 ? '' : 's') + ' remaining' : 'passed')) + '</small></dd></div>' +
+        '</dl><div class="card__divider"></div><dl class="kv kv--4">' +
+        '<div><dt>Equity to invest</dt><dd>' + money(eq) + '</dd></div>' +
+        '<div><dt>Debt to replace</dt><dd>' + money(debt) + '</dd></div>' +
+        '<div><dt>Total investment</dt><dd class="is-accent">' + money(total) + '</dd></div>' +
+        '<div><dt>Loan-to-value</dt><dd>' + ltv + '%' + '<small>' + (debt ? money(debt) + ' ÷ ' + money(total) : 'no debt to replace') + '</small></dd></div>' +
+        '</dl>' +
+        '<p class="card__note">Deadlines are counted from the closing date of the sale. The 180-day deadline is the earlier of 180 days or the due date of the tax return (including extensions) for the year of the sale. Figures are estimates for planning only.</p>' +
+        '</div>';
+    }
+    // accreditation (investors)
+    if(answers.maritalStatus){
+      html += '<div class="card"><div class="card__head"><h3 class="card__title">Accredited investor</h3><button type="button" class="card__edit" data-goto="4">Edit</button></div>' +
+        '<dl class="kv">' +
+        '<div><dt>Marital status</dt><dd>' + esc(answers.maritalStatus) + '</dd></div>' +
+        '<div><dt>Net worth (ex. home)</dt><dd>' + esc(answers.netWorth || '') + '</dd></div>' +
+        '<div><dt>Annual income</dt><dd>' + esc(answers.householdIncome || '') + '</dd></div>' +
+        '</dl></div>';
+    }
+    // not a 1031: what they told us
+    if(answers.is1031 && answers.is1031.indexOf('No:') === 0){
+      html += '<div class="card"><div class="card__head"><h3 class="card__title">How I can help</h3><button type="button" class="card__edit" data-goto="2b">Edit</button></div>' +
+        '<p style="margin:0;font-size:15px;line-height:1.55;color:var(--black)">' + esc(answers.is1031.replace(/^No:\s*/, '')) + '</p></div>';
+    }
+    box.innerHTML = html;
+  }
+
+  /* ---- Segment (decided when they confirm the review) ----
+     1 · qualified-1031-investor : the investor, accredited on the ranges given, in a 1031 exchange (any stage), U.S. phone
+     2 · assisting               : anyone who is not the investor
+     3 · investor-review         : the investor, but not accredited on the ranges, or non-U.S. phone, or not in a 1031 exchange */
+  function assignSegment(){
+    var investor = answers.role === 'Investor';
+    var in1031 = !!answers.is1031 && answers.is1031.indexOf('Yes') === 0;
+    var us = answers.phoneRegion === 'US';
+    var accredited = answers.accreditedLikely === true;
+    var seg, why = [];
+    if(!investor){ seg = 'assisting'; }
+    else if(accredited && in1031 && us){ seg = 'qualified-1031-investor'; }
+    else {
+      seg = 'investor-review';
+      if(!accredited) why.push('not accredited on ranges given');
+      if(!in1031) why.push('not in a 1031 exchange');
+      if(!us) why.push('non-U.S. phone');
+    }
+    answers.segment = seg;
+    if(why.length) answers.segmentReason = why.join('; '); else delete answers.segmentReason;
+    return true;
+  }
+
+  /* ---- Cal.com inline embed (mounted only when the schedule page is reached) ---- */
+  // Pre-fill the booking form with contact details only (name, email, phone).
+  // "attendeePhoneNumber" is Cal.com's field behind the "Attendee phone number" call location.
+  function calPrefill(){
+    var d = (answers.phone || '').replace(/\D/g, '');
+    var e164 = !answers.phone ? '' : answers.phone.charAt(0) === '+' ? '+' + d : (d.length === 10 ? '+1' + d : '+' + d);
+    return {
+      layout: 'month_view',
+      useSlotsViewOnSmallScreen: 'true',
+      name: ((answers.firstName || '') + ' ' + (answers.lastName || '')).trim(),
+      email: answers.email || '',
+      attendeePhoneNumber: e164
+    };
+  }
+  var calMounted = false;
+  function mountCal(){
+    if(calMounted) return; calMounted = true;
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "25min", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["25min"]("inline", {
+      elementOrSelector:"#my-cal-inline-25min",
+      config: calPrefill(),
+      calLink: "jerry-baker-yn6qn1/25min",
+    });
+    Cal.ns["25min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#0d9dd8"}},"hideEventTypeDetails":false,"layout":"month_view"});
+    // Cal.com tells the page when a booking is made; record it and show a confirmation above the calendar.
+    var onBooked = function(e){
+      var d = (e && e.detail && e.detail.data) || {};
+      var b = d.booking || d;   // v1 nests the booking; v2 sends it flat
+      answers.booking = {
+        uid: b.uid || null,
+        start: b.startTime || d.date || null,
+        end: b.endTime || null,
+        eventType: (d.eventType && (d.eventType.slug || d.eventType.title)) || d.title || '25min',
+        bookedAt: new Date().toISOString()
+      };
+      var strip = form.querySelector('[data-booked]');
+      if(strip){
+        var when = answers.booking.start ? new Date(answers.booking.start) : null;
+        strip.querySelector('[data-booked-when]').textContent = when ? when.toLocaleString('en-US', { weekday:'long', month:'long', day:'numeric', hour:'numeric', minute:'2-digit' }) + '.' : '';
+        strip.querySelector('[data-booked-email]').textContent = answers.email || 'your email';
+        strip.hidden = false;
+        strip.scrollIntoView({ behavior:'smooth', block:'start' });
+      }
+      if(typeof window.onLeadBooked === 'function') window.onLeadBooked(answers);   // hook for the CRM submission
+    };
+    Cal.ns["25min"]("on", { action:"bookingSuccessful", callback:onBooked });
+    Cal.ns["25min"]("on", { action:"bookingSuccessfulV2", callback:onBooked });
+  }
+
+  /* ---- paging ---- */
+  function go(n){
+    if(n < 0 || n >= steps.length || n === current) return;
+    var from = steps[current], to = steps[n];
+    var fromSec = sectionOf(from), toSec = sectionOf(to);
+    var forward = n > current;
+    if(fromSec !== toSec){
+      // moving between sections: slide the whole section
+      fromSec.classList.remove('is-active');
+      fromSec.classList.add(forward ? 'is-leaving' : 'is-back');
+      toSec.classList.remove('is-leaving','is-back');
+      void toSec.offsetWidth;   // force a frame so the entering section starts from its offset position
+      toSec.classList.add('is-active');
+      setTimeout(function(){ fromSec.classList.remove('is-leaving','is-back'); }, 600);
+    }
+    // inner pages: just swap the question block (the note and title above stay put)
+    if(from !== fromSec) from.classList.remove('is-active');
+    if(to !== toSec){
+      Array.prototype.forEach.call(toSec.querySelectorAll('.qpage'), function(q){ if(q !== to) q.classList.remove('is-active'); });
+      to.classList.remove('is-active'); void to.offsetWidth; to.classList.add('is-active');
+    }
+    current = n;
+    applyPronouns(); renderRecap(); syncSaleDateLabels(); render();
+    // focus the first visible field — or, for a choice question, its wrapper (so Enter doesn't silently pick option A)
+    var first = Array.prototype.find.call(to.querySelectorAll('input, textarea, .choices, button[data-next], button[data-prev]'), function(el){ return el.offsetParent !== null; });
+    if(first) setTimeout(function(){ first.focus({preventScroll:true}); }, 450);
+    window.scrollTo({ top:0, behavior:'smooth' });
+    typeBubble(toSec.querySelector('.jerry__bubble'));   // types once per section; a later visit shows it instantly
+    if(to.dataset.step === '5b') renderReview();
+    if(to.dataset.step === '6') mountCal();
+    var segEl = to.querySelector('[data-segment]'); if(segEl){ segEl.textContent = answers.segment || '—'; to.querySelector('[data-segment-reason]').textContent = answers.segmentReason ? '(' + answers.segmentReason + ')' : ''; }
+  }
+  function render(){
+    var r = route(), pos = r.indexOf(steps[current]);
+    if(pos === -1){ pos = r.filter(function(st){ return steps.indexOf(st) < current; }).length; }
+    progress.style.width = ((pos + 1) / r.length * 100) + '%';
+    footCount.textContent = 'Step ' + (pos + 1) + ' of ' + r.length;
+    footPrev.disabled = current === 0;
+    footNext.disabled = current === steps.length - 1 || sectionOf(steps[current]).classList.contains('step--final');
+    Array.prototype.forEach.call(document.querySelectorAll('[data-first]'), function(el){ el.textContent = (answers.firstName || 'there') + (el.dataset.suffix || ''); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-if-name]'), function(el){ el.hidden = !answers.firstName; });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-no-name]'), function(el){ el.hidden = !!answers.firstName; });
+  }
+  function nextIndex(from, dir){
+    var i = from + dir;
+    while(i >= 0 && i < steps.length && !applies(steps[i])) i += dir;
+    return i;
+  }
+  function next(){
+    var step = steps[current];
+    var ok = step.dataset.validate === 'acks' ? validateAcks(step) : step.dataset.validate === 'segment' ? assignSegment() : step.dataset.validate ? validateExchange(step) : (step.dataset.choiceStep || step.dataset.textStep) ? validateAbout(step) : validateStep(step);
+    if(ok){ var i = nextIndex(current, 1); if(i < steps.length) go(i); }
+  }
+  function prev(){ var i = nextIndex(current, -1); if(i >= 0) go(i); }
+  form.addEventListener('submit', function(e){ e.preventDefault(); next(); });
+  form.addEventListener('click', function(e){
+    if(e.target.closest('[data-prev]')) prev();
+  });
+  footPrev.addEventListener('click', prev);
+  footNext.addEventListener('click', next);
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' && !e.shiftKey && ((e.target.tagName === 'INPUT' && e.target.type !== 'checkbox') || e.target.tagName === 'TEXTAREA')){ e.preventDefault(); next(); }
+    if(e.key === 'Enter' && e.target.classList && e.target.classList.contains('choice')){ e.preventDefault(); e.target.click(); }
+    if(e.key === 'Enter' && (e.target === document.body || e.target === form || (e.target.classList && e.target.classList.contains('choices')) || (e.target.type === 'checkbox'))){ e.preventDefault(); next(); }
+    // A/B/C/D or Y/N picks an option in the newest open choice question (only when not typing in a field)
+    if(!/^(INPUT|TEXTAREA)$/.test(e.target.tagName) && /^[a-z]$/i.test(e.key) && !e.metaKey && !e.ctrlKey && !e.altKey){
+      var grp = Array.prototype.find.call(steps[current].querySelectorAll('.choices'), function(g){ return !g.querySelector('[aria-checked="true"]'); }) || steps[current].querySelector('.choices');
+      if(grp){
+        var btn = Array.prototype.find ? Array.prototype.find.call(grp.querySelectorAll('.choice'), function(b){ return b.querySelector('.choice__key').textContent.toLowerCase() === e.key.toLowerCase(); }) : null;
+        if(btn){ e.preventDefault(); btn.click(); }
+      }
+    }
+  });
+
+  // arriving from the login page with ?email=… pre-fills the email field
+  try { var qs = new URLSearchParams(location.search); if(qs.get('email')){ document.getElementById('email').value = qs.get('email'); } } catch(e){}
+  render();
+  // every multi-question section shows its first inner page by default
+  Array.prototype.forEach.call(form.querySelectorAll('.step'), function(sec){ var pg = sec.querySelector('.qpage'); if(pg && !sec.querySelector('.qpage.is-active')) pg.classList.add('is-active'); });
+  typeBubble(sectionOf(steps[0]).querySelector('.jerry__bubble'));
+
+  /* ===== TEMPORARY: dev step-jumper (delete this block before launch) ===== */
+  (function(){
+    var dev = document.createElement('div');
+    dev.className = 'devjump';
+    dev.innerHTML = '<span>Dev: jump to step</span>';
+    steps.forEach(function(st, i){
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = st.dataset.step;
+      b.addEventListener('click', function(){ go(i); });
+      dev.appendChild(b);
+    });
+    document.body.appendChild(dev);
+    var sync = function(){ Array.prototype.forEach.call(dev.querySelectorAll('button'), function(b, i){ b.classList.toggle('is-on', i === current); }); };
+    form.addEventListener('transitionend', sync); dev.addEventListener('click', function(){ setTimeout(sync, 50); }); sync();
+  })();
+  /* ===== /TEMPORARY ===== */
+})();
+</script>
+
+</body>
+</html>

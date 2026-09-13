@@ -1,0 +1,231 @@
+import re, json
+h = open('/home/claude/hero-jerry.html').read()
+a = json.load(open('assets.json'))
+
+def between(start, end, src=h):
+    i = src.index(start); j = src.index(end, i); return src[i:j]
+
+navcss = between('  /* ---------- Sticky nav ---------- */', '  /* section anchors land below the sticky bar */')
+nav_mobile = between('    .nav__inner{ gap:16px; height:54px; }', '    .ctabar__inner{')
+footcss = between('  /* ---------- Footer ---------- */', '  /* ---------- Sticky nav ---------- */')
+navhtml = re.search(r'<header class="nav" id="nav">.*?</header>', h, flags=re.S).group(0)
+navhtml = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img src="{{LOGO}}" alt="Baker 1031"', navhtml)
+navhtml = navhtml.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest"').replace('href="#results"', 'href="/#results"').replace('href="#request-access"', 'href="/register"')
+foot = re.search(r'<footer class="footer">.*?</footer>', h, flags=re.S).group(0)
+foot = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img src="{{LOGO}}" alt="Baker 1031"', foot)
+foot = foot.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest"').replace('href="#results"', 'href="/#results"').replace('href="#request-access"', 'href="/register"')
+navjs = between("  // Nav: shadow once scrolled; mobile menu toggle", "})();\n</script>")
+
+page = r'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log in — Baker 1031 Investments</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#000; --white:#fff;
+    --accent:rgb(13,157,216); --accent-hover:rgb(10,135,187); --accent-soft:#F1F9FF;
+    --grey:#4B5563; --grey-light:#6B7280; --hair:#E5E7EB; --hair-strong:#CBD2D9; --error:#DC2626;
+    --radius:6px;
+    --font:"Special Gothic", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{ margin:0; background:var(--white); color:var(--black); font-family:var(--font); line-height:1.5; -webkit-font-smoothing:antialiased; min-height:100vh; display:flex; flex-direction:column; }
+  ::selection{ background:var(--accent); color:var(--white); }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:12px 20px; background:var(--accent); color:var(--white);
+    border:1px solid var(--accent); border-radius:var(--radius);
+    font:inherit; font-size:14px; font-weight:600; text-decoration:none; cursor:pointer;
+    transition:background .18s ease, border-color .18s ease;
+  }
+  .btn:hover{ background:var(--accent-hover); border-color:var(--accent-hover); }
+  .btn svg{ width:16px; height:16px; }
+  .btn[disabled]{ opacity:.6; cursor:default; }
+
+  /* ---------- Sticky nav (from the homepage) ---------- */
+''' + navcss + r'''
+  /* ---------- Login stage ---------- */
+  .stage{
+    flex:1 0 auto; position:relative; overflow:hidden;
+    min-height:760px;
+    background:var(--white);
+    display:flex; align-items:flex-start; justify-content:center;
+    padding:96px 24px 0;
+  }
+  .stage__sky{ position:absolute; left:0; right:0; bottom:-2px; pointer-events:none; opacity:.9; }
+  .stage__sky img{ display:block; width:100%; height:auto; }
+  .box{
+    position:relative; z-index:1;
+    width:100%; max-width:460px;
+    background:var(--white); border:1px solid var(--hair-strong); border-radius:10px;
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+    padding:36px 36px 32px;
+    margin-bottom:220px;
+  }
+  .box h1{ margin:0 0 6px; font-size:28px; font-weight:700; line-height:1.15; letter-spacing:-.02em; }
+  .box h1 .hand{ font-family:var(--hand); font-weight:600; color:var(--accent); font-size:1.3em; line-height:.8; display:inline-block; transform:rotate(-3deg) translateY(.04em); margin-right:.08em; }
+  .box__sub{ margin:0 0 26px; font-size:14.5px; color:var(--grey); }
+  .box__sub a{ color:var(--accent); font-weight:600; text-decoration:none; }
+  .box__sub a:hover{ text-decoration:underline; text-underline-offset:3px; }
+  .field{ display:flex; flex-direction:column; }
+  .field label{ font-size:13px; font-weight:600; color:var(--grey); margin-bottom:8px; }
+  .field input{
+    appearance:none; width:100%; font:inherit; font-size:17px; color:var(--black);
+    background:var(--white); border:1px solid var(--hair-strong); border-radius:var(--radius);
+    padding:12px 14px; outline:none; transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .field input::placeholder{ color:#B4BAC3; }
+  .field input:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(13,157,216,.18); }
+  .field.is-invalid input{ border-color:var(--error); box-shadow:0 0 0 3px rgba(220,38,38,.12); }
+  .field .btn{ width:100%; margin-top:14px; padding:13px 20px; font-size:15px; }
+  .err{
+    display:none; margin:12px 0 0; padding:12px 14px;
+    border:1px solid #FECACA; border-left:3px solid var(--error); border-radius:var(--radius); background:#FEF2F2;
+    font-size:13.5px; line-height:1.5; color:#7F1D1D;
+  }
+  .err.is-on{ display:block; }
+  .err a{ color:var(--accent); font-weight:600; text-decoration:none; }
+  .err a:hover{ text-decoration:underline; text-underline-offset:3px; }
+  .ok{
+    display:none; margin:12px 0 0; padding:12px 14px;
+    border:1px solid #CFE9F7; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
+    font-size:13.5px; line-height:1.5; color:var(--grey);
+  }
+  .ok.is-on{ display:block; }
+  .ok strong{ color:var(--black); }
+  .box__help{ margin:22px 0 0; padding-top:18px; border-top:1px solid var(--hair); font-size:12.5px; line-height:1.5; color:var(--grey-light); }
+  .box__help a{ color:var(--grey-light); text-decoration:underline; text-decoration-style:dotted; text-decoration-color:var(--accent); text-underline-offset:3px; }
+  .box__help a:hover{ color:var(--accent); }
+
+  .rule{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; width:100%; }
+  .rule::before{ content:""; display:block; height:1px; background:#E5E7EB; }
+  .rule--strong::before{ height:2px; background:#CBD2D9; }
+
+  /* ---------- Footer (from the homepage) ---------- */
+''' + footcss + r'''
+  @media (max-width:900px){
+''' + nav_mobile + r'''    .stage{ padding:40px 20px 0; min-height:560px; }
+    .box{ padding:28px 22px 24px; margin-bottom:150px; }
+    .box h1{ font-size:24px; }
+    .footer__inner{ grid-template-columns:1fr 1fr; padding:40px 20px 32px; }
+    .footer__brand{ grid-column:1 / -1; }
+    .footer__offices{ grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; column-gap:24px; }
+    .footer__offices .footer__label{ grid-column:1 / -1; }
+  }
+</style>
+</head>
+<body id="top">
+
+''' + navhtml + r'''
+
+<main class="stage">
+  <div class="stage__sky" aria-hidden="true"><img src="{{SKYLINE}}" alt="" width="2000" height="459"></div>
+  <div class="box">
+    <h1>Welcome back!</h1>
+    <p class="box__sub">New to Baker 1031 Investments? <a href="/register" id="create">Create an account</a></p>
+    <form id="login" novalidate>
+      <div class="field" id="field">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" inputmode="email" spellcheck="false" autocapitalize="off" autofocus>
+        <button class="btn" type="submit" id="submit">
+          Log in
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <p class="err" id="err" role="alert" aria-live="polite"></p>
+      <p class="ok" id="ok" role="status" aria-live="polite"></p>
+    </form>
+    <p class="box__help">Trouble logging in? Email <a href="mailto:invest@baker1031.com">invest@baker1031.com</a> or call <a href="tel:+14159650552">(415) 965-0552</a>.</p>
+  </div>
+</main>
+
+<div class="rule rule--strong" aria-hidden="true"></div>
+''' + foot + r'''
+
+<script>
+(function(){
+''' + navjs + r'''})();
+</script>
+<script>
+(function(){
+  var form = document.getElementById('login'), field = document.getElementById('field'), input = document.getElementById('email');
+  var err = document.getElementById('err'), ok = document.getElementById('ok'), submit = document.getElementById('submit'), create = document.getElementById('create');
+
+  // Keep the "Create an account" link carrying whatever they've typed
+  function syncCreate(){
+    var v = clean(input.value);
+    create.href = '/register' + (v ? '?email=' + encodeURIComponent(v) : '');
+  }
+  function clean(raw){
+    var e = (raw || '').trim().replace(/^mailto:/i, '').replace(/^[<"'(\[\s]+|[>"')\]\s]+$/g, '').replace(/\s+/g, '').replace(/[.,;:]+$/, '');
+    var at = e.lastIndexOf('@');
+    if(at > -1) e = e.slice(0, at) + '@' + e.slice(at + 1).replace(/,/g, '.').toLowerCase();
+    return e;
+  }
+  function looksLikeEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e); }
+
+  // ---- Approved-investor check ----
+  // Production: replace with a request to the login endpoint, e.g.
+  //   fetch('/api/login', { method:'POST', body: JSON.stringify({ email:e }) }).then(r => r.json())
+  // which looks the address up in Airtable → Investor Access (appiKLSyAUmP0h8cJ) → Investors (tblbuFMpfv5R4DIyp) by Email Address
+  // (case-insensitive) and returns { found, accessLevel:'Approved'|'Call Needed', first: <First Name> }. The list is never shipped to the browser.
+  // Demo stand-in for the approved-investor list: email -> first name. Replace with the endpoint above.
+  var DEMO_APPROVED = { 'jane@example.com': 'Jane', 'jerry@baker1031.com': 'Jerry' };
+  function lookup(e){
+    return new Promise(function(resolve){
+      setTimeout(function(){
+        var k = String(e).toLowerCase(), hit = Object.prototype.hasOwnProperty.call(DEMO_APPROVED, k);   // match case-insensitively
+        resolve({ found: hit, accessLevel:'Approved', first: hit ? DEMO_APPROVED[k] : '' });
+      }, 450);
+    });
+  }
+  // Where to go after logging in: ?next=/invest (same-site paths only), default the investments page.
+  var nextParam = (function(){ try { var n = new URLSearchParams(window.location.search).get('next') || ''; return /^\/[^\/\\]/.test(n) ? n : '/invest'; } catch(e){ return '/invest'; } })();
+
+  function showError(html){ err.innerHTML = html; err.classList.add('is-on'); ok.classList.remove('is-on'); field.classList.add('is-invalid'); }
+  function clearError(){ err.classList.remove('is-on'); field.classList.remove('is-invalid'); }
+
+  input.addEventListener('input', function(){ clearError(); syncCreate(); });
+  syncCreate();
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var e = clean(input.value);
+    if(e !== input.value) input.value = e;
+    syncCreate();
+    if(!e){ showError('Please enter your email address.'); input.focus(); return; }
+    if(!looksLikeEmail(e)){ showError('That doesn’t look like a complete email address — could you double-check it?'); input.focus(); return; }
+    submit.disabled = true; submit.firstChild.textContent = 'Checking… ';
+    lookup(e).then(function(res){
+      submit.disabled = false; submit.firstChild.textContent = 'Log in ';
+      if(!res.found){
+        showError('That email doesn’t match an account on file. Try again and check the spelling closely, or <a href="' + create.href + '">create a new account</a> with this address.');
+        input.focus(); input.select();
+        return;
+      }
+      clearError();
+      ok.innerHTML = '<strong>Welcome back' + (res.first ? ', ' + res.first : '') + '.</strong> Sending you to your investments…';
+      ok.classList.add('is-on');
+      // Production: the endpoint sets the session cookie. Here the session lives in localStorage so the nav and gated pages can read it.
+      try { localStorage.setItem('b1031-session', JSON.stringify({ email:e, first:res.first || '', accessLevel:res.accessLevel, at:new Date().toISOString() })); } catch(err){}
+      setTimeout(function(){ window.location.href = nextParam; }, 900);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
+'''
+open('login_template.html','w').write(page)
+out = page.replace('{{LOGO}}', a['logo']).replace('{{SKYLINE}}', a['skyline']).replace('{{SFPHOTO}}', a['sfphoto'])
+open('/home/claude/login.html','w').write(out)
+print('built', len(out))

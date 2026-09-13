@@ -1,0 +1,17 @@
+[build]
+  publish = "."
+
+# clean URLs are directories with index.html; keep a couple of friendly aliases
+[[redirects]]
+  from = "/offerings"
+  to = "/invest/"
+  status = 301
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
