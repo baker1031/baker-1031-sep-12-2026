@@ -95,6 +95,19 @@ offering appends it to the investor's "Deals Reviewed" (`track_view`). The edge 
   Set `ATTIO_DEALS=off` to skip deals (the Deals object must be enabled in Attio → Settings → Objects).
 - Optional: `ATTIO_LIST=<list api slug>` also adds the person to that list.
 
+**One-time setup** — `build/attio-setup.mjs` creates the attributes below, their select options and the deal pipeline stages
+(Lead → Intro Call Scheduled → Reviewing Opportunities → Actively Reviewing → Completing Paperwork → Closing → Won / Lost).
+It is idempotent; the token needs `object_configuration:read-write` for this step:
+
+```
+read -s ATTIO_API_KEY && export ATTIO_API_KEY      # paste the token, press Enter (nothing is echoed)
+node build/attio-setup.mjs --dry                   # preview
+node build/attio-setup.mjs                         # apply
+```
+
+Then set `ATTIO_REVIEW_STAGE="Actively Reviewing"` in Netlify so portal activity moves deals forward. Saved views can't be
+created through the API — see `build/attio-views.md` for the two People views and two Deal views worth adding by hand.
+
 Custom attributes are optional. If a People or Deal attribute with one of these titles exists, it is filled in automatically
 (text, number, currency, date, checkbox, select — select options must already exist):
 
