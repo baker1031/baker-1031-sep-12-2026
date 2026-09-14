@@ -106,8 +106,10 @@ async function ensureStages() {
 }
 
 (async () => {
-  const me = await api('/self');
-  console.log(`Attio workspace: ${me.workspace_name || me.workspace_id || 'ok'}  token scopes: ${(me.permissions || me.scope || []).length ? (me.permissions || me.scope).join(', ') : '(not reported)'}`);
+  try {
+    const me = await api('/self');
+    console.log(`Attio workspace: ${me.workspace_name || me.workspace_id || 'ok'}${me.active === false ? '  (token reported INACTIVE)' : ''}`);
+  } catch (e) { console.log('token check skipped:', e.message); }
   const objs = (await api('/objects')).data || [];
   if (!objs.some((o) => o.api_slug === 'deals')) console.log('NOTE: the Deals object is not enabled — enable it in Attio → Settings → Objects, then re-run for the deal fields and stages.');
   console.log('\nPeople attributes'); await ensureAttributes('people', PEOPLE);
