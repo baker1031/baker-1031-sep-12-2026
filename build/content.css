@@ -887,3 +887,10 @@ html:not(.is-logged-in) .filterbar{ pointer-events:none; }
 .ccard .v{ font-size:17px; font-weight:600; color:var(--black); }
 .ccard .v a{ color:var(--accent-hover); border:0; }
 .ccard .n{ font-size:14px; line-height:1.55; color:var(--grey); margin-top:8px; }
+
+/* hub pages: card grids get the full shell width instead of the 74ch reading column (which left the cards
+   two-up with a third of the page empty); headings and copy on those pages keep their reading measure */
+.prose:has(.pt-grid,.sp-cards,.aud-cards,.cgrid,.hublist){ max-width:none; }
+.prose:has(.pt-grid,.sp-cards,.aud-cards,.cgrid,.hublist) > :is(h2,h3,p,ul,ol,.lead,.mk-head,.gl-hub-head,.sp-head){ max-width:74ch; }
+.prose .sp-cards{ grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr)); }
+.prose .aud-cards{ grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr)); }
