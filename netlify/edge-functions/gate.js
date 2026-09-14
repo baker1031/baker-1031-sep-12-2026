@@ -23,7 +23,6 @@ const PUBLIC_PREFIXES = [
   '/results',
   '/offerings',
   '/learn',
-  '/offerings',
   '/calculators',
   '/contact',
   '/update-my-info',
@@ -33,7 +32,6 @@ const PUBLIC_PREFIXES = [
   '/terms',
   '/disclosures',
   '/request-access',
-  '/update-my-info',
   '/assets/',
   '/api/',
   '/.netlify/',
@@ -51,7 +49,7 @@ const PUBLIC_PREFIXES = [
   '/commitment-to-privacy',
 ];
 const PUBLIC_EXACT = ['/', '/index.html', '/favicon.ico', '/robots.txt', '/sitemap.xml',
-  '/llms.txt', '/apple-touch-icon.png', '/404.html', '/build-info.json'];
+  '/llms.txt', '/apple-touch-icon.png', '/site.webmanifest', '/404.html', '/build-info.json'];
 
 function isPublic(pathname) {
   if (PUBLIC_EXACT.includes(pathname)) return true;
