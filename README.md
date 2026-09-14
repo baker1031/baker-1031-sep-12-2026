@@ -22,7 +22,7 @@ Run it locally from the repo root: `pip install -r requirements.txt && python3 b
 | URL | Source | Notes |
 | --- | --- | --- |
 | `/` | `index.html` | Homepage |
-| `/register/` | `register/index.html` | Registration; posts to `/api/lead` when the acknowledgments are accepted (CRM hand-off to be wired to the new integration), then books on Cal.com |
+| `/register/` | `register/index.html` | Registration; posts to `/api/lead` when the acknowledgments are accepted (Attio person + note + deal, see below), then books on Cal.com |
 | `/login/` | `login/index.html` | Email-only login via `/api/auth` (Investor Access base) |
 | `/invest/` | `build/build_inventory.py` | Available Investments — skeleton + blur until logged in |
 | `/offerings/<slug>/` | `build/build_offering.py` | One page per DST offering; documents under `/offerings/<slug>/docs/` are hard-gated at the edge |
@@ -31,7 +31,7 @@ Run it locally from the repo root: `pip install -r requirements.txt && python3 b
 | `/sponsors/…`, `/markets/…`, `/glossary/…`, `/property-types/…`, `/calculators/…`, `/audiences/…`, `/strategies/…` | `build/build_pages.py` | Section pages from `content/pages/` |
 | `/contact/`, `/schedule-call/`, `/schedule-consultation/`, `/process/` | `content/pages/` | |
 | `/privacy/`, `/terms/`, `/disclosures/`, `/reg-bi/`, `/ccpa/`, `/accessibility/`, `/commitment-to-privacy/` | `content/pages/` | Policy pages |
-| `/update-my-info/` | `update-my-info/index.html` | Standalone form linked from investor emails (`/api/my-info`) |
+| `/update-my-info/` | `update-my-info/index.html` | Standalone form linked from investor emails (`/api/my-info`, reads/writes the Attio person) |
 | `/form-crs` | redirect | → `/assets/docs/aurora-form-crs.pdf` |
 
 Old URLs: `/offerings/` → `/invest/`, `/request-access/` → `/register/`, `/performance/` → `/results/`,
@@ -83,6 +83,39 @@ offering appends it to the investor's "Deals Reviewed" (`track_view`). The edge 
 - After cutover: verify the domain in Google Search Console and Bing Webmaster Tools, submit `https://baker1031.com/sitemap.xml`, and
   (optional) set `INDEXNOW_KEY` for instant Bing/Copilot updates.
 
+## CRM: Attio
+
+`netlify/functions/lead.mjs` delivers every completed registration to Attio (`netlify/functions/lib/attio.mjs` is the client):
+
+- **Person** upserted by email (name, email, phone in E.164).
+- **Note** on the person with the whole submission (role, situation, equity/debt, sale date + 45/180-day dates, marital status,
+  net-worth and income ranges, acknowledgments).
+- **Deal** named `Last, First - 1031|Cash - Role`, stage `ATTIO_DEAL_STAGE` (default `Lead`), value = estimated commission
+  (equity × 0.9 × 0.05), linked to the person, owned by `ATTIO_DEAL_OWNER` (or the first admin in the workspace).
+  Set `ATTIO_DEALS=off` to skip deals (the Deals object must be enabled in Attio → Settings → Objects).
+- Optional: `ATTIO_LIST=<list api slug>` also adds the person to that list.
+
+Custom attributes are optional. If a People or Deal attribute with one of these titles exists, it is filled in automatically
+(text, number, currency, date, checkbox, select — select options must already exist):
+
+| People | Deals |
+| --- | --- |
+| Role (This Transaction), Marital Status, Net Worth Range, Household Income, Accredited Signal, Exchange Fit, Lead Source, Acknowledgments Timestamp, Update Link, Intro Invite Status, Portal Access, Closing Date, 45-Day Deadline, 180-Day Deadline | Sale Date, 45-Day Deadline, 180-Day Deadline, Exchange Equity, Replacement Debt, Exchange Fit, Objectives, Cash Amount, Deal Type |
+
+Two of them drive behaviour: **Intro Invite Status** (text) stops the automatic scheduling / fix-your-info emails from being sent
+twice, and **Portal Access** (select Yes/No, or a checkbox) is what approves an investor for the portal:
+
+- Portal access: set Portal Access = Yes on the person in Attio → an Attio webhook (`record.updated` on People, target
+  `https://<site>/api/portal-sync`) → the Investor Access row in Airtable is created/approved and the welcome email with a
+  first-time login link goes out; No → the row is revoked (login stops on the next page load). Set `ATTIO_WEBHOOK_SECRET` to the
+  webhook's signing secret so the function verifies Attio's `Attio-Signature`; a manual run works with
+  `POST /api/portal-sync?key=<PORTAL_SYNC_KEY>` and `{"email": "..."}`.
+- Portal activity: the first offering an approved investor views is noted on their person record, and their open website deal
+  moves to `ATTIO_REVIEW_STAGE` (e.g. `Actively Reviewing`) if that stage exists — never backwards from a later stage.
+- Deadline reminder emails look the person up in Attio by email to build their personal update link.
+
+Without `ATTIO_API_KEY` the site still works: registrations are logged in the function log and the Form CRS receipt still goes out.
+
 ## Deadline reminder emails (Resend)
 
 `netlify/functions/deadline-reminders.mjs` runs daily at 15:00 UTC (8am PT). It reads the Investors table (`ID Period Expiration`,
@@ -107,31 +140,39 @@ Deploys are triggered three ways, all needing the site's **build hook** (Netlify
 
 ## One-time Netlify setup (new site)
 
-Netlify → the new project → **Site configuration → Environment variables → Add a variable** (scope: all, all deploy contexts).
-Most values already exist on the previous project (`baker1031-v2`): open its Environment variables page, click a value to reveal it, copy.
+Set from Terminal with the Netlify CLI (secrets never leave your machine):
+
+```
+cd ~/baker-1031-sep-12-2026
+npx netlify-cli env:set VARIABLE_NAME "value" --secret --context production --context deploy-preview --context branch-deploy
+```
+
+(or Netlify → the project → Site configuration → Environment variables → Add a variable, scope: all). After adding or changing a
+variable used by functions, trigger a deploy so the functions pick it up.
 
 | Variable | Where it comes from | Used by |
 | --- | --- | --- |
-| `AIRTABLE_TOKEN` | Copy from `baker1031-v2`, or create at airtable.com/create/tokens with scopes `data.records:read` + `data.records:write` and access to both bases (Investment Offerings, Investor Access) | Build (offerings, photos, documents), login, "Deals Reviewed", rebuild watcher, reminders |
-| `SESSION_SECRET` | Copy from `baker1031-v2` (or generate a new one: `openssl rand -hex 32` in Terminal) | Signs the login cookie; the auth function and the edge gate must share it |
+| `AIRTABLE_TOKEN` | airtable.com/create/tokens with scopes `data.records:read` + `data.records:write` and access to both bases (Investment Offerings, Investor Access) | Build (offerings, photos, documents), login, "Deals Reviewed", rebuild watcher, reminders, portal sync |
+| `SESSION_SECRET` | `openssl rand -hex 32` in Terminal | Signs the login cookie; the auth function and the edge gate must share it |
 | `NETLIFY_BUILD_HOOK` | New project → Site configuration → Build & deploy → Continuous deployment → **Build hooks → Add build hook** (name "Airtable", branch main) → copy the URL | Rebuild watcher (every 15 min) — without it the watcher only reports |
-| `GHL_Key` | Copy from `baker1031-v2` (GoHighLevel private-integration token, starts with `pit-`) | Leads, opportunity stage moves, portal sync |
-| `GHL_LOCATION_ID` | Copy from `baker1031-v2` | Same |
-| `RESEND_API_KEY` | Copy from `baker1031-v2` | Registration confirmations, portal welcome emails, deadline reminders |
-| `PORTAL_SYNC_KEY` | Copy from `baker1031-v2` — it must match the key in the GoHighLevel workflow that calls `/api/portal-sync` | Portal sync, manual runs of the watcher/reminders |
+| `ATTIO_API_KEY` | Attio → Workspace settings → Developers → **+ New integration** (name "Baker 1031 website") → **Generate access token**, with scopes `record_permission:read-write`, `object_configuration:read`, `note:read-write`, `user_management:read`, `list_entry:read-write`, `list_configuration:read` | Registration leads, update-my-info, portal sync, portal activity, reminder links |
+| `ATTIO_DEAL_OWNER` | Your Attio login email | Owner of the deals the website creates |
+| `ATTIO_WEBHOOK_SECRET` | Attio → Developers → the integration → Webhooks → add `https://<site>/api/portal-sync` for `record.updated` (People) → copy the signing secret | Verifies portal-sync calls from Attio |
+| `RESEND_API_KEY` | resend.com → API Keys | Registration confirmations, portal welcome emails, deadline reminders |
+| `PORTAL_SYNC_KEY` | Any long random string (`openssl rand -hex 24`) | Manual runs of portal sync, the watcher and the reminders |
 | `SCHEDULE_CALL_URL` | Set to `/schedule-call/` (the "call needed" login message links here) | Login |
 | `CRS_RECEIPT_TO` | Optional; defaults to crs@baker1031.com | Form CRS receipt emails |
 
-Optional: `SESSION_DAYS` (login length, default 30), `INDEXNOW_KEY` (Bing IndexNow), `GHL_PIPELINE_ID` / `GHL_STAGE_ID` overrides.
+Optional: `SESSION_DAYS` (login length, default 30), `INDEXNOW_KEY` (Bing IndexNow), `ATTIO_DEAL_STAGE` (default `Lead`), `ATTIO_REVIEW_STAGE`, `ATTIO_PROMOTE_FROM`, `ATTIO_LIST`, `ATTIO_DEALS=off`.
 
 After adding variables: **Deploys → Trigger deploy → Clear cache and deploy site** once, so the edge gate picks up `SESSION_SECRET`.
 Then add the same build-hook URL as the GitHub secret `NETLIFY_BUILD_HOOK` (repo → Settings → Secrets and variables → Actions) for the hourly safety net.
 
-At cutover, also point the GoHighLevel workflow's portal-sync webhook at the new domain (same path `/api/portal-sync`, same key).
+At cutover, update the Attio webhook's target URL to `https://baker1031.com/api/portal-sync`.
 
 ## Before launch
 
 - Set the environment variables above (until `AIRTABLE_TOKEN` + `SESSION_SECRET` are set, logging in reports the service as unreachable).
-- Do a test login with an Approved address and a test registration (check the GoHighLevel contact + opportunity).
+- Do a test login with an Approved address and a test registration (check the Attio person, note and deal).
 - Confirm Cal.com's phone prefill with a test booking.
 - Search Console: submit `https://baker1031.com/sitemap.xml` after cutover.

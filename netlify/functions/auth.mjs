@@ -123,8 +123,8 @@ export const handler = async (event) => {
           method: 'PATCH',
           body: JSON.stringify({ fields: { 'Deals Reviewed': existing ? existing + '\n' + line : line } }),
         });
-        // A logged-in investor actively reviewing deals → promote their GHL
-        // opportunity to "Actively Reviewing" (never demotes later stages).
+        // A logged-in investor actively reviewing deals → note it in Attio and promote their deal
+        // (ATTIO_REVIEW_STAGE), never demoting later stages.
         await moveToActivelyReviewing(rec.fields['Email Address'], slug).catch((e) => console.error('[auth] stage move:', e.message));
       }
       return json(200, { ok: true });
@@ -138,51 +138,29 @@ export const handler = async (event) => {
 };
 
 /*
-  First offering view → move the investor's GHL opportunity to "Actively
-  Reviewing" (Live Opportunities pipeline). Added Sept 3, 2026 per Jerry.
-  Promotes only from earlier stages — Leads pipeline (Registered/Cold) and
-  Live Opportunities "Intro Call Scheduled" / "Reviewing Opportunities".
-  Opportunities already at Actively Reviewing or further along (Completing
-  Paperwork, Closing Processing, Closed), and non-open opportunities, are
-  left alone. Leaves a note on the contact the first time it moves one.
+  First offering view → in Attio, note it on the investor's person record and (when ATTIO_REVIEW_STAGE is
+  set, e.g. "Actively Reviewing") move their open website deal to that stage. Promotes only from the stages
+  listed in ATTIO_PROMOTE_FROM (comma-separated titles; default: the new-deal stage, "Lead") so a deal that
+  is further along is never moved backwards. Best effort — never blocks the page.
 */
-const GHL_API = 'https://services.leadconnectorhq.com';
-const PIPE_LEADS = 'ZSMGJd2FbVFYyL87vXij';
-const PIPE_LIVE = '28oMpg0Mb0zYCzJicMXF';
-const STAGE_ACTIVE = 'cfeae9e2-d353-41fe-83ef-478339e991ce'; // Actively Reviewing
-const PROMOTE_FROM = new Set([
-  '8074c14c-6373-4d6a-965a-0860921dacd2', // Leads / Registered
-  '299a9b0b-3f40-4f93-b591-5f010f04dc53', // Leads / Cold
-  '81017fa0-e8e2-42a9-97f6-bffda8ad5e60', // Live / Intro Call Scheduled
-  '355f90f0-6c6b-4cc5-a087-3d71a72bb395', // Live / Reviewing Opportunities
-]);
+import * as attio from './lib/attio.mjs';
 
 async function moveToActivelyReviewing(email, slug) {
-  const key = process.env.GHL_Key || process.env.GHL_API_KEY;
-  const loc = process.env.GHL_LOCATION_ID;
-  if (!key || !loc || !email) return;
-  const h = { Authorization: `Bearer ${key}`, Version: '2021-07-28', 'content-type': 'application/json' };
-  const cr = await fetch(`${GHL_API}/contacts/search/duplicate?locationId=${loc}&email=${encodeURIComponent(email)}`, { headers: h });
-  const cid = cr.ok ? ((await cr.json()).contact || {}).id : null;
-  if (!cid) return;
-  const or = await fetch(`${GHL_API}/opportunities/search?location_id=${loc}&contact_id=${cid}&limit=20`, { headers: h });
-  const opps = or.ok ? (await or.json()).opportunities || [] : [];
+  if (!attio.configured() || !email) return;
+  const person = await attio.findPersonByEmail(email);
+  if (!person) return;
+  const personId = person.id.record_id;
+  const target = process.env.ATTIO_REVIEW_STAGE;
   let moved = false;
-  for (const o of opps) {
-    if (o.status !== 'open') continue;
-    if (![PIPE_LEADS, PIPE_LIVE].includes(o.pipelineId)) continue;
-    if (!PROMOTE_FROM.has(o.pipelineStageId)) continue;
-    const ur = await fetch(`${GHL_API}/opportunities/${o.id}`, {
-      method: 'PUT', headers: h,
-      body: JSON.stringify({ pipelineId: PIPE_LIVE, pipelineStageId: STAGE_ACTIVE }),
-    });
-    if (ur.ok) moved = true;
-    else console.error('[auth] opp move', o.id, ur.status, (await ur.text()).slice(0, 120));
+  if (target) {
+    const from = new Set((process.env.ATTIO_PROMOTE_FROM || process.env.ATTIO_DEAL_STAGE || 'Lead').split(',').map((x) => x.trim().toLowerCase()).filter(Boolean));
+    const deal = await attio.openDeal(personId);
+    const stage = deal?.values?.stage?.[0]?.status?.title || '';
+    if (deal && from.has(stage.toLowerCase()) && stage.toLowerCase() !== target.toLowerCase()) {
+      try { await attio.attio(`/objects/deals/records/${deal.id.record_id}`, 'PATCH', { data: { values: { stage: target } } }); moved = true; }
+      catch (e) { console.error('[auth] deal stage:', e.message); }
+    }
   }
-  if (moved) {
-    await fetch(`${GHL_API}/contacts/${cid}/notes`, {
-      method: 'POST', headers: h,
-      body: JSON.stringify({ body: `Portal activity: moved opportunity to Actively Reviewing after first offering view (${slug}, ${new Date().toISOString().slice(0, 16)}Z).` }),
-    }).catch(() => {});
-  }
+  await attio.addNote('people', personId, 'Portal activity',
+    `First offering viewed in the investor portal: ${slug} (${new Date().toISOString().slice(0, 16)}Z).${moved ? ` Deal moved to ${target}.` : ''}`, 'plaintext').catch(() => {});
 }

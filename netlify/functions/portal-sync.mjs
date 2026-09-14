@@ -1,28 +1,29 @@
 /*
-  Baker 1031 — GHL "Portal Access" → Airtable "Investor Access" sync
-  (POST /api/portal-sync, called by a GoHighLevel workflow webhook when the
-  Portal Access custom field changes)
+  Baker 1031 — Attio "Portal Access" → Airtable "Investor Access" sync (POST /api/portal-sync)
 
-  Portal Access = Yes → upsert the investor row in Airtable with Access Level
-                        "Approved" (creates the row with name/email/start date
-                        if it doesn't exist) — the person can log in. Also
-                        writes the exchange timeline (Start Date, ID Period
-                        Expiration, 1031 Expiration) from the GHL contact's
-                        Closing Date / 45-Day / 180-Day fields, falling back
-                        to the newest opportunity's Sale Date / deadlines.
-  Portal Access = No  → set the row's Access Level to "Revoked" — login stops
-                        working immediately (auth.mjs re-verifies every page
-                        load), while Deals Reviewed history is preserved.
+  Trigger it from an Attio webhook (record.updated on people — ideally filtered to the "Portal Access"
+  attribute) or by hand with {"email": "..."} / {"record_id": "..."}.
 
-  Auth: requests must carry the shared key (header x-portal-key, or ?key=).
-  Env:  PORTAL_SYNC_KEY, GHL_Key, GHL_LOCATION_ID, AIRTABLE_TOKEN,
+  Portal Access = Yes → upsert the investor row in Airtable with Access Level "Approved" (creating the row
+                        with name / email / start date if it doesn't exist) — the person can log in. Also
+                        writes the exchange timeline (Start Date, ID Period Expiration, 1031 Expiration) from
+                        the person's Closing Date / 45-Day / 180-Day attributes, falling back to the newest
+                        open deal's Sale Date / deadlines. Sends the welcome email once (Welcome Email Sent).
+  Portal Access = No  → set the row's Access Level to "Revoked" — login stops working immediately
+                        (auth.mjs re-verifies every page load); Deals Reviewed history is preserved.
+
+  "Portal Access" is a select (Yes / No) or checkbox attribute on the People object in Attio.
+
+  Auth: an Attio webhook is verified with its signing secret (ATTIO_WEBHOOK_SECRET, header Attio-Signature);
+        otherwise the request must carry the shared key (header x-portal-key, or ?key=PORTAL_SYNC_KEY).
+  Env:  ATTIO_API_KEY, AIRTABLE_TOKEN, PORTAL_SYNC_KEY and/or ATTIO_WEBHOOK_SECRET,
         ACCESS_BASE_ID (default appiKLSyAUmP0h8cJ), ACCESS_TABLE_ID (default tblbuFMpfv5R4DIyp).
 */
-
+import crypto from 'node:crypto';
 import { buildWelcome, sendViaResend } from './lib/invites.mjs';
 import { linkSig } from './login-link.mjs';
+import * as attio from './lib/attio.mjs';
 
-const GHL = 'https://services.leadconnectorhq.com';
 const AT_BASE = process.env.ACCESS_BASE_ID || 'appiKLSyAUmP0h8cJ';
 const AT_TABLE = process.env.ACCESS_TABLE_ID || 'tblbuFMpfv5R4DIyp';
 
@@ -49,108 +50,71 @@ async function findInvestorByEmail(email) {
   return (data.records && data.records[0]) || null;
 }
 
-export const handler = async (event) => {
-  if (event.httpMethod !== 'POST') return json(405, { error: 'POST only' });
+function signedByAttio(event) {
+  const secret = process.env.ATTIO_WEBHOOK_SECRET;
+  const sig = event.headers['attio-signature'] || event.headers['x-attio-signature'];
+  if (!secret || !sig) return false;
+  const want = crypto.createHmac('sha256', secret).update(event.body || '', 'utf8').digest('hex');
+  return want.length === sig.length && crypto.timingSafeEqual(Buffer.from(want), Buffer.from(sig));
+}
 
-  const key = event.headers['x-portal-key'] || (event.queryStringParameters || {}).key;
-  if (!process.env.PORTAL_SYNC_KEY || key !== process.env.PORTAL_SYNC_KEY) return json(403, { error: 'forbidden' });
-  if (!process.env.AIRTABLE_TOKEN) return json(500, { error: 'AIRTABLE_TOKEN not configured' });
+const asDate = (v) => { const s = String(v || '').slice(0, 10); return /^\d{4}-\d{2}-\d{2}$/.test(s) ? s : null; };
 
-  let body = {};
-  try { body = JSON.parse(event.body || '{}'); } catch { /* some webhooks send form-encoded; contact id may be in query */ }
-  const contactId = body.contact_id || body.contactId || body.id
-    || (body.contact && body.contact.id) || (event.queryStringParameters || {}).contact_id;
-  if (!contactId) return json(400, { error: 'no contact id in payload' });
+async function syncOne(recordId) {
+  const person = await attio.getPerson(recordId);
+  const pAttrs = await attio.attributes('people');
+  const flat = attio.flatValues(person);
+  const val = (title) => { const a = pAttrs.find((x) => x.title.toLowerCase() === title.toLowerCase()); return a ? flat[a.slug] : undefined; };
 
-  // Pull the contact fresh from GHL — the webhook payload shape varies, the API doesn't.
-  const gh = { Authorization: `Bearer ${process.env.GHL_Key || process.env.GHL_API_KEY}`, Version: '2021-07-28', 'content-type': 'application/json' };
-  const cr = await fetch(`${GHL}/contacts/${contactId}`, { headers: gh });
-  if (!cr.ok) return json(502, { error: `GHL contact fetch ${cr.status}` });
-  const c = (await cr.json()).contact || {};
+  const raw = val('Portal Access');
+  const portal = raw === true ? 'yes' : raw === false ? 'no' : String(raw ?? '').trim().toLowerCase();
+  if (portal !== 'yes' && portal !== 'no') return { skipped: `Portal Access is "${portal || 'empty'}" — nothing to do` };
 
-  // Find the Portal Access value among the contact's custom fields.
-  // model=all is required — the default can omit one model's fields.
-  const fr = await fetch(`${GHL}/locations/${process.env.GHL_LOCATION_ID}/customFields?model=all`, { headers: gh });
-  const fields = fr.ok ? (await fr.json()).customFields || [] : [];
-  const byName = (name, model) => fields.find((f) => (f.model || 'contact') === model && f.name.toLowerCase() === name.toLowerCase());
-  const paField = byName('portal access', 'contact');
-  if (!paField) return json(500, { error: 'Portal Access field not found in GHL' });
-  const cf = {};
-  for (const v of c.customFields || []) cf[v.id] = v.value ?? v.field_value ?? v.fieldValue;
-  const portal = String(cf[paField.id] || '').trim().toLowerCase();
-  if (portal !== 'yes' && portal !== 'no') return json(200, { ok: true, skipped: `Portal Access is "${portal || 'empty'}" — nothing to do` });
+  const email = Array.isArray(flat.email_addresses) ? flat.email_addresses[0] : flat.email_addresses;
+  if (!email) return { error: 'person has no email' };
+  const name = Array.isArray(flat.name) ? flat.name[0] : flat.name;
+  const firstName = name?.first_name || '';
 
-  // Exchange timeline → Airtable date columns. Contact-level fields first
-  // (legacy-migrated data lives there); fall back to the newest opportunity's
-  // fields (where new registrations store them).
-  const asDate = (v) => {
-    const s = String(v || '').slice(0, 10);
-    return /^\d{4}-\d{2}-\d{2}$/.test(s) ? s : null;
-  };
-  const pick = (names, source) => {
-    for (const [name, model] of names) {
-      const f = byName(name, model);
-      if (f && asDate(source[f.id])) return asDate(source[f.id]);
-    }
-    return null;
-  };
-  let startDate = pick([['Closing Date', 'contact']], cf);
-  let idExp = pick([['45-Day Deadline', 'contact']], cf);
-  let exchExp = pick([['180-Day Deadline', 'contact']], cf);
+  // exchange timeline: person attributes first, then the newest open deal
+  let startDate = asDate(val('Closing Date')) || asDate(val('Sale Date'));
+  let idExp = asDate(val('45-Day Deadline'));
+  let exchExp = asDate(val('180-Day Deadline'));
   if (!startDate || !idExp || !exchExp) {
-    try {
-      const or = await fetch(`${GHL}/opportunities/search?location_id=${process.env.GHL_LOCATION_ID}&contact_id=${contactId}&limit=20`, { headers: gh });
-      const opps = or.ok ? (await or.json()).opportunities || [] : [];
-      opps.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
-      for (const o of opps) {
-        const ocf = {};
-        for (const v of o.customFields || []) ocf[v.id] = v.value ?? v.fieldValue ?? v.field_value ?? (Array.isArray(v.fieldValueArray) ? v.fieldValueArray[0] : undefined);
-        startDate = startDate || pick([['Sale Date', 'opportunity']], ocf);
-        idExp = idExp || pick([['45-Day Deadline', 'opportunity']], ocf);
-        exchExp = exchExp || pick([['180-Day Deadline', 'opportunity']], ocf);
-        if (startDate && idExp && exchExp) break;
-      }
-    } catch (e) { console.error('[portal-sync] opp dates:', e.message); }
+    const deal = await attio.openDeal(recordId);
+    if (deal) {
+      const dAttrs = await attio.attributes('deals');
+      const df = attio.flatValues(deal);
+      const dv = (title) => { const a = dAttrs.find((x) => x.title.toLowerCase() === title.toLowerCase()); return a ? df[a.slug] : undefined; };
+      startDate = startDate || asDate(dv('Sale Date'));
+      idExp = idExp || asDate(dv('45-Day Deadline'));
+      exchExp = exchExp || asDate(dv('180-Day Deadline'));
+    }
   }
   const dateFields = {};
   if (startDate) dateFields['Start Date'] = startDate;
   if (idExp) dateFields['ID Period Expiration'] = idExp;
   if (exchExp) dateFields['1031 Expiration'] = exchExp;
 
-  const email = c.email;
-  if (!email) return json(400, { error: 'contact has no email' });
   const existing = await findInvestorByEmail(email);
-
   let action;
   if (portal === 'yes') {
     let rid, welcomeSent;
     if (existing) {
       rid = existing.id;
       welcomeSent = existing.fields['Welcome Email Sent'];
-      await at(`/${rid}`, {
-        method: 'PATCH',
-        body: JSON.stringify({ fields: { 'Access Level': 'Approved', ...dateFields }, typecast: true }),
-      });
+      await at(`/${rid}`, { method: 'PATCH', body: JSON.stringify({ fields: { 'Access Level': 'Approved', ...dateFields }, typecast: true }) });
       action = `approved existing investor row for ${email}`;
     } else {
       const created = await at('', {
         method: 'POST',
-        body: JSON.stringify({
-          records: [{ fields: {
-            'First Name': c.firstName || '',
-            'Last Name': c.lastName || '',
-            'Email Address': email,
-            'Access Level': 'Approved',
-            'Start Date': new Date().toISOString().slice(0, 10),
-            ...dateFields,
-          } }],
-          typecast: true,
-        }),
+        body: JSON.stringify({ records: [{ fields: {
+          'First Name': firstName, 'Last Name': name?.last_name || '', 'Email Address': email,
+          'Access Level': 'Approved', 'Start Date': new Date().toISOString().slice(0, 10), ...dateFields,
+        } }], typecast: true }),
       });
       rid = created.records && created.records[0] && created.records[0].id;
       action = `created investor row for ${email}`;
     }
-
     // Welcome email with a first-time auto-login link — sent once per investor.
     // Clearing "Welcome Email Sent" in Airtable allows a re-send on the next sync.
     if (rid && !welcomeSent && process.env.SESSION_SECRET) {
@@ -158,30 +122,46 @@ export const handler = async (event) => {
         const base = process.env.URL || 'https://baker1031.com';
         const t = Date.now();
         const loginLink = `${base}/api/login-link?rid=${rid}&t=${t}&sig=${linkSig(rid, t)}`;
-        const msg = buildWelcome(c.firstName || 'there', loginLink, base);
+        const msg = buildWelcome(firstName || 'there', loginLink, base);
         if (await sendViaResend(email, msg.subject, msg.html)) {
-          await at(`/${rid}`, {
-            method: 'PATCH',
-            body: JSON.stringify({ fields: { 'Welcome Email Sent': `${new Date().toISOString().slice(0, 16)}Z` } }),
-          }).catch(() => {});
+          await at(`/${rid}`, { method: 'PATCH', body: JSON.stringify({ fields: { 'Welcome Email Sent': `${new Date().toISOString().slice(0, 16)}Z` } }) }).catch(() => {});
           action += ' + welcome email sent';
         }
       } catch (e) { console.error('[portal-sync] welcome:', e.message); }
     }
   } else {
-    if (!existing) return json(200, { ok: true, skipped: `no investor row for ${email} — nothing to revoke` });
-    await at(`/${existing.id}`, {
-      method: 'PATCH',
-      body: JSON.stringify({ fields: { 'Access Level': 'Revoked' }, typecast: true }),
-    });
+    if (!existing) return { skipped: `no investor row for ${email} — nothing to revoke` };
+    await at(`/${existing.id}`, { method: 'PATCH', body: JSON.stringify({ fields: { 'Access Level': 'Revoked' }, typecast: true }) });
     action = `revoked portal access for ${email}`;
   }
 
-  // Leave a breadcrumb on the GHL contact.
-  await fetch(`${GHL}/contacts/${contactId}/notes`, {
-    method: 'POST', headers: gh,
-    body: JSON.stringify({ body: `Portal sync: ${action} (${new Date().toISOString().slice(0, 16)}Z)` }),
-  }).catch(() => {});
+  await attio.addNote('people', recordId, 'Portal sync', `${action} (${new Date().toISOString().slice(0, 16)}Z)`, 'plaintext').catch(() => {});
+  return { action };
+}
 
-  return json(200, { ok: true, action });
+export const handler = async (event) => {
+  if (event.httpMethod !== 'POST') return json(405, { error: 'POST only' });
+  const key = event.headers['x-portal-key'] || (event.queryStringParameters || {}).key;
+  const keyed = !!process.env.PORTAL_SYNC_KEY && key === process.env.PORTAL_SYNC_KEY;
+  if (!keyed && !signedByAttio(event)) return json(403, { error: 'forbidden' });
+  if (!process.env.AIRTABLE_TOKEN) return json(500, { error: 'AIRTABLE_TOKEN not configured' });
+  if (!attio.configured()) return json(500, { error: 'ATTIO_API_KEY not configured' });
+
+  let body = {};
+  try { body = JSON.parse(event.body || '{}'); } catch { /* fall through to query */ }
+
+  // record ids: Attio webhook batch, a single event, or a manual call by record_id / email
+  const ids = new Set();
+  for (const ev of body.events || []) if (ev?.id?.record_id) ids.add(ev.id.record_id);
+  if (body.id?.record_id) ids.add(body.id.record_id);
+  if (body.record_id) ids.add(body.record_id);
+  if (body.email) { const p = await attio.findPersonByEmail(body.email); if (p) ids.add(p.id.record_id); }
+  if (!ids.size) return json(400, { error: 'no record id in payload' });
+
+  const results = {};
+  for (const id of ids) {
+    try { results[id] = await syncOne(id); }
+    catch (e) { console.error('[portal-sync]', id, e.message); results[id] = { error: e.message }; }
+  }
+  return json(200, { ok: true, results });
 };

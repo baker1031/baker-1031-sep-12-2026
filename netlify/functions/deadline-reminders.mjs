@@ -21,7 +21,7 @@
 
   Every email includes a personal "update my dates" link (the same signed
   /update-my-info/ link the qualification emails use), built by looking up the
-  contact in GHL by email. If the contact can't be found, the email says
+  person in Attio by email. If the person can't be found, the email says
   "reply to update" instead.
 
   Duplicate protection: each send appends a line to the row's "Reminder Log"
@@ -40,8 +40,7 @@ import crypto from 'node:crypto';
 import { buildDeadlineReminder, buildSaleCheckin, sendViaResend } from './lib/invites.mjs';
 import { linkSig } from './login-link.mjs';
 import { offSig } from './reminders-off.mjs';
-
-const GHL = 'https://services.leadconnectorhq.com';
+import * as attio from './lib/attio.mjs';
 const AT_BASE = process.env.ACCESS_BASE_ID || 'appiKLSyAUmP0h8cJ';
 const AT_TABLE = process.env.ACCESS_TABLE_ID || 'tblbuFMpfv5R4DIyp';
 
@@ -79,15 +78,14 @@ const dayMs = 86400000;
 const toUTC = (iso) => Date.parse(String(iso).slice(0, 10) + 'T00:00:00Z');
 const daysUntil = (iso, today) => Math.round((toUTC(iso) - today) / dayMs);
 
-// Personal signed update link (same scheme as lead.mjs / my-info.mjs).
-async function updateLinkFor(email, gh, base) {
-  try {
-    const r = await fetch(`${GHL}/contacts/search/duplicate?locationId=${process.env.GHL_LOCATION_ID}&email=${encodeURIComponent(email)}`, { headers: gh });
-    const cid = r.ok ? ((await r.json()).contact || {}).id : null;
-    if (!cid) return null;
-    const sig = crypto.createHmac('sha256', process.env.SESSION_SECRET || '').update('myinfo:' + cid).digest('hex').slice(0, 32);
-    return `${base}/update-my-info/?cid=${cid}&sig=${sig}`;
-  } catch { return null; }
+// Personal signed update link (same scheme as lead.mjs / my-info.mjs), keyed by the Attio person record.
+async function updateLinkFor(email, base) {
+  if (!attio.configured()) return null;
+  const person = await attio.findPersonByEmail(email);
+  const cid = person?.id?.record_id;
+  if (!cid) return null;
+  const sig = crypto.createHmac('sha256', process.env.SESSION_SECRET || '').update('myinfo:' + cid).digest('hex').slice(0, 32);
+  return `${base}/update-my-info/?cid=${cid}&sig=${sig}`;
 }
 
 export const handler = async (event) => {
@@ -102,7 +100,6 @@ export const handler = async (event) => {
 
   if (!process.env.AIRTABLE_TOKEN) return json(500, { error: 'AIRTABLE_TOKEN not configured' });
   const base = process.env.URL || 'https://baker1031.com';
-  const gh = { Authorization: `Bearer ${process.env.GHL_Key || process.env.GHL_API_KEY}`, Version: '2021-07-28', 'content-type': 'application/json' };
 
   const now = new Date();
   const today = toUTC(now.toISOString());
@@ -161,7 +158,7 @@ export const handler = async (event) => {
       const t = Date.now();
       loginLink = `${base}/api/login-link?rid=${row.id}&t=${t}&sig=${linkSig(row.id, t)}`;
     }
-    const updateLink = await updateLinkFor(email, gh, base);
+    const updateLink = await updateLinkFor(email, base);
     const optOutLink = `${base}/api/reminders-off?rid=${row.id}&sig=${offSig(row.id)}`;
 
     const msg = due.type === 'deadline'

@@ -6,8 +6,9 @@
 #                        data.records:read+write on Investor Access (login, "Deals Reviewed")
 #   SESSION_SECRET       long random string (e.g. `openssl rand -hex 32`); shared by the auth function and the edge gate
 #   NETLIFY_BUILD_HOOK   this site's build hook URL (Build & deploy -> Build hooks) — used by the Airtable rebuild watcher
-# Used by the CRM / email functions (copy from the previous site's settings):
-#   GHL_Key, GHL_LOCATION_ID, RESEND_API_KEY, PORTAL_SYNC_KEY, SCHEDULE_CALL_URL, CRS_RECEIPT_TO
+# CRM (Attio): ATTIO_API_KEY (required); optional ATTIO_DEAL_OWNER, ATTIO_DEAL_STAGE, ATTIO_REVIEW_STAGE, ATTIO_LIST,
+#   ATTIO_DEALS=off, ATTIO_WEBHOOK_SECRET (portal-sync webhook signature)
+# Email / misc: RESEND_API_KEY, PORTAL_SYNC_KEY, SCHEDULE_CALL_URL, CRS_RECEIPT_TO
 # Optional (defaults are baked in): AIRTABLE_BASE, AIRTABLE_TABLE, ACCESS_BASE_ID, ACCESS_TABLE_ID, SESSION_DAYS
 
 [build]

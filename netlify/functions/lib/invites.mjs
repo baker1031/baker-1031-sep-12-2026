@@ -9,24 +9,33 @@
     - Not accredited → accreditation notice with the personal update link
       (residency takes precedence when both fail)
 
-  Duplicate protection ("Intro Invite Status" contact field):
+  Duplicate protection ("Intro Invite Status" person attribute in Attio, when it exists):
     - "invited …"  → never auto-send another scheduling email, even after updates
     - "notice …"   → the same notice is not re-sent on later updates
-    - Before sending a scheduling email after an update, we also check GHL for
-      upcoming appointments (best effort) — someone who already booked gets nothing.
 */
 
-export const API = 'https://services.leadconnectorhq.com';
 export const STATUS_FIELD = 'Intro Invite Status';
 
+// The 2026 registration form sends the net-worth / income *ranges* it showed (plus its own
+// `accreditedLikely` verdict); the previous request-access form sent numeric income and shorter
+// range labels. Both shapes are handled so corrections through update-my-info keep working.
 export function accreditedSignal(lead) {
-  const worthOk = ['$1M–$2.99M', '$3M–$4.99M', '$5M–$9.99M', '$10M+'].includes(lead.netWorth);
-  const thresh = (lead.marital === 'Married' || lead.marital === 'Domestic partnership') ? 300000 : 200000;
-  return worthOk || (lead.income || 0) >= thresh ? 'Indicated' : 'Unclear';
+  if (typeof lead.accreditedLikely === 'boolean') return lead.accreditedLikely ? 'Indicated' : 'Unclear';
+  const nw = String(lead.netWorth || '');
+  const worthOk = nw !== '' && !/^under/i.test(nw);
+  const joint = lead.marital === 'Married' || lead.marital === 'Domestic partnership';
+  const inc = lead.income;
+  let incomeOk = false;
+  if (typeof inc === 'number') incomeOk = inc >= (joint ? 300000 : 200000);
+  else if (typeof inc === 'string' && inc) incomeOk = joint ? !/^(under|\$200,000)/i.test(inc) : !/^under/i.test(inc);
+  return worthOk || incomeOk ? 'Indicated' : 'Unclear';
 }
 
+// U.S. by phone region (2026 form) or by state (previous form); unknown counts as U.S.
 export function isUS(lead) {
-  return !!lead.state && lead.state !== 'Outside United States';
+  if (lead.phoneRegion) return lead.phoneRegion === 'US';
+  if (lead.state) return lead.state !== 'Outside United States';
+  return true;
 }
 
 // 'exchange' | 'cash' when qualified; null otherwise
@@ -196,14 +205,4 @@ export async function sendViaResend(to, subject, html, from = 'Jerry Baker <jerr
   });
   if (!r.ok) { console.error('[invites] send failed', r.status, (await r.text()).slice(0, 200)); return false; }
   return true;
-}
-
-// Best-effort: does this contact already have an appointment on the books?
-export async function hasAppointment(headers, contactId) {
-  try {
-    const r = await fetch(`${API}/contacts/${contactId}/appointments`, { headers });
-    if (!r.ok) return false; // can't tell — fall back to the invite-status flag
-    const events = (await r.json()).events || [];
-    return events.some((e) => !['cancelled', 'noshow', 'invalid'].includes(String(e.appointmentStatus || '').toLowerCase()));
-  } catch { return false; }
 }
