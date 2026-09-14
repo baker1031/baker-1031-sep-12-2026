@@ -5,6 +5,7 @@ content.css (the previous site's interior stylesheet re-tokenized to this design
 Works in both layouts: SITE_ROOT set (repo) -> reads ROOT/index.html; otherwise the Cowork scratch layout.
 """
 import re, os, json, html as _html
+import seo
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.environ.get('SITE_ROOT')
@@ -30,7 +31,7 @@ def shell():
     navhtml = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img src="{{LOGO}}" alt="Baker 1031"', navhtml)
     foot = re.search(r'<footer class="footer">.*?</footer>', h, flags=re.S).group(0)
     foot = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img src="{{LOGO}}" alt="Baker 1031"', foot)
-    for old, new in [('href="#top"', 'href="/"'), ('href="#type-1031"', 'href="/invest"'), ('href="#results"', 'href="/results"'), ('href="#request-access"', 'href="/register"')]:
+    for old, new in [('href="#top"', 'href="/"'), ('href="#type-1031"', 'href="/invest/"'), ('href="#results"', 'href="/results/"'), ('href="#request-access"', 'href="/register/"')]:
         navhtml = navhtml.replace(old, new); foot = foot.replace(old, new)
     navjs = between("  // Nav: shadow once scrolled; mobile menu toggle", "})();\n</script>")
     a = assets()
@@ -68,27 +69,18 @@ def write_css():
 
 def esc(s): return _html.escape(str(s if s is not None else ''), quote=True)
 
-def page(*, title, desc, canonical, main_html, head_extra='', body_end='', body_attrs='', current=None, noindex=False):
+def page(*, title, desc, canonical, main_html, head_extra='', body_end='', body_attrs='', current=None, noindex=False, og_type='website', image=None, image_alt=None, graph=None):
     """Wrap a <main>…</main> fragment in the site chrome. `current` marks the active nav item (invest|results|learn)."""
     s = shell()
     nav = s['navhtml']
     if current:
-        nav = nav.replace(f'<a href="/{current}">', f'<a href="/{current}" aria-current="page">', 1)
+        nav = nav.replace(f'<a href="/{current}/">', f'<a href="/{current}/" aria-current="page">', 1)
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(title)}</title>
-<meta name="description" content="{esc(desc)}">
-<link rel="canonical" href="{esc(canonical)}">
-<meta property="og:type" content="website">
-<meta property="og:title" content="{esc(title)}">
-<meta property="og:description" content="{esc(desc)}">
-<meta property="og:url" content="{esc(canonical)}">
-<meta property="og:site_name" content="Baker 1031 Investments">
-{'<meta name="robots" content="noindex">' if noindex else ''}
-<link rel="icon" href="/favicon.ico">
+{seo.head(title=title, desc=desc, canonical=canonical, og_type=og_type, image=image or seo.OG_IMAGE, image_alt=image_alt or 'Baker 1031 Investments', noindex=noindex, graph=graph)}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">

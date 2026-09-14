@@ -6,6 +6,8 @@
   the crawl files are generated locally too (for verification; they are build products and are git-ignored).
 """
 import re, os, base64, hashlib, shutil, json, sys, subprocess
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import seo
 SRC = '/home/claude'
 OUT = '/home/claude/site'
 SP = os.path.dirname(os.path.abspath(__file__)) + '/'
@@ -36,6 +38,31 @@ for key, nm in [('logo', 'logo'), ('jerry', 'jerry-baker'), ('skyline', 'sf-skyl
     if m: NAMED[hashlib.sha1(base64.b64decode(m.group(2))).hexdigest()[:12]] = nm
 
 # ---- committed pages -------------------------------------------------------------------------------------------
+S = seo.SITE
+def _swap(html, old_title, block):
+    assert html.count(old_title) == 1, old_title
+    return html.replace(old_title, block, 1)
+SEO = {
+    'hero-jerry.html': lambda h: _swap(h, '<title>Baker 1031 Investments — Hero</title>', seo.head(
+        title='Baker 1031 Investments — 1031 Exchange & DST Investments with Jerry Baker',
+        desc='Work directly with Jerry Baker to evaluate 1031 exchange investments: Delaware Statutory Trusts, 721 exchanges, Opportunity Zone funds and more, matched to your income needs and deadlines. Offices in San Francisco and Los Angeles.',
+        canonical=S + '/', graph=[seo.organization(), seo.person(), seo.website(),
+            seo.webpage(S + '/', 'Baker 1031 Investments', 'Independent 1031 exchange brokerage founded by Jerry Baker.')])),
+    'register.html': lambda h: _swap(h, '<title>Get Started with Jerry — Baker 1031 Investments</title>', seo.head(
+        title='Get Started — Register with Baker 1031 Investments',
+        desc='Tell Jerry Baker about your 1031 exchange — timeline, equity and goals — and schedule your introductory call. Registration takes a few minutes; approved investors get access to current offerings.',
+        canonical=S + '/register/', graph=[seo.webpage(S + '/register/', 'Get Started', 'Register with Baker 1031 Investments and schedule an introductory call.'),
+            seo.breadcrumbs([('Home', S + '/'), ('Get Started', None)])])),
+    'login.html': lambda h: _swap(h, '<title>Log in — Baker 1031 Investments</title>', seo.head(
+        title='Investor Log In — Baker 1031 Investments', desc='Log in with the email address on your Baker 1031 account to view current 1031 exchange investments.',
+        canonical=S + '/login/', noindex=True)),
+    'results.html': lambda h: _swap(h, '<title>Full-Cycle Results — Baker 1031 Investments</title>', seo.head(
+        title='Full-Cycle DST Results: 1,000+ Completed 1031 Exchange Investments — Baker 1031',
+        desc='Sponsor-reported results for more than 1,000 completed (full-cycle) DST and 1031 exchange investments: average annual return, equity multiple and hold period by sponsor and property type, sortable and searchable.',
+        canonical=S + '/results/', graph=[seo.webpage(S + '/results/', 'Full-Cycle Results', 'Sponsor-reported results for completed DST and 1031 exchange investments.',
+            {'mainEntity': {'@type': 'Dataset', 'name': 'Full-cycle DST investment results tracked by Baker 1031', 'description': 'Completed DST and 1031 exchange investments with sponsor, property type, location, average annual return, equity multiple and hold period, as reported by each sponsor.', 'creator': {'@id': seo.ORG_ID}, 'license': S + '/terms/', 'isAccessibleForFree': True}}),
+            seo.breadcrumbs([('Home', S + '/'), ('Results', None)])])),
+}
 PAGES = { 'hero-jerry.html':'index.html', 'register.html':'register/index.html',
           'login.html':'login/index.html', 'results.html':'results/index.html' }
 for src, dst in PAGES.items():
@@ -48,6 +75,7 @@ for src, dst in PAGES.items():
         html = re.sub(r'  /\* ===== TEMPORARY: dev step-jumper.*?/\* ===== /TEMPORARY ===== \*/\n', '', html, flags=re.S)
         html = re.sub(r'  /\* TEMPORARY dev step-jumper — delete before launch \*/\n.*?\n\n', '\n', html, count=1, flags=re.S)
         assert 'devjump' not in html, 'step-jumper not fully removed'
+    html = SEO[src](html)
     p = f'{OUT}/{dst}'; os.makedirs(os.path.dirname(p), exist_ok=True)
     open(p, 'w', encoding='utf-8').write(html)
 
@@ -62,9 +90,17 @@ shutil.copy(f'{V2}/static/assets/css/design-2026.css', f'{OUT}/assets/css/design
 for d in ('img', 'sponsors', 'docs', 'video', 'js', 'fonts'):
     s = f'{V2}/static/assets/{d}'
     if os.path.isdir(s): shutil.copytree(s, f'{OUT}/assets/{d}', dirs_exist_ok=True)
-for f in ('favicon.ico', 'apple-touch-icon.png'):
-    shutil.copy(f'{V2}/static/{f}', f'{OUT}/{f}')
-for f in ('favicon-32.png', 'favicon-48.png'):
+# icons (from the brand mark) + Open Graph card + web manifest
+os.makedirs(f'{OUT}/assets/icons', exist_ok=True)
+for f in os.listdir(SP + 'icons'):
+    if f.startswith('favicon-') and f.endswith('.png'): shutil.copy(SP + 'icons/' + f, f'{OUT}/assets/icons/{f}')
+shutil.copy(SP + 'icons/favicon.ico', f'{OUT}/favicon.ico')
+shutil.copy(SP + 'icons/apple-touch-icon.png', f'{OUT}/apple-touch-icon.png')
+shutil.copy(SP + 'icons/og-card.png', f'{OUT}/assets/media/og-card.png')
+open(f'{OUT}/site.webmanifest', 'w').write(json.dumps({'name': 'Baker 1031 Investments', 'short_name': 'Baker 1031', 'start_url': '/', 'display': 'browser',
+    'background_color': '#ffffff', 'theme_color': '#0D9DD8',
+    'icons': [{'src': '/assets/icons/favicon-192.png', 'sizes': '192x192', 'type': 'image/png'}, {'src': '/assets/icons/favicon-512.png', 'sizes': '512x512', 'type': 'image/png'}]}, indent=1))
+for f in ('favicon-32.png', 'favicon-48.png'):   # the old site's favicons, still referenced by update-my-info
     shutil.copy(f'{V2}/static/assets/{f}', f'{OUT}/assets/{f}')
 
 # ---- content sources ---------------------------------------------------------------------------------------------
@@ -74,7 +110,7 @@ shutil.copytree(f'{V2}/content/articles', f'{OUT}/content/articles')
 # ---- build tooling -------------------------------------------------------------------------------------------------
 os.makedirs(f'{OUT}/build', exist_ok=True)
 for f in ['build.py', 'fetch_airtable.py', 'build_inventory.py', 'build_offering.py', 'build_pages.py', 'build_articles.py',
-          'build_meta.py', 'content_shell.py', 'content.css', 'extract_pages.py', 'build_login.py', 'build_results.py',
+          'build_meta.py', 'content_shell.py', 'seo.py', 'content.css', 'extract_pages.py', 'build_login.py', 'build_results.py',
           'export_site.py', 'offerings.json', 'fullcycle.tsv', 'hugeicons.json', 'register_template.html']:
     if os.path.exists(SP + f): shutil.copy(SP + f, f'{OUT}/build/{f}')
 

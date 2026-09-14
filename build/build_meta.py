@@ -19,16 +19,86 @@ def urls():
         out.append('/' if rel == '.' else '/' + rel.replace(os.sep, '/') + '/')
     return sorted(set(out), key=lambda u: (u != '/', u.count('/'), u))
 
+ROBOTS = """# Baker 1031 Investments — crawl policy
+# Public pages are open to search engines and AI assistants (search, user-fetch and training crawlers alike);
+# offering documents and the API are excluded. Edit here (build/build_meta.py), not the generated file.
+User-agent: *
+Allow: /
+Disallow: /offerings/*/docs/
+Disallow: /login/?next=
+Disallow: /api/
+
+# AI search / assistant crawlers — explicitly allowed
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: Google-Extended
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Bingbot
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: DuckAssistBot
+User-agent: Amazonbot
+User-agent: meta-externalagent
+User-agent: cohere-ai
+User-agent: YouBot
+Allow: /
+Disallow: /offerings/*/docs/
+Disallow: /api/
+
+Sitemap: {site}/sitemap.xml
+"""
+
+LAUNCH = '2026-09-13'   # the rebuild's launch date: the floor for every page's lastmod
+MONTHS = {m: i for i, m in enumerate(['january','february','march','april','may','june','july','august','september','october','november','december'], 1)}
+
+def _git_date(path):
+    """Last commit date of a committed file (works when the checkout has history); None otherwise."""
+    import subprocess
+    try:
+        out = subprocess.run(['git', 'log', '-1', '--format=%cs', '--', path], cwd=ROOT, capture_output=True, text=True, timeout=10).stdout.strip()
+        return out or None
+    except Exception:
+        return None
+
+def lastmod(u, offerings):
+    """A date that reflects a meaningful change, never 'today on every deploy':
+    articles -> their stated update month; offerings -> Airtable's Last Modified; ported pages -> the 'Updated <date>' they carry;
+    committed pages -> their last git commit; everything else -> the launch date."""
+    page = os.path.join(ROOT, u.strip('/'), 'index.html') if u != '/' else os.path.join(ROOT, 'index.html')
+    src = open(page, encoding='utf-8', errors='ignore').read(20000) if os.path.exists(page) else ''
+    if u.startswith('/offerings/'):
+        slug = u.strip('/').split('/')[-1]
+        m = offerings.get(slug)
+        if m: return max(m[:10], LAUNCH)
+    m = re.search(r'"dateModified"\s*:\s*"(\d{4}-\d{2})(?:-\d{2})?"', src)
+    if m: return m.group(1) + '-01'   # articles state the month they were last revised
+    m = re.search(r'Updated\s+([A-Z][a-z]+)\s+(\d{1,2}),\s+(20\d\d)', src)
+    if m and m.group(1).lower() in MONTHS: return f'{m.group(3)}-{MONTHS[m.group(1).lower()]:02d}-{int(m.group(2)):02d}'
+    for committed in ('index.html', 'register/index.html', 'results/index.html'):
+        if u == '/' + committed.replace('index.html', ''):
+            return _git_date(committed) or LAUNCH
+    return LAUNCH
+
 def main():
     us = urls()
-    today = datetime.date.today().isoformat()
+    offerings = {}
+    try:
+        for o in json.load(open(os.path.join(ROOT, 'build', 'offerings.json'), encoding='utf-8')):
+            if o.get('slug') and o.get('modified'): offerings[o['slug']] = o['modified']
+    except Exception: pass
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + \
-          '\n'.join(f'  <url><loc>{SITE}{u}</loc><lastmod>{today}</lastmod></url>' for u in us) + '\n</urlset>\n'
+          '\n'.join(f'  <url><loc>{SITE}{u}</loc><lastmod>{lastmod(u, offerings)}</lastmod></url>' for u in us) + '\n</urlset>\n'
     open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8').write(xml)
     noindex = os.environ.get('ROBOTS_NOINDEX') == 'true'   # branch / preview deploys must never be indexed
     open(os.path.join(ROOT, 'robots.txt'), 'w').write(
         'User-agent: *\nDisallow: /\n' if noindex else
-        f'User-agent: *\nAllow: /\nDisallow: /offerings/*/docs/\nDisallow: /login/?next=\nDisallow: /api/\nSitemap: {SITE}/sitemap.xml\n')
+        ROBOTS.format(site=SITE))
     n_learn = sum(1 for u in us if u.startswith('/learn/') and u != '/learn/')
     open(os.path.join(ROOT, 'llms.txt'), 'w', encoding='utf-8').write(f'''# Baker 1031 Investments
 
@@ -38,6 +108,7 @@ def main():
 > Aurora Securities, Inc., member FINRA/SIPC. Educational content only; offers are made solely by PPM.
 
 ## Key pages
+- [Homepage]({SITE}/): who Jerry is, how he reviews deals, how to get started
 - [Available investments]({SITE}/invest/): current DST inventory (details for approved investors)
 - [Results]({SITE}/results/): full-cycle track record by sponsor and asset class
 - [Learn]({SITE}/learn/): {n_learn} educational articles on 1031 exchanges and DSTs
@@ -46,6 +117,12 @@ def main():
 - [Markets]({SITE}/markets/): state-by-state 1031 exchange guides
 - [Sponsors]({SITE}/sponsors/): research profiles of DST sponsors
 - [Get started]({SITE}/register/): investor registration
+
+## How the site is organized
+- Every article, glossary term, market guide and sponsor profile is a plain HTML page with its full text in the markup; nothing is loaded by script.
+- Learn articles are written by Jerry Baker and carry an educational disclaimer; they are not investment, tax or legal advice.
+- Offerings are described from each sponsor's private placement memorandum; offering documents are available only to logged-in, approved investors.
+- Results are sponsor-reported full-cycle figures (average annual return, equity multiple, hold period) and are not a guarantee of future performance.
 
 ## Contact
 - Jerry Baker, Founder — invest@baker1031.com

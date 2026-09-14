@@ -1,4 +1,6 @@
-import re, json, os
+import re, json, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import seo
 # Repo mode: SITE_ROOT points at the checked-out site; the homepage (index.html) supplies the nav/footer and
 # shared assets are referenced by path. Scratch mode (no SITE_ROOT) is the original Cowork build layout.
 ROOT = os.environ.get('SITE_ROOT')
@@ -22,10 +24,10 @@ footcss = between('  /* ---------- Footer ---------- */', '  /* ---------- Stick
 badgecss = between('  .badge{', '  .ratings__disclosure')
 navhtml = re.search(r'<header class="nav" id="nav">.*?</header>', h, flags=re.S).group(0)
 navhtml = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img src="{{LOGO}}" alt="Baker 1031"', navhtml)
-navhtml = navhtml.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest"').replace('href="#results"', 'href="/results"').replace('href="#request-access"', 'href="/register"').replace('<a href="/invest">', '<a href="/invest" aria-current="page">')
+navhtml = navhtml.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest/"').replace('href="#results"', 'href="/results/"').replace('href="#request-access"', 'href="/register/"').replace('<a href="/invest/">', '<a href="/invest/" aria-current="page">')
 foot = re.search(r'<footer class="footer">.*?</footer>', h, flags=re.S).group(0)
 foot = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img src="{{LOGO}}" alt="Baker 1031"', foot)
-foot = foot.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest"').replace('href="#results"', 'href="/results"').replace('href="#request-access"', 'href="/register"')
+foot = foot.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest/"').replace('href="#results"', 'href="/results/"').replace('href="#request-access"', 'href="/register/"')
 navjs = between("  // Nav: shadow once scrolled; mobile menu toggle", "})();\n</script>")
 tipcss = between('  /* rating tooltip: Jerry\'s explanation from the homepage */', '  .table .tip__box', inv)
 
@@ -84,7 +86,20 @@ def make_O(r):
         docs=[(esc(re.sub(r'\.(pdf|docx?|xlsx?|pptx?)$', '', d['filename'], flags=re.I)), esc(d.get('rel') or '')) for d in r['docs']],
         notes=paras(r['notes']),
         features=[], risks=[],
+        typeLabel=(types[0] if types else 'DST'),
+        metaDesc=_meta_desc(r, types, locs),
+        ogImage=(img_of(r['slug']) if img_of(r['slug']).startswith('/') else ''),
     )
+
+def _meta_desc(r, types, locs):
+    """Search snippet: what the offering is, where, by whom, then the first sentence of the sponsor description."""
+    bits = [r['name'], 'a ' + (' / '.join(types) if types else 'DST') + ' 1031 exchange offering' + (' in ' + ', '.join(locs) if locs else '')]
+    if r.get('sponsor'): bits[-1] += ' sponsored by ' + r['sponsor']
+    d = re.sub(r'\s+', ' ', (r.get('description') or '')).strip()
+    first = re.split(r'(?<=[.!?])\s', d)[0] if d else ''
+    out = bits[0] + ': ' + bits[1] + '.' + ((' ' + first) if first else '')
+    if len(out) > 158: out = out[:out.rfind(' ', 0, 156)] + '…'
+    return out
 
 STATUS_CLS = { 'Available':'', 'Limited Availability':'status--limited', 'Pending Approval':'status--soon', 'Closed':'status--sold', 'Rejected':'status--rejected' }
 RATING = { 'highly':('badge--ok','👍👍','Highly Approved'), 'approved':('badge--ok','👍','Approved'), 'specialized':('badge--warn','❗','Specialized'), 'rejected':('badge--no','👎','Rejected') }
@@ -112,8 +127,9 @@ def render(O):
     features = ''.join(f'<li>{x}</li>' for x in O['features'])
     risks = ''.join(f'<li>{x}</li>' for x in O['risks'])
     def _doc_open(i, m):
-        return '<li><a class="doc" href="%s" data-doc="%d"%s>' % (m or '#', i, ' target="_blank" rel="noopener"' if m else '')
-    docs = ''.join(_doc_open(i, m) + f'<span class="doc__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 17H16" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 13H12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 2.5V3C13 5.82843 13 7.24264 13.8787 8.12132C14.7574 9 16.1716 9 19 9H19.5M20 10.6569V14C20 17.7712 20 19.6569 18.8284 20.8284C17.6569 22 15.7712 22 12 22C8.22876 22 6.34315 22 5.17157 20.8284C4 19.6569 4 17.7712 4 14V9.45584C4 6.21082 4 4.58831 4.88607 3.48933C5.06508 3.26731 5.26731 3.06508 5.48933 2.88607C6.58831 2 8.21082 2 11.4558 2C12.1614 2 12.5141 2 12.8372 2.11401C12.9044 2.13772 12.9702 2.165 13.0345 2.19575C13.3436 2.34355 13.593 2.593 14.0919 3.09188L18.8284 7.82843C19.4065 8.40649 19.6955 8.69552 19.8478 9.06306C20 9.4306 20 9.83935 20 10.6569Z" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="doc__name">{t}</span></a></li>' for i,(t,m) in enumerate(O['docs']))
+        if not m: return '<li><span class="doc doc--pending" data-doc="%d" title="Document not yet available">' % i
+        return '<li><a class="doc" href="%s" data-doc="%d" target="_blank" rel="noopener">' % (m, i)
+    docs = ''.join(_doc_open(i, m) + f'<span class="doc__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 17H16" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 13H12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 2.5V3C13 5.82843 13 7.24264 13.8787 8.12132C14.7574 9 16.1716 9 19 9H19.5M20 10.6569V14C20 17.7712 20 19.6569 18.8284 20.8284C17.6569 22 15.7712 22 12 22C8.22876 22 6.34315 22 5.17157 20.8284C4 19.6569 4 17.7712 4 14V9.45584C4 6.21082 4 4.58831 4.88607 3.48933C5.06508 3.26731 5.26731 3.06508 5.48933 2.88607C6.58831 2 8.21082 2 11.4558 2C12.1614 2 12.5141 2 12.8372 2.11401C12.9044 2.13772 12.9702 2.165 13.0345 2.19575C13.3436 2.34355 13.593 2.593 14.0919 3.09188L18.8284 7.82843C19.4065 8.40649 19.6955 8.69552 19.8478 9.06306C20 9.4306 20 9.83935 20 10.6569Z" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="doc__name">{t}</span>' + ('</a></li>' if m else '</span></li>') for i,(t,m) in enumerate(O['docs']))
     notes = ''.join(f'<p>{x}</p>' for x in O['notes'])
     overview = ''.join(f'<p>{x}</p>' for x in O['overview'])
 
@@ -124,7 +140,7 @@ def render(O):
     <script>/* approved-investor gate: mark the document before first paint so gated content never flashes */
     try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.classList.add('is-logged-in'); }catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>''' + O['name'] + r''' — Baker 1031 Investments</title>
+    ''' + seo.head(title=O['name'] + ' — 1031 Exchange DST | Baker 1031', desc=O['metaDesc'], canonical='https://baker1031.com/offerings/' + O['slug'] + '/', image=('https://baker1031.com' + O['ogImage']) if O.get('ogImage') else seo.OG_IMAGE, image_alt=O['name'] + ' property photo', graph=[seo.webpage('https://baker1031.com/offerings/' + O['slug'] + '/', O['name'], O['metaDesc'], {'isAccessibleForFree': False, 'hasPart': {'@type': 'WebPageElement', 'isAccessibleForFree': False, 'cssSelector': '.gated'}}), seo.breadcrumbs([('Home', 'https://baker1031.com/'), ('Available Investments', 'https://baker1031.com/invest/'), (O['name'], None)])]) + r'''
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
@@ -261,9 +277,10 @@ def render(O):
       .card__min strong{ display:block; font-size:28px; font-weight:700; letter-spacing:-.02em; color:var(--black); }
       .card .kv{ grid-template-columns:minmax(0,1fr); margin:8px 0 0; }
       .card .kv div:last-child{ border-bottom:0; }
-      .card .kv div{ padding:9px 0; font-size:14px; align-items:baseline; white-space:nowrap; }
+      .card .kv div{ padding:9px 0; font-size:14px; align-items:baseline; flex-wrap:wrap; gap:2px 16px; }
       .card .kv dt{ flex:0 0 auto; }
-      .card .kv dd{ flex:1 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis; }
+      .card .kv dd{ flex:1 1 auto; min-width:0; overflow-wrap:anywhere; }   /* long values (lender, amortization) wrap under the label instead of truncating */
+      .card .kv dd .status{ white-space:normal; text-align:right; justify-content:flex-end; }
       .card__top{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:4px; }
       .card__label{ font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--grey-light); }
       .card .kv .status{ font-size:11px; }
@@ -283,9 +300,10 @@ def render(O):
       .disclosure{ padding:24px 0 0; font-size:11px; line-height:1.55; color:#6B7280; max-width:900px; }
 
       /* ---------- Approved-investor gate ---------- */
-      .gate{ max-width:calc(1200px + 48px); margin:0 auto; padding:72px 24px 96px; }
+      .gate{ max-width:calc(1200px + 48px); margin:0 auto; padding:24px 24px 96px; }
+      .wrap--head{ padding-bottom:0; }
       .gate__card{ max-width:560px; margin:0 auto; text-align:center; }
-      .gate__card h1{ margin:0 0 12px; font-size:clamp(28px,3vw,36px); font-weight:700; line-height:1.1; letter-spacing:-.02em; }
+      .gate__card h2{ margin:0 0 12px; font-size:clamp(28px,3vw,36px); font-weight:700; line-height:1.1; letter-spacing:-.02em; }
       .gate__card p{ margin:0 0 24px; font-size:16px; line-height:1.65; color:var(--grey); }
       .gate__actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
       .gate__actions .btn--secondary{ background:var(--white); color:var(--black); border-color:var(--hair-strong); }
@@ -325,13 +343,27 @@ def render(O):
 
     ''' + navhtml + r'''
 
+    <div class="wrap wrap--head">
+      <ol class="crumbs" aria-label="Breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/invest/">Available Investments</a></li>
+        <li aria-current="page">''' + O['name'] + r'''</li>
+      </ol>
+      <div class="title">
+        <div>
+          <h1>''' + O['name'] + r'''</h1>
+          <p class="title__sub">''' + O['type'] + ' · ' + O['city'] + r'''</p>
+        </div>
+      </div>
+    </div>
+
     <section class="gate" id="gate" aria-labelledby="gate-heading">
       <div class="gate__card">
-        <h1 id="gate-heading">These investments are for approved investors.</h1>
-        <p>Log in with the email address on your account to see what’s currently available. New here? Registration takes a few minutes, and the last step is scheduling a call with me.</p>
+        <h2 id="gate-heading">The details of this offering are for approved investors.</h2>
+        <p>Log in with the email address on your account to see the photos, financials, distributions and documents. New here? Registration takes a few minutes, and the last step is scheduling a call with me.</p>
         <div class="gate__actions">
-          <a class="btn" href="/login?next=/invest">Log In</a>
-          <a class="btn btn--secondary" href="/register">Create an Account</a>
+          <a class="btn" href="/login/?next=/offerings/''' + O['slug'] + r'''/">Log In</a>
+          <a class="btn btn--secondary" href="/register/">Create an Account</a>
         </div>
         <p class="gate__note">Offerings are available solely to accredited investors and are made only by a sponsor’s private placement memorandum.</p>
       </div>
@@ -340,20 +372,6 @@ def render(O):
     <div class="gated">
 
     <div class="wrap">
-      <ol class="crumbs" aria-label="Breadcrumb">
-        <li><a href="/">Home</a></li>
-        <li><a href="/invest">Available Investments</a></li>
-        <li aria-current="page">''' + O['name'] + r'''</li>
-      </ol>
-
-      <div class="title">
-        <div>
-          <h1>''' + O['name'] + r'''</h1>
-          <p class="title__sub">''' + O['type'] + ' · ' + O['city'] + r'''</p>
-        </div>
-      </div>
-
-
       <div class="body">
         <div>
           <div class="photo">''' + (('<a href="' + O['photoFull'] + '" target="_blank" rel="noopener" title="Open the full-resolution photo">') if O['photoFull'] else '') + r'''<img src="''' + O['photos'][0] + r'''" alt="''' + O['name'] + r'''">''' + ('</a>' if O['photoFull'] else '') + r'''</div>
@@ -422,7 +440,7 @@ def render(O):
             <ul class="docs">''' + docs + r'''</ul>
           </section>
 
-          <p class="disclosure">[Placeholder — replace with approved disclosure language.] This page summarizes information from the sponsor’s private placement memorandum and is provided for informational purposes only. It is not an offer to sell or a solicitation of an offer to buy any security; offers are made only by the PPM to accredited investors. Figures are as of the offering date and subject to change. DST interests are speculative, illiquid, and involve a high degree of risk, including loss of principal. Securities offered through Aurora Securities, Inc., member FINRA/SIPC.</p>
+          <p class="disclosure">This page summarizes information from the sponsor’s private placement memorandum and is provided for informational purposes only. It is not an offer to sell or a solicitation of an offer to buy any security; offers are made only by the PPM to accredited investors. Figures are as of the offering date and subject to change. DST interests are speculative, illiquid, and involve a high degree of risk, including loss of principal. Securities offered through Aurora Securities, Inc., member FINRA/SIPC.</p>
         </div>
 
         <aside class="side" id="request">
@@ -451,7 +469,7 @@ def render(O):
               <p><strong>Jerry Baker</strong>Founder, Baker 1031 Investments<br><a href="tel:+14159650552">(415) 965-0552</a></p>
             </div>
           </div>
-          <a class="backlink" href="/invest">← Back to all investments</a>
+          <a class="backlink" href="/invest/">← Back to all investments</a>
         </aside>
       </div>
     </div>
@@ -477,7 +495,7 @@ def render(O):
       });
       // documents: files are downloaded at build time into offerings/<slug>/docs/ and hard-gated at the edge;
       // a doc that has no file yet stays a placeholder.
-      Array.prototype.forEach.call(document.querySelectorAll('.doc'), function(a){ if(a.getAttribute('href') === '#') a.addEventListener('click', function(e){ e.preventDefault(); }); });
+
     })();
     </script>
 

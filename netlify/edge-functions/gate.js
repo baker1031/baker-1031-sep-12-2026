@@ -43,7 +43,6 @@ const PUBLIC_PREFIXES = [
   '/markets',
   '/sponsors',
   '/property-types',
-  '/strategies',   // the six investment types behind the homepage accordion
   '/audiences',
   '/process',
   '/reg-bi',

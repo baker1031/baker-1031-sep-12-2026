@@ -22,7 +22,7 @@ Run it locally from the repo root: `pip install -r requirements.txt && python3 b
 | URL | Source | Notes |
 | --- | --- | --- |
 | `/` | `index.html` | Homepage |
-| `/register/` | `register/index.html` | Registration; posts to `/api/lead` (GoHighLevel) when the acknowledgments are accepted, then books on Cal.com |
+| `/register/` | `register/index.html` | Registration; posts to `/api/lead` when the acknowledgments are accepted (CRM hand-off to be wired to the new integration), then books on Cal.com |
 | `/login/` | `login/index.html` | Email-only login via `/api/auth` (Investor Access base) |
 | `/invest/` | `build/build_inventory.py` | Available Investments — skeleton + blur until logged in |
 | `/offerings/<slug>/` | `build/build_offering.py` | One page per DST offering; documents under `/offerings/<slug>/docs/` are hard-gated at the edge |
@@ -66,8 +66,30 @@ an Availability Status of Rejected shows the Rejected badge.
 (`b31_session`, 30 days) plus a readable companion cookie `b31_ui` holding the first name, which every page reads before first paint to
 show "Welcome, First!" / Log Out and unlock `/invest/` and offering details; `Call Needed` → schedule-a-call message; otherwise "no account".
 Each page load re-verifies with `{action:'me'}`, so revoking access in Airtable logs the person out on their next page view. Viewing an
-offering appends it to the investor's "Deals Reviewed" (`track_view`) and promotes their GoHighLevel opportunity. The edge gate
+offering appends it to the investor's "Deals Reviewed" (`track_view`). The edge gate
 (`netlify/edge-functions/gate.js`) hard-gates offering documents and 301s the old URLs; pages themselves stay public for search.
+
+## Search and AI visibility (what's built in)
+
+- `build/seo.py` writes every page's `<head>`: unique title + description, self-referencing canonical, `robots` with `max-image-preview:large`,
+  Open Graph + Twitter cards (`/assets/media/og-card.png`, or the property photo on offering pages), icons/manifest, and JSON-LD.
+- Structured data: `Organization` (FinancialService, both offices, phones) + `Person` (Jerry, BrokerCheck `sameAs`) + `WebSite` on the homepage;
+  `Article`/`BreadcrumbList` on every Learn article (with paywalled-content markup so the soft gate is declared); `WebPage`/`BreadcrumbList`
+  on every other page; `CollectionPage` on `/learn/`; `Dataset` on `/results/`. No FAQ or review markup (retired / not eligible).
+- `sitemap.xml` (real `lastmod`: article revision month, Airtable Last Modified for offerings, git date for committed pages), `robots.txt`
+  (all crawlers allowed, docs + `/api/` excluded), `llms.txt`. Offering documents get `X-Robots-Tag: noindex`.
+- Every page is plain HTML with its content in the markup; the Learn soft gate is CSS only, so search and AI crawlers read the full text.
+- Trailing-slash URLs everywhere; old URLs 301 at the edge; 404s are real 404s.
+- After cutover: verify the domain in Google Search Console and Bing Webmaster Tools, submit `https://baker1031.com/sitemap.xml`, and
+  (optional) set `INDEXNOW_KEY` for instant Bing/Copilot updates.
+
+## Deadline reminder emails (Resend)
+
+`netlify/functions/deadline-reminders.mjs` runs daily at 15:00 UTC (8am PT). It reads the Investors table (`ID Period Expiration`,
+`1031 Expiration`, `Start Date`, `Reminders Off`, `Reminder Log`) and emails via Resend (`RESEND_API_KEY`, from jerry@baker1031.com):
+45-day reminders at 30/14/7/2 days out, monthly sale-date check-ins; 180-day reminders are off (`SEND_180_REMINDERS`). Approved
+investors get a 30-day magic-login button (`/api/login-link`), everyone else a schedule-a-call button; every email has a
+personal opt-out link (`/api/reminders-off`). Dry run: `POST /api/deadline-reminders?key=<PORTAL_SYNC_KEY>&dry=1`.
 
 ## Keeping the site in sync with Airtable
 

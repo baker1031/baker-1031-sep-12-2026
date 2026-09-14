@@ -1,4 +1,6 @@
-import re, json, random, os
+import re, json, random, os, sys, html
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import seo
 # Repo mode: SITE_ROOT points at the checked-out site; the homepage (index.html) supplies the nav/footer and
 # shared assets are referenced by path. Scratch mode (no SITE_ROOT) is the original Cowork build layout.
 ROOT = os.environ.get('SITE_ROOT')
@@ -22,12 +24,12 @@ footcss = between('  /* ---------- Footer ---------- */', '  /* ---------- Stick
 badgecss = between('  .badge{', '  .ratings__disclosure') if '  .ratings__disclosure' in h else between('  .badge{', '\n\n')
 navhtml = re.search(r'<header class="nav" id="nav">.*?</header>', h, flags=re.S).group(0)
 navhtml = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img src="{{LOGO}}" alt="Baker 1031"', navhtml)
-navhtml = navhtml.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest"').replace('href="#results"', 'href="/results"').replace('href="#request-access"', 'href="/register"')
+navhtml = navhtml.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest/"').replace('href="#results"', 'href="/results/"').replace('href="#request-access"', 'href="/register/"')
 # mark Invest as current
-navhtml = navhtml.replace('<a href="/invest">', '<a href="/invest" aria-current="page">')
+navhtml = navhtml.replace('<a href="/invest/">', '<a href="/invest/" aria-current="page">')
 foot = re.search(r'<footer class="footer">.*?</footer>', h, flags=re.S).group(0)
 foot = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img src="{{LOGO}}" alt="Baker 1031"', foot)
-foot = foot.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest"').replace('href="#results"', 'href="/results"').replace('href="#request-access"', 'href="/register"')
+foot = foot.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest/"').replace('href="#results"', 'href="/results/"').replace('href="#request-access"', 'href="/register/"')
 navjs = between("  // Nav: shadow once scrolled; mobile menu toggle", "})();\n</script>")
 
 # ---- inventory: Airtable "Investment Offerings" -> DST Offerings (pulled 2026-09-13 into offerings.json; images cached in at_imgs/) ----
@@ -74,7 +76,7 @@ page = r'''<!DOCTYPE html>
 <script>/* approved-investor gate: mark the document before first paint so gated content never flashes */
 try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.classList.add('is-logged-in'); }catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Available Investments — Baker 1031 Investments</title>
+''' + seo.head(title='Available 1031 Exchange Investments: DSTs, 721 Exchanges & More — Baker 1031 Investments', desc='Current 1031 exchange investments tracked by Jerry Baker: Delaware Statutory Trusts, 721 exchange DSTs and other offerings with sponsor, property type, location, year-one yield and LTV. Details for approved investors.', canonical='https://baker1031.com/invest/', graph=[seo.webpage('https://baker1031.com/invest/', 'Available Investments', 'Current 1031 exchange investments with sponsor, property type, location, yield and LTV.', {'isAccessibleForFree': False, 'hasPart': {'@type': 'WebPageElement', 'isAccessibleForFree': False, 'cssSelector': '.lockwrap'}}), seo.breadcrumbs([('Home', 'https://baker1031.com/'), ('Available Investments', None)])]) + r'''
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
@@ -294,7 +296,11 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .card--sold:hover{ transform:none; box-shadow:none; border-color:var(--hair-strong); }
   .empty{ grid-column:1 / -1; text-align:center; padding:64px 24px; border:1px dashed var(--hair-strong); border-radius:var(--radius); color:var(--grey); }
   .empty .hand{ display:block; font-family:var(--hand); font-size:30px; font-weight:600; color:var(--accent); margin-bottom:6px; transform:rotate(-2deg); }
-  .inv__disclosure{ margin:40px 0 0; font-size:11px; line-height:1.55; color:#6B7280; max-width:900px; }
+  .inv__index{ margin:40px 0 0; font-size:12.5px; line-height:1.9; color:#6B7280; max-width:1100px; }
+  .inv__index-label{ margin:0 0 4px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#6B7280; }
+  .inv__index a{ color:#4B5563; text-decoration:none; }
+  .inv__index a:hover{ color:var(--accent); text-decoration:underline; }
+  .inv__disclosure{ margin:24px 0 0; font-size:11px; line-height:1.55; color:#6B7280; max-width:900px; }
 
   /* ---------- List view (sortable table) ---------- */
   .tablewrap{ overflow-x:auto; border:1px solid var(--hair-strong); border-radius:var(--radius); }
@@ -343,7 +349,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .gate{ display:none; position:absolute; left:50%; top:48px; transform:translateX(-50%); z-index:3; width:min(560px, calc(100% - 8px)); }
   html:not(.is-logged-in) .gate{ display:block; }
   .gate__card{ background:var(--white); border:1px solid var(--hair-strong); border-radius:10px; padding:32px 32px 28px; text-align:center; box-shadow:0 24px 48px -24px rgba(0,0,0,.28), 0 2px 6px rgba(0,0,0,.06); }
-  .gate__card h1{ margin:0 0 10px; font-size:clamp(22px,2.4vw,28px); font-weight:700; line-height:1.15; letter-spacing:-.02em; }
+  .gate__card h2{ margin:0 0 10px; font-size:clamp(22px,2.4vw,28px); font-weight:700; line-height:1.15; letter-spacing:-.02em; }
   .gate__card p{ margin:0 0 20px; font-size:15px; line-height:1.6; color:var(--grey); }
   /* locked state: the grid is inert and softly blurred, fading out toward the bottom; controls stay visible but can't be used */
   html:not(.is-logged-in) .lockwrap > .grid{
@@ -428,11 +434,11 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     <div class="lockwrap">
 <section class="gate" id="gate" aria-labelledby="gate-heading">
   <div class="gate__card">
-    <h1 id="gate-heading">These investments are for approved investors.</h1>
+    <h2 id="gate-heading">These investments are for approved investors.</h2>
     <p>Log in with the email address on your account to see what’s currently available. New here? Registration takes a few minutes, and the last step is scheduling a call with me.</p>
     <div class="gate__actions">
-      <a class="btn" href="/login?next=/invest">Log In</a>
-      <a class="btn btn--secondary" href="/register">Create an Account</a>
+      <a class="btn" href="/login/?next=/invest/">Log In</a>
+      <a class="btn btn--secondary" href="/register/">Create an Account</a>
     </div>
     <p class="gate__note">Offerings are available solely to accredited investors and are made only by a sponsor’s private placement memorandum.</p>
   </div>
@@ -461,7 +467,11 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
         <div class="modal__foot"><button type="button" class="pop__reset" id="modal-clear">Clear all</button><span class="modal__count" id="modal-count"></span><button type="button" class="pop__done" id="modal-done">Show results</button></div>
       </div>
     </div>
-    <p class="inv__disclosure">[Placeholder — replace with approved disclosure language.] Current yield is the projected first-year cash distribution rate stated in the sponsor’s offering documents and is not guaranteed. Loan-to-value (LTV) is based on the offering’s stated debt and purchase price. Ratings reflect Jerry Baker’s opinion after his review process and are not a recommendation for any particular investor. Offerings are made only by a private placement memorandum to accredited investors; availability and terms are subject to change without notice.</p>
+    <nav class="inv__index" aria-label="All offerings">
+      <p class="inv__index-label">All offerings tracked on this page</p>
+      ''' + ' · '.join('<a href="/offerings/%s/">%s</a>' % (o['slug'], html.escape(o['name'])) for o in sorted(OFFERINGS, key=lambda o: o['name'].lower())) + r'''
+    </nav>
+    <p class="inv__disclosure">Current yield is the projected first-year cash distribution rate stated in the sponsor’s offering documents and is not guaranteed. Loan-to-value (LTV) is based on the offering’s stated debt and purchase price. Ratings reflect Jerry Baker’s opinion after his review process and are not investment advice for any particular investor. Offerings are made only by a private placement memorandum to accredited investors; availability and terms are subject to change without notice.</p>
   </section>
 </main>
 

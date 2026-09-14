@@ -7,6 +7,7 @@ Env: SITE_ROOT (output root; default /home/claude/site), CONTENT_SRC (dir holdin
 import re, os, sys, json, html as _html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import content_shell as cs
+import seo
 from markdown_it import MarkdownIt
 
 OUT = os.environ.get('SITE_ROOT', '/home/claude/site')
@@ -78,11 +79,20 @@ def extract_faq(md):
     return out
 
 def first_paragraph(md):
+    """First real paragraph of prose: skips headings, lists, quotes, tables, raw HTML blocks and the short
+    'Category · Category' metadata lines some drafts open with."""
     for block in re.split(r'\n\s*\n', md):
         t = block.strip()
         if not t or re.match(r'^#|^-|^\*|^>|^\||^\d+\.', t): continue
+        if t.startswith('<'):                              # a raw-HTML draft: take its first paragraph
+            m = re.search(r'<p\b[^>]*>(.*?)</p>', t, re.S)
+            if not m: continue
+            t = m.group(1)
+        t = re.sub(r'<[^>]+>', '', t)                      # inline HTML
         t = re.sub(r'\*\*|__|\*|_|`', '', t); t = re.sub(r'\[([^\]]+)\]\([^)]*\)', r'\1', t)
-        return re.sub(r'\s+', ' ', t)
+        t = re.sub(r'\s+', ' ', t).strip()
+        if len(t) < 60 or (' · ' in t and len(t) < 120): continue
+        return t
     return ''
 
 ALIAS = {'1031-exchange-into-dst': '1031-exchange-into-a-dst-passive-option', '1031-exchange': '1031-exchange-guide',
@@ -102,8 +112,12 @@ URL_ALIAS = {'contact': '/contact/', 'investments': '/invest/', 'calculators': '
 
 def clean_article_body(md, slug_set, unresolved):
     schema_desc = None
-    sd = re.search(r'"description"\s*:\s*"([^"]{40,300})"', md)
-    if sd: schema_desc = sd.group(1)
+    # the embedded legacy schema carries several descriptions (Article, Person, Organization); take the first that
+    # describes the article rather than its author or publisher
+    for sd in re.finditer(r'"description"\s*:\s*"([^"]{40,300})"', md):
+        t = sd.group(1)
+        if re.search(r'Founder and managing principal|Baker 1031 Investments is|registered representative', t): continue
+        schema_desc = t; break
     embedded_title = embedded_desc = None
     if re.search(r'<!DOCTYPE html>', md, re.I):
         et = re.search(r'<title>([^<]+)</title>', md, re.I)
@@ -155,9 +169,26 @@ def clean_article_body(md, slug_set, unresolved):
     md = re.sub(r'\n{3,}', '\n\n', md)
     return md, schema_desc, embedded_title, embedded_desc
 
+def _slug(t):
+    t = re.sub(r'<[^>]+>', '', t); t = re.sub(r'&[a-z]+;|&#\d+;', '', t)
+    return re.sub(r'-+', '-', re.sub(r'[^a-z0-9]+', '-', t.lower())).strip('-')[:80] or 'section'
+
 def render_md(body):
     html = md_engine.render(body)
     html = re.sub(r'<table\b[^>]*>', lambda m: '<div class="tblwrap">' + m.group(0), html).replace('</table>', '</table></div>')
+    # section anchors (deep links) + a contents list on long guides so a section can be cited directly
+    seen, heads = {}, []
+    def anchor(m):
+        text = m.group(2); base = _slug(text); n = seen.get(base, 0); seen[base] = n + 1
+        hid = base if n == 0 else f'{base}-{n + 1}'
+        heads.append((hid, re.sub(r'<[^>]+>', '', text)))
+        return f'<h2 id="{hid}"{m.group(1)}>{text}</h2>'
+    html = re.sub(r'<h2([^>]*)>(.*?)</h2>', anchor, html, flags=re.S)
+    if len(heads) >= 5:
+        toc = '<nav class="toc" aria-label="Contents"><p class="toc__label">Contents</p><ol>' + ''.join(f'<li><a href="#{h}">{t}</a></li>' for h, t in heads) + '</ol></nav>\n'
+        # after the opening paragraph(s): before the first h2
+        i = html.find('<h2 ')
+        html = (html[:i] + toc + html[i:]) if i > 0 else toc + html
     return html
 
 def load_articles(build_date):
@@ -241,7 +272,7 @@ def article_main(a, html, related_rows, is_hub):
 {gate_card('/learn/' + a['slug'] + '/', 'Log in to keep reading', 'The Learn library is available to registered Baker 1031 investors. Log in with the email address on your account, or create one — it takes a few minutes.')}
     <div class="prose">
 {html}
-<div class="footnote">{esc(EDU_DISCLAIMER)}</div>
+<div class="footnote">{esc(EDU_DISCLAIMER)} Spotted an error? Email <a href="mailto:jerry@baker1031.com">jerry@baker1031.com</a> and it will be corrected.</div>
     </div>
     </div>
   </section>
@@ -333,7 +364,7 @@ def build(build_date=None):
                 raise SystemExit(f"{a['slug']}: page_script {a['page_script']} does not exist in assets/js")
             body_end = f'<script src="/assets/js/{a["page_script"]}" defer></script>'
         page = cs.page(title=title_tag, desc=a['desc'], canonical=canonical, main_html=article_main(a, html, rows, is_hub),
-                       head_extra=article_json(a, canonical, is_hub), body_end=body_end, current='learn')
+                       head_extra=article_json(a, canonical, is_hub), body_end=body_end, current='learn', og_type='article')
         d = os.path.join(OUT, 'learn', a['slug']); os.makedirs(d, exist_ok=True)
         open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(page)
     # remove stale article dirs (renamed/deleted articles)
@@ -364,12 +395,12 @@ def build(build_date=None):
 
   <div class="featured" id="featured">{featured_html}</div>
 
-  <div class="lockwrap lockwrap--learn">
-{gate_card('/learn/', 'Log in to browse the library', 'The Learn library is available to registered Baker 1031 investors. Log in with the email address on your account, or create one — it takes a few minutes.')}
   <div class="filterbar">
     <div class="filterbar-in" id="pills"></div>
   </div>
 
+  <div class="lockwrap lockwrap--learn">
+{gate_card('/learn/', 'Log in to browse the library', 'The Learn library is available to registered Baker 1031 investors. Log in with the email address on your account, or create one — it takes a few minutes.')}
   <div class="artlist">
     <div id="rows">{rows_html}</div>
     <div class="empty" id="empty" style="display:none;">No articles in this category yet.</div>
@@ -377,7 +408,9 @@ def build(build_date=None):
   </div>
 
 </main>'''
-    index = cs.page(title='Learn: 1031 Exchange & DST Education | Baker 1031 Investments',
+    idx_graph = [seo.webpage(SITE + '/learn/', 'Learn: 1031 Exchange & DST Education', f'{len(arts)} plain-English articles on 1031 exchanges, DSTs and related strategies by Jerry Baker.', page_type='CollectionPage'),
+                 seo.breadcrumbs([('Home', SITE + '/'), ('Learn', None)])]
+    index = cs.page(graph=idx_graph, title='Learn: 1031 Exchange & DST Education | Baker 1031 Investments',
                     desc=f'{len(arts)} plain-English articles on 1031 exchanges, Delaware Statutory Trusts, 721 exchanges, and the tax decisions behind them, written by Jerry Baker.',
                     canonical=SITE + '/learn/', main_html=main, body_end=INDEX_JS, current='learn')
     os.makedirs(learn_dir, exist_ok=True)

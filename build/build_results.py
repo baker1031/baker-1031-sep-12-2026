@@ -11,10 +11,10 @@ nav_mobile = between('    .nav__inner{ gap:16px; height:54px; }', '    .ctabar__
 footcss = between('  /* ---------- Footer ---------- */', '  /* ---------- Sticky nav ---------- */')
 navhtml = re.search(r'<header class="nav" id="nav">.*?</header>', h, flags=re.S).group(0)
 navhtml = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img src="{{LOGO}}" alt="Baker 1031"', navhtml)
-navhtml = navhtml.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest"').replace('href="#results"', 'href="/results"').replace('href="#request-access"', 'href="/register"').replace('<a href="/results">', '<a href="/results" aria-current="page">')
+navhtml = navhtml.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest/"').replace('href="#results"', 'href="/results/"').replace('href="#request-access"', 'href="/register/"').replace('<a href="/results/">', '<a href="/results/" aria-current="page">')
 foot = re.search(r'<footer class="footer">.*?</footer>', h, flags=re.S).group(0)
 foot = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img src="{{LOGO}}" alt="Baker 1031"', foot)
-foot = foot.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest"').replace('href="#results"', 'href="/results"').replace('href="#request-access"', 'href="/register"')
+foot = foot.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest/"').replace('href="#results"', 'href="/results/"').replace('href="#request-access"', 'href="/register/"')
 navjs = between("  // Nav: shadow once scrolled; mobile menu toggle", "})();\n</script>")
 
 # Full-cycle dataset (tab-separated): name, sponsor, property type, location, avg annual return (decimal), equity multiple, hold (years)
@@ -244,7 +244,7 @@ page = r'''<!DOCTYPE html>
     </table>
   </div>
   </section>
-  <p class="disclosure">[Placeholder — replace with approved disclosure language.] These figures are sponsor-reported and reflect a limited sample of completed investments. They’re subject to selection and survivorship bias, don’t represent the entire industry, and don’t guarantee future results. Average annual return and equity multiple are as reported by each sponsor at the time of sale, before individual investor taxes. Averages shown are simple (unweighted) averages of the investments listed; where a sponsor did not report a figure it is shown as “—” and excluded from that average. Past performance does not guarantee future results; investments in DSTs and other private placements involve substantial risk, including loss of principal.</p>
+  <p class="disclosure">These figures are sponsor-reported and reflect a limited sample of completed investments. They’re subject to selection and survivorship bias, don’t represent the entire industry, and don’t guarantee future results. Average annual return and equity multiple are as reported by each sponsor at the time of sale, before individual investor taxes. Averages shown are simple (unweighted) averages of the investments listed; where a sponsor did not report a figure it is shown as “—” and excluded from that average. Past performance does not guarantee future results; investments in DSTs and other private placements involve substantial risk, including loss of principal.</p>
 
 </main>
 

@@ -855,9 +855,31 @@ html:not(.is-logged-in) .lockwrap--learn .artlist{
   max-height:900px; overflow:hidden; pointer-events:none; user-select:none; filter:blur(3px);
   -webkit-mask-image:linear-gradient(to bottom, #000 45%, transparent 100%); mask-image:linear-gradient(to bottom, #000 45%, transparent 100%);
 }
-html:not(.is-logged-in) .lockwrap--learn .filterbar{ pointer-events:none; }
+html:not(.is-logged-in) .filterbar{ pointer-events:none; }
+.lockwrap--learn .gate{ top:40px; }
 @media (max-width:900px){ .gate{ top:24px; } .gate__card{ padding:24px 20px 22px; } .lockwrap--article .gate{ bottom:32px; } }
 
+@media (prefers-reduced-motion:reduce){ .prose *, .rail *, .gate *, .featured *, .art-row{ animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+/* article contents list */
+.prose .toc{ margin:8px 0 36px; padding:18px 22px; border:1px solid var(--hair); border-radius:var(--radius); background:#FAFBFC; }
+.prose .toc__label{ margin:0 0 8px; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); }
+.prose .toc ol{ margin:0; padding-left:20px; columns:2; column-gap:32px; }
+.prose .toc li{ font-size:14px; line-height:1.5; margin:0 0 6px; break-inside:avoid; }
+.prose .toc a{ color:var(--grey); border:0; } .prose .toc a:hover{ color:var(--accent-hover); }
+@media (max-width:700px){ .prose .toc ol{ columns:1; } }
+.prose h2[id]{ scroll-margin-top:84px; }
+/* article byline on phones: stack cleanly, no stray separator */
+@media (max-width:640px){ .artmast .byline{ flex-wrap:wrap; gap:4px 12px; } .artmast .byline .dot{ display:none; } .artmast .byline .when{ margin-left:0; text-align:left; width:100%; } }
+/* legibility floor for small-caps labels */
+.prose .mk-stat .l, .prose .gl-source .label, .prose .term-row .tc, .prose .sp-fact .l, .prose .sp-cards .chip, .prose .aud-cards .tag, .pref-chip{ font-size:11px; }
+/* hub lists (calculators index): cards, not a bare link list */
+.prose .hublist{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; margin:0 0 8px; }
+.prose .hubcard{ display:flex; flex-direction:column; gap:8px; padding:20px 22px; border:1px solid var(--hair); border-radius:var(--radius); background:#fff; color:inherit; text-decoration:none; transition:border-color .18s ease, box-shadow .18s ease; }
+.prose .hubcard:hover{ border-color:var(--hair-strong); box-shadow:0 12px 28px -18px rgba(0,0,0,.25); }
+.prose .hubcard .t{ font-size:17px; font-weight:700; letter-spacing:-.01em; color:var(--black); line-height:1.3; }
+.prose .hubcard .d{ font-size:14px; line-height:1.55; color:var(--grey); flex:1; }
+.prose .hubcard .go{ font-size:13px; font-weight:700; color:var(--accent-hover); }
+.prose .hubcard .go::after{ content:" →"; }
 /* contact page cards (the source markup had no styles for these) */
 .cgrid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin:0 0 8px; }
 .ccard{ border:1px solid var(--hair); border-radius:var(--radius); padding:18px 20px; background:#fff; }

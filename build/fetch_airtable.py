@@ -125,7 +125,7 @@ def localize_docs(recs):
             if not (os.path.exists(dest) and d.get('size') and os.path.getsize(dest) == d['size']):
                 if not download(d['url'], dest):
                     continue
-            d['rel'] = f"/offerings/{o['slug']}/docs/{name}"; n += 1
+            d['rel'] = f"/offerings/{o['slug']}/docs/{urllib.parse.quote(name)}"; n += 1   # URL-safe (file names carry spaces)
     return n
 
 def main():

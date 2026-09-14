@@ -60,6 +60,15 @@
   from = "/api/reminders-off"
   to = "/.netlify/functions/reminders-off"
   status = 200
+# Manual runs of the scheduled jobs: POST /api/deadline-reminders?key=<PORTAL_SYNC_KEY>&dry=1 (report only)
+[[redirects]]
+  from = "/api/deadline-reminders"
+  to = "/.netlify/functions/deadline-reminders"
+  status = 200
+[[redirects]]
+  from = "/api/rebuild-watcher"
+  to = "/.netlify/functions/rebuild-watcher"
+  status = 200
 
 # Friendly aliases. Old-site URLs (/offerings/, /request-access/, /performance/, /current-offerings/…) are
 # 301-redirected by the edge gate (netlify/edge-functions/gate.js), which sees every request first.
@@ -118,3 +127,12 @@
   for = "/offerings/*/docs/*"
   [headers.values]
     Cache-Control = "private, no-store"
+    X-Robots-Tag = "noindex, nofollow"
+# Security headers (no change to how pages render)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"

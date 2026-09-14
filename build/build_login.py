@@ -10,10 +10,10 @@ nav_mobile = between('    .nav__inner{ gap:16px; height:54px; }', '    .ctabar__
 footcss = between('  /* ---------- Footer ---------- */', '  /* ---------- Sticky nav ---------- */')
 navhtml = re.search(r'<header class="nav" id="nav">.*?</header>', h, flags=re.S).group(0)
 navhtml = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img src="{{LOGO}}" alt="Baker 1031"', navhtml)
-navhtml = navhtml.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest"').replace('href="#results"', 'href="/results"').replace('href="#request-access"', 'href="/register"')
+navhtml = navhtml.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest/"').replace('href="#results"', 'href="/results/"').replace('href="#request-access"', 'href="/register/"')
 foot = re.search(r'<footer class="footer">.*?</footer>', h, flags=re.S).group(0)
 foot = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img src="{{LOGO}}" alt="Baker 1031"', foot)
-foot = foot.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest"').replace('href="#results"', 'href="/results"').replace('href="#request-access"', 'href="/register"')
+foot = foot.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest/"').replace('href="#results"', 'href="/results/"').replace('href="#request-access"', 'href="/register/"')
 navjs = between("  // Nav: shadow once scrolled; mobile menu toggle", "})();\n</script>")
 
 page = r'''<!DOCTYPE html>
@@ -130,7 +130,7 @@ page = r'''<!DOCTYPE html>
   <div class="stage__sky" aria-hidden="true"><img src="{{SKYLINE}}" alt="" width="2000" height="459"></div>
   <div class="box">
     <h1>Welcome back!</h1>
-    <p class="box__sub">New to Baker 1031 Investments? <a href="/register" id="create">Create an account</a></p>
+    <p class="box__sub">New to Baker 1031 Investments? <a href="/register/" id="create">Create an account</a></p>
     <form id="login" novalidate>
       <div class="field" id="field">
         <label for="email">Email address</label>
@@ -162,7 +162,7 @@ page = r'''<!DOCTYPE html>
   // Keep the "Create an account" link carrying whatever they've typed
   function syncCreate(){
     var v = clean(input.value);
-    create.href = '/register' + (v ? '?email=' + encodeURIComponent(v) : '');
+    create.href = '/register/' + (v ? '?email=' + encodeURIComponent(v) : '');
   }
   function clean(raw){
     var e = (raw || '').trim().replace(/^mailto:/i, '').replace(/^[<"'(\[\s]+|[>"')\]\s]+$/g, '').replace(/\s+/g, '').replace(/[.,;:]+$/, '');
@@ -183,7 +183,7 @@ page = r'''<!DOCTYPE html>
       .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
   }
   // Where to go after logging in: ?next=/invest (same-site paths only), default the investments page.
-  var nextParam = (function(){ try { var n = new URLSearchParams(window.location.search).get('next') || ''; return /^\/[^\/\\]/.test(n) ? n : '/invest'; } catch(e){ return '/invest'; } })();
+  var nextParam = (function(){ try { var n = new URLSearchParams(window.location.search).get('next') || ''; return /^\/[^\/\\]/.test(n) ? n : '/invest/'; } catch(e){ return '/invest/'; } })();
 
   function showError(html){ err.innerHTML = html; err.classList.add('is-on'); ok.classList.remove('is-on'); field.classList.add('is-invalid'); }
   function clearError(){ err.classList.remove('is-on'); field.classList.remove('is-invalid'); }
