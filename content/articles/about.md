@@ -174,7 +174,7 @@ First-order thinking treats a 1031 process as a search for something to buy befo
 </details>
 <details class="faq-item">
 <summary>Where is Baker 1031 located?</summary>
-<div class="answer">650 California Street, 7th Floor, San Francisco, CA 94108 — with clients served nationwide.</div>
+<div class="answer">1700 Montgomery St, Ste 108, San Francisco, CA 94111, with a second office at 2100 E Grand Ave, 1st Floor, El Segundo, CA 90245 — and clients served nationwide.</div>
 </details>
 </div>
 </section>
@@ -195,8 +195,8 @@ First-order thinking treats a 1031 process as a search for something to buy befo
 <div class="sub">Mon&ndash;Fri, 6am&ndash;5pm PT</div>
 </div>
 <div class="contact-cell">
-<h3>Office</h3>
-650 California Street, 7th Floor<br>San Francisco, CA 94108
+<h3>Offices</h3>
+1700 Montgomery St, Ste 108<br>San Francisco, CA 94111<br><span class="sub">2100 E Grand Ave, 1st Floor, El Segundo, CA 90245</span>
 </div>
 </div>
 </section>
