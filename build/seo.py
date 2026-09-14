@@ -42,7 +42,7 @@ def person():
     return {
         '@type': 'Person', '@id': PERSON_ID, 'name': 'Jerry Baker', 'alternateName': 'Gerald F. Baker, III',
         'jobTitle': 'Founder', 'worksFor': {'@id': ORG_ID}, 'url': SITE + '/learn/jerry-baker-bio/',
-        'image': SITE + '/assets/media/jerry-baker.jpg', 'email': 'jerry@baker1031.com',
+        'image': SITE + '/assets/media/jerry-baker.jpg', 'email': 'invest@baker1031.com',
         'sameAs': ['https://brokercheck.finra.org/individual/summary/7537416'],
         'knowsAbout': ['1031 exchange', 'Delaware Statutory Trusts', '721 exchange', 'Opportunity Zone funds', 'Real estate private equity'],
     }
