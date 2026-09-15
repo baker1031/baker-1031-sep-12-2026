@@ -84,7 +84,13 @@ async function api(p, method = 'GET', body, tries = 0) {
   }
   const text = await r.text();
   let data = null; try { data = text ? JSON.parse(text) : null; } catch { data = { raw: text }; }
-  if (!r.ok) { const e = new Error(`${method} ${p} → ${r.status}: ${(data && (data.message || data.error)) || text.slice(0, 200)}`); e.status = r.status; e.body = data; throw e; }
+  if (!r.ok) {
+    const detail = data?.validation_errors?.length
+      ? ' ' + JSON.stringify(data.validation_errors).slice(0, 300)
+      : '';
+    const e = new Error(`${method} ${p} → ${r.status}: ${(data && (data.message || data.error)) || text.slice(0, 200)}${detail}`);
+    e.status = r.status; e.body = data; throw e;
+  }
   await sleep(35);
   return data;
 }
@@ -167,7 +173,7 @@ async function attributes(object, refresh = false) {
 const findAttr = (attrs, title) => attrs.find((a) => a.title.toLowerCase() === String(title).toLowerCase());
 
 async function ensureAttributes() {
-  const plan = { created: [], options: [] };
+  const plan = { created: [], options: [], failed: [] };
   for (const [object, rows, shape] of [['people', people, personFields], ['deals', deals, dealFields]]) {
     const wanted = new Map();                    // title -> Set of values seen
     for (const r of rows) for (const [k, v] of Object.entries(shape(r))) {
@@ -180,14 +186,18 @@ async function ensureAttributes() {
       let a = findAttr(attrs, title);
       if (!a) {
         const type = TYPES[title] || 'text';
-        plan.created.push(`${object}.${title} (${type})`);
         if (!DRY) {
-          const body = { data: { title, api_slug: slugify(title), type, is_required: false, is_unique: false, is_multiselect: false, default_value: null, config: {} } };
+          const body = { data: { title, description: `Imported from GoHighLevel`, api_slug: slugify(title), type, is_required: false, is_unique: false, is_multiselect: false, default_value: null, config: {} } };
           if (type === 'currency') body.data.config = { currency: { default_currency_code: 'USD', display_type: 'symbol' } };
-          const created = await api(`/objects/${object}/attributes`, 'POST', body);
-          a = { id: created.data.id.attribute_id, slug: created.data.api_slug, title, type, multi: false };
-          attrs.push(a);
-        }
+          try {
+            const created = await api(`/objects/${object}/attributes`, 'POST', body);
+            a = { id: created.data.id.attribute_id, slug: created.data.api_slug, title, type, multi: false };
+            attrs.push(a);
+            plan.created.push(`${object}.${title} (${type})`);
+          } catch (e) {
+            plan.failed.push(`${object}.${title} (${type}) — ${e.message.slice(0, 180)}`);
+          }
+        } else plan.created.push(`${object}.${title} (${type})`);
         continue;
       }
       if (a.type === 'select') {                 // an existing select needs every incoming value as an option
@@ -207,6 +217,10 @@ async function ensureAttributes() {
   }
   console.log(`attributes: ${plan.created.length} ${DRY ? 'would be created' : 'created'}, ${plan.options.length} select options ${DRY ? 'would be added' : 'added'}`);
   for (const x of plan.created) console.log('   +', x);
+  if (plan.failed.length) {
+    console.log(`   ${plan.failed.length} attribute(s) Attio would not create — their values are skipped, everything else still imports:`);
+    for (const x of plan.failed) console.log('   !', x);
+  }
   if (plan.options.length) console.log('   ' + plan.options.length + ' option(s): ' + plan.options.slice(0, 12).join('; ') + (plan.options.length > 12 ? ' …' : ''));
   // stages
   try {
