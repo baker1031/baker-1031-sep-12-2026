@@ -61,13 +61,23 @@ let calls = 0;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function api(p, method = 'GET', body, tries = 0) {
   calls++;
-  const r = await fetch(API + p, {
-    method,
-    headers: { Authorization: `Bearer ${KEY}`, 'content-type': 'application/json', accept: 'application/json' },
-    body: body === undefined ? undefined : JSON.stringify(body),
-  });
+  let r;
+  try {
+    r = await fetch(API + p, {
+      method,
+      headers: { Authorization: `Bearer ${KEY}`, 'content-type': 'application/json', accept: 'application/json' },
+      body: body === undefined ? undefined : JSON.stringify(body),
+    });
+  } catch (err) {
+    // the connection itself failed (dropped wifi, DNS hiccup, reset socket) — worth another go
+    if (tries >= 8) throw new Error(`${method} ${p} → network error after ${tries} retries: ${err.message}`);
+    const wait = Math.min(20000, 1000 * 2 ** tries);
+    if (tries === 0) process.stdout.write(`   (connection dropped on ${method} ${p} — retrying)\n`);
+    await sleep(wait);
+    return api(p, method, body, tries + 1);
+  }
   if (r.status === 429 || r.status >= 500) {
-    if (tries >= 6) throw new Error(`${method} ${p} → ${r.status} after ${tries} retries`);
+    if (tries >= 8) throw new Error(`${method} ${p} → ${r.status} after ${tries} retries`);
     const wait = Number(r.headers.get('retry-after')) * 1000 || Math.min(30000, 800 * 2 ** tries);
     await sleep(wait);
     return api(p, method, body, tries + 1);
