@@ -8,11 +8,30 @@ import re, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import content_shell as cs
 import seo
+import fullcycle as fc
 
 OUT = os.environ.get('SITE_ROOT', '/home/claude/site')
 CONTENT = os.environ.get('CONTENT_SRC', os.path.join(OUT, 'content'))
 PAGES = os.path.join(CONTENT, 'pages')
 SITE = 'https://baker1031.com'
+
+_FC = None
+def expand_fullcycle(main, rel):
+    """<!--fc:facts--> and <!--fc:track:Name--> on a sponsor page are filled from build/fullcycle.tsv,
+    so the Results page and every sponsor track record move together when the dataset is updated."""
+    global _FC
+    if '<!--fc:' not in main: return main
+    slug = rel.split('/')[1] if rel.startswith('sponsors/') else ''
+    sponsor = fc.SLUG2SPONSOR.get(slug)
+    if not sponsor:
+        print('[pages] %s: fullcycle marker with no sponsor mapping' % rel)
+        return re.sub(r'[ \t]*<!--fc:(?:facts|track:[^>]*)-->\n?', '', main)
+    if _FC is None: _FC = fc.by_sponsor()
+    rows = _FC.get(sponsor, [])
+    main = re.sub(r'([ \t]*)<!--fc:facts-->', lambda m: fc.facts_html(rows, m.group(1)), main)
+    main = re.sub(r'([ \t]*)<!--fc:track:([^>]*?)-->',
+                  lambda m: fc.track_html(m.group(2), rows, m.group(1)), main)
+    return main
 
 def parse(frag):
     meta = {}
@@ -40,7 +59,8 @@ def build():
         for f in files:
             if not f.endswith('.html'): continue
             rel = os.path.relpath(os.path.join(root, f), PAGES).replace('\\', '/')
-            meta, head, main, scripts = parse(open(os.path.join(root, f), encoding='utf-8').read())
+            frag = expand_fullcycle(open(os.path.join(root, f), encoding='utf-8').read(), rel)
+            meta, head, main, scripts = parse(frag)
             url_path = '/' + rel[:-len('index.html')] if rel.endswith('index.html') else '/' + rel
             graph = None
             if 'application/ld+json' not in head and url_path != '/404.html':

@@ -17,23 +17,11 @@ foot = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img 
 foot = foot.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest/"').replace('href="#results"', 'href="/results/"').replace('href="#request-access"', 'href="/register/"')
 navjs = between("  // Nav: shadow once scrolled; mobile menu toggle", "})();\n</script>")
 
-# Full-cycle dataset (tab-separated): name, sponsor, property type, location, avg annual return (decimal), equity multiple, hold (years)
-TYPE_FIX = { 'Hospitality / credit': 'Hospitality / Credit', '': 'Other / Unclassified' }
-def num(v, scale=1):
-    v = (v or '').strip()
-    if not v: return None
-    return round(float(v) * scale, 4)
-data = []
-with open('fullcycle.tsv', encoding='utf-8') as f:
-    rd = csv.reader(f, delimiter='\t'); next(rd)
-    for r in rd:
-        r = [c.strip() for c in r] + [''] * (7 - len(r))
-        if not r[0]: continue
-        data.append(dict(
-            name=r[0], sponsor=r[1], type=TYPE_FIX.get(r[2], r[2]), state=r[3],
-            ret=num(r[4], 100), em=num(r[5]), hold=num(r[6])
-        ))
-for _i, _d in enumerate(data): _d['id'] = _i
+# Full-cycle dataset — one master file shared with the sponsor track records (build/fullcycle.py)
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import fullcycle as fc
+data = [{k: d[k] for k in ('name', 'sponsor', 'type', 'state', 'ret', 'em', 'hold', 'id')} for d in fc.load()]
 print('deals', len(data))
 
 page = r'''<!DOCTYPE html>
@@ -395,7 +383,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     RESULTS.forEach(function(r){ (by[r[field]] || (by[r[field]] = [])).push(r); });
     return Object.keys(by).map(function(k){ var g = stats(by[k]); g.key = k; return g; });
   }
-  var PREFERRED = ["Peachtree", "Olympus", "NLCA", "NexPoint", "Griffin", "ExchangeRight", "Bluerock", "IDEAL"];   // Jerry's preferred sponsors
+  var PREFERRED = ''' + json.dumps(fc.PREFERRED) + r''';   // preferred sponsors (build/fullcycle.py)
   var SPONSORS = rollup('sponsor').map(function(g){ g.sponsor = g.key; g.preferred = PREFERRED.indexOf(g.key) > -1; return g; });
   var ASSETS = rollup('type').map(function(g){ g.type = g.key; return g; });
   var spSort = { key:'sponsor', dir:1 };

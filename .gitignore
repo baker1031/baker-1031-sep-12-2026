@@ -33,3 +33,8 @@ __pycache__/
 assets/media/offerings/*
 !assets/media/offerings/*-card.jpg
 !assets/media/offerings/*-hero.jpg
+
+# GoHighLevel export + Attio import progress — client PII, kept out of the repo on purpose
+/build/ghl-contacts.json
+/build/ghl-opportunities.json
+/build/.attio-import-state.json
