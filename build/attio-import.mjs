@@ -118,6 +118,7 @@ const PERSON_EXTRA = (p) => ({
   'Lead Source': [p.source, p.attribution?.sessionSource, p.attribution?.medium].filter(Boolean).join(' / ') || null,
   'Landing Page': p.attribution?.url || null,
   'GHL Account': (p.sources || []).map((s) => s.location).join(' + ') || null,
+  'Phone (unparsed)': (p.phones || []).filter((x) => x && !e164(x)).join(', ') || null,
   'GHL Contact ID': (p.ghlIds || []).join(', ') || null,
   'GHL Created': p.dateAdded || null,
   'GHL Updated': p.dateUpdated || null,
@@ -143,14 +144,17 @@ const clean = (v) => {
 };
 const normalize = (title, v) => (NORMALIZE[title] && NORMALIZE[title][v]) || v;
 
+// A North-American number Attio will accept: area code and exchange both start 2-9.
+const nanp = (d) => (/^[2-9]\d{2}[2-9]\d{6}$/.test(d) ? '+1' + d : null);
 function e164(phone) {
   const raw = String(phone || '').trim();
   if (!raw) return null;
   const compact = raw.replace(/[\s().-]/g, '');
-  if (/^\+\d{8,15}$/.test(compact)) return compact;
-  const d = raw.replace(/\D/g, '');
-  if (d.length === 10) return '+1' + d;
-  if (d.length === 11 && d.startsWith('1')) return '+' + d;
+  const d = compact.replace(/\D/g, '');
+  if (compact.startsWith('+1') || (!compact.startsWith('+') && (d.length === 10 || (d.length === 11 && d[0] === '1')))) {
+    return nanp(d.length === 11 && d[0] === '1' ? d.slice(1) : d);   // null for impossible US numbers
+  }
+  if (/^\+\d{8,15}$/.test(compact)) return compact;                 // international, left as given
   return null;
 }
 
@@ -292,9 +296,17 @@ async function importPeople() {
         if (phones.length) core.phone_numbers = phones;
         if (DRY) { rid = 'dry'; }
         else {
-          const res = emails.length
-            ? await api('/objects/people/records?matching_attribute=email_addresses', 'PUT', { data: { values: core } })
-            : await api('/objects/people/records', 'POST', { data: { values: core } });
+          const write = (v) => (emails.length
+            ? api('/objects/people/records?matching_attribute=email_addresses', 'PUT', { data: { values: v } })
+            : api('/objects/people/records', 'POST', { data: { values: v } }));
+          let res;
+          try { res = await write(core); }
+          catch (err) {
+            if (!/phone_numbers/.test(err.message)) throw err;
+            const { phone_numbers, ...rest } = core;     // eslint-disable-line no-unused-vars
+            console.error(`   ! ${key}: Attio rejected the phone number — importing without it`);
+            res = await write(rest);
+          }
           rid = res.data.id.record_id;
           state.people[key] = rid; dirty = true;
         }
@@ -316,13 +328,19 @@ async function importPeople() {
 // ---- deals -------------------------------------------------------------------------------------------
 async function importDeals() {
   const attrs = await attributes('deals');
-  const owner = process.env.ATTIO_DEAL_OWNER
-    ? { workspace_member_email_address: process.env.ATTIO_DEAL_OWNER }
-    : await (async () => {
-        const m = ((await api('/workspace_members')).data || []).find((x) => x.access_level === 'admin');
-        return m ? { referenced_actor_type: 'workspace-member', referenced_actor_id: m.id?.workspace_member_id || m.id } : null;
-      })();
-  if (!owner) { console.error('deals: no owner — set ATTIO_DEAL_OWNER to your Attio login email and re-run'); return; }
+  // The owner has to be a real workspace member — an address that only forwards mail is rejected by Attio,
+  // and every deal fails. Resolve it against the member list before writing anything.
+  const members = ((await api('/workspace_members')).data || []).filter((m) => m.access_level !== 'suspended');
+  const wanted = String(process.env.ATTIO_DEAL_OWNER || '').trim().toLowerCase();
+  let m = wanted && members.find((x) => String(x.email_address || '').toLowerCase() === wanted);
+  if (wanted && !m) {
+    m = members.find((x) => x.access_level === 'admin') || members[0];
+    console.log(`   ATTIO_DEAL_OWNER="${process.env.ATTIO_DEAL_OWNER}" is not a member of this Attio workspace.`);
+    console.log(`   Members: ${members.map((x) => x.email_address).join(', ') || '(none)'}`);
+    console.log(`   Using ${m ? m.email_address : 'no owner'} instead.`);
+  } else if (!wanted) m = members.find((x) => x.access_level === 'admin') || members[0];
+  const owner = m ? { referenced_actor_type: 'workspace-member', referenced_actor_id: m.id?.workspace_member_id || m.id } : null;
+  if (!owner) { console.error('deals: no workspace member to own the deals — add one in Attio and re-run'); return; }
   let created = 0, skipped = 0, noteCount = 0, failed = 0, orphan = 0;
   const rows = LIMIT ? deals.slice(0, LIMIT) : deals;
   for (const [i, d] of rows.entries()) {
@@ -346,7 +364,7 @@ async function importDeals() {
           try { res = await api('/objects/deals/records', 'POST', { data: { values: core } }); }
           catch (e) {
             console.error(`   ! ${d.name}: ${e.message.slice(0, 120)} — retrying with core fields only`);
-            const bare = { name: core.name, stage: core.stage, owner: core.owner, ...(core.value ? { value: core.value } : {}), ...(core.associated_people ? { associated_people: core.associated_people } : {}) };
+            const bare = { name: core.name, stage: core.stage, ...(core.value ? { value: core.value } : {}), ...(core.associated_people ? { associated_people: core.associated_people } : {}) };
             res = await api('/objects/deals/records', 'POST', { data: { values: bare } });
           }
           rid = res.data.id.record_id;
