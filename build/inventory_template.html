@@ -29,18 +29,27 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#0D9DD8">
+<meta name="theme-color" content="#005499">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://baker1031.com/invest/#webpage", "url": "https://baker1031.com/invest/", "name": "Available Investments", "description": "Current 1031 exchange investments with sponsor, property type, location, yield and LTV.", "isPartOf": {"@id": "https://baker1031.com/#website"}, "about": {"@id": "https://baker1031.com/#org"}, "inLanguage": "en-US", "isAccessibleForFree": false, "hasPart": {"@type": "WebPageElement", "isAccessibleForFree": false, "cssSelector": ".lockwrap"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://baker1031.com/"}, {"@type": "ListItem", "position": 2, "name": "Available Investments"}]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <style>
+/* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-400i.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-500.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-600.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Sanomat";src:url(/assets/fonts/sanomat-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+
   :root{
     --black:#000; --white:#fff;
-    --accent:rgb(13,157,216); --accent-hover:rgb(10,135,187); --accent-soft:#F1F9FF;
+    --accent:rgb(0,84,153); --accent-hover:rgb(0,66,122); --accent-soft:#EEF3F9;
     --grey:#4B5563; --grey-light:#6B7280; --hair:#E5E7EB; --hair-strong:#CBD2D9;
     --radius:6px;
-    --font:"Special Gothic", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font:"Guardian Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --display:"Sanomat", Georgia, "Times New Roman", serif;
     --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
   }
   *{ box-sizing:border-box; }
@@ -79,7 +88,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     gap:32px;
   }
   .nav__logo{ display:flex; align-items:center; flex:0 0 auto; }
-  .nav__logo img{ height:30px; width:auto; display:block; }
+  .nav__logo img{ height:36px; width:auto; display:block; }
   .nav__links{ display:flex; align-items:center; gap:26px; margin-left:24px; }
   .nav__links a{
     display:inline-grid;
@@ -193,7 +202,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     padding:9px 34px 9px 12px; background:var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%234B5563' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center / 14px;
     border:1px solid var(--hair-strong); border-radius:var(--radius); outline:none; cursor:pointer;
   }
-  .select:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(13,157,216,.18); }
+  .select:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(0,84,153,.18); }
   .chipwrap{ position:relative; flex:0 0 auto; }
   .chipwrap.is-hidden{ display:none; }
   .chip{
@@ -231,7 +240,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .check__box svg{ width:11px; height:11px; opacity:0; }
   .check input:checked ~ .check__box{ background:var(--accent); border-color:var(--accent); }
   .check input:checked ~ .check__box svg{ opacity:1; }
-  .check input:focus-visible ~ .check__box{ box-shadow:0 0 0 3px rgba(13,157,216,.25); }
+  .check input:focus-visible ~ .check__box{ box-shadow:0 0 0 3px rgba(0,84,153,.25); }
   .check input:checked ~ .check__text{ color:var(--black); }
   .check__count{ margin-left:auto; font-size:12px; color:#9CA3AF; }
   .pop__range{ padding:14px 16px 8px; }
@@ -445,7 +454,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,.8fr) minmax(0,.8fr) minmax(0,.8fr);
     gap:32px 40px;
   }
-  .footer__brand img{ height:26px; width:auto; display:block; margin-bottom:16px; }
+  .footer__brand img{ height:34px; width:auto; display:block; margin-bottom:16px; }
   .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#4B5563; }
   .footer__brand a{ color:#4B5563; text-decoration:none; }
   .footer__brand a:hover{ color:var(--accent); }
@@ -513,7 +522,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     .nav__links a{ justify-items:start; }
     .nav__links a .nav__hand{ font-size:22px; }
     .nav__links a:last-child{ border-bottom:0; }
-    .nav__logo img{ height:22px; }
+    .nav__logo img{ height:26px; }
     .nav__actions{ gap:12px; }
     .nav__login{ font-size:13px; white-space:nowrap; }
     .nav__user{ font-size:13px; }
@@ -533,6 +542,8 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   }
   @media (min-width:600px) and (max-width:900px){ .grid{ grid-template-columns:repeat(2, minmax(0,1fr)); } }
 
+/* Headings in Sanomat (one weight); everything else stays in Guardian Sans */
+h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;letter-spacing:-.01em}
 </style>
 </head>
 <body id="top">
@@ -540,7 +551,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
 <header class="nav" id="nav">
   <div class="nav__inner">
     <a class="nav__logo" href="/" aria-label="Baker 1031 — home">
-      <img src="/assets/media/logo.png" alt="Baker 1031" width="1200" height="249">
+      <img src="/assets/media/logo.png" alt="Baker 1031" width="1200" height="224">
     </a>
     <nav class="nav__links" id="nav-links" aria-label="Primary">
       <a href="/"><span class="nav__word">Home</span><span class="nav__hand" aria-hidden="true">Home</span></a>
@@ -642,7 +653,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__brand">
-      <img src="/assets/media/logo.png" alt="Baker 1031" width="1200" height="249">
+      <img src="/assets/media/logo.png" alt="Baker 1031" width="1200" height="224">
       <p class="footer__blurb">Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.</p>
       <p><a href="mailto:invest@baker1031.com">invest@baker1031.com</a></p>
     </div>

@@ -83,7 +83,7 @@ def page(*, title, desc, canonical, main_html, head_extra='', body_end='', body_
 {seo.head(title=title, desc=desc, canonical=canonical, og_type=og_type, image=image or seo.OG_IMAGE, image_alt=image_alt or 'Baker 1031 Investments', noindex=noindex, graph=graph)}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <script>/* session hint set by /api/auth so the header renders logged-in before first paint */
 try{{ if(/(?:^|;\\s*)b31_ui=/.test(document.cookie)) document.documentElement.classList.add('is-logged-in'); }}catch(e){{}}</script>
 <link rel="stylesheet" href="/assets/css/site.css">

@@ -44,14 +44,23 @@ page = r'''<!DOCTYPE html>
 <title>Full-Cycle Results — Baker 1031 Investments</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <style>
+/* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-400i.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-500.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-600.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Sanomat";src:url(/assets/fonts/sanomat-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+
   :root{
     --black:#000; --white:#fff;
-    --accent:rgb(13,157,216); --accent-hover:rgb(10,135,187); --accent-soft:#F1F9FF;
+    --accent:rgb(0,84,153); --accent-hover:rgb(0,66,122); --accent-soft:#EEF3F9;
     --grey:#4B5563; --grey-light:#6B7280; --hair:#E5E7EB; --hair-strong:#CBD2D9;
     --radius:6px;
-    --font:"Special Gothic", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font:"Guardian Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --display:"Sanomat", Georgia, "Times New Roman", serif;
     --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
   }
   *{ box-sizing:border-box; }
@@ -101,7 +110,7 @@ page = r'''<!DOCTYPE html>
   .tools select{ flex:0 1 auto; max-width:100%; padding-right:32px; -webkit-appearance:none; appearance:none;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%234B5563' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat:no-repeat; background-position:right 12px center; }
-  .tools input:focus, .tools select:focus{ outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(13,157,216,.18); }
+  .tools input:focus, .tools select:focus{ outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(0,84,153,.18); }
   .tools__clear{ font:inherit; font-size:13.5px; font-weight:600; color:var(--accent); background:none; border:0; padding:8px 4px; cursor:pointer; }
   .tools__clear:hover{ color:var(--accent-hover); text-decoration:underline; }
   .tools__clear[hidden]{ display:none; }
@@ -158,6 +167,8 @@ page = r'''<!DOCTYPE html>
     .footer__offices{ grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; column-gap:24px; }
     .footer__offices .footer__label{ grid-column:1 / -1; }
   }
+/* Headings in Sanomat (one weight); everything else stays in Guardian Sans */
+h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;letter-spacing:-.01em}
 </style>
 </head>
 <body id="top">

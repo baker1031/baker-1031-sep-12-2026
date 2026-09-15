@@ -21,7 +21,7 @@ def between(start, end, src=h):
 navcss = between('  /* ---------- Sticky nav ---------- */', '  /* section anchors land below the sticky bar */')
 nav_mobile = between('    .nav__inner{ gap:16px; height:54px; }', '    .ctabar__inner{')
 footcss = between('  /* ---------- Footer ---------- */', '  /* ---------- Sticky nav ---------- */')
-badgecss = between('  .badge{', '  .ratings__disclosure')
+badgecss = between('  .badge{', '  .hand-inline{')
 navhtml = re.search(r'<header class="nav" id="nav">.*?</header>', h, flags=re.S).group(0)
 navhtml = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img src="{{LOGO}}" alt="Baker 1031"', navhtml)
 navhtml = navhtml.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest/"').replace('href="#results"', 'href="/results/"').replace('href="#request-access"', 'href="/register/"').replace('<a href="/invest/">', '<a href="/invest/" aria-current="page">')
@@ -143,14 +143,23 @@ def render(O):
     ''' + seo.head(title=O['name'] + ' — 1031 Exchange DST | Baker 1031', desc=O['metaDesc'], canonical='https://baker1031.com/offerings/' + O['slug'] + '/', image=('https://baker1031.com' + O['ogImage']) if O.get('ogImage') else seo.OG_IMAGE, image_alt=O['name'] + ' property photo', graph=[seo.webpage('https://baker1031.com/offerings/' + O['slug'] + '/', O['name'], O['metaDesc'], {'isAccessibleForFree': False, 'hasPart': {'@type': 'WebPageElement', 'isAccessibleForFree': False, 'cssSelector': '.gated'}}), seo.breadcrumbs([('Home', 'https://baker1031.com/'), ('Available Investments', 'https://baker1031.com/invest/'), (O['name'], None)])]) + r'''
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
     <style>
+/* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-400i.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-500.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-600.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Sanomat";src:url(/assets/fonts/sanomat-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+
       :root{
         --black:#000; --white:#fff;
-        --accent:rgb(13,157,216); --accent-hover:rgb(10,135,187); --accent-soft:#F1F9FF;
+        --accent:rgb(0,84,153); --accent-hover:rgb(0,66,122); --accent-soft:#EEF3F9;
         --grey:#4B5563; --grey-light:#6B7280; --hair:#E5E7EB; --hair-strong:#CBD2D9;
         --radius:6px;
-        --font:"Special Gothic", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        --font:"Guardian Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --display:"Sanomat", Georgia, "Times New Roman", serif;
         --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
       }
       *{ box-sizing:border-box; }
@@ -204,7 +213,7 @@ def render(O):
       .gal__thumb{ padding:0; border:2px solid transparent; border-radius:var(--radius); overflow:hidden; background:#F3F4F6; cursor:pointer; min-height:0; }
       .gal__thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
       .gal__thumb.is-on{ border-color:var(--accent); }
-      .gal__thumb:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(13,157,216,.35); }
+      .gal__thumb:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(0,84,153,.35); }
 
       /* ---------- Key stats strip ---------- */
       .stats{ display:grid; grid-template-columns:repeat(6, minmax(0,1fr)); margin:24px 0 0; padding:0; border:1px solid var(--hair-strong); border-radius:var(--radius); overflow:hidden; }
@@ -337,7 +346,9 @@ def render(O):
         .footer__offices{ grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; column-gap:24px; }
         .footer__offices .footer__label{ grid-column:1 / -1; }
       }
-    </style>
+    /* Headings in Sanomat (one weight); everything else stays in Guardian Sans */
+h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;letter-spacing:-.01em}
+</style>
     </head>
     <body id="top" data-offering="''' + O['slug'] + r'''">
 

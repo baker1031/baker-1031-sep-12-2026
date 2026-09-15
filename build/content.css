@@ -1,18 +1,25 @@
+/* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-400i.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-500.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-600.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Sanomat";src:url(/assets/fonts/sanomat-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
 /* ===== Baker 1031 — content pages (Learn, sponsors, markets, glossary, calculators, policies) =====
    Tokens first, then the interior component sheet ported from the previous site with its variables
    re-pointed at these tokens, then overrides that bring type and spacing in line with the 2026 rebuild. */
 :root{
   --black:#000; --white:#fff;
-  --accent:rgb(13,157,216); --accent-hover:rgb(10,135,187); --accent-soft:#F1F9FF;
+  --accent:rgb(0,84,153); --accent-hover:rgb(0,66,122); --accent-soft:#EEF3F9;
   --grey:#4B5563; --grey-light:#6B7280; --hair:#E5E7EB; --hair-strong:#CBD2D9;
   --radius:6px;
-  --font:"Special Gothic", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font:"Guardian Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
   /* previous-site variable names -> this design */
-  --ink:#000; --blue-d:rgb(10,135,187); --blue:rgb(13,157,216); --blue-lt:#9FD0EE;
-  --pale:#F1F9FF; --grey1:#F3F4F6; --page:#fff; --body:#4B5563; --muted:#6B7280;
-  --faint:#9CA3AF; --steel:#4B5563; --lblue:#F1F9FF;
-  --display:var(--font); --sans:var(--font);
+  --ink:#000; --blue-d:rgb(0,66,122); --blue:rgb(0,84,153); --blue-lt:#9DB9D6;
+  --pale:#EEF3F9; --grey1:#F3F4F6; --page:#fff; --body:#4B5563; --muted:#6B7280;
+  --faint:#9CA3AF; --steel:#4B5563; --lblue:#EEF3F9;
+  --display:"Sanomat", Georgia, "Times New Roman", serif; --sans:var(--font);
   --gut:max(24px, calc((100vw - 1200px) / 2));
   --hdr:64px;
 }
@@ -894,3 +901,6 @@ html:not(.is-logged-in) .filterbar{ pointer-events:none; }
 .prose:has(.pt-grid,.sp-cards,.aud-cards,.cgrid,.hublist) > :is(h2,h3,p,ul,ol,.lead,.mk-head,.gl-hub-head,.sp-head){ max-width:74ch; }
 .prose .sp-cards{ grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr)); }
 .prose .aud-cards{ grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr)); }
+
+/* Headings in Sanomat (one weight); everything else stays in Guardian Sans */
+h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;letter-spacing:-.01em}

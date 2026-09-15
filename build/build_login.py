@@ -25,14 +25,23 @@ page = r'''<!DOCTYPE html>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <style>
+/* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-400i.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-500.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-600.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Sanomat";src:url(/assets/fonts/sanomat-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+
   :root{
     --black:#000; --white:#fff;
-    --accent:rgb(13,157,216); --accent-hover:rgb(10,135,187); --accent-soft:#F1F9FF;
+    --accent:rgb(0,84,153); --accent-hover:rgb(0,66,122); --accent-soft:#EEF3F9;
     --grey:#4B5563; --grey-light:#6B7280; --hair:#E5E7EB; --hair-strong:#CBD2D9; --error:#DC2626;
     --radius:6px;
-    --font:"Special Gothic", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font:"Guardian Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --display:"Sanomat", Georgia, "Times New Roman", serif;
     --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
   }
   *{ box-sizing:border-box; }
@@ -83,7 +92,7 @@ page = r'''<!DOCTYPE html>
     padding:12px 14px; outline:none; transition:border-color .2s ease, box-shadow .2s ease;
   }
   .field input::placeholder{ color:#B4BAC3; }
-  .field input:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(13,157,216,.18); }
+  .field input:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(0,84,153,.18); }
   .field.is-invalid input{ border-color:var(--error); box-shadow:0 0 0 3px rgba(220,38,38,.12); }
   .field .btn{ width:100%; margin-top:14px; padding:13px 20px; font-size:15px; }
   .err{
@@ -96,7 +105,7 @@ page = r'''<!DOCTYPE html>
   .err a:hover{ text-decoration:underline; text-underline-offset:3px; }
   .ok{
     display:none; margin:12px 0 0; padding:12px 14px;
-    border:1px solid #CFE9F7; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
+    border:1px solid #C9DAEB; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
     font-size:13.5px; line-height:1.5; color:var(--grey);
   }
   .ok.is-on{ display:block; }
@@ -120,6 +129,8 @@ page = r'''<!DOCTYPE html>
     .footer__offices{ grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; column-gap:24px; }
     .footer__offices .footer__label{ grid-column:1 / -1; }
   }
+/* Headings in Sanomat (one weight); everything else stays in Guardian Sans */
+h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;letter-spacing:-.01em}
 </style>
 </head>
 <body id="top">
