@@ -877,9 +877,26 @@
     padding:88px 24px 96px;
   }
   .review__intro{
+    display:grid;
+    grid-template-columns:minmax(0,1.5fr) minmax(280px,.8fr);
+    gap:32px 64px;
+    align-items:stretch;
     padding-bottom:16px;
   }
   .review__intro-copy{ max-width:760px; }
+  .gauntlet{
+    align-self:start;
+    padding:28px 30px 26px;
+    background:var(--accent);
+    color:var(--white);
+    border-radius:10px;
+  }
+  .gauntlet__num{ margin:0; font-size:72px; line-height:1; }
+  .gauntlet__num .hand-inline{ color:var(--white); font-size:inherit; }
+  .gauntlet__label{ margin:8px 0 22px; font-size:15px; line-height:1.5; color:rgba(255,255,255,.85); max-width:260px; }
+  .gauntlet__facts{ list-style:none; margin:0; padding:18px 0 0; border-top:1px solid rgba(255,255,255,.25); display:grid; gap:10px; }
+  .gauntlet__facts li{ font-size:14.5px; line-height:1.45; color:rgba(255,255,255,.92); }
+  .gauntlet__facts strong{ display:inline-block; min-width:22px; font-size:18px; color:var(--white); }
   .review__intro h2{
     margin:0 0 16px;
     font-size:clamp(28px,2.6vw,36px);
@@ -906,15 +923,11 @@
 
   /* Three review stages */
   .review__grid{
-    display:grid;
-    grid-template-columns:minmax(0,1fr);
-    max-width:860px;
-    padding:48px 0 40px;
+    padding:40px 0 32px;
   }
   .review__process{ min-width:0; }
-  .stages{ list-style:none; margin:0; padding:0; }
-  .stage{ min-width:0; position:relative; }
-  .stage + .stage{ margin-top:36px; }
+  .stages{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+  .stage{ min-width:0; position:relative; padding:28px 26px 26px; border:1px solid #E5E7EB; border-radius:10px; background:var(--white); }
   .stage__head{ display:flex; align-items:baseline; gap:14px; margin-bottom:12px; }
   .stage__num{
     font-family:var(--hand);
@@ -1710,7 +1723,10 @@
     .napkin-wrap{ position:static; transform:none; }
     .numbers{ grid-template-columns:1fr; gap:0; }
     .numbers__row + .numbers__row{ border-left:0; border-top:1px solid #E5E7EB; padding-left:0; margin-left:0; }
-    .review__grid{ grid-template-columns:1fr; gap:40px 0; padding:36px 0 32px; }
+    .review__intro{ grid-template-columns:1fr; gap:28px; }
+    .gauntlet__num{ font-size:60px; }
+    .review__grid{ padding:32px 0 24px; }
+    .stages{ grid-template-columns:1fr; gap:16px; }
     .types__sticky{ position:static; }
     .types__know{ display:none; }
     .itype{ padding:0 0 40px; margin-bottom:40px; }
@@ -2520,7 +2536,15 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       <p>Every investment opportunity on my platform goes through a thorough due diligence process. Some clients have described my process as obsessive, maniacal, crazy, and unrealistic. That’s exactly how I want it.</p>
       <p>I call it “The Gauntlet.” Only about 8.9% of available investments make it in front of my clients. If you’re looking for the widest variety of opportunities, I’m not your guy. Quality over quantity.</p>
     </div>
-
+    <aside class="gauntlet" aria-label="The Gauntlet, by the numbers">
+      <p class="gauntlet__num"><span class="hand-inline">8.9%</span></p>
+      <p class="gauntlet__label">of the investments I look at make it in front of clients</p>
+      <ul class="gauntlet__facts">
+        <li><strong>3</strong> review stages, every offering</li>
+        <li><strong>3</strong> independent due-diligence firms</li>
+        <li><strong>0</strong> proprietary products to push</li>
+      </ul>
+    </aside>
   </div>
 
   <div class="review__grid">
