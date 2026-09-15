@@ -49,21 +49,39 @@ Deals present in both whose figures did not match. The sponsor pages now show th
 | Peachtree | 1 deal | 1 deals | 6 deals |
 | Syndicated Equities | 73 deals | — | — |
 
-The disagreements look systematic rather than random, which suggests the two sources were measuring
-slightly different things — ExchangeRight's page equity multiples ran about 4% below the dataset's and its
-returns about 11% below, consistent with one being net of fees and load and the other gross. The largest
-divergence is AEI, where the page's equity multiples averaged roughly double the dataset's. **These are
-published performance figures; they are worth checking before this deploys.**
+The disagreements are systematic rather than random. Working through them deal by deal:
+
+**AEI — a real error in the dataset, now corrected.** The Results dataset's equity multiples for AEI were
+*sale proceeds only*: the capital returned when the property sold, with the distributions paid over the
+hold left out. Its annual return was then derived from that as `(EM − 1) / hold`. On net-lease deals held
+ten to twenty years that understates the outcome badly — it reported Aaron's at 0.27x when the sponsor
+reported 0.79x, and Arby's at 0.43x against 1.61x. The relationship holds across the sponsor: for 31 of
+the 53 comparable deals, `page EM = dataset EM + (annual distribution × hold)` to within 0.035x, and every
+remaining deal sits below that line, which is what happens when distributions pause mid-hold rather than
+running flat. The sponsor page carried the total-return figures all along, so those have been written back
+into the dataset. Two AEI deals (Arby's TN, Rite Aid NY) have no sponsor-page counterpart; their
+sale-only figures can't be converted, so they are marked unreported — shown as "—" and excluded from the
+averages. AEI reads 57 deals, 6.80% average return, 1.58x, 89.1% full-cycle success.
+
+**Everything else is a difference of convention, not of fact.** For Bluerock (128 of 128 deals),
+Syndicated Equities (78 of 79), Livingston Street Capital and NLCA, the sponsor page's annual return is
+the *compound* annual return of the same equity multiple the dataset holds, while the dataset states the
+*simple* return, `(EM − 1) / hold`. Same underlying deal, two ways of annualising it. Passco's page
+rounded hold periods to whole years. Cantor, Inland, Peachtree and Syndicated Equities agree on the equity
+multiple outright.
+
+One thing worth knowing about the dataset as a whole: the annual-return column is not computed the same
+way for every sponsor. Bluerock, Olympus and IDEAL are compound; AEI, Syndicated Equities, Passco, Four
+Springs, Hamilton Point, NLCA, Livingston and Moody are simple; Peachtree, Inland, ExchangeRight, Griffin
+and Cantor carry independently reported figures. The Results page averages all of them together. That
+predates this merge and is worth settling on one convention at some point.
 
 ## Headline figures that move
 
 | Sponsor page | Fact | Was | Now |
 |---|---|---|---|
 | aei-capital-corporation | Full-Cycle Deals | 55 | 57 |
-| aei-capital-corporation | Avg Annual Return | 6.80% | -1.87% |
-| aei-capital-corporation | Avg Equity Multiple | 1.58x | 0.73x |
 | aei-capital-corporation | Avg Hold | 13.57 Years | 13.77 Years |
-| aei-capital-corporation | Full-Cycle Success | 89.1% | 24.6% |
 | blue-door | Full-Cycle Deals | — | 2 |
 | bluerock | Full-Cycle Deals | 131 | 134 |
 | bluerock | Avg Annual Return | 20.71% | 20.75% |
