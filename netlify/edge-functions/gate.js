@@ -51,6 +51,27 @@ const PUBLIC_PREFIXES = [
 const PUBLIC_EXACT = ['/', '/index.html', '/favicon.ico', '/robots.txt', '/sitemap.xml',
   '/llms.txt', '/apple-touch-icon.png', '/site.webmanifest', '/404.html', '/build-info.json'];
 
+/*
+  LEVEL 2 — pages that need a second approval on top of being logged in.
+  Add a path here and it is hard-gated: a logged-in investor without level 2 is sent to
+  /login/?next=<path>&need=2, where they can ask for access. Prefixes match the whole segment,
+  so '/strategies' covers '/strategies/' and everything under it; a trailing slash ('/foo/')
+  matches anything starting with it.
+
+  Level 2 is granted in Attio ("Portal Access - Level 2" = Yes), carried to Airtable by
+  portal-sync, and read into the session cookie at login. The cookie is trusted for as long as
+  it lives, so a revocation lands when the investor's browser next calls /api/auth {me} — which
+  happens on any page load — and at the latest when the session expires (SESSION_DAYS, default 30).
+*/
+const LEVEL2_PREFIXES = [
+  // e.g. '/strategies',
+];
+
+const matchesPrefix = (pathname, list) => list.some((p) =>
+  p.endsWith('/') ? pathname.startsWith(p) : (pathname === p || pathname.startsWith(p + '/')));
+
+const needsLevel2 = (pathname) => matchesPrefix(pathname, LEVEL2_PREFIXES);
+
 function isPublic(pathname) {
   if (PUBLIC_EXACT.includes(pathname)) return true;
   // IndexNow ownership proof. build.js writes /<INDEXNOW_KEY>.txt into dist only
@@ -61,33 +82,35 @@ function isPublic(pathname) {
   // opens exactly one path and only on a site that opted in.
   const indexNowKey = (typeof Deno !== 'undefined' && Deno.env.get('INDEXNOW_KEY')) || '';
   if (indexNowKey && pathname === `/${indexNowKey}.txt`) return true;
-  return PUBLIC_PREFIXES.some((p) =>
-    p.endsWith('/') ? pathname.startsWith(p) : (pathname === p || pathname.startsWith(p + '/')),
-  );
+  return matchesPrefix(pathname, PUBLIC_PREFIXES);
 }
 
 const b64url = (buf) =>
   btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 
-async function validSession(cookieHeader, secret) {
-  if (!cookieHeader || !secret) return false;
+// Returns the decoded session ({rid, fn, exp, lvl}) when the cookie is valid, otherwise null.
+// `lvl` is the access tier the cookie was issued with: 1 = portal, 2 = portal + restricted pages.
+async function readSession(cookieHeader, secret) {
+  if (!cookieHeader || !secret) return null;
   const raw = cookieHeader.split(/;\s*/).find((c) => c.startsWith(COOKIE + '='));
-  if (!raw) return false;
+  if (!raw) return null;
   const [payload, sig] = raw.slice(COOKIE.length + 1).split('.');
-  if (!payload || !sig) return false;
+  if (!payload || !sig) return null;
   try {
     const key = await crypto.subtle.importKey(
       'raw', new TextEncoder().encode(secret),
       { name: 'HMAC', hash: 'SHA-256' }, false, ['sign'],
     );
     const mac = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(payload));
-    if (b64url(mac) !== sig) return false; // signature mismatch
+    if (b64url(mac) !== sig) return null; // signature mismatch
     const s = JSON.parse(atob(payload.replace(/-/g, '+').replace(/_/g, '/')));
-    return s.exp > Date.now();
+    return s.exp > Date.now() ? s : null;
   } catch {
-    return false;
+    return null;
   }
 }
+
+const levelOf = (session) => (session && Number(session.lvl)) || 1;
 
 // Legacy paths from the previous site → their new homes (301).
 const LEGACY = {
@@ -118,10 +141,26 @@ export default async (request, context) => {
   const docMatch = url.pathname.match(/^(\/offerings\/[^/]+)\/docs\//);
   if (docMatch) {
     const secret = Deno.env.get('SESSION_SECRET') || '';
-    if (await validSession(request.headers.get('cookie'), secret)) return context.next();
+    if (await readSession(request.headers.get('cookie'), secret)) return context.next();
     return new Response(null, {
       status: 302,
       headers: { location: `/login/?next=${encodeURIComponent(docMatch[1] + '/')}`, 'cache-control': 'no-store' },
+    });
+  }
+
+  // Restricted pages: logged in AND cleared for level 2. Checked before the public allowlist,
+  // so a page can sit inside a public section and still be held back.
+  if (needsLevel2(url.pathname)) {
+    const secret = Deno.env.get('SESSION_SECRET') || '';
+    const session = await readSession(request.headers.get('cookie'), secret);
+    if (session && levelOf(session) >= 2) return context.next();
+    const next = encodeURIComponent(url.pathname);
+    return new Response(null, {
+      status: 302,
+      headers: {
+        location: session ? `/login/?next=${next}&need=2` : `/login/?next=${next}`,
+        'cache-control': 'no-store',
+      },
     });
   }
 
@@ -136,7 +175,7 @@ export default async (request, context) => {
   }
 
   const secret = Deno.env.get('SESSION_SECRET') || '';
-  if (await validSession(request.headers.get('cookie'), secret)) return context.next();
+  if (await readSession(request.headers.get('cookie'), secret)) return context.next();
 
   // No session on a non-public path. If the page doesn't exist at all, serve
   // the real 404 — bouncing unknown URLs to the login page reads as a soft

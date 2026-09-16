@@ -127,6 +127,34 @@ export function buildWelcome(first, loginLink, base) {
   };
 }
 
+// ---- level 2 (restricted pages) ------------------------------------------
+
+// To Jerry, when an investor asks to be let into a restricted page.
+export function buildLevel2Request(name, email, path) {
+  const where = path ? `${SITE_BASE}${path}` : 'the investor portal';
+  return {
+    subject: `Access request: ${name || email}`,
+    html: wrap(`  <p ${P}>${name || email} asked for access to a restricted page.</p>
+  <p ${P}><strong>Page:</strong> <a href="${where}" style="color:#243856;">${where}</a><br>
+  <strong>Email:</strong> ${email}</p>
+  <p ${P}>They are already an approved investor, so this is the second tier only. To grant it, open their
+  record in Attio and set <strong>Portal Access - Level 2</strong> to <strong>Yes</strong> — the site picks
+  it up and emails them.</p>`),
+  };
+}
+
+// To the investor, once, when level 2 is granted.
+export function buildLevel2Granted(first, base) {
+  return {
+    subject: 'Your access has been extended',
+    html: wrap(`  <p ${P}>Hi ${first} -</p>
+  <p ${P}>I have opened up the additional material you asked about. Next time you are logged in it will be
+  there — nothing else to do on your end.</p>
+  <p style="margin:24px 0;"><a href="${base}/login/" ${BTN}>Log in</a></p>
+  <p ${P}>As always, if anything raises a question, just reply and I will walk you through it.</p>`),
+  };
+}
+
 // ---- 1031 deadline reminders (sent by deadline-reminders.mjs) -------------
 
 const fmtDate = (iso) => {

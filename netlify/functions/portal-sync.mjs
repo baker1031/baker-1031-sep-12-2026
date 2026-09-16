@@ -14,13 +14,18 @@
 
   "Portal Access" is a select (Yes / No) or checkbox attribute on the People object in Attio.
 
+  "Portal Access - Level 2" (Yes / Requested / No) is the second tier, for the restricted pages listed in
+  gate.js. It syncs to the Airtable "Level 2 Access" field the same way, stamps "Level 2 Approved On" the
+  first time it is granted, and emails the investor once to tell them. It is independent of the portal
+  flag: level 2 without portal access does nothing, since the gate checks both.
+
   Auth: an Attio webhook is verified with its signing secret (ATTIO_WEBHOOK_SECRET, header Attio-Signature);
         otherwise the request must carry the shared key (header x-portal-key, or ?key=PORTAL_SYNC_KEY).
   Env:  ATTIO_API_KEY, AIRTABLE_TOKEN, PORTAL_SYNC_KEY and/or ATTIO_WEBHOOK_SECRET,
         ACCESS_BASE_ID (default appiKLSyAUmP0h8cJ), ACCESS_TABLE_ID (default tblbuFMpfv5R4DIyp).
 */
 import crypto from 'node:crypto';
-import { buildWelcome, sendViaResend } from './lib/invites.mjs';
+import { buildWelcome, buildLevel2Granted, sendViaResend } from './lib/invites.mjs';
 import { linkSig } from './login-link.mjs';
 import * as attio from './lib/attio.mjs';
 
@@ -95,6 +100,12 @@ async function syncOne(recordId) {
   if (idExp) dateFields['ID Period Expiration'] = idExp;
   if (exchExp) dateFields['1031 Expiration'] = exchExp;
 
+  // Level 2 — the second approval tier. Mirrors whatever Attio says, so revoking there revokes here.
+  const rawL2 = val('Portal Access - Level 2');
+  const l2 = rawL2 === true ? 'yes' : rawL2 === false ? 'no' : String(rawL2 ?? '').trim().toLowerCase();
+  const L2_MAP = { yes: 'Approved', requested: 'Requested', no: 'Not Approved' };
+  const level2 = L2_MAP[l2] || null;
+
   const existing = await findInvestorByEmail(email);
   let action;
   if (portal === 'yes') {
@@ -102,19 +113,36 @@ async function syncOne(recordId) {
     if (existing) {
       rid = existing.id;
       welcomeSent = existing.fields['Welcome Email Sent'];
-      await at(`/${rid}`, { method: 'PATCH', body: JSON.stringify({ fields: { 'Access Level': 'Approved', ...dateFields }, typecast: true }) });
+      const l2Fields = {};
+      if (level2) {
+        l2Fields['Level 2 Access'] = level2;
+        if (level2 === 'Approved' && !existing.fields['Level 2 Approved On']) l2Fields['Level 2 Approved On'] = new Date().toISOString().slice(0, 10);
+      }
+      await at(`/${rid}`, { method: 'PATCH', body: JSON.stringify({ fields: { 'Access Level': 'Approved', ...dateFields, ...l2Fields }, typecast: true }) });
       action = `approved existing investor row for ${email}`;
+      if (level2 === 'Approved' && existing.fields['Level 2 Access'] !== 'Approved') action += ' + level 2 granted';
     } else {
       const created = await at('', {
         method: 'POST',
         body: JSON.stringify({ records: [{ fields: {
           'First Name': firstName, 'Last Name': name?.last_name || '', 'Email Address': email,
           'Access Level': 'Approved', 'Start Date': new Date().toISOString().slice(0, 10), ...dateFields,
+          ...(level2 ? { 'Level 2 Access': level2 } : {}),
+          ...(level2 === 'Approved' ? { 'Level 2 Approved On': new Date().toISOString().slice(0, 10) } : {}),
         } }], typecast: true }),
       });
       rid = created.records && created.records[0] && created.records[0].id;
       action = `created investor row for ${email}`;
     }
+    // Level-2 grant: one email, the first time. Re-sending is a matter of clearing the date field.
+    if (rid && level2 === 'Approved' && existing && existing.fields['Level 2 Access'] !== 'Approved') {
+      try {
+        const base = process.env.URL || 'https://baker1031.com';
+        const msg = buildLevel2Granted(firstName || 'there', base);
+        if (await sendViaResend(email, msg.subject, msg.html)) action += ' + level 2 email sent';
+      } catch (e) { console.error('[portal-sync] level2 email:', e.message); }
+    }
+
     // Welcome email with a first-time auto-login link — sent once per investor.
     // Clearing "Welcome Email Sent" in Airtable allows a re-send on the next sync.
     if (rid && !welcomeSent && process.env.SESSION_SECRET) {

@@ -26,9 +26,9 @@ const hmac = (payload) => crypto.createHmac('sha256', process.env.SESSION_SECRET
 
 export const linkSig = (rid, t) => b64u(hmac(`portal-login:${rid}:${t}`)).slice(0, 32);
 
-function makeCookie(rid, firstName) {
+function makeCookie(rid, firstName, level = 1) {
   const exp = Date.now() + DAYS * 86400000;
-  const payload = b64u(JSON.stringify({ rid, fn: firstName, exp }));
+  const payload = b64u(JSON.stringify({ rid, fn: firstName, exp, lvl: level }));
   const value = `${payload}.${b64u(hmac(payload))}`;
   return [`${COOKIE}=${value}; Path=/; Max-Age=${DAYS * 86400}; HttpOnly; Secure; SameSite=Lax`,
           `b31_ui=${encodeURIComponent(firstName || 'Investor')}; Path=/; Max-Age=${DAYS * 86400}; Secure; SameSite=Lax`];
@@ -63,7 +63,8 @@ export const handler = async (event) => {
     if ((rec.fields || {})['Access Level'] !== 'Approved') return toLogin;
     // Explicit query stops Netlify from forwarding the token params onto the
     // destination URL (keeps the signed token out of the address bar/history).
-    return redirect('/invest/?welcome=1', makeCookie(rid, rec.fields['First Name'] || 'Investor'));
+    const level = String((rec.fields || {})['Level 2 Access'] || '').toLowerCase() === 'approved' ? 2 : 1;
+    return redirect('/invest/?welcome=1', makeCookie(rid, rec.fields['First Name'] || 'Investor', level));
   } catch {
     return toLogin;
   }

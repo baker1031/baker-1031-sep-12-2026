@@ -37,6 +37,7 @@ const PEOPLE = [
   { title: 'Update Link', type: 'text', description: 'Personal update-my-info link (signed; sent in reminder emails)' },
   { title: 'Intro Invite Status', type: 'text', description: 'Set by the site when the scheduling invite / fix-your-info notice is emailed — prevents duplicates' },
   { title: 'Portal Access', type: 'select', options: ['Yes', 'No'], description: 'Yes = approved for the investor portal (synced to Airtable + welcome email); No = revoked' },
+  { title: 'Portal Access - Level 2', type: 'select', options: ['Yes', 'Requested', 'No'], description: 'Second approval tier for restricted pages. Yes = cleared (synced to Airtable + email to the investor); Requested = they asked from a restricted page; No / empty = not cleared' },
   { title: 'Closing Date', type: 'date', description: 'Sale closing date (day the 45/180-day clocks start)' },
   { title: '45-Day Deadline', type: 'date' },
   { title: '180-Day Deadline', type: 'date' },

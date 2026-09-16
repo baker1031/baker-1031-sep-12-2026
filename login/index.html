@@ -351,6 +351,15 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       <p class="err" id="err" role="alert" aria-live="polite"></p>
       <p class="ok" id="ok" role="status" aria-live="polite"></p>
     </form>
+    <div id="need2" hidden>
+      <p class="box__sub" style="margin-top:0">That page holds material I release individually. You're signed in — this just needs my okay on top of it.</p>
+      <button class="btn" type="button" id="ask2">
+        Request access
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 12L4.99997 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="ok" id="ok2" role="status" aria-live="polite"></p>
+      <p class="err" id="err2" role="alert" aria-live="polite"></p>
+    </div>
     <p class="box__help">Trouble logging in? Email <a href="mailto:invest@baker1031.com">invest@baker1031.com</a> or call <a href="tel:+14159650552">(415) 965-0552</a>.</p>
   </div>
 </main>
@@ -502,6 +511,46 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
   }
   // Where to go after logging in: ?next=/invest (same-site paths only), default the investments page.
   var nextParam = (function(){ try { var n = new URLSearchParams(window.location.search).get('next') || ''; return /^\/[^\/\\]/.test(n) ? n : '/invest/'; } catch(e){ return '/invest/'; } })();
+
+  // ---- Restricted page (?need=2) ----
+  // gate.js sends a logged-in investor here when the page they wanted needs the second approval tier.
+  // The form is useless to them — they are already signed in — so it is swapped for a request button.
+  (function(){
+    var need2, box;
+    try { need2 = new URLSearchParams(window.location.search).get('need') === '2'; } catch(e){ return; }
+    if(!need2) return;
+    box = document.getElementById('need2');
+    var heading = document.querySelector('.box h1'), sub = document.querySelector('.box__sub');
+    fetch('/api/auth', { method:'POST', headers:{ 'content-type':'application/json' }, credentials:'same-origin',
+           body: JSON.stringify({ action:'me' }) })
+      .then(function(r){ return r.json(); })
+      .then(function(me){
+        if(!me || !me.authed) return;               // not logged in after all — leave the normal form up
+        if(me.level >= 2){ window.location.href = nextParam; return; }   // already cleared; go on through
+        if(heading) heading.textContent = 'One more approval';
+        if(sub) sub.hidden = true;
+        form.hidden = true;
+        box.hidden = false;
+      }).catch(function(){});
+    var btn = document.getElementById('ask2'), ok2 = document.getElementById('ok2'), err2 = document.getElementById('err2');
+    btn.addEventListener('click', function(){
+      btn.disabled = true; btn.firstChild.textContent = 'Sending… ';
+      fetch('/api/auth', { method:'POST', headers:{ 'content-type':'application/json' }, credentials:'same-origin',
+             body: JSON.stringify({ action:'request_level2', path:nextParam }) })
+        .then(function(r){ return r.json(); })
+        .then(function(res){
+          if(res && res.already){ window.location.href = nextParam; return; }
+          if(!res || !res.ok) throw new Error('failed');
+          btn.hidden = true;
+          ok2.innerHTML = '<strong>Request sent.</strong> Jerry will take a look and email you as soon as it\u2019s open — usually the same day.';
+          ok2.classList.add('is-on');
+        }).catch(function(){
+          btn.disabled = false; btn.firstChild.textContent = 'Request access ';
+          err2.innerHTML = 'That didn\u2019t go through. Email <a href="mailto:invest@baker1031.com">invest@baker1031.com</a> and I\u2019ll open it up manually.';
+          err2.classList.add('is-on');
+        });
+    });
+  })();
 
   function showError(html){ err.innerHTML = html; err.classList.add('is-on'); ok.classList.remove('is-on'); field.classList.add('is-invalid'); }
   function clearError(){ err.classList.remove('is-on'); field.classList.remove('is-invalid'); }
