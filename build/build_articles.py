@@ -222,8 +222,26 @@ def load_articles(build_date):
         print(f'[articles] NOTE: {len(unresolved)} legacy link targets have no page (links dropped, text kept): ' + ', '.join(f'{t} ({n})' for t, n in items[:12]))
     return arts
 
+# Articles that stay open to everyone: the founder bio and the fee page are trust pages, and gating them
+# would cost more than it protects.
+PUBLIC_SLUGS = {'jerry-baker-bio', 'fees'}
+
+def gate_card_l2():
+    return '''<div class="gate gate--l2" role="region" aria-label="Approval required">
+  <div class="gate__card">
+    <h2>Not yet approved for this section</h2>
+    <p>You are not currently approved to visit this area. Please contact
+      <a href="mailto:invest@baker1031.com">invest@baker1031.com</a> for more information.</p>
+    <div class="gate__actions">
+      <a class="btn" href="mailto:invest@baker1031.com?subject=Access%20request">Email Baker 1031</a>
+      <a class="btn btn--secondary" href="tel:+13108964227">(310) 896-4227</a>
+    </div>
+    <p class="gate__note">Educational content for approved Baker 1031 investors. Nothing here is an offer to sell or a solicitation to buy any security.</p>
+  </div>
+</div>'''
+
 def gate_card(path, title, body):
-    return f'''<div class="gate" role="region" aria-label="Log in to continue">
+    return f'''<div class="gate gate--l1" role="region" aria-label="Log in to continue">
   <div class="gate__card">
     <h2>{title}</h2>
     <p>{body}</p>
@@ -236,6 +254,7 @@ def gate_card(path, title, body):
 </div>'''
 
 def article_main(a, html, related_rows, is_hub):
+    public = a['slug'] in PUBLIC_SLUGS
     byline = '' if is_hub else f'''
     <div class="byline">
       <span class="who">Jerry Baker</span>
@@ -259,7 +278,7 @@ def article_main(a, html, related_rows, is_hub):
     <h2 class="h3">More from Learn</h2>
 {related_rows}
   </section>'''
-    return f'''<main class="main--gated">
+    return f'''<main class="{'main' if public else 'main--gated'}">
 
   <section class="mast mast--light artmast">
     <div class="crumbs"><a href="/">Home</a> <span>/</span> <a href="/learn/">Learn</a> <span>/</span> {esc(a['title'])}</div>
@@ -268,8 +287,8 @@ def article_main(a, html, related_rows, is_hub):
   </section>
 
   <section class="sec bg-white" style="padding-top:48px">
-    <div class="lockwrap lockwrap--article">
-{gate_card('/learn/' + a['slug'] + '/', 'Log in to keep reading', 'The Learn library is available to registered Baker 1031 investors. Log in with the email address on your account, or create one — it takes a few minutes.')}
+    <div class="{'' if public else 'lockwrap lockwrap--article lockwrap--l2'}">
+{'' if public else gate_card('/learn/' + a['slug'] + '/', 'Log in to keep reading', 'The Learn library is available to registered Baker 1031 investors. Log in with the email address on your account, or create one — it takes a few minutes.') + chr(10) + gate_card_l2()}
     <div class="prose">
 {html}
 <div class="footnote">{esc(EDU_DISCLAIMER)} Spotted an error? Email <a href="mailto:jerry@baker1031.com">jerry@baker1031.com</a> and it will be corrected.</div>
@@ -287,9 +306,11 @@ def article_main(a, html, related_rows, is_hub):
 </main>'''
 
 def article_json(a, canonical, is_hub):
+    is_public = a['slug'] in PUBLIC_SLUGS
     graph = [{
         '@type': 'Article', 'headline': a['title'], 'description': a['desc'], 'mainEntityOfPage': canonical,
-        'isAccessibleForFree': False, 'hasPart': {'@type': 'WebPageElement', 'isAccessibleForFree': False, 'cssSelector': '.lockwrap--article'},
+        **({'isAccessibleForFree': True} if is_public else
+           {'isAccessibleForFree': False, 'hasPart': {'@type': 'WebPageElement', 'isAccessibleForFree': False, 'cssSelector': '.lockwrap--article'}}),
         **({'dateModified': a['iso']} if a['iso'] else {}),
         'author': {'@type': 'Person', '@id': SITE + '/#jerry', 'name': 'Jerry Baker', 'jobTitle': 'Founder & Managing Principal',
                    'worksFor': {'@id': SITE + '/#org'}, 'sameAs': ['https://brokercheck.finra.org/individual/summary/7537416']},
@@ -368,7 +389,7 @@ def build(build_date=None):
         d = os.path.join(OUT, 'learn', a['slug']); os.makedirs(d, exist_ok=True)
         open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(page)
     # remove stale article dirs (renamed/deleted articles)
-    keep = {a['slug'] for a in arts}
+    keep = {a['slug'] for a in arts} | {'library'}
     learn_dir = os.path.join(OUT, 'learn')
     for name in os.listdir(learn_dir) if os.path.isdir(learn_dir) else []:
         p = os.path.join(learn_dir, name)
@@ -399,8 +420,9 @@ def build(build_date=None):
     <div class="filterbar-in" id="pills"></div>
   </div>
 
-  <div class="lockwrap lockwrap--learn">
-{gate_card('/learn/', 'Log in to browse the library', 'The Learn library is available to registered Baker 1031 investors. Log in with the email address on your account, or create one — it takes a few minutes.')}
+  <div class="lockwrap lockwrap--learn lockwrap--l2">
+{gate_card('/learn/library/', 'Log in to browse the library', 'The Learn library is available to registered Baker 1031 investors. Log in with the email address on your account, or create one — it takes a few minutes.')}
+{gate_card_l2()}
   <div class="artlist">
     <div id="rows">{rows_html}</div>
     <div class="empty" id="empty" style="display:none;">No articles in this category yet.</div>
@@ -408,14 +430,15 @@ def build(build_date=None):
   </div>
 
 </main>'''
-    idx_graph = [seo.webpage(SITE + '/learn/', 'Learn: 1031 Exchange & DST Education', f'{len(arts)} plain-English articles on 1031 exchanges, DSTs and related strategies by Jerry Baker.', page_type='CollectionPage'),
-                 seo.breadcrumbs([('Home', SITE + '/'), ('Learn', None)])]
-    index = cs.page(graph=idx_graph, title='Learn: 1031 Exchange & DST Education | Baker 1031 Investments',
+    idx_graph = [seo.webpage(SITE + '/learn/library/', 'Learn Library: 1031 Exchange & DST Education', f'{len(arts)} plain-English articles on 1031 exchanges, DSTs and related strategies by Jerry Baker.', page_type='CollectionPage'),
+                 seo.breadcrumbs([('Home', SITE + '/'), ('Learn', SITE + '/learn/'), ('Learn Library', None)])]
+    index = cs.page(graph=idx_graph, title='Learn Library: 1031 Exchange & DST Education | Baker 1031 Investments',
                     desc=f'{len(arts)} plain-English articles on 1031 exchanges, Delaware Statutory Trusts, 721 exchanges, and the tax decisions behind them, written by Jerry Baker.',
-                    canonical=SITE + '/learn/', main_html=main, body_end=INDEX_JS, current='learn')
-    os.makedirs(learn_dir, exist_ok=True)
-    open(os.path.join(learn_dir, 'index.html'), 'w', encoding='utf-8').write(index)
-    print(f'[articles] wrote learn/ ({len(arts)} articles + index)')
+                    canonical=SITE + '/learn/library/', main_html=main, body_end=INDEX_JS, current='learn')
+    lib_dir = os.path.join(learn_dir, 'library')
+    os.makedirs(lib_dir, exist_ok=True)
+    open(os.path.join(lib_dir, 'index.html'), 'w', encoding='utf-8').write(index)
+    print(f'[articles] wrote learn/library/ ({len(arts)} articles + index)')
     return arts
 
 if __name__ == '__main__':

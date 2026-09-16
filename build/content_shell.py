@@ -85,7 +85,9 @@ def page(*, title, desc, canonical, main_html, head_extra='', body_end='', body_
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <script>/* session hint set by /api/auth so the header renders logged-in before first paint */
-try{{ if(/(?:^|;\\s*)b31_ui=/.test(document.cookie)) document.documentElement.classList.add('is-logged-in'); }}catch(e){{}}</script>
+try{{ var c=document.cookie;
+ if(/(?:^|;\\s*)b31_ui=/.test(c)) document.documentElement.classList.add('is-logged-in');
+ if(/(?:^|;\\s*)b31_lvl=2(?:;|$)/.test(c)) document.documentElement.classList.add('is-level2'); }}catch(e){{}}</script>
 <link rel="stylesheet" href="/assets/css/site.css">
 {head_extra}
 </head>

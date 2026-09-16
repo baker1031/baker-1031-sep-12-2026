@@ -31,7 +31,8 @@ function makeCookie(rid, firstName, level = 1) {
   const payload = b64u(JSON.stringify({ rid, fn: firstName, exp, lvl: level }));
   const value = `${payload}.${b64u(hmac(payload))}`;
   return [`${COOKIE}=${value}; Path=/; Max-Age=${DAYS * 86400}; HttpOnly; Secure; SameSite=Lax`,
-          `b31_ui=${encodeURIComponent(firstName || 'Investor')}; Path=/; Max-Age=${DAYS * 86400}; Secure; SameSite=Lax`];
+          `b31_ui=${encodeURIComponent(firstName || 'Investor')}; Path=/; Max-Age=${DAYS * 86400}; Secure; SameSite=Lax`,
+          `b31_lvl=${level}; Path=/; Max-Age=${DAYS * 86400}; Secure; SameSite=Lax`];
 }
 
 const redirect = (to, cookie) => ({

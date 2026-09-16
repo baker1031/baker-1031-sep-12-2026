@@ -38,6 +38,12 @@ const json = (status, body, cookie) => ({
 const UI_COOKIE = 'b31_ui';
 const uiCookie = (firstName) => `${UI_COOKIE}=${encodeURIComponent(firstName || 'Investor')}; Path=/; Max-Age=${DAYS * 86400}; Secure; SameSite=Lax`;
 const clearUiCookie = () => `${UI_COOKIE}=; Path=/; Max-Age=0; Secure; SameSite=Lax`;
+// Second readable companion: the access tier, so soft-gated sections can render the right state before
+// first paint. Like b31_ui it carries no secret and is not a security control — the signed HttpOnly
+// cookie and the server-side re-check are what actually decide anything.
+const LVL_COOKIE = 'b31_lvl';
+const lvlCookie = (level) => `${LVL_COOKIE}=${level}; Path=/; Max-Age=${DAYS * 86400}; Secure; SameSite=Lax`;
+const clearLvlCookie = () => `${LVL_COOKIE}=; Path=/; Max-Age=0; Secure; SameSite=Lax`;
 
 const b64u = (buf) => Buffer.from(buf).toString('base64url');
 const sign = (payload) => crypto.createHmac('sha256', SECRET).update(payload).digest('base64url');
@@ -49,9 +55,9 @@ function makeCookie(rid, firstName, level = 1) {
   const exp = Date.now() + DAYS * 86400000;
   const payload = b64u(JSON.stringify({ rid, fn: firstName, exp, lvl: level }));
   const value = `${payload}.${sign(payload)}`;
-  return [`${COOKIE}=${value}; Path=/; Max-Age=${DAYS * 86400}; HttpOnly; Secure; SameSite=Lax`, uiCookie(firstName)];
+  return [`${COOKIE}=${value}; Path=/; Max-Age=${DAYS * 86400}; HttpOnly; Secure; SameSite=Lax`, uiCookie(firstName), lvlCookie(level)];
 }
-const clearCookie = () => [`${COOKIE}=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Lax`, clearUiCookie()];
+const clearCookie = () => [`${COOKIE}=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Lax`, clearUiCookie(), clearLvlCookie()];
 
 function readSession(event) {
   const raw = (event.headers.cookie || '').split(/;\s*/).find((c) => c.startsWith(COOKIE + '='));
