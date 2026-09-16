@@ -5,35 +5,51 @@ nav: learn
 -->
 <!--head-->
 <style>
-  .sm-intro{ max-width:none; }
-  .sm-bar{ display:flex; flex-wrap:wrap; gap:16px 20px; align-items:flex-end; margin:28px 0 8px; padding:16px 18px; border:1px solid var(--hair); border-radius:8px; background:var(--accent-soft); }
+  .sm-shell{ max-width:1120px; margin-inline:auto; }
+  .sm-shell .prose{ max-width:72ch; }
+  .sm-bar{ display:flex; flex-wrap:wrap; gap:16px 20px; align-items:flex-end; margin:44px 0 12px; padding:16px 18px; border:1px solid var(--hair); border-radius:8px; background:var(--accent-soft); }
   .sm-field{ display:flex; flex-direction:column; gap:5px; font-size:13px; font-weight:600; color:var(--grey); }
   .sm-field select{ font:inherit; font-weight:400; font-size:14px; padding:8px 10px; border:1px solid var(--hair-strong); border-radius:6px; background:#fff; min-width:210px; }
   .sm-count{ margin:0 0 2px auto !important; font-size:13px; color:var(--grey-light); }
-  .sm-group h2{ scroll-margin-top:90px; }
-  .sm-list{ list-style:none; margin:0 0 8px; padding:0; display:grid; gap:2px; }
-  .sm-item{ padding:18px 2px; border-top:1px solid var(--hair); }
-  .sm-item h3{ margin:0 0 6px; font-size:16.5px; line-height:1.35; font-weight:600; }
-  .sm-desc{ margin:0 0 8px !important; font-size:14.5px; line-height:1.55; color:var(--grey); }
-  .sm-meta{ margin:0 !important; display:flex; flex-wrap:wrap; gap:0 10px; font-size:12.5px; color:var(--grey-light); }
+  .sm-group{ margin:0; }
+  .sm-group + .sm-group{ margin-top:44px; }
+  .sm-group > h2{ margin:36px 0 4px; font-size:clamp(21px,1.9vw,26px); line-height:1.25; scroll-margin-top:90px; }
+  .sm-list{ list-style:none; margin:0; padding:0; }
+  .sm-item{ padding:20px 0; border-top:1px solid var(--hair); }
+  .sm-item h3{ margin:0 0 7px; font-size:16.5px; line-height:1.35; font-weight:600; }
+  .sm-item h3 a{ color:inherit; text-decoration:none; }
+  .sm-item h3 a:hover, .sm-item h3 a:focus-visible{ color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
+  .sm-desc{ margin:0 0 9px !important; font-size:14.5px; line-height:1.6; color:var(--grey); max-width:74ch; }
+  .sm-meta{ margin:0 !important; display:flex; flex-wrap:wrap; gap:0 10px; font-size:12.5px; line-height:1.6; color:var(--grey-light); }
   .sm-meta span + span::before{ content:"·"; margin-right:10px; }
   .sm-sponsor{ font-weight:600; color:var(--accent); }
-  .sm-get{ display:inline-block; margin-top:8px; font-size:13.5px; font-weight:600; text-decoration:none; }
-  @media (max-width:700px){ .sm-bar{ gap:12px; } .sm-field select{ min-width:0; width:100%; } .sm-field{ width:100%; } .sm-count{ margin-left:0 !important; } }
+  .sm-get{ display:inline-block; margin-top:10px; font-size:13.5px; font-weight:600; text-decoration:none; }
+  .sm-foot{ margin:44px 0 0; padding-top:20px; border-top:1px solid var(--hair); font-size:13.5px; line-height:1.65; color:var(--grey-light); max-width:74ch; }
+  @media (max-width:700px){
+    .sm-bar{ gap:12px; margin-top:32px; }
+    .sm-field{ width:100%; } .sm-field select{ min-width:0; width:100%; }
+    .sm-count{ margin-left:0 !important; }
+  }
 </style>
 <!--/head-->
 <main>
-  <section class="sec">
-    <div class="wrap">
-      <h1>Sponsor Provided Materials</h1>
-      <p class="lede">The sponsors whose offerings I follow publish a good deal of educational material — exchange mechanics, trust structures, opportunity zone rules, sector research. This is a catalogue of what I keep on hand, so you can see what exists and ask for anything useful.</p>
-      <p>Every document here was written and published by the sponsor named on it. Baker 1031 did not write them, and the one-line summaries below are mine, not theirs. The documents themselves are sent on request rather than posted, so that each one reaches you in the form its author approved, and so I know what you have.</p>
-      <p>Nothing in this catalogue is an offer to sell or a solicitation of an offer to buy any security, and no document here is a recommendation of any sponsor or program. Sponsor material reflects that sponsor's own views and data, which Baker 1031 has not independently verified. Offerings are made only by private placement memorandum.</p>
+<section class="mast mast--light">
+  <div class="crumbs"><a href="/">Home</a><span>/</span><span style="opacity:1;color:inherit">Learn</span></div>
+  <span class="eyebrow">Sponsor Library</span>
+  <h1 class="h1">Sponsor Provided Materials</h1>
+</section>
+<section class="sec bg-white" style="padding-top:56px">
+  <div class="sm-shell">
+    <div class="prose">
+      <p>The sponsors whose offerings I follow publish a good deal of educational material — exchange mechanics, trust structures, opportunity zone rules, sector research. This is a catalogue of what I keep on hand, so you can see what exists and ask for anything useful.</p>
+      <p>Every document here was written and published by the sponsor named on it. Baker 1031 did not write them, and the one-line summaries below are mine, not theirs. Each title links to the sponsor&rsquo;s own page, so you read the piece where its author published it, in the form they approved &mdash; a few sponsors ask for your name and email before the download starts. If a link ever fails, <a href="mailto:invest@baker1031.com">email me</a> and I&rsquo;ll send the document.</p>
+      <p>Nothing in this catalogue is an offer to sell or a solicitation of an offer to buy any security, and no document here is a recommendation of any sponsor or program. Sponsor material reflects that sponsor&rsquo;s own views and data, which Baker 1031 has not independently verified. Offerings are made only by private placement memorandum.</p>
       <p>Looking for my own writing instead? The <a href="/learn/library/">Learn Library</a> has plain-English articles on 1031 exchanges, DSTs and the tax decisions behind them.</p>
-      <!--sponsor-materials-->
-      <p class="sm-foot" style="margin-top:34px;padding-top:18px;border-top:1px solid var(--hair);font-size:13.5px;color:var(--grey-light)">Some sponsor pieces are marked by their authors for financial-professional or institutional use and are not listed here. If you are an advisor working with a client, email <a href="mailto:invest@baker1031.com">invest@baker1031.com</a>.</p>
     </div>
-  </section>
+    <!--sponsor-materials-->
+    <p class="sm-foot">Some sponsor pieces are marked by their authors for financial-professional or institutional use and are not listed here. If you are an advisor working with a client, email <a href="mailto:invest@baker1031.com">invest@baker1031.com</a>.</p>
+  </div>
+</section>
 </main>
 <!--scripts-->
 <!--SPONSOR-MATERIALS-SCRIPT-->

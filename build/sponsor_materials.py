@@ -1,8 +1,9 @@
 """The Sponsor Provided Materials directory (/learn/).
 
 Every entry is a document written and published by the investment sponsor named on it. Baker 1031 did
-not write them and does not republish their contents: the description on each row is an original
-one-line summary, and the document itself is sent on request.
+not write them and does not host them: the description on each row is an original one-line summary, and
+the link goes to the sponsor's own page, so each document is read in the place and form its author
+published it. Where a sponsor has no page for a piece, the row falls back to their library.
 
 Data: build/sponsor-materials.json. Expanded into content/pages/learn/index.html at the marker
 <!--sponsor-materials--> by build_pages.py.
@@ -23,16 +24,21 @@ TOPIC_ORDER = ['1031 Exchange', 'DST Structure', '721 Exchange / UPREIT', 'Oppor
 
 
 def load():
-    rows = json.load(open(DATA, encoding='utf-8'))
-    return [r for r in rows if not any(p in (r.get('restrictions') or '').upper() for p in PRO_ONLY)]
+    blob = json.load(open(DATA, encoding='utf-8'))
+    rows = blob['documents'] if isinstance(blob, dict) else blob
+    rows = [r for r in rows if not any(p in (r.get('restrictions') or '').upper() for p in PRO_ONLY)]
+    return rows, (blob.get('hubs', {}) if isinstance(blob, dict) else {})
 
 
 def _slug(s):
     return ''.join(c if c.isalnum() else '-' for c in s.lower()).strip('-')
 
 
-def render(rows=None, indent='        '):
-    rows = rows if rows is not None else load()
+def render(rows=None, hubs=None, indent='        '):
+    if rows is None:
+        rows, loaded_hubs = load()
+        hubs = hubs if hubs is not None else loaded_hubs
+    hubs = hubs or {}
     e = _html.escape
     by_topic = {}
     for r in rows:
@@ -60,19 +66,27 @@ def render(rows=None, indent='        '):
         out.append(f'{i}  <ul class="sm-list">')
         for r in sorted(items, key=lambda x: (x['sponsor'], x['file'])):
             title = r['file'].rsplit('.', 1)[0].replace('_', ' ').replace(' _ ', ' — ').strip()
-            subject = 'Document request: ' + title[:80]
+            title = title.replace(' (1)', '')
+            url = r.get('url') or hubs.get(r['sponsor'], '')
+            own_page = bool(r.get('url'))
             meta = [e(r['sponsor'])]
             if r.get('date'):
                 meta.append(e(r['date']))
             if r.get('audience') == 'advisor':
                 meta.append('written for advisors')
             out.append(f'{i}    <li class="sm-item" data-sponsor="{e(r["sponsor"])}" data-topic="{e(topic)}">')
-            out.append(f'{i}      <h3>{e(title)}</h3>')
+            head = (f'<a href="{e(url)}" target="_blank" rel="noopener nofollow">{e(title)}</a>'
+                    if url else e(title))
+            out.append(f'{i}      <h3>{head}</h3>')
             out.append(f'{i}      <p class="sm-desc">{e(r["description"])}</p>')
             out.append(f'{i}      <p class="sm-meta"><span class="sm-sponsor">{meta[0]}</span>'
                        + ''.join(f'<span>{m}</span>' for m in meta[1:]) + '</p>')
-            out.append(f'{i}      <a class="sm-get" href="mailto:invest@baker1031.com?subject='
-                       + _html.escape(subject.replace(" ", "%20"), quote=True) + '">Request a copy &rarr;</a>')
+            if url:
+                label = (f'Read on {e(r["sponsor"])}&rsquo;s site' if own_page
+                         else f'Find it in {e(r["sponsor"])}&rsquo;s library')
+                out.append(f'{i}      <a class="sm-get" href="{e(url)}" target="_blank" rel="noopener nofollow">{label} &rarr;</a>')
+            else:
+                out.append(f'{i}      <a class="sm-get" href="mailto:invest@baker1031.com?subject=Document%20request">Ask me for a copy &rarr;</a>')
             out.append(f'{i}    </li>')
         out.append(f'{i}  </ul>')
         out.append(f'{i}</section>')

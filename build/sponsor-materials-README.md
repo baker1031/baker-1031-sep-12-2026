@@ -23,13 +23,23 @@ are listed and tagged *written for advisors* so nobody is surprised by the frami
 
 It lists each document with its **sponsor credited by name**, the topic, the date, and a one-line
 description **written for this catalogue** — not lifted from the document. No sponsor text is reproduced
-on the site. Each entry has a *Request a copy* link that opens an email to invest@baker1031.com with the
-document title in the subject.
+and no sponsor PDF is hosted here. Each title links out to the sponsor's own page.
 
-That is deliberate. These are third-party copyrighted works, most carrying a compliance version code
-(`V-23-78`, `IU-GCC566(072726)`, `20240911-3851200-12217883`) that ties approved wording to that exact
-file. Sending a document on request keeps it in the form its author approved, and leaves you a record of
-who received what.
+112 of the 113 documents were matched to a verified URL on the sponsor's own site: ExchangeRight and
+Bluerock article pages, Inland's `/insights/` pages, Griffin's Pardot landing pages, Capital Square's
+library, and direct PDFs for AEI and Resource Royalty. `The_Case_for_Build_to_Rent.pdf` has no page of
+its own and falls back to Capital Square's library.
+
+Linking out rather than hosting is deliberate. These are third-party copyrighted works, most carrying a
+compliance version code (`V-23-78`, `IU-GCC566(072726)`, `20240911-3851200-12217883`) that ties approved
+wording to that exact file. A link means every reader gets the sponsor's current, approved version with
+no permission question to settle. Some sponsors — Inland and Griffin in particular — put a short form in
+front of the download, so an investor may be asked for a name and email; the page says so.
+
+A few corrections that came out of the link hunt, worth knowing if you write to these firms: **AEI
+Capital is aeifunds.com**, not aeicapital.com (a different, unrelated firm). **Resource Royalty is
+resourceroyaltyllc.com**, not resourceroyalty.com (a Canadian company). **Inland Private Capital now
+redirects to inland-investments.com**, which both Inland entities share.
 
 ## Turning on downloads
 
@@ -46,9 +56,9 @@ When a sponsor gives written permission for co-branded or rep-stamped distributi
    **(310) 896-4227** — backed in white so it sits below the sponsor's own disclosure text rather than
    over it. Nothing in the document is removed or reworded. `--first-page-only` stamps just the cover;
    `--line "Provided by Baker 1031 Investments"` adds a centred note.
-3. Add `"download": "/assets/sponsor-docs/<file>.pdf"` to that document's entry in
-   `build/sponsor-materials.json`, drop the stamped file at that path, and rebuild. The catalogue entry
-   turns into a download link instead of a request link.
+3. Replace that document's `"url"` in `build/sponsor-materials.json` with your own hosted path, e.g.
+   `"/assets/sponsor-docs/<file>.pdf"`, drop the stamped file there, and rebuild. The row then points at
+   your copy instead of the sponsor's page.
 
 Before step 1, two things are worth having in hand: the sponsor's written okay, and Aurora's principal
 sign-off — sponsor material a registered rep distributes is generally a retail communication under FINRA
@@ -58,7 +68,7 @@ sign-off — sponsor material a registered rep distributes is generally a retail
 
 | | |
 |---|---|
-| Catalogue data | `build/sponsor-materials.json` |
+| Catalogue data and links | `build/sponsor-materials.json` (`hubs` + `documents`) |
 | Page renderer | `build/sponsor_materials.py` |
 | Page copy and layout | `content/pages/learn/index.html` |
 | Watermark tool | `build/watermark-pdf.py` |
