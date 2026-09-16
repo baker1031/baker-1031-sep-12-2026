@@ -62,12 +62,18 @@ def make_O(r):
     types = r['types'] or []; locs = r['locations'] or []
     rating = 'rejected' if r['status'] == 'Rejected' else RATING_MAP.get(r['coverage'] or '', 'specialized')
     y1 = r['income'][0]
+    # An offering with no projected operating distributions at all (a land programme, a zero-coupon
+    # structure) has no yield to state. Showing it as 0.00% reads like a forecast of nothing; it is the
+    # absence of a forecast. This used to be hard-coded to one slug, which stopped being true at the
+    # 2026-09-16 cutover, so it is read off the cash-flow schedule instead.
+    no_income = not any(isinstance(v, (int, float)) and v for v in r['income'])
     allcash = not r['debt']
     return dict(
         slug=r['slug'], name=esc(r['name']), sponsor=esc(r['sponsor'] or '—'),
         type=esc(' · '.join(types) or '—'), city=esc(' · '.join(locs) or 'Location TBD'), state='',
         status=r['status'] or 'Available', rating=rating, ratingText=RATING_TEXT[rating],
-        yld=(round(y1 * 100, 2) if isinstance(y1, (int, float)) else None), zeroCoupon=(r['slug'] == 'nlc-financial-service-hq-dst'),
+        yld=(None if no_income else (round(y1 * 100, 2) if isinstance(y1, (int, float)) else None)),
+        zeroCoupon=no_income,
         ltv=round((r['ltv'] or 0) * 100), exit721=(r['exit721'] or 'None').lower(),
         equityRaise=r['equity'] or 0, totalOffering=r['total'] or 0, loanAmount=r['debt'] or 0,
         purchasePrice=r['purchasePrice'], initialReserves=r['reserves'],

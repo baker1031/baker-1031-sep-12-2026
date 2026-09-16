@@ -683,7 +683,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     RESULTS.forEach(function(r){ (by[r[field]] || (by[r[field]] = [])).push(r); });
     return Object.keys(by).map(function(k){ var g = stats(by[k]); g.key = k; return g; });
   }
-  var PREFERRED = ["NexPoint", "ExchangeRight", "Bluerock"];   // Jerry's preferred sponsors
+  var PREFERRED = ["Bluerock", "ExchangeRight", "NexPoint"];   // Jerry's preferred sponsors
   var SPONSORS = rollup('sponsor').map(function(g){ g.sponsor = g.key; g.preferred = PREFERRED.indexOf(g.key) > -1; return g; });
   var ASSETS = rollup('type').map(function(g){ g.type = g.key; return g; });
   var spSort = { key:'sponsor', dir:1 };

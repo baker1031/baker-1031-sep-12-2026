@@ -71,14 +71,16 @@ def wrap_level2(main, url_path):
 
 
 _FC = None
+_SLUGMAP = None
 def expand_fullcycle(main, rel):
     """<!--fc:facts--> and <!--fc:track:Name--> on a sponsor page are filled from build/fullcycle.tsv,
     so the Results page and every sponsor track record move together when the dataset is updated."""
-    global _FC
+    global _FC, _SLUGMAP
     if '<!--fc:' not in main: return main
-    slug = rel.split('/')[1] if rel.startswith('sponsors/') else ''
-    sponsor = fc.SLUG2SPONSOR.get(slug)
     if _FC is None: _FC = fc.by_sponsor()
+    if _SLUGMAP is None: _SLUGMAP = fc.slug2sponsor()
+    slug = rel.split('/')[1] if rel.startswith('sponsors/') else ''
+    sponsor = _SLUGMAP.get(slug)
     # A sponsor the dataset does not cover keeps its markers: the facts block drops the five dataset
     # figures and the track section says plainly that there are no verified results for them yet.
     rows = _FC.get(sponsor, []) if sponsor else []

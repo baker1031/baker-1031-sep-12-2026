@@ -5,6 +5,7 @@ Env:
   AIRTABLE_TOKEN        personal access token with data.records:read on the Investment Data (Live) base (required)
   PERFORMANCE_BASE      defaults to appTSWSTIsB2arukB   (Investment Data (Live))
   PERFORMANCE_TABLE     defaults to tblucuax2b7dKxLzH   (Past Performance)
+  SPONSOR_TABLE         defaults to tblRyHgDBqQuXfazd   (Sponsor Performance (Full Cycle))
   SITE_ROOT             repo root (defaults to the parent of this file)
 
 Published performance figures are compliance-sensitive, so this script never fails the build and never
@@ -23,6 +24,10 @@ TOKEN = (os.environ.get('AIRTABLE_TOKEN') or '').strip()
 BASE = os.environ.get('PERFORMANCE_BASE', 'appTSWSTIsB2arukB')
 TABLE = os.environ.get('PERFORMANCE_TABLE', 'tblucuax2b7dKxLzH')
 OUT = os.path.join(HERE, 'fullcycle.tsv')
+SPONSORS = os.environ.get('SPONSOR_TABLE', 'tblRyHgDBqQuXfazd')
+OUT_PREFERRED = os.path.join(HERE, 'preferred-sponsors.txt')
+F_SPONSOR_NAME = 'fldbR9lf8sRLy64Ej'
+F_PREFERRED    = 'fldCL3pQDEQPqCKJK'
 
 # Airtable field id -> TSV column. Return is a percent field: Airtable hands it back as a decimal
 # fraction (0.2071 = 20.71%), which is exactly what fullcycle.py expects.
@@ -53,12 +58,12 @@ def api(url):
             raise
 
 
-def fetch_records():
+def fetch_records(table=None):
     records, offset = [], None
     while True:
         q = {'returnFieldsByFieldId': 'true', 'pageSize': 100}
         if offset: q['offset'] = offset
-        data = api(f'https://api.airtable.com/v0/{BASE}/{TABLE}?' + urllib.parse.urlencode(q))
+        data = api(f'https://api.airtable.com/v0/{BASE}/{table or TABLE}?' + urllib.parse.urlencode(q))
         records += data.get('records', [])
         offset = data.get('offset')
         if not offset: break
@@ -87,6 +92,31 @@ def row(rec):
     elif loc: note = loc
     return [txt(f.get(F_NAME)), txt(f.get(F_SPONSOR)), txt(f.get(F_TYPE)), state,
             num(f.get(F_RET), 6), num(f.get(F_EM), 6), num(f.get(F_HOLD), 6), city, note]
+
+
+def refresh_preferred():
+    """Which sponsors Baker 1031 prefers is Jerry's call, made in the Preferred column of the Sponsor
+    Performance table — not something the build should carry as a hand-edited list that goes stale the
+    moment a sponsor is added. Written to build/preferred-sponsors.txt for fullcycle.py to read. On any
+    error the committed file stands, because an empty list would silently empty the homepage's preferred bar."""
+    try:
+        recs = fetch_records(SPONSORS)
+    except Exception as e:
+        print('WARNING: could not read Sponsor Performance (%s). Keeping the committed preferred-sponsors.txt.' % e)
+        return
+    names = sorted(txt(r.get('fields', {}).get(F_SPONSOR_NAME))
+                   for r in recs
+                   if txt(r.get('fields', {}).get(F_PREFERRED)).lower() == 'yes'
+                   and txt(r.get('fields', {}).get(F_SPONSOR_NAME)))
+    if not names:
+        print('WARNING: no sponsor is marked Preferred in Airtable. Keeping the committed preferred-sponsors.txt '
+              'rather than publishing an empty preferred-sponsor bar.')
+        return
+    header = ('# Sponsors Baker 1031 prefers, from the Preferred column of the Sponsor Performance table.\n'
+              '# Rewritten by build/fetch_performance.py on each deploy. Edit it in Airtable, not here.\n')
+    with open(OUT_PREFERRED, 'w', encoding='utf-8') as fh:
+        fh.write(header + '\n'.join(names) + '\n')
+    print('preferred sponsors: ' + ', '.join(names))
 
 
 def committed_rows():
@@ -131,6 +161,7 @@ def main():
     with open(OUT, 'w', encoding='utf-8', newline='') as fh:
         fh.write(buf.getvalue())
 
+    refresh_preferred()
     sponsors = sorted({r[1] for r in rows})
     print('performance: %d full-cycle deals, %d sponsors (%s)%s'
           % (len(rows), len(sponsors), ', '.join(sponsors),

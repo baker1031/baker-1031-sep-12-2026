@@ -24,7 +24,7 @@ out, n = re.subn(r'(\n\s*var RESULTS = )\[.*?\](;)',
 if not n:
     print('[results] WARNING: "var RESULTS = [...]" not found — page left untouched'); raise SystemExit(0)
 out, np_ = re.subn(r'(\n\s*var PREFERRED = )\[.*?\](;)',
-                   lambda m: m.group(1) + json.dumps(fc.PREFERRED) + m.group(2), out, count=1, flags=re.S)
+                   lambda m: m.group(1) + json.dumps(fc.preferred()) + m.group(2), out, count=1, flags=re.S)
 if out != src:
     open(PAGE, 'w', encoding='utf-8').write(out)
 print('[results] %d full-cycle deals, %d sponsors%s' %

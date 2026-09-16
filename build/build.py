@@ -3,6 +3,8 @@
 1. fetch_airtable.py  — refresh build/offerings.json, property photos and offering documents from Airtable
                         (skipped when AIRTABLE_TOKEN is unset: the committed snapshot is used)
 1b. fetch_performance.py — refresh build/fullcycle.tsv from the Investment Data (Live) base, same rule
+1c. build_homepage_chart.py — redraw the homepage return chart from that dataset, so it cannot drift
+                        away from the Results page (it runs before everything that copies index.html's chrome)
 2. build_inventory.py — regenerate /invest/index.html
 3. build_offering.py  — regenerate /offerings/<slug>/index.html for every offering, removing pages for deleted ones
 4. build_pages.py     — content/pages/** fragments -> sponsors, markets, glossary, calculators, policies … (+ /assets/css/site.css)
@@ -34,6 +36,6 @@ except ImportError:
     print('==> pip install -r requirements.txt', flush=True)
     subprocess.run([sys.executable, '-m', 'pip', 'install', '--quiet', '--disable-pip-version-check', '-r', os.path.join(ROOT, 'requirements.txt')])
 
-for s in ('fetch_airtable.py', 'fetch_performance.py', 'build_inventory.py', 'build_offering.py', 'build_results_data.py', 'build_pages.py', 'build_articles.py', 'build_meta.py'):
+for s in ('fetch_airtable.py', 'fetch_performance.py', 'build_homepage_chart.py', 'build_inventory.py', 'build_offering.py', 'build_results_data.py', 'build_pages.py', 'build_articles.py', 'build_meta.py'):
     run(s)
 print('build complete')

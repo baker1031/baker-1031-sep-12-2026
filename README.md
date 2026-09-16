@@ -49,7 +49,13 @@ Old URLs: `/offerings/` → `/invest/`, `/request-access/` → `/register/`, `/p
 
 ## Data sources
 
-- **Investment Offerings** → Airtable base `appQOBBscRLzaWv8G`, table *DST Offerings* (`tblzgE24oqN8d5VZj`). `build/offerings.json` is the last snapshot.
+- **Investment Data (Live)** → Airtable base `appTSWSTIsB2arukB`. Two tables drive the site:
+  - *Offering Data* (`tblMiNHG8EGFcvngt`) → the 19 published offerings. `build/offerings.json` is the last snapshot.
+  - *Past Performance* (`tblucuax2b7dKxLzH`) → the full-cycle dataset behind the Results page, the homepage
+    chart and every sponsor track record. `build/fullcycle.tsv` is the last snapshot; `Sponsor Performance
+    (Full Cycle)` (`tblRyHgDBqQuXfazd`) supplies the Preferred flags in `build/preferred-sponsors.txt`.
+  This replaced the Investment Offerings base (`appQOBBscRLzaWv8G` / `tblzgE24oqN8d5VZj`) on 2026-09-16; that
+  base is no longer read by anything. Offerings retired in the cutover 301 to `/invest/` via the edge gate.
   Property photos: `assets/media/offerings/<slug>-card.jpg` (800px) and `-hero.jpg` (1600px) are committed; the full-resolution original is
   downloaded during the build and linked from the offering photo. Documents (PPMs, supplements) are downloaded during the build to
   `offerings/<slug>/docs/` and served only to logged-in investors.

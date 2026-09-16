@@ -13,25 +13,44 @@ Columns: Investment Name, Sponsor, Property Type, Location (state), Average Annu
 fraction: 0.2071 = 20.71%), Equity Multiple, Holding Period (years), City.
 Blank figures are "not reported": they render as "—" and are left out of every average.
 """
-import csv, os
+import csv, os, re as _re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TSV = os.environ.get('FULLCYCLE_TSV', os.path.join(HERE, 'fullcycle.tsv'))
 TYPE_FIX = {'Hospitality / credit': 'Hospitality / Credit', '': 'Other / Unclassified'}
 
-# Sponsor page slug -> sponsor name in the dataset. Only the sponsors the dataset covers appear here;
-# a sponsor page with no mapping says so rather than showing an empty table.
-SLUG2SPONSOR = {
-    'aei-capital-corporation': 'AEI',
-    'blue-door': 'Blue Door',
-    'bluerock': 'Bluerock',
-    'cantor-fitzgerald': 'Cantor Fitzgerald',
-    'exchangeright': 'ExchangeRight',
-    'four-springs-capital': 'Four Springs TEN31 Xchange',
-    'nexpoint': 'NexPoint',
-    'walton-global-holdings': 'Walton Global',
+# Sponsor page slug -> sponsor name in the dataset. Derived from the dataset itself so that a sponsor
+# added in Airtable reaches its page without anyone editing this file; ALIASES covers only the names that
+# do not slugify to the page that exists. A sponsor with no page, or a page with no data, is not an error:
+# the page simply says there are no verified results for them yet.
+ALIASES = {
+    'AEI': 'aei-capital-corporation',
+    'Four Springs TEN31 Xchange': 'four-springs-capital',
+    'Walton Global': 'walton-global-holdings',
+    'Fortress': 'fortress-investment-group',
 }
-PREFERRED = ['NexPoint', 'ExchangeRight', 'Bluerock']
+
+
+def slugify(name):
+    return _re.sub(r'-+', '-', _re.sub(r'[^a-z0-9]+', '-', (name or '').lower())).strip('-')
+
+
+def slug2sponsor(rows=None):
+    """{sponsor page slug: sponsor name} for every sponsor the dataset covers."""
+    out = {}
+    for s in sorted({r['sponsor'] for r in (rows if rows is not None else load()) if r['sponsor']}):
+        out[ALIASES.get(s) or slugify(s)] = s
+    return out
+
+
+def preferred():
+    """Sponsors Baker 1031 prefers — Jerry's call, made in Airtable's Sponsor Performance table and written
+    here by build/fetch_performance.py. Read fresh on every call so a build picks up the refreshed file."""
+    try:
+        with open(os.path.join(HERE, 'preferred-sponsors.txt'), encoding='utf-8') as f:
+            return [ln.strip() for ln in f if ln.strip() and not ln.startswith('#')]
+    except OSError:
+        return []
 
 
 def _num(v, scale=1):

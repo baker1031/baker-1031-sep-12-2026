@@ -55,13 +55,15 @@ def loc_label(states):
 OFFERINGS = []
 for o in AT:
     y1 = o['income'][0]
+    # No projected operating distributions at all -> no yield to state (see build_offering.py).
+    no_income = not any(isinstance(v, (int, float)) and v for v in o['income'])
     OFFERINGS.append(dict(
         slug=o['slug'], name=o['name'], sponsor=o['sponsor'] or '',
         types=o['types'] or [], typeLabel=' · '.join(o['types'] or ['—']),
         locations=o['locations'] or [], locLabel=loc_label(o['locations'] or []),
         status=o['status'] or 'Available', registration=o['registration'] or '',
-        yld=(round(y1 * 100, 2) if isinstance(y1, (int, float)) else None),
-        zeroCoupon=(o['slug'] == 'nlc-financial-service-hq-dst'),
+        yld=(None if no_income else (round(y1 * 100, 2) if isinstance(y1, (int, float)) else None)),
+        zeroCoupon=no_income,
         ltv=(round((o['ltv'] or 0) * 100)),
         exit721=(o['exit721'] or 'None').lower(),
         rating=rating_of(o), hold=o['hold'] or 0,
@@ -672,7 +674,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
   // ---- rendering ----
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
   function loc(o){ return o.locLabel; }
-  function fmtYield(o){ return o.yld === null ? (o.zeroCoupon ? '<span title="Zero-coupon structure: no current distributions">Zero coupon</span>' : '—') : o.yld.toFixed(2) + '%'; }
+  function fmtYield(o){ return o.yld === null ? (o.zeroCoupon ? '<span title="This offering projects no operating distributions">No current income</span>' : '—') : o.yld.toFixed(2) + '%'; }
   function badge(o){
     var r = RATING[o.rating]; if(!r) return '';
     return '<span class="tip" tabindex="0"><span class="badge ' + r.cls + '"><span class="badge__emoji" aria-hidden="true">' + r.emoji + '</span>' + r.label + '</span>' +

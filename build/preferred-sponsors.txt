@@ -1,0 +1,5 @@
+# Sponsors Baker 1031 prefers, from the Preferred column of the Sponsor Performance table.
+# Rewritten by build/fetch_performance.py on each deploy. Edit it in Airtable, not here.
+Bluerock
+ExchangeRight
+NexPoint
