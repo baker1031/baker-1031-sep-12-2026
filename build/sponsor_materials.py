@@ -19,7 +19,7 @@ DATA = os.path.join(HERE, 'sponsor-materials.json')
 PRO_ONLY = ('INVESTMENT PROFESSIONAL USE ONLY', 'FINANCIAL PROFESSIONAL USE ONLY', 'FOR INSTITUTIONAL USE ONLY')
 
 TOPIC_ORDER = ['1031 Exchange', 'DST Structure', '721 Exchange / UPREIT', 'Opportunity Zones',
-               'Tax Strategy', 'Retirement / Roth', 'Property Sectors', 'Market Research',
+               'Tax Strategy', 'Retirement / Roth', 'Property Sectors', 'Credit', 'Market Research',
                'Firm Overview', 'Other']
 
 
@@ -111,6 +111,18 @@ SCRIPT = '''<script>
     });
     count.textContent = n + (n === 1 ? ' document' : ' documents');
   }
+  // ?sponsor= / ?topic= preselect the filters, so a link elsewhere on the site can point at one slice
+  try {
+    var q = new URLSearchParams(window.location.search);
+    function preset(sel, want){
+      if(!want) return;
+      var hit = [].slice.call(sel.options).filter(function(o){
+        return o.value && o.value.toLowerCase() === want.toLowerCase(); })[0];
+      if(hit) sel.value = hit.value;
+    }
+    preset(sp, q.get('sponsor')); preset(tp, q.get('topic'));
+  } catch(e){}
   sp.addEventListener('change', apply); tp.addEventListener('change', apply);
+  apply();
 })();
 </script>'''
