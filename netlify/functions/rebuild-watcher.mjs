@@ -1,21 +1,30 @@
 /*
   Baker 1031 — Airtable → Netlify rebuild watcher
   Runs every 15 minutes (netlify.toml schedule). Compares the newest
-  "Last Modified" timestamp on the DST Offerings table against the live
-  site's build timestamp (/build-info.json, written by build.js). When an
-  offering changed after the last publish, POSTs the Netlify build hook so
-  the site rebuilds from the linked GitHub repo with fresh Airtable data.
+  "Last Modified" timestamp on the Offering Data table of the Investment
+  Data (Live) base against the live site's build timestamp (/build-info.json,
+  written by build.js). When an offering changed after the last publish, POSTs
+  the Netlify build hook so the site rebuilds from the linked GitHub repo with
+  fresh Airtable data.
+
+  This watches OFFERINGS only. An edit to Past Performance (the Results page,
+  the homepage chart, the sponsor track records) does not trigger a rebuild —
+  that table has no Last Modified field to compare against — so those changes
+  reach the site on the next deploy from any other cause.
 
   Why this exists: Airtable's automation API can't create "run script"
   actions, so the site polls instead — same outcome, ~15 minute latency,
   and no manual Airtable configuration to maintain.
 
-  Env: AIRTABLE_TOKEN (read on Investment Offerings), NETLIFY_BUILD_HOOK (this site's build hook URL). Manual run:
+  Env: AIRTABLE_TOKEN (read on Investment Data (Live)), NETLIFY_BUILD_HOOK (this site's build hook URL). Manual run:
   POST ?key=<PORTAL_SYNC_KEY> (&dry=1 to report without triggering).
 */
 
-const BASE_ID = process.env.AIRTABLE_BASE_ID || 'appQOBBscRLzaWv8G';
-const TABLE_ID = process.env.AIRTABLE_TABLE_ID || 'tblzgE24oqN8d5VZj';
+// The Investment Data (Live) base, same source the build reads. Note these are AIRTABLE_BASE_ID /
+// AIRTABLE_TABLE_ID — different env vars from the build's AIRTABLE_BASE / AIRTABLE_TABLE. If either is
+// still set in Netlify to the retired Investment Offerings base, this watches a table nobody edits.
+const BASE_ID = process.env.AIRTABLE_BASE_ID || 'appTSWSTIsB2arukB';
+const TABLE_ID = process.env.AIRTABLE_TABLE_ID || 'tblMiNHG8EGFcvngt';
 // Build hook URL of THIS site (Site configuration -> Build & deploy -> Build hooks). Without it the watcher only reports.
 const HOOK = process.env.NETLIFY_BUILD_HOOK || '';
 
