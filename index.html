@@ -3261,7 +3261,18 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
   function readCookie(n){ var m = document.cookie.match(new RegExp('(?:^|;\\s*)' + n + '=([^;]*)')); return m ? decodeURIComponent(m[1]) : null; }
   function readSession(){ var f = readCookie('b31_ui'); return f ? { first: f } : null; }
   function setUi(first){ document.cookie = 'b31_ui=' + encodeURIComponent(first || 'Investor') + '; Path=/; Max-Age=2592000; SameSite=Lax'; }
-  function clearUi(){ document.cookie = 'b31_ui=; Path=/; Max-Age=0; SameSite=Lax'; }
+  function clearUi(){
+    document.cookie = 'b31_ui=; Path=/; Max-Age=0; SameSite=Lax';
+    document.cookie = 'b31_lvl=; Path=/; Max-Age=0; SameSite=Lax';
+    document.documentElement.classList.remove('is-level2');
+  }
+  // Access tier, kept in step with the server on every page load: level 2 opens the restricted
+  // sections, anything else closes them. A stale or edited b31_lvl cookie is corrected here.
+  function setLevel(n){
+    var lvl = Number(n) === 2 ? 2 : 1;
+    document.cookie = 'b31_lvl=' + lvl + '; Path=/; Max-Age=2592000; SameSite=Lax';
+    document.documentElement.classList.toggle('is-level2', lvl === 2);
+  }
   function api(action, extra){
     var body = extra || {}; body.action = action;
     return fetch('/api/auth', { method:'POST', headers:{ 'content-type':'application/json' }, credentials:'same-origin', body: JSON.stringify(body) })
@@ -3286,6 +3297,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       if (d && d.authed){
         try { sessionStorage.removeItem('b31-relock'); } catch(e){}
         if (d.firstName && d.firstName !== user.first){ setUi(d.firstName); nameEl.textContent = d.firstName; }
+        setLevel(d.level);
         return true;
       }
       clearUi();
@@ -3293,7 +3305,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       return false;
     }).catch(function(){ return true; });
   }
-  window.b1031 = { session: readSession, logout: endSession, api: api, setUi: setUi, verify: verify };
+  window.b1031 = { session: readSession, logout: endSession, api: api, setUi: setUi, setLevel: setLevel, verify: verify };
   verify();
   // Offering pages: record the first view on the investor's record ("Deals Reviewed").
   var offeringSlug = document.body.getAttribute('data-offering');
