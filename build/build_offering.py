@@ -71,12 +71,13 @@ def make_O(r):
         ltv=round((r['ltv'] or 0) * 100), exit721=(r['exit721'] or 'None').lower(),
         equityRaise=r['equity'] or 0, totalOffering=r['total'] or 0, loanAmount=r['debt'] or 0,
         purchasePrice=r['purchasePrice'], initialReserves=r['reserves'],
-        loanRate=('—' if allcash or not r['rate'] else f"{r['rate']*100:.2f}%"),
+        # Interest Rate is the sponsor's own words now ("5.708%", "No Loan - All-Cash"), not a number to format.
+        loanRate=esc('—' if allcash else (r['rate'] or '—')),
         loanTerm=('—' if allcash or not r['loanTerm'] else f"{r['loanTerm']:g} years"),
         lender=esc('None — all-cash offering' if allcash else (r['lender'] or '—')),
         amortization=esc('—' if allcash else (r['amort'] or '—')),
         registration=esc(r['registration'] or '—'), propertyTypes=esc(' · '.join(types) or '—'),
-        holdTarget=(f"{r['hold']:g} years" if r['hold'] else '—'),
+        holdTarget=esc(r['holdLabel'] or '—'),   # "5-10 Years", "No Fixed Hold" — printed as the PPM states it
         photos=[img_of(r['slug'])], photoFull=full_of(r['slug']),
         overview=paras(r['description']),
         highlights=[esc(h) for h in r['highlights']],

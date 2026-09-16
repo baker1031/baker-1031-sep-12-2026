@@ -78,11 +78,10 @@ def expand_fullcycle(main, rel):
     if '<!--fc:' not in main: return main
     slug = rel.split('/')[1] if rel.startswith('sponsors/') else ''
     sponsor = fc.SLUG2SPONSOR.get(slug)
-    if not sponsor:
-        print('[pages] %s: fullcycle marker with no sponsor mapping' % rel)
-        return re.sub(r'[ \t]*<!--fc:(?:facts|track:[^>]*)-->\n?', '', main)
     if _FC is None: _FC = fc.by_sponsor()
-    rows = _FC.get(sponsor, [])
+    # A sponsor the dataset does not cover keeps its markers: the facts block drops the five dataset
+    # figures and the track section says plainly that there are no verified results for them yet.
+    rows = _FC.get(sponsor, []) if sponsor else []
     main = re.sub(r'([ \t]*)<!--fc:facts-->', lambda m: fc.facts_html(rows, m.group(1)), main)
     main = re.sub(r'([ \t]*)<!--fc:track:([^>]*?)-->',
                   lambda m: fc.track_html(m.group(2), rows, m.group(1)), main)

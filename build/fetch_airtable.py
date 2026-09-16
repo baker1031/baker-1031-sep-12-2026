@@ -1,40 +1,55 @@
-"""Pull the DST Offerings table from Airtable into build/offerings.json and cache each property photo
-under assets/media/offerings/ — the full-resolution original (<slug>.<ext>) plus -card.jpg (800px) and -hero.jpg (1600px)
-derived with Pillow (see requirements.txt). Standard library otherwise, so it runs on Netlify's build image as-is.
+"""Pull the Offering Data table from the "Investment Data (Live)" Airtable base into build/offerings.json and
+cache each property photo under assets/media/offerings/ — the full-resolution original (<slug>.<ext>) plus
+-card.jpg (800px) and -hero.jpg (1600px) derived with Pillow (see requirements.txt). Standard library
+otherwise, so it runs on Netlify's build image as-is.
 
 Env:
-  AIRTABLE_TOKEN  personal access token with data.records:read on the Investment Offerings base (required)
-  AIRTABLE_BASE   defaults to appQOBBscRLzaWv8G   (Investment Offerings)
-  AIRTABLE_TABLE  defaults to tblzgE24oqN8d5VZj   (DST Offerings)
+  AIRTABLE_TOKEN  personal access token with data.records:read on the Investment Data (Live) base (required)
+  AIRTABLE_BASE   defaults to appTSWSTIsB2arukB   (Investment Data (Live))
+  AIRTABLE_TABLE  defaults to tblMiNHG8EGFcvngt   (Offering Data)
   SITE_ROOT       repo root (defaults to the parent of this file)
+
+This replaced the older Investment Offerings base (appQOBBscRLzaWv8G / DST Offerings) on 2026-09-16. That
+base held 50 offerings whose figures came from several vintages of review; this one holds the 19 whose
+numbers were independently recomputed from the sponsor's own PPM, which is why the cutover shrinks the
+published inventory. Offerings that were published from the old base and are not in this one are redirected
+to /invest/ by netlify/edge-functions/gate.js rather than being left to 404.
 
 The Investor Access base is deliberately NOT read here — nothing about investors belongs in a static build.
 """
-import json, os, sys, time, urllib.request, urllib.parse, urllib.error
+import json, os, re, sys, time, urllib.request, urllib.parse, urllib.error
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.environ.get('SITE_ROOT') or os.path.dirname(HERE)
 TOKEN = (os.environ.get('AIRTABLE_TOKEN') or '').strip()
-BASE = os.environ.get('AIRTABLE_BASE', 'appQOBBscRLzaWv8G')
-TABLE = os.environ.get('AIRTABLE_TABLE', 'tblzgE24oqN8d5VZj')
+BASE = os.environ.get('AIRTABLE_BASE', 'appTSWSTIsB2arukB')
+TABLE = os.environ.get('AIRTABLE_TABLE', 'tblMiNHG8EGFcvngt')
 OUT_JSON = os.path.join(HERE, 'offerings.json')
 IMG_DIR = os.path.join(ROOT, 'assets', 'media', 'offerings')
 
 # Airtable field id -> key used by the build scripts
 FIELDS = {
-    'fld3mj3JrNOrlYSTP':'name', 'fldzHclKwUjC9FWs9':'sponsor', 'fld9x6OUZctsnfaUa':'status', 'fldEq9QAZ756bcPVh':'registration',
-    'fldrKSI6lSzC2viOV':'locations', 'flddQfzyic6srg1dW':'types', 'fldW0gX9y9atvyunA':'exit721', 'fldFoOMNNJIAlyQ2l':'equity',
-    'fldHFrsuOAWNLkp4T':'debt', 'fldUEn7Y1eZYcwIoT':'total', 'fldPX1y0caLZto3bw':'ltv', 'fldszEYHQEyNXKT8z':'lender',
-    'fldNenQLbjVeZZt0S':'rate', 'fldj3VLiCqOsnOE3d':'amort', 'fld0VD4t9cgkkMTFh':'loanTerm', 'fldGzTyKWomvLjrHd':'incomeAvg',
-    'fldtR2nA0uDPUMnYH':'hold', 'fld8sYZXysmWis1G1':'description', 'fldD9Ew3ZhAmFQNnl':'notes', 'fld7aDH0ASO7a9KJE':'coverage',
-    'fld9NuzTtvNQb5sTm':'cfBasis', 'fldVk8cc6qchP234d':'cfThrough', 'fldmw7weROo2ugGSV':'postForecast', 'fldH33Q8nHPvWiIhI':'cfDisclosure',
-    'fldUwOgFDWLIfk6eq':'purchasePrice', 'fldB86oZCUV4NLUL4':'reserves', 'fldzEkCGZujSBzBWQ':'load', 'fldjyg5z9wK7V2xuo':'loadYears',
-    'fldKd14gcHp0E3jib':'addresses', 'fldso3riT9A6eqlps':'slug', 'fld45JlTWioHALWKg':'modified',
+    'fldFlxiyklPqF4T0a':'name', 'fldYEtjEv7kQSZFAy':'sponsor', 'fld9jh52kuZ2zVhDC':'status',
+    'fldBRCkfs1QG6BJsN':'registration', 'fldjmcRLhP0FBcIO1':'locationsRaw', 'fldGqXfGKD69OgZla':'typesRaw',
+    'fldgZqPdhKZyfyhbb':'exit721Raw', 'fldiPlvm7WgbdvCvX':'equity', 'fldn9Gv1errQk8VaO':'debt',
+    'fldWU6alOuFcx90Md':'total', 'fldskeVquYXGI6GEV':'ltv', 'fldGg6yuEgKRhGHAS':'lender',
+    'fldthme58Hpkncy6t':'rate', 'fld9siCPbF95cjHJG':'amort', 'fld9RUkGMXITeqa2R':'loanTerm',
+    'fld1YYB7aTI9SjJlP':'holdLabel', 'fldkVeNqsx73FWx0O':'description', 'fldHUCuo3VtJDoKyW':'notes',
+    'fldOAGADWecOUeKzm':'coverage', 'fldGJPHMRLgPvssxh':'cfBasis', 'fldxX3mLiMAneAji7':'postForecast',
+    'fldqrpWHZ1poKEtTJ':'cfDisclosure', 'fldcZNbjVjiROffMz':'purchasePrice', 'fldmAEAwUzSCVQUGt':'reserves',
+    'fldYadYU5kykRbr4s':'addresses', 'fldCwzRd8LQDMhIc1':'slug', 'fldGrBxWmK0zm4Qe5':'modified',
+    'fldpl3EhHv5ZMLETv':'sourceNotes', 'fldYJ1OOaoRkBJrSg':'numProperties', 'fldsKY6HGRePNZGWA':'numTenants',
+    'fldyzgCTy0JCVkv0I':'walt', 'fldao25VojerpK35s':'minPurchase', 'fldiAkefsGLaWKeI0':'exit721Route',
 }
-INCOME = ['flddVrtTP6W9nKlLn','fldW23lo8a6k9Q98H','fld6ProsoeKQspxzv','fld3jaWeFjKVRg6gU','fldmXRyMzo65doWP5',
-          'fldMg6weMO3xj8mrP','fldcyqyKc0As77VZx','fldatzmxcABw7CBOQ','fldDbXnB3WYsugIRU','fldfKhgCxRfRNYZma']
-HIGHLIGHTS = ['fldrcBjr5YEPLqXiH','fldjOjluCGPIDyqgS','fldIQwtS1WbSe0Jjd','fldyLYja6NM9dOGaX','fldzF3Y3JulNrSSPs']
-IMAGE, DOCS = 'fldxvcaGAsAFf2PaA', 'fldd3kAtEFgv1v0v4'
+INCOME = ['fld4G8ys3a8AZ5l2b','fld6QuTKjblRihzvc','fldrQbQvEBviPN80h','fldbcNZmUTVUYFUqg','flduFGbkRST1TD8HR',
+          'fld04PHjh8cgJCqVo','fldG6EeJNogAJeU4K','fldLQzFaRFJmGZkQ3','fldji03bIBSKGskgP','fld6ttlu9qrlEXQpc']
+HIGHLIGHTS = ['fldlczAjckoxwoQwc','fldueo5r7KGWsZ5XQ','fldKU0v1rrsAllc0z','fldhci7I6revPgxsC','fldyjLMoR8kySZ6KC']
+IMAGE, DOCS = 'fldMtlBCSmxEie2Gl', 'fldgAkYFT8J3y9nLF'
+
+# The inventory page filters and sorts on three values (mandatory / optional / none); Airtable says
+# Required / Optional / None. "Required" and "mandatory" are the same thing — a forced exchange at exit.
+EXIT721 = {'required': 'Mandatory', 'mandatory': 'Mandatory', 'optional': 'Optional', 'none': 'None'}
+
 
 def api(url):
     req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + TOKEN})
@@ -62,10 +77,34 @@ def norm(v):
     if isinstance(v, list): return [norm(x) for x in v]
     return v
 
+def split_types(s):
+    """"Net-Lease Retail, Healthcare" -> two types; "Marina (two marina / boatyard facilities)" -> one.
+    Commas inside brackets are part of the label, not separators."""
+    out, depth, cur = [], 0, ''
+    for ch in str(s or ''):
+        if ch in '([': depth += 1
+        elif ch in ')]': depth = max(0, depth - 1)
+        if ch == ',' and depth == 0:
+            out.append(cur); cur = ''
+        else:
+            cur += ch
+    out.append(cur)
+    return [t.strip() for t in out if t.strip()]
+
+def hold_years(label):
+    """Numeric hold for the inventory's sort and filters. A range takes its upper bound, because that is the
+    length an investor has to be able to sit through; "No Fixed Hold" has no number and stays None."""
+    nums = [float(x) for x in re.findall(r'\d+(?:\.\d+)?', str(label or ''))]
+    return max(nums) if nums else None
+
 def normalize(rec):
     f = rec.get('fields', {})
     o = {'id': rec['id']}
     for fid, key in FIELDS.items(): o[key] = norm(f.get(fid))
+    o['types'] = split_types(o.pop('typesRaw'))
+    o['locations'] = [x.strip() for x in str(o.pop('locationsRaw') or '').split(';') if x.strip()]
+    o['exit721'] = EXIT721.get(str(o.pop('exit721Raw') or 'none').strip().lower(), 'None')
+    o['hold'] = hold_years(o['holdLabel'])
     o['income'] = [f.get(x) for x in INCOME]
     o['highlights'] = [f.get(x) for x in HIGHLIGHTS if f.get(x)]
     o['image'] = [{'url': i['url'], 'large': (i.get('thumbnails') or {}).get('large', {}).get('url'),
@@ -103,7 +142,6 @@ def derive(original, slug):
         out.save(os.path.join(IMG_DIR, f'{slug}{suffix}.jpg'), 'JPEG', quality=q, optimize=True, progressive=True)
 
 def safe_name(s):
-    import re
     return re.sub(r'\s+', ' ', re.sub(r'[\/\\:*?"<>|#%]+', '_', str(s or 'document'))).strip()[:120]
 
 def localize_docs(recs):
@@ -136,14 +174,27 @@ def main():
     except urllib.error.HTTPError as e:
         # A bad or under-scoped token must not take the site down: keep the committed snapshot and say so loudly.
         hint = {401: 'the token is invalid or expired (legacy Airtable API keys no longer work — create a personal access token)',
-                403: 'the token has no access to the Investment Offerings base or lacks the data.records:read scope',
+                403: 'the token has no access to the Investment Data (Live) base or lacks the data.records:read scope',
                 404: 'base/table id not found for this token'}.get(e.code, '')
         print(f'WARNING: Airtable returned HTTP {e.code}{" — " + hint if hint else ""}. Keeping the committed offerings.json snapshot; fix AIRTABLE_TOKEN in Netlify to resume Airtable-driven builds.')
         return 0
     except (urllib.error.URLError, TimeoutError) as e:
         print(f'WARNING: Airtable unreachable ({e}). Keeping the committed offerings.json snapshot.'); return 0
+    # An offering with no slug has no address to be published at, so it is held back rather than guessed at.
+    noslug = [o['name'] for o in recs if o.get('name') and not o.get('slug')]
+    if noslug:
+        print('WARNING: no Slug set in Airtable, so these are not published: ' + '; '.join(noslug))
     recs = [o for o in recs if o.get('name') and o.get('slug')]
+    if not recs:
+        print('WARNING: Airtable returned no publishable offerings. Keeping the committed offerings.json snapshot.')
+        return 0
     recs.sort(key=lambda o: o['name'].lower())
+    dupes = sorted({o['slug'] for o in recs if [x['slug'] for x in recs].count(o['slug']) > 1})
+    if dupes:
+        print('WARNING: two offerings share a slug, so one will overwrite the other: ' + ', '.join(dupes))
+    norating = [o['name'] for o in recs if not o.get('coverage')]
+    if norating:
+        print('NOTE: no Coverage Rating set, so these publish as Specialized: ' + '; '.join(norating))
     os.makedirs(IMG_DIR, exist_ok=True)
     fetched = 0
     for o in recs:

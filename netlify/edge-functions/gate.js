@@ -129,12 +129,55 @@ const LEGACY = {
   '/about/jerry-baker/': '/#glance',
 };
 
+// Offerings retired in the 2026-09-16 cutover to the Investment Data (Live) Airtable base. Their pages were
+// published and are still linked and indexed, so they go to the inventory rather than to a 404. Take a slug
+// out of this list only if that offering comes back at the same address.
+const RETIRED_OFFERINGS = new Set([
+  'ax-diversified-retail-portfolio-dst',
+  'blue-door-property-ii-dst',
+  'blue-owl-real-estate-exchange-v-dst',
+  'br-diversified-industrial-portfolio-7-dst',
+  'cf-fleetwood-multifamily-dst',
+  'cf-westshore-multifamily-dst',
+  'colorado-growth-1-holly-ridge-dst',
+  'exchangeright-essential-income-12-dst',
+  'government-lease-holdings-2-dst',
+  'griffin-capital-tulsa-btr-dst',
+  'hpi-deer-creek-dst',
+  'inland-alt-senior-living-ii-dst',
+  'inland-long-island-residential-dst',
+  'irex-v-diversified-portfolio-dst',
+  'jllx-industrial-portfolio-dst',
+  'lsc-fort-washington-md-dst',
+  'lsc-latham-ny-dst',
+  'lsc-salt-lake-ut-dst',
+  'mdi-overland-park-net-lease-dst',
+  'moody-med-center-2-dst',
+  'moody-village-towers-dst',
+  'newstar-17-sweetwater-springs-dst',
+  'nexpoint-waterford-dst',
+  'nlc-financial-service-hq-dst',
+  'passco-allure-dst',
+  'passco-preston-ridge-dst',
+  'passco-riverside-dst',
+  'pg-cape-canaveral-dst',
+  'pg-savannah-industrial-dst',
+  'prep-essential-net-lease-i-dst',
+  'sealy-industrial-i-dst',
+  'starboard-bradley-dst',
+  'starboard-makley-dst',
+]);
+
 const perm = (to) => new Response(null, { status: 301, headers: { location: to, 'cache-control': 'no-store' } });
 
 export default async (request, context) => {
   const url = new URL(request.url);
   if (LEGACY[url.pathname]) return perm(LEGACY[url.pathname]);
   if (url.pathname.startsWith('/current-offerings/')) return perm('/invest/');
+
+  // A retired offering keeps its address working: /offerings/<slug>/ (and anything under it) 301s to /invest/.
+  const retired = url.pathname.match(/^\/offerings\/([^/]+)(\/|$)/);
+  if (retired && RETIRED_OFFERINGS.has(retired[1])) return perm('/invest/');
 
   // Offering DOCUMENTS are hard-gated even though offering pages are soft-gated
   // for crawlers: PPMs and sub docs go only to logged-in investors.

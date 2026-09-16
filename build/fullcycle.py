@@ -1,6 +1,14 @@
 """The full-cycle dataset — one master file (build/fullcycle.tsv) behind both the Results page and the
 per-sponsor track records. Update the TSV and every page that shows these numbers moves with it.
 
+Source: the "Investment Data (Live)" Airtable base (appTSWSTIsB2arukB), Past Performance table —
+256 full-cycle programs across 8 sponsors, every figure independently recomputed from the sponsor's
+own PPM. Refreshed by build/fetch_performance.py on each deploy when AIRTABLE_TOKEN is set.
+
+Average Annual Return is stated on ONE basis for every sponsor: (Equity Multiple - 1) / Holding Period.
+It is simple, not compounded, and it is not an IRR. Sponsors' own headline returns mix IRRs,
+equity-weighted annualized returns and CAGRs, which is why they are not used here.
+
 Columns: Investment Name, Sponsor, Property Type, Location (state), Average Annual Return (decimal
 fraction: 0.2071 = 20.71%), Equity Multiple, Holding Period (years), City.
 Blank figures are "not reported": they render as "—" and are left out of every average.
@@ -11,19 +19,19 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 TSV = os.environ.get('FULLCYCLE_TSV', os.path.join(HERE, 'fullcycle.tsv'))
 TYPE_FIX = {'Hospitality / credit': 'Hospitality / Credit', '': 'Other / Unclassified'}
 
-# sponsor page slug -> sponsor name in the dataset
+# Sponsor page slug -> sponsor name in the dataset. Only the sponsors the dataset covers appear here;
+# a sponsor page with no mapping says so rather than showing an empty table.
 SLUG2SPONSOR = {
-    'aei-capital-corporation': 'AEI', 'arctrust': 'ARCTRUST', 'blue-door': 'Blue Door', 'bluerock': 'Bluerock',
-    'bridgeview': 'Bridgeview', 'cantor-fitzgerald': 'Cantor', 'capital-square': 'Capital Square',
-    'carter-exchange': 'Carter Exchange', 'core': 'CORE', 'denholtz': 'Denholtz', 'exchangeright': 'ExchangeRight',
-    'four-springs-capital': 'Four Springs', 'griffin-capital': 'Griffin', 'hamilton-point-investments': 'Hamilton Point',
-    'ideal-capital-group': 'IDEAL', 'inland': 'Inland', 'livingston-street-capital': 'Livingston Street Capital',
-    'moody-national': 'Moody', 'net-lease-capital-advisors': 'NLCA', 'nexpoint': 'NexPoint',
-    'olympus-property': 'Olympus', 'passco': 'Passco', 'peachtree-group': 'Peachtree',
-    'starboard-realty-advisors': 'Starboard Realty', 'syndicated-equities': 'Syndicated Equities',
-    'time-equities': 'Time Equities', 'walton-global-holdings': 'Walton Global',
+    'aei-capital-corporation': 'AEI',
+    'blue-door': 'Blue Door',
+    'bluerock': 'Bluerock',
+    'cantor-fitzgerald': 'Cantor Fitzgerald',
+    'exchangeright': 'ExchangeRight',
+    'four-springs-capital': 'Four Springs TEN31 Xchange',
+    'nexpoint': 'NexPoint',
+    'walton-global-holdings': 'Walton Global',
 }
-PREFERRED = ['Peachtree', 'Olympus', 'NLCA', 'NexPoint', 'Griffin', 'ExchangeRight', 'Bluerock', 'IDEAL']
+PREFERRED = ['NexPoint', 'ExchangeRight', 'Bluerock']
 
 
 def _num(v, scale=1):
@@ -105,7 +113,10 @@ def fact_values(st):
 
 
 def facts_html(rows, indent='          '):
-    vals = fact_values(stats(rows))
+    st = stats(rows)
+    if not st:
+        return ''      # no verified data for this sponsor: show only the static facts (AUM, founded, HQ)
+    vals = fact_values(st)
     return '\n'.join('%s<div class="sp-fact"><div class="l">%s</div><div class="v">%s</div></div>'
                      % (indent, k, vals[k]) for k in FACT_LABELS)
 
@@ -116,7 +127,11 @@ def track_html(name, rows, indent='        '):
     i, i2 = indent, indent + '  '
     out = ['%s<h2>%s Track Record</h2>' % (i, _html.escape(name))]
     if not st:
-        return out[0]
+        out.append('%s<p>Baker 1031 does not yet have verified, deal-by-deal full-cycle results for %s. '
+                   'The track records on this site are limited to sponsors whose programs have been '
+                   'independently recomputed from their own offering documents. Past performance does not '
+                   'guarantee future results.</p>' % (i, _html.escape(name)))
+        return '\n'.join(out)
     bits = []
     if st['ret'] is not None: bits.append('averaging %.2f%% annual return' % st['ret'])
     if st['em'] is not None: bits.append('a %.2fx average equity multiple' % st['em'])
