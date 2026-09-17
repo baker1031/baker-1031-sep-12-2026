@@ -53,19 +53,35 @@ target net IRR. Deliberately not changed, because replacing 8.5% with 6.1% would
 gap in Baker's favour.
 
 ### 5. Mean vs median on the headline figure
-Published mean **17.66%**; median **10.46%**; p25 6.00%; range −13.56% to 178.30%.
-**70% of the 298 programs returned less than the published figure.** Preferred cohort is the
-same shape: 19.99% published, 11.22% median, 68.8% below the mean. The mean is correctly
+Restated on the 1,014-program dataset (2026-09-17). Published mean **22.18%**; median
+**14.34%**; p25 7.19%; range −59.04% to 1,225.62%.
+**71% of the 919 rated programs returned less than the published figure.** Preferred cohort is
+the same shape: 19.99% published, 11.22% median, 68.8% below the mean. The mean is correctly
 computed — this is a FINRA 2210 "fair and balanced" judgment, not an arithmetic one.
-`/results/` publishes all 307 sortably, which mitigates; the homepage figure stands alone.
+`/results/` publishes all 1,014 sortably, which mitigates; the homepage figure stands alone.
 Cheapest fix: show the median beside the mean. Additive, changes no published figure.
 
 ### 6. "More than 80 sponsors"
 `/learn/top-dst-brokerage-firms-for-1031-investors/` says "Baker 1031 covers more than 80",
 two sentences after "Ask any firm how many sponsors it actively places business with."
-Profiles published: 91. Sponsors with a completed full cycle: 11. **Sponsors with a live
+Profiles published: 91. Sponsors with a completed full cycle: 15. **Sponsors with a live
 offering: 17.** True as coverage, ambiguous as placement. Two other instances say "coverage"
 and are fine.
+
+### 6a. Short holds annualized (new, 2026-09-17)
+The site's one return basis — (equity multiple − 1) ÷ holding period — is sound over multi-year
+holds and explodes under short ones. The dataset now holds **124 programs that closed in under a
+year**, 123 of them Peachtree Group hotel/credit deals; they average **54.26%** on this basis and
+carry the headline figure from 17.18% to **22.18%**. The single largest, Westin – Tampa (2011),
+is a 2.51x multiple over 0.12 years = **1,225.62%**.
+Consequences already live: Peachtree's page reads 456 programs, 32.33% average annual return,
+1.54x average multiple, 2.39-year average hold — and (1.54 − 1) ÷ 2.39 is 22.6%, so the page
+appears to contradict itself the way ExchangeRight's does (item 2). Across the whole dataset the
+same reading gives 11.96% against a published 22.18%.
+Options, none of which changes a sponsor-reported input: state the basis and its short-hold effect
+in the sources note; exclude sub-one-year programs from the annualized average while still listing
+them (17.18% across 795); or publish the average multiple and average hold as the headline and the
+annualized figure as secondary. **Not changed — it moves a published performance figure.**
 
 ### 7. Airtable-sourced items
 The superlatives (five sentences across ARCTRUST and Reliant records; payload prepared),
@@ -98,7 +114,9 @@ their source. All are fixed and committed.
 | | |
 |---|---|
 | **OZ 2.0 nomination deadline** | 19 sentences across 9 articles described the window in future tense and **gave no deadline**. It opened 1 Jul 2026 and closes **28 Sep 2026**. |
-| **DST guide benchmark** | All 12 figures had drifted; two contradicted the homepage (14.9%/20.8% vs 17.66%/19.99%). Now generated from the dataset. |
+| **Stale performance snapshot** | The committed `build/fullcycle.tsv` held 307 rows while every deploy pulled the live table, so the published figures came from a dataset the repo had never seen. The snapshot is now the reviewed 1,014-program dataset and reproduces what the live site serves. The guard added in `dd832ad` would otherwise have rejected the live pull as an unreviewed import and rolled the headline back to 17.66%. |
+| **Inland's track record never attached** | The dataset name slugifies to `inland-private-capital`; the page is `/sponsors/inland/`. 117 programs at 6.31% were being dropped on the floor. Fixed with an alias. |
+| **DST guide benchmark** | All 12 figures had drifted; two contradicted the homepage (14.9%/20.8% vs the dataset's own figures). Now generated from the dataset. |
 | **Phantom sponsor explorer** | The guide advertised an interactive widget that does not exist in this build, rendering its filter chips as stray paragraphs. |
 | **Sponsor meta descriptions** | Walton said 76 full-cycle deals against 4; Four Springs 24 against 7. Now written from the dataset. |
 | **Boot calculator** | Subtracted cash boot from mortgage boot, understating taxable boot by up to 50%, always in the direction of understating tax. |
@@ -142,6 +160,14 @@ text-extraction weakness in the review.
 - **Rotate `ATTIO_WEBHOOK_SECRET`** — exposed in a pasted transcript. Attio → Developers →
   Webhooks, re-set in Netlify, redeploy.
 - Create the four Attio views by hand (`build/attio-views.md`); run `node build/attio-setup.mjs`.
+- **Three sponsors carry deal counts with no figures**: Passco Companies 55, ARCTRUST 4,
+  Blue Door 2 — rows exist in Airtable with no return, multiple or hold. Passco's alias is
+  deliberately *not* wired, so its page still says there are no verified results rather than
+  publishing "55 full-cycle deals" with five dashes. Either complete those rows or decide what
+  the page should say. One row is named "… (LOAN DEFAULT - excluded from IPC disposition table)".
+- **Whether the preferred cohort accepts Reliant and Peachtree Group.** Airtable marks both;
+  `build/preferred-sponsors.txt` publishes the approved three at 19.99%. Reliant alone → 22.79%,
+  Peachtree alone → 28.85%, both → 29.19%. The numbers are in the file's own comment.
 - Confirm `AIRTABLE_BASE_ID` / `AIRTABLE_TABLE_ID` are set explicitly in Netlify.
 
 ## Build and verification
