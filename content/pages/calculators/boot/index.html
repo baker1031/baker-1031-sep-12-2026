@@ -51,7 +51,9 @@ function calc(){
   var equity=Math.max(0, netValue-payoff);
   var equityIn=Math.max(0, Math.min(equity, rprice-rdebt-addcash));
   var cashBoot=Math.max(0, equity-equityIn);
-  var mortBoot=Math.max(0, payoff-rdebt-addcash-cashBoot);
+  var mortBoot=Math.max(0, payoff-rdebt-addcash);   // cash boot RECEIVED does not offset debt relief:
+  // under Treas. Reg. 1.1031(d)-2 only cash PAID reduces liability relief, so subtracting cashBoot here
+  // understated total boot by exactly the cash-boot amount whenever both kinds arose.
   var totalBoot=cashBoot+mortBoot;
   var taxable= gain>0? Math.min(totalBoot,gain) : totalBoot;
   set('rcash',usd(cashBoot)); set('rmort',usd(mortBoot)); set('rtotal',usd(totalBoot)); set('rtax',usd(taxable));
