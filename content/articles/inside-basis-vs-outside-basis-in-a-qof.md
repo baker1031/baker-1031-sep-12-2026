@@ -153,7 +153,7 @@ Baker 1031 helps investors understand the concepts and, after suitability review
 
 **10-Year Exclusion:** The tax-free result the step-up delivers.
 
-**Amount Realized:** Sale proceeds, minus basis to compute gain.
+**Amount Realized:** The total received on a sale — cash plus the fair value of other property plus liabilities relieved. Gain is the amount realized minus basis.
 
 **Allocated Income:** Partnership income (via K-1) increasing basis.
 

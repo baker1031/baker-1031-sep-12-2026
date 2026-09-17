@@ -184,7 +184,7 @@ We help investors understand California tax burden, the clawback, Form 3840 repo
 
 - IRS. [Revenue Ruling 2004-86](https://www.irs.gov/pub/irs-drop/rr-04-86.pdf)
 - Cornell Legal Information Institute. [26 U.S. Code § 1031 — Exchange of real property held for productive use or investment](https://www.law.cornell.edu/uscode/text/26/1031)
-- California Franchise Tax Board. [2023 Instructions for Form FTB 3840 — California Like-Kind Exchanges](https://www.ftb.ca.gov/forms/2023/2023-3840-instructions.html)
+- California Franchise Tax Board. [2025 Instructions for Form FTB 3840 — California Like-Kind Exchanges](https://www.ftb.ca.gov/forms/2025/2025-3840-instructions.html)
 - IRS. [Like-Kind Exchanges — Real Estate Tax Tips](https://www.irs.gov/businesses/small-businesses-self-employed/like-kind-exchanges-real-estate-tax-tips)
 
 ## Disclosures

@@ -19,7 +19,7 @@ A 1031 exchange, named for Section 1031 of the tax code, can defer the tax on a 
 
 First-order thinking is, “Defer **100%** of my tax today.” Second-order thinking is, “Does the replacement justify its price, leverage, liquidity, tenant risk, and management burden even after I take the deferral out of the decision?” The rules make the exchange possible. The replacement quality determines whether it was worthwhile.
 
-As of **July 11, 2026**, Section 1031 remains available for qualifying real property under current federal law. The result remains dependent on the property, taxpayer, timing, transaction documents, and then-current authority. Confirm the current rule with tax advisers before acting.
+Section 1031 remains available for qualifying real property under current federal law. The result remains dependent on the property, taxpayer, timing, transaction documents, and then-current authority. Confirm the current rule with tax advisers before acting.
 
 ## 01 · What a 1031 Exchange Is
 
@@ -139,7 +139,7 @@ To defer **100%** of qualifying tax, reinvest all equity, replace debt, and acqu
 
 ### Is the 1031 exchange going away?
 
-As of **July 11, 2026**, IRS guidance continues to describe like-kind exchanges for qualifying real property. Proposals and legislation can change the analysis, and the result depends on current authority and transaction facts. Have a CPA and attorney confirm the rule before acting.
+IRS guidance continues to describe like-kind exchanges for qualifying real property. Proposals and legislation can change the analysis, and the result depends on current authority and transaction facts. Have a CPA and attorney confirm the rule before acting.
 
 ## 13 · Glossary
 

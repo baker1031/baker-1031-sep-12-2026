@@ -66,7 +66,7 @@ The sale is divided into pieces. In the **$350,000** example, **$150,000** of re
 
 ## State income tax
 
-Most states tax capital gain as ordinary income rather than using the federal preferential rate. Some states have no income tax and add no state layer for their residents. California and other high-tax jurisdictions can add high single digits. The property’s location generally matters, not merely the seller’s residence, so an out-of-state rental can require another state return.
+Most states tax capital gain as ordinary income rather than using the federal preferential rate. Some states have no income tax and add no state layer for their residents. California and other high-tax jurisdictions can add low double digits — California’s top marginal rate exceeds 13%. The property’s location generally matters, not merely the seller’s residence, so an out-of-state rental can require another state return.
 
 Stack the layers and the result can be heavy: long-term federal gain, recapture up to **25%** on part of the gain, the **3.8%** NIIT, and state income tax. A high-tax-state seller can lose roughly **25%** to **35%** or more of the gain. A given sale may face only some of these, depending on income, holding period, depreciation, and state. Confirm the calculation with a CPA.
 
@@ -75,7 +75,7 @@ Stack the layers and the result can be heavy: long-term federal gain, recapture 
 | Long-term capital gains | Appreciation portion of gain | **0%**, **15%**, or **20%** |
 | Depreciation recapture (§1250) | Depreciation-driven portion | Up to **25%** |
 | Net investment income tax | Gain after MAGI threshold | **3.8%** |
-| State income tax | Full gain under state schedule | Varies from **0%** to high single digits+ |
+| State income tax | Full gain under state schedule | Varies from **0%** to low double digits |
 
 ## Ways to defer or reduce the tax
 

@@ -51,7 +51,7 @@ The defining tax feature of a [1031 exchange](1031-exchange-guide.html) is that 
 
 For minerals, carryover basis and depletion interact in important ways. Exchange a low-basis mineral interest into real estate and the low carryover basis becomes the real estate's basis, producing smaller depreciation deductions than a fresh purchase would. Exchange into other minerals and the low basis carries into them, affecting future cost depletion; percentage depletion, which is based on gross income rather than basis, is less affected. Carryover basis shapes deductions on whatever property replaces the relinquished interest.
 
-The replacement choice has tax dimensions beyond deferral. A low carryover basis means modest basis-driven deductions such as depreciation, a factor in projecting after-tax returns. This does not reduce the value of deferral — keeping a third of the value invested is powerful regardless — but it makes carryover basis a real factor for a CPA comparing replacements and projecting the new asset's tax profile.
+The replacement choice has tax dimensions beyond deferral. A low carryover basis means modest basis-driven deductions such as depreciation, a factor in projecting after-tax returns. This does not reduce the value of deferral — keeping the whole amount invested, rather than sending roughly a third of the gain to tax, is powerful regardless — but it makes carryover basis a real factor for a CPA comparing replacements and projecting the new asset's tax profile.
 
 ## Depreciation and depletion recapture rules
 
@@ -156,7 +156,7 @@ Inheritance gives a stepped-up basis at the date of death, which can substantial
 
 ### Does the low basis reduce the benefit of exchanging?
 
-No. Low basis is why exchanging is valuable: it means a large gain and a large tax to defer. That low basis carries to the replacement and means modest deductions there, which a CPA includes in projections, but deferring a large gain and keeping roughly a third of the value invested remains powerful regardless of the replacement's deductions.
+No. Low basis is why exchanging is valuable: it means a large gain and a large tax to defer. That low basis carries to the replacement and means modest deductions there, which a CPA includes in projections, but deferring a large gain, and so keeping invested the roughly one third of it that would otherwise have gone to tax, remains powerful regardless of the replacement's deductions.
 
 ### Can I take a little boot without much tax on a low-basis interest?
 

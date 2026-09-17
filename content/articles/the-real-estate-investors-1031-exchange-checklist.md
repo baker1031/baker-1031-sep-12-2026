@@ -41,7 +41,7 @@ The QI must be engaged before the sale closes — proceeds directed to its accou
 
 ## Tracking the 45- and 180-day deadlines
 
-The day your sale closes, two clocks start and must be tracked rigorously: 45 days to identify replacement property in writing, and 180 days to close on it. Both start at the same moment, run concurrently, are absolute (including weekends and holidays), and can't be extended on request. Mark these two dates on every calendar the instant a closing date is set, and set reminders well ahead of each — the deadlines are the most unforgiving feature of the exchange, and missing either one fails it.
+The day your sale closes, two clocks start and must be tracked rigorously: 45 days to identify replacement property in writing, and 180 days to close on it. Both start at the same moment, run concurrently, run on calendar days including weekends and holidays, end no later than the due date of that year’s return including extensions, and can only be postponed by an IRS disaster-relief notice. Mark these two dates on every calendar the instant a closing date is set, and set reminders well ahead of each — the deadlines are the most unforgiving feature of the exchange, and missing either one fails it.
 
 Understand the two timing traps. First, the clocks are concurrent, not consecutive — identifying on day 45 leaves at most 135 days to close, not a fresh 180. Second, your closing deadline is actually the earlier of 180 days or your tax return's due date for the year of the sale, so a late-year sale can shorten the window unless you filed an extension (which you planned for in the pre-sale phase). Both traps are avoidable with awareness and your CPA's input, but they catch investors who don't know about them.
 
@@ -127,7 +127,7 @@ Before your sale closes — assigned into the contract, with closing instruction
 
 ### What are the two deadlines?
 
-From the day your sale closes, 45 days to identify replacement property in writing and 180 days to close on it. Both start together, run concurrently, are absolute (including weekends and holidays), and can't be extended on request. Mark them the instant a closing date is set — missing either one fails the exchange.
+From the day your sale closes, 45 days to identify replacement property in writing and 180 days to close on it. Both start together, run concurrently, run on calendar days including weekends and holidays, end no later than the due date of that year’s return including extensions, and can only be postponed by an IRS disaster-relief notice. Mark them the instant a closing date is set — missing either one fails the exchange.
 
 ### Why do the clocks run concurrently?
 

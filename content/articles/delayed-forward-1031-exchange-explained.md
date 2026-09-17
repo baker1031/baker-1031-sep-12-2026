@@ -70,7 +70,7 @@ If an ideal replacement cannot wait for your sale, a [reverse exchange](reverse-
 - A delayed or forward exchange sells the relinquished property first, then acquires replacement property inside the deadlines.
 - It is most common because the legs do not need to close simultaneously.
 - The QI holds the proceeds across the gap so you do not take receipt.
-- The **45-day** and **180-day** clocks run concurrently and are absolute.
+- The **45-day** and **180-day** clocks run concurrently on calendar days and end no later than the due date of that year’s return including extensions.
 
 ## How it compares with other exchange types
 

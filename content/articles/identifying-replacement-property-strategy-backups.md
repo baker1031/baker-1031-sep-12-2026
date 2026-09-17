@@ -74,7 +74,7 @@ The better approach is to prepare before the sale: research the candidates, choo
 
 ## Timing the identification well
 
-The 45-day deadline is absolute. A prudent internal deadline is a week or two earlier—day 30, for example. That buffer allows time to prepare, sign, and deliver the written notice to the QI, and to adjust if a candidate drops out before the list is final.
+The 45-day deadline does not move for weekends or holidays, and only an IRS disaster-relief notice can postpone it. A prudent internal deadline is a week or two earlier—day 30, for example. That buffer allows time to prepare, sign, and deliver the written notice to the QI, and to adjust if a candidate drops out before the list is final.
 
 Delivery mechanics are as important as timing. The written notice must describe each property unambiguously by address or legal description, be signed by the exchanger, and reach the QI, not the real-estate agent or attorney, on or before day 45. The QI's form is the normal way to preserve these requirements.
 

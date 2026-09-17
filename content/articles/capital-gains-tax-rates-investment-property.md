@@ -89,7 +89,7 @@ Deferral is not elimination during life. Deferred gain is generally recognized i
 
 **Example 1: high-income California seller.** A **$500,000** gain includes **$150,000** of recapture. Federal capital gains of **20%** on **$350,000** equal **$70,000**. Recapture at **25%** on **$150,000** equals **$37,500**. NIIT at **3.8%** on **$500,000** equals **$19,000**. California tax at about **13%** on **$500,000** equals **$65,000**. The combined result is about **$191,500**, or roughly **38%**.
 
-**Example 2: moderate-income Georgia seller.** A **$300,000** gain includes **$80,000** of recapture. Federal capital gains at **15%** on **$220,000** equal **$33,000**; recapture at **25%** on **$80,000** equals **$20,000**; NIIT does not apply because income is below the threshold; and Georgia tax at about **5.75%** on **$300,000** is about **$17,250**. Total: about **$70,250**, or near **23%**.
+**Example 2: moderate-income Georgia seller.** A **$300,000** gain includes **$80,000** of recapture. Federal capital gains at **15%** on **$220,000** equal **$33,000**; recapture at **25%** on **$80,000** equals **$20,000**; NIIT does not apply because income is below the threshold; and Georgia tax at its **4.99%** flat rate on **$300,000** is about **$14,970**. Total: about **$67,970**, or near **23%**.
 
 **Example 3: Texas seller in a lower bracket.** A **$200,000** gain includes **$40,000** of recapture. Federal long-term gain at **15%** on **$160,000** is **$24,000**. Recapture at **25%** on **$40,000** is **$10,000**. With no NIIT and no state tax, the total is **$34,000**, or **17%**.
 

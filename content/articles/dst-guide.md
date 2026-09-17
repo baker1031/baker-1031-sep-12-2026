@@ -30,7 +30,7 @@ Use it however suits you. Newcomers can read top to bottom. Investors facing a 4
 
 - The One Big Beautiful Bill Act (2025) reinstated [100% bonus depreciation](big-beautiful-bill-bonus-depreciation-dst.html) and made it permanent, reshaping the math on depreciation and the "lazy 1031."
 
-- Section 1031 remains available for qualifying real property under current federal law as of July 11, 2026. A DST may qualify as replacement property only when the transaction satisfies the applicable requirements and documents.
+- Section 1031 remains available for qualifying real property under current federal law. A DST may qualify as replacement property only when the transaction satisfies the applicable requirements and documents.
 
 - Sponsor selection remains critical: in the Baker 1031 full-cycle dataset shown in the [Data Center](data-center.html), the preferred cohort's reported average is higher than the broader tracked population for the period and population shown (reviewed July 11, 2026). The figures are sponsor-reported, not independently verified, and may reflect selection and survivorship bias; “Preferred” is Baker's internal designation, not a rating, endorsement, or prediction. Most sponsors still have no full-cycle track record. Past performance is not indicative of future results.
 

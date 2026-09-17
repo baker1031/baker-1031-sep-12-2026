@@ -137,7 +137,7 @@ Because reserves, decline curves, operator quality, clear title, and eligibility
 
 ### Can a failed exchange be fixed after the fact?
 
-Usually not. Receipt of proceeds, a missed deadline, a non-qualifying interest, or an invalid identification generally cannot be undone. The exchange fails, potentially triggering full four-layer tax plus penalties. Prevention through early preparation is the protection.
+Usually not. Receipt of proceeds, a missed deadline, a non-qualifying interest, or an invalid identification generally cannot be undone. The exchange fails, potentially triggering the full four-layer tax, with interest, and penalties where the position was not reasonable. Prevention through early preparation is the protection.
 
 ### What's the cost of a failed mineral exchange?
 

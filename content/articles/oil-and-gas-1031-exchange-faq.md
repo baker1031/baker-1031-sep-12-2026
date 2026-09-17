@@ -31,7 +31,7 @@ The unifying principle is perpetuity plus real-property character. The more an i
 
 ## Process and deadlines
 
-The process generally follows any other 1031 exchange, but mineral ownership adds valuation, sourcing, and income-timing issues. Engage an independent [qualified intermediary](what-is-a-qualified-intermediary.html) before closing. Sale proceeds must go to the QI, not to the seller. From closing, there are [45 days to identify replacement property in writing and 180 days to close](45-day-180-day-deadlines-oil-gas-1031.html). Both clocks start together, are absolute, and do not extend for weekends or holidays.
+The process generally follows any other 1031 exchange, but mineral ownership adds valuation, sourcing, and income-timing issues. Engage an independent [qualified intermediary](what-is-a-qualified-intermediary.html) before closing. Sale proceeds must go to the QI, not to the seller. From closing, there are [45 days to identify replacement property in writing and 180 days to close](45-day-180-day-deadlines-oil-gas-1031.html). Both clocks start together, run on calendar days including weekends and holidays, and end no later than the due date of that year’s return including extensions; only an IRS disaster-relief notice postpones them.
 
 Mineral valuations can be harder to support than a building valuation, so a defensible appraisal matters both to the sale and to equal-or-greater-value planning. Replacement mineral interests can be thin and slow to source. That is why a fast-closing DST backup is often nearly standard practice. Royalty checks tied to pre-closing production can arrive after closing; they must be routed under the QI's and CPA's instructions so they do not become receipt of exchange funds.
 
@@ -105,7 +105,7 @@ Yes. An independent QI must receive sale proceeds before closing so the seller n
 
 ### What are the deadlines?
 
-From the sale closing, there are 45 days to identify replacement property in writing and 180 days to close. Both clocks run at the same time, are absolute, and do not move for weekends or holidays. Because mineral valuations and replacement markets can be slow, identify a fast-closing backup.
+From the sale closing, there are 45 days to identify replacement property in writing and 180 days to close. Both clocks run at the same time on calendar days including weekends and holidays, and end no later than the due date of that year’s return including extensions; only an IRS disaster-relief notice postpones them. Because mineral valuations and replacement markets can be slow, identify a fast-closing backup.
 
 ### What are the identification rules?
 

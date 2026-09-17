@@ -29,7 +29,7 @@ This is a guide to where boot comes from, how it is taxed, and how to keep it fr
 
 ## What Boot Means
 
-**Boot** is any value received in a 1031 exchange other than like-kind real property. The word comes from old American slang for something handed over “to boot,” on top of the main trade. In the exchange context, the usual extras are cash not reinvested and a net reduction in debt. The IRS treats that value as gain the investor has chosen to realize and taxes it accordingly.
+**Boot** is any value received in a 1031 exchange other than like-kind real property. The word comes from the old English phrase “to boot” — from bōt, meaning advantage or remedy — for something handed over on top of the main trade. In the exchange context, the usual extras are cash not reinvested and a net reduction in debt. The IRS treats that value as gain the investor has chosen to realize and taxes it accordingly.
 
 The reason is simple. Section 1031 rests on the idea that the investor has continued the same investment in a new form rather than cashed out. To the extent money is pocketed, or debt is shed without replacement, that continuity ends for that portion. Boot measures the portion actually liquidated: keep no non-like-kind value and full deferral remains possible; keep some and that portion is taxable. For the wider framework, see the [1031 exchange guide](1031-exchange-guide.html).
 
