@@ -24,7 +24,7 @@ A comprehensive walkthrough for investors, from the plain-English basics through
 
 A Delaware Statutory Trust lets you sell an appreciated property, defer the capital-gains tax through a 1031 exchange, and own a slice of institutional-grade real estate without ever managing it. This guide takes you from that one-sentence idea all the way to vetting a specific sponsor, with tools that turn the decisions into something you can actually work through.
 
-Use it however suits you. Newcomers can read top to bottom. Investors facing a 45-day clock can jump to [sponsor review](#sponsor) and [choosing a DST](#choosing). Everyone should spend time with the interactive tools — the exit-strategy quiz, the fit checklist, and the diversification model — because that's where the general rules become your decision.
+Use it however suits you. Newcomers can read top to bottom. Investors facing a 45-day clock can jump to [sponsor review](#08-reviewing-the-investment-sponsor) and [choosing a DST](#06-choosing-a-dst). Everyone should spend time with the interactive tools — the exit-strategy quiz, the fit checklist, and the diversification model — because that's where the general rules become your decision.
 
 ### What's new for 2026
 
