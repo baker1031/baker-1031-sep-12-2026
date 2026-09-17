@@ -66,8 +66,7 @@ Reporting and evidence matter. Form 8824, including Part II, reports related-par
 
 Complex facts—partnership interests, multiple entities, or a desire to avoid the two-year lock-up—need tax counsel. An exchange with an unrelated party may be cleaner. A related-party exchange is permitted, but only when both parties can meet the conditions deliberately and with informed professional guidance.
 
-### Key Takeaways
-
+## Key Takeaways
 - Related party is broad: spouse, siblings, lineal relatives, and majority-owned entities, including attribution rules.
 - Both parties generally must hold the received property for two years or retroactive disqualification can follow.
 - The rules address basis shifting and disguised sales; death, involuntary conversion, and non-tax-avoidance circumstances are limited exceptions.

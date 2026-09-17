@@ -98,7 +98,7 @@ Effort tolerance, income needs, risk appetite, debt, and estate planning all mat
 
 There is rarely one right answer. A fee-simple anchor with a DST sleeve, or several DSTs across sectors, can be more sensible than forcing the full exchange into a single structure. The exchange is a way to build the portfolio an investor wants, not merely to defer tax.
 
-### Key takeaways
+## Key takeaways
 
 - Broad like-kind rules allow a change in both property type and ownership model.
 - Fee-simple ownership trades more control and upside for more effort and concentration; DSTs trade control for passivity and diversification.

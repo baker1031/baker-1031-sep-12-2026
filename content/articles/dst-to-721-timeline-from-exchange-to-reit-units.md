@@ -66,8 +66,7 @@ After the lock-up, you can continue holding the OP units indefinitely if you cho
 
 In short, Phase 4 is where you settle into REIT ownership as an OP unit holder: the lock-up delays conversion at first, after which you either keep holding or move to convert in Phase 5.
 
-### Key Takeaways
-
+## Key Takeaways
 - Phase 1: the 1031 sale and DST exchange (45/180-day deadlines) — the only deadline-bound phase.
 
 - Phase 2: holding the DST (passive income, deferral) for the open-ended period until the 721 exit.

@@ -78,8 +78,7 @@ For mineral owners, clawback matters in cross-state exchanges involving clawback
 
 The practical response is to map the state implications with a CPA before a cross-state mineral exchange, identifying any clawback exposure and any ongoing state reporting obligations the exchange creates. Clawback rules vary, and not every state has them, so the analysis is state-specific. The broader lesson is that while the federal 1031 rules are uniform, the state-tax consequences — including clawback — depend on the specific states involved, and ignoring them can lead to an unexpected state tax bill down the road even when the federal exchange was flawless.
 
-### Key Takeaways
-
+## Key Takeaways
 - Federal 1031 rules are uniform, but state law governs mineral conveyances and characterization.
 - Texas (no income tax) faces only federal tax layers; Oklahoma, New Mexico, and North Dakota add a state income-tax layer.
 - Bakken/North Dakota minerals often have fractured title requiring careful diligence, and steep decline favoring diversification.

@@ -50,7 +50,7 @@ Mixed activities deserve special care. Someone who both develops and invests sho
 
 Documentation should reflect the reality. Keep rental agreements where applicable, evidence of appreciation holding, records showing no subdivision or sale-driven improvements, and tax reporting consistent with investment treatment, including rental income, depreciation, and capital-gains treatment. Contemporaneous records carry more weight than statements assembled after a sale. For mixed activity, document the separation between investment holdings and development inventory.
 
-### Key takeaways
+## Key takeaways
 
 - Dealer property is business inventory held for sale; it is ineligible for 1031 treatment and its gain is ordinary income.
 - Status turns on the owner’s purpose and activity, assessed on all the facts and circumstances.

@@ -45,7 +45,7 @@ Several projects can produce a smoother profile. A standout asset has less influ
 
 Neither result is superior in the abstract. The single-asset structure may fit someone willing to concentrate in a specific deal they believe in. The multi-asset structure may fit someone whose first concern is reducing single-deal exposure. Past performance does not guarantee future results, and all OZ investments carry real risk.
 
-### Key takeaways
+## Key takeaways
 
 - A single-asset QOF puts capital into one project. It can provide detailed deal-level transparency, but the investment rides on that project’s success.
 - A multi-asset QOF spreads capital across several projects. It lowers single-deal concentration risk, but usually provides less visibility into each holding.

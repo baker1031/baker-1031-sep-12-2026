@@ -56,7 +56,7 @@ Tax reporting should tell the same story. Report rental income, claim depreciati
 
 Create records as the rental and use happen, not from memory later. For a relinquished property, start the log early enough to cover the two **12-month** periods before the exchange. A CPA can help with fair-rental value, personal-use limits, reporting, and the records to keep.
 
-### Key takeaways
+## Key takeaways
 
 - Rental property held for investment is the standard qualifying 1031 asset; mixed-use vacation and second homes are the gray area.
 - Revenue Procedure **2008-16** offers a safe harbor: fair-value rental for **14+** days, limited personal use, and compliance over the required periods.

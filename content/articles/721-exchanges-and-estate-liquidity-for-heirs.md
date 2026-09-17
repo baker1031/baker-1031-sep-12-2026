@@ -48,8 +48,7 @@ A building is difficult to divide. OP units can be allocated in specific amounts
 
 This clean division resolves a common conflict: some heirs want to keep the investment, while others need or prefer cash. It also reduces the pressure toward shared-property disputes or a forced sale.
 
-### Key Takeaways
-
+## Key Takeaways
 - Estate liquidity means cash available for taxes, expenses, and fair division when heirs inherit an estate.
 - OP units can be convertible to cash and divide cleanly among heirs, unlike a single illiquid property.
 - A step-up can make post-inheritance conversion and sale low-tax by erasing deferred gain.

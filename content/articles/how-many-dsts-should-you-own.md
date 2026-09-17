@@ -51,8 +51,7 @@ Sectors also respond differently through a cycle. Multifamily and self-storage m
 
 Geography is the third layer. Metros and regions have different job markets, supply conditions, population changes, and local demand drivers. A strong local economy in one place can coexist with a supply glut or slowdown somewhere else. Spread across sponsors, sectors, and markets is more durable than simply owning several similar DSTs.
 
-### Key Takeaways
-
+## Key Takeaways
 - Multiple DSTs can reduce concentration risk, so one property, tenant, sponsor, or market does not dominate exchanged equity.
 - Each added DST adds complexity: more grantor letters, more monitoring, and more exchange and full-cycle coordination.
 - Minimums of about $25,000–$100,000 and the three-property and 200% identification rules constrain the practical count.
@@ -191,7 +190,7 @@ Baker 1031 helps investors examine diversification, complexity, minimums, identi
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [Delaware Statutory Trusts](insights.html) · [DSTs](insights.html) · [1031 Exchange](insights.html)
+**Filed under:** [Delaware Statutory Trusts](insights.html), [DSTs](insights.html), [1031 Exchange](insights.html)
 
 ## About the author
 

@@ -57,8 +57,7 @@ Self-storage is also more management-intensive than its passive image implies. T
 
 Investors also face sponsor, market, tenant, financing, fee, and leverage risk. DST interests are illiquid for the duration of the hold. These considerations are not footnotes to the resilience thesis. They are the conditions that determine whether it holds for a particular investment.
 
-### Key Takeaways
-
+## Key Takeaways
 - Self-storage has a recession-resilient reputation because demand comes from the four Ds and consumer accumulation in good times and bad.
 - Lean staffing, modest maintenance, and limited build-out needs can let well-run facilities convert a high share of revenue into income.
 - Short, month-to-month leases can support pricing power and inflation responsiveness, but rents can fall quickly in a soft local market.

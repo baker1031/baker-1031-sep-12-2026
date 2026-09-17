@@ -89,7 +89,7 @@ Request a written fee schedule and ask about interest on the funds, often called
 
 Unusually low pricing paired with fuzzy answers about custody deserves attention. It can signal corner-cutting or a heavy reliance on float income that does not align with an exchanger’s interest in safety. A trustworthy intermediary explains both its pricing and its fund handling without being pushed.
 
-### Key takeaways
+## Key takeaways
 
 - Select for fund security first: segregated qualified accounts, dual authorization, bonding, and insurance.
 - Favor an experienced, financially strong QI with a long, clean record.

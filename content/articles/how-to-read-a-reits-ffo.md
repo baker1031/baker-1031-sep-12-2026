@@ -55,7 +55,7 @@ Track per-share FFO across quarters and years. Steady growth can support dividen
 
 The same number anchors valuation through **P/FFO**, or share price divided by FFO per share. It is the REIT analogue of P/E. Use it against a REIT's own history and similar companies, not as a universal score. A higher multiple may reflect expected growth, quality, or a premium sector; it may also mean much of the good news is already priced in. [FFO, AFFO, and NAV together](how-to-evaluate-a-reit-ffo-affo-and-nav.html) provide a broader framework.
 
-### Key takeaways
+## Key takeaways
 
 - GAAP income can understate REIT earning power through non-cash depreciation and can be distorted by sale gains or losses.
 - FFO begins with net income, adds real-estate depreciation and amortization, removes sale gains, and adds sale losses.

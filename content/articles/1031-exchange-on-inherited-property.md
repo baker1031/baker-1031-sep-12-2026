@@ -70,8 +70,7 @@ When several heirs inherit together, early coordination helps them decide whethe
 
 Personal circumstances matter. An heir who needs cash may simply sell, often with little tax immediately after inheritance because of the step-up. An heir seeking passive income may prefer DSTs. An heir building a real estate portfolio may prefer other replacement property. The exchange discussion typically begins when post-inheritance appreciation exists or management is no longer wanted. Coordinate the estate, the CPA, and the other heirs where relevant.
 
-### Key Takeaways
-
+## Key Takeaways
 - Inherited investment property generally receives a date-of-death step-up in basis, often erasing the gain and making a fresh 1031 unnecessary.
 - A 1031 can help when gain accumulates through post-inheritance appreciation, depreciation, or time, or when the heir wants to reposition.
 - Inherited property receives automatic long-term gain treatment, but the held-for-investment rule still governs 1031 eligibility.

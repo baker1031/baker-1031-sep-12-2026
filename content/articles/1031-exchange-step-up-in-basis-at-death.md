@@ -66,8 +66,7 @@ Later-life passive off-ramps can make that hold more workable. A standard 1031 e
 
 The CPA, estate attorney, and 1031 adviser need to work together. The CPA handles income-tax and basis aspects; the estate attorney addresses titling, transfer mechanics, and estate-tax questions; the 1031 adviser helps with exchanges and passive structures. That coordination is how the step-up is captured cleanly and wealth passes as intended.
 
-### Key Takeaways
-
+## Key Takeaways
 - Deferred gain is the latent tax liability created by the gap between low carryover basis and current value.
 - A step-up at death resets heir basis to current value and erases accumulated deferred income-tax gain.
 - Heirs receive the full value with clean basis and flexibility to sell, hold, or exchange.

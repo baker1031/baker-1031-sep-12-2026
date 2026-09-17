@@ -63,8 +63,7 @@ This is why a serial-exchange strategy is often described as complete only when 
 
 [Reaching the finish line](1031-exchange-exit-strategies-swap-till-you-drop.html) takes planning. It can mean holding the chain until death rather than cashing out, using passive DST off-ramps later in life without breaking the exchange chain, and coordinating with an estate attorney. An investor can begin with one modest property and eventually pass a diversified portfolio to heirs, but the legal and tax result must be confirmed for that investor’s facts.
 
-### Key Takeaways
-
+## Key Takeaways
 - Deferral keeps full capital invested rather than losing more than a third of gain to tax at each sale.
 - Compounding without tax drag can make a material difference over a lifetime of serial exchanges.
 - Trading up can grow the portfolio, while diversification can manage concentration risk, with both actions potentially handled tax-deferred.

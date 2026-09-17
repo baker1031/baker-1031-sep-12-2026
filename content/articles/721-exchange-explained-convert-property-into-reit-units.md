@@ -61,7 +61,7 @@ The deferral continues while the OP units are held. It can be triggered when uni
 
 Like a 1031 exchange, OP units held until death can receive a step-up in basis that may erase deferred gain for heirs under current law. That estate-planning possibility is important, but it is fact-specific and should be confirmed with the investor’s CPA and attorney.
 
-### Key takeaways
+## Key takeaways
 
 - A 721 exchange contributes property to a REIT operating partnership for OP units, with gain deferred under Section 721.
 - OP units may convert to REIT shares, often 1:1 after a holding period, but conversion generally triggers deferred gain.

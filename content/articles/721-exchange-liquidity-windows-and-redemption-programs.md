@@ -61,7 +61,7 @@ An investor in a non-traded REIT should request redemption early if cash may be 
 
 The practical approach is to match the asset with the cash-flow calendar: needed cash, other reserves, planned conversions, expected tax, and the REIT’s written terms. Planning protects against the unpleasant surprise of discovering that an asset is liquid in theory but not on the date capital is needed.
 
-### Key takeaways
+## Key takeaways
 
 - After the lock-up, liquidity is a two-step process: convert OP units to shares, which triggers gain, then sell shares or request redemption.
 - Conversion may involve windows, notices, and procedures under the partnership agreement.

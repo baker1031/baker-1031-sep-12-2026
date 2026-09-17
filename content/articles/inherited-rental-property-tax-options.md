@@ -45,8 +45,7 @@ You can keep the rental, depreciate it from the stepped-up basis, collect rent, 
 
 It is an active choice. Tenants, repairs, and vacancies remain your responsibility. Appreciation above the stepped-up basis becomes a future taxable gain if you later sell without exchanging. Some heirs discover that they are accidental landlords and later choose to sell or exchange instead.
 
-### Key Takeaways
-
+## Key Takeaways
 - Inheriting a rental generally brings a step-up in basis under IRC §1014 to date-of-death value, so a near-term sale often produces little or no capital-gains tax.
 - Selling soon can be a clean, tax-efficient exit, but it leaves real estate entirely.
 - A 1031 exchange can reshape the holding into different investment real estate, including a passive DST, and defer future gain.

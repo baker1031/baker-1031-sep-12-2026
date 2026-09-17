@@ -160,7 +160,7 @@ It can be. OP units are divisible and may retain deferred gain until a step-up a
 1. Cornell Legal Information Institute, [26 U.S. Code § 721](https://www.law.cornell.edu/uscode/text/26/721).
 2. Investor.gov, [Real Estate Investment Trusts (REITs)](https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits).
 
-**Filed under:** [721 Exchange](insights.html) · [721 UPREIT](insights.html) · [REITs](insights.html)
+**Filed under:** [721 Exchange](insights.html), [721 UPREIT](insights.html), [REITs](insights.html)
 
 ## About the Author
 

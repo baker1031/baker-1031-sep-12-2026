@@ -170,7 +170,7 @@ Potentially. Contributing only part of a real-estate position and retaining some
 3. Nareit, [What's a REIT (Real Estate Investment Trust)?](https://www.reit.com/what-reit).
 4. Cornell Legal Information Institute, [26 U.S. Code § 721 — Nonrecognition of gain or loss on contribution](https://www.law.cornell.edu/uscode/text/26/721).
 
-**Filed under:** [721 Exchange](insights.html) · [721 UPREIT](insights.html) · [REITs](insights.html)
+**Filed under:** [721 Exchange](insights.html), [721 UPREIT](insights.html), [REITs](insights.html)
 
 ## About the Author
 

@@ -47,8 +47,7 @@ At the recognition date, the deferred original gain is recognized and taxed. Tha
 
 Allocated income and partnership debt affect the running outside basis between those events. Distributions and allocated losses can reduce it. This is why the tax outcome cannot be read from one number on a subscription document. Basis is the thread running through deferral, recognition, and the 10-year exclusion.
 
-### Key Takeaways
-
+## Key Takeaways
 - Outside basis is the investor's basis in a QOF interest; inside basis is the partnership's basis in its underlying assets.
 - A deferred-gain QOF investor's initial outside basis is generally zero because the rolled gain was not taxed at investment.
 - Outside basis can increase at the recognition date and through allocated income and partnership debt; distributions and allocated losses can reduce it.

@@ -11,7 +11,7 @@ risk: "mixed"
 
 [Home](baker1031.html) · [Back to All Insights](insights.html)
 
-**Filed under:** [REIT](insights.html), [REITs](insights.html), [DSTs](insights.html), and [1031 Exchange](insights.html)  
+**Filed under:** [REIT](insights.html), [REITs](insights.html), [DSTs](insights.html), [1031 Exchange](insights.html)
 **By:** Baker 1031 Research  
 **Updated:** June 2026 · **16 min read**
 

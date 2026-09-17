@@ -66,8 +66,7 @@ For a large gain and modest suspended losses, deferring the large gain will ofte
 
 The CPA also tracks the carried losses after an exchange, applies them to future passive income, and handles the eventual taxable disposition. Where boot is involved, the CPA analyzes any partial freeing. Do not decide between sale and exchange without including significant suspended losses in the analysis.
 
-### Key Takeaways
-
+## Key Takeaways
 - Suspended passive activity losses are rental losses limited by the PAL rules and carried forward until usable or freed.
 - A fully taxable sale generally frees those losses; a 1031 nonrecognition exchange generally carries them forward.
 - The losses continue to the replacement property, where they may offset future passive income and can be freed at a later taxable disposition.

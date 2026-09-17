@@ -51,8 +51,7 @@ Tenant concentration is central in single-tenant industrial. A default, non-rene
 
 The usual DST risks remain: illiquidity during a multi-year hold, leverage, sponsor execution, and fees. A passive investor relies on the sponsor for tenant selection, lease structuring, and property management. Leverage amplifies gains and losses; floating-rate or short-maturity debt adds more uncertainty.
 
-### Key Takeaways
-
+## Key Takeaways
 - E-commerce and supply-chain reconfiguration support long-run demand, but new construction can still pressure rents and occupancy.
 - Long net leases can support income stability, yet that income depends on tenant credit and the remaining lease term.
 - A default or non-renewal can sharply reduce income in a single-tenant property.

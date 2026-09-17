@@ -88,7 +88,7 @@ There is no universal answer. The method should fit income, risk tolerance, and 
 
 Engage the lender early, before the **180-day** deadline. The qualified intermediary handles exchange mechanics; the CPA runs the netting and reports the result on **Form 8824**. A DST sponsor’s financing may avoid personal loan qualification, but the DST’s LTV must still match the need. Plan the debt side as deliberately as the equity side.
 
-### Key takeaways
+## Key takeaways
 
 - Replace the debt paid off, not only equity, to fully defer.
 - Unreplaced debt is taxable mortgage boot; new debt or added cash can offset it.

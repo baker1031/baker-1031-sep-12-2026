@@ -9,7 +9,7 @@ risk: "reit"
 
 # AFFO vs. FFO: Which Metric Matters More?
 
-**Filed under:** [REIT](insights.html) and [REITs](insights.html)  
+**Filed under:** [REIT](insights.html), [REITs](insights.html)
 **By:** Baker 1031 Research  
 **Updated:** June 2026 · **16 min read**
 
@@ -61,7 +61,7 @@ AFFO is more economically focused on cash, but less standardized. There is no si
 
 So use FFO for standardized comparison and valuation. Use AFFO to assess a particular REIT's dividend coverage and cash generation. Then read the reconciliation rather than accepting either label as self-explanatory.
 
-### Key takeaways
+## Key takeaways
 
 - AFFO refines FFO by subtracting recurring maintenance capex, straight-line-rent adjustments, and other normalizations.
 - Maintenance capex is real property reinvestment that FFO ignores and is commonly the largest reason AFFO is lower.

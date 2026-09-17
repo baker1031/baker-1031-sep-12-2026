@@ -51,8 +51,7 @@ E-commerce is the defining structural force in retail, but it is selective. Disc
 
 Necessity and convenience retail—groceries, pharmacies, and daily services—require recurring in-person trips. Experiential retail, including dining, entertainment, fitness, and personal services, provides something that cannot be shipped. A property that functions as a fulfillment or pickup point can also benefit from omnichannel shopping. Format, tenant quality, location, and the actual use of the space matter more than a blanket view of “retail.”
 
-### Key Takeaways
-
+## Key Takeaways
 - Retail REITs come in three formats—regional malls, grocery-anchored strip centers, and single-tenant net-lease properties—each with a distinct profile.
 - Malls are anchor-dependent and most e-commerce-exposed, except for trophy “A” malls; grocery-anchored strip centers draw recurring necessity traffic and tend to be more resilient.
 - Net-lease retail can produce predictable, bond-like income from long triple-net leases, driven by tenant credit and lease term rather than foot traffic.

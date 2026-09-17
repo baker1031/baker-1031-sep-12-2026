@@ -61,7 +61,7 @@ There are important details. Financing costs and prorations may receive differen
 
 From a capital-management perspective, the commission belongs beside other transaction costs. A capable agent earns it by sourcing property effectively and handling the transaction with the exchange’s constraints in mind. It should be evaluated together with the agent’s experience, responsiveness, network, and ability to coordinate—not merely as a percentage on a closing statement.
 
-### Key takeaways
+## Key takeaways
 
 - A 1031-savvy agent matters because exchange rules affect how transactions are handled; the wrong agent can jeopardize the deferral.
 - The agent handles the property transactions and replacement search. The QI handles exchange mechanics, and the CPA handles tax.

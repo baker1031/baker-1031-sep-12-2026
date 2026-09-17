@@ -21,7 +21,7 @@ I keep seeing agents let a real-estate conversation end when the client says, â€
 
 A REIT can provide real-estate exposure without a deed, tenants, repairs, or a mortgage. It is not an agentâ€™s product to sell. It is a category to explain plainly and a reason to refer the client to the right licensed professional. First-order thinking sees no commission and ends the discussion. Second-order thinking sees a compliant introduction as relationship capital.
 
-### Key Takeaways for Agents & Brokers
+## Key Takeaways for Agents & Brokers
 
 - Private and non-traded REITs can give a cash investor passive, diversified real-estate income without buying or managing property.
 - REITs are securities. Educate and refer; do not sell, recommend a particular REIT, offer investment advice, or accept securities compensation.

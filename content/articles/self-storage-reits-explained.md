@@ -55,8 +55,7 @@ Market selection and barriers to entry therefore matter. Scarce land or constrai
 
 Review permit data, the new-supply pipeline, and competitor pricing in key markets. They are part of testing whether occupancy and rate growth are likely to hold up.
 
-### Key Takeaways
-
+## Key Takeaways
 - Self-storage demand has a resilient, recession-tested reputation because the four Ds and consumer accumulation create demand across cycles.
 - Few employees, light maintenance, and modest capital needs can support high margins and cash flow when facilities stay full.
 - Short, month-to-month leases can allow frequent rate increases in a healthy market.

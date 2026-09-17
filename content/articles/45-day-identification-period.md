@@ -75,8 +75,7 @@ Identify backups, not just a primary. Financing can sour, inspections can reveal
 
 Under the 3-property rule, use a primary plus one or two genuine alternatives. A common structure is a direct-property primary and a fast-closing DST backup. The modest work of vetting it is insurance against capital gains, recapture, [NIIT](net-investment-income-tax.html), and state tax becoming due together.
 
-### Key Takeaways
-
+## Key Takeaways
 - Deliver a written, signed identification to the QI by day 45. Verbal and misdelivered notices do not count.
 - Describe real estate unambiguously and DSTs by trust plus dollar or percentage interest.
 - Identify backups, ideally a fast-closing DST, so a stalled primary cannot end the exchange.

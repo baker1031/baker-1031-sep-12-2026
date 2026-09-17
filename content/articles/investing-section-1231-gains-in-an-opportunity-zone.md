@@ -47,8 +47,7 @@ The most common error is investing a gross Section 1231 gain before offsetting S
 
 Another error is assuming the sale-date clock when year-end applies, or assuming year-end when sale-date treatment applies, and then missing a deadline or investing outside the window. A third is treating ordinary-income recapture as eligible. Section 1245 depreciation recapture on personal property is ordinary income, not capital gain, and it cannot fund an OZ.
 
-### Key Takeaways
-
+## Key Takeaways
 - Only the net Section 1231 gain after netting all gains and losses for the year is capital gain eligible for a QOF; not a single gross gain.
 - Ordinary-income recapture, including Section 1245 depreciation recapture, does not qualify. Only the net capital-gain portion can fund an OZ.
 - The 180-day clock historically began at year-end because netting occurs then, but later guidance can allow a sale-date start. Confirm the current rule.

@@ -58,8 +58,7 @@ One approach is to have sufficient basis to absorb the deemed distribution, allo
 
 Loan-to-value matters as well: higher debt compared with [how the partnership values your property](insights.html) can increase the potential deemed distribution. The partnership's overall debt and the actual legal obligations matter too. Guarantees and allocations are technical tools for tax professionals, not do-it-yourself fixes. The contribution closing documents should be coordinated with the CPA and attorney; see [721 exchange closing documents explained](721-exchange-closing-documents-explained.html).
 
-### Key Takeaways
-
+## Key Takeaways
 - A partnership can assume a property's mortgage or take it subject to the mortgage, making the loan a partnership liability.
 - The contributor's debt share usually moves from 100% of a direct mortgage to an allocated partnership share; the reduction is generally a deemed cash distribution.
 - A deemed distribution can cause taxable gain when it exceeds the contributor's basis.

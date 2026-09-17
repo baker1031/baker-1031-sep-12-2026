@@ -198,7 +198,7 @@ We help investors evaluate retail DSTs — the types of retail DSTs, the net-lea
 
 - U.S. Securities and Exchange Commission. [Investor.gov — Updated Investor Bulletin: Accredited Investors](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated-3)
 
-**Filed under:** [Delaware Statutory Trusts](insights.html) · [DSTs](insights.html) · [1031 Exchange](insights.html)
+**Filed under:** [Delaware Statutory Trusts](insights.html), [DSTs](insights.html), [1031 Exchange](insights.html)
 
 ## Disclosures
 

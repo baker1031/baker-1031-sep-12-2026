@@ -53,8 +53,7 @@ Direct ownership offers control, potential mortgage leverage, direct depreciatio
 
 Neither route is universally better. Goals, capital, risk tolerance, and the desire for control versus passivity all matter. A first-order reaction may favor the price movement that feels calmer. A second-order analysis separates visible daily volatility from concentration, illiquidity, leverage, and operating risk. Both routes carry risk, just in different forms.
 
-### Key Takeaways
-
+## Key Takeaways
 - REITs are passive, liquid when traded, low-minimum, diversified, and professionally managed, but shareholders have no control and traded REITs have market volatility.
 - Direct ownership offers control, leverage, direct depreciation and tax benefits, and potential 1031 eligibility, but it is hands-on, illiquid, capital-intensive, and concentrated.
 - REIT shares are not 1031-eligible; direct real property can be, a material distinction for a 1031 exchange.
@@ -202,7 +201,7 @@ REITs can suit investors seeking passive, liquid real-estate exposure with low m
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [REIT](insights.html) · [REITs](insights.html)
+**Filed under:** [REIT](insights.html), [REITs](insights.html)
 
 ### About the author
 

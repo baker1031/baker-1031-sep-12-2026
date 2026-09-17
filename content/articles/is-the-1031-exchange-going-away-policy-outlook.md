@@ -73,8 +73,7 @@ At the same time, stay informed. Follow budget proposals and tax-reform discussi
 
 For owners with large unrealized gains, this is a case for planning with current rules while recognizing the risk of future change. The exchange is fully usable under the source’s **2026** status. Avoid both complacency and alarm. Monitor real developments and act on enacted rules rather than speculation.
 
-### Key Takeaways
-
+## Key Takeaways
 - As of **2026**, the real-estate 1031 exchange is fully intact; recent major federal tax legislation did not limit or repeal it.
 - Revenue and distributional arguments periodically put it in policy debates, but the economic case is contested.
 - The **$500,000** proposed deferral cap and one-exchange-per-lifetime concepts were discussed, not enacted.

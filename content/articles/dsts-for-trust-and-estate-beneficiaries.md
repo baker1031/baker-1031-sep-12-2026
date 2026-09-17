@@ -62,8 +62,7 @@ For a living owner with a low basis and large gain, deferral often drives the 10
 
 The analysis changes again if the property has appreciated since death. That post-death appreciation can create new gain, which can make deferral relevant again. The estate's CPA should model the actual basis, depreciation, and gain; Baker 1031 does not provide tax advice.
 
-### Key Takeaways
-
+## Key Takeaways
 - A trust or estate may be responsible for management-heavy, indivisible real estate while serving multiple beneficiaries.
 - A 1031 exchange into DSTs can turn the property into passive income and divisible fractional interests.
 - A Section 1014 step-up at death may reduce or erase gain, making passivity and division—not deferral—the central reason to consider the exchange.
@@ -179,7 +178,7 @@ We provide education about the DST structure and coordinate the DST side with th
 3. Cornell Legal Information Institute, [26 U.S. Code § 1031 — Exchange of real property held for productive use or investment](https://www.law.cornell.edu/uscode/text/26/1031).
 4. IRS, [Like-Kind Exchanges — Real Estate Tax Tips](https://www.irs.gov/businesses/small-businesses-self-employed/like-kind-exchanges-real-estate-tax-tips).
 
-**Filed under:** [Delaware Statutory Trusts](insights.html) · [DSTs](insights.html) · [1031 Exchange](insights.html)
+**Filed under:** [Delaware Statutory Trusts](insights.html), [DSTs](insights.html), [1031 Exchange](insights.html)
 
 ## About the Author
 

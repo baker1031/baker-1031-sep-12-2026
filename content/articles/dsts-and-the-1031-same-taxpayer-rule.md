@@ -53,7 +53,7 @@ Community-property states, including California, Texas, Arizona, Nevada, Washing
 
 The same-taxpayer rule still requires consistency between how the property was sold and how the DST is acquired. State law, survivorship, and estate-planning goals make this a question for an attorney and CPA familiar with the couple’s circumstances, not a one-size-fits-all answer.
 
-### Key takeaways
+## Key takeaways
 
 - The same-taxpayer rule requires the taxpayer that sold the relinquished property to acquire the DST replacement.
 - For entity-owned property, identify the actual taxpayer. A partnership that sold generally must acquire; a disregarded entity follows its owner.

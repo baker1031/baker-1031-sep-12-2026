@@ -60,7 +60,7 @@ Other red flags include promises of above-market interest on exchange money, wea
 
 Pressure tactics and unusual fund-handling requests deserve attention as well. A legitimate QI follows ordinary secure practices. A red flag does not prove fraud, but it is a reason to investigate more deeply or select another QI with demonstrable protections.
 
-### Key takeaways
+## Key takeaways
 
 - QIs are not federally regulated or insured like banks, so fund safety depends on the QI’s integrity and soundness.
 - Losses can arise through misappropriation from commingled accounts, risky investment of funds, or a QI’s financial failure.
@@ -169,7 +169,7 @@ Modest, market-rate interest consistent with safe, liquid custody, such as money
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [1031 Exchange](insights.html), [1031 Exchange](insights.html)
+**Filed under:** [1031 Exchange](insights.html)
 
 ### Author note
 

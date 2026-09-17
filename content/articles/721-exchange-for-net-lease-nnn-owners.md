@@ -52,8 +52,7 @@ Commercial net-lease property is generally depreciated over 39 years. Owners can
 
 A qualifying 721 contribution can defer those components rather than causing the owner to sell simply to diversify. The low basis carries into OP units, and the deferred gain can remain until a taxable disposition. A step-up in basis at death can change the result for heirs. Deferral is not forgiveness at contribution, and a CPA should assess the tax treatment.
 
-### Key Takeaways
-
+## Key Takeaways
 - NNN owners already have passive income but carry single-tenant concentration risk.
 - The core benefit is a move from one net-lease property to a diversified REIT portfolio with many tenants.
 - A net-lease REIT can retain a familiar passive, credit-tenant income profile while spreading risk.

@@ -66,8 +66,7 @@ Also understand the expected timing and certainty of the 721 exit — is there a
 
 Also understand the tax implications (the deferral across both steps, the eventual tax on converting OP units to shares), the fees and structure, and the trade-offs (the one-way nature of the eventual REIT ownership, the loss of control). These are securities, so a suitability review applies. What to confirm before investing — that the DST is structured for a 721/UPREIT exit, the expected timing and certainty of the exit, the quality of the REIT you'll end up owning, and the tax implications and trade-offs — is essential due diligence for the two-step strategy. Because the strategy depends on the 721 exit and lands you in the REIT, confirming these factors protects you. Understanding what to confirm ensures you enter the two-step strategy with clear expectations and a sound DST and REIT. This due diligence is critical before committing to the DST-to-REIT path.
 
-### Key Takeaways
-
+## Key Takeaways
 - The DST-to-REIT strategy: a 1031 into a DST (step one), then a 721 into a REIT (step two), reaching diversified, liquid REIT ownership tax-deferred.
 
 - The DST is the bridge — you generally can't 721 your individual property directly into a REIT, but a DST can be structured for a 721/UPREIT exit.

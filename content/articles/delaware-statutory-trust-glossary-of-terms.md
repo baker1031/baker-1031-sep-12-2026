@@ -60,8 +60,7 @@ An accredited investor is an individual or entity that meets thresholds set by t
 
 So 506(c) is the securities exemption under which DSTs are offered to verified accredited investors, and accredited investor is the status — based on income or net-worth thresholds — that you must meet to invest. 506(c) and accredited investor — Rule 506(c) being the Regulation D exemption that lets DSTs be generally solicited but sold only to accredited investors whose status is verified, and accredited investor being the income (&gt;$200k/$300k) or net-worth (&gt;$1M excluding primary residence) standard an investor must meet — together define who can invest in a DST and how. They are the access rules. Understanding them clarifies eligibility. DSTs are offered under Rule 506(c) to verified accredited investors only — those meeting income or net-worth thresholds — accessed through a broker-dealer after status verification and a suitability review, not bought on a public market.
 
-### Key Takeaways
-
+## Key Takeaways
 - A beneficial interest is your 1031-eligible fractional ownership in the trust; the trustee runs it under the strict 'seven deadly sins' restrictions.
 
 - A master lease keeps the property operating while the trust stays passive; a springing LLC is an emergency conversion that ends 1031 eligibility.

@@ -24,8 +24,7 @@ Every DST has an ending. Knowing your options at the finish line — pay the tax
 
 A DST is a finite investment, and the discipline of investing in one well includes planning for its end before it begins. At some point the sponsor sells the property, the trust dissolves, and your capital comes back — the moment the industry calls going "full-cycle." What you do at that fork determines whether you keep deferring tax or finally pay it, and the choice is more consequential than most investors realize until it arrives. This memo walks through what full-cycle means, why it happens the way it does, and the three roads out.
 
-### Key Takeaways
-
+## Key Takeaways
 - 'Full-cycle' means the sponsor has sold the DST's property and returned capital to investors.
 
 - Typical hold periods run five to seven years, and sometimes as long as ten, though timing depends on the market and the business plan.
@@ -106,8 +105,7 @@ Setting realistic return expectations starts with understanding that a DST's ret
 
 Realistic expectations also account for fees, debt, and time. The upfront load means not all of your capital is deployed into the property, the ongoing fees reduce net distributions, and any disposition costs reduce the proceeds at sale — so the return you actually net differs from a gross projection. Leverage can amplify returns but also risk. And because the hold typically runs five to seven years, your capital is committed and illiquid during that time. A grounded investor expects a reasonable income stream during the hold and a return of capital (with potential gain) at sale, while recognizing that outcomes vary, that past performance doesn't guarantee future results, and that a successful full cycle depends on the sponsor's execution and on market conditions no one can control. The goal is informed expectations, not optimistic ones.
 
-### Key Takeaways
-
+## Key Takeaways
 - "Full-cycle" means a DST's complete life from offering, through a roughly five-to-seven-year hold, to the property's sale and return of capital.
 
 - A sponsor's full-cycle history is proof it can execute the entire arc — acquire, operate, sell, and return capital — not just raise money.

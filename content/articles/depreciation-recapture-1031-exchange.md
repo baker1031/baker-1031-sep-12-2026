@@ -63,7 +63,7 @@ A 1031 exchange [defers depreciation recapture along with the capital gain](capi
 
 That matters because the recapture layer can be taxed at the higher **25%** rate. Deferral keeps that capital invested rather than paying it to the IRS at sale. The mechanism is carryover basis: the depreciated adjusted basis follows the investor into the replacement property along with the rest of the deferred gain.
 
-### Key takeaways
+## Key takeaways
 
 - Prior depreciation can be recaptured at up to **25%** and is often the biggest tax on a long-held rental.
 - A 1031 exchange defers recapture and capital gain through carryover basis.

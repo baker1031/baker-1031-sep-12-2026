@@ -66,8 +66,7 @@ There is no single dealer-status factor. Courts and the IRS consider the frequen
 
 The practical response is to avoid patterns that signal resale: frequent quick flips, immediate marketing, and development for sale. If you both flip and invest, keep the investment properties clearly distinguishable—longer holds, consistent investment treatment, and perhaps separate entities—and ask your CPA about status before you exchange.
 
-### Key Takeaways
-
+## Key Takeaways
 - There is no fixed statutory holding period; the test is whether the property was held for investment.
 - One year/two tax years, and sometimes two years, are risk-management heuristics rather than requirements.
 - Rental use, tax reporting, and records provide the evidence of intent.

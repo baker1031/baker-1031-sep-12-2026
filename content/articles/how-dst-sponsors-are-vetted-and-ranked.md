@@ -46,8 +46,7 @@ Financial strength and tenure ask whether the sponsor can remain a stable stewar
 
 The more important test is survival through a full market cycle. A sponsor that has navigated a financial crisis, a real-estate correction, or rising rates has shown it can operate under stress without collapsing or abandoning investors. A long, stable history through varied conditions is more reassuring than rapid recent growth in one favorable period. A well-capitalized sponsor may also be better positioned to support properties through temporary trouble, fund necessary capital improvements, and avoid forced, ill-timed sales. Evaluations consider tenure, AUM, the balance sheet, and demonstrated resilience.
 
-### Key Takeaways
-
+## Key Takeaways
 - DST sponsors are ranked on track record and full-cycle results, transparency and reporting, financial strength and tenure, and fee alignment.
 - Full-cycle results—realized returns against original projections across completed deals—are the most revealing evidence because they test promises against outcomes.
 - Transparency and reporting quality determine whether an investor knows what is happening with an illiquid, passively held DST over the multi-year hold.
@@ -165,7 +164,7 @@ We explain the evaluation criteria and help investors look past marketing to ful
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [Delaware Statutory Trusts](insights.html) · [DSTs](insights.html) · [1031 Exchange](insights.html)
+**Filed under:** [Delaware Statutory Trusts](insights.html), [DSTs](insights.html), [1031 Exchange](insights.html)
 
 ## About the author
 

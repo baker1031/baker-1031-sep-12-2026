@@ -9,7 +9,7 @@ risk: "dst"
 
 # The Agent & Broker's 2026 Guide to 1031 Exchanges
 
-**Filed under:** For Agents & Brokers  
+**Filed under:** 
 **By:** Baker 1031 Research  
 **Updated:** June 2026 · **16 min read**
 

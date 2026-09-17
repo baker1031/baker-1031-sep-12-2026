@@ -60,8 +60,7 @@ On the equity side, because DST minimums are low and you can invest across multi
 
 So matching equity and debt is easier with DSTs: low minimums and multiple offerings deploy all your equity, and pass-through non-recourse debt replaces your loan without personal qualification. Matching equity and debt — replacing both your equity (reinvesting all net proceeds, using low minimums and multiple DSTs to deploy odd amounts and avoid taxable boot) and your debt (the DST's pass-through non-recourse loan counting toward your replacement-debt requirement, with no personal qualification) to fully defer the gain — is one of the DST's most practical advantages. DSTs fine-tune both sides. Understanding the matching clarifies full deferral. DSTs make matching equity and debt easy: low minimums and multiple offerings deploy all your equity, while pass-through non-recourse debt replaces your loan without you personally qualifying.
 
-### Key Takeaways
-
+## Key Takeaways
 - Investors choose DSTs for a 1031 because they deliver passivity, tax deferral, easy diversification, fast closing, and pass-through debt replacement.
 
 - DSTs are pre-packaged, identifiable offerings, so they're easy to identify within the strict 45-day window and make reliable backups against a failed deal.

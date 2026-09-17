@@ -57,8 +57,7 @@ Once funded, the IRA—not the investor personally—makes the investment, and t
 
 The SDIRA does not alter the REIT. A non-traded REIT remains illiquid, NAV-priced, and suitability-gated. Before moving capital, coordinate the mechanics with the custodian and tax advisor rather than treating a rollover as routine paperwork.
 
-### Key Takeaways
-
+## Key Takeaways
 - Most REIT dividends are ordinary income, so an IRA can shelter a tax-inefficient income stream from current tax.
 - A standard brokerage IRA can hold traded REITs; an SDIRA is mainly for non-traded or private REITs a regular brokerage cannot custody.
 - Ordinary REIT dividends are generally excluded from UBTI, making UBIT and UDFI narrower, structure-specific concerns.

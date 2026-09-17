@@ -68,8 +68,7 @@ Before the TCJA, like-kind exchanges could involve more than real estate. They c
 
 For most real estate investors, real-estate-for-real-estate exchanges continued unchanged. But the law ended exchanges of business personal property and affected, among other things, equipment components of some properties. The modern 1031 exchange is therefore a real-estate-specific tax-deferral tool—not a tool for personal property or intangibles.
 
-### Key Takeaways
-
+## Key Takeaways
 - The like-kind exchange dates to the Revenue Act of 1921 and rests on continued investment rather than a taxed change in form.
 - *Starker* in 1979 allowed deferred, non-simultaneous exchanges.
 - The 1984 law created the 45-day identification and 180-day completion deadlines; 1991 regulations created the QI safe harbor.
@@ -173,7 +172,7 @@ The original idea of an exchange was a literal, at-once trade between two partie
 3. U.S. Congress, [Tax Cuts and Jobs Act of 2017 (Public Law 115-97)](https://www.congress.gov/bill/115th-congress/house-bill/1).
 4. Cornell Legal Information Institute, [26 CFR § 1.1031(k)-1 — Treatment of deferred exchanges](https://www.law.cornell.edu/cfr/text/26/1.1031(k)-1).
 
-**Filed under:** [1031 Exchange](insights.html) · [1031 Exchange](insights.html)
+**Filed under:** [1031 Exchange](insights.html)
 
 ## About the Author
 

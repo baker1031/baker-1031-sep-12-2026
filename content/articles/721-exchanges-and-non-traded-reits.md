@@ -54,8 +54,7 @@ A traded REIT generally offers market liquidity, transparent real-time price dis
 
 Neither is universally right. Liquidity and transparency may favor a traded REIT. An investor who accepts limited liquidity and prefers no daily market quote may consider a non-traded REIT, but only after careful review of the particular offering.
 
-### Key Takeaways
-
+## Key Takeaways
 - Non-traded REITs lack exchange-listed shares, so liquidity is generally through limited, discretionary redemption programs.
 - NAV is a periodic estimate, not a real-time market price, and may not reflect current conditions.
 - Upfront and ongoing fees can be significant and reduce returns.

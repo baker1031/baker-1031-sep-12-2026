@@ -39,7 +39,7 @@ The contrast is keeping versus giving. A DST generally suits an investor who wan
 
 Some broader plans use both. An investor with several appreciated assets might use a 1031/DST path for one asset intended for heirs and contribute other assets to a CRT for charitable and income goals. A DST might also be one component of an estate plan that includes charitable giving. That combination is highly fact-specific. It reaches income-tax, estate-tax, capital-gains, and charitable rules at the same time.
 
-### Key takeaways
+## Key takeaways
 
 - A CRT is an irrevocable, tax-exempt trust that can sell contributed appreciated property without immediate capital-gains tax, pay income, support a partial deduction, and leave its remainder to charity.
 - A DST can keep the asset in your estate for heirs while deferring gain; a CRT gives the asset to charity in exchange for income, a deduction, and no immediate trust-level gain on sale.

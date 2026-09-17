@@ -61,7 +61,7 @@ Determine the specific duration from the offering, put the first possible conver
 
 For an investor with no near-term cash need, the lock-up often is not a concern because the intention is to hold for income, continued deferral, and potentially a step-up at death. It is most important for investors who may need early capital.
 
-### Key takeaways
+## Key takeaways
 
 - A lock-up, or holding period, prevents conversion of OP units to REIT shares for an initial period after a 721 exchange.
 - It supports tax structure, REIT stability, and the longer-term nature of OP-unit ownership.

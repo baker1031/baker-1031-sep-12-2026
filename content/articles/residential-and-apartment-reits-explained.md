@@ -43,8 +43,7 @@ Apartment leases typically run about a year. That lets the owner reset rents fre
 
 This differs from a [net-lease property locked into a decade-long lease](net-lease-reits-explained.html). A residential REIT can capture a rising market sooner, but it can also feel a weakening market sooner. Rising rents with high occupancy usually signal a healthy rental market; flat rents and rising vacancy signal pressure.
 
-### Key Takeaways
-
+## Key Takeaways
 - Residential REITs own apartments, single-family rentals, manufactured housing, and student or senior housing.
 - Apartment demand reflects population and household formation, job growth, and homeownership affordability. High home prices and rates can push people to rent.
 - Short annual leases create frequent rent resets: potential pricing power in a strong market and quick exposure when demand softens.

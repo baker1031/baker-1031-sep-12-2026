@@ -212,7 +212,7 @@ Choose a 721 exchange when the goal is diversification, passive income, and esta
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [721 Exchange](721-exchange-upreit.html) · [721 UPREIT](721-exchange-upreit.html) · [1031 Exchange](1031-exchanges.html) · [REITs](reits.html)
+**Filed under:** [721 Exchange](721-exchange-upreit.html), [721 UPREIT](721-exchange-upreit.html), [1031 Exchange](1031-exchanges.html), [REITs](reits.html)
 
 ## About Baker 1031 Research
 

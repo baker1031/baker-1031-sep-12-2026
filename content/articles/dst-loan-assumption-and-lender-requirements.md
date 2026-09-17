@@ -9,6 +9,7 @@ source_author: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 16 min read
 risk: "dst"
+meta_description: "How a DST assumes the lender’s loan — non-recourse terms, lender consent, springing guarantees and what an investor is and is not on the hook for."
 ---
 
 # DST Loan Assumption & Lender Requirements

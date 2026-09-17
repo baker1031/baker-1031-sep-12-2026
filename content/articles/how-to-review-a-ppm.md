@@ -21,7 +21,7 @@ First-order thinking looks at a projected distribution and asks whether the yiel
 
 This is a framework, not advice. Read the entire document and consult your own advisors. A PPM review is one part of the larger process in our [comprehensive Delaware Statutory Trust primer](dst-guide.html).
 
-### Key takeaways
+## Key takeaways
 
 - A PPM discloses a private offering's risks, structure, sponsor, business plan, financials, fees, and tax treatment.
 - Read it in an order that identifies dealbreakers early, rather than front to back.

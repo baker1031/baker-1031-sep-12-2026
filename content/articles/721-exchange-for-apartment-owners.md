@@ -61,7 +61,7 @@ The possible step-up at death adds a tax element. Heirs may receive units with t
 
 The estate plan must still address the family’s full circumstances, legal documents, and current tax rules. A 721 is a tool within an estate plan, not the entire plan.
 
-### Key takeaways
+## Key takeaways
 
 - Apartment owners may use a 721 to leave management, defer a large low-basis gain and recapture, diversify, and plan an estate.
 - The core transition is active landlording to passive multifamily REIT ownership, with distributions but no direct management.

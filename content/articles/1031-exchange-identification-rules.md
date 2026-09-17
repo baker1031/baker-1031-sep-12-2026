@@ -66,8 +66,7 @@ Most exchangers use the three-property rule. It accommodates one replacement plu
 
 Choose the rule before preparing the notice, and let it govern both count and value. A [qualified intermediary](insights.html) can check whether the intended notice fits the chosen rule before it is delivered.
 
-### Key Takeaways
-
+## Key Takeaways
 - **Three-property rule:** up to three properties of any value; it is the usual choice.
 - **200% rule:** more than three properties, but total value cannot exceed 200% of the sale value; it suits diversification.
 - **95% rule:** any number of properties, but at least 95% of the identified value must be acquired; it is rarely used.

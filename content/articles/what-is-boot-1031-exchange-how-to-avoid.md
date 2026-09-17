@@ -85,7 +85,7 @@ Consider a $600,000 sale with a $200,000 mortgage. The sale leaves $400,000 of e
 
 The sale and gain are identical in each case. The replacement structure decides whether $100,000 is currently taxable. These figures are illustrative, but the value-and-debt logic is the real issue.
 
-### Key takeaways
+## Key takeaways
 
 - Boot is non-like-kind value received, most often cash kept or debt not replaced.
 - It is taxable up to realized gain and can be recognized first as depreciation recapture.

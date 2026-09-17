@@ -61,8 +61,7 @@ Then research QOFs, sponsors, and strategies before or around a planned stock or
 
 This route can be relevant to tech employees and executives with appreciated company stock, RSUs, options, or ESPP shares; crypto investors with substantial realized digital-asset gains; owners with a concentrated equity position; and anyone recognizing a large securities gain in a rebalance, liquidity event, or sale. These are all audiences the 1031 cannot serve.
 
-### Key Takeaways
-
+## Key Takeaways
 - The 1031 is real-estate-only: stock, crypto, RSUs, options, and other securities or digital-asset gains cannot use it.
 - OZs accept capital gains, including crypto and stock gains. They can defer the gain and may permit tax-free growth on the new investment after a 10-year hold.
 - The 180-day clock runs from realization or disposition; invest the capital gain in a QOF within that window.

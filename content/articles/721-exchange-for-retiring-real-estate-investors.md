@@ -58,8 +58,7 @@ Distributions can cover regular income needs. Larger needs, such as healthcare o
 
 Liquidity depends on the destination. After conversion, a traded REIT may offer more reliable public-market liquidity. A non-traded REIT can have more limited liquidity, so the investor should plan accordingly. A retirement plan needs to balance current distributions, cash reserves, potential conversion tax, and the desire to keep some units toward a step-up.
 
-### Key Takeaways
-
+## Key Takeaways
 - A 721 can move an active owner toward passive retirement income through REIT distributions.
 - Diversification can reduce one-property concentration risk, an important retirement consideration, but cannot eliminate investment risk.
 - A qualifying contribution can defer low-basis gain and support estate planning through a step-up and divisible units.

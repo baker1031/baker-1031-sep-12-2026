@@ -245,7 +245,7 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 **Home:** [Home](baker1031.html)
 
-**Filed under:** [Mineral & Royalty](insights.html) · [Mineral & Royalty](insights.html) · [1031 Exchange](insights.html)
+**Filed under:** [Mineral & Royalty](insights.html), [1031 Exchange](insights.html)
 
 ## About the author
 

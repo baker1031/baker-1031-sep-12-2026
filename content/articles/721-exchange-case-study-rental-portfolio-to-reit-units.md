@@ -61,7 +61,7 @@ That distinction compounds over time. The deferred tax remains invested rather t
 
 For estate planning, the illustration adds a further possibility: if the owner holds OP units until death, the step-up in basis can eliminate deferred gain for her heirs. The actual result depends on her facts, current law, and CPA analysis. The case is meant to show the potential value of deferral and a possible step-up, not to state a tax conclusion for any reader.
 
-### Key takeaways
+## Key takeaways
 
 - This is an illustrative composite, not a client result or promise; actual outcomes vary.
 - The hypothetical aging owner had appreciated, concentrated, management-intensive property and sought passivity, diversification, estate planning, deferral, and liquidity.

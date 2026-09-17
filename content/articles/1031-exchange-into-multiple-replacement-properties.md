@@ -62,7 +62,7 @@ The investor and advisor track each transaction against the deadline, while the 
 
 DSTs can reduce the timing burden. The trust is already assembled, so a DST generally has less of the uncertain closing process that can affect a direct acquisition. A portfolio of some or all DST interests therefore has fewer separate direct-property closings to manage. Either way, careful organization and professional coordination are what turn a diversification idea into a completed exchange.
 
-### Key takeaways
+## Key takeaways
 
 - A single sale can be split across several replacements, provided aggregate value, equity, and debt satisfy the full-deferral requirements.
 - The 3-property rule handles up to three replacements; the 200% rule can support more, within its value cap.

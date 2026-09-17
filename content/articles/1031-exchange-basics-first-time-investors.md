@@ -63,7 +63,7 @@ The calendar defeats more exchanges than the concept does. The 45-day and 180-da
 
 Weekends and holidays count. These periods generally cannot be extended. Begin the replacement search before listing the property, not after the sale has started the clock. Some investors identify a fast-closing Delaware Statutory Trust (DST) as a backup, so a stalled direct purchase does not cost them the exchange.
 
-### Key takeaways
+## Key takeaways
 
 - A 1031 exchange defers tax, allowing full equity to keep compounding.
 - Know the core terms: relinquished property, replacement property, QI, boot, like-kind, and basis.

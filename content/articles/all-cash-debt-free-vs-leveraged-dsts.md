@@ -45,8 +45,7 @@ Debt-free DSTs have no debt service, refinancing, or interest-rate risk. That ca
 
 Leveraged DSTs use borrowed capital. Leverage can increase returns when the property performs and rates cooperate, but it also magnifies losses, adds mandatory debt service, refinancing risk at maturity, and interest-rate risk. In a severe case, the lender can take the property and equity can be lost. These are general characteristics, not promises.
 
-### Key Takeaways
-
+## Key Takeaways
 - A debt-free DST has no mortgage, refinancing, or interest-rate risk, but replaces no relinquished debt and may have more modest returns.
 - A leveraged DST has non-recourse debt that can replace a relinquished mortgage and can amplify both return and risk.
 - Your share of replacement debt should at least match debt paid off, or mortgage boot can be taxable.

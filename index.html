@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Baker 1031 Investments — 1031 Exchange &amp; DST Investments with Jerry Baker</title>
-<meta name="description" content="Work directly with Jerry Baker to evaluate 1031 exchange investments: Delaware Statutory Trusts, 721 exchanges, Opportunity Zone funds and more, matched to your income needs and deadlines. Offices in San Francisco and Los Angeles.">
+<meta name="description" content="Work directly with Jerry Baker to evaluate 1031 exchange investments — DSTs, 721 exchanges and Opportunity Zone funds — matched to your needs and deadlines.">
 <link rel="canonical" href="https://baker1031.com/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Baker 1031 Investments">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="Baker 1031 Investments — 1031 Exchange &amp; DST Investments with Jerry Baker">
-<meta property="og:description" content="Work directly with Jerry Baker to evaluate 1031 exchange investments: Delaware Statutory Trusts, 721 exchanges, Opportunity Zone funds and more, matched to your income needs and deadlines. Offices in San Francisco and Los Angeles.">
+<meta property="og:description" content="Work directly with Jerry Baker to evaluate 1031 exchange investments — DSTs, 721 exchanges and Opportunity Zone funds — matched to your needs and deadlines.">
 <meta property="og:url" content="https://baker1031.com/">
 <meta property="og:image" content="https://baker1031.com/assets/media/og-card.png">
 <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
 <meta property="og:image:alt" content="Baker 1031 Investments">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Baker 1031 Investments — 1031 Exchange &amp; DST Investments with Jerry Baker">
-<meta name="twitter:description" content="Work directly with Jerry Baker to evaluate 1031 exchange investments: Delaware Statutory Trusts, 721 exchanges, Opportunity Zone funds and more, matched to your income needs and deadlines. Offices in San Francisco and Los Angeles.">
+<meta name="twitter:description" content="Work directly with Jerry Baker to evaluate 1031 exchange investments — DSTs, 721 exchanges and Opportunity Zone funds — matched to your needs and deadlines.">
 <meta name="twitter:image" content="https://baker1031.com/assets/media/og-card.png">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" type="image/png" sizes="48x48" href="/assets/icons/favicon-48.png">
@@ -1595,6 +1595,7 @@
     transition:transform .32s cubic-bezier(.22,1,.36,1), opacity .32s ease;
     backface-visibility:hidden;
   }
+  .nav__links a .nav__hand::after{ content:attr(data-label); }
   .nav__links a .nav__hand{
     font-family:var(--hand);
     font-size:20px;
@@ -1742,10 +1743,10 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       <img src="/assets/media/logo.png" alt="Baker 1031" width="1684" height="224">
     </a>
     <nav class="nav__links" id="nav-links" aria-label="Primary">
-      <a href="#top"><span class="nav__word">Home</span><span class="nav__hand" aria-hidden="true">Home</span></a>
-      <a href="/invest/"><span class="nav__word">Invest</span><span class="nav__hand" aria-hidden="true">Invest</span></a>
-      <a href="/results/"><span class="nav__word">Results</span><span class="nav__hand" aria-hidden="true">Results</span></a>
-      <a href="/learn/"><span class="nav__word">Learn</span><span class="nav__hand" aria-hidden="true">Learn</span></a>
+      <a href="#top"><span class="nav__word">Home</span><span class="nav__hand" aria-hidden="true" data-label="Home"></span></a>
+      <a href="/invest/"><span class="nav__word">Invest</span><span class="nav__hand" aria-hidden="true" data-label="Invest"></span></a>
+      <a href="/results/"><span class="nav__word">Results</span><span class="nav__hand" aria-hidden="true" data-label="Results"></span></a>
+      <a href="/learn/"><span class="nav__word">Learn</span><span class="nav__hand" aria-hidden="true" data-label="Learn"></span></a>
     </nav>
     <div class="nav__actions">
       <a class="nav__login" href="/login/">Log In</a>

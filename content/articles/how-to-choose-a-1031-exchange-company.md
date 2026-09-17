@@ -99,7 +99,7 @@ Some warnings justify ending the conversation. A QI that is vague about fund loc
 
 Other warnings are less obvious but still consequential: an advisor who only recommends one sponsor’s products or cannot explain the risks; a sponsor relying on aggressive projections, thin reserves, high leverage, or property in a weak market; a firm with regulatory disclosures it refuses to discuss; or resistance to reference requests. The common principle is simple. When both funds and a tax deferral are exposed, missing transparency is itself an answer.
 
-### Key takeaways
+## Key takeaways
 
 - “1031 company” can mean a QI, advisor, or sponsor. Judge each on its own standards.
 - For a QI, segregated escrow, fidelity bonding, and E&O coverage outweigh the appeal of the lowest price.

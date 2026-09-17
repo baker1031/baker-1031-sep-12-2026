@@ -152,7 +152,7 @@ Yes. The DST must be held until its property is acquired on the DST/REIT's sched
 3. Cornell Legal Information Institute, [26 U.S. Code § 721](https://www.law.cornell.edu/uscode/text/26/721).
 4. SEC, [Investor.gov — Real Estate Investment Trusts (REITs)](https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits).
 
-**Filed under:** [DSTs](insights.html) · [721 Exchange](insights.html) · [721 UPREIT](insights.html) · [REITs](insights.html)
+**Filed under:** [DSTs](insights.html), [721 Exchange](insights.html), [721 UPREIT](insights.html), [REITs](insights.html)
 
 ## About the Author
 

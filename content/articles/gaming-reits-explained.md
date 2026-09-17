@@ -61,8 +61,7 @@ But high yield is not a free lunch. It can compensate an investor for tenant con
 
 The useful question is not whether a yield is attractive in isolation. It is whether the risk behind it is understood and appropriately sized. A high headline yield is a starting point for analysis, not a conclusion.
 
-### Key Takeaways
-
+## Key Takeaways
 - Gaming REITs own casino and resort real estate and lease it to operators that run the gaming business and hold the licenses.
 - Their income commonly comes from 15-to-35-year triple-net master leases, with operators paying property costs and rent escalating over time.
 - Tenant concentration is the defining risk, so operator credit, rent coverage, and diversification deserve close attention.
@@ -199,7 +198,7 @@ Baker 1031 helps investors understand the real estate, leases, tenant concentrat
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [REIT](insights.html) · [REITs](insights.html)
+**Filed under:** [REIT](insights.html), [REITs](insights.html)
 
 ### About the author
 

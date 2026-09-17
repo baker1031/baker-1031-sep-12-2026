@@ -251,7 +251,7 @@ It often does. Long-term investors can accumulate more depreciation, creating la
 3. Baker 1031 Investments, [1031 & DST Calculators](calculators.html).
 4. JTC Group, [1031 and Real Estate: Answers to Common Questions](https://www.jtcgroup.com/insights/1031-and-real-estate-answers-to-common-questions/).
 
-**Filed under:** [1031 Exchange](insights.html) · [1031 Exchange](insights.html)
+**Filed under:** [1031 Exchange](insights.html)
 
 ## About the Author
 

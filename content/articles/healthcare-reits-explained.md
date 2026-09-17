@@ -64,8 +64,7 @@ Senior housing is more operating-intensive. Under RIDEA/SHOP, income responds to
 
 The spread is wide—from defensive MOBs to operating-sensitive senior housing to reimbursement-exposed SNFs. A healthcare REIT’s profile depends heavily on its mix.
 
-### Key Takeaways
-
+## Key Takeaways
 - Healthcare REITs own senior housing, skilled nursing, medical office, hospitals, and life science properties through triple-net or RIDEA/SHOP structures.
 - An aging population and a growing 80-plus cohort support long-term demand for healthcare real estate.
 - Operator dependence and reimbursement exposure are distinctive risks, especially in skilled nursing.
@@ -179,7 +178,7 @@ We provide education on property types, demographic demand, operator and reimbur
 3. Cornell Legal Information Institute, [26 U.S. Code § 856 — Definition of real estate investment trust](https://www.law.cornell.edu/uscode/text/26/856).
 4. FINRA, [Real Estate Investments](https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits).
 
-**Filed under:** [REIT](insights.html) · [REITs](insights.html)
+**Filed under:** [REIT](insights.html), [REITs](insights.html)
 
 ## About the Author
 

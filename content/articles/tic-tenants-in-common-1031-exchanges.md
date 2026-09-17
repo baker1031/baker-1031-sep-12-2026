@@ -59,7 +59,7 @@ That gives each owner a meaningful voice. It can also create deadlock. If co-own
 
 In a DST, the sponsor makes those decisions and the investors remain passive. The trade is plain: no vote, but no group-decision deadlock. An investor deciding between the structures needs to decide whether direct control is a benefit after the practical cost of exercising it is included.
 
-### Key takeaways
+## Key takeaways
 
 - A TIC is direct, deeded fractional co-ownership of a larger property and can be 1031-eligible.
 - TICs provide voting rights and control. DSTs provide a passive structure with pre-arranged debt.

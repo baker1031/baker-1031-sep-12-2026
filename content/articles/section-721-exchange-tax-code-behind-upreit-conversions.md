@@ -66,8 +66,7 @@ To address this, UPREIT contributions often include tax protection agreements. T
 
 These agreements are negotiated as part of the contribution and vary in their terms (the protected period, the form of protection). They're an important consideration for contributors, since they affect the security of the deferral. The built-in gain and tax protection — the risk that a partnership sale of your contributed property triggers your deferred gain, and the tax protection agreements that can mitigate this risk for a period — are an important nuance of 721 exchanges. Understanding the built-in gain risk and the tax protection that addresses it helps contributors assess the security of their deferral. The tax protection agreement is a key term to understand and negotiate in a 721 exchange, since it affects whether (and for how long) your deferred gain is protected from being triggered by the partnership's actions. This is a technical area warranting professional guidance.
 
-### Key Takeaways
-
+## Key Takeaways
 - Section 721 provides that no gain or loss is recognized when property is contributed to a partnership for a partnership interest — the basis of the 721 exchange.
 
 - Unlike Section 1031 (like-kind real property), Section 721 covers partnership contributions — leaving you with OP units (generally a one-way move).

@@ -61,8 +61,7 @@ Leverage increases the importance of that gap. Debt is included among liabilitie
 
 The first-order response to a smooth NAV is relief. The second-order response is to ask whether smoothness is a measurement feature rather than evidence of low volatility. Do not mistake a smooth NAV for the absence of risk.
 
-### Key Takeaways
-
+## Key Takeaways
 - Non-traded REITs are not exchange-listed, so their per-share value is calculated as appraisal-based NAV rather than discovered by a live market.
 - Independent third-party advisors appraise properties; the REIT adds other assets, subtracts liabilities, and divides by shares outstanding.
 - Legacy structures may update about annually, while modern perpetual-life NAV REITs may update monthly or daily. More frequent values are generally more current.

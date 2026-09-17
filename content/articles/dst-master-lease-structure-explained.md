@@ -9,6 +9,7 @@ source_author: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 16 min read
 risk: "dst"
+meta_description: "What a DST master lease does, why the structure exists under Rev. Rul. 2004-86, and how the master tenant sits between the trust and the property."
 ---
 
 # DST Master Lease Structure Explained

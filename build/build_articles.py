@@ -333,7 +333,7 @@ PUBLIC_SLUGS = {'jerry-baker-bio', 'fees'}
 def gate_card_l2():
     return '''<div class="gate gate--l2" role="region" aria-label="Approval required">
   <div class="gate__card">
-    <h2>Not yet approved for this section</h2>
+    <p class="gate__title">Not yet approved for this section</p>
     <p>Email or call and I will open it up for you.</p>
     <div class="gate__actions">
       <a class="btn" href="mailto:invest@baker1031.com?subject=Access%20request">Email Baker 1031</a>
@@ -364,7 +364,7 @@ def gate_pair(path, title, body):
 def gate_card(path, title, body):
     return f'''<div class="gate gate--l1" id="gate-l1" role="region" aria-label="Log in to continue">
   <div class="gate__card">
-    <h2>{title}</h2>
+    <p class="gate__title">{title}</p>
     <p>{body}</p>
     <div class="gate__actions">
       <a class="btn" href="/login/?next={path}">Log In</a>
@@ -497,7 +497,7 @@ def build(build_date=None):
         canonical = f"{SITE}/learn/{a['slug']}/"
         html = render_md(a['body'])
         related = [x for x in arts if x is not a and x['category'] == a['category']][:3] or [x for x in arts if x is not a][:3]
-        rows = '\n'.join(f'<a class="more-row" href="/learn/{r["slug"]}/"><span class="t">{esc(r["title"])}</span><span class="c">{esc(r["category"])}</span></a>' for r in related)
+        rows = '\n'.join(f'<a class="more-row" href="/learn/{r["slug"]}/"><span class="t">{esc(r["title"])}</span>\n<span class="c">{esc(r["category"])}</span></a>' for r in related)
         is_hub = a['slug'] in HUB_SLUGS
         t = a['title']
         title_tag = f'{t} | Baker 1031 Investments' if len(t) <= 34 else (f'{t} | Baker 1031' if len(t) <= 47 else t)

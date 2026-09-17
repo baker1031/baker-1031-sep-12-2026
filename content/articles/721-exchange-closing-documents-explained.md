@@ -61,7 +61,7 @@ That affects liquidity. Without registration rights, converted shares may be res
 
 For a non-traded REIT, liquidity often operates through a redemption program rather than the sale of registered public shares, so registration rights can be less central. For a traded-REIT 721 exchange, however, registration rights are a meaningful part of the eventual liquidity path.
 
-### Key takeaways
+## Key takeaways
 
 - A 721 exchange commonly involves a contribution agreement, tax protection agreement, partnership agreement, and registration rights agreement.
 - The contribution agreement effects the property-for-units exchange and sets value, units, and transfer terms.

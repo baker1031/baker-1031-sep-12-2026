@@ -53,8 +53,7 @@ The terms matter. A program can be capped by a percentage of NAV per period — 
 
 Redemptions normally use the most recent NAV and may carry an early-redemption discount during a stated holding period. That makes liquidity real but constrained and discretionary. An investor can ask for a redemption. They cannot count on a sale on demand or on a price they control. PNLR capital should be treated as long-term, committed capital.
 
-### Key Takeaways
-
+## Key Takeaways
 - A PNLR is SEC-registered and files full 10-K, 10-Q, and 8-K reports like a listed company, but its shares are not exchange-listed.
 - Registration and reporting provide public-company transparency and oversight, far more than an unregistered, lightly disclosed private REIT generally offers.
 - Liquidity comes only through a capped, suspendable, NAV-priced redemption program, so the structure is illiquid and intended for the long term.
@@ -201,7 +200,7 @@ The evaluation covers public filings, strategy, fees, redemption terms, NAV meth
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [REIT](insights.html) · [REITs](insights.html)
+**Filed under:** [REIT](insights.html), [REITs](insights.html)
 
 ## About the author
 

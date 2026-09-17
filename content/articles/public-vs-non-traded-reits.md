@@ -19,8 +19,7 @@ A public REIT trades on an exchange all day. An owner can sell at 10 a.m., with 
 
 The first-order view calls the steadier line safer. The second-order view asks whether the exit will be open when cash is actually needed. That is the trade: market liquidity and visible price volatility on one side, steadier reported value and conditional redemption on the other. This article stays with that two-way liquidity-and-pricing question. For the third category, see our [private vs. public vs. non-traded REIT comparison](private-reit-vs-public-reit.html).
 
-### Key Takeaways
-
+## Key Takeaways
 - Public REITs trade on an exchange with daily liquidity and a market price shaped by the broader market, sector sentiment, and interest rates—not only by the buildings.
 - Non-traded REITs use scheduled NAV pricing, but their redemption program can be capped, queued, or suspended.
 - A steady statement price is not low risk. Redemptions are often limited to a small share of net assets each quarter and can be gated when many investors seek an exit.

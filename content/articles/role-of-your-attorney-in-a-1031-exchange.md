@@ -182,7 +182,7 @@ A CPA generally focuses on tax calculations and reporting. A tax attorney focuse
 3. Cornell Legal Information Institute, [26 U.S. Code § 761 — Partnership terms](https://www.law.cornell.edu/uscode/text/26/761).
 4. U.S. Securities and Exchange Commission, [Investor.gov — Private Placements](https://www.investor.gov/).
 
-**Filed under:** [1031 Exchange](insights.html) · [1031 Exchange](insights.html)
+**Filed under:** [1031 Exchange](insights.html)
 
 ## About the Author
 

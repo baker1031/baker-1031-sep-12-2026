@@ -67,8 +67,7 @@ If partners can remain together in the same replacement through the exchange and
 
 Counsel should consider whether partners need different replacements or can accept a shared one; whether a pre-sale or post-exchange holding period is easier to establish; the timing of the sale; the partners' relationship and objectives; and the risk tolerance of the group. A variation may be appropriate in some circumstances. Neither technique is universally better.
 
-### Key Takeaways
-
+## Key Takeaways
 - Swap-and-drop has the partnership exchange first at the entity level and distribute interests later; it is the reverse of drop-and-swap.
 - The techniques differ in when partners separate: before the exchange for drop-and-swap, after it for swap-and-drop.
 - Both have held-for-investment risk, but drop-and-swap focuses on pre-sale holding and swap-and-drop focuses on post-exchange holding.

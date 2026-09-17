@@ -62,8 +62,7 @@ Selling may be the better choice when the owner needs cash now, wants to invest 
 
 A partial approach can sometimes work: sell some property for after-tax flexibility and contribute other property through a 721. Feasibility depends on the properties, REIT acceptance, and the owner’s plan.
 
-### Key Takeaways
-
+## Key Takeaways
 - An outright sale pays the four-layer tax now and leaves after-tax proceeds; a 721 defers gain and moves full pre-tax value into a REIT.
 - On a $2,000,000 gain, roughly $660,000 of tax could leave $1,340,000 to reinvest; a 721 keeps the full value working, subject to its terms and risks.
 - The larger pre-tax base can compound over time, and a step-up at death can potentially eliminate deferred gain.

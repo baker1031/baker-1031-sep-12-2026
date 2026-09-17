@@ -66,8 +66,7 @@ The documents must place the note in the exchange from the outset. Receiving it 
 
 Seller financing and a 1031 can coexist, but not through after-the-fact improvisation. Raise the issue with the QI and CPA in advance, choose the treatment, and document it. Done carefully, financing can help the sale without creating unintended boot. Done carelessly or too late, the note undercuts the deferral.
 
-### Key Takeaways
-
+## Key Takeaways
 - A seller-carried note is non-like-kind property and may be taxable boot.
 - Avoid boot by making the note payable to the QI and then selling it, buying it out, or using it toward the replacement.
 - Alternatives are accepting partial boot or avoiding seller financing on the relinquished property.

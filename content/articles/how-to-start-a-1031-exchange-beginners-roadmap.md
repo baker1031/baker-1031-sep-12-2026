@@ -123,7 +123,7 @@ Most failed beginner exchanges are traceable to a few errors. Selling before eng
 
 There are quieter traps as well. A primary residence does not qualify for a 1031; it belongs under the separate Section 121 exclusion, which may cover up to $250,000 of gain, or $500,000 for couples. A former home genuinely converted into a long-term rental can become eligible over time. Changing the ownership entity in the middle of the transaction can breach the same-taxpayer rule. A related-party exchange carries a two-year holding requirement. A grounding in [the 1031 exchange basics for first-time investors](1031-exchange-basics-first-time-investors.html) and a properly timed team are more useful than trying to become a tax expert overnight.
 
-### Key takeaways
+## Key takeaways
 
 - Begin before listing; that is the period when the investor controls the clock.
 - Engage the QI before closing. Touching the proceeds can kill the exchange.
@@ -223,7 +223,7 @@ The formal transaction runs from the sale through replacement closing within 180
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [1031 Exchange](insights.html) · [1031 Exchange](insights.html)
+**Filed under:** [1031 Exchange](insights.html)
 
 ## About the author
 

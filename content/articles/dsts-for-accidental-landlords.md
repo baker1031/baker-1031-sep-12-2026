@@ -166,7 +166,7 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 ## Source notes
 
-**Filed under:** [Delaware Statutory Trusts](insights.html), [DSTs](insights.html), [1031 Exchange](insights.html).
+**Filed under:** [Delaware Statutory Trusts](insights.html), [DSTs](insights.html), [1031 Exchange](insights.html)
 
 **About the author:** [Jerry Baker](jerry-baker-bio.html), Founder & Managing Principal, Baker 1031 Investments · FINRA Series **22** / **63** · SIE. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on **$10B+** of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 

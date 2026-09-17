@@ -39,8 +39,7 @@ A Delaware Statutory Trust can work for an owner who wants income without manage
 
 A DST can convert non-income, illiquid land into diversified income-producing real estate without a management burden. It is sold only to [accredited investors](insights.html) through a [private placement memorandum](how-to-review-a-ppm.html). It is also a speculative, illiquid security, not a substitute for underwriting.
 
-### Key Takeaways
-
+## Key Takeaways
 - Investment land is broadly like-kind to qualifying real estate.
 - It must be investment or business property, not subdivided dealer inventory.
 - Land can become direct income property or a passive, fast-closing DST.

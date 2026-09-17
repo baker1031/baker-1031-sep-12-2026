@@ -58,8 +58,7 @@ Mortgage REITs commonly offer the highest yields, but also the highest risk and 
 
 The practical ordering is generally equity first for stability and moderate yield, hybrid in the middle, and mortgage last for higher yield with higher risk. An investor should match that tradeoff to risk tolerance rather than choose only by headline income.
 
-### Key Takeaways
-
+## Key Takeaways
 - Equity REITs own and operate property, earn rents, and are the most common type; occupancy, rent growth, and property values drive their relatively stable, moderate yields.
 - Mortgage REITs finance real estate through mortgages and MBS, earn an interest-rate spread, and often use leverage; they generally offer higher yields with greater rate sensitivity and risk.
 - Hybrid REITs blend property and mortgage exposure, combining rental and interest income while carrying both real estate and rate risk.
@@ -205,7 +204,7 @@ REIT and non-traded REIT interests are offered through Aurora Securities, Inc. (
 3. Cornell Legal Information Institute, [26 U.S. Code § 856 — Definition of real estate investment trust](https://www.law.cornell.edu/uscode/text/26/856).
 4. U.S. Securities and Exchange Commission, [Investor Bulletin: Non-traded REITs](https://www.sec.gov/oiea/investor-alerts-bulletins/ib_nontradedreits.html).
 
-**Filed under:** [REIT](insights.html) · [REITs](insights.html)
+**Filed under:** [REIT](insights.html), [REITs](insights.html)
 
 ## About the Author
 

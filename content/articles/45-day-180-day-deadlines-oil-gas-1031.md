@@ -78,8 +78,7 @@ The narrow exception is federally declared disaster relief. When the IRS issues 
 
 Because disaster relief is unpredictable and conditional, no exchanger should plan around it. The practical posture is to treat the deadlines as immovable, prepare thoroughly, and build in a fast-closing backup — then, if a qualifying disaster happens to affect your exchange, take advantage of any relief the IRS announces. Your CPA and QI will know whether a given disaster notice applies to your situation. For planning purposes, though, assume the clocks are absolute, because in all ordinary circumstances they are.
 
-### Key Takeaways
-
+## Key Takeaways
 - Both clocks start at the relinquished sale and run concurrently: 45 days to identify, 180 days to close — absolute and unextendable on request.
 - Minerals strain the clock because sourcing, diligence, and eligibility checks are slow in a fragmented market.
 - Identifying a fast-closing DST backup under the 3-property rule is the standard, reliable defense.

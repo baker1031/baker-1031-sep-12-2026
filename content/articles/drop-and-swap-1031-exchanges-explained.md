@@ -61,7 +61,7 @@ It fits best when the partnership has time to plan. The partners can recognize t
 
 Whether to use drop-and-swap or swap-and-drop depends on the partners’ goals, timing, and relative risks. The drop-and-swap distributes before sale. The swap-and-drop has the partnership exchange first and distribute later. Neither choice should be made from a template. For a partnership with divergent goals, these are sophisticated tools that need a fact-specific structure, adequate timing, thorough documentation, and experienced tax counsel.
 
-### Key takeaways
+## Key takeaways
 
 - A partnership is the single taxpayer, so partners cannot simply run separate exchanges from partnership-owned property.
 - A drop-and-swap distributes the property as TIC interests before sale, allowing each partner to exchange or cash out independently.

@@ -65,7 +65,7 @@ It works best when there is a clear replacement strategy before the sale closes.
 
 If an ideal replacement cannot wait for your sale, a [reverse exchange](reverse-1031-exchange.html) may be needed because it allows the replacement to be acquired first. If exchange funds must be used to build or substantially improve the replacement, an [improvement exchange](improvement-construction-1031-exchanges.html) may fit. Those are exceptions to the standard sell-first, buy-later approach.
 
-### Key takeaways
+## Key takeaways
 
 - A delayed or forward exchange sells the relinquished property first, then acquires replacement property inside the deadlines.
 - It is most common because the legs do not need to close simultaneously.

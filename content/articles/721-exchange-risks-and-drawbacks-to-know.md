@@ -172,7 +172,7 @@ Yes. A publicly traded REIT has daily market-price volatility but generally robu
 3. Cornell Legal Information Institute, [26 U.S. Code § 721 — Nonrecognition of gain or loss on contribution](https://www.law.cornell.edu/uscode/text/26/721).
 4. Cornell Legal Information Institute, [26 U.S. Code § 1031](https://www.law.cornell.edu/uscode/text/26/1031).
 
-**Filed under:** [721 Exchange](insights.html) · [721 UPREIT](insights.html) · [REITs](insights.html)
+**Filed under:** [721 Exchange](insights.html), [721 UPREIT](insights.html), [REITs](insights.html)
 
 ## About the Author
 

@@ -64,8 +64,7 @@ The three core benefits are supplemented by passive income and limited liquidity
 
 Most 721/UPREIT programs reached through DSTs involve non-traded REITs. Their liquidity can be limited to share-repurchase programs that a board may modify or suspend. Investors should be prepared to hold indefinitely. Where liquidity is available, it can support gradual access to capital, but it is limited and not assured.
 
-### Key Takeaways
-
+## Key Takeaways
 - A 721 exchange can combine tax deferral, diversification, and estate planning in one transition.
 - Section 721 deferral preserves pre-tax capital by avoiding the four-layer tax that a taxable sale can trigger.
 - Diversification changes a concentrated single-property position into an immediate REIT-portfolio stake.

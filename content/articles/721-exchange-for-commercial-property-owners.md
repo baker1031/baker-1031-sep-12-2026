@@ -61,7 +61,7 @@ The diversification benefit is equally material. One or a few direct commercial 
 
 Estate planning and diversification combine with deferral and passivity to make a 721 potentially useful for commercial owners. The owner must still decide whether the structure’s loss of direct control is acceptable.
 
-### Key takeaways
+## Key takeaways
 
 - Commercial owners may use a 721 to leave active management, defer gain and 39-year recapture, diversify, reposition sector exposure, and plan an estate.
 - The key transition is active commercial ownership to passive commercial REIT ownership.

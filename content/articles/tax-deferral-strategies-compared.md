@@ -21,8 +21,7 @@ The four common routes in this discussion are the 1031 exchange, the Delaware St
 
 The first-order question is, “Which route postpones the most tax?” The second-order question is, “What gain qualifies, what do I give up in control and liquidity, what clock am I accepting, and what happens when I need to exit?” The second question usually decides whether a structure is usable. This is a simplified educational comparison, not investment, legal, or tax advice; the result always depends on individual facts and professional advice.
 
-### Key Takeaways
-
+## Key Takeaways
 - Three of the four are real-estate tools. Only an Opportunity Zone fund can accept any capital gain, including gain from stock or a business sale.
 - All four defer. Only an Opportunity Zone fund can also eliminate tax on the fund's own appreciation, and only after a 10-year hold.
 - A basis step-up at death can erase deferred gain for heirs on direct 1031 property, a DST interest, and 721 OP units.

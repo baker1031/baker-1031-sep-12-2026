@@ -64,8 +64,7 @@ This solves one of the trickiest parts of a 1031: [replacing debt to avoid mortg
 
 The ability to match your old debt without qualifying for new financing is a frequent deciding factor for exchangers who can't easily get a new loan.
 
-### Key Takeaways
-
+## Key Takeaways
 - A DST is passive, institutional real estate that qualifies as 1031 replacement (Rev. Rul. 2004-86).
 
 - It closes in days (the classic 45-day backup) and diversifies a single exchange.

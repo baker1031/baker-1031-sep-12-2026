@@ -58,8 +58,7 @@ For an investor who's unsure whether they want REIT ownership, or who's consider
 
 Such investors should take more time to decide (or keep their options open with direct real estate / 1031 exchanges) until they're certain. So the investor not ready to commit should NOT do a 721 exchange; they should wait or stay flexible. The investor not ready to commit — who's uncertain or tentative about REIT ownership — should NOT do a 721 exchange, given its generally irreversible nature (commitment is required). Uncertainty plus irreversibility is a poor mix. Understanding this profile shows another disqualifying case. The investor not ready to commit should avoid the 721 exchange until they're certain, given its irreversibility, rather than risk a regretted commitment.
 
-### Key Takeaways
-
+## Key Takeaways
 - The active, control-valuing investor should NOT do a 721 exchange — it removes the control they value (stay in direct real estate).
 
 - The investor needing near-term liquidity should NOT — the 721 is illiquid near-term (lock-up, taxable conversion).

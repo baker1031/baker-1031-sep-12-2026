@@ -51,7 +51,7 @@ Bonds and income REITs can both sit in an income allocation, but their contracts
 
 An income REIT pays a variable distribution from real-estate cash flow. It can rise as rents rise or fall when income declines. The share price can fluctuate, there is no maturity, and there is no principal guarantee. The potential reward is growing distributions, capital appreciation as rents and property values rise, and an inflation hedge when rents rise with inflation. The price is more volatility and equity-like risk. Both bonds and REITs can fall when rates rise, but a REIT is not a bond substitute.
 
-### Key takeaways
+## Key takeaways
 
 - An income REIT is built for cash flow: it owns durable, rent-paying real estate and distributes much of the income as dividends.
 - Net-lease, healthcare, and certain residential sectors can offer durable, contractual rent and recurring cash flow.

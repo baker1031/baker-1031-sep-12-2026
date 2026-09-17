@@ -52,8 +52,7 @@ The source describes a different possible outcome when an owner holds OP units u
 
 For an owner with substantial accumulated depreciation, this can be an important estate-planning consideration: contribute through a 721 exchange, defer the recapture during life, and hold the units rather than convert them. The result depends on the law, the facts, and later disposition decisions. It should not be treated as a universal plan or a substitute for estate, tax, and legal advice.
 
-### Key Takeaways
-
+## Key Takeaways
 - Depreciation recapture taxes prior depreciation at up to 25% for real property when a taxable disposition occurs.
 - A 721 contribution can defer recapture along with capital gain; the contribution does not itself trigger the recapture.
 - Recapture carries into OP units through carryover basis and can be recognized when units are converted or redeemed.

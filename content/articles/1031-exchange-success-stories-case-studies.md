@@ -69,7 +69,7 @@ Preparation and the right structure decided each illustration. The tired landlor
 
 DSTs recur because they can be passive, diversified, fast-closing, and qualifying replacement property. They are also illiquid, fee-bearing, and subject to loss of value; their distributions are not guaranteed. The durable lesson is straightforward: know the goal, choose the structure that fits it, and prepare early with the right guidance.
 
-### Key takeaways
+## Key takeaways
 
 - A 1031 exchange can support management exit, opportunity, diversification, and multigenerational wealth—not only tax deferral.
 - Every case needed the right structure and sound execution, not improvisation.

@@ -55,8 +55,7 @@ The most common mistake is beginning the 180-day clock only on the entity's sale
 
 Other errors are treating all K-1 amounts as eligible capital gain, overlooking K-1 eligibility entirely and paying tax unnecessarily, or choosing a QOF before finding out that the entity already made its own deferral. These errors are avoidable: identify the gain and its character early, confirm who defers, determine each applicable start date with a CPA, and calendar the actual deadline.
 
-### Key Takeaways
-
+## Key Takeaways
 - A K-1 capital gain from a partnership or S corporation can be OZ-eligible like a direct capital gain, although the timing is different.
 - A partner can generally use the entity's realization date, year-end—often December 31—or return due date without extensions—often March 15—as the 180-day start date.
 - Confirm who is deferring, and obtain the gain amount, character, realization date, entity year-end, and return due date.

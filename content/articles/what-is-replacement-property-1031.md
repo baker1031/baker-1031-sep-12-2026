@@ -97,7 +97,7 @@ Then consider control. An investor leaving management may prefer passive ownersh
 
 Finally, weigh closing certainty. Financing, inspections, and a seller’s decision can derail a complex direct deal. A certain-to-close option, often a DST, can anchor the exchange while the investor pursues a more ambitious asset. The best replacement is one that advances the investor’s goals and can actually close within 180 days.
 
-### Key takeaways
+## Key takeaways
 
 - Almost any U.S. investment real estate can be like-kind replacement property for another type of U.S. investment real estate.
 - Full deferral generally calls for equal-or-greater value, all equity reinvested, and debt replaced.

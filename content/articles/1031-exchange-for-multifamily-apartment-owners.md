@@ -49,8 +49,7 @@ One apartment building can be divided across several DSTs, including institution
 
 The four-layer stack—capital gains, recapture, [NIIT](net-investment-income-tax.html), and state tax—can total a third or more of gain. That is why the deferral can be particularly valuable for apartment owners with large gains and accumulated depreciation.
 
-### Key Takeaways
-
+## Key Takeaways
 - Owners exchange to redeploy equity, reposition, and move from active to passive ownership.
 - Trading into larger or better properties can compound through serial exchanges.
 - DSTs are the familiar “tired landlord” route to passive real estate, but their illiquidity and suitability matter.

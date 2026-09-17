@@ -66,8 +66,7 @@ Audit readiness means organizing those documents so they can be produced without
 
 An exchange can be questioned long after closing, while the basis continues to affect returns. Keep audit-ready records for the life of the tax position. A potential inquiry should become a straightforward demonstration of compliance, not a scramble to recreate the file.
 
-### Key Takeaways
-
+## Key Takeaways
 - Records support the exchange reported on Form 8824, the carried-over basis, and an audit defense.
 - The core file includes the exchange agreement, assignments, identification, both closing statements, contracts, QI accounting, and Form 8824.
 - Preserve basis records for both properties and track them through every serial exchange.

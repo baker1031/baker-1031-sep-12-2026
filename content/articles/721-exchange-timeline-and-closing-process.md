@@ -64,8 +64,7 @@ Closing changes the owner from a direct property owner into an OP unit holder. T
 
 Closing is a defined event, but it is the endpoint of prior work on diligence, valuation, and documents. Once those matters are complete and the terms are agreed, the closing finalizes the contribution.
 
-### Key Takeaways
-
+## Key Takeaways
 - A direct 721 exchange has no fixed statutory deadline, unlike a 1031’s 45/180-day rules; its timing is driven by the parties.
 - The typical phases are a willing REIT, diligence and valuation, documents and negotiation, closing, and then a holding period.
 - Due diligence, agreed valuation, and documents—especially tax protection—can take substantial time.

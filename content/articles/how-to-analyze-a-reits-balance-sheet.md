@@ -49,8 +49,7 @@ A large maturity that arrives when rates are high or credit markets are tight ca
 
 Check weighted-average maturity, the share due in the next one to three years, and whether a single year is overloaded. Maturity timing is a refinancing risk that leverage alone can hide.
 
-### Key Takeaways
-
+## Key Takeaways
 - Read gross and net real estate assets, cash and liquidity, total debt by secured/unsecured and fixed/floating type, and preferred equity.
 - Use net debt-to-EBITDA and coverage ratios for leverage, and cash plus available revolver capacity for liquidity.
 - Prefer laddered, well-spread maturities to concentrated near-term obligations.
@@ -187,7 +186,7 @@ We help investors read the lines, leverage and liquidity measures, debt maturiti
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [REIT](insights.html) · [REITs](insights.html)
+**Filed under:** [REIT](insights.html), [REITs](insights.html)
 
 ### About the author
 

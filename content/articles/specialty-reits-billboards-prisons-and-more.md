@@ -49,8 +49,7 @@ Specialty REITs commonly carry elevated concentration risk. A prison REIT may de
 
 Regulatory and political risk can be especially acute. Prison REITs face changing incarceration policy, political pressure to reduce the use of private facilities, and financing pressure when lenders or investors avoid the sector. Those forces can affect demand and cost of capital. Billboard REITs face zoning, permitting, advertising restrictions, removals, and limits on digital conversions. In many specialty niches, public-policy decisions can change the economics with little warning.
 
-### Key Takeaways
-
+## Key Takeaways
 - Specialty REITs own idiosyncratic assets—such as billboards, prisons, document storage, theaters, ski resorts, and farmland—outside mainstream REIT sectors.
 - Their income follows niche demand drivers such as advertising spend, government contracts, and records volumes, so investors need to assess the industry as well as the property.
 - Narrow tenant, customer, and demand bases can create concentration risk with little diversification to absorb a setback.
@@ -183,7 +182,7 @@ Baker 1031 helps investors understand specialty categories, examples such as bil
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [REIT](insights.html) · [REITs](insights.html)
+**Filed under:** [REIT](insights.html), [REITs](insights.html)
 
 ## About the author
 

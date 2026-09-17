@@ -60,8 +60,7 @@ This illiquidity is a fundamental feature of DSTs, not a temporary condition —
 
 So generally no — DSTs are illiquid, held to the end of a multi-year cycle (commonly five to seven years or more), with no established secondary market for early sale. So plan to hold for the duration. Can you sell a DST early — generally no, because DSTs are illiquid investments designed to be held for the full cycle (commonly around five to seven-plus years) until the sponsor sells the property, with no established secondary market, so you shouldn't count on exiting early — is a critical question to settle before investing. Illiquidity is a defining feature. Understanding this ensures you commit only capital you can leave invested. Generally no — DSTs are illiquid and held to the end of a multi-year cycle (commonly five to seven-plus years) with no established secondary market, so plan to hold for the full duration.
 
-### Key Takeaways
-
+## Key Takeaways
 - A DST is a trust that owns income-producing real estate; you buy a fractional beneficial interest and own a passive slice.
 
 - DSTs qualify for a 1031 exchange — Rev. Rul. 2004-86 treats a properly structured interest as like-kind real property, deferring capital-gains tax.

@@ -24,7 +24,7 @@ LEVEL2_SECTIONS = ['glossary', 'calculators', 'property-types', 'markets', 'spon
 
 LEVEL2_GATE = '''<div class="gate gate--l2" role="region" aria-label="Approval required">
   <div class="gate__card">
-    <h2>Not yet approved for this section</h2>
+    <p class="gate__title">Not yet approved for this section</p>
     <p>Email or call and I will open it up for you.</p>
     <div class="gate__actions">
       <a class="btn" href="mailto:invest@baker1031.com?subject=Access%20request">Email Baker 1031</a>
@@ -36,7 +36,7 @@ LEVEL2_GATE = '''<div class="gate gate--l2" role="region" aria-label="Approval r
 
 LEVEL1_GATE = '''<div class="gate gate--l1" id="gate-l1" role="region" aria-label="Log in to continue">
   <div class="gate__card">
-    <h2>Log in to continue</h2>
+    <p class="gate__title">Log in to continue</p>
     <p>This section is available to registered Baker 1031 investors. Log in with the email address on your account, or create one &mdash; it takes a few minutes.</p>
     <div class="gate__actions">
       <a class="btn" href="/login/?next={path}">Log In</a>
@@ -156,7 +156,7 @@ def sponsor_rail(active_slug, indent='    '):
     def li(d):
         cls = ' class="active" aria-current="page"' if d == active_slug else ''
         return '%s          <li><a%s href="/sponsors/%s/">%s</a></li>' % (i, cls, d, names[d])
-    out = ['%s<aside class="rail rail--grouped"><h4>Sponsors</h4>' % i,
+    out = ['%s<aside class="rail rail--grouped"><p class="rail__label">Sponsors</p>' % i,
            '%s    <a class="learn-back" href="/sponsors/"><span aria-hidden="true">&larr;</span> Back to Sponsors</a>' % i]
     if pref:
         out.append('%s    <details open><summary>Preferred sponsors</summary><ul>' % i)

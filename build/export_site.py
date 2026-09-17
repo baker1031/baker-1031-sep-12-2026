@@ -57,8 +57,8 @@ SEO = {
         title='Investor Log In — Baker 1031 Investments', desc='Log in with the email address on your Baker 1031 account to view current 1031 exchange investments.',
         canonical=S + '/login/', noindex=True)),
     'results.html': lambda h: _swap(h, '<title>Full-Cycle Results — Baker 1031 Investments</title>', seo.head(
-        title='Full-Cycle DST Results: 1,000+ Completed 1031 Exchange Investments — Baker 1031',
-        desc='Sponsor-reported results for more than 1,000 completed (full-cycle) DST and 1031 exchange investments: average annual return, equity multiple and hold period by sponsor and property type, sortable and searchable.',
+        title='Full-Cycle DST Results — Baker 1031',
+        desc='Sponsor-reported results for the full-cycle DST and 1031 exchange programs Baker 1031 tracks — annual return, equity multiple and hold, sortable by sponsor.',
         canonical=S + '/results/', graph=[seo.webpage(S + '/results/', 'Full-Cycle Results', 'Sponsor-reported results for completed DST and 1031 exchange investments.',
             {'mainEntity': {'@type': 'Dataset', 'name': 'Full-cycle DST investment results tracked by Baker 1031', 'description': 'Completed DST and 1031 exchange investments with sponsor, property type, location, average annual return, equity multiple and hold period, as reported by each sponsor.', 'creator': {'@id': seo.ORG_ID}, 'license': S + '/terms/', 'isAccessibleForFree': True}}),
             seo.breadcrumbs([('Home', S + '/'), ('Results', None)])])),

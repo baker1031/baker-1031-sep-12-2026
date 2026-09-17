@@ -46,8 +46,7 @@ The governing rule is simple to state: the taxpayer who sells the relinquished p
 
 Several ordinary decisions can cause trouble. Adding or changing LLC members at the wrong time can convert a disregarded LLC into a partnership, a separate taxpayer. Selling in one ownership form and acquiring through a non-disregarded entity can also break the chain. Changes to entity structure are generally better made well before or well after the exchange, rather than during it. These points are technical and fact-specific; review them with a [qualified intermediary](what-is-a-qualified-intermediary.html) and tax advisor before closing.
 
-### Key Takeaways
-
+## Key Takeaways
 - Investors often hold DST interests through an LLC for liability protection or a trust for estate planning.
 - A single-member LLC is a disregarded entity, treated as the same taxpayer, so it can preserve 1031 status while adding liability protection.
 - A revocable living trust is generally a disregarded grantor trust; an irrevocable trust may be a separate taxpayer and is more complex.
@@ -163,7 +162,7 @@ We help investors understand the LLC and trust options, same-taxpayer continuity
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [Delaware Statutory Trusts](insights.html) · [DSTs](insights.html) · [1031 Exchange](insights.html)
+**Filed under:** [Delaware Statutory Trusts](insights.html), [DSTs](insights.html), [1031 Exchange](insights.html)
 
 ## About the author
 

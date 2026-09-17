@@ -54,8 +54,7 @@ The usual securities-based 721 path is available to [accredited investors](accre
 
 The strategy’s complexity and securities structure can make it look exclusive. The more accurate statement is that it is available to a broad group of accredited real-estate owners, while still requiring accredited-investor status and a suitability review.
 
-### Key Takeaways
-
+## Key Takeaways
 - A 721 and a 1031 are fundamentally different: a 721 produces REIT ownership and is generally one-way, while a 1031 keeps direct real estate and flexibility.
 - Liquidity may be available through conversion after a lock-up, but the conversion is taxable.
 - A 721 defers gain; elimination is possible through a step-up at death, not automatic.

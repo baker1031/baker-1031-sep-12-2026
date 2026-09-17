@@ -21,8 +21,7 @@ I keep seeing investors focus on whether the 1031 rules have changed, when the h
 
 The 45-day identification and 180-day closing clocks still govern. What has changed is the time between identifying a replacement and actually getting it closed. That makes a planned fallback—rather than a last-minute search—central to an exchange this year.
 
-### Key Takeaways
-
+## Key Takeaways
 - The 2026 rules remain 45 days to identify and 180 days to close, measured from the relinquished closing. Full deferral still requires equal-or-greater value and debt replacement.
 - Longer closings and less certain financing increase the odds of missing a deadline, so identify a backup before the clock starts.
 - The DST shelf now includes multifamily, industrial, self-storage, healthcare, net-lease, and mineral royalties, offering more ways to match equity and debt.

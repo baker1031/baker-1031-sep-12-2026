@@ -63,8 +63,7 @@ That is a material comparison with direct ownership or a TIC. A direct owner or 
 
 Sometimes sponsors use a “springing LLC” provision for an emergency, such as a major capital need or a property that requires active repositioning. A conversion can provide a path for the situation the DST cannot handle, but it ends the property’s 1031 eligibility going forward. The backstop does not erase the trade-off.
 
-### Key Takeaways
-
+## Key Takeaways
 - Revenue Ruling 2004-86 treats a properly structured DST as an investment trust, so each beneficial interest is treated as a direct interest in underlying real property and can be 1031-eligible.
 - The interest is like-kind because the trust is not a partnership, which Section 1031 excludes; the IRS looks through to the real estate.
 - The favorable treatment depends on strict limits: no new capital, refinancing, reinvestment, or more than minor improvements, among others.

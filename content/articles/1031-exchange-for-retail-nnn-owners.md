@@ -62,7 +62,7 @@ That diversification is the central distinction. With one direct NNN property, a
 
 DSTs can also provide access to institutional-quality net-lease portfolios that an individual may not assemble alone, with the sponsor handling management. They are securities, offered to accredited investors following a suitability review, and they are passive and illiquid. The loss of control and lack of liquidity deserve as much attention as the diversification benefit.
 
-### Key takeaways
+## Key takeaways
 
 - NNN retail can deliver relatively passive, predictable income because the tenant pays taxes, insurance, and maintenance.
 - Owners exchange into NNN for less active ownership, exchange among NNN assets to manage tenant and lease risk, or leave retail for other sectors.
@@ -179,7 +179,7 @@ Only partly. Many leases include fixed periodic escalations or, less often, CPI-
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [1031 Exchange](insights.html), [1031 Exchange](insights.html), [DSTs](insights.html)
+**Filed under:** [1031 Exchange](insights.html), [DSTs](insights.html)
 
 ### Author note
 

@@ -53,7 +53,7 @@ A 1031 exchange defers tax; it does not erase it. Deferred gain carries into the
 
 The estate-planning endgame is a [step-up in basis at death](1031-exchange-step-up-in-basis-at-death.html). Under IRC §1014, heirs generally receive basis equal to fair market value as of the date of death. That can eliminate the deferred capital-gains tax. For a retiring landlord, the potential combination is meaningful: leave management now, receive passive income during life, and pass assets to heirs without the deferred gain. DSTs and a subsequent [721 UPREIT exchange](1031-to-721-exchange.html) can both fit into that planning. Estate, basis, and timing details remain individual, so they require the CPA and estate attorney.
 
-### Key takeaways
+## Key takeaways
 
 - A 1031 exchange into a DST can defer capital gains and depreciation recapture while ending active landlord work.
 - A professional sponsor manages the DST, but distributions are projected rather than guaranteed.
@@ -119,7 +119,7 @@ DSTs are illiquid for a multi-year hold with little or no secondary market. Upfr
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [Delaware Statutory Trusts](insights.html) · [DSTs](insights.html) · [1031 Exchange](insights.html)
+**Filed under:** [Delaware Statutory Trusts](insights.html), [DSTs](insights.html), [1031 Exchange](insights.html)
 
 ## About the author
 

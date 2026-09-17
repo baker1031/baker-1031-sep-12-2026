@@ -61,8 +61,7 @@ That is a useful risk discipline. A distribution rate is a projection, not a pro
 
 Depreciation can shelter part of the taxable income from distributions. For a 1031 investor, the depreciation schedule continues from the carryover basis rather than resetting to the new purchase price. At a sale, prior depreciation can be subject to recapture unless deferral continues through another exchange or the interest receives a step-up in basis at death. See [depreciation recapture](depreciation-recapture-real-estate.html) for more detail. Depreciation helps current-tax math but remains part of the eventual exit calculation.
 
-### Key Takeaways
-
+## Key Takeaways
 - A DST is a Delaware-law trust that holds title and borrows as one entity while tax rules require passivity so investors can be treated as direct real-property owners.
 - The sponsor acquires, finances, and operates the property through a master lease and decides when to sell; the trustee holds title and administers the trust within strict limits.
 - A beneficial interest is a passive, undivided, proportional stake in the trust: a share of income, gain, and depreciation without property control.
@@ -193,7 +192,7 @@ Baker 1031 explains the trust structure, sponsor and trustee roles, beneficial i
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [Delaware Statutory Trusts](insights.html) · [DSTs](insights.html) · [1031 Exchange](insights.html)
+**Filed under:** [Delaware Statutory Trusts](insights.html), [DSTs](insights.html), [1031 Exchange](insights.html)
 
 ## About the author
 

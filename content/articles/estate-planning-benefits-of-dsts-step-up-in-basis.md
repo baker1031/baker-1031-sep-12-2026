@@ -60,8 +60,7 @@ The estate also holds a defined, valued interest rather than a building that may
 
 These conveniences do not replace proper estate documents or eliminate investment risk. They can reduce the operational burden placed on heirs.
 
-### Key Takeaways
-
+## Key Takeaways
 - Section 1014 generally resets an heir's basis to fair market value at death and may erase deferred 1031 gain.
 - Holding a DST until death can leave heirs with little or no income-tax gain on a sale near the stepped-up value.
 - Fractional DST interests can be allocated cleanly among multiple heirs, unlike an indivisible building.
@@ -177,7 +176,7 @@ We explain the possible step-up, deferred gain, fractional interests, passive ad
 3. IRS, [Revenue Ruling 2004-86](https://www.irs.gov/pub/irs-drop/rr-04-86.pdf).
 4. FINRA, [Real Estate Investments](https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits).
 
-**Filed under:** [Delaware Statutory Trusts](insights.html) · [DSTs](insights.html) · [1031 Exchange](insights.html)
+**Filed under:** [Delaware Statutory Trusts](insights.html), [DSTs](insights.html), [1031 Exchange](insights.html)
 
 ## About the Author
 

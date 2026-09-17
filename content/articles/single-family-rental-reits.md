@@ -55,8 +55,7 @@ Turnover is usually more involved as well. After a resident leaves, the owner ma
 
 These costs are a feature of the asset class, not proof of poor management. They do mean that expense control, maintenance efficiency, and resident retention deserve close attention. A longer resident tenure can reduce the costly process of preparing and re-leasing a home.
 
-### Key Takeaways
-
+## Key Takeaways
 - SFR REITs own thousands of scattered-site rental houses and institutionalize a formerly fragmented individual-landlord market.
 - Demand can reflect housing affordability, family demand for space, yards, and schools, and the flexibility of renting rather than buying.
 - Dispersed homes make scale, market density, and technology essential to operating efficiency.
@@ -191,7 +190,7 @@ Baker 1031 helps investors understand SFR portfolios, demand, scattered-site ope
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [REIT](insights.html) · [REITs](insights.html)
+**Filed under:** [REIT](insights.html), [REITs](insights.html)
 
 ## About the author
 

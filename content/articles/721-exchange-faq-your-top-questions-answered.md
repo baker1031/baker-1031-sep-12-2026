@@ -69,7 +69,7 @@ The 721 is generally not reversible. The investor cannot usually return to direc
 
 Risk can be reduced—but not eliminated—by confirming the fit before contributing, selecting a strong REIT and sponsor, understanding fees and liquidity, planning conversion tax, and working with advisors. The better choice is the one that makes the total risk and return package acceptable, not merely the one that delays tax.
 
-### Key takeaways
+## Key takeaways
 
 - A 721 exchange is a tax-deferred contribution of property to a REIT operating partnership for OP units.
 - Section 721 defers capital gain, recapture, NIIT, and state tax; conversion generally triggers the deferred gain and a step-up may eliminate it at death.

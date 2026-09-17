@@ -60,8 +60,7 @@ The income changes too. Instead of net rental income after the work of managemen
 
 So the results, illustratively, are passive, diversified income across several DSTs, drawn from a fully invested pre-tax base, with no active management and partial tax sheltering. Income and diversification results — the hypothetical landlord receiving passive distributions (projected, not guaranteed) across several DSTs spread over sectors, sponsors, and markets, drawn from the full pre-tax equity that stayed invested, with part of the income often sheltered by pass-through depreciation — illustrate the outcome a DST 1031 exchange aims for. Figures are illustrative, not promised. Understanding the results shows the payoff of the strategy. Illustratively, the landlord ends up with passive, diversified income across several DSTs, drawn from a fully invested pre-tax base and partly sheltered by depreciation — replacing one hands-on rental with hands-off, spread-out income (projected, never guaranteed).
 
-### Key Takeaways
-
+## Key Takeaways
 - This is an illustrative, hypothetical composite — not a real client, not a prediction, and not a promise; actual results vary and distributions are never guaranteed.
 
 - The hypothetical landlord exchanged an appreciated, heavily depreciated rental into several DSTs to defer a large tax bill and go passive.

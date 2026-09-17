@@ -63,8 +63,7 @@ In each case, the tax is the price of exiting. Some investors should pay it.
 
 For many others, an exchange into several or different properties, or into DSTs, can provide substantial diversification without a taxable sale. For investors committed to long-term real-estate wealth building, continued deferral and the possible step-up in basis at death can be more wealth-efficient than selling to buy stocks. It depends on the investor’s concentration, liquidity needs, objectives, and willingness to remain in real estate.
 
-### Key Takeaways
-
+## Key Takeaways
 - Selling real estate to buy stocks triggers the four-layer tax and permanently reduces the capital available to invest.
 - Continued 1031 deferral avoids that tax drag and keeps the full base compounding in real estate; stocks contribute diversification and liquidity.
 - Real estate can provide regular income partly sheltered by depreciation, while stocks offer dividends, growth, and total return.

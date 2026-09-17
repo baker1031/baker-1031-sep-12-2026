@@ -100,7 +100,7 @@ The second is buying a nonqualifying interest: calling a production payment or s
 
 The fourth is a value or debt shortfall: buying down in value, failing to reinvest all equity, or not replacing debt. A defensible valuation and a value-matching calculation with the CPA before closing help prevent accidental boot. Early preparation and an experienced team address each of these risks.
 
-### Key takeaways
+## Key takeaways
 
 - The five steps are familiar: QI before selling, sell, identify in **45 days**, close in **180 days**, and file Form **8824**.
 - The difficult part is sourcing and diligencing qualifying minerals under the clock. Preparation and an identified DST backup matter.

@@ -58,8 +58,7 @@ Turnover adds another layer. When a tenant leaves, the home needs to be made rea
 
 Operator scale can help. A large, experienced company can spread fixed costs, use efficient systems, negotiate with vendors, and build specialized maintenance and turnover teams. A BTR community can reduce some friction by centralizing operations on a single site. None of that eliminates management, vacancy, turnover, sponsor, or property risk.
 
-### Key Takeaways
-
+## Key Takeaways
 - SFR and build-to-rent DSTs own portfolios of single-family rental homes—scattered-site or purpose-built communities—as 1031-eligible real property.
 - Demand rests on housing-affordability challenges and demographic shifts, including families seeking space, schools, and flexibility.
 - Management and turnover are key risks because operating many individual homes is more labor-intensive and costly per unit than operating apartments.

@@ -803,7 +803,7 @@ p{ max-width:none; }
 @media(max-width:900px){ .sec{ padding:24px var(--gut) 56px; } }
 .shell{ gap:clamp(32px,4vw,64px); }
 .rail{ top:80px; }
-.rail h4{ font-size:11px; letter-spacing:.1em; color:var(--accent); }
+.rail h4, .rail .rail__label{ font-size:11px; letter-spacing:.1em; color:var(--accent); font-weight:700; text-transform:uppercase; margin:0 0 10px; }
 .rail a:not(.btn){ font-size:14px; color:var(--grey); border-bottom-color:#FCF7F0; }
 .rail a:not(.btn):hover, .rail a:not(.btn)[aria-current]{ color:var(--black); }
 .prose{ max-width:74ch; }
@@ -844,7 +844,7 @@ html:not(.is-logged-in) .gate{ display:block; }
 html:not(.is-logged-in) .gate--l2{ display:none; }
 html.is-level2 .gate--l1{ display:none !important; }
 .gate__card{ background:var(--white); border:1px solid var(--hair-strong); border-radius:10px; padding:32px 32px 28px; text-align:center; box-shadow:0 24px 48px -24px rgba(0,0,0,.28), 0 2px 6px rgba(0,0,0,.06); }
-.gate__card h2{ margin:0 0 10px; font-size:clamp(22px,2.4vw,28px); font-weight:700; line-height:1.15; letter-spacing:-.02em; }
+.gate__card h2, .gate__card .gate__title{ margin:0 0 10px; font-size:clamp(22px,2.4vw,28px); font-weight:700; line-height:1.15; letter-spacing:-.02em; }
 .gate__card p{ margin:0 0 20px; font-size:15px; line-height:1.6; color:var(--grey); }
 .gate__actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 .gate__note{ margin:20px 0 0 !important; font-size:13px !important; color:var(--grey-light) !important; }

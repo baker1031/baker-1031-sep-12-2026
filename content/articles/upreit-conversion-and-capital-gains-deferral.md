@@ -66,8 +66,7 @@ Other triggers include redeeming units for cash (also a taxable disposition) and
 
 When the gain is triggered, the four-layer tax (capital gains, recapture, NIIT, state) applies to the recognized gain — the tax you deferred comes due. So triggering the gain means paying the deferred tax (which you can manage by converting gradually). Triggering the gain — disposing of the OP units (by converting to shares, redeeming for cash, or a partnership sale), recognizing the deferred four-layer tax — is when the deferral ends and the tax comes due. The triggering is mostly within your control (choosing when to convert). Understanding the triggers clarifies when the deferred capital gains tax becomes payable. You control the deferral's end (mostly) by choosing when to convert, so the gain is triggered on your terms, allowing tax planning around the conversion.
 
-### Key Takeaways
-
+## Key Takeaways
 - An UPREIT conversion defers the capital gains tax under Section 721 when you contribute property for OP units.
 
 - It defers the entire four-layer stack (capital gains, recapture, NIIT, state tax) — often a third or more of your gain.

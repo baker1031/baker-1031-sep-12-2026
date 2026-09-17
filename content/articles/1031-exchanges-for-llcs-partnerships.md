@@ -69,8 +69,7 @@ For a multi-member entity, ask one question early: are the partners staying toge
 
 Sometimes owners who expect to go their separate ways choose to restructure in advance, perhaps through single-member LLCs or a tenant-in-common structure. That may make a future separate exchange easier, but it requires foresight and its own tax analysis. A CPA should confirm classification and tax consequences; an attorney should address entity structure and titling; experienced tax counsel is especially important when partnership owners are separating.
 
-### Key Takeaways
-
+## Key Takeaways
 - The taxpayer depends on the entity: a single-member LLC is generally disregarded, while a multi-member LLC or partnership is generally its own taxpayer.
 - A single-member LLC can combine liability protection with relatively simple same-taxpayer continuity.
 - Partners in a multi-member entity cannot each run a separate exchange without specialized approaches such as a drop-and-swap or swap-and-drop.
@@ -186,7 +185,7 @@ Moving property into your own disregarded single-member LLC generally keeps you 
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [1031 Exchange](insights.html) · 1031 Exchange
+**Filed under:** [1031 Exchange](insights.html)
 
 **Baker 1031 Research** is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.
 

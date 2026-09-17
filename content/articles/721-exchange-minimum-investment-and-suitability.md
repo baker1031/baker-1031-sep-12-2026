@@ -58,8 +58,7 @@ So [who qualifies for a 721 exchange](who-should-consider-a-721-exchange-investo
 
 Owners considering a 721 exchange often have substantial appreciated real estate, so their income and equity may clear the accreditation threshold. Investors whose goals include passivity, diversification, or estate planning and who can live with the risks may also pass the review. But qualification is never automatic. Some owners do not meet the accreditation standards; others need liquidity the investment cannot provide or have goals or risk limits that do not fit.
 
-### Key Takeaways
-
+## Key Takeaways
 - A 721 exchange involves securities, so it typically requires accredited-investor status based on income or net-worth thresholds.
 - A financial professional’s suitability review assesses the investor’s situation, objectives, risk tolerance, and needs.
 - Underlying offerings have minimum investments; they are generally not a barrier for typical 721 exchangers with substantial property values.

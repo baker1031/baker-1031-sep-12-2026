@@ -63,7 +63,7 @@ A Qualified Opportunity Fund is another possibility. It can defer gain from any 
 
 Structural foresight is often the strongest alternative. Before creating a production payment, an owner can decide whether retaining a perpetual real-property interest would better serve a future exchange objective. If the owner simply needs liquidity, a deliberate taxable sale, timed with a CPA, may be the cleaner path. The important thing is to make that decision knowing that a true production payment has closed the ordinary 1031 option.
 
-### Key takeaways
+## Key takeaways
 
 - A production payment is a capped, self-liquidating right to a fixed sum or volume of production.
 - Section 636 generally treats it as a loan, not real property, so it generally cannot be exchanged under Section 1031.

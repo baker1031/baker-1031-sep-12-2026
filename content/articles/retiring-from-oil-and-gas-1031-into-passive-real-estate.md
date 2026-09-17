@@ -63,8 +63,7 @@ The sequence is direct: exchange a volatile, hands-on mineral asset into passive
 
 DSTs can also simplify the actual inheritance. A fractional DST interest can be divided among heirs more easily than a concentrated mineral interest or operating business. Each heir can receive a passive interest instead of jointly operating a complex asset.
 
-### Key Takeaways
-
+## Key Takeaways
 - Oil-and-gas owners often exit for retirement because income is volatile and declining, management is demanding, and concentration is risky.
 - A 1031 can trade that profile for passive diversified real-estate income through DSTs and net-lease properties while deferring gain.
 - Deferral can last for life, allowing income from full value rather than the after-tax remainder.
@@ -207,7 +206,7 @@ Not necessarily. Some owners exchange in stages or retain a portion in minerals,
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-**Filed under:** [Mineral & Royalty](insights.html) · [Mineral & Royalty](insights.html) · [DSTs](insights.html)
+**Filed under:** [Mineral & Royalty](insights.html), [DSTs](insights.html)
 
 ## About the author
 

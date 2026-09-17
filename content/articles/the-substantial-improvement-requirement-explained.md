@@ -49,7 +49,7 @@ Funds may use the [working-capital safe harbor](the-opportunity-zone-working-cap
 
 For new construction that is original use, the construction itself meets the original-use standard. For an acquired existing building, the fund needs planned and documented substantial improvement. These are related paths, but they are not the same test.
 
-### Key takeaways
+## Key takeaways
 
 - A QOF generally must roughly double building basis in existing purchased property to make it qualify.
 - The concrete test is improvements at least equal to the building basis within 30 months.

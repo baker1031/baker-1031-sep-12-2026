@@ -11,7 +11,7 @@ risk: "reit"
 
 [Home](baker1031.html) · [Back to All Insights](insights.html)
 
-**Filed under:** [REIT](insights.html) and [REITs](insights.html)  
+**Filed under:** [REIT](insights.html), [REITs](insights.html)
 **By:** Baker 1031 Research  
 **Updated:** June 2026 · **16 min read**
 

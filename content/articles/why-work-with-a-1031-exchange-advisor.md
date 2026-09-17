@@ -69,7 +69,7 @@ The need also rises when certainty matters. First-time exchangers can benefit fr
 
 There are cases where an advisor may add less: an investor may already own the exact replacement, face a simple and certain transaction, and be comfortable coordinating the QI and CPA. Even then, a review and backup can be modest insurance against a deal collapsing after day 45. The relevant cost is not just the advisor’s fee; it is also the cost of having no alternative when the first choice fails.
 
-### Key takeaways
+## Key takeaways
 
 - The QI keeps the exchange valid. The advisor helps make it a sound outcome and close on time.
 - Advisors source and vet replacements, provide access to and screening of DSTs, and coordinate the QI, CPA, and deadlines.

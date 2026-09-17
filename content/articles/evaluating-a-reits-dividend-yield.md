@@ -73,8 +73,7 @@ For each candidate, record the current yield alongside:
 
 The list helps an investor wait for the right kind of yield increase. A quality REIT marked down in a broad market sell-off or rate scare may offer more income at a better price. A yield increase caused by a company-specific problem may instead deserve rejection. If the candidate has already passed the coverage and quality checks, a high yield leads back to the notes rather than to an impulse purchase.
 
-### Key Takeaways
-
+## Key Takeaways
 - Yield is dividend divided by price, so a high yield can reflect a falling price and an at-risk dividend rather than a gift.
 - Test yield against AFFO payout coverage and funding, not in isolation.
 - Compare a REIT with its own sector. Mortgage and net-lease REITs tend to yield more; growth sectors often yield less.
@@ -184,7 +183,7 @@ We help income-focused investors understand the yield trap, test AFFO coverage, 
 3. FINRA, [Real Estate Investments](https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits).
 4. U.S. Securities and Exchange Commission, [Investor Bulletin: Non-Traded REITs](https://www.sec.gov/oiea/investor-alerts-bulletins/ib_nontradedreits.html).
 
-**Filed under:** [REIT](insights.html) · [REITs](insights.html)
+**Filed under:** [REIT](insights.html), [REITs](insights.html)
 
 ## About the Author
 

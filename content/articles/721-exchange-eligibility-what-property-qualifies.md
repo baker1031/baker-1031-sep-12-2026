@@ -54,8 +54,7 @@ Existing debt adds tax and deal complexity. The partnership generally assumes th
 
 Other encumbrances matter too: liens, easements, title problems, and physical-condition issues affect due diligence and acceptance. Clean title, sound condition, and well-documented financial information make an asset easier to underwrite. Problematic debt, title, or condition can prevent practical acceptance even when the tax standard is met.
 
-### Key Takeaways
-
+## Key Takeaways
 - Eligibility has two parts: tax-law eligibility for investment or productive-use real estate and acceptance by a REIT that wants the property.
 - REIT criteria—type, quality, size and value, location, and financials—are often the binding constraint.
 - Institutional-quality property in a REIT's target sectors, including multifamily, net-lease, and industrial, is more likely to fit.

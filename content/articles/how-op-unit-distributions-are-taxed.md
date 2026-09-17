@@ -69,8 +69,7 @@ Conceptually, the effect resembles the way depreciation can shelter income in di
 
 The first-order view treats the distribution as the whole story. The second-order view asks how much of the partnership's net income was allocated, what depreciation was passed through, whether the cash reduced basis, and how these items will be reconciled on the K-1. That is a more accurate way to plan for a tax filing.
 
-### Key Takeaways
-
+## Key Takeaways
 - OP units are partnership interests. Owners report their share of partnership income, not only their cash distributions.
 - The tax document is a Schedule K-1, not a 1099. It reports income, deductions including depreciation, and other items.
 - Cash distributions often reduce basis as return of capital rather than being immediately taxable, to the extent of basis.

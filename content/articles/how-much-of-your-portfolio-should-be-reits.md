@@ -178,7 +178,7 @@ We help investors consider the real-estate sleeve, commonly cited ranges, income
 3. FINRA, [Real Estate Investments](https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits).
 4. IRS, [About Form 1099-DIV, Dividends and Distributions](https://www.irs.gov/forms-pubs/about-form-1099-div).
 
-**Filed under:** [REIT](insights.html) · [REITs](insights.html)
+**Filed under:** [REIT](insights.html), [REITs](insights.html)
 
 ## About the Author
 

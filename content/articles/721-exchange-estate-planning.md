@@ -22,8 +22,7 @@ A 721 exchange is commonly described as a way to trade property for a diversifie
 
 The first-order view is tax deferral and current distributions. The second-order view is the form of the estate: divisibility, liquidity, control, estate-tax exposure, partnership-agreement terms, and the need to hold units rather than convert them during life. This can be useful planning, but it is not a universal outcome. Tax and estate rules are intricate and subject to change, and qualified counsel should design the plan.
 
-### Key Takeaways
-
+## Key Takeaways
 - Holding OP units until death can allow heirs to receive a stepped-up basis, potentially eliminating deferred capital gain and depreciation recapture.
 - OP units can divide among multiple heirs more easily than an indivisible building.
 - Inherited units may be converted to liquid REIT shares with little income-tax cost, which can provide flexibility in settling an estate.

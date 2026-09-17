@@ -22,7 +22,7 @@ I keep seeing agents assume that staying useful means keeping every client in a 
 
 The first-order view is a referral opportunity. The second-order view is compliance: a 721 is a securities transaction, not something a real-estate agent sells or recommends. Refer, do not sell; remain involved in the client relationship while a properly licensed professional handles the securities discussion.
 
-### Key Takeaways for Agents & Brokers
+## Key Takeaways for Agents & Brokers
 
 - A 721 exchange contributes real estate (or a DST interest) into a REIT's operating partnership for OP units under §721, deferring tax while ending active ownership for good.
 - It's usually the back end of a two-step move: a 1031 into a DST first, then a 721 into the REIT at the DST's full-cycle sale.

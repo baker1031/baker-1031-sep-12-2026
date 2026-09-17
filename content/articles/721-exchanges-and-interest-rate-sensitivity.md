@@ -48,8 +48,7 @@ Direct real estate is also rate-sensitive: rates affect mortgage costs, capitali
 
 The difference is therefore largely visibility and liquidity, not necessarily the amount of underlying rate exposure. Direct property can feel less volatile because it lacks a daily price.
 
-### Key Takeaways
-
+## Key Takeaways
 - REITs are rate-sensitive through borrowing costs, yield competition, and cap-rate effects.
 - Rising rates can pressure traded share prices and non-traded NAVs, although the latter move less visibly.
 - Rates can pressure distributions, but rent growth and fixed-rate debt can cushion the effect.

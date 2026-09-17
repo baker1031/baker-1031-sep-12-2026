@@ -56,8 +56,7 @@ Timberland is inherently long-horizon. Trees take many years, often decades, to 
 
 The long horizon is more than a constraint. It creates harvest flexibility. When timber prices are low, an owner can defer a harvest, allowing trees to keep growing and gaining value biologically. When prices recover, the owner can harvest more. Standing timber is, in effect, a storable inventory that can appreciate while it waits. This does not eliminate price exposure, but it can reduce the pressure to sell at the bottom.
 
-### Key Takeaways
-
+## Key Takeaways
 - Timberland REITs own working forests—land and growing standing timber—and can earn from timber sales, land appreciation, and ancillary uses.
 - Biological growth is the distinctive driver: trees can gain volume and value each year largely independent of markets.
 - Timber-sale revenue remains sensitive to lumber prices and the housing and construction cycle.
@@ -205,7 +204,7 @@ REIT and non-traded-REIT interests are offered through Aurora Securities, Inc. (
 3. Cornell Legal Information Institute, [26 U.S. Code § 856 — Definition of real estate investment trust](https://www.law.cornell.edu/uscode/text/26/856).
 4. IRS, [About Form 1099-DIV, Dividends and Distributions](https://www.irs.gov/forms-pubs/about-form-1099-div).
 
-**Filed under:** [REIT](insights.html) · [REITs](insights.html)
+**Filed under:** [REIT](insights.html), [REITs](insights.html)
 
 ## About the Author
 
