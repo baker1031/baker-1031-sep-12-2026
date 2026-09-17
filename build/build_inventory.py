@@ -314,6 +314,13 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .inv__index a:hover{ color:var(--accent-text); text-decoration:underline; }
   .inv__disclosure{ margin:24px 0 0; font-size:11px; line-height:1.55; color:rgba(0,0,0,.6); max-width:900px; }
 
+  /* ---------- Important Disclosure (foot of the offerings page) ---------- */
+  .invdisc{ border-top:1px solid var(--hair-strong); margin:56px 0 0; padding:28px 0 8px; max-width:900px; }
+  .invdisc h2{ margin:0 0 14px; font-family:var(--display); font-weight:400; font-size:1.15rem; letter-spacing:-.01em; }
+  .invdisc p{ margin:0 0 10px; font-size:11px; line-height:1.6; color:rgba(0,0,0,.6); }
+  .invdisc p:last-child{ margin-bottom:0; }
+  .invdisc .invdisc__legend{ font-weight:700; letter-spacing:.04em; color:rgba(0,0,0,.75); }
+
   /* ---------- List view (sortable table) ---------- */
   .tablewrap{ overflow-x:auto; border:1px solid var(--hair-strong); border-radius:var(--radius); }
   .table{ width:100%; border-collapse:collapse; font-size:14px; min-width:860px; }
@@ -487,6 +494,25 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     </nav>
     <p class="inv__disclosure">Current yield is the projected first-year cash distribution rate stated in the sponsor’s offering documents and is not guaranteed. Leverage is stated as loan to total capitalization — the offering’s debt divided by its total capitalization (debt plus equity), which is how sponsors report it in these offerings. It is not loan-to-value: measured against purchase price the same debt produces a higher figure. Ratings reflect Jerry Baker’s opinion after his review process and are not investment advice for any particular investor. Offerings are made only by a private placement memorandum to accredited investors; availability and terms are subject to change without notice.</p>
   </section>
+    <section class="invdisc" aria-labelledby="important-disclosure">
+      <h2 id="important-disclosure">Important Disclosure</h2>
+      <p>The data shown is for informational purposes only and does not constitute an offer to purchase securitized real estate. Such offers are only offered through a sponsor Private Placement Memorandum (PPM). Subscriptions submitted may not be approved if deemed inappropriate for an investor.</p>
+      <p>506(b) offerings listed herein may not be eligible for investment for certain individuals and are dependent upon a substantive relationship establishment timeframe with your registered representative.</p>
+      <p>506(c) offerings available under exemption require investor accreditation verification and must be reasonably verified by the broker-dealer prior to investment.</p>
+      <p>Product information and availability is subject to change at any time. There is no guarantee that offerings shown will be available at the time of investment. Future offerings will vary and may be significantly different than the offerings listed herein.</p>
+      <p>First Year Cash Flow data is provided from the offering sponsor and may be subject to change at any time.</p>
+      <p>Please view more important information at the bottom of this page.</p>
+      <p class="invdisc__legend">FOR ACCREDITED INVESTOR USE ONLY - NOT FOR FURTHER DISTRIBUTION</p>
+      <p>Because investor situations and objectives vary, this information is not intended to indicate that an investment is appropriate for or is being recommended to any individual investor.</p>
+      <p>The data shown is for informational purposes only and does not constitute an offer to purchase securitized real estate. Such offers are only offered through a sponsor Private Placement Memorandum (PPM). Subscriptions submitted may not be approved if deemed inappropriate for an investor.</p>
+      <p>The information does not constitute individual investment advice and should not be relied upon as tax or legal advice. Please consult the appropriate professional regarding your individual circumstance.</p>
+      <p>There is no guarantee a sponsor will meet an offering’s investment objectives.</p>
+      <p>First Year Cash Flow data is provided from the offering sponsor and may be subject to change at any time.</p>
+      <p>506(b) offerings listed herein may not be eligible for investment for certain individuals and are dependent upon a substantive relationship establishment timeframe with your registered representative.</p>
+      <p>506(c) offerings available under exemption require investor accreditation verification and must be reasonably verified by the broker-dealer prior to investment.</p>
+      <p>Product information and availability is subject to change at any time. There is no guarantee that offerings shown will be available at the time of investment. Future offerings will vary and may be significantly different than the offerings listed herein.</p>
+      <p>The property images shown may not be owned or anticipated to be owned by the Offering but are representative of the type of asset the Offering intends to acquire.</p>
+    </section>
 </main>
 
 <div class="rule rule--strong" aria-hidden="true"></div>
