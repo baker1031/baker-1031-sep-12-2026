@@ -206,6 +206,28 @@ def expand_fullcycle(main, rel):
                   lambda m: fc.track_html(m.group(2), rows, m.group(1)), main)
     return main
 
+def correct_sponsor_meta(frag, rel):
+    """A sponsor page's meta description carried a hand-typed full-cycle count that had drifted from
+    the dataset the page itself renders: Walton said 76 against 4, Four Springs 24 against 7. Those
+    strings are what a search engine and an AI assistant quote, so they are corrected here from
+    build/fullcycle.tsv and cannot drift again."""
+    if not rel.startswith('sponsors/'):
+        return frag
+    global _FC, _SLUGMAP
+    if _FC is None: _FC = fc.by_sponsor()
+    if _SLUGMAP is None: _SLUGMAP = fc.slug2sponsor()
+    sponsor = _SLUGMAP.get(rel.split('/')[1])
+    rows = _FC.get(sponsor, []) if sponsor else []
+    n = len(rows)
+    def sub(m):
+        head = m.group(1)
+        if not n:
+            # no verified record: drop the clause rather than publish a count of zero
+            return head + re.sub(r',?\s*\d{1,4}\s+full-cycle deals,?', ',', m.group(2)).replace(',,', ',')
+        return head + re.sub(r'\b\d{1,4}(\s+full-cycle deals)', lambda x: str(n) + x.group(1), m.group(2))
+    return re.sub(r'(^description:)(.*)$', sub, frag, count=1, flags=re.M)
+
+
 def parse(frag):
     meta = {}
     m = re.match(r'<!--meta\n(.*?)\n-->\n', frag, re.S)
@@ -238,6 +260,7 @@ def build():
             frag = expand_property_type(frag, rel)
             frag = expand_sponsor_rail(frag, rel)
             frag = expand_sponsor_cards(frag, rel)
+            frag = correct_sponsor_meta(frag, rel)
             meta, head, main, scripts = parse(frag)
             # `draft: true` keeps a fragment in the repo but off the site. Retail communications that
             # have not had principal approval under FINRA Rule 2210 must not be served at all — not
