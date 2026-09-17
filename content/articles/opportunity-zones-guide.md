@@ -49,13 +49,13 @@ The relevant timeline is short:
 
 - **2018:** Original program launches under the 2017 Tax Cuts & Jobs Act.
 - **2021:** The last five-year basis step-ups expire for new investments.
-- **July 1, 2026:** Governors begin nominating the new OZ 2.0 map.
+- **July 1 – September 28, 2026:** Governors nominate the new OZ 2.0 map (a single 30-day extension is available).
 - **December 31, 2026:** Original-program deferred gains are recognized and the original investment window closes.
 - **January 1, 2027:** OZ 2.0 takes effect with its new map and benefit structure.
 
 ## 04 · OZ 2.0 — What Changes in 2027
 
-The One Big Beautiful Bill Act makes Opportunity Zones permanent and establishes a decennial redesignation cycle. Governors begin nominating tracts on July 1, 2026; the new, tighter map takes effect January 1, 2027. It is expected to cover about **6,500 zones**, down about **25%** from 8,764.
+The One Big Beautiful Bill Act makes Opportunity Zones permanent and establishes a decennial redesignation cycle. Governors' nominations opened July 1, 2026 and are due September 28, 2026; the new, tighter map takes effect January 1, 2027. It is expected to cover about **6,500 zones**, down about **25%** from 8,764.
 
 The redesigned program also changes the investment math:
 
