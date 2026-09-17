@@ -66,7 +66,7 @@ The cost is real. Most important is the **one-way door**: once step two is compl
 
 There is also **REIT dependence**. The outcome moves from a specific property to the performance and management of the whole REIT. OP-unit “liquidity,” especially in a non-traded REIT, runs through limited redemption programs and a taxable conversion, not a free public market.
 
-The ordinary risks of both stages remain. Step one brings DST illiquidity and fees. Step two brings the REIT's leverage, valuation, and distribution-sustainability risk. This does not argue against the two-step; it argues for using it deliberately, with clear eyes, and only when the eventual move into the REIT is a result the investor actually wants. [Our memo on 721 exchange downsides](721-exchange-downsides.html) catalogues the second-step risks.
+The ordinary risks of both stages remain. Step one brings DST illiquidity and fees. Step two brings the REIT's leverage, valuation, and distribution-sustainability risk. This does not argue against the two-step; it argues for using it deliberately, with clear eyes, and only when the eventual move into the REIT is a result the investor actually wants. [Our memo on 721 exchange downsides](721-exchange-downsides.html) catalogs the second-step risks.
 
 ## Who the two-step fits
 

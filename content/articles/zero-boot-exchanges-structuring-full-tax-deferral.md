@@ -209,7 +209,6 @@ Filed under: [1031 Exchange](insights.html), [1031 Exchange](insights.html)
 
 Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
 
-## Author-profile record
 
 The frozen author-profile record uses the Schema.org context `https://schema.org` and the `Person` type. Its canonical identifier is `https://baker1031.com/#jerry`.
 

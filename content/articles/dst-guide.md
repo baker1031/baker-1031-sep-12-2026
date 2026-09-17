@@ -390,7 +390,6 @@ Baker 1031 Research
 
 Baker 1031 Research maintains proprietary coverage of DST sponsors, offerings, and full-cycle performance to help exchangers evaluate replacement options with the same rigor applied to direct acquisitions.
 
-## Structured Metadata
 
 <script type="application/ld+json">
 {

@@ -188,15 +188,4 @@ Filed under: [721 Exchange](721-exchange-upreit.html), [721 UPREIT](721-exchange
 
 See how a 721 exchange moves appreciated property into a REIT operating partnership and where it fits alongside a 1031. [View 721 Exchange (UPREIT)](721-exchange-upreit.html).
 
-<!-- Source structured-data record retained for publication implementation:
-{
-  "@context": "https://schema.org",
-  "@graph": [
-{"@type":"Article","headline":"721 Exchange Minimum Investment & Suitability","author":{"@type":"Organization","name":"Baker 1031 Research"},"publisher":{"@type":"Organization","name":"Baker 1031 Investments"},"datePublished":"2026-06-01","dateModified":"2026-06-01"},
-{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"baker1031.html"},{"@type":"ListItem","position":2,"name":"Insights","item":"insights.html"},{"@type":"ListItem","position":3,"name":"721 Exchange","item":"721-exchange-upreit.html"},{"@type":"ListItem","position":4,"name":"721 Exchange Minimum Investment & Suitability"}]},
-{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need to be an accredited investor for a 721 exchange?","acceptedAnswer":{"@type":"Answer","text":"Almost always, yes. These are private securities offerings limited to accredited investors. If you own appreciated investment property with meaningful equity, you likely qualify already; your financial professional verifies it as the first step."}},{"@type":"Question","name":"Is there a minimum investment for a 721 exchange?","acceptedAnswer":{"@type":"Answer","text":"The DST and REIT offerings involved carry minimum investment amounts that vary by offering, sometimes tens of thousands of dollars or more. For most exchangers, whose property values are substantial, the minimum is rarely the constraint."}},{"@type":"Question","name":"Who qualifies for a 721 exchange?","acceptedAnswer":{"@type":"Answer","text":"Accredited investors for whom the strategy is also suitable, based on a suitability review of their circumstances and goals. Most owners of substantial appreciated real estate meet both tests, but qualification is not automatic."}},{"@type":"Question","name":"Can I fail the suitability review?","acceptedAnswer":{"@type":"Answer","text":"Yes. If you need liquidity the illiquid investment can't provide, the risks don't fit, or your goals don't align, the review can conclude the 721 exchange isn't suitable and it shouldn't be recommended. That protects you."}}]}
-  ]
-}
--->
-
 For capital allocation today, I would treat the amount of equity as a starting point rather than a green light, and reserve enough liquid capital for needs an OP-unit position cannot meet. What part of the accreditation or suitability decision would you want pressure-tested before committing capital?

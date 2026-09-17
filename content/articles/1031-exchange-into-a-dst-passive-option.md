@@ -287,7 +287,6 @@ The research desk at Baker 1031 Investments
 
 Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder [Gerald F. "Jerry" Baker III](jerry-baker-bio.html), who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.
 
-## Structured Metadata
 
 <script type="application/ld+json">
 {

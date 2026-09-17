@@ -190,7 +190,6 @@ A CPA generally focuses on tax calculations and reporting. A tax attorney focuse
 
 **Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
 
-### Author Profile Metadata
 
 The source also includes this author profile information for [Gerald F. “Jerry” Baker, III](https://baker1031.com/about/jerry-baker/): he is Founder & Managing Principal of Baker 1031 Investments; the organization profile ID is `https://baker1031.com/#org`; and the source image is `https://baker1031.com/assets/img/jerry-baker.jpg`. He attended Babson College and is described as a former Wall Street real estate professional involved in more than $10 billion of transactions who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.
 
@@ -198,35 +197,6 @@ The source records expertise in Delaware Statutory Trusts, 1031 Exchange, 721 UP
 
 It also records these FINRA-recognized credentials: **FINRA Series 22 — Direct Participation Programs Limited Representative** (license; [FINRA](https://www.finra.org/)); **FINRA Series 63 — Uniform Securities Agent State Law** (license; FINRA); and **FINRA SIE — Securities Industry Essentials** (certification; FINRA). The source's personal profile links are [BrokerCheck](https://brokercheck.finra.org/individual/summary/7537416) and [LinkedIn](https://www.linkedin.com/in/jerry-baker-1031-dst/).
 
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://baker1031.com/#jerry",
-  "name": "Gerald F. “Jerry” Baker, III",
-  "alternateName": "Jerry Baker",
-  "jobTitle": "Founder & Managing Principal",
-  "worksFor": { "@id": "https://baker1031.com/#org" },
-  "url": "https://baker1031.com/about/jerry-baker/",
-  "image": "https://baker1031.com/assets/img/jerry-baker.jpg",
-  "description": "Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.",
-  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Babson College" },
-  "knowsAbout": ["Delaware Statutory Trusts", "1031 Exchange", "721 UPREIT Exchange", "Opportunity Zone Funds", "Mineral & Royalty Interests", "REITs"],
-  "award": "GlobeSt. CRE's Aspiring Leaders of 2026",
-  "subjectOf": {
-"@type": "Article",
-"name": "CRE's Aspiring Leaders of 2026",
-"url": "https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/",
-"publisher": { "@type": "Organization", "name": "GlobeSt.com" }
-  },
-  "hasCredential": [
-{ "@type": "EducationalOccupationalCredential", "credentialCategory": "license", "name": "FINRA Series 22 — Direct Participation Programs Limited Representative", "recognizedBy": { "@type": "Organization", "name": "FINRA", "url": "https://www.finra.org/" } },
-{ "@type": "EducationalOccupationalCredential", "credentialCategory": "license", "name": "FINRA Series 63 — Uniform Securities Agent State Law", "recognizedBy": { "@type": "Organization", "name": "FINRA" } },
-{ "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "FINRA SIE — Securities Industry Essentials", "recognizedBy": { "@type": "Organization", "name": "FINRA" } }
-  ],
-  "sameAs": ["https://brokercheck.finra.org/individual/summary/7537416", "https://www.linkedin.com/in/jerry-baker-1031-dst/"]
-}
-```
 
 ## Disclosures
 

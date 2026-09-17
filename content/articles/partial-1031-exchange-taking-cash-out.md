@@ -59,7 +59,7 @@ The central formula is straightforward: recognized, taxable gain is the lesser o
 
 The calculation still needs care. Work with a CPA to track realized gain—sale price less adjusted basis and selling costs—cash boot, and mortgage boot: debt paid off less replacement debt, net of additional cash. The recognized amount may include [depreciation recapture](depreciation-recapture-real-estate.html), and the replacement property’s basis changes because the exchange is partial. That later basis affects future depreciation.
 
-The point of modelling is control. An investor can set a target for cash received, tax cost, or percentage deferred before closing, rather than discover it after the fact. A well-planned partial exchange has a known deferred-versus-taxed split.
+The point of modeling is control. An investor can set a target for cash received, tax cost, or percentage deferred before closing, rather than discover it after the fact. A well-planned partial exchange has a known deferred-versus-taxed split.
 
 ## Key takeaways
 
@@ -86,7 +86,7 @@ Now assume the owner replaces only **$200,000** of the **$300,000** debt. The **
 
 ## How Baker 1031 helps with partial exchanges
 
-Baker 1031 Investments helps investors plan partial exchanges deliberately: clarifying the cash need, coordinating with a CPA on boot and recapture modelling, and structuring a cash/deferred-gain split that reflects the investor’s actual decision. That work includes weighing the tax cost of cash against the use of cash, rather than allowing accidental boot to set the result.
+Baker 1031 Investments helps investors plan partial exchanges deliberately: clarifying the cash need, coordinating with a CPA on boot and recapture modeling, and structuring a cash/deferred-gain split that reflects the investor’s actual decision. That work includes weighing the tax cost of cash against the use of cash, rather than allowing accidental boot to set the result.
 
 Where reinvested proceeds will go into replacement property, Baker can help identify and vet options. Securities such as DSTs are offered through Aurora Securities, Inc., member FINRA/SIPC, and any recommendation follows a suitability review. The goal is not to promise a result; it is to make the cash retained and the deferral retained deliberate.
 

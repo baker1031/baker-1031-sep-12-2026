@@ -64,7 +64,7 @@ For an investor with meaningful gain, the cost comparison can be straightforward
 
 The answer becomes less clear at the margins: modest gain, little appreciation or depreciation recapture, or a reverse or improvement structure whose cost is not justified by the tax deferred. Run the actual figures. Estimate the tax from an outright sale, compare it with the all-in exchange cost, and then weigh the exchange’s deadlines, reinvestment requirement, and like-kind replacement constraint.
 
-For a sizeable gain, the comparison is rarely close. For a small gain, it should be tested rather than assumed.
+For a sizable gain, the comparison is rarely close. For a small gain, it should be tested rather than assumed.
 
 ## A Worked Comparison
 

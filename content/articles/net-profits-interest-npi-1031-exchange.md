@@ -216,17 +216,12 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 [Jerry Baker](jerry-baker-bio.html), Founder & Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-### Structured author profile
-
-The frozen source also supplies this author profile as Schema.org metadata: `@context` `https://schema.org`; `@type` `Person`; and `@id` `https://baker1031.com/#jerry`. The legal name is Gerald F. “Jerry” Baker, III; the alternate name is Jerry Baker; the job title is Founder & Managing Principal; and `worksFor` identifies the organization profile `https://baker1031.com/#org`.
 
 The profile’s canonical URL is [https://baker1031.com/about/jerry-baker/](https://baker1031.com/about/jerry-baker/), and its image URL is [https://baker1031.com/assets/img/jerry-baker.jpg](https://baker1031.com/assets/img/jerry-baker.jpg). Its description is: “Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.”
 
-The profile lists Babson College as `alumniOf`, with `@type` `CollegeOrUniversity`. Its `knowsAbout` list is Delaware Statutory Trusts, 1031 Exchange, 721 UPREIT Exchange, Opportunity Zone Funds, Mineral & Royalty Interests, and REITs.
 
 It lists the award GlobeSt. CRE's Aspiring Leaders of 2026. The `subjectOf` item is an `Article` named CRE's Aspiring Leaders of 2026, published by the `Organization` GlobeSt.com: [https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/](https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/).
 
-The profile’s `hasCredential` list includes three records with `@type` `EducationalOccupationalCredential`: a `license`, FINRA Series 22 — Direct Participation Programs Limited Representative, recognized by the `Organization` FINRA at [https://www.finra.org/](https://www.finra.org/); a `license`, FINRA Series 63 — Uniform Securities Agent State Law, recognized by the `Organization` FINRA; and a `certification`, FINRA SIE — Securities Industry Essentials, recognized by the `Organization` FINRA.
 
 Its `sameAs` destinations are [personal FINRA BrokerCheck](https://brokercheck.finra.org/individual/summary/7537416) and [LinkedIn](https://www.linkedin.com/in/jerry-baker-1031-dst/).
 

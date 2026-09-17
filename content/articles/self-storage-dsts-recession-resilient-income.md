@@ -216,17 +216,9 @@ Filed under: [Delaware Statutory Trusts](insights.html), [DSTs](insights.html), 
 
 **About the author:** [Jerry Baker](jerry-baker-bio.html), Founder & Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-### Embedded Author Profile
-
-The frozen source records this profile with schema `@context` `https://schema.org`, `@type` `Person`, and `@id` `https://baker1031.com/#jerry`. The person's name is Gerald F. “Jerry” Baker, III; the alternate name is Jerry Baker; and the job title is Founder & Managing Principal. The `worksFor` record is an `@id` of `https://baker1031.com/#org`.
 
 The canonical profile URL is https://baker1031.com/about/jerry-baker/ and the image URL is https://baker1031.com/assets/img/jerry-baker.jpg. The source description is: Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.
 
-The `alumniOf` record has `@type` `CollegeOrUniversity` and names Babson College. The `knowsAbout` list is Delaware Statutory Trusts, 1031 Exchange, 721 UPREIT Exchange, Opportunity Zone Funds, Mineral & Royalty Interests, and REITs.
-
-The award is GlobeSt. CRE's Aspiring Leaders of 2026. The `subjectOf` record has `@type` `Article`, the name CRE's Aspiring Leaders of 2026, and the source destination [CRE's Aspiring Leaders of 2026](https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/). Its publisher has `@type` `Organization` and the name GlobeSt.com.
-
-The `hasCredential` records each use `@type` `EducationalOccupationalCredential`. The first has credential category `license`, name FINRA Series 22 — Direct Participation Programs Limited Representative, and a `recognizedBy` organization named [FINRA](https://www.finra.org/). The second has credential category `license`, name FINRA Series 63 — Uniform Securities Agent State Law, and a `recognizedBy` organization named FINRA. The third has credential category `certification`, name FINRA SIE — Securities Industry Essentials, and a `recognizedBy` organization named FINRA.
 
 The `sameAs` profiles are [FINRA BrokerCheck](https://brokercheck.finra.org/individual/summary/7537416) and [LinkedIn](https://www.linkedin.com/in/jerry-baker-1031-dst/).
 

@@ -18,6 +18,7 @@ to /invest/ by netlify/edge-functions/gate.js rather than being left to 404.
 The Investor Access base is deliberately NOT read here — nothing about investors belongs in a static build.
 """
 import json, os, re, sys, time, urllib.request, urllib.parse, urllib.error
+from us_spelling import americanise  # sponsor copy arrives with British spellings; this is a US site
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.environ.get('SITE_ROOT') or os.path.dirname(HERE)
@@ -97,16 +98,24 @@ def hold_years(label):
     nums = [float(x) for x in re.findall(r'\d+(?:\.\d+)?', str(label or ''))]
     return max(nums) if nums else None
 
+# Long-form fields the sponsor copy lands in. Their British spellings are normalised on the way in, so
+# the fix survives every re-fetch instead of having to be reapplied to Airtable by hand.
+PROSE_FIELDS = ('name', 'description', 'notes', 'sourceNotes', 'cfDisclosure', 'cfBasis', 'amort',
+                'exit721Route', 'postForecast', 'addresses', 'holdLabel', 'lender', 'rate')
+
+
 def normalize(rec):
     f = rec.get('fields', {})
     o = {'id': rec['id']}
-    for fid, key in FIELDS.items(): o[key] = norm(f.get(fid))
+    for fid, key in FIELDS.items():
+        v = norm(f.get(fid))
+        o[key] = americanise(v) if key in PROSE_FIELDS else v
     o['types'] = split_types(o.pop('typesRaw'))
     o['locations'] = [x.strip() for x in str(o.pop('locationsRaw') or '').split(';') if x.strip()]
     o['exit721'] = EXIT721.get(str(o.pop('exit721Raw') or 'none').strip().lower(), 'None')
     o['hold'] = hold_years(o['holdLabel'])
     o['income'] = [f.get(x) for x in INCOME]
-    o['highlights'] = [f.get(x) for x in HIGHLIGHTS if f.get(x)]
+    o['highlights'] = [americanise(f.get(x)) for x in HIGHLIGHTS if f.get(x)]
     o['image'] = [{'url': i['url'], 'large': (i.get('thumbnails') or {}).get('large', {}).get('url'),
                    'filename': i.get('filename'), 'type': i.get('type')} for i in (f.get(IMAGE) or [])]
     o['docs'] = [{'filename': d.get('filename'), 'url': d.get('url'), 'size': d.get('size')} for d in (f.get(DOCS) or [])]

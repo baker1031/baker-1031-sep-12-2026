@@ -43,7 +43,7 @@ Read [Jerry's full profile](jerry-baker-bio.html) or [GlobeSt.'s 2026 recognitio
 
 ## About the author
 
-**Jerry Baker** is Founder & Managing Principal of Baker 1031 Investments (FINRA Series 22 / 63 · SIE). He founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange after more than a decade on Wall Street and more than $10B+ of real estate work, before building diversified DST portfolios for individual investors. [Read his full bio](jerry-baker-bio.html).
+**Jerry Baker** is Founder & Managing Principal of Baker 1031 Investments (FINRA Series 22 / 63 · SIE). He founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange after more than a decade on Wall Street and more than $10B of real estate work, before building diversified DST portfolios for individual investors. [Read his full bio](jerry-baker-bio.html).
 
 Profile notes: Gerald F. “Jerry” Baker, III is also known as Jerry Baker. His profile is available at [baker1031.com/about/jerry-baker](https://baker1031.com/about/jerry-baker/) and includes his [profile image](https://baker1031.com/assets/img/jerry-baker.jpg). He attended Babson College and works across Delaware Statutory Trusts, 1031 Exchange, 721 UPREIT Exchange, Opportunity Zone Funds, Mineral & Royalty Interests, and REITs. His stated credentials are FINRA Series 22 — Direct Participation Programs Limited Representative; FINRA Series 63 — Uniform Securities Agent State Law; and FINRA SIE — Securities Industry Essentials. FINRA recognizes those credentials through [FINRA](https://www.finra.org/).
 
