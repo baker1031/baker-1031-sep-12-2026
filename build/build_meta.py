@@ -150,6 +150,11 @@ def main():
         stray = _fc.unmapped_types()
         if stray:
             info['unmappedAssetClasses'] = stray
+        # Rows Airtable has not given a normalised asset class. They publish under
+        # "Other / Unclassified", which is honest but is also a to-do list.
+        n = len([r for r in _fc.load() if r['classes'] == [_fc.UNCLASSIFIED]])
+        if n:
+            info['unclassifiedRows'] = n
     except Exception:
         pass
     open(os.path.join(ROOT, 'build-info.json'), 'w').write(json.dumps(info))

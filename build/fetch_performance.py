@@ -46,9 +46,17 @@ F_LOC    = 'fldIReVDzcPwjZQSj'
 F_RET    = 'flduMdFTmX8XwcSnB'
 F_EM     = 'fldZUF33USheQ1XIR'
 F_HOLD   = 'fldgNZUMjiU8bbh2p'
+# The normalised asset class, computed in Airtable itself (Asset Class 1 / 2 (derived) on Past
+# Performance) and the same value its Asset Class Performance (Full Cycle) rollups are keyed on.
+# The site groups on THIS, not on the raw Property Type text: Airtable folds the nine "Credit - *"
+# labels into one Credit / Debt class, every net-leased variant into Net Lease (NNN) Retail, and so
+# on. Asset Class 2 is set only where a program genuinely spans two classes (ExchangeRight's
+# net-leased retail & healthcare portfolios), and such a row counts in both.
+F_AC1    = 'fldhLaBtjUt4g7Uyf'
+F_AC2    = 'fldXCJf9BRPKPpgDC'
 
 HEADER = ['Investment Name', 'Sponsor', 'Property Type', 'Location', 'Average Annual Return',
-          'Equity Multiple', 'Holding Period', 'City', 'Location Note']
+          'Equity Multiple', 'Holding Period', 'City', 'Location Note', 'Asset Class', 'Asset Class 2']
 CITY_STATE = re.compile(r'^(.+),\s*([A-Z]{2})$')
 # Below this share of the committed row count the pull is treated as broken rather than as a real shrink.
 MIN_SHARE = 0.8
@@ -106,7 +114,8 @@ def row(rec):
     if m: city, state = m.group(1).strip(), m.group(2)
     elif loc: note = loc
     return [txt(f.get(F_NAME)), txt(f.get(F_SPONSOR)), txt(f.get(F_TYPE)), state,
-            num(f.get(F_RET), 6), num(f.get(F_EM), 6), num(f.get(F_HOLD), 6), city, note]
+            num(f.get(F_RET), 6), num(f.get(F_EM), 6), num(f.get(F_HOLD), 6), city, note,
+            txt(f.get(F_AC1)), txt(f.get(F_AC2))]
 
 
 def refresh_preferred():

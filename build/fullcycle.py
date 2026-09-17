@@ -10,7 +10,14 @@ It is simple, not compounded, and it is not an IRR. Sponsors' own headline retur
 equity-weighted annualized returns and CAGRs, which is why they are not used here.
 
 Columns: Investment Name, Sponsor, Property Type, Location (state), Average Annual Return (decimal
-fraction: 0.2071 = 20.71%), Equity Multiple, Holding Period (years), City.
+fraction: 0.2071 = 20.71%), Equity Multiple, Holding Period (years), City, Location Note, Asset
+Class, Asset Class 2.
+
+Asset Class is Airtable's OWN normalised class (the Asset Class 1 / 2 (derived) fields on Past
+Performance), which is what its Asset Class Performance (Full Cycle) rollups are keyed on. The site
+groups and labels by that, never by the raw Property Type text, so the two cannot disagree: all nine
+"Credit - *" labels are one Credit / Debt class, every net-leased variant is Net Lease (NNN) Retail,
+and a program Airtable marks as spanning two classes is counted in both.
 Blank figures are "not reported": they render as "—" and are left out of every average.
 """
 import csv, os, re as _re
@@ -22,6 +29,7 @@ TSV = os.environ.get('FULLCYCLE_TSV', os.path.join(HERE, 'fullcycle.tsv'))
 # Airtable holds them, so the only thing corrected here is a value that is the SAME class typed
 # differently (or is not a class at all). Anything that is a real distinction in Airtable — credit
 # against equity, net-leased against general retail — is left alone and published as its own class.
+UNCLASSIFIED = 'Other / Unclassified'
 TYPE_FIX = {
     'Hospitality / credit': 'Hospitality / Credit',
     'Medical office': 'Medical Office',
@@ -77,17 +85,30 @@ def _num(v, scale=1):
 
 
 def load(path=None):
-    """[{name, sponsor, type, state, city, location, ret (percent), em, hold}] in file order."""
+    """[{name, sponsor, type, ppm_type, classes, state, city, location, ret (percent), em, hold}] in file order.
+
+    `type` is the asset class the site groups and labels by: Airtable's own normalised class (Asset
+    Class 1 (derived)), which is what its Asset Class Performance (Full Cycle) rollups are keyed on.
+    `ppm_type` keeps the raw Property Type label off the PPM, so a search for "Credit - Hotel" still
+    finds those deals even though they publish as Credit / Debt. `classes` is every class the row
+    belongs to: two of them where Airtable marks a program as spanning two, and such a row is
+    counted in both, exactly as the rollups count it.
+    """
     out = []
     with open(path or TSV, encoding='utf-8') as f:
         rd = csv.reader(f, delimiter='\t')
         next(rd, None)
         for r in rd:
-            r = [c.strip() for c in r] + [''] * (8 - len(r))
+            r = [c.strip() for c in r] + [''] * (11 - len(r))
             if not r[0]:
                 continue
             city, state = r[7], r[3]
-            out.append(dict(name=r[0], sponsor=r[1], type=TYPE_FIX.get(r[2], r[2]), state=state, city=city,
+            classes = [c for c in (r[9], r[10]) if c]
+            # A row Airtable has not classified yet goes in one honest bucket. Publishing its raw PPM
+            # label instead would put a label that is not part of the vocabulary back on the page.
+            classes = classes or [UNCLASSIFIED]
+            out.append(dict(name=r[0], sponsor=r[1], type=classes[0],
+                            ppm_type=r[2], classes=classes, state=state, city=city,
                             location=', '.join(x for x in (city, state) if x),
                             ret=_num(r[4], 100), em=_num(r[5]), hold=_num(r[6])))
     for i, d in enumerate(out):
@@ -109,6 +130,18 @@ def stats(rows):
     return dict(n=len(rows), ret=_mean(rows, 'ret'), em=_mean(rows, 'em'), hold=_mean(rows, 'hold'),
                 success=(round(len([r for r in with_em if r['em'] >= 1]) / len(with_em) * 100, 4)
                          if with_em else None))
+
+
+def by_asset_class(rows=None):
+    """{asset class: rows} on Airtable's normalised classes. A program Airtable marks as spanning two
+    classes is counted in both, so the class counts sum to more than the number of rows — that is how
+    its own rollups count them, and matching it is the point."""
+    rows = rows if rows is not None else load()
+    out = {}
+    for r in rows:
+        for c in r['classes']:
+            out.setdefault(c, []).append(r)
+    return out
 
 
 def by_sponsor(rows=None):
@@ -202,49 +235,35 @@ def track_html(name, rows, indent='        '):
 # reproduced from this dataset, and five described programs the dataset does not contain at all, so
 # they are now derived here on the same basis as everywhere else: (equity multiple - 1) / hold.
 PROPERTY_TYPE_MAP = {
-    'Multifamily / residential': 'multifamily',
-    'Multifamily': 'multifamily',
-    'Hotel': 'hospitality',
+    'Multifamily / Residential': 'multifamily',
+    'Hotel / Hospitality': 'hospitality',
+    'Net Lease (NNN) Retail': 'net-lease',
+    'Self Storage': 'self-storage',
     'Office': 'office',
-    'Student housing': 'student-housing',
-    'Government / GSA-leased': 'government-leased',
-    'Self storage': 'self-storage',
-    'Medical Office': 'healthcare',
+    'Healthcare / Medical Office': 'healthcare',
+    'Government / GSA-Leased': 'government-leased',
     'Industrial': 'industrial',
-    'Undeveloped / pre-development land': 'land',
-    'Net-leased restaurant': 'net-lease',
-    'Net-leased retail': 'net-lease',
-    'Net-leased retail & healthcare': 'net-lease',
-    'Net-leased early education / childcare': 'net-lease',
-    'Net-leased retail (fund-level)': 'net-lease',
-    'Net-leased pharmacy': 'net-lease',
-    'Net-leased grocery': 'net-lease',
-    'Single Tenant Retail': 'net-lease',
-    'Single Tenant Fitness': 'net-lease',
-    'Supermarket': 'net-lease',
-    'Necessity Retail': 'net-lease',
+    'Student Housing': 'student-housing',
+    'Undeveloped Land': 'land',
 }
 
-# Classes the dataset holds that no property-type page covers. Listed so that a class arriving from
-# Airtable for the first time shows up as a warning in the build instead of being dropped in silence,
-# which is how /property-types/hospitality/ came to state that the dataset held no hotel programs
-# while the dataset held 435 of them.
-#  - Credit - *: loan positions, not ownership of the sector they lent against. Airtable records them
-#    as their own classes and the site follows that, so they do not feed an equity sector's page.
-#  - the rest: real equity classes with no page of their own; they appear in the Results table only.
-NO_PAGE = frozenset([
-    'Retail', 'Mixed Use', 'Parking', 'Debt / notes program', 'Other / Unclassified',
-    'Hospitality / Credit',
-])
+# Classes with no property-type page of their own. Listed so a class Airtable adds in future shows up
+# as a build warning rather than being dropped in silence, which is how /property-types/hospitality/
+# came to say the dataset held no hotel program while the dataset held 72 of them.
+#   Credit / Debt — loan positions rather than ownership of a sector; /strategies/real-estate-credit/
+#                   is still a draft, so there is no page to feed.
+#   Parking       — one program, no page.
+#   Other / Unclassified — the fallback for a row Airtable has not classified yet.
+NO_PAGE = frozenset(['Credit / Debt', 'Parking', 'Other / Unclassified'])
 
 
 def unmapped_types(rows=None):
     """{class: program count} for classes that neither feed a page nor are known to have none."""
     out = {}
     for r in (rows if rows is not None else load()):
-        t = (r.get('type') or '').strip()
-        if t and t not in PROPERTY_TYPE_MAP and t not in NO_PAGE and not t.startswith('Credit - '):
-            out[t] = out.get(t, 0) + 1
+        for c in r['classes']:
+            if c and c not in PROPERTY_TYPE_MAP and c not in NO_PAGE:
+                out[c] = out.get(c, 0) + 1
     return dict(sorted(out.items(), key=lambda kv: -kv[1]))
 
 # Below this many full-cycle programs an average says more about the sample than about the sector,
@@ -256,9 +275,10 @@ def by_property_type(rows=None):
     rows = rows if rows is not None else load()
     out = {}
     for r in rows:
-        slug = PROPERTY_TYPE_MAP.get((r.get('type') or '').strip())
-        if slug:
-            out.setdefault(slug, []).append(r)
+        for c in r['classes']:
+            slug = PROPERTY_TYPE_MAP.get(c)
+            if slug:
+                out.setdefault(slug, []).append(r)
     return out
 
 
