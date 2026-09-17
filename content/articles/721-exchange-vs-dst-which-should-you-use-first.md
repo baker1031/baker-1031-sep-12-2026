@@ -167,6 +167,6 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 ## Explore Current Offerings
 
-See the 721 Exchange (UPREIT) we currently have available and how they fit a strategy like this one. [View 721 Exchange (UPREIT) →](721-exchange-upreit.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the 721 Exchange (UPREIT) we currently have available and how it may fit a strategy like this one. [View 721 Exchange (UPREIT) →](721-exchange-upreit.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 I would start with the intended destination and the willingness to accept a delayed, generally one-way path to REIT ownership. Is your priority keeping 1031 flexibility, or reaching broader REIT diversification and a liquidity path?

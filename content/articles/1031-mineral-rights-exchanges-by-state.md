@@ -13,7 +13,6 @@ risk: "mixed"
 
 # 1031 Mineral Rights Exchanges by State: TX, OK, NM, ND & More
 
-[Home](baker1031.html) › Insights › 1031 Mineral Rights Exchanges by State: TX, OK, NM, ND & More
 
 [Back to All Insights](insights.html)
 

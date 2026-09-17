@@ -13,7 +13,6 @@ risk: "dst"
 
 # DST Loan Assumption & Lender Requirements
 
-[Home](baker1031.html) › Insights
 
 [Back to All Insights](insights.html)
 
@@ -215,11 +214,11 @@ Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1
 
 Reviewed by   Lori Kamen  — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
 
-Explore current offerings See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one.  View Delaware Statutory Trusts →  Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+Explore current offerings See the Delaware Statutory Trusts we currently have available and how it may fit a strategy like this one.  View available investments →  Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","@id":"https://baker1031.com/#jerry","name":"Gerald F. “Jerry” Baker, III","alternateName":"Jerry Baker","jobTitle":"Founder & Managing Principal","worksFor":{"@id":"https://baker1031.com/#org"},"url":"https://baker1031.com/about/jerry-baker/","image":"https://baker1031.com/assets/img/jerry-baker.jpg","description":"Founder and managing principal of Baker 1031 Investments and a former Wall Street real estate professional involved in more than $10 billion of transactions, who brings institutional underwriting discipline to 1031 exchanges and Delaware Statutory Trusts.","alumniOf":{"@type":"CollegeOrUniversity","name":"Babson College"},"knowsAbout":["Delaware Statutory Trusts","1031 Exchange","721 UPREIT Exchange","Opportunity Zone Funds","Mineral & Royalty Interests","REITs"],"award":"GlobeSt. CRE's Aspiring Leaders of 2026","subjectOf":{"@type":"Article","name":"CRE's Aspiring Leaders of 2026","url":"https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/","publisher":{"@type":"Organization","name":"GlobeSt.com"}},"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 22 — Direct Participation Programs Limited Representative","recognizedBy":{"@type":"Organization","name":"FINRA","url":"https://www.finra.org/"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63 — Uniform Securities Agent State Law","recognizedBy":{"@type":"Organization","name":"FINRA"}},{"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"FINRA SIE — Securities Industry Essentials","recognizedBy":{"@type":"Organization","name":"FINRA"}}],"sameAs":["https://brokercheck.finra.org/individual/summary/7537416","https://www.linkedin.com/in/jerry-baker-1031-dst/"]}
 </script>
 
-For capital, I would read the governing documents before treating a structure as a benefit. [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) and [View Delaware Statutory Trusts →](delaware-statutory-trusts.html) are available for further context. What term would you want to test most closely?
+For capital, I would read the governing documents before treating a structure as a benefit. [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) and [View available investments →](delaware-statutory-trusts.html) are available for further context. What term would you want to test most closely?

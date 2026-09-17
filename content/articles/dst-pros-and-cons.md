@@ -9,7 +9,6 @@ risk: "dst"
 
 # DST Pros and Cons: Is a Delaware Statutory Trust Right for Your 1031?
 
-[Home](baker1031.html) › Insights › DST Pros and Cons: Is a Delaware Statutory Trust Right for Your 1031?
 
 [Back to All Insights](insights.html)
 

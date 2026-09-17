@@ -13,7 +13,6 @@ risk: "dst"
 
 # DST Full-Cycle: What Happens When the Trust Sells
 
-[Home](baker1031.html) › Insights
 
 [Back to All Insights](insights.html)
 
@@ -39,7 +38,7 @@ The full-cycle event is the final chapter of the lifecycle described in [our in-
 
 ## What "full-cycle" means
 
-A DST has a defined life. When the sponsor judges conditions right, the underlying property is sold, the trust is dissolved, and the proceeds are distributed to investors — at which point the program has gone full-cycle . The term simply marks the completion of the journey from acquisition through operation to sale. For you, it's both a payday and a decision point, because the proceeds don't automatically continue inside the trust.
+A DST has a defined life. When the sponsor judges conditions right, the underlying property is sold, the trust is dissolved, and the proceeds are distributed to investors — at which point the program has gone full-cycle. The term simply marks the completion of the journey from acquisition through operation to sale. For you, it's both a payday and a decision point, because the proceeds don't automatically continue inside the trust.
 
 ## Typical hold periods and what drives the timing
 
@@ -49,7 +48,7 @@ Most DSTs target a hold of five to seven years, and sometimes as long as ten, bu
 
 The typical DST life cycle unfolds in three broad phases. First, acquisition and offering : the sponsor sources and underwrites an income-producing property, arranges non-recourse financing, structures it as a Delaware Statutory Trust that qualifies as 1031 replacement property, and sells fractional beneficial interests to investors — many of them 1031 exchangers placing the proceeds of a property sale. This phase is where you make your investment, often within the tight 45- and 180-day deadlines of a 1031 exchange, taking advantage of a DST's ability to close quickly.
 
-Second, the hold-and-operate phase , typically lasting around five to seven years (though it varies). During this period, a master lease or property-management arrangement runs the property — collecting rent, covering expenses, and servicing debt — and the DST distributes available cash flow to investors, usually monthly or quarterly. Investors are passive: the "seven deadly sins" trustee restrictions limit the trust's ability to take new actions, so the property is essentially operated on autopilot under the master lease while you receive income. Third, the disposition phase : when market conditions and the business plan align, the sponsor sells the property, pays off the debt and any disposition costs, and returns the remaining proceeds to investors — completing the full cycle and triggering the end-of-cycle decision.
+Second, the hold-and-operate phase, typically lasting around five to seven years (though it varies). During this period, a master lease or property-management arrangement runs the property — collecting rent, covering expenses, and servicing debt — and the DST distributes available cash flow to investors, usually monthly or quarterly. Investors are passive: the "seven deadly sins" trustee restrictions limit the trust's ability to take new actions, so the property is essentially operated on autopilot under the master lease while you receive income. Third, the disposition phase : when market conditions and the business plan align, the sponsor sells the property, pays off the debt and any disposition costs, and returns the remaining proceeds to investors — completing the full cycle and triggering the end-of-cycle decision.
 
 Knowing the phases sets expectations: a DST typically moves through acquisition and offering, a roughly five-to-seven-year hold during which passive investors receive distributions, and disposition when the sponsor sells and returns capital. The hold length is typical, not guaranteed.
 
@@ -69,7 +68,7 @@ If you want to keep deferring, you can roll the proceeds into a new [1031 exchan
 
 ## Option 3: 721 exchange into a REIT
 
-The third path, available when the offering is structured for it, is a 721 exchange : contributing your interest into a real estate investment trust's operating partnership in exchange for operating-partnership (OP) units. This continues the tax deferral while moving you into a larger, diversified vehicle with potential liquidity. It can be an attractive way to transition from a single property into a broad portfolio without triggering tax — but it is a one-way door . Once you hold OP units, you generally cannot 1031 out again, and converting those units into REIT shares later is itself a taxable event. Our [DST vs. REIT memo](dst-vs-reit.html) explains the trade-off; the short version is that a 721 is a fine destination but a poor pit stop.
+The third path, available when the offering is structured for it, is a 721 exchange : contributing your interest into a real estate investment trust's operating partnership in exchange for operating-partnership (OP) units. This continues the tax deferral while moving you into a larger, diversified vehicle with potential liquidity. It can be an attractive way to transition from a single property into a broad portfolio without triggering tax — but it is a one-way door. Once you hold OP units, you generally cannot 1031 out again, and converting those units into REIT shares later is itself a taxable event. Our [DST vs. REIT memo](dst-vs-reit.html) explains the trade-off; the short version is that a 721 is a fine destination but a poor pit stop.
 
 ## Tax consequences of each path
 

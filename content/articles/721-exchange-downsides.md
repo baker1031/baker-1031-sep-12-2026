@@ -9,7 +9,6 @@ risk: "mixed"
 
 # 721 Exchange Downsides: Risks Every Investor Should Weigh
 
-[Home](baker1031.html) › Insights › 721 Exchange Downsides
 
 [Back to All Insights](insights.html)
 

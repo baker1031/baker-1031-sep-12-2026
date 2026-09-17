@@ -195,6 +195,6 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 ## Explore current offerings
 
-See the REITs we currently have available and how they fit a strategy like this one: [View REITs](reits.html). Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the REITs we currently have available and how it may fit a strategy like this one: [View REITs](reits.html). Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 I am managing capital here by demanding evidence of stable occupancy, realistic lot-rent assumptions, manageable leverage, and a regulatory risk I can explain rather than ignore. How are you weighing affordability-driven demand against rent-control exposure today?

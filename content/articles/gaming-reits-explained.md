@@ -211,6 +211,6 @@ The source record also identifies his work across subjects including 721 UPREIT 
 
 ### Explore current offerings
 
-See the REITs we currently have available and how they fit a strategy like this one: [View REITs →](reits.html). Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the REITs we currently have available and how it may fit a strategy like this one: [View REITs →](reits.html). Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 I am managing capital by treating a gaming REIT's yield as a price paid for a specific rent stream, then requiring enough tenant-credit and coverage evidence before relying on it for income. How are you weighing high income against tenant concentration in your own allocation?

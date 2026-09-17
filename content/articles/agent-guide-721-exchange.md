@@ -13,7 +13,6 @@ risk: "mixed"
 
 # The Agent & Broker's 2026 Guide to 721 Exchanges (UPREITs)
 
-[Home](baker1031.html) › Insights › The Agent & Broker's 2026 Guide to 721 Exchanges (UPREITs)
 
 [Back to All Insights](insights.html)
 

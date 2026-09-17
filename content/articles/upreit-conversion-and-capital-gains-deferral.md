@@ -13,7 +13,6 @@ risk: "upreit"
 
 # UPREIT Conversion and Capital Gains Deferral
 
-[Home](baker1031.html) › Insights
 
 [Back to All Insights](insights.html)
 
@@ -201,7 +200,7 @@ Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1
 
 Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
 
-Explore current offerings See the 721 Exchange (UPREIT) we currently have available and how they fit a strategy like this one. [View 721 Exchange (UPREIT) →](721-exchange-upreit.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+Explore current offerings See the 721 Exchange (UPREIT) we currently have available and how it may fit a strategy like this one. [View 721 Exchange (UPREIT) →](721-exchange-upreit.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 
 <script type="application/ld+json">

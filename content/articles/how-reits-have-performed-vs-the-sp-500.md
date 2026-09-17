@@ -253,7 +253,7 @@ Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1
 
 ## Explore current offerings
 
-See the REITs we currently have available and how they fit a strategy like this one. [View REITs →](reits.html)  
+See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html)  
 Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 Right now, I would treat the historical comparison as a reason to check role, liquidity, and position size—not a reason to reach for whichever return series last looked best. Where do you see the most important trade-off between REIT income and broad-equity exposure in your own allocation?

@@ -10,7 +10,6 @@ source_read_time: 12 min read
 risk: "mixed"
 ---
 
-[Home](baker1031.html) › Insights
 
 [Back to All Insights](insights.html)
 

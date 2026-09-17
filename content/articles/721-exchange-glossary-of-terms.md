@@ -9,7 +9,6 @@ risk: "upreit"
 
 # 721 Exchange Glossary of Terms
 
-[Home](baker1031.html) › Insights › 721 Exchange Glossary of Terms
 
 [Back to All Insights](insights.html)
 

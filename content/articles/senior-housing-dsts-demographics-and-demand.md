@@ -201,6 +201,6 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 ### Explore current offerings
 
-See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one: [View Delaware Statutory Trusts →](delaware-statutory-trusts.html). Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the Delaware Statutory Trusts we currently have available and how it may fit a strategy like this one: [View available investments →](delaware-statutory-trusts.html). Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 I am managing capital by treating a demographic theme as a beginning for diligence, not an endpoint, and by sizing illiquid operating exposure carefully. How are you weighing the senior-housing demand story against operator and liquidity risk in your own allocation?

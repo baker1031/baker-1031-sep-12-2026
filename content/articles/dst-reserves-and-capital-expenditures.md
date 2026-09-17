@@ -209,6 +209,6 @@ Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1
 
 ## Explore Current Offerings
 
-See the [Delaware Statutory Trusts](delaware-statutory-trusts.html) we currently have available and how they fit a strategy like this one. [View Delaware Statutory Trusts →](delaware-statutory-trusts.html) Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the [Delaware Statutory Trusts](delaware-statutory-trusts.html) we currently have available and how it may fit a strategy like this one. [View available investments →](delaware-statutory-trusts.html) Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 For capital I am considering today, I would look past a current distribution gap and examine the reserve balance, capital plan, property condition, lease schedule, debt, and the sponsor’s downside plan. I would rather accept a more modest current payout than discover later that the necessary property cushion never existed. What reserve-policy question would you add before committing capital? Share your perspective in the comments.

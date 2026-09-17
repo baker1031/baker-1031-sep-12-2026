@@ -13,7 +13,6 @@ risk: "mixed"
 
 # 45-Day and 180-Day Deadlines for Oil & Gas 1031 Exchanges
 
-[Home](baker1031.html) › Insights › 45-Day and 180-Day Deadlines for Oil & Gas 1031 Exchanges
 
 [Back to All Insights](insights.html)
 

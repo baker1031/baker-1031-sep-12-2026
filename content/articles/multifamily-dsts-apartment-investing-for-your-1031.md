@@ -206,6 +206,6 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 ### Explore current offerings
 
-See the Delaware Statutory Trusts currently available and how they may fit a strategy like this: [View Delaware Statutory Trusts →](delaware-statutory-trusts.html). Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the Delaware Statutory Trusts currently available and how they may fit a strategy like this: [View available investments →](delaware-statutory-trusts.html). Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 For now, I would treat a multifamily DST as a long, illiquid commitment and underwrite the submarket, debt, and sponsor before leaning on housing's familiarity. What would you want to see in the market and financing before committing exchange capital?

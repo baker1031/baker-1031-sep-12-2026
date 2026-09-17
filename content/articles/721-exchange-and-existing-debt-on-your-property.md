@@ -13,7 +13,6 @@ risk: "upreit"
 
 # 721 Exchange and Existing Debt on Your Property
 
-[Home](baker1031.html) › Insights › 721 Exchange and Existing Debt on Your Property
 
 [Back to All Insights](insights.html)
 

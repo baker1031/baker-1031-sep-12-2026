@@ -211,6 +211,6 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 ## Explore current offerings
 
-See the REITs we currently have available and how they fit a strategy like this one. [View REITs →](reits.html) Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html) Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 I am managing capital that might be needed soon as liquid capital, and treating a PNLR as a long-horizon allocation only after the redemption terms, fees, and public filings are understood. How do you weigh visible daily volatility against a steadier NAV with a conditional exit?

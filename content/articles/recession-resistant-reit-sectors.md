@@ -182,6 +182,6 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ## Explore Current Offerings
 
-Explore current offerings. See the REITs we currently have available and how they fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+Explore current offerings. See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 For capital I am assessing now, I would seek breadth before a supposedly perfect sector. I would test the demand driver, lease structure, debt, tenant exposure, and price, then make sure the sleeve is sized so one shock cannot control the result. Which risk do you think investors most often miss in a defensive allocation?

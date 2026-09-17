@@ -13,7 +13,6 @@ risk: "reit"
 
 # The Agent & Broker's 2026 Guide to Private REITs
 
-[Home](baker1031.html) › Insights › The Agent & Broker's 2026 Guide to Private REITs  
 [Back to All Insights](insights.html)
 
 **Category:** For Agents & Brokers · **Research:** Baker 1031 Research · **Updated:** June 2026 · **Reading time:** 14 min read

@@ -168,6 +168,6 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 **Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
 
-**Explore current offerings:** [View Delaware Statutory Trusts →](delaware-statutory-trusts.html). Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+**Explore current offerings:** [View available investments →](delaware-statutory-trusts.html). Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 Right now, I would protect capital by treating the tenant, remaining lease term, and building's re-leasability as one risk package—not by treating a familiar logo or projected distribution as an answer. How are you weighing the comfort of a long lease against the cost of relying on one tenant?

@@ -13,7 +13,6 @@ risk: "mixed"
 
 # 721 Exchange Eligibility: What Property Qualifies
 
-[Home](baker1031.html) › Insights › 721 Exchange Eligibility: What Property Qualifies
 
 [Back to All Insights](insights.html)
 

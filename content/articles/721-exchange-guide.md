@@ -9,7 +9,6 @@ risk: "upreit"
 
 # The 721 Exchange (UPREIT) for DST Investors
 
-[Home](baker1031.html) › Insights › The 721 Exchange (UPREIT) for DST Investors
 
 [Back to All Insights](insights.html)
 

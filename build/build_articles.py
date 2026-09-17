@@ -334,8 +334,7 @@ def gate_card_l2():
     return '''<div class="gate gate--l2" role="region" aria-label="Approval required">
   <div class="gate__card">
     <h2>Not yet approved for this section</h2>
-    <p>You are not currently approved to visit this area. Please contact
-      <a href="mailto:invest@baker1031.com">invest@baker1031.com</a> for more information.</p>
+    <p>Email or call and I will open it up for you.</p>
     <div class="gate__actions">
       <a class="btn" href="mailto:invest@baker1031.com?subject=Access%20request">Email Baker 1031</a>
       <a class="btn btn--secondary" href="tel:+13108964227">(310) 896-4227</a>
@@ -344,8 +343,26 @@ def gate_card_l2():
   </div>
 </div>'''
 
+# Only one gate message is ever true, so only one is ever in the document: the log-in card is served,
+# and the approval card travels in an inert <template> that GATE_RESOLVE swaps in for the one state
+# where it applies. See the same arrangement in build_pages.py.
+GATE_RESOLVE = '''<script>(function(){try{
+ var d=document,h=d.documentElement,l1=d.getElementById('gate-l1'),t=d.getElementById('gate-l2-tpl');
+ if(!l1||!t) return;
+ var inn=h.classList.contains('is-logged-in'), lvl2=h.classList.contains('is-level2');
+ if(inn && !lvl2) l1.parentNode.replaceChild(t.content.cloneNode(true), l1);
+ else if(inn && lvl2) l1.parentNode.removeChild(l1);
+ t.parentNode.removeChild(t);
+}catch(e){}})();</script>'''
+
+
+def gate_pair(path, title, body):
+    return (gate_card(path, title, body) + '\n<template id="gate-l2-tpl">' + gate_card_l2()
+            + '</template>\n' + GATE_RESOLVE)
+
+
 def gate_card(path, title, body):
-    return f'''<div class="gate gate--l1" role="region" aria-label="Log in to continue">
+    return f'''<div class="gate gate--l1" id="gate-l1" role="region" aria-label="Log in to continue">
   <div class="gate__card">
     <h2>{title}</h2>
     <p>{body}</p>
@@ -392,7 +409,7 @@ def article_main(a, html, related_rows, is_hub):
 
   <section class="sec bg-white" style="padding-top:48px">
     <div class="{'' if public else 'lockwrap lockwrap--article lockwrap--l2'}">
-{'' if public else gate_card('/learn/' + a['slug'] + '/', 'Log in to keep reading', 'The Learn library is available to registered Baker 1031 investors. Log in with the email address on your account, or create one — it takes a few minutes.') + chr(10) + gate_card_l2()}
+{'' if public else gate_pair('/learn/' + a['slug'] + '/', 'Log in to keep reading', 'The Learn library is available to registered Baker 1031 investors. Log in with the email address on your account, or create one — it takes a few minutes.')}
     <div class="prose">
 {html}
 <div class="footnote">{esc(EDU_DISCLAIMER)} Spotted an error? Email <a href="mailto:jerry@baker1031.com">jerry@baker1031.com</a> and it will be corrected.</div>
@@ -404,7 +421,8 @@ def article_main(a, html, related_rows, is_hub):
     <span class="eyebrow">Next step</span>
     <h2 class="h2">Questions about your exchange?</h2>
     <p class="p-main">Tell me where you are in the process and I&rsquo;ll tell you, plainly, whether a 1031 into a DST is a fit.</p>
-    <div class="btn-row"><a class="btn" href="/register/">Get started</a><a class="btn btn--secondary" href="/contact/">Contact</a></div>
+    <div class="btn-row"><a class="btn" href="/register/">Get started</a>
+<a class="btn btn--secondary" href="/contact/">Contact</a></div>
   </section>
 
 </main>'''
@@ -525,8 +543,7 @@ def build(build_date=None):
   </div>
 
   <div class="lockwrap lockwrap--learn lockwrap--l2">
-{gate_card('/learn/library/', 'Log in to browse the library', 'The Learn library is available to registered Baker 1031 investors. Log in with the email address on your account, or create one — it takes a few minutes.')}
-{gate_card_l2()}
+{gate_pair('/learn/library/', 'Log in to browse the library', 'The Learn library is available to registered Baker 1031 investors. Log in with the email address on your account, or create one — it takes a few minutes.')}
   <div class="artlist">
     <div id="rows">{rows_html}</div>
     <div class="empty" id="empty" style="display:none;">No articles in this category yet.</div>

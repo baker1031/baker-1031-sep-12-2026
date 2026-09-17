@@ -9,7 +9,6 @@ risk: "mixed"
 
 # The Two-Step 1031-to-721 Exchange: DST Now, UPREIT Later
 
-[Home](baker1031.html) › Insights › The Two-Step 1031-to-721 Exchange: DST Now, UPREIT Later
 
 [Back to All Insights](insights.html)
 

@@ -9,7 +9,6 @@ risk: "dst"
 
 # Zero-Coupon DSTs for High-Debt Exchanges
 
-[Home](baker1031.html) › Insights › Zero-Coupon DSTs for High-Debt Exchanges
 
 [Back to All Insights](insights.html)
 
@@ -238,7 +237,7 @@ The frozen author-profile record uses the Schema.org context `https://schema.org
 
 ## Explore current offerings
 
-See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one. [View Delaware Statutory Trusts →](delaware-statutory-trusts.html)
+See the Delaware Statutory Trusts we currently have available and how it may fit a strategy like this one. [View available investments →](delaware-statutory-trusts.html)
 
 Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 

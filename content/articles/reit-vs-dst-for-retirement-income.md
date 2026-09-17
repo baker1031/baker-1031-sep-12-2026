@@ -216,6 +216,6 @@ Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1
 
 ## Explore current offerings
 
-See the REITs we currently have available and how they fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 Right now, I would keep near-term spending needs outside an illiquid holding and refuse to judge an income plan by yield alone. How are you weighing liquidity, tax deferral, and a durable retirement paycheck?

@@ -9,7 +9,6 @@ risk: "dst"
 
 # Inherited Property and DST 1031 Exchanges
 
-[Home](baker1031.html) › Insights › Inherited Property and DST 1031 Exchanges
 
 [Back to All Insights](insights.html)
 
@@ -209,7 +208,7 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ## Explore current offerings
 
-See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one. [View Delaware Statutory Trusts →](delaware-statutory-trusts.html)
+See the Delaware Statutory Trusts we currently have available and how it may fit a strategy like this one. [View available investments →](delaware-statutory-trusts.html)
 
 Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 

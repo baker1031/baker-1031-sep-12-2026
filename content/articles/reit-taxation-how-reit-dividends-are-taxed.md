@@ -176,6 +176,6 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ## Explore Current Offerings
 
-Explore current offerings. See the REITs we currently have available and how they fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+Explore current offerings. See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 For capital I am thinking about now, I would not select an account just because it sounds tax-efficient in isolation. I would compare the current tax shelter, the deduction that may be forgone, basis consequences, and the investor’s broader plan with a tax professional. Which part of REIT tax reporting creates the most uncertainty for you?

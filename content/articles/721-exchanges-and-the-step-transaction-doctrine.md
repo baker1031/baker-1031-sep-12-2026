@@ -9,7 +9,6 @@ risk: "mixed"
 
 # 721 Exchanges and the Step-Transaction Doctrine
 
-[Home](baker1031.html) › Insights › 721 Exchanges and the Step-Transaction Doctrine
 
 [Back to All Insights](insights.html)
 
@@ -209,7 +208,7 @@ Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1
 
 ## Explore current offerings
 
-See the 721 Exchange (UPREIT) we currently have available and how they fit a strategy like this one. [View 721 Exchange (UPREIT) →](721-exchange-upreit.html)
+See the 721 Exchange (UPREIT) we currently have available and how it may fit a strategy like this one. [View 721 Exchange (UPREIT) →](721-exchange-upreit.html)
 
 Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 

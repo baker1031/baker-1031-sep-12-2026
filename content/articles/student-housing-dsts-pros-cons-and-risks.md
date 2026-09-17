@@ -209,6 +209,6 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ### Explore current offerings
 
-See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one. [View Delaware Statutory Trusts →](delaware-statutory-trusts.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the Delaware Statutory Trusts we currently have available and how it may fit a strategy like this one. [View available investments →](delaware-statutory-trusts.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 For capital I am evaluating now, I would put the university's enrollment path, campus walkability, pre-leasing evidence, and liquidity need ahead of a projected distribution. Which of those factors carries the most weight in your own student-housing underwriting?

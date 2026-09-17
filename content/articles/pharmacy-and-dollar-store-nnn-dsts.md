@@ -199,6 +199,6 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ### Explore current offerings
 
-See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one. [View Delaware Statutory Trusts →](delaware-statutory-trusts.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the Delaware Statutory Trusts we currently have available and how it may fit a strategy like this one. [View available investments →](delaware-statutory-trusts.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 When I consider capital allocated to a single-tenant retail DST, I would underwrite the tenant and the remaining lease first, then decide whether the income profile is worth the illiquidity and concentration. How are you testing tenant concentration in your own real-estate allocation?

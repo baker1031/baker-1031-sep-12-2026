@@ -193,6 +193,6 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ### Explore current offerings
 
-See the [Opportunity Zone Funds](insights.html) we currently have available and how they fit a strategy like this one. [View Opportunity Zone Funds →](opportunity-zone-funds.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the [Opportunity Zone Funds](insights.html) we currently have available and how it may fit a strategy like this one. [View Opportunity Zone Funds →](opportunity-zone-funds.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 Right now, I would preserve liquidity until the net amount and applicable deadline are certain, then judge the QOF as an investment before allowing tax deferral to carry the decision. How are you handling the netting and timing questions on your business-property sales?

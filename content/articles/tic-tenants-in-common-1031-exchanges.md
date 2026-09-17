@@ -273,6 +273,6 @@ Filed under: [1031 Exchange](insights.html), [1031 Exchange](insights.html), and
 
 **Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
 
-**Explore current offerings:** See the [1031 Exchanges](1031-exchanges.html) we currently have available and how they fit a strategy like this one. Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+**Explore current offerings:** See the [1031 Exchanges](1031-exchanges.html) we currently have available and how it may fit a strategy like this one. Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 For capital I expect to be patient, I would favor the structure whose decision rules, financing, and liquidity I can live with through a full hold—not merely the structure with the most attractive word in the sales material. How do you weigh a direct vote against the simplicity of a passive structure when you are assessing a 1031 replacement?

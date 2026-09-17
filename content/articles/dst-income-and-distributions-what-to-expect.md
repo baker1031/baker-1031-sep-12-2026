@@ -9,7 +9,6 @@ risk: "dst"
 
 # DST Income & Distributions: What to Expect
 
-[Home](baker1031.html) › Insights › DST Income & Distributions: What to Expect
 
 [Back to All Insights](insights.html)
 
@@ -180,7 +179,7 @@ Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1
 
 ## Explore current offerings
 
-See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one. [View Delaware Statutory Trusts →](delaware-statutory-trusts.html)
+See the Delaware Statutory Trusts we currently have available and how it may fit a strategy like this one. [View available investments →](delaware-statutory-trusts.html)
 
 Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 

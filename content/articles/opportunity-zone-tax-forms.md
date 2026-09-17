@@ -9,7 +9,6 @@ risk: "oz"
 
 # Reporting Opportunity Zone Investments: Forms 8997 & 8949
 
-[Home](baker1031.html) › Insights › Reporting Opportunity Zone Investments: Forms 8997 & 8949
 
 [Back to All Insights](insights.html)
 

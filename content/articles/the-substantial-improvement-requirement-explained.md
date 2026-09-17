@@ -166,6 +166,6 @@ Filed under: [Opportunity Zone Funds](insights.html) and [Opportunity Zones](ins
 
 **Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
 
-**Explore current offerings:** See the [1031 Exchanges](1031-exchanges.html) we currently have available and how they fit a strategy like this one. Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+**Explore current offerings:** See the [1031 Exchanges](1031-exchanges.html) we currently have available and how it may fit a strategy like this one. Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 Right now, I would treat a fund’s 30-month plan as a risk-control document, not a decorative schedule: preserve capital for structures whose budget, basis allocation, sponsor capability, and records can carry the rule under pressure. What part of a development fund’s compliance plan do you find most important to test before committing capital?

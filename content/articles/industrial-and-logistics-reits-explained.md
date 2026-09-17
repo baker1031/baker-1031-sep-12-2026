@@ -173,6 +173,6 @@ Filed under: [REIT](insights.html) and [REITs](insights.html).
 
 **Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
 
-**Explore current offerings:** See the [REITs](reits.html) we currently have available and how they fit a strategy like this one. Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+**Explore current offerings:** See the [REITs](reits.html) we currently have available and how it may fit a strategy like this one. Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 Right now, I would treat an industrial allocation as a claim on durable locations and realistic leases, not a permanent e-commerce trade. I would concentrate my work on supply pipelines, tenant concentration, debt, and price before adding capital. What are you watching most closely when you assess industrial real estate risk?

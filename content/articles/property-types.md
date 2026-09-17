@@ -12,7 +12,6 @@ updated: "June 2026"
 risk: "dst"
 ---
 
-[Home](baker1031.html) › Resources › Property Types
 
 # Property Types
 

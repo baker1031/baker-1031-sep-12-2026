@@ -13,7 +13,6 @@ risk: "dst"
 
 # Delaware Statutory Trusts: The 2026 Definitive Guide
 
-[Home](baker1031.html) › Insights
 
 [Back to All Insights](insights.html)
 
@@ -33,11 +32,11 @@ Use it however suits you. Newcomers can read top to bottom. Investors facing a 4
 
 - Section 1031 remains available for qualifying real property under current federal law as of July 11, 2026. A DST may qualify as replacement property only when the transaction satisfies the applicable requirements and documents.
 
-- Sponsor selection remains critical: in the Baker 1031 full-cycle dataset shown in the [Data Center](data-center.html), the preferred cohort's reported average is higher than the broader tracked population for the period and population shown (reviewed July 11, 2026). The figures are sponsor-reported, not independently verified, and may reflect selection and survivorship bias; “Preferred” is Baker's internal designation, not a rating, endorsement, or prediction. Most sponsors still have no full-cycle track record . Past performance is not indicative of future results.
+- Sponsor selection remains critical: in the Baker 1031 full-cycle dataset shown in the [Data Center](data-center.html), the preferred cohort's reported average is higher than the broader tracked population for the period and population shown (reviewed July 11, 2026). The figures are sponsor-reported, not independently verified, and may reflect selection and survivorship bias; “Preferred” is Baker's internal designation, not a rating, endorsement, or prediction. Most sponsors still have no full-cycle track record. Past performance is not indicative of future results.
 
 ## 01 · What a DST Actually Is
 
-A Delaware Statutory Trust is a legal entity, formed under Delaware's trust statute, that holds title to one or more income-producing properties and divides ownership into fractional beneficial interests . When you invest, you don't get a deed; you get a beneficial interest in the trust, and with it a proportional share of the rent the property produces and any gain when it's eventually sold.
+A Delaware Statutory Trust is a legal entity, formed under Delaware's trust statute, that holds title to one or more income-producing properties and divides ownership into fractional beneficial interests. When you invest, you don't get a deed; you get a beneficial interest in the trust, and with it a proportional share of the rent the property produces and any gain when it's eventually sold.
 
 What makes DSTs useful is a tax wrinkle. Under IRS Revenue Ruling 2004-86, the IRS treats those beneficial interests as direct ownership of real estate for 1031 purposes. That single ruling is why a DST interest can serve as "like-kind" replacement property in a 1031 exchange, and it's the foundation everything else in this guide is built on. Think of it as buying a professionally managed slice of an apartment complex, medical portfolio, or industrial park, without your name on the mortgage or your phone ringing about a broken furnace.
 
@@ -111,11 +110,11 @@ The appeal is real. So are the downsides, and any guide that buries them isn't d
 
 - Fee drag: upfront loads commonly run 7–9% of equity.
 
-- Market, financing, and rate risk , plus no guarantee of distributions or return of principal.
+- Market, financing, and rate risk, plus no guarantee of distributions or return of principal.
 
 ## 06 · Choosing a DST
 
-Picking the right deal is separate from picking the right sponsor . For the deal itself, you're matching the property's profile to your own needs: does its leverage replace your exchange debt, is the sector one you understand, do the distributions meet your income need, and does the 5-to-10-year hold fit your life? Sanity-check the projected yield against where that property type actually trades:
+Picking the right deal is separate from picking the right sponsor. For the deal itself, you're matching the property's profile to your own needs: does its leverage replace your exchange debt, is the sector one you understand, do the distributions meet your income need, and does the 5-to-10-year hold fit your life? Sanity-check the projected yield against where that property type actually trades:
 
 Property type  Avg. current yield  Typical range
 
@@ -163,7 +162,7 @@ For each document, ask three questions: what is it telling me, what is it not te
 
 In a passive structure, you're really underwriting the operator. The metrics that matter are the number of full-cycle deals (deals taken start to finish — the only proof of results), average annual return, equity multiple (MOIC), average hold, and success rate. Judge them against a benchmark, never in isolation — and watch the sponsors with no completed cycle at all.
 
-The explorer below runs on Baker 1031's proprietary data covering 82 sponsors . Sort it, filter it, search it — then click any sponsor to open a full profile with its description, metrics versus the platform benchmark, and its deal-by-deal track record where we have it.
+The explorer below runs on Baker 1031's proprietary data covering 82 sponsors. Sort it, filter it, search it — then click any sponsor to open a full profile with its description, metrics versus the platform benchmark, and its deal-by-deal track record where we have it.
 
 Data as of Q2 2026 · 82 sponsors  Sponsor explorer
 
@@ -243,9 +242,9 @@ The sequence has one hard rule: you must never take possession of your sale proc
 
 The following is general information, not tax or legal advice. Tax outcomes depend on your individual circumstances; consult your CPA and attorney before acting.
 
-Each year you'll receive tax reporting (a Grantor Letter, 1099, or K-1 depending on structure) that passes through your share of income, depreciation , and mortgage-interest deductions . Depreciation is the quiet engine here: it shelters a meaningful portion of your distribution income, so the cash you receive is often partly tax-deferred. Your share of the property's local and municipal tax treatment — abatements or incentives — flows through as well.
+Each year you'll receive tax reporting (a Grantor Letter, 1099, or K-1 depending on structure) that passes through your share of income, depreciation, and mortgage-interest deductions. Depreciation is the quiet engine here: it shelters a meaningful portion of your distribution income, so the cash you receive is often partly tax-deferred. Your share of the property's local and municipal tax treatment — abatements or incentives — flows through as well.
 
-The catch arrives at exit: [depreciation recapture](depreciation-recapture-1031-exchange.html) , plus any net investment income tax (NIIT) and state income tax. The classic endgame is to keep deferring — exchange again, or hold until death so heirs receive a stepped-up basis that can erase the deferred gain.
+The catch arrives at exit: [depreciation recapture](depreciation-recapture-1031-exchange.html), plus any net investment income tax (NIIT) and state income tax. The classic endgame is to keep deferring — exchange again, or hold until death so heirs receive a stepped-up basis that can erase the deferred gain.
 
 ### Cost segregation — including your own
 
@@ -257,7 +256,7 @@ The catch arrives at exit: [depreciation recapture](depreciation-recapture-1031-
 
 ## 11 · Choosing Your Exit Strategy
 
-Decide how you'll get out before you get in. There are three paths: take the cash at the full-cycle sale, roll into another 1031/DST to keep deferring, or convert into a REIT through a [721 UPREIT exchange](721-exchange-guide.html) . The 721 route trades your future 1031 flexibility for diversification, professional management, and simpler estate handling. Some are mandatory, removing your control over timing. The quiz weighs your priorities and points you to the path that fits.
+Decide how you'll get out before you get in. There are three paths: take the cash at the full-cycle sale, roll into another 1031/DST to keep deferring, or convert into a REIT through a [721 UPREIT exchange](721-exchange-guide.html). The 721 route trades your future 1031 flexibility for diversification, professional management, and simpler estate handling. Some are mandatory, removing your control over timing. The quiz weighs your priorities and points you to the path that fits.
 
 Interactive  Which exit fits you?
 
@@ -270,7 +269,7 @@ Illustrative path to discuss with your advisor
 
 ## 12 · How Many DSTs Should You Own?
 
-One DST is simple but concentrated — a single sponsor, often a single asset and market. Several DSTs spread risk across sponsors, sectors, and geographies. But there's a real trade-off hiding in the math: splitting your equity into many small interests fragments your basis , which can make a future 1031 into a single whole property harder, since each small chunk is awkward to redeploy. Spreading thin today can quietly limit tomorrow's options. Model it:
+One DST is simple but concentrated — a single sponsor, often a single asset and market. Several DSTs spread risk across sponsors, sectors, and geographies. But there's a real trade-off hiding in the math: splitting your equity into many small interests fragments your basis, which can make a future 1031 into a single whole property harder, since each small chunk is awkward to redeploy. Spreading thin today can quietly limit tomorrow's options. Model it:
 
 Interactive  Diversification model
 

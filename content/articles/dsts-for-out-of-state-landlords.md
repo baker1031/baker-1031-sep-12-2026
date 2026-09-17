@@ -197,6 +197,6 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ### Explore current offerings
 
-See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one. [View Delaware Statutory Trusts →](delaware-statutory-trusts.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the Delaware Statutory Trusts we currently have available and how it may fit a strategy like this one. [View available investments →](delaware-statutory-trusts.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 When I think about capital tied to a remote rental, I would first test liquidity needs, tolerance for less control, and the actual 1031 timetable before celebrating a passive outcome. What has been the hardest part of owning real estate from out of state?

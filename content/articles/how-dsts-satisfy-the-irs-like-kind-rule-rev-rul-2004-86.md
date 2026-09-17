@@ -213,6 +213,6 @@ Filed under: [Delaware Statutory Trusts](insights.html) · [DSTs](insights.html)
 
 ### Explore current offerings
 
-See the [Delaware Statutory Trusts](delaware-statutory-trusts.html) we currently have available and how they fit a strategy like this one. Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the [Delaware Statutory Trusts](delaware-statutory-trusts.html) we currently have available and how it may fit a strategy like this one. Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 Right now, I would treat the structure as a capital-preservation decision first: the tax treatment is valuable only if the investor can live with its illiquidity and loss of control. Which restriction would matter most in your own replacement-property decision?

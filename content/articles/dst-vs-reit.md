@@ -9,7 +9,6 @@ risk: "mixed"
 
 # DST vs. REIT: Key Differences for 1031 Exchange Investors
 
-[Home](baker1031.html) › Insights › DST vs. REIT: Key Differences for 1031 Exchange Investors
 
 [Back to All Insights](insights.html)
 

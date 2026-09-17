@@ -13,7 +13,6 @@ risk: "oz"
 
 # Opportunity Zone Funds Explained: A Complete Investor Guide
 
-[Home](baker1031.html) › Insights
 
 [Back to All Insights](insights.html)
 

@@ -10,7 +10,7 @@ import content_shell as cs
 import seo
 import fullcycle as fc
 import sponsor_materials as sm
-from html import escape as _esc
+from html import escape as _esc, unescape as _unesc
 
 OUT = os.environ.get('SITE_ROOT', '/home/claude/site')
 CONTENT = os.environ.get('CONTENT_SRC', os.path.join(OUT, 'content'))
@@ -116,10 +116,10 @@ def sponsor_cards(indent='          '):
         if n: bits.append('deal-by-deal track record')
         chip = '<span class="chip">Preferred</span>' if sponsor in pref_names else ''
         img = ('<img src="%s" alt="%s logo" width="260" height="260" loading="lazy" '
-               'onerror="this.style.display=\'none\'">' % (logo.group(1), _esc(name))) if logo else ''
+               'onerror="this.style.display=\'none\'">' % (logo.group(1), _esc(_unesc(name)))) if logo else ''
         cards.append('%s<a class="sp-card" href="/sponsors/%s/"><div class="top">%s%s</div><h3>%s</h3>'
                      '<p>%s</p><span class="go">View profile &rarr;</span></a>'
-                     % (indent, d, img, chip, _esc(name), ' &middot; '.join(bits)))
+                     % (indent, d, img, chip, _esc(_unesc(name)), ' &middot; '.join(bits)))
     return '\n'.join(cards)
 
 

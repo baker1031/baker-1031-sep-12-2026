@@ -13,7 +13,6 @@ risk: "oz"
 
 # Eligible vs. Ineligible Opportunity Zone Investments
 
-[Home](baker1031.html) › Insights
 
 [Back to All Insights](insights.html)
 
@@ -204,7 +203,7 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ## Explore current offerings
 
-See the Opportunity Zone Funds we currently have available and how they fit a strategy like this one. [View Opportunity Zone Funds →](opportunity-zone-funds.html)
+See the Opportunity Zone Funds we currently have available and how it may fit a strategy like this one. [View Opportunity Zone Funds →](opportunity-zone-funds.html)
 
 Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 

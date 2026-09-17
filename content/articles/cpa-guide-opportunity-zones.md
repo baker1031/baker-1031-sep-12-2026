@@ -10,7 +10,6 @@ source_read_time: 21 min read
 risk: "oz"
 ---
 
-[Home](baker1031.html) › Insights
 
 [Back to All Insights](insights.html)
 

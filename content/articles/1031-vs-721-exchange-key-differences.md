@@ -9,7 +9,6 @@ risk: "mixed"
 
 # 1031 vs. 721 Exchange: Key Differences and When to Use Each
 
-[Home](baker1031.html) › Insights › 1031 vs. 721 Exchange: Key Differences and When to Use Each
 
 [Back to All Insights](insights.html)
 

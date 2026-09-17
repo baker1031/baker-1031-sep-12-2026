@@ -176,6 +176,6 @@ Filed under: [REIT](insights.html) and [REITs](insights.html).
 
 **Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
 
-**Explore current offerings:** See the [REITs](reits.html) we currently have available and how they fit a strategy like this one. Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+**Explore current offerings:** See the [REITs](reits.html) we currently have available and how it may fit a strategy like this one. Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 Right now, I would put more weight on the distribution’s coverage, the lease book, tenant concentration, leverage, and the price paid than on a headline yield. I would also keep income REIT exposure diversified and sized for the fact that cash flow can change. How are you balancing current income against durability and downside risk in your own portfolio?

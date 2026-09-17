@@ -215,6 +215,6 @@ Filed under: [1031 Exchange](1031-exchange-guide.html) · [Insights](insights.ht
 
 ### Explore current offerings
 
-See the [1031 Exchanges](1031-exchanges.html) we currently have available and how they fit a strategy like this one. Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the [1031 Exchanges](1031-exchanges.html) we currently have available and how it may fit a strategy like this one. Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 My present bias is to protect the capital base before reaching for a larger asset: tax deferral has value only if the replacement property, leverage, liquidity, and estate plan still make sense together. How are you weighing compounding against concentration and flexibility in your own planning?

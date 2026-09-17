@@ -189,6 +189,6 @@ Filed under: [Delaware Statutory Trusts](insights.html), DSTs, and 1031 Exchange
 
 ## Explore current offerings
 
-See the Delaware Statutory Trusts currently available and how they may fit a strategy like this one: [View Delaware Statutory Trusts →](delaware-statutory-trusts.html). Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the Delaware Statutory Trusts currently available and how they may fit a strategy like this one: [View available investments →](delaware-statutory-trusts.html). Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 I am managing exchange capital by separating more holdings from better diversification: every extra trust must add a real difference in property, market, or sponsor and still earn its place through diligence. How are you balancing concentration risk against the added work of multiple holdings?

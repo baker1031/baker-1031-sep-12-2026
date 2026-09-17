@@ -13,7 +13,6 @@ risk: "oilgas"
 
 # Adding Mineral Royalties to a 1031 Replacement Mix
 
-[Home](baker1031.html) › Insights
 
 [Back to All Insights](insights.html)
 
@@ -192,20 +191,3 @@ This article is published by Baker 1031 for general informational and educationa
 
 Every figure and example here is general and illustrative, not a projection or a representation about any specific transaction. Mineral, royalty, and oil and gas programs are speculative, illiquid securities sold only to verified accredited investors via private placement memorandum, and they are exposed to commodity-price and geologic risk, reserve depletion, and operator risk that can cause loss of principal. Past performance does not guarantee future results, and no tax outcome, including 1031 treatment or any depletion deduction, is guaranteed.
 
-## Links from the source article
-
-- [Home](baker1031.html)
-- [Back to All Insights](insights.html)
-- [DST](dst-guide.html)
-- [mineral and royalty 1031 guide](mineral-rights-1031-guide.html)
-- [why mineral royalties yield more](why-mineral-royalties-yield-more.html)
-- [oil and gas depletion allowance](oil-gas-depletion-allowance.html)
-- [oil and gas investment risks](oil-gas-investment-risks.html)
-- [1031 exchange guide](1031-exchange-guide.html)
-- [working interest versus royalty interest](working-interest-vs-royalty-interest.html)
-- [26 U.S.C. §1031](https://www.law.cornell.edu/uscode/text/26/1031)
-- [26 U.S.C. §611](https://www.law.cornell.edu/uscode/text/26/611)
-- [26 U.S.C. §613](https://www.law.cornell.edu/uscode/text/26/613)
-- [26 U.S.C. §613A](https://www.law.cornell.edu/uscode/text/26/613A)
-
-For now, I would preserve the real-estate core, cap any royalty sleeve at a level where a weak price year is tolerable, and insist on conservative decline and price assumptions. How are you deciding whether additional income is worth additional variability?

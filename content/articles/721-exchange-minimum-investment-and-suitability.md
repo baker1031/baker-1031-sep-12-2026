@@ -13,7 +13,6 @@ risk: "upreit"
 
 # 721 Exchange Minimum Investment & Suitability
 
-[Home](baker1031.html) › Insights › 721 Exchange Minimum Investment & Suitability
 
 [Back to All Insights](insights.html)
 

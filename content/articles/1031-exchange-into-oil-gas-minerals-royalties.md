@@ -9,7 +9,6 @@ risk: "mixed"
 
 # 1031 Exchange Into Oil & Gas, Minerals & Royalties
 
-[Home](baker1031.html) › Insights › 1031 Exchange Into Oil & Gas, Minerals & Royalties
 
 [Back to All Insights](insights.html)
 

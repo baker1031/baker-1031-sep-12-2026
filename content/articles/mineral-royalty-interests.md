@@ -9,7 +9,6 @@ risk: "oilgas"
 
 # Mineral & Royalty Interests
 
-[Home](baker1031.html) › [Strategies](strategies.html) › Mineral & Royalty Interests
 
 [Back to All Strategies](strategies.html)
 

@@ -236,7 +236,7 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ## Explore current offerings
 
-See the REITs we currently have available and how they fit a strategy like this one. [View REITs →](reits.html)
+See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html)
 
 Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 

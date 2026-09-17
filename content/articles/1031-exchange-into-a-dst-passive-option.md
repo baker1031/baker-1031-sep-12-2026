@@ -13,7 +13,6 @@ risk: "dst"
 
 # 1031 Exchange Into a DST: The Passive Option
 
-[Home](baker1031.html) › Insights
 
 [Back to All Insights](insights.html)
 

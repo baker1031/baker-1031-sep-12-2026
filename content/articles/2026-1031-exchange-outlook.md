@@ -13,7 +13,6 @@ risk: "dst"
 
 # The 2026 1031 Exchange Outlook
 
-[Home](baker1031.html) › Insights › The 2026 1031 Exchange Outlook  
 [Back to All Insights](insights.html)
 
 **Category:** 1031 Exchange · **Research:** Baker 1031 Research · **Updated:** June 2026 · **Reading time:** 7 min read

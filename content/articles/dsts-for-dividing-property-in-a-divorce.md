@@ -205,6 +205,6 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 ### Explore current offerings
 
-See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one: [View Delaware Statutory Trusts →](delaware-statutory-trusts.html). Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the Delaware Statutory Trusts we currently have available and how it may fit a strategy like this one: [View available investments →](delaware-statutory-trusts.html). Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 I would manage capital here by preserving enough liquidity for a settlement and near-term needs before accepting an illiquid investment, then treating tax deferral as one input rather than the decision itself. How would you weigh liquidity, tax deferral, and a clean division if a jointly owned property were part of the equation?

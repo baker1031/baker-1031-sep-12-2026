@@ -13,7 +13,6 @@ risk: "upreit"
 
 # 721 Exchange and Depreciation Recapture
 
-[Home](baker1031.html) › Insights › 721 Exchange and Depreciation Recapture
 
 [Back to All Insights](insights.html)
 

@@ -13,7 +13,6 @@ risk: "oz"
 
 # QOF vs. QOZB: Fund vs. Business, Explained
 
-[Home](baker1031.html) › Insights
 
 [Back to All Insights](insights.html)
 

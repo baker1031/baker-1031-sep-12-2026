@@ -201,6 +201,6 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 ### Explore current offerings
 
-See the 1031 Exchanges we currently have available and how they fit a strategy like this one: [View 1031 Exchanges →](1031-exchanges.html). Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the 1031 Exchanges we currently have available and how it may fit a strategy like this one: [View 1031 Exchanges →](1031-exchanges.html). Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 I am managing capital by keeping borrowing decisions separate from exchange execution and treating transparent taxable cash as preferable to a fragile tax position. How are you weighing liquidity needs against the value of a clean, defensible exchange?

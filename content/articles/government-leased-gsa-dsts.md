@@ -209,6 +209,6 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 ### Explore current offerings
 
-See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one: [View Delaware Statutory Trusts →](delaware-statutory-trusts.html). Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the Delaware Statutory Trusts we currently have available and how it may fit a strategy like this one: [View available investments →](delaware-statutory-trusts.html). Educational only—not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 I am managing capital by separating the government's ability to pay from the lease's remaining committed term, and by keeping sufficient liquidity outside an illiquid DST commitment. How are you weighing tenant credit against renewal risk in your own allocation?

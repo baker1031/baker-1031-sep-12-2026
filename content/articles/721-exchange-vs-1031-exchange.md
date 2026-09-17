@@ -9,7 +9,6 @@ risk: "mixed"
 
 # 721 Exchange vs. 1031 Exchange: Which One Fits?
 
-[Home](baker1031.html) › Insights › 721 Exchange vs. 1031 Exchange: Which One Fits?
 
 [Back to All Insights](insights.html)
 

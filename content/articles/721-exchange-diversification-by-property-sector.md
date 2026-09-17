@@ -9,7 +9,6 @@ risk: "mixed"
 
 # 721 Exchange Diversification by Property Sector
 
-[Home](baker1031.html) › Insights › 721 Exchange Diversification by Property Sector
 
 [Back to All Insights](insights.html)
 

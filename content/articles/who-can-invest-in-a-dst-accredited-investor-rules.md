@@ -9,7 +9,6 @@ risk: "dst"
 
 # Who Can Invest in a DST? Accredited Investor Rules
 
-[Home](baker1031.html) › Insights › Who Can Invest in a DST? Accredited Investor Rules
 
 [Back to All Insights](insights.html)
 
@@ -209,6 +208,6 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ## Explore current offerings
 
-See the [Delaware Statutory Trusts](delaware-statutory-trusts.html) currently available and how they fit a strategy like this one. [View Delaware Statutory Trusts →](delaware-statutory-trusts.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the [Delaware Statutory Trusts](delaware-statutory-trusts.html) currently available and how they fit a strategy like this one. [View available investments →](delaware-statutory-trusts.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 I would treat accreditation paperwork as preparation, not a reason to stretch into an illiquid security. I would get the status, holding entity, and verification in order before the sale, then judge a particular DST on its own risks and fit. What part of this process would you want settled before your exchange clock starts?

@@ -13,7 +13,6 @@ risk: "mixed"
 
 # 7 Mistakes That Blow Up an Oil & Gas 1031 Exchange
 
-[Home](baker1031.html) › Insights
 
 [Back to All Insights](insights.html)
 
@@ -227,19 +226,3 @@ The research desk at Baker 1031 Investments
 
 Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.
 
-## Links from the source article
-
-- [Home](baker1031.html)
-- [Back to All Insights](insights.html)
-- [our complete 2026 guide to mineral rights and royalty 1031 exchanges](mineral-rights-1031-guide.html)
-- [1031 exchange](1031-exchange-guide.html)
-- [boot](insights.html)
-- [qualified intermediary](insights.html)
-- [Like-Kind Exchanges Under IRC Section 1031 (FS-2008-18)](https://www.irs.gov/forms-pubs/about-form-8824)
-- [26 U.S. Code § 636 — Mineral production payments](https://www.law.cornell.edu/uscode/text/26/636)
-- [Instructions for Form 8824 (Like-Kind Exchanges)](https://www.irs.gov/forms-pubs/about-form-8824)
-- [26 U.S. Code § 1031](https://www.law.cornell.edu/uscode/text/26/1031)
-- [Mineral & Royalty](insights.html)
-- [1031 Exchange](insights.html)
-
-Right now, I would insist on an eligibility read, a calendar, a clean QI funding path, and named backup property before authorizing a sale. Which of those controls would you put in place first?

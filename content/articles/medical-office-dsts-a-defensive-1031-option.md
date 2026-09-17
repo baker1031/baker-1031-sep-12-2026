@@ -185,6 +185,6 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 ## Explore current offerings
 
-See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one: [View Delaware Statutory Trusts](delaware-statutory-trusts.html). Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the Delaware Statutory Trusts we currently have available and how it may fit a strategy like this one: [View Delaware Statutory Trusts](delaware-statutory-trusts.html). Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 I am managing capital in this sector by preferring understandable tenants, lease terms that leave room for error, measured debt, and a location whose referral or catchment story survives a weaker cycle. What matters most to you when you weigh a defensive label against the risks underneath it?

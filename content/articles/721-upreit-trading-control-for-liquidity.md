@@ -9,7 +9,6 @@ risk: "upreit"
 
 # Inside the 721 UPREIT Exchange: Trading Control for Liquidity
 
-[Home](baker1031.html) › Insights › Inside the 721 UPREIT Exchange: Trading Control for Liquidity
 
 [Back to All Insights](insights.html)
 

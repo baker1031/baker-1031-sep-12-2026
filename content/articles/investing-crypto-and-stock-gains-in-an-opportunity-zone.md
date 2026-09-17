@@ -195,6 +195,6 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ### Explore current offerings
 
-See the [Opportunity Zone Funds](insights.html) we currently have available and how they fit a strategy like this one. [View Opportunity Zone Funds →](opportunity-zone-funds.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the [Opportunity Zone Funds](insights.html) we currently have available and how it may fit a strategy like this one. [View Opportunity Zone Funds →](opportunity-zone-funds.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 Right now, I would not let a tax bill decide the investment. I would confirm the exact eligible gain and deadline, then decide whether the QOF's illiquidity, risk, and long hold deserve a place in the allocation. How are you weighing tax deferral against the investment itself? 

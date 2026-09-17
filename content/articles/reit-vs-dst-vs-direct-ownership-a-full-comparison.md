@@ -225,6 +225,6 @@ Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1
 
 ## Explore current offerings
 
-See the REITs we currently have available and how they fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 Right now, I would keep control only where I can still earn it, keep liquid capital liquid, and make every tax-deferral choice account for its exit. How are you weighing control, liquidity, and the work you want real estate to require?

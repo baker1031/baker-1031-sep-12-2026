@@ -13,7 +13,6 @@ risk: "oz"
 
 # The Agent & Broker's 2026 Guide to Opportunity Zone Funds
 
-[Home](baker1031.html) › Insights › The Agent & Broker's 2026 Guide to Opportunity Zone Funds
 
 [Back to All Insights](insights.html)
 

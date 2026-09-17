@@ -12,7 +12,6 @@ updated: "June 2026"
 risk: "reit"
 ---
 
-[Home](baker1031.html) › [Strategies](strategies.html) › REITs
 
 # REITs
 

@@ -13,7 +13,6 @@ risk: "dst"
 
 # The 7 Deadly Sins of DST Investing
 
-[Home](baker1031.html) › Insights
 
 [Back to All Insights](insights.html)
 
@@ -220,29 +219,7 @@ Reviewed by Lori Kamen — President & CCO, Aurora Securities, Inc. (FINRA Serie
 
 ## Explore current offerings
 
-See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one. [View Delaware Statutory Trusts →](delaware-statutory-trusts.html)
+See the Delaware Statutory Trusts we currently have available and how it may fit a strategy like this one. [View available investments →](delaware-statutory-trusts.html)
 
 Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
-## Links from the source article
-
-- [our 2026 DST guide](dst-guide.html)
-- [deferred capital needs and thin reserves](dst-reserves-and-capital-expenditures.html)
-- [private placement memorandum](how-to-review-a-ppm.html)
-- [trade-offs are worth weighing in full](dst-pros-and-cons-for-1031-investors.html)
-- [qualified intermediary](what-is-a-qualified-intermediary.html)
-- [step-up in basis](1031-exchange-step-up-in-basis-at-death.html)
-- [accredited investor](accredited-investor-requirements.html)
-- [Rev. Rul. 2004-86](https://www.irs.gov/pub/irs-drop/rr-04-86.pdf)
-- [26 U.S. Code § 1031 — Exchange of real property held for productive use or investment](https://www.law.cornell.edu/uscode/text/26/1031)
-- [Real Estate Investments](https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits)
-- [Investor.gov — Accredited Investors (Updated Investor Bulletin)](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated-3)
-- [Delaware Statutory Trusts](insights.html)
-- [DSTs](insights.html)
-- [1031 Exchange](insights.html)
-- [Jerry Baker](jerry-baker-bio.html)
-- [Read full bio →](jerry-baker-bio.html)
-- [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591)
-- [View Delaware Statutory Trusts →](delaware-statutory-trusts.html)
-
-For now, I would slow every decision down enough to read the PPM, examine the sponsor, calculate the fee load, and reserve adequate liquidity elsewhere. Which part of this checklist has changed how you evaluate a DST?

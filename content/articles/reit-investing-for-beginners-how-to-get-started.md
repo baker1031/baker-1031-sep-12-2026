@@ -12,7 +12,6 @@ source_read_time: "16 min read"
 risk: "reit"
 ---
 
-[Home](baker1031.html) › Insights › REIT Investing for Beginners: How to Get Started
 
 # REIT Investing for Beginners: How to Get Started
 
@@ -230,7 +229,7 @@ Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1
 
 ## Explore current offerings
 
-See the REITs we currently have available and how they fit a strategy like this one. [View REITs →](reits.html)
+See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html)
 
 Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 

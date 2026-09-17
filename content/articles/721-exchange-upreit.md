@@ -9,7 +9,6 @@ risk: "upreit"
 
 # 721 Exchanges (UPREIT)
 
-[Home](baker1031.html) › [Strategies](strategies.html) › 721 Exchanges (UPREIT)
 
 [Back to All Strategies](strategies.html)
 

@@ -175,6 +175,6 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 ## Explore Current Offerings
 
-See the 721 Exchange (UPREIT) we currently have available and how they fit a strategy like this one. [View 721 Exchange (UPREIT) →](721-exchange-upreit.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the 721 Exchange (UPREIT) we currently have available and how it may fit a strategy like this one. [View 721 Exchange (UPREIT) →](721-exchange-upreit.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 I would decide from the property owner's actual destination: leverage and control, or a passive transition and diversification. Which matters more in your case—cash today, optionality, or leaving the property behind?

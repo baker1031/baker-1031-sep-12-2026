@@ -154,7 +154,7 @@ def render(O):
     <script>/* approved-investor gate: mark the document before first paint so gated content never flashes */
     try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.classList.add('is-logged-in'); }catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    ''' + seo.head(title=O['name'] + ' — 1031 Exchange DST | Baker 1031', desc=O['metaDesc'], canonical='https://baker1031.com/offerings/' + O['slug'] + '/', image=('https://baker1031.com' + O['ogImage']) if O.get('ogImage') else seo.OG_IMAGE, image_alt=O['name'] + ' property photo', graph=[seo.webpage('https://baker1031.com/offerings/' + O['slug'] + '/', O['name'], O['metaDesc'], {'isAccessibleForFree': False, 'hasPart': {'@type': 'WebPageElement', 'isAccessibleForFree': False, 'cssSelector': '.gated'}}), seo.breadcrumbs([('Home', 'https://baker1031.com/'), ('Available Investments', 'https://baker1031.com/invest/'), (O['name'], None)])]) + r'''
+    ''' + seo.head(title=O['name'] + ' — 1031 Exchange DST | Baker 1031', desc=O['metaDesc'], canonical='https://baker1031.com/offerings/' + O['slug'] + '/', image=('https://baker1031.com' + O['ogImage']) if O.get('ogImage') else seo.OG_IMAGE, image_alt=O['name'] + ' property photo', graph=[seo.webpage('https://baker1031.com/offerings/' + O['slug'] + '/', O['name'], O['metaDesc'], {'isAccessibleForFree': False, 'hasPart': {'@type': 'WebPageElement', 'isAccessibleForFree': False, 'cssSelector': '.gated'}}), seo.breadcrumbs([('Home', 'https://baker1031.com/'), ('Available Investments' if O['status'] in ('Available', 'Limited Availability') else 'Investments', 'https://baker1031.com/invest/'), (O['name'], None)])]) + r'''
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
@@ -371,7 +371,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     <div class="wrap wrap--head">
       <ol class="crumbs" aria-label="Breadcrumb">
         <li><a href="/">Home</a></li>
-        <li><a href="/invest/">Available Investments</a></li>
+        <li><a href="/invest/">''' + ('Available Investments' if O['status'] in ('Available', 'Limited Availability') else 'Investments') + r'''</a></li>
         <li aria-current="page">''' + O['name'] + r'''</li>
       </ol>
       <div class="title">
@@ -472,7 +472,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
           <div class="card">
             <div class="card__top">
               <span class="card__label">Offering details</span>
-              <span class="tip" tabindex="0"><span class="badge ''' + rc + r'''"><span class="badge__emoji" aria-hidden="true">''' + re_ + r'''</span>''' + rl + r'''</span><span class="tip__box" role="tooltip"><strong>''' + re_ + ' ' + rl + r'''</strong>''' + O['ratingText'] + r'''<small>My assessment, not a guarantee of performance or the return of your principal.</small></span></span>
+              <span class="tip" tabindex="0"><span class="badge ''' + rc + r'''"><span class="badge__emoji" aria-hidden="true">''' + re_ + r'''</span>''' + rl + r'''</span> <span class="tip__box" role="tooltip"><strong>''' + re_ + ' ' + rl + r'''</strong> ''' + O['ratingText'] + r'''<small>My assessment, not a guarantee of performance or the return of your principal.</small></span></span>
             </div>
             <dl class="kv">
               <div><dt>Investment Sponsor</dt><dd>''' + O['sponsor'] + r'''</dd></div>

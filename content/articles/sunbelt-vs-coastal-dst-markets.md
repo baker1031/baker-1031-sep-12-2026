@@ -13,7 +13,6 @@ risk: "dst"
 
 # Sunbelt vs. Coastal DST Markets
 
-[Home](baker1031.html) › Insights
 
 [Back to All Insights](insights.html)
 
@@ -237,26 +236,7 @@ Reviewed by Lori Kamen — President & CCO, Aurora Securities, Inc. (FINRA Serie
 
 ## Explore current offerings
 
-See the Delaware Statutory Trusts we currently have available and how they fit a strategy like this one. [View Delaware Statutory Trusts →](delaware-statutory-trusts.html)
+See the Delaware Statutory Trusts we currently have available and how it may fit a strategy like this one. [View available investments →](delaware-statutory-trusts.html)
 
 Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
-## Links from the source article
-
-- [1031 exchange](1031-exchange-guide.html)
-- [accredited investor](accredited-investor-requirements.html)
-- [qualified intermediary](what-is-a-qualified-intermediary.html)
-- [Revenue Ruling 2004-86](https://www.irs.gov/pub/irs-drop/rr-04-86.pdf)
-- [26 U.S. Code § 1031 — Exchange of real property held for productive use or investment](https://www.law.cornell.edu/uscode/text/26/1031)
-- [Like-Kind Exchanges — Real Estate Tax Tips](https://www.irs.gov/businesses/small-businesses-self-employed/like-kind-exchanges-real-estate-tax-tips)
-- [Real Estate Investments](https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits)
-- [Delaware Statutory Trusts](insights.html)
-- [DSTs](insights.html)
-- [1031 Exchange](insights.html)
-- [Market](insights.html)
-- [Jerry Baker](jerry-baker-bio.html)
-- [Read full bio →](jerry-baker-bio.html)
-- [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591)
-- [View Delaware Statutory Trusts →](delaware-statutory-trusts.html)
-
-For now, I would treat geography as one exposure among several and avoid letting a familiar growth story decide the allocation. How are you balancing growth and stability across your own portfolio?

@@ -13,7 +13,6 @@ risk: "mixed"
 
 # 721 Exchange for Retiring Real Estate Investors
 
-[Home](baker1031.html) › Insights › 721 Exchange for Retiring Real Estate Investors
 
 [Back to All Insights](insights.html)
 

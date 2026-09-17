@@ -211,6 +211,6 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ### Explore current offerings
 
-See the 1031 Exchanges we currently have available and how they fit a strategy like this one. [View 1031 Exchanges →](1031-exchanges.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the 1031 Exchanges we currently have available and how it may fit a strategy like this one. [View 1031 Exchanges →](1031-exchanges.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 When I think about cross-state capital today, I would keep a separate state-tax calendar beside the federal exchange timeline and make the CPA's three-state map part of the decision. What state-level issue has been hardest for you to see clearly before an exchange closes?

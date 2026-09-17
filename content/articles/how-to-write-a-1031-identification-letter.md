@@ -193,6 +193,6 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ## Explore current offerings
 
-See the 1031 Exchanges we currently have available and how they fit a strategy like this one. [View 1031 Exchanges →](1031-exchanges.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the 1031 Exchanges we currently have available and how it may fit a strategy like this one. [View 1031 Exchanges →](1031-exchanges.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 Right now, I would manage this risk by preparing a complete, rule-compliant list before the last days of the window and retaining proof of delivery. How are you managing your identification risk? Share your perspective in the comments?

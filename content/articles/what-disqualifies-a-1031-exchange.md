@@ -254,7 +254,7 @@ Reviewed by
 
 Explore current offerings
 
-See the 1031 Exchanges we currently have available and how they fit a strategy like this one. [View 1031 Exchanges →](1031-exchanges.html)
+See the 1031 Exchanges we currently have available and how it may fit a strategy like this one. [View 1031 Exchanges →](1031-exchanges.html)
 
 Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 

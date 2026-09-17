@@ -13,7 +13,6 @@ risk: "dst"
 
 # What Is the 45-Day Identification Period?
 
-[Home](baker1031.html) › Insights › What Is the 45-Day Identification Period?  
 [Back to All Insights](insights.html)
 
 **Category:** 1031 Exchange · **Research:** Baker 1031 Research · **Updated:** June 2026 · **Reading time:** 16 min read

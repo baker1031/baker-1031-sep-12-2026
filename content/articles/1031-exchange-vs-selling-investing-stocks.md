@@ -13,7 +13,6 @@ risk: "dst"
 
 # 1031 Exchange vs. Selling and Investing in Stocks
 
-[Home](baker1031.html) › Insights › 1031 Exchange vs. Selling and Investing in Stocks  
 [Back to All Insights](insights.html)
 
 **Category:** 1031 Exchange · **Research:** Baker 1031 Research · **Updated:** June 2026 · **Reading time:** 16 min read

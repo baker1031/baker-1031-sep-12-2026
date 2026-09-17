@@ -13,7 +13,6 @@ risk: "mixed"
 
 # 721 Exchange for Net-Lease (NNN) Owners
 
-[Home](baker1031.html) › Insights › 721 Exchange for Net-Lease (NNN) Owners
 
 [Back to All Insights](insights.html)
 

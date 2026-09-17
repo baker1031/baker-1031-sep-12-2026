@@ -13,7 +13,6 @@ risk: "upreit"
 
 # Estate Planning With a 721 Exchange: The Step-Up Advantage
 
-[Home](baker1031.html) › Insights › Estate Planning With a 721 Exchange: The Step-Up Advantage
 
 [Back to All Insights](insights.html)
 
