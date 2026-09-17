@@ -9,6 +9,10 @@
 # CRM (Attio): ATTIO_API_KEY (required); optional ATTIO_DEAL_OWNER, ATTIO_DEAL_STAGE, ATTIO_REVIEW_STAGE, ATTIO_LIST,
 #   ATTIO_DEALS=off, ATTIO_WEBHOOK_SECRET (portal-sync webhook signature)
 # Email / misc: RESEND_API_KEY, PORTAL_SYNC_KEY, SCHEDULE_CALL_URL, CRS_RECEIPT_TO
+# Booking (Cal.com): CAL_WEBHOOK_SECRET — the signing secret on the Cal.com "Booking created" webhook
+#   pointed at /api/booked. Without it a booking still moves the deal and notes it on the person, but it
+#   cannot grant portal access: the endpoint is public, so an unsigned call is not proof of a booking.
+#   Optional: ATTIO_BOOKED_STAGE (default "Intro Call Scheduled")
 # Optional (defaults are baked in): AIRTABLE_BASE, AIRTABLE_TABLE, ACCESS_BASE_ID, ACCESS_TABLE_ID, SESSION_DAYS
 
 [build]
@@ -30,6 +34,12 @@
 # Daily 1031 deadline reminders (8am PT): reads Airtable dates, emails via Resend, logs to the row's "Reminder Log".
 [functions."deadline-reminders"]
   schedule = "0 15 * * *"
+
+# Hourly: reconcile investor access between Attio and Airtable in whichever direction was edited last.
+# Airtable can also call /api/access-sync directly from an automation for an instant push; this is the
+# backstop so a flip in either system is never left stranded.
+[functions."access-sync"]
+  schedule = "17 * * * *"
 
 # Every 15 minutes: rebuild if an offering changed in Airtable since the last publish
 # (compares Last Modified vs /build-info.json, then POSTs NETLIFY_BUILD_HOOK).
@@ -56,6 +66,15 @@
 [[redirects]]
   from = "/api/portal-sync"
   to = "/.netlify/functions/portal-sync"
+  status = 200
+[[redirects]]
+  from = "/api/access-sync"
+  to = "/.netlify/functions/access-sync"
+  status = 200
+# Cal.com's "Booking created" webhook posts here; the register form posts here too, with less privilege.
+[[redirects]]
+  from = "/api/booked"
+  to = "/.netlify/functions/booked"
   status = 200
 [[redirects]]
   from = "/api/reminders-off"

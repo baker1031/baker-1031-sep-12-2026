@@ -1887,7 +1887,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
   // CRM hand-off: POST /api/lead (Netlify function -> GoHighLevel contact + note + "Leads / Registered" opportunity),
   // in the shape the previous request-access form used. Fired once, when the acknowledgments are accepted; never
   // blocks the person, and a failure is only logged (the Cal.com booking that follows is independent).
-  var leadSent = false;
+  var leadSent = false, bookingSent = false;
   function submitLead(){
     if(leadSent) return; leadSent = true;
     var exchange = !!(answers.is1031 && answers.is1031.indexOf('Yes') === 0);
@@ -1909,6 +1909,28 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       if(window.gtag) gtag('event', 'generate_lead', { method: 'register_form' });
     } catch(e){}
   }
+  // Cal.com booking -> CRM. onLeadBooked is called by the booking handler above; it posts the booking
+  // to /api/booked, which moves the deal to "Intro Call Scheduled" and notes it on the person. The
+  // endpoint deliberately will not open the portal on the strength of a browser call - that needs the
+  // Cal.com webhook, which is signed. Never blocks the person; a failure is only logged.
+  window.onLeadBooked = function(a){
+    if(bookingSent) return; bookingSent = true;
+    try {
+      fetch('/api/booked', {
+        method:'POST', headers:{ 'content-type':'application/json' }, keepalive:true,
+        body: JSON.stringify({
+          email: a.email || '', firstName: a.firstName || '',
+          uid: (a.booking && a.booking.uid) || null,
+          startTime: (a.booking && a.booking.start) || null,
+          endTime: (a.booking && a.booking.end) || null,
+          eventType: (a.booking && a.booking.eventType) || '25min',
+          bookedAt: (a.booking && a.booking.bookedAt) || new Date().toISOString()
+        })
+      }).then(function(r){ if(!r.ok) console.warn('booking not delivered', r.status); })
+        .catch(function(e){ console.warn('booking not delivered', e); });
+      if(window.gtag) gtag('event', 'schedule', { method: 'register_form' });
+    } catch(e){}
+  };
   form.addEventListener('change', function(e){
     if(e.target.matches && e.target.matches('.ack input')){
       e.target.closest('.ack').classList.remove('is-missing');
