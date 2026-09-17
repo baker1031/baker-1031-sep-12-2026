@@ -1,18 +1,25 @@
 // Exercises the real gate.js against cookies minted the way auth.mjs mints them.
 import crypto from 'node:crypto';
 import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+
+// Resolve everything from this file, so the test runs from any checkout rather than one machine's paths.
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.dirname(HERE);
+const EDGE = path.join(ROOT, 'netlify', 'edge-functions');
 const SECRET = 'test-secret-value';
 globalThis.Deno = { env: { get: (k) => (k === 'SESSION_SECRET' ? SECRET : '') } };
 
 // build the module with a level-2 list filled in, as Jerry would
-let src = fs.readFileSync('/home/claude/repo/netlify/edge-functions/gate.js', 'utf8');
+let src = fs.readFileSync(path.join(EDGE, 'gate.js'), 'utf8');
 src = src.replace("const LEVEL2_PREFIXES = [\n  // e.g. '/strategies',\n];",
                   "const LEVEL2_PREFIXES = ['/strategies', '/vault/'];");
 // The copy has to sit beside the real gate.js: gate.js imports ./lib/retired-offerings.js, which only
 // resolves from that directory. Cleaned up below whether the run passes or not.
-const tmp = '/home/claude/repo/netlify/edge-functions/.gate.test.mjs';
+const tmp = path.join(EDGE, '.gate.test.mjs');
 fs.writeFileSync(tmp, src);
-const gate = (await import(tmp)).default;
+const gate = (await import(pathToFileURL(tmp).href)).default;
 const cleanup = () => { try { fs.unlinkSync(tmp); } catch {} };
 process.on('exit', cleanup);
 
@@ -63,8 +70,8 @@ await check('same, with a level 1 cookie', '/strategiesX/', cookie(1), 'through'
 
 // Retired offerings: a URL that was published once must never 404. The list is generated from
 // build/published-slugs.txt, so an offering that comes back into Airtable has to stop redirecting.
-const { RETIRED_OFFERINGS } = await import('/home/claude/repo/netlify/edge-functions/lib/retired-offerings.js');
-const live = JSON.parse(fs.readFileSync('/home/claude/repo/build/offerings.json', 'utf8')).map((o) => o.slug);
+const { RETIRED_OFFERINGS } = await import(pathToFileURL(path.join(EDGE, 'lib', 'retired-offerings.js')).href);
+const live = JSON.parse(fs.readFileSync(path.join(HERE, 'offerings.json'), 'utf8')).map((o) => o.slug);
 const someRetired = [...RETIRED_OFFERINGS][0];
 await check('a retired offering redirects to the inventory', `/offerings/${someRetired}/`, cookie(1),
             '301 /invest/');
