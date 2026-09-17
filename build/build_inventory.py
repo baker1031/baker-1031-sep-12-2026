@@ -320,6 +320,9 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .invdisc p{ margin:0 0 10px; font-size:11px; line-height:1.6; color:rgba(0,0,0,.6); }
   .invdisc p:last-child{ margin-bottom:0; }
   .invdisc .invdisc__legend{ font-weight:700; letter-spacing:.04em; color:rgba(0,0,0,.75); }
+  .invdisc h2 + p{ margin-top:0; }
+  .invdisc h2:not(:first-of-type){ margin-top:24px; }
+  .invdisc .invdisc__note{ padding-left:12px; border-left:2px solid var(--hair-strong); color:rgba(0,0,0,.55); }
 
   /* ---------- List view (sortable table) ---------- */
   .tablewrap{ overflow-x:auto; border:1px solid var(--hair-strong); border-radius:var(--radius); }
@@ -492,7 +495,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       <p class="inv__index-label">All offerings tracked on this page</p>
       ''' + ' · '.join('<a href="/offerings/%s/">%s</a>' % (o['slug'], html.escape(o['name'])) for o in sorted(OFFERINGS, key=lambda o: o['name'].lower())) + r'''
     </nav>
-    <p class="inv__disclosure">Current yield is the projected first-year cash distribution rate stated in the sponsor’s offering documents and is not guaranteed. Leverage is stated as loan to total capitalization — the offering’s debt divided by its total capitalization (debt plus equity), which is how sponsors report it in these offerings. It is not loan-to-value: measured against purchase price the same debt produces a higher figure. Ratings reflect Jerry Baker’s opinion after his review process and are not investment advice for any particular investor. Offerings are made only by a private placement memorandum to accredited investors; availability and terms are subject to change without notice.</p>
+    <p class="inv__disclosure">Note: Current yield is the annualized first-year cash distribution projected in the sponsor’s offering memorandum, stated as a percentage of offering equity on the basis that sponsor discloses — each offering page names the basis it used. Future cash distributions are not guaranteed. Leverage is stated as loan to total capitalization — the offering’s debt divided by its total capitalization (debt plus equity), which is how sponsors report it in these offerings. It is not loan-to-value: measured against purchase price the same debt produces a higher figure. Ratings reflect Jerry Baker’s opinion after his review process and are not investment advice for any particular investor. Offerings are made only by a private placement memorandum to accredited investors; availability and terms are subject to change without notice.</p>
   </section>
     <section class="invdisc" aria-labelledby="important-disclosure">
       <h2 id="important-disclosure">Important Disclosure</h2>
@@ -507,6 +510,18 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       <p>The information does not constitute individual investment advice and should not be relied upon as tax or legal advice. Please consult the appropriate professional regarding your individual circumstance.</p>
       <p>There is no guarantee a sponsor will meet an offering’s investment objectives.</p>
       <p>The property images shown may not be owned or anticipated to be owned by the Offering but are representative of the type of asset the Offering intends to acquire.</p>
+      <h2 id="important-risk-disclosures">Important Risk Disclosures</h2>
+      <p>There are material risks associated with investing in Delaware Statutory Trust (DST) private placements and other real estate securities including the potential loss of the entire investment principal, illiquidity, tenant vacancies impacting income and revenue and releasing risks, general and real estate market conditions, operating risks, including lack of operating history, interest rate risks, competition, including the risk of new supply coming to market and softening rental rates, general risks of owning/operating commercial and multifamily properties, financing risks, potential adverse tax consequences, general economic and regulatory risks, development risks, long hold periods. These investments do not trade on an established securities market and are generally not readily transferrable or tradable on a secondary market. Some may offer periodic redemptions; however, those redemptions are not guaranteed.</p>
+      <p>Qualified Opportunity Zone (QOZ) investments may not be able to appreciate as predictably as more established areas. Development and redevelopment of real estate traditionally have more risk than other types of real estate strategies. The rules and regulations of the QOZ Program are complex, compliance with the QOZ Program comes with significant challenges.</p>
+      <p>Interval funds and Non-Traded REITs are registered securities that do not trade on the primary or secondary market. They generally invest in alternative assets, carry higher fees, carry default risk, have concentration risk due to a lack of diversification within their holdings, and may be subject to interest rate risk. They are illiquid compared to other registered, traded investments and should be considered long-term investments. While these types of investments generally offer periodic redemptions, the redemption value may be worth more or less than the original price paid, there are limits to the number of shares that may be redeemed at a particular time, and the ability to redeem shares is not guaranteed.</p>
+      <p>Investors should read the offering documents carefully before investing, paying special attention to the risk section.</p>
+      <p>Private Placement DSTs are only available to accredited investors and accredited entities.*</p>
+      <p class="invdisc__note">*An accredited investor is typically defined as having a $1 million net worth excluding primary residence or $200,000 income individually/$300,000 jointly of the last two years; or have an active Series 7, Series 82, or Series 65. Individuals holding a Series 66 do not fall under this definition. An accredited entity is typically a private business development company or an organization with assets exceeding $5 million; or in certain cases, if an entity consists of equity owners who are accredited investors, the entity itself is an accredited investor provided the organization was not formed with a sole purpose of purchasing specific securities.</p>
+      <p>If you are unsure if you are an accredited investor and/or an accredited entity, please verify with your CPA and Attorney.</p>
+      <p>Offerings that do not require accreditation status may be subject to certain verification requirements prior to investing.</p>
+      <p>Past performance of a sponsor and/or offering is not a guarantee of future results. Diversification does not guarantee a profit or protect against a loss in a declining market. It is a method used to help manage investment risk.</p>
+      <p>Potential cash flows/returns/appreciation are not guaranteed and could be lower than anticipated.</p>
+      <p>Companies depicted in the photographs may have proprietary interest in their names and trademarks.</p>
     </section>
 </main>
 
