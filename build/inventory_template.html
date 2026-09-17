@@ -109,7 +109,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     font-size:20px;
     font-weight:600;
     line-height:1;
-    color:var(--accent);
+    color:var(--accent-text);
     transform:translateY(110%) rotateX(-90deg);
     opacity:0;
     white-space:nowrap;
@@ -129,18 +129,18 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     text-decoration:none;
     transition:color .15s ease;
   }
-  .nav__login:hover{ color:var(--accent); }
+  .nav__login:hover{ color:var(--accent-text); }
   .nav__cta{ margin:0; padding:8px 16px; font-size:13.5px; }
   /* logged-in state: greeting + Log Out replace Log In / Get Started */
   .nav__actions [hidden]{ display:none !important; }
   .nav__user{ font-size:14px; font-weight:600; color:var(--black); white-space:nowrap; }
-  .nav__user-name{ color:var(--accent); }
+  .nav__user-name{ color:var(--accent-text); }
   .nav__logout{
     font:inherit; font-size:14px; font-weight:600; color:#000000;
     background:none; border:0; padding:0; cursor:pointer; white-space:nowrap;
     transition:color .15s ease;
   }
-  .nav__logout:hover{ color:var(--accent); }
+  .nav__logout:hover{ color:var(--accent-text); }
   .nav__menu{
     display:none;
     width:36px; height:36px;
@@ -445,7 +445,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .footer__brand img{ height:34px; width:auto; display:block; margin-bottom:16px; }
   .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#000000; }
   .footer__brand a{ color:#000000; text-decoration:none; }
-  .footer__brand a:hover{ color:var(--accent); }
+  .footer__brand a:hover{ color:var(--accent-text); }
   .footer__brand .footer__blurb{ max-width:46ch; }
   .footer__office{
     font-style:normal;
@@ -454,13 +454,13 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   }
   .footer__office strong{ display:block; font-weight:600; color:var(--black); }
   .footer__col .footer__office a{ display:inline; padding:0; font-size:inherit; }
-  .footer__col .footer__office a:hover{ color:var(--accent); }
+  .footer__col .footer__office a:hover{ color:var(--accent-text); }
   .footer__disclosure a{ color:rgba(0,0,0,.6); text-decoration:underline; text-underline-offset:2px; }
-  .footer__disclosure a:hover{ color:var(--accent); }
+  .footer__disclosure a:hover{ color:var(--accent-text); }
   .footer__label{
     margin:0 0 10px;
     font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-    color:var(--accent);
+    color:var(--accent-text);
   }
   .footer__col a{
     display:block;
