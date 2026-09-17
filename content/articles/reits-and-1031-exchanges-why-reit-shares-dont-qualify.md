@@ -182,6 +182,6 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ## Explore Current Offerings
 
-Explore current offerings. See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 For exchange capital I am considering now, I would never let a desirable destination erase the character of the asset required at each step. I would choose a route only after testing the deferral, liquidity, conversion, and eventual tax consequences with counsel. Which trade-off is doing the most work in your own decision?

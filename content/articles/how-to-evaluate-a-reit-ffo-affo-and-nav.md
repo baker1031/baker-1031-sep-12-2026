@@ -190,6 +190,6 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ## Explore Current Offerings
 
-Explore current offerings. See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 For capital I am assessing now, I would not let a generous yield, a low P/FFO, or an apparent NAV discount settle the matter. I would read the FFO reconciliation, test AFFO coverage, and map debt against the business. Which metric would you test first before committing capital?

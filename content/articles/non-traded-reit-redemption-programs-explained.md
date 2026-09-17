@@ -178,6 +178,6 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ## Explore Current Offerings
 
-Explore current offerings. See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 For capital I am assessing now, I would treat a redemption program as a stress test for the allocation, not the reason it is considered liquid. I would check the cap, gate, suspension authority, NAV method, and the cash reserve outside the position. What would make a redemption delay manageable in your own plan?

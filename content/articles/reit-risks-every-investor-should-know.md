@@ -188,6 +188,6 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ## Explore Current Offerings
 
-Explore current offerings. See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 For capital I am assessing now, I would start with the downside case: a cut distribution, a refinancing at a worse rate, or a period when liquidity is unavailable. I would not let a compelling yield expand the position beyond what that scenario can bear. What risk receives too little attention in your REIT work?

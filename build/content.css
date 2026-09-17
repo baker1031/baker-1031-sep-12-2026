@@ -965,3 +965,5 @@ ul.bul > li strong{ display:block; margin-bottom:2px; color:var(--ink); }
 .pt-note{ margin-top:10px; font-size:.8125rem; line-height:1.55; color:var(--muted); }
 .pt-nodata{ margin:14px 0; padding:14px 16px; background:var(--grey1); border-left:3px solid var(--hair-strong);
             font-size:.95rem; line-height:1.6; }
+
+.cf-basis{ margin:8px 0 0; font-size:.8125rem; line-height:1.55; color:var(--muted); }

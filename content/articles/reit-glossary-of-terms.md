@@ -178,6 +178,6 @@ Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/280559
 
 ## Explore Current Offerings
 
-Explore current offerings. See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
+See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 For capital I am assessing now, I would ask one question before accepting a term: what decision does it improve? FFO, AFFO, NAV, liquidity, and taxes only matter if they change how risk, price, and fit are judged. Which REIT term do you find most useful—or least clear?

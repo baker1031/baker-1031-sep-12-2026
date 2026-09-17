@@ -68,7 +68,22 @@ def make_O(r):
     # 2026-09-16 cutover, so it is read off the cash-flow schedule instead.
     no_income = not any(isinstance(v, (int, float)) and v for v in r['income'])
     allcash = not r['debt']
+    # A debt-free offering used to render four labelled rows with $0 and two em dashes in them.
+    # Say the one thing that is true instead.
+    if allcash:
+        debt_block = ('<p style="margin:0;font-size:15px">This offering is debt-free. It uses no financing, '
+                      'so there is no loan amount, rate, term or refinancing risk.</p>')
+    else:
+        debt_block = ('<dl class="kv" style="grid-template-columns:1fr">'
+                      '<div><dt>Loan amount</dt><dd>%s</dd></div>'
+                      '<div><dt>Leverage (loan to total capitalization)</dt><dd>%d%%</dd></div>'
+                      '<div><dt>Rate</dt><dd>%s</dd></div>'
+                      '<div><dt>Term</dt><dd>%s</dd></div></dl>'
+                      % (money(r['debt'] or 0), round((r['ltv'] or 0) * 100),
+                         esc(r['rate'] or '\u2014'),
+                         (f"{r['loanTerm']:g} years" if r['loanTerm'] else '\u2014')))
     return dict(
+        debtBlock=debt_block,
         slug=r['slug'], name=esc(r['name']), sponsor=esc(r['sponsor'] or '—'),
         type=esc(' · '.join(types) or '—'), city=esc(' · '.join(locs) or 'Location TBD'), state='',
         status=r['status'] or 'Available', rating=rating, ratingText=RATING_TEXT[rating],
@@ -83,7 +98,8 @@ def make_O(r):
         lender=esc('None — all-cash offering' if allcash else (r['lender'] or '—')),
         amortization=esc('—' if allcash else (r['amort'] or '—')),
         registration=esc(r['registration'] or '—'), propertyTypes=esc(' · '.join(types) or '—'),
-        holdTarget=esc(r['holdLabel'] or '—'),   # "5-10 Years", "No Fixed Hold" — printed as the PPM states it
+        # Printed as the PPM states it; only the hyphen in a range is normalised to an en dash.
+        holdTarget=esc(re.sub(r'(\d)\s*-\s*(\d)', lambda m: m.group(1) + '–' + m.group(2), r['holdLabel'] or '—')),
         photos=[img_of(r['slug'])], photoFull=full_of(r['slug']),
         overview=paras(r['description']),
         highlights=[esc(h) for h in r['highlights']],
@@ -130,10 +146,19 @@ def render(O):
         props_title = 'Property address'
     else:
         props_html = '<ul class="addrs">' + ''.join(f'<li class="addr">{p["addr"]}</li>' for p in O['props']) + '</ul>'
-        props_title = f'Property addresses <span class="sec__count">{len(O["props"])}</span>' 
+        # Some offerings list street addresses; others list county or basin groupings that each cover
+        # several properties. Counting the entries as "addresses" then contradicts the text beside it
+        # ("Property addresses 4" over "14 deeded properties"), so only a real address list is counted.
+        addressish = sum(1 for p in O['props'] if re.match(r'\s*\d', p['addr']))
+        props_title = (f'Property addresses <span class="sec__count">{len(O["props"])}</span>'
+                       if addressish == len(O['props']) else 'Property locations')
     cf = [(i, v) for i, v in enumerate(O['cashflow']) if v is not None]
-    cf_basis = (' <span style="font-weight:400;text-transform:none;letter-spacing:0">· ' + O['cfBasis'] + '</span>') if O['cfBasis'] else ''
-    cf_note = ''   # PPM projection notes are not shown on the page
+    # The heading is the same on every offering; the sponsor's own term for the figure is a note under
+    # the table, not a second name for the section. Seven different headings for one row of numbers made
+    # the offerings look like they were measuring different things.
+    cf_basis = ''
+    cf_note = ('<p class="cf-basis">These are the sponsor\u2019s projections, stated in the offering documents as '
+               '\u201c' + O['cfBasis'] + '\u201d. They are not guaranteed.</p>') if O['cfBasis'] else ''
     cf_hidden = '' if cf else ' hidden'
     cf_head = ''.join(f'<th class="num">Yr {i+1}</th>' for i, v in cf)
     cf_row = ''.join(f'<td class="num">{v:.2f}%</td>' for i, v in cf)
@@ -417,19 +442,14 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
               </div>
               <div>
                 <h3 style="margin:0 0 10px;font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--grey-light)">Debt</h3>
-                <dl class="kv" style="grid-template-columns:1fr">
-                  <div><dt>Loan amount</dt><dd>''' + money(O['loanAmount']) + r'''</dd></div>
-                  <div><dt>Leverage (loan to total capitalization)</dt><dd>''' + f"{O['ltv']}%" + r'''</dd></div>
-                  <div><dt>Rate</dt><dd>''' + O['loanRate'] + r'''</dd></div>
-                  <div><dt>Term</dt><dd>''' + O['loanTerm'] + r'''</dd></div>
-                </dl>
+                ''' + O['debtBlock'] + r'''
               </div>
             </div>
             <h3 style="margin:28px 0 10px;font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--grey-light)">Projected distributions''' + cf_basis + r'''</h3>
             <div class="tablewrap"''' + cf_hidden + r'''><table class="cf">
               <thead><tr>''' + cf_head + r'''</tr></thead>
               <tbody><tr>''' + cf_row + r'''</tr></tbody>
-            </table></div>
+            </table></div>''' + cf_note + r'''
             <dl class="cf-stack">''' + cf_stack + r'''</dl>''' + cf_note + r'''
             <p class="foot-note">Projections from the sponsor’s offering documents. Distributions are not guaranteed and may be lower than shown or suspended. See the PPM for assumptions.</p>
           </section>
