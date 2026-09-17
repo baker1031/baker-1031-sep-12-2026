@@ -43,6 +43,63 @@ RATING_TEXT = {
 }
 def esc(x): return _html.escape(str(x if x is not None else ''), quote=True)
 def paras(text): return [esc(t.strip()) for t in re.split(r'\n\s*\n|\n', text or '') if t.strip()]
+_STATE = (r'A[LKZR]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|'
+          r'O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY]')
+_ADDRISH = re.compile(r'(^|\s)\d+\s+[A-Z0-9]|,\s*(' + _STATE + r')\b\.?\s*(\d{5})?|'
+                      r',\s*[A-Z][a-z]+(\s[A-Z][a-z]+)*\s+\d{5}', re.M)
+
+
+def _addressish(s):
+    return bool(_ADDRISH.search(s))
+
+
+def parse_addresses(raw):
+    """Airtable's `addresses` field is free text with no single convention. Three shapes
+    occur in the live inventory, and splitting only on ';' handled one and a half of them:
+
+      * semicolon-delimited addresses                            (11 offerings)
+      * a single address, often prefixed with a property name     (14 offerings)
+      * pipe-delimited addresses grouped under a tenant name:
+        "CVS: a | b | c. Pinnacle Bank: d | e | f"                (ARCTRUST)
+
+    ARCTRUST has no semicolons at all, so its six addresses arrived as one entry and the
+    page printed them as a paragraph while every other multi-property offering printed a
+    list. Resource Royalty is the opposite case: prose with semicolons inside it, which
+    split into four fragments that each began mid-sentence.
+
+    Returns a list of (tenant_label_or_None, address). Grouping is only accepted when
+    every group actually starts with an address, so "NOTE:" or "OKLAHOMA (11 properties):"
+    is not read as a tenant. Anything that is not a clean list is returned whole.
+    """
+    raw = (raw or '').strip()
+    if not raw:
+        return []
+
+    def split_plain(text):
+        return [x.strip(' .') for x in re.split(r'[;|]', text) if x.strip(' .')]
+
+    marks = list(re.finditer(r'(?:^|(?<=[.;]))\s*([A-Z][A-Za-z&.\' ]{1,28}?):\s+', raw))
+    if marks and marks[0].start() == 0:
+        groups, ok = [], True
+        for i, m in enumerate(marks):
+            end = marks[i + 1].start() if i + 1 < len(marks) else len(raw)
+            parts = split_plain(raw[m.end():end])
+            if not parts or not _addressish(parts[0]):
+                ok = False
+                break
+            groups.append((m.group(1).strip(), parts))
+        if ok:
+            out = [(lab, a) for lab, parts in groups for a in parts]
+            if len(out) > 1 and all(_addressish(a) for _, a in out):
+                return out
+
+    parts = split_plain(raw)
+    if len(parts) > 1 and all(_addressish(x) for x in parts):
+        return [(None, x) for x in parts]
+
+    return [(None, raw)]
+
+
 def img_of(slug):
     if ROOT:
         d = os.path.join(ROOT, 'assets/media/offerings')
@@ -103,7 +160,7 @@ def make_O(r):
         photos=[img_of(r['slug'])], photoFull=full_of(r['slug']),
         overview=paras(r['description']),
         highlights=[esc(h) for h in r['highlights']],
-        props=[dict(addr=esc(a.strip())) for a in (r['addresses'] or '').split(';') if a.strip()],
+        props=[dict(addr=esc(a), tenant=esc(lab or '')) for lab, a in parse_addresses(r['addresses'])],
         cashflow=[(v * 100 if isinstance(v, (int, float)) else None) for v in r['income']],
         cfBasis=esc(r['cfBasis'] or ''), cfDisclosure=esc(r['cfDisclosure'] or ''), postForecast=esc(r['postForecast'] or ''),
         docs=[(esc(re.sub(r'\.(pdf|docx?|xlsx?|pptx?)$', '', d['filename'], flags=re.I)), esc(d.get('rel') or '')) for d in r['docs']],
@@ -143,9 +200,15 @@ def render(O):
     # one property → a single address line; several → a list
     if len(O['props']) == 1:
         props_html = f'<p class="addr">{O["props"][0]["addr"]}</p>'
-        props_title = 'Property address'
+        # A single entry is not always an address: the royalty offering describes basins and
+        # counties covering fourteen deeded properties, which "Property address" mislabels.
+        props_title = ('Property address' if _addressish(O['props'][0]['addr'])
+                       else 'Property locations')
     else:
-        props_html = '<ul class="addrs">' + ''.join(f'<li class="addr">{p["addr"]}</li>' for p in O['props']) + '</ul>'
+        props_html = ('<ul class="addrs">' + ''.join(
+            f'<li class="addr">'
+            + (f'<span class="addr__tenant">{p["tenant"]}</span>' if p['tenant'] else '')
+            + f'<span class="addr__line">{p["addr"]}</span></li>' for p in O['props']) + '</ul>')
         # Some offerings list street addresses; others list county or basin groupings that each cover
         # several properties. Counting the entries as "addresses" then contradicts the text beside it
         # ("Property addresses 4" over "14 deeded properties"), so only a real address list is counted.
@@ -299,6 +362,9 @@ def render(O):
       .addr{ display:flex; flex-wrap:wrap; gap:4px 16px; align-items:baseline; margin:0; padding:10px 0; border-bottom:1px solid var(--hair); font-size:15px; }
       .addrs .addr:last-child{ border-bottom:0; }
       .addr{ color:var(--black); }
+      .addr__tenant{ flex:0 0 auto; min-width:104px; font-size:12px; font-weight:700; letter-spacing:.04em;
+                     text-transform:uppercase; color:var(--grey-light); }
+      .addr__line{ flex:1 1 220px; min-width:0; }
       .foot-note{ margin:10px 0 0 !important; font-size:12px !important; color:var(--grey-light) !important; line-height:1.5 !important; }
       .docs{ list-style:none; margin:0; padding:0; display:grid; gap:8px; }
       .doc{ display:flex; align-items:center; gap:14px; padding:12px 14px; border:1px solid var(--hair-strong); border-radius:var(--radius); text-decoration:none; color:inherit; transition:border-color .15s; }

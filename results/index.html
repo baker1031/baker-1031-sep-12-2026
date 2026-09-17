@@ -141,14 +141,30 @@
     transition:color .15s ease;
   }
   .nav__logout:hover{ color:var(--accent-text); }
+  /* Three absolutely-positioned bars rather than a flex column, so the outer two can
+     travel to the middle and rotate into an X while the drawer is open. The button's own
+     aria-expanded drives it -- no extra class to keep in sync with the JS. */
   .nav__menu{
     display:none;
-    width:36px; height:36px;
-    padding:8px;
+    position:relative;
+    width:34px; height:34px;
+    padding:0;
     background:none; border:0; cursor:pointer;
-    flex-direction:column; justify-content:space-between;
   }
-  .nav__menu span{ display:block; height:2px; background:var(--black); border-radius:1px; }
+  .nav__menu span{
+    position:absolute; left:7px; width:20px; height:2px;
+    background:var(--black); border-radius:1px;
+    transition:top .22s ease, transform .22s ease, opacity .14s ease;
+  }
+  .nav__menu span:nth-child(1){ top:11px; }
+  .nav__menu span:nth-child(2){ top:16px; }
+  .nav__menu span:nth-child(3){ top:21px; }
+  .nav__menu[aria-expanded="true"] span:nth-child(1){ top:16px; transform:rotate(45deg); }
+  .nav__menu[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .nav__menu[aria-expanded="true"] span:nth-child(3){ top:16px; transform:rotate(-45deg); }
+  @media (prefers-reduced-motion: reduce){
+    .nav__menu span{ transition:none; }
+  }
 
   .nav__links a[aria-current="page"] .nav__word{ color:var(--black); }
 
@@ -325,7 +341,7 @@
     .nav__cta{ flex:0 0 auto; }
     .nav__cta{ padding:7px 11px; font-size:12.5px; white-space:nowrap; }
     .nav__cta svg{ display:none; }
-    .nav__menu{ display:flex; width:30px; padding:7px 4px; }
+    .nav__menu{ display:block; }
     .head{ padding:36px 20px 20px; }
     .wrap{ padding:20px 20px 56px; }
     .footer__inner{ grid-template-columns:1fr 1fr; padding:40px 20px 32px; }
@@ -514,9 +530,10 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
   menu.addEventListener('click', function(){
     var open = links.classList.toggle('is-open');
     menu.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menu.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
   });
   links.addEventListener('click', function(e){
-    if (e.target.tagName === 'A'){ links.classList.remove('is-open'); menu.setAttribute('aria-expanded','false'); }
+    if (e.target.tagName === 'A'){ links.classList.remove('is-open'); menu.setAttribute('aria-expanded','false'); menu.setAttribute('aria-label','Menu'); }
   });
 
   // Session. The login API (/api/auth, a Netlify function backed by the Investor Access base) sets an
