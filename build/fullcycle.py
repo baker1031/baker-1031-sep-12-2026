@@ -2,7 +2,7 @@
 per-sponsor track records. Update the TSV and every page that shows these numbers moves with it.
 
 Source: the "Investment Data (Live)" Airtable base (appTSWSTIsB2arukB), Past Performance table
-(tblucuax2b7dKxLzH) — 307 full-cycle programs across 11 sponsors, every figure independently
+(tblucuax2b7dKxLzH) — 1,014 full-cycle programs across 15 sponsors, every figure independently
 recomputed from the sponsor's own PPM. Refreshed by build/fetch_performance.py on each deploy when AIRTABLE_TOKEN is set.
 
 Average Annual Return is stated on ONE basis for every sponsor: (Equity Multiple - 1) / Holding Period.
@@ -26,6 +26,7 @@ TYPE_FIX = {'Hospitality / credit': 'Hospitality / Credit', '': 'Other / Unclass
 ALIASES = {
     'AEI': 'aei-capital-corporation',
     'Four Springs TEN31 Xchange': 'four-springs-capital',
+    'Inland Private Capital': 'inland',
     'Walton Global': 'walton-global-holdings',
     'Fortress': 'fortress-investment-group',
 }

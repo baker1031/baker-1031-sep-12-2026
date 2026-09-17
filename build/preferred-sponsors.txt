@@ -2,9 +2,12 @@
 # Airtable's Preferred column proposes changes; this file has to be edited to accept one,
 # because the preferred cohort sets a published performance figure on the homepage.
 #
-# Airtable currently also marks Reliant and Peachtree Group preferred. Adding Reliant moves the
-# homepage figure from 19.99% across 170 programs to 22.79% across 212, on the strength of 43
-# self-storage programs averaging 34.1%. That is Jerry's call to make here, not Airtable's.
+# Airtable currently also marks Reliant and Peachtree Group preferred. Against the 1,014-program
+# dataset the approved three publish 19.99% across 172 programs. Adding sponsors moves that figure:
+#   + Reliant                      22.79% across 215 programs  (43 self-storage programs at 34.14%)
+#   + Peachtree Group              28.85% across 628 programs  (456 programs at 32.33%)
+#   + Reliant and Peachtree Group  29.19% across 671 programs
+# That is Jerry's call to make here, not Airtable's.
 Bluerock
 ExchangeRight
 NexPoint
