@@ -156,10 +156,18 @@ def article_category(fm, slug):
 
 MONTHS = {m: f'{i:02d}' for i, m in enumerate(['january','february','march','april','may','june','july','august','september','october','november','december'], 1)}
 def iso_date(text):
+    """A full ISO 8601 date for schema.org dateModified.
+
+    This used to emit a year-month ("2026-06") or a bare year ("2026"). Google's Article
+    documentation asks for a full ISO 8601 date, so both forms were ignored on all 312
+    articles that carried one. The sources only ever state a month ("Updated June 2026"),
+    and the first of that month is the honest normalisation of it; a bare year is dropped
+    rather than given an invented month."""
     text = str(text or '')
     m = re.search(r'([A-Za-z]+)\s+(20\d\d)', text)
-    if m and m.group(1).lower() in MONTHS: return f'{m.group(2)}-{MONTHS[m.group(1).lower()]}'
-    y = re.search(r'20\d\d', text); return y.group(0) if y else None
+    if m and m.group(1).lower() in MONTHS:
+        return f'{m.group(2)}-{MONTHS[m.group(1).lower()]}-01'
+    return None
 
 def strip_md(t):
     t = re.sub(r'\*\*|__|`', '', t); t = re.sub(r'\[([^\]]+)\]\([^)]*\)', r'\1', t); return re.sub(r'\s+', ' ', t).strip()
