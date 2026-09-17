@@ -26,7 +26,8 @@ TYPE_FIX = {
     'Hospitality / credit': 'Hospitality / Credit',
     'Medical office': 'Medical Office',
     'Credit - MultiFamily': 'Credit - Multifamily',
-    'UNIDENTIFIED - not disclosed in Table 2': 'Other / Unclassified',
+    'Not disclosed': 'Other / Unclassified',
+    'UNIDENTIFIED - not disclosed in Table 2': 'Other / Unclassified',   # superseded in Airtable, kept for the snapshot
     '': 'Other / Unclassified',
 }
 
