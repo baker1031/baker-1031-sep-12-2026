@@ -20,11 +20,11 @@ Definitive Guide · 2026 Baker 1031 Research · Updated June 2026 · 32 min read
 
 I have been thinking about the gap between a strong overview and an actual investment decision. First-order thinking focuses on the tax deferral, passive ownership, and current income. Second-order thinking tests the sponsor, data limitations, debt, fees, liquidity, full-cycle exit, and whether the investor can live with the risks across a full hold.
 
-A comprehensive walkthrough for investors, from the plain-English basics through sponsor due diligence, taxes, cost segregation, and exit strategy. Built around data on 82 sponsors (as of Q2 2026) and four interactive decision tools.
+A comprehensive walkthrough for investors, from the plain-English basics through sponsor due diligence, taxes, cost segregation, and exit strategy. Built around Baker 1031's own sponsor dataset and its interactive decision tools.
 
 A Delaware Statutory Trust lets you sell an appreciated property, defer the capital-gains tax through a 1031 exchange, and own a slice of institutional-grade real estate without ever managing it. This guide takes you from that one-sentence idea all the way to vetting a specific sponsor, with tools that turn the decisions into something you can actually work through.
 
-Use it however suits you. Newcomers can read top to bottom. Investors facing a 45-day clock can jump to [sponsor review](#sponsor) and [choosing a DST](#choosing). Everyone should spend time with the four interactive tools — the exit-strategy quiz, the fit checklist, the sponsor explorer, and the diversification model — because that's where the general rules become your decision.
+Use it however suits you. Newcomers can read top to bottom. Investors facing a 45-day clock can jump to [sponsor review](#sponsor) and [choosing a DST](#choosing). Everyone should spend time with the interactive tools — the exit-strategy quiz, the fit checklist, and the diversification model — because that's where the general rules become your decision.
 
 ### What's new for 2026
 
@@ -162,65 +162,17 @@ For each document, ask three questions: what is it telling me, what is it not te
 
 In a passive structure, you're really underwriting the operator. The metrics that matter are the number of full-cycle deals (deals taken start to finish — the only proof of results), average annual return, equity multiple (MOIC), average hold, and success rate. Judge them against a benchmark, never in isolation — and watch the sponsors with no completed cycle at all.
 
-The explorer below runs on Baker 1031's proprietary data covering 82 sponsors. Sort it, filter it, search it — then click any sponsor to open a full profile with its description, metrics versus the platform benchmark, and its deal-by-deal track record where we have it.
+Baker 1031 publishes a profile page for every DST sponsor it tracks, and the numbers below are computed from the same dataset those profiles and the [Data Center](data-center.html) run on, so they cannot drift apart.
 
-Data as of Q2 2026 · 82 sponsors  Sponsor explorer
-
-Sponsors tracked
-
-82
-
-Preferred
-
-8
-
-With track record
-
-21
-
-No record yet
-
-61
-
-Benchmark · all sponsors
-
-Return  14.9%   MOIC  1.46x   Hold  4.7 yr   Win  96.5%
-
-★ Benchmark · preferred cohort
-
-Return  20.8%   MOIC  1.53x   Hold  3.6 yr   Win  98.1%
-
-Data as of Q2 2026, from Baker 1031's proprietary dataset of realized, full-cycle DST deals. "Full-cycle" means a deal carried from acquisition through final sale; "Return" is the average annualized return across those realized deals; "Win" means the share of full-cycle deals that returned at least the capital invested. Only 21 of the 82 sponsors tracked have any full-cycle track record, so these figures reflect a limited sample and are subject to survivorship bias. Past performance is not indicative of future results, and DST investments can lose value, including loss of principal.
-
-All
-Preferred
-Has record
-No record
-
-Sponsor
-AUM
-Full-cycle
-Return
-MOIC
-Hold
-Win
-
-The interactive sponsor explorer requires JavaScript. Summary benchmarks from Baker 1031's dataset of 82 tracked DST sponsors (21 with a full-cycle track record), as of Q2 2026:
-
-Cohort  Avg. return  MOIC  Avg. hold  Full-cycle deals returning ≥ cost
-
-All sponsors  14.9%  1.46x  4.7 yr  96.5%
-Preferred cohort  20.8%  1.53x  3.6 yr  98.1%
-
-Past performance is not indicative of future results.
+<!--sg:benchmark-->
 
 ### What to do when a sponsor has no track record
 
-Filter the explorer to "No record" and you'll find 61 of the 82 names — including some of the largest asset managers in the world. Enormous AUM is not a DST track record. When a sponsor hasn't completed a full cycle, shift your underwriting to what you can verify: the experience of the principals and parent company, tenure and AUM, vertical integration, conservative leverage, and independent third-party validation — and size your position to the added uncertainty.
+Most of the sponsors Baker profiles have no completed full cycle at all — including some of the largest asset managers in the world. Enormous AUM is not a DST track record. When a sponsor hasn't completed a full cycle, shift your underwriting to what you can verify: the experience of the principals and parent company, tenure and AUM, vertical integration, conservative leverage, and independent third-party validation — and size your position to the added uncertainty.
 
 ### Preferred versus all sponsors
 
-A "Preferred" designation reflects Baker's internal coverage and diligence criteria, not a rating, ranking, endorsement, or assurance. In the Q2 2026 full-cycle comparison shown in the [Data Center](data-center.html), the preferred cohort's reported average is higher than the broader tracked population for the disclosed period and population; the figures are sponsor-reported, not independently verified, and may be affected by selection and survivorship bias. Baker 1031's [methodology](methodology.html) explains the inclusion rules and definitions. Business relationships or compensation arrangements may create conflicts and are disclosed in applicable offering materials. Past performance is not indicative of future results. Preferred is a starting filter, not a guarantee, and it is not the only place good deals live. Use it to focus your search, then still run every deal through the documents and the fit checklist.
+A "Preferred" designation reflects Baker's internal coverage and diligence criteria, not a rating, ranking, endorsement, or assurance. In the full-cycle comparison above and in the [Data Center](data-center.html), the preferred cohort's reported average is higher than the broader tracked population for the disclosed period and population; the figures are sponsor-reported, not independently verified, and may be affected by selection and survivorship bias. Baker 1031's [methodology](methodology.html) explains the inclusion rules and definitions. Business relationships or compensation arrangements may create conflicts and are disclosed in applicable offering materials. Past performance is not indicative of future results. Preferred is a starting filter, not a guarantee, and it is not the only place good deals live. Use it to focus your search, then still run every deal through the documents and the fit checklist.
 
 ## 09 · The Investing Process, Start to Finish
 
@@ -379,7 +331,7 @@ This material is for educational and informational purposes only and does not co
 
 DST interests are securities offered through Aurora Securities, Inc., member FINRA/SIPC. Interests are available only to accredited investors following a suitability review, and any offer is made solely by means of the applicable Private Placement Memorandum (PPM), which should be read in full before investing. Distributions and returns described here are projections, not guarantees. Baker 1031 does not provide tax or legal advice; consult your CPA and attorney regarding your specific circumstances.
 
-Sponsor metrics shown in the explorer are drawn from Baker 1031's proprietary dataset and reflect historical, in some cases sampled, performance; past performance is not indicative of future results, and full-cycle counts and deal-level figures may differ from a sponsor's complete record. Tax outcomes — including 1031 deferral, cost segregation, depreciation recapture, and 721 conversions — depend on individual circumstances; consult a qualified CPA and attorney before acting. Figures and benchmarks are illustrative and subject to change.
+Sponsor metrics shown in this guide are drawn from Baker 1031's proprietary dataset and reflect historical, in some cases sampled, performance; past performance is not indicative of future results, and full-cycle counts and deal-level figures may differ from a sponsor's complete record. Tax outcomes — including 1031 deferral, cost segregation, depreciation recapture, and 721 conversions — depend on individual circumstances; consult a qualified CPA and attorney before acting. Figures and benchmarks are illustrative and subject to change.
 
 B
 

@@ -8,6 +8,7 @@ import re, os, sys, json, html as _html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import content_shell as cs
 import seo
+import fullcycle as fc
 from markdown_it import MarkdownIt
 
 OUT = os.environ.get('SITE_ROOT', '/home/claude/site')
@@ -269,8 +270,19 @@ def _slug(t):
     t = re.sub(r'<[^>]+>', '', t); t = re.sub(r'&[a-z]+;|&#\d+;', '', t)
     return re.sub(r'-+', '-', re.sub(r'[^a-z0-9]+', '-', t.lower())).strip('-')[:80] or 'section'
 
+def expand_benchmark(html):
+    """<!--sg:benchmark--> in an article is replaced with the platform benchmark computed from
+    build/fullcycle.tsv. The DST guide carried this block as hand-typed numbers and every one of
+    them had drifted away from the dataset and from the homepage."""
+    if '<!--sg:benchmark-->' not in html:
+        return html
+    return re.sub(r'(?:<p>\s*)?<!--sg:benchmark-->(?:\s*</p>)?',
+                  lambda m: fc.benchmark_html(), html)
+
+
 def render_md(body):
     html = md_engine.render(body)
+    html = expand_benchmark(html)
     html = re.sub(r'<table\b[^>]*>', lambda m: '<div class="tblwrap">' + m.group(0), html).replace('</table>', '</table></div>')
     # section anchors (deep links) + a contents list on long guides so a section can be cited directly
     seen, heads = {}, []

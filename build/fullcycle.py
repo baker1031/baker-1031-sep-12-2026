@@ -258,3 +258,72 @@ def pt_facts_html(slug, rows, label, indent='        '):
                'own offering documents, and subject to selection and survivorship bias. Past performance does not '
                'guarantee future results.</p>' % (i, n, label.lower(), '' if n == 1 else 's'))
     return '\n'.join(out)
+
+
+# ---- platform benchmark, for the DST guide -----------------------------------------------------
+def sponsor_universe():
+    """Every sponsor Baker publishes a profile page for. The guide's "sponsors tracked" figure is
+    that directory, not the performance dataset, so it is counted from the pages themselves."""
+    root = os.path.join(os.path.dirname(HERE), 'content', 'pages', 'sponsors')
+    try:
+        return sorted(d for d in os.listdir(root)
+                      if os.path.isdir(os.path.join(root, d)) and d != 'index')
+    except OSError:
+        return []
+
+
+def benchmark():
+    """The numbers behind the DST guide's sponsor-explorer block. Every one of these was hand-typed
+    into the guide and every one had drifted: the guide claimed 82 sponsors / 21 with a record and a
+    14.9% all-sponsor return against a dataset holding 17.66%, which also contradicted the homepage.
+    Computed here so the guide, the homepage, the Results page and each sponsor page cannot disagree."""
+    rows = load()
+    by = by_sponsor(rows)
+    pref_names = [p for p in preferred()]
+    pref_rows = [r for r in rows if r['sponsor'] in set(pref_names)]
+    universe = sponsor_universe()
+    tracked = len(universe)
+    with_record = len([s for s, v in by.items() if v])
+    return dict(
+        tracked=tracked,
+        preferred=len(pref_names),
+        with_record=with_record,
+        no_record=max(tracked - with_record, 0),
+        all_stats=stats(rows),
+        pref_stats=stats(pref_rows),
+        deals=len(rows),
+    )
+
+
+def _bm_cell(st):
+    v = fact_values(st)
+    return (v['Avg Annual Return'], v['Avg Equity Multiple'], v['Avg Hold'], v['Full-Cycle Success'])
+
+
+def benchmark_html(indent=''):
+    b = benchmark()
+    a = _bm_cell(b['all_stats']); p = _bm_cell(b['pref_stats'])
+    i = indent
+    return (
+f'''{i}<div class="bm">
+{i}  <div class="bm-counts">
+{i}    <div class="bm-c"><div class="l">Sponsors profiled</div><div class="v">{b['tracked']}</div></div>
+{i}    <div class="bm-c"><div class="l">Preferred</div><div class="v">{b['preferred']}</div></div>
+{i}    <div class="bm-c"><div class="l">With a record</div><div class="v">{b['with_record']}</div></div>
+{i}    <div class="bm-c"><div class="l">No record yet</div><div class="v">{b['no_record']}</div></div>
+{i}  </div>
+{i}  <table class="bm-table">
+{i}    <thead><tr><th>Cohort</th><th>Avg. annual return</th><th>Avg. equity multiple</th><th>Avg. hold</th><th>Returned &ge; cost</th></tr></thead>
+{i}    <tbody>
+{i}      <tr><th scope="row">All sponsors with a record</th><td>{a[0]}</td><td>{a[1]}</td><td>{a[2]}</td><td>{a[3]}</td></tr>
+{i}      <tr><th scope="row">Preferred cohort</th><td>{p[0]}</td><td>{p[1]}</td><td>{p[2]}</td><td>{p[3]}</td></tr>
+{i}    </tbody>
+{i}  </table>
+{i}  <p class="bm-note">Computed from Baker 1031&rsquo;s dataset of {b['deals']} realized, full-cycle DST
+{i}  programs on the basis used everywhere on this site &mdash; (equity multiple &minus; 1) &divide; holding
+{i}  period, simple rather than compounded, and not an IRR. &ldquo;Returned &ge; cost&rdquo; is the share of
+{i}  programs finishing at an equity multiple of 1.00x or better. Only {b['with_record']} of the
+{i}  {b['tracked']} sponsors profiled have any completed full cycle, so these figures rest on a limited
+{i}  sample and carry selection and survivorship bias. Past performance does not guarantee future results,
+{i}  and a DST can lose value, including loss of principal.</p>
+{i}</div>''')
