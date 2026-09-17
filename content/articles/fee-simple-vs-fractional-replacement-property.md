@@ -33,7 +33,7 @@ Many investors begin there and remain comfortable there. The structure maximizes
 
 ## Fractional Ownership Options
 
-Fractional ownership through a DST or TIC means owning a share of a larger property rather than the entire asset. It can provide access to institutional-quality real estate that would be difficult to buy alone. The exchange is simple: less direct control, more passivity; less single-asset concentration, more ability to spread capital.
+Fractional ownership through a DST or TIC means owning a share of a larger property rather than the entire asset. It can provide access to institutional-quality real estate that would be difficult to buy alone. The trade-off is simple: less direct control, more passivity; less single-asset concentration, more ability to spread capital.
 
 A [Delaware Statutory Trust](dst-guide.html) issues passive beneficial interests. The sponsor manages the property and the debt is pre-arranged. A tenants-in-common, or TIC, interest is direct deeded co-ownership with voting rights, but it comes with more complexity. Both ownership forms are treated as real property for 1031 purposes.
 
@@ -314,7 +314,7 @@ Filed under: [1031 Exchange](insights.html), [1031 Exchange](insights.html), [DS
 
 ## About the author
 
-[Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
+[Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal of Baker 1031 Investments · FINRA Series 22 / 63 · SIE. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
 **Reviewed by** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
 

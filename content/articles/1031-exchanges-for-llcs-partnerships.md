@@ -158,7 +158,7 @@ Moving property into your own disregarded single-member LLC generally keeps you 
 
 ## Glossary
 
-- **Disregarded Entity:** An entity, such as a single-member LLC, ignored as separate from its owner for tax; the owner is taxpayer.
+- **Disregarded Entity:** An entity, such as a single-member LLC, ignored as separate from its owner for tax; the owner is the taxpayer.
 - **Single-Member LLC:** An LLC with one owner, generally disregarded for tax and therefore easier to use in a 1031 exchange.
 - **Multi-Member LLC:** An LLC with multiple owners, generally taxed as a partnership and treated as a separate taxpayer.
 - **Partnership:** An entity that is its own taxpayer, which complicates separate exchanges by individual partners.

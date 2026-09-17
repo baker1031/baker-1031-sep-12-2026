@@ -22,7 +22,7 @@ First-order thinking says the exchange is a way to avoid today’s tax. Second-o
 
 - After TCJA, Section 1031 applies only to real property. A qualifying exchange defers capital gain, unrecaptured §1250 recapture, and potential NIIT through substituted or carryover basis.
 - **Form 8824** reports the exchange, recognized gain to the extent of boot, and replacement-property basis.
-- The **45-day** identification and **180-day** completion periods are effectively jurisdictional. Late-year sales require return-extension planning.
+- The **45-day** identification and **180-day** completion periods are statutory and effectively not extendable. Late-year sales require return-extension planning.
 - Watch constructive receipt, debt and boot netting, related-party §1031(f), drop-and-swap facts, and state clawback rules, including California **FTB Form 3840**.
 
 ## How a 1031 Exchange Works: Advisor Refresher

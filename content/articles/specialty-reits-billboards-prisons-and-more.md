@@ -39,7 +39,7 @@ Document- and records-storage REITs own facilities that hold physical business r
 
 Each specialty niche has its own demand driver. Billboard revenue rises and falls with advertising spend, consumer-facing industries, and the mix between physical and digital out-of-home formats. Prison revenue depends on government corrections demand, incarceration policy, and federal or state contracting decisions. Document-storage revenue depends on records volumes, retention requirements, and the pace of digitization.
 
-Some drivers may be less connected to office vacancy or apartment rents. A ski-resort or farmland REIT, for example, can respond to leisure spending, weather, crop economics, and land values. That difference can potentially diversify a real-estate allocation in the way [defensive REIT sectors that hold up across the cycle](recession-resistant-reit-sectors.html) may have different sources of demand.
+Some drivers may be less connected to office vacancy or apartment rents. A ski-resort or farmland REIT, for example, can respond to leisure spending, weather, crop economics, and land values. That difference can potentially diversify a real-estate allocation, much as [defensive REIT sectors that hold up across the cycle](recession-resistant-reit-sectors.html) may draw on different sources of demand.
 
 But different is not automatically safer. A structural decline in physical records, a policy move away from private corrections, a restriction on billboards, or a lasting change in moviegoing can have a material effect. Analysis has to begin with the industry, not only the building.
 
@@ -187,7 +187,7 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 ## About the author
 
-[Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
+[Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal of Baker 1031 Investments · FINRA Series 22 / 63 · SIE. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
 **Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
 

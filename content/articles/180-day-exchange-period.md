@@ -21,7 +21,7 @@ This guide covers the rule, the tax-return-date trap, how the days are counted, 
 
 The replacement property must be acquired within 180 calendar days after the relinquished property is sold. A [qualified intermediary](insights.html) transfers the exchange funds directly to the replacement closing; the proceeds never pass through the exchanger. The [45-day identification](1031-exchange-identification-rules.html) period is not separate—it runs concurrently from that same sale date.
 
-For full deferral, the property closed on must have been identified within the first 45 days, must be of equal or greater value, and must use all exchange equity while replacing any debt. Closing on an unidentified property, or closing after day 180, generally fails the exchange.
+For full deferral, the property closed on must have been identified within the first 45 days and must be of equal or greater value, and the exchange must use all equity while replacing any debt. Closing on an unidentified property, or closing after day 180, generally fails the exchange.
 
 There are 135 days left after identification. That sounds comfortable until financing, inspections, appraisals, or seller issues absorb the buffer. There is no grace period for a closing on day 181.
 

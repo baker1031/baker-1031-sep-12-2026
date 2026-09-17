@@ -37,7 +37,7 @@ For OZ purposes, only that net gain is eligible. A $500,000 Section 1231 gain on
 
 ## The 180-day clock for 1231 gains
 
-The [180-day window — the period to invest a capital gain into a QOF](the-180-day-rule-for-investing-capital-gains-in-a-qof.html) applies to net Section 1231 gains, but its operation is more technical than it is for a simple sale. Because netting occurs at year-end, early guidance treated the clock as beginning on December 31, the last day of the tax year, and therefore extending roughly to late June of the following year.
+The [180-day window](the-180-day-rule-for-investing-capital-gains-in-a-qof.html) — the period to invest a capital gain into a QOF — applies to net Section 1231 gains, but its operation is more technical than it is for a simple sale. Because netting occurs at year-end, early guidance treated the clock as beginning on December 31, the last day of the tax year, and therefore extending roughly to late June of the following year.
 
 Later guidance provided more flexibility, in some cases allowing the 180 days to run from the Section 1231 sale date, the realization date, rather than waiting for year-end. The rules have been refined over time. The applicable start date depends on current rules and the facts, so it must be confirmed with a CPA.
 

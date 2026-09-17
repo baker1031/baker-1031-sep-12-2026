@@ -26,7 +26,7 @@ First-order thinking treats a REIT as a high-yield stock. Second-order thinking 
 - Whether a REIT is appropriate depends on income, diversification, and liquidity goals weighed against rate sensitivity, market or illiquidity risk, and ordinary-income taxation.
 - REIT shares are securities, not like-kind real property, so they are not 1031 eligible. A DST is the passive, 1031-eligible real-estate alternative.
 
-If you are new to real estate investment trusts, it is reasonable to ask what one is, how it pays, whether it is a good investment, how it differs from a DST, and [how do I get started](reit-investing-for-beginners-how-to-get-started.html). Because REITs must distribute at least 90% of taxable income, their yields have historically tended to run higher than the broad stock market. The answers below are educational, not investment, tax, or legal advice.
+If you are new to real estate investment trusts, it is reasonable to ask what one is, how it pays, whether it is a good investment, how it differs from a DST, and [how to get started](reit-investing-for-beginners-how-to-get-started.html). Because REITs must distribute at least 90% of taxable income, their yields have historically tended to run higher than the broad stock market. The answers below are educational, not investment, tax, or legal advice.
 
 ## What Is a REIT in Simple Terms?
 

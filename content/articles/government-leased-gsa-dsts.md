@@ -25,7 +25,7 @@ First-order thinking focuses on the government's very low default risk. Second-o
 
 ## How GSA-Leased DSTs Work
 
-A government-leased DST follows the same basic structure as another Delaware Statutory Trust, but the tenant is distinctive. The DST owns one or more buildings leased to a federal agency, often through the General Services Administration (GSA), the federal government's real-estate arm, or directly to the agency. The space might be a field office, courthouse, laboratory, processing center, or another government use.
+A government-leased DST follows the same basic structure as any other Delaware Statutory Trust, but the tenant is distinctive. The DST owns one or more buildings leased to a federal agency, often through the General Services Administration (GSA), the federal government's real-estate arm, or directly to the agency. The space might be a field office, courthouse, laboratory, processing center, or another government use.
 
 The agency occupies the property and pays rent under its government lease. The DST distributes that rent to investors after expenses. Investors own fractional beneficial interests in the trust rather than directly managing the property.
 
@@ -203,7 +203,7 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 ### About the author
 
-[Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal, Baker 1031 Investments, with FINRA Series 22 / 63 / SIE credentials. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
+[Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal of Baker 1031 Investments, with FINRA Series 22 / 63 / SIE credentials. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
 **Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
 

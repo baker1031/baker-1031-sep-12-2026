@@ -203,7 +203,7 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 ### About the author
 
-[Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal, Baker 1031 Investments, with FINRA Series 22 / 63 / SIE credentials. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
+[Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal of Baker 1031 Investments, with FINRA Series 22 / 63 / SIE credentials. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
 The source record also identifies his work across subjects including 721 UPREIT exchanges and links to a [GlobeSt. CRE’s Aspiring Leaders of 2026 recognition](https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/). His BrokerCheck identifier is 7537416.
 

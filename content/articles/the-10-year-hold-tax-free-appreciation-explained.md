@@ -80,7 +80,7 @@ Baker 1031 Investments helps investors understand and pursue an [Opportunity Zon
 
 QOF interests and related securities are offered through the broker-dealer Aurora Securities, Inc., member FINRA/SIPC, and any recommendation follows a suitability review. Baker 1031 does not provide tax advice. A CPA should handle the 10-year election, original-gain recognition, and an investor's individual calculations. Illustrative figures are examples, not predictions; results vary with the investment's performance.
 
-My current risk stance is to treat the 10-year exclusion as a possible addition to after-tax return, never as the reason to accept weak underwriting or a liquidity mismatch. Is the holding period and the investment case clear enough to you that you would still own it if the tax benefit were less favorable than expected?
+My current risk stance is to treat the 10-year exclusion as a possible addition to after-tax return, never as the reason to accept weak underwriting or a liquidity mismatch. Are the holding period and the investment case clear enough to you that you would still own it if the tax benefit were less favorable than expected?
 
 ## Frequently Asked Questions
 

@@ -42,7 +42,7 @@ Do this before or around the sale of the relinquished property. Once the sale cl
 
 ## Step 2: Review Offerings & PPMs
 
-After account opening and suitability work, review the available DST offerings. A representative may present offerings that fit exchange parameters: equity to reinvest, debt to replace, property-type and geographic preferences, and risk tolerance. Available choices may span multifamily, net-lease retail, industrial, medical office, self-storage, sponsors, debt levels, and projected distributions. [how to read a DST offering's fees, debt, and distributions](how-to-read-a-dst-offering.html) helps put the comparison on substance rather than marketing.
+After account opening and suitability work, review the available DST offerings. A representative may present offerings that fit exchange parameters: equity to reinvest, debt to replace, property-type and geographic preferences, and risk tolerance. Available choices may span multifamily, net-lease retail, industrial, medical office, self-storage, sponsors, debt levels, and projected distributions. Knowing [how to read a DST offering's fees, debt, and distributions](how-to-read-a-dst-offering.html) helps put the comparison on substance rather than marketing.
 
 For each serious candidate, read the [Private Placement Memorandum](how-to-review-a-ppm.html). The PPM is the central offering document. It discloses the property, sponsor, structure, debt, fees, projected returns, and risk factors. Use it to assess sponsor track record and full-cycle history; property, tenants, and leases; loan-to-value and maturity; fees; and the risks you would bear.
 
@@ -54,7 +54,7 @@ For a DST bought as 1031 replacement property, the central exchange requirement 
 
 For a DST, the written identification notice specifies the chosen offering. It must follow IRS identification rules, such as the three-property rule or the 200% rule, which limit how many properties or how much value may be identified. See [45-day identification](1031-exchange-identification-rules.html) and work directly with your [qualified intermediary](what-is-a-qualified-intermediary.html) on the notice.
 
-DSTs can be well suited to a short window because they are pre-packaged and can close quickly without negotiating a purchase contract, obtaining new financing, or resolving conventional closing contingencies. That removes one source of timing risk, not the deadline itself. The deadline is strict and generally not extendable except in narrow disaster-relief situations. [identifying DSTs within the 45-day window](how-to-identify-dsts-within-the-45-day-window.html) explains the timing in more detail. Coordinate with the QI and representative so the notice is accurate and timely.
+DSTs can be well suited to a short window because they are pre-packaged and can close quickly without negotiating a purchase contract, obtaining new financing, or resolving conventional closing contingencies. That removes one source of timing risk, not the deadline itself. The deadline is strict and generally not extendable except in narrow disaster-relief situations. Our guide to [identifying DSTs within the 45-day window](how-to-identify-dsts-within-the-45-day-window.html) explains the timing in more detail. Coordinate with the QI and representative so the notice is accurate and timely.
 
 ## Step 4: Fund the Investment
 
@@ -132,7 +132,7 @@ A DST generally issues a substitute Form 1099 and a grantor-trust statement, not
 
 ### Can I diversify across multiple DSTs in one exchange?
 
-Yes. Minimums are often around $25,000 to $100,000, so exchange proceeds can be allocated across several trusts by sponsor, property type, and geography. That can reduce concentration in a single tenant, sponsor, assumption, or market. Each DST must be identified with the QI under the applicable identification rules. More diversification also means more PPMs and sponsors to diligence, so it is a trade-off.
+Yes. Minimums are often around $25,000 to $100,000, so exchange proceeds can be allocated across several trusts by sponsor, property type, and geography. That can reduce concentration in a single tenant, sponsor, asset, or market. Each DST must be identified with the QI under the applicable identification rules. More diversification also means more PPMs and sponsors to diligence, so it is a trade-off.
 
 ### What happens if I can't fund within 180 days?
 

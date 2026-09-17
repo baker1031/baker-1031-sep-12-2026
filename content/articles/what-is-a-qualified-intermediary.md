@@ -183,7 +183,7 @@ It depends on the QI and balance. Some retain it and others share or credit it, 
 
 ### Can the QI handle a reverse or improvement exchange?
 
-Only a QI experienced with parking arrangements should. These structures use an EAT, typically formed by the QI, to hold title under the Rev. Proc. 2000-37 safe harbor. Confirm the experience before buying before selling or funding improvements.
+Only a QI experienced with parking arrangements should. These structures use an EAT, typically formed by the QI, to hold title under the Rev. Proc. 2000-37 safe harbor. Confirm the experience before buying before selling or before funding improvements.
 
 ### Is the qualified intermediary fee worth it?
 

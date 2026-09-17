@@ -115,7 +115,7 @@ Possibly. A partly taxable exchange that recognizes gain through boot may create
 
 ### Should I sell instead of exchange to free my losses?
 
-It depends. A sale frees losses but triggers gain and tax. An exchange defers gain but generally does not free the losses. Large gain and modest losses often favors exchange; modest gain and large losses can favor a sale. Model both after-tax outcomes with the CPA.
+It depends. A sale frees losses but triggers gain and tax. An exchange defers gain but generally does not free the losses. A large gain and modest losses often favor an exchange; a modest gain and large losses can favor a sale. Model both after-tax outcomes with the CPA.
 
 ### Can the carried-forward losses offset replacement-property income?
 

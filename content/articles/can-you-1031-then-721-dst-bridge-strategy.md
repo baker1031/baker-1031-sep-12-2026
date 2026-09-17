@@ -33,7 +33,7 @@ The workaround is to use a DST as the intermediate holding. The investor 1031s i
 
 ## Why a direct 1031 into REIT ownership is unavailable
 
-The like-kind requirement requires real property for real property. REIT shares are corporate stock. OP units are partnership interests. Neither is the kind of direct real-property interest a 1031 exchange needs.
+The like-kind requirement calls for real property exchanged for real property. REIT shares are corporate stock. OP units are partnership interests. Neither is the kind of direct real-property interest a 1031 exchange needs.
 
 That means an owner cannot exchange direct property for REIT shares or OP units and call the result a 1031. The acquisition would be taxable. The rule applies even though the issuer owns a portfolio of real estate.
 

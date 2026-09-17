@@ -175,7 +175,7 @@ No. Cash from a REIT is a taxable sale. Deferral requires a contribution to the 
 
 A 721 preserves capital that an outright sale would erode through immediate tax, lets the full amount compound in a diversified REIT, and may permit a step-up at death for heirs.
 
-Selling is cleaner when cash is needed now, the owner wants to redeploy outside real estate, or embedded gain is small enough that the deferral’s value does not justify the complexity of a sale alternative.
+Selling is cleaner when cash is needed now, the owner wants to redeploy outside real estate, or embedded gain is small enough that the deferral’s value does not justify the complexity of the 721 alternative.
 
 ## Disclosures
 

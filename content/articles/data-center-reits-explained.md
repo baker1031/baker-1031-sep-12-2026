@@ -69,7 +69,7 @@ Colocation-focused REITs may have more diversified rent rolls because they serve
 - Cloud computing, digitization, and AI support a secular demand case for data centers, but they do not guarantee the outcome for any REIT.
 - Data centers are power-, cooling-, and capital-intensive. Access to electrical power is a key constraint, and ongoing capex is high.
 - Hyperscale demand can also create tenant concentration, with a few customers moving a meaningful portion of revenue.
-- Technology changes and development is difficult, so obsolescence and execution risk matter.
+- Technology changes quickly and development is difficult, so obsolescence and execution risk matter.
 
 ## Obsolescence & Execution Risk
 

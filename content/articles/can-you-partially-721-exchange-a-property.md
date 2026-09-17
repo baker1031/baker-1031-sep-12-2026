@@ -73,7 +73,7 @@ Partial interests in one property require more work. The REIT must accept the ar
 
 A [full 721 exchange](721-exchange-explained-convert-property-into-reit-units.html) contributes all subject real estate. It maximizes the 721-related benefits: the greatest transition to passive ownership, the greatest exposure to the REIT portfolio, and deferral on all contributed gains. It also creates the largest commitment to REIT ownership by giving up direct control and 1031 flexibility for the entire contributed set of assets.
 
-A partial exchange produces partial benefits and retains partial flexibility. The owner has passivity, diversification, deferral, and the estate features of OP units for the contributed portion, while retaining direct control and future options for the remainder. It gives the owner less total REIT exposure and less total direct-property exposure.
+A partial exchange produces partial benefits and retains partial flexibility. The owner has passivity, diversification, deferral, and the estate features of OP units for the contributed portion, while retaining direct control and future options for the remainder. It gives the owner less REIT exposure than a full contribution and less direct-property exposure than keeping the whole property.
 
 Neither is inherently better. A full exchange can suit an owner ready for a full transition. A partial exchange can suit an owner who values a balance between the REIT’s benefits and continued direct ownership. The question is how much of the portfolio the owner wants to make subject to the 721 structure.
 

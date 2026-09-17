@@ -90,7 +90,7 @@ On exit:
 - What exit cap rate is assumed, and is it realistic given rates and market conditions at a future sale?
 - Does the projection assume a sale at a lower cap rate than the property was bought at? That assumption alone can drive much of projected total return.
 
-Then run a stress test: what do the distribution and IRR become under more conservative inputs? That is the distinction between first-order attraction to the displayed yield and second-order analysis of the conditions needed to earn it. [due diligence a careful investor should run](dst-due-diligence-checklist-for-investors.html) includes this kind of pressure test.
+Then run a stress test: what do the distribution and IRR become under more conservative inputs? That is the distinction between first-order attraction to the displayed yield and second-order analysis of the conditions needed to earn it. The [due diligence a careful investor should run](dst-due-diligence-checklist-for-investors.html) includes this kind of pressure test.
 
 ## How Baker 1031 Helps You Scrutinize DST Projections
 

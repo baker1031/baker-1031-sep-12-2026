@@ -14,7 +14,7 @@ risk: "dst"
 
 I keep seeing sale models that begin and end with a 15% or 20% capital-gains rate. That is usually where the surprise starts. An owner can have years of useful depreciation deductions behind them and still arrive at closing with a much larger tax layer than the headline long-term capital-gains rate suggests.
 
-This is a practical look at the layer that often gets missed: depreciation recapture. It is the tax due when a rental property is sold on the depreciation deductions claimed while it was owned. For real estate, it is generally called unrecaptured Section 1250 gain, and it can be taxed at a federal rate of up to 25%.
+This is a practical look at the layer that often gets missed: depreciation recapture. It is the tax due, when a rental property is sold, on the depreciation deductions claimed while it was owned. For real estate, it is generally called unrecaptured Section 1250 gain, and it can be taxed at a federal rate of up to 25%.
 
 **Capital Gains · Baker 1031 Research · Updated June 2026 · 13 min read**
 

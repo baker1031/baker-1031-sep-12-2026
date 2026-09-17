@@ -63,7 +63,7 @@ An extension for the sale-year return preserves the full 180 days and gives the 
 
 ## Working with your CPA
 
-Many investors work through Form 8824 with a CPA because realized gain, boot, recognized gain, carryover basis, and depreciation recapture interact in ways that are easy to get wrong. A CPA familiar with like-kind exchanges draws from both closing statements, basis records, boot details, and depreciation history to prepare the form as part of the return.
+Many investors work through Form 8824 with a CPA because realized gain, boot, recognized gain, carryover basis, and depreciation recapture interact in ways that are easy to get wrong. A CPA familiar with like-kind exchanges draws on the closing statements, basis records, boot details, and depreciation history to prepare the form as part of the return.
 
 The CPA's role goes beyond filling out a form. The CPA reconciles the Form 8824 figures with the full return, applies tax to recognized boot, including recapture at the right rates, establishes the replacement property's basis and depreciation schedule, and checks consistency with the exchange documents. For partial exchanges, related-party transactions, multiple properties, or a working-interest equipment carve-out, that technical work becomes even more important.
 
@@ -213,7 +213,7 @@ Filed under: [1031 Exchange](insights.html), [1031 Exchange](insights.html)
 
 ## About the author
 
-[Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
+[Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal of Baker 1031 Investments · FINRA Series 22 / 63 · SIE. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
 **Reviewed by** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
 

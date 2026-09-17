@@ -58,7 +58,7 @@ That conversion typically ends the DST’s favorable status and can have serious
 
 Reserves directly affect what investors receive because cash held in reserve is not distributed. A DST can distribute current cash flow and cannot accumulate cash beyond reasonable needs under the rules, yet it must retain capital reserves. That creates a real tension between income paid now and protection held for later. Larger reserves generally mean somewhat less current income; thinner reserves can mean more current income and more exposure when a major expense arrives.
 
-This matters in comparisons. A higher current distribution is not automatically superior when it comes at the expense of adequate reserves. Remember [one of the more persistent DST misconceptions is that a bigger headline yield signals a better deal](common-dst-myths-and-misconceptions.html). Thin reserves can instead bring trouble later, including reduced or suspended distributions when the trust cannot fund needed capital.
+This matters in comparisons. A higher current distribution is not automatically superior when it comes at the expense of adequate reserves. Remember that [one of the more persistent DST misconceptions is that a bigger headline yield signals a better deal](common-dst-myths-and-misconceptions.html). Thin reserves can instead bring trouble later, including reduced or suspended distributions when the trust cannot fund needed capital.
 
 Well-funded reserves protect the investment and the durability of distributions over the hold, even if they reduce headline yield somewhat. They are a form of self-insurance: less current income in exchange for protection against future shortfalls. The appropriate balance depends on the property’s age, condition, and likely capital needs.
 
@@ -120,7 +120,7 @@ Not necessarily. A higher distribution rate can signal more risk. A sponsor can 
 
 ### How are DST reserves funded?
 
-Reserves are typically funded upfront as the sponsor structures the offering. The sponsor estimates likely capital needs over the expected hold from building age and condition, property type, and lease rollover schedule, then sets aside cash in the offering economics. In some structures, operating cash flow may supplement reserves over time where rules and offering terms allow. The primary funding is generally at the start because new investor capital cannot be called later. The reserve remains available for capex and contingencies. Since the initial estimate cannot easily be repaired with new money, the sponsor’s underwriting and capital planning are important. Review how reserves were estimated and whether they appear adequate.
+Reserves are typically funded upfront as the sponsor structures the offering. The sponsor estimates likely capital needs over the expected hold from building age and condition, property type, and lease rollover schedule, then sets aside cash in the offering economics. In some structures, operating cash flow may supplement reserves over time where rules and offering terms allow. The primary funding is generally at the start because new investor capital cannot be called later. The reserve remains available for capex and contingencies. Since the initial estimate cannot easily be remedied with new money, the sponsor’s underwriting and capital planning are important. Review how reserves were estimated and whether they appear adequate.
 
 ### What happens if a DST’s reserves run out?
 

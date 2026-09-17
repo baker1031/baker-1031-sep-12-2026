@@ -81,7 +81,7 @@ The 3-property rule lets an exchanger identify up to 3 properties of any value. 
 
 At the sale, the details are decisive. The purchase and sale agreement should contain cooperation-clause language stating the exchange intent. The QI must be assigned into the contract before closing. Proceeds should move directly into the QI’s qualified escrow account—not to the investor, the investor’s attorney trust account, or another account the investor can access. That prevents constructive receipt.
 
-The sale-closing date is day zero. The 45-day identification and 180-day closing clocks start at the same time; 180 is not 45 plus 180. An investor who identifies on day 45 has at most 135 days left to close. The dates are calendar dates, including weekends and holidays, and cannot be paused or extended on request. Missing either generally fails the exchange.
+The sale-closing date is day zero. The 45-day identification and 180-day closing clocks start at the same time; the 180-day period does not begin when the 45-day period ends. An investor who identifies on day 45 has at most 135 days left to close. The dates are calendar dates, including weekends and holidays, and cannot be paused or extended on request. Missing either generally fails the exchange.
 
 Late-year sales add one subtle timing issue. The due date of that year’s tax return can arrive before the 180th day and shorten the exchange period. Filing an extension can restore the full 180 days. It is a small administrative step and one reason to bring the CPA in before the sale, not after it.
 
@@ -227,7 +227,7 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 ## About the author
 
-[Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal, Baker 1031 Investments, with FINRA Series 22 / 63 / SIE qualifications. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
+[Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal of Baker 1031 Investments, with FINRA Series 22 / 63 / SIE qualifications. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
 **Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
 

@@ -28,7 +28,7 @@ These were general patterns in offerings reviewed as of 2026, not promises. The 
 
 ## How Minimums Vary by Sponsor
 
-Every sponsor and offering sets its own threshold according to property, structure, target investor base, equity raise, and desired investor-pool size. One multifamily DST can require a $100,000 1031 investment, another net-lease offering $50,000, and a cash offering $25,000. Larger institutional offerings may set higher minimums; smaller or retail-oriented offerings may set lower ones. [Sponsors vary by sponsor](sponsors.html), and there is no market-wide number.
+Every sponsor and offering sets its own threshold according to property, structure, target investor base, equity raise, and desired investor-pool size. One multifamily DST can require a $100,000 1031 investment, another net-lease offering $50,000, and a cash offering $25,000. Larger institutional offerings may set higher minimums; smaller or retail-oriented offerings may set lower ones. [Minimums vary by sponsor](sponsors.html), and there is no market-wide number.
 
 DST beneficial interests are finite. A minimum helps sponsor allocation of a limited equity raise. The specific current offering, not a past deal or general article, supplies the only reliable threshold.
 

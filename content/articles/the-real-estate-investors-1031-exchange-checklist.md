@@ -105,7 +105,7 @@ Here is the full sequence in checklist form. The pre-sale items are the most imp
 
 Each item on the checklist exists to prevent a specific way exchanges go wrong, and seeing the connection reinforces why the sequence matters. Skipping the pre-sale preparation leads to scrambling after the sale — no team in place, no replacement strategy, no backup — which is how investors run out of time at day 45. The fix is the 'before you list' phase, which front-loads the decisions and groundwork while you still control the timeline.
 
-Closing before engaging the qualified intermediary causes constructive receipt, the most fatal and most common error, instantly converting the exchange into a taxable sale. The fix is the QI step: engage it before closing, with proceeds directed to its account. Failing to track the deadlines, or misunderstanding their concurrent nature and the late-year trap, leads to missed identifications or closings. The fix is the deadline-tracking step, with reminders, buffer, and a backup. Taking accidental boot — by buying down or not replacing debt — creates surprise tax. The fix is the value-and-debt matching in the identify-and-close step.
+Closing before engaging the qualified intermediary causes constructive receipt, the most common fatal error, instantly converting the exchange into a taxable sale. The fix is the QI step: engage it before closing, with proceeds directed to its account. Failing to track the deadlines, or misunderstanding their concurrent nature and the late-year trap, leads to missed identifications or closings. The fix is the deadline-tracking step, with reminders, buffer, and a backup. Taking accidental boot — by buying down or not replacing debt — creates surprise tax. The fix is the value-and-debt matching in the identify-and-close step.
 
 Finally, omitting or botching Form 8824 can undermine an otherwise-valid exchange, leaving the IRS without a record of the deferral or misstating the basis. The fix is the reporting step, with the CPA involved from the start. Run through these slips and their fixes, and a pattern emerges: nearly every failure mode is prevented by a specific checklist item, and most are prevented by the pre-sale preparation and the early engagement of the QI and CPA. The checklist isn't busywork — it's the distilled prevention of every common way a 1031 exchange fails, which is exactly why working it in order is so reliably effective.
 
@@ -131,7 +131,7 @@ From the day your sale closes, 45 days to identify replacement property in writi
 
 ### Why do the clocks run concurrently?
 
-Both the 45-day and 180-day periods start at the same moment — the closing of your sale — so they run at the same time, not one after the other. The 180 days is not 45 plus 180. Identifying on day 45 leaves at most 135 days to close, which matters when your replacement is slow to close. Plan your timeline with this in mind.
+Both the 45-day and 180-day periods start at the same moment — the closing of your sale — so they run at the same time, not one after the other. The 180-day period does not begin when the 45-day period ends. Identifying on day 45 leaves at most 135 days to close, which matters when your replacement is slow to close. Plan your timeline with this in mind.
 
 ### How do I identify replacement property?
 

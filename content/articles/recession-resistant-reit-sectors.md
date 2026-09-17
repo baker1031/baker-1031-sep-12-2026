@@ -47,7 +47,7 @@ Short-duration income resets faster. Hotels effectively re-lease rooms nightly. 
 
 Hotels and lodging are highly cyclical. Business travel, conferences, and leisure trips can decline when budgets tighten, and nightly repricing makes weakness show up quickly. The same feature can create strong upside in expansions.
 
-Office can also be vulnerable when companies shrink, freeze hiring, or [Office demand can soften when companies shrink, freeze hiring, or adopt remote and hybrid work](office-reits-in-a-hybrid-work-world.html). Long leases may defer visible weakness until a rollover or non-renewal. Discretionary retail, such as malls and centers dependent on apparel, electronics, dining, and other non-essential spending, can suffer when households cut those expenses first.
+[Office demand can soften when companies shrink, freeze hiring, or adopt remote and hybrid work](office-reits-in-a-hybrid-work-world.html). Long leases may defer visible weakness until a rollover or non-renewal. Discretionary retail, such as malls and centers dependent on apparel, electronics, dining, and other non-essential spending, can suffer when households cut those expenses first.
 
 These sectors are not automatically uninvestable. They can perform well in the right cycle and at valuations that compensate for risk. The point is to recognize that hotels, office, and discretionary retail have more economically sensitive demand than needs-based property types.
 

@@ -25,7 +25,7 @@ risk: "dst"
 
 I keep seeing tax labels become a shortcut for decisions that still require a full underwriting. The right structure can defer gain, change ownership, or create a different tax framework. It still has to work with the investor’s liquidity, income, leverage, control, and exit needs.
 
-The strategies we place for accredited investors — each profiled in the same format: how it works, the numbers, benefits, risks, and how it compares. Start with the strategy that matches your situation.
+Below are the strategies we place for accredited investors, each profiled in the same format: how it works, the numbers, benefits, risks, and how it compares. Start with the strategy that matches your situation.
 
 <span id="strategy-selection"></span>
 

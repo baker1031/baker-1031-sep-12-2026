@@ -143,7 +143,7 @@ That avoiding constructive receipt is the heart of every exchange. The simultane
 
 ### Why does the delayed exchange have deadlines and a QI when the simultaneous one didn't?
 
-Because the simultaneous exchange had no time gap — everything closed at once, so there was nothing to bridge. The delayed exchange introduced the 45- and 180-day deadlines and the QI requirement precisely to allow a time gap while preventing abuse and receipt. Those rules are the price of the flexibility to separate the sale and purchase in time.
+Because the simultaneous exchange had no time gap — everything closed at once — there was nothing to bridge. The delayed exchange introduced the 45- and 180-day deadlines and the QI requirement precisely to allow a time gap while preventing abuse and receipt. Those rules are the price of the flexibility to separate the sale and purchase in time.
 
 ### Do simultaneous exchanges still use safe harbors today?
 
@@ -229,7 +229,7 @@ Filed under: [1031 Exchange](insights.html), [1031 Exchange](insights.html)
 
 ### About the author
 
-[Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
+[Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal of Baker 1031 Investments · FINRA Series 22 / 63 · SIE. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
 **Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
 

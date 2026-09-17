@@ -22,7 +22,7 @@ This is a procedural issue, but it is also a risk-management issue. A missed dea
 ## Key Takeaways
 
 - You have 45 calendar days from sale of the relinquished property to identify replacement property in writing and 180 days to close. Both clocks begin on the same day.
-- Many failed exchanges fail at Day 45, not Day 180, because the investor does not have viable and properly identified choices.
+- Many exchanges fail at Day 45, not Day 180, because the investor does not have viable and properly identified choices.
 - The 3-Property Rule, 200% Rule, and 95% Rule govern the identification list. One of them must fit.
 - A valid identification is written, signed, unambiguous, and delivered to the qualified intermediary (QI) by midnight on Day 45. Verbal or informal lists do not qualify.
 - A DST can be identified as a backup because it can close quickly, without an investor-level financing contingency, helping prevent unused exchange proceeds from becoming taxable.

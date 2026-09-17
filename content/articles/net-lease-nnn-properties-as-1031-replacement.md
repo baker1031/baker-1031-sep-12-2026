@@ -121,7 +121,7 @@ Single-tenant concentration. If the tenant defaults, goes bankrupt, or leaves at
 
 ### Should I buy NNN directly or through a DST?
 
-Direct ownership offers control and whole-asset upside, but leaves you with one tenant, a fast close, and self-qualified financing. A DST can diversify across tenants and properties, close quickly, remain passive, and use pre-arranged non-recourse leverage. The trade-offs are fees and no direct control.
+Direct ownership offers control and whole-asset upside, but leaves you with one tenant, a closing you must complete inside the exchange deadlines, and financing you must qualify for yourself. A DST can diversify across tenants and properties, close quickly, remain passive, and use pre-arranged non-recourse leverage. The trade-offs are fees and no direct control.
 
 ### What is a credit tenant?
 

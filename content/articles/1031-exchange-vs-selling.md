@@ -92,7 +92,7 @@ It compounds full pre-tax capital like an interest-free government loan; long-te
 Small gain, minor recapture, 0% bracket, a liquidity/exit goal, or an unattractive replacement.
 
 ### What if you want deferral but no management?
-A DST can provide passive like-kind ownership, but it is speculative, illiquid, accredited-investor PPM security and can lose principal.
+A DST can provide passive like-kind ownership, but it is a speculative, illiquid, accredited-investor PPM security and can lose principal.
 
 ### Does deferral mean never paying tax?
 Not by itself. A later sale without another exchange recognizes gain; holding to death can produce the step-up outcome.

@@ -55,7 +55,7 @@ For an owner without a strong sector view, a multi-sector REIT is generally the 
 
 ## Sector concentration to be aware of
 
-Sector concentration can arise even inside a large REIT. Count your direct real estate, DSTs, REIT interests, employment, and other holdings when assessing overall exposure. A familiar sector can be a sensible focused allocation, but familiarity is not diversification. Consider its sector cycle and structural headwinds, including long-term challenges such as remote work, alongside the REIT’s ability to change its mix over time.
+Sector concentration can arise even inside a large REIT. Count your direct real estate, DSTs, REIT interests, employment exposure, and other holdings when assessing overall exposure. A familiar sector can be a sensible focused allocation, but familiarity is not diversification. Consider its sector cycle and structural headwinds, including long-term challenges such as remote work, alongside the REIT’s ability to change its mix over time.
 
 There is no blanket sector prediction here. Conditions change, so review current conditions and outlook with advisors rather than rely on past reputations. Be cautious about heavy concentration, especially where office or certain retail face structural pressure. If other holdings are already concentrated in one sector, a different-sector or multi-sector REIT can balance the total exposure.
 

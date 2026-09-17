@@ -49,7 +49,7 @@ More stable retirement income begins with diversification by DST, sponsor, and s
 
 A 1031 exchange defers capital gain during life. If a DST interest is held until death, heirs generally receive a [step-up in basis](1031-exchange-step-up-in-basis-at-death.html) to fair market value under Section 1014. Under current law, that can eliminate the deferred capital-gains tax. This is often described as “swap till you drop.” It requires confirmation with an estate attorney and CPA because individual facts and current rules matter.
 
-DST interests can also be divided more readily than a physical rental property. A building may force heirs to co-own, co-manage, or sell. Fractional interests can be allocated among heirs, and a [diversified DST portfolio can be allocated among heirs](inherited-property-and-dst-1031-exchanges.html) without forcing a sale or shared management of one indivisible building. This estate-planning discussion is educational, not advice.
+DST interests can also be divided more readily than a physical rental property. A building may force heirs to co-own, co-manage, or sell. Fractional interests are divisible, and a [diversified DST portfolio can be allocated among heirs](inherited-property-and-dst-1031-exchanges.html) without forcing a sale or shared management of one indivisible building. This estate-planning discussion is educational, not advice.
 
 ## Key Takeaways
 

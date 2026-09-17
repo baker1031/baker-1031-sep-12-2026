@@ -18,7 +18,7 @@ I keep seeing income investments grouped together because their distribution yie
 
 A Business Development Company, or BDC, and a Real Estate Investment Trust, or REIT, can share a pass-through income structure and still own entirely different assets. A REIT owns or finances income-producing real estate. A BDC lends to, and sometimes owns stakes in, private operating companies. One collects rent or real-estate-backed interest; the other collects interest from business borrowers.
 
-First-order thinking says both vehicles distribute income, so the higher yield wins. Second-order thinking starts with the contents of the wrapper: What creates the cash flow? What happens to that cash flow when rates move, property occupancy weakens, or a borrower cannot repay? What does leverage, price, and liquidity do to the outcome? Those questions matter more than a yield quoted in isolation.
+First-order thinking says both vehicles distribute income, so the higher yield wins. Second-order thinking starts with the contents of the wrapper: What creates the cash flow? What happens to that cash flow when rates move, property occupancy weakens, or a borrower cannot repay? What do leverage, price, and liquidity do to the outcome? Those questions matter more than a yield quoted in isolation.
 
 This guide is educational information, not investment advice. BDC and non-traded-REIT interests typically require accredited or otherwise suitable investors and are offered through a broker-dealer after a suitability review. Baker 1031 does not provide tax or legal advice; verify current rules with your CPA.
 
@@ -95,7 +95,7 @@ Baker 1031 does not provide tax or legal advice. Your CPA should address how BDC
 
 ### What is a BDC?
 
-A Business Development Company is a closed-end investment company created by Congress in 1980 to provide capital to small and mid-sized private companies. It raises money from investors and makes primarily loans, sometimes adding equity stakes. A BDC is regulated under the Investment Company Act of 1940 and can generally avoid entity-level corporate tax when it distributes at least 90% of its taxable income. BDCs are available in publicly traded, listed and liquid forms, and non-traded, unlisted, illiquid, NAV-priced forms. Its assets are private-company loans, not buildings.
+A Business Development Company is a closed-end investment company created by Congress in 1980 to provide capital to small and mid-sized private companies. It raises money from investors and makes primarily loans, sometimes adding equity stakes. A BDC is regulated under the Investment Company Act of 1940 and can generally avoid entity-level corporate tax when it distributes at least 90% of its taxable income. BDCs are available in publicly traded, listed and liquid forms, and non-traded, unlisted, illiquid, NAV-priced forms. Their assets are private-company loans, not buildings.
 
 ### How is a BDC different from a REIT?
 

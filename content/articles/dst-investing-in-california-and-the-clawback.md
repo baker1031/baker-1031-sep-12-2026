@@ -45,7 +45,7 @@ First-order thinking asks whether an out-of-state DST escapes California tax. Se
 
 Many California investors do exchange into out-of-state DSTs. California property can be expensive and low-yielding relative to price. DSTs in [growing Sunbelt markets](sunbelt-vs-coastal-dst-markets.html), including [Texas](dst-investing-in-texas.html), [Florida](dst-investing-in-florida.html), Arizona, and the Carolinas, may offer different current-income, growth, and diversification opportunities.
 
-The like-kind standard is broad: U.S. investment real estate can generally be exchanged for other U.S. investment real estate regardless of state. A California rental can be exchanged into a DST holding out-of-state property while deferring federal and California gain. The exchange itself is not taxed because of the clawback. The trade-off is that California’s original-gain claim remains in place, and annual reporting follows.
+The like-kind standard is broad: U.S. investment real estate can generally be exchanged for other U.S. investment real estate regardless of state. A California rental can be exchanged into a DST holding out-of-state property while deferring federal and California gain. The exchange itself is not taxed despite the clawback. The trade-off is that California’s original-gain claim remains in place, and annual reporting follows.
 
 Some investors plan to keep deferring through additional 1031 exchanges. Others plan around a potential [step-up in basis](1031-exchange-step-up-in-basis-at-death.html) at death, which may eliminate deferred gain under current law. These are individual tax and estate matters. A CPA should confirm the present rules and how they apply before the exchange.
 

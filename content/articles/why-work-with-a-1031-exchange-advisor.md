@@ -162,7 +162,7 @@ Yes, but it needs advance planning. The partnership, rather than each individual
 
 ### Does an advisor guarantee my exchange will succeed?
 
-No one can guarantee an outcome. An advisor can reduce failure risk through early sourcing, a fast-closing backup, clean identification, and disciplined deadlines. It cannot control a lender or seller, but it can keep one setback from ending the exchange.
+No one can guarantee an outcome. An advisor can reduce failure risk through early sourcing, a fast-closing backup, clean identification, and disciplined deadlines. An advisor cannot control a lender or seller, but can keep one setback from ending the exchange.
 
 ### What should I bring to a first meeting with an advisor?
 

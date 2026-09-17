@@ -155,7 +155,7 @@ No. A planned partial exchange can deliberately take boot and pay tax on it whil
 
 Yes. Exchangers moving real estate into minerals face the same issues from the other direction: qualifying replacement minerals, sourcing them before day 45, avoiding boot, and obtaining specialized diligence. The seven mistakes apply whether minerals are relinquished or replacement property.
 
-### Which mistake is the most fatal?
+### Which mistake is the most damaging?
 
 Touching the proceeds, Mistake 6. Actual or constructive receipt of sale funds immediately turns the exchange into a taxable sale, with no way to reverse it. The other issues may be caught or planned around; the receipt error is immediately fatal. Engage the QI before closing and handle trailing income carefully.
 

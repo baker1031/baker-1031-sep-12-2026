@@ -35,7 +35,7 @@ An income REIT is therefore a cash-flow tool, not a promise. It owns durable ren
 
 The sector does much of the work. Net-lease retail and commercial properties are classic income assets because long leases can make rent contractual and predictable. In a net lease, the tenant pays rent plus operating expenses. In many cases that includes taxes, insurance, and maintenance; contractual rent escalations and creditworthy tenants can further support the income stream.
 
-Healthcare property can serve a similar role. Medical office buildings, senior housing, skilled-nursing facilities, and hospital facilities can benefit from aging-population demand and long leases. [Residential sectors — apartments, single-family rentals, and manufactured housing](residential-and-apartment-reits-explained.html) offer recurring rent from many tenants, supported by the basic need for housing. Certain industrial and specialized net-lease assets also fit the income-oriented group.
+Healthcare property can serve a similar role. Medical office buildings, senior housing, skilled-nursing facilities, and hospital facilities can benefit from aging-population demand and long leases. [Residential sectors](residential-and-apartment-reits-explained.html) — apartments, single-family rentals, and manufactured housing — offer recurring rent from many tenants, supported by the basic need for housing. Certain industrial and specialized net-lease assets also fit the income-oriented group.
 
 The simple version is still the useful one: long-term net leases with creditworthy tenants can turn a building into a more predictable stream of rent checks. But durability belongs to the lease and the tenant, not to the label on the REIT.
 

@@ -43,7 +43,7 @@ Public REIT prices can therefore fall before the higher rents show up in reporte
 
 Because reset speed matters, [some REIT sectors hedge inflation better than others](which-reit-sectors-best-hedge-inflation.html). Residential REITs have annual apartment renewals. Hotels can reprice rooms nightly. Self-storage can adjust rates often. Certain retail properties have escalators or percentage rent, allowing rent to move with tenant sales. These arrangements can help income rise with prices and offset part of the rate pressure.
 
-Long fixed-lease sectors are weaker hedges. Net-lease REITs often have 10- to 15-year leases with modest bumps. Their income cannot reset quickly, and its long-duration character makes it more exposed when discount rates rise. That is a double disadvantage in an inflationary, rising-rate period: rents can lag while valuations face pressure.
+Long fixed-lease sectors are weaker hedges. Net-lease REITs often have 10- to 15-year leases with modest bumps. Their income cannot reset quickly, and its long-duration character makes those REITs more exposed when discount rates rise. That is a double disadvantage in an inflationary, rising-rate period: rents can lag while valuations face pressure.
 
 Diversification can address the uncertainty better than a single-sector wager. It does not remove risk, but it avoids treating every lease structure as identical.
 

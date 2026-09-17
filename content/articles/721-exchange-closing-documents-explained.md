@@ -41,7 +41,7 @@ The review should confirm that value, unit count, transfer terms, representation
 
 The tax protection agreement protects deferred or built-in gain against a premature trigger. If the operating partnership later sells contributed property in a taxable way, the investor’s deferred gain could be recognized. The agreement addresses that exposure by having the REIT or partnership protect the investor, typically through a covenant not to make a taxable sale for a period or through compensation if a triggering sale occurs.
 
-The details determine the strength of the protection. Important terms include the protected period, the form of protection, a covenant not to sell, a make-whole payment, debt maintenance, and the specific conditions under which protection applies. A longer period and stronger protection can offer more protection. A weak agreement leaves greater exposure.
+The details determine the strength of the protection. Important terms include the protected period, the form of protection, a covenant not to sell, a make-whole payment, debt maintenance, and the specific conditions under which protection applies. A longer protected period and a stronger form of commitment reduce the owner's exposure. A weak agreement leaves greater exposure.
 
 This agreement should be reviewed and negotiated with the attorney because it directly affects the security of tax deferral. It is not enough to know that a tax protection agreement exists. The investor needs to understand how long protection lasts, what the partnership must do, and what remedies follow a triggering sale.
 

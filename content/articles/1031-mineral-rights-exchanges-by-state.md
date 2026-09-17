@@ -115,7 +115,7 @@ The federal 1031 rules — deadlines, qualified intermediary, like-kind standard
 
 ### Why is Texas favorable for mineral exchanges?
 
-Because Texas has no state income tax, so a Texas mineral owner's sale faces only the federal layers (capital gains, depletion recapture, NIIT) without a state income-tax layer. Texas also has well-developed, owner-friendly mineral law that makes conveyances and characterization routine. The total tax picture is simpler than in income-tax states, though a 1031 still defers the federal stack.
+Because Texas has no state income tax, a Texas mineral owner's sale faces only the federal layers (capital gains, depletion recapture, NIIT) without a state income-tax layer. Texas also has well-developed, owner-friendly mineral law that makes conveyances and characterization routine. The total tax picture is simpler than in income-tax states, though a 1031 still defers the federal stack.
 
 ### Do Oklahoma and New Mexico tax mineral-sale gains?
 

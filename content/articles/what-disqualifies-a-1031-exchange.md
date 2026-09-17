@@ -39,7 +39,7 @@ Missing the 45- or 180-day deadline disqualifies the exchange — no grace perio
 
 ## Constructive receipt of funds
 
-The third major disqualifier is constructive receipt of the sale proceeds. To qualify, you must never have actual or constructive receipt of the proceeds — they must go to a qualified intermediary, not to you. If the proceeds reach you, your attorney's trust account, or any account you control, even briefly, you've taken receipt, and the exchange is disqualified. This is one of the most fatal and most common disqualifiers, with no fix after it occurs.
+The third major disqualifier is constructive receipt of the sale proceeds. To qualify, you must never have actual or constructive receipt of the proceeds — they must go to a qualified intermediary, not to you. If the proceeds reach you, your attorney's trust account, or any account you control, even briefly, you've taken receipt, and the exchange is disqualified. This is the most common of the fatal disqualifiers, with no fix after it occurs.
 
 Constructive receipt is the subtler danger — you don't have to physically receive the money to be deemed to have received it. If the funds are set aside for you, made available to you, or subject to your control, that can constitute constructive receipt even if you never cash a check. This is why the qualified intermediary must hold the proceeds genuinely beyond your reach throughout the exchange — any access to or control over the funds can disqualify it.
 
@@ -83,7 +83,7 @@ Acquiring property not actually identified, or failing to complete the exchange 
 
 Because nearly every disqualifier is preventable, it helps to approach an exchange with a prevention checklist covering each. Before the sale, confirm the property qualifies — that it's held for investment, not a personal residence, personal-use vacation home, or dealer inventory. This addresses the personal-use and property-type disqualifiers at the threshold, before you commit. Have a tax adviser confirm eligibility for any non-routine property.
 
-Engage a qualified intermediary before the sale closes, with the closing instructions directing the proceeds to the QI's segregated account — this prevents the constructive-receipt disqualifier, the most fatal one. Then manage the deadlines: mark day 45 and day 180, prepare your replacement strategy and a fast-closing backup before selling, and watch the late-year tax-return-date trap. This addresses the missed-deadline disqualifier through preparation and backups.
+Engage a qualified intermediary before the sale closes, with the closing instructions directing the proceeds to the QI's segregated account — this prevents the constructive-receipt disqualifier, the one with no cure. Then manage the deadlines: mark day 45 and day 180, prepare your replacement strategy and a fast-closing backup before selling, and watch the late-year tax-return-date trap. This addresses the missed-deadline disqualifier through preparation and backups.
 
 Identify replacement property correctly — a clean, signed written notice to the QI by day 45, within your chosen rule's limits — to avoid the improper-identification disqualifier. Maintain the same taxpayer on both legs (using proper structuring for entities and partnerships) to satisfy the same-taxpayer rule. And for any related-party exchange, observe the two-year holding requirement and follow the rules with counsel. Working through this checklist — qualify the property, engage the QI early, manage the deadlines, identify properly, maintain the same taxpayer, and follow the related-party rules — addresses each disqualifier systematically. With a QI, a CPA, and (for complex situations) experienced counsel, this prevention checklist keeps an exchange clear of the disqualifiers, protecting the deferral. Most disqualified exchanges result from skipping one of these steps, so working through them deliberately is the reliable way to avoid disqualification.
 
@@ -147,9 +147,9 @@ The transaction becomes a fully taxable sale, and the entire four-layer tax (cap
 
 Yes — nearly every disqualifier is preventable with proper planning. Confirm the property qualifies, engage a QI before closing, manage the deadlines with backups, identify properly, maintain the same taxpayer, and follow the related-party rules. Most disqualified exchanges result from skipping one of these steps. Working through a prevention checklist with a QI, CPA, and (for complex cases) counsel reliably avoids disqualification.
 
-### What's the single most fatal disqualifier?
+### Which disqualifier is the most damaging?
 
-Constructive receipt of the proceeds — taking actual or constructive receipt of the sale funds instantly converts the exchange into a taxable sale with no fix. It's the most fatal because there's no way to undo it once it occurs, unlike some issues that can be caught or planned around. Engaging a qualified intermediary before closing, so the funds never reach you, is the essential prevention.
+Constructive receipt of the proceeds — taking actual or constructive receipt of the sale funds instantly converts the exchange into a taxable sale with no fix. It's the most damaging because there's no way to undo it once it occurs, unlike some issues that can be caught or planned around. Engaging a qualified intermediary before closing, so the funds never reach you, is the essential prevention.
 
 ### Can taking boot disqualify my exchange?
 

@@ -102,7 +102,7 @@ Mineral & Royalty Baker 1031 Research · Updated June 2026 · 16 min read
 </details>
 <details>
 <summary>Why are DSTs easier for value matching?<span class="ic"></span></summary>
-<div class="ans"><p>Because a DST has a defined, transparent value — you know exactly what you're buying for your dollars, so meeting the equal-or-greater-value target is straightforward. Direct mineral interests require independent valuation with the same uncertainties, making the match harder. This transparency is one reason DSTs are convenient as replacement property or backups.</p></div>
+<div class="ans"><p>Because a DST has a defined, transparent value — you know exactly what you're buying for your dollars — meeting the equal-or-greater-value target is straightforward. Direct mineral interests require independent valuation with the same uncertainties, making the match harder. This transparency is one reason DSTs are convenient as replacement property or backups.</p></div>
 </details>
 <details>
 <summary>What if my replacement is worth less than what I sold?<span class="ic"></span></summary>

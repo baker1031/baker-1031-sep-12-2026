@@ -67,7 +67,7 @@ The two portions have separate reporting paths.
 
 The gain must be allocated correctly between the 1031-deferred and installment-spread portions. Basis, recognized gain, deferred gain, and installment income all have to be calculated precisely. This is not a do-it-yourself reporting task. It calls for a CPA experienced in both 1031 exchanges and installment-sale reporting.
 
-The installment reporting continues. Each year the seller receives principal payments on the note, the appropriate installment income is reported on Form 6252 until the note is paid off. The 1031 portion takes a different path: its deferred gain carries into the basis of the replacement property.
+The installment reporting continues. As the seller receives principal payments on the note each year, the appropriate installment income is reported on Form 6252 until the note is paid off. The 1031 portion takes a different path: its deferred gain carries into the basis of the replacement property.
 
 That continuing work is easy to underestimate at closing. The sale may feel finished, but the tax reporting and credit exposure on the note may continue for years. A structure that is technically correct on day one still needs accurate reporting through the life of the note.
 

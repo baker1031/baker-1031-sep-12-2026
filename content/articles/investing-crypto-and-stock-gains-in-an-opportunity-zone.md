@@ -41,7 +41,7 @@ This can matter to a tech employee with appreciated company shares, an early emp
 
 Cryptocurrency gains can also qualify when crypto is held as a capital asset. If an investor sells or otherwise disposes of appreciated crypto and realizes a capital gain, that gain can be invested in a QOF within 180 days of realization to defer it and pursue the OZ benefits.
 
-The clock generally begins on the taxable disposition—the sale or exchange of the crypto. [you have 180 days from that realization date to invest the gain into a QOF](the-180-day-rule-for-investing-capital-gains-in-a-qof.html). Frequent crypto dispositions and fast-moving markets make the realization date, resulting deadline, and a record of every taxable event especially important.
+The clock generally begins on the taxable disposition—the sale or exchange of the crypto. From there, [you have 180 days from that realization date to invest the gain into a QOF](the-180-day-rule-for-investing-capital-gains-in-a-qof.html). Frequent crypto dispositions and fast-moving markets make the realization date, resulting deadline, and a record of every taxable event especially important.
 
 ## Documentation needs
 

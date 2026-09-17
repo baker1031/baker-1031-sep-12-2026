@@ -125,7 +125,7 @@ The chain ends and the deferred gain is recognized. That can include capital gai
 
 ### How do DSTs fit into the strategy?
 
-A DST is a principal off-ramp for moving passive without a taxable sale. An investor can exchange direct property into passive, professionally managed, diversified DST interests through a standard 1031 exchange while retaining deferral and the possible path to a step-up.
+A DST is a principal off-ramp for moving into passive ownership without a taxable sale. An investor can exchange direct property into passive, professionally managed, diversified DST interests through a standard 1031 exchange while retaining deferral and the possible path to a step-up.
 
 ### What is a 721 exchange off-ramp?
 
