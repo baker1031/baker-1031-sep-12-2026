@@ -29,7 +29,7 @@ At the most basic level, REITs cut dividends when their cash flow can no longer 
 
 There are a few distinct paths to that point. The most common is a stressed payout ratio, where the dividend exceeds the REIT's adjusted funds from operations (AFFO), the cash-flow measure used to judge dividend sustainability. Another is a sector or recession shock that reduces the cash flow itself — falling occupancy, declining rents, or tenant defaults. A third is refinancing or liquidity stress, where a REIT facing maturing debt and tight credit conserves cash to meet obligations. A fourth is a deliberate strategic choice to cut the dividend in order to preserve capital or reinvest in the business. So cuts stem from insufficient cash flow, whether from a stretched payout, a demand shock, financing pressure, or strategy.
 
-Why REITs cut payouts — fundamentally because cash flow can no longer support the dividend, whether through a stressed payout ratio (dividend exceeding AFFO), a sector or recession shock that reduces rents and occupancy, refinancing and liquidity stress, or a deliberate decision to preserve capital — comes down to the gap between distributions and the cash that funds them. A cut signals a deeper imbalance. Understanding the causes frames what to watch for. REITs cut dividends when cash flow can't sustain the payout, driven by a stressed payout ratio, sector or recession shocks, refinancing stress, or a strategic decision to preserve capital.
+A cut signals a deeper imbalance. Understanding the causes frames what to watch for. REITs cut dividends when cash flow can't sustain the payout, driven by a stressed payout ratio, sector or recession shocks, refinancing stress, or a strategic decision to preserve capital.
 
 ## Stressed Payout Ratios
 
@@ -47,7 +47,7 @@ Even a REIT with a previously healthy payout ratio can be pushed into a cut by a
 
 The 2020 pandemic is the textbook example. Hotel REITs, whose revenue evaporated as travel stopped, and retail REITs, whose tenants closed and stopped paying rent, cut their distributions heavily — some suspended dividends entirely — because the cash flow simply wasn't there. Recessions can have similar effects more broadly: rising vacancies, tenant bankruptcies, and pressure on rents reduce REIT cash flow across affected sectors. Different sectors are exposed to different triggers — hotels to travel demand, retail to consumer and tenant health, office to remote-work trends — so sector matters a great deal. So sector and recession triggers cut dividends by reducing the underlying cash flow.
 
-Sector and recession triggers — shocks that reduce a REIT's cash flow through falling occupancy, declining rents, and tenant defaults (vividly illustrated when hotel and retail REITs cut heavily in 2020 as travel stopped and tenants closed), with different sectors exposed to different shocks — can turn a sustainable dividend into an unsustainable one. The cash flow that funds the dividend simply shrinks. Understanding sector exposure helps you gauge dividend risk. Sector and recession shocks cut REIT dividends by reducing cash flow through falling occupancy, declining rents, and tenant defaults, as the 2020 hotel and retail cuts demonstrated.
+The cash flow that funds the dividend simply shrinks. Understanding sector exposure helps you gauge dividend risk. Sector and recession shocks cut REIT dividends by reducing cash flow through falling occupancy, declining rents, and tenant defaults, as the 2020 hotel and retail cuts demonstrated.
 
 ## Refinancing & Liquidity Stress
 

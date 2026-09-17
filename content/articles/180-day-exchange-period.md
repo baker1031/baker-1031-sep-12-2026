@@ -165,7 +165,7 @@ Not on request. IRS notices may postpone deadlines for taxpayers affected by fed
 
 ### How do the 45-day and 180-day periods relate?
 
-The 45-day identification window is the first 45 days of the same 180-day period. It is not 45 days followed by a new 180-day closing period.
+They run concurrently from the same start date — the closing of your relinquished property. The 45-day identification window is the first 45 days of the 180, not a separate period that runs before it, so identifying on day 45 leaves 135 days to close, not 180.
 
 ### Why might my closing slip past 180 days?
 

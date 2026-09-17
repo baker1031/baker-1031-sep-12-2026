@@ -48,7 +48,7 @@ An investor who wants the flexibility to keep exchanging via 1031 should NOT do 
 
 For an investor who values this 1031 flexibility — who wants to keep their options open for future real estate repositioning, or who isn't ready to give up the ability to 1031 — the 721's one-way nature is a dealbreaker. They'd be giving up a flexibility they want to retain.
 
-Such investors are better served by continuing with 1031 exchanges (staying in direct real estate, retaining the flexibility). The investor wanting 1031 flexibility — who wants to keep exchanging real property and retain their options — should NOT do a 721 exchange, because it forecloses the 1031 flexibility (the one-way nature). The flexibility loss is a dealbreaker for them. The investor wanting 1031 flexibility should avoid the 721 exchange and continue using 1031 exchanges, retaining their flexibility.
+Such investors are better served by continuing with 1031 exchanges (staying in direct real estate, retaining the flexibility). The investor wanting 1031 flexibility — who wants to keep exchanging real property and retain their options — should NOT do a 721 exchange, because it forecloses the 1031 flexibility (the one-way nature). The flexibility loss is a dealbreaker for them.
 
 ## The investor not ready to commit
 
@@ -81,7 +81,7 @@ For those who should NOT do a 721 exchange, other strategies often fit better. T
 
 For the investor needing near-term liquidity, keeping assets liquid (or a taxable sale if they need cash now) fits better than the illiquid 721. For the investor not ready to commit, waiting (staying in direct real estate / 1031 until certain) fits better. For the non-accredited or unsuitable investor, a 1031 into direct property (not involving securities) may fit.
 
-So recognizing who should NOT do a 721 exchange points to what fits them better — usually the 1031 (for control/flexibility), liquidity (for near-term needs), or waiting (for the uncertain). So the disqualifying profiles have better-fitting alternatives. When the 1031 or other strategy fits better — the 1031 for the active/control/flexibility investor, liquidity for the near-term-liquidity investor, waiting for the uncertain, and direct-property 1031 for the non-accredited — shows the better-fitting alternatives for those who shouldn't do a 721. The alternatives match their needs. Understanding what fits better completes the picture. For those who should NOT do a 721 exchange, alternatives like the 1031 (control/flexibility), liquidity, or waiting fit better, matching their needs.
+So the disqualifying profiles have better-fitting alternatives. When the 1031 or other strategy fits better — the 1031 for the active/control/flexibility investor, liquidity for the near-term-liquidity investor, waiting for the uncertain, and direct-property 1031 for the non-accredited — shows the better-fitting alternatives for those who shouldn't do a 721. The alternatives match their needs. Understanding what fits better completes the picture. For those who should NOT do a 721 exchange, alternatives like the 1031 (control/flexibility), liquidity, or waiting fit better, matching their needs.
 
 ## How Baker 1031 helps you assess fit
 
@@ -129,7 +129,7 @@ It would likely lead to regret or a poor outcome — forcing a 721 exchange when
 
 ### How does Baker 1031 help me assess if I should not do one?
 
-We help you honestly assess whether you should NOT do a 721 exchange — identifying whether you fit a disqualifying profile (active/control-valuing, needing near-term liquidity, wanting 1031 flexibility, not ready to commit, non-accredited/unsuitable) and pointing you to better-fitting alternatives (the 1031, liquidity, waiting). The suitability review is designed to identify when the 721 isn't appropriate. REIT units and DST interests are offered through the broker-dealer (Aurora Securities, member FINRA/SIPC) after a suitability review. We don't push the 721 on investors it doesn't suit; we're candid when it's not right for you and help you find the strategy that genuinely fits your goals and circumstances.
+We help you test yourself honestly against the disqualifying profiles above, and point to the alternatives that fit better when the 721 does not. The suitability review is designed to identify when the 721 isn't appropriate. REIT units and DST interests are offered through the broker-dealer (Aurora Securities, member FINRA/SIPC) after a suitability review. We don't push the 721 on investors it doesn't suit; we're candid when it's not right for you and help you find the strategy that genuinely fits your goals and circumstances.
 
 ### Should I avoid a 721 exchange if I have a short time horizon?
 
