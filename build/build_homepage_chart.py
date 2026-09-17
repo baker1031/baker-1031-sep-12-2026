@@ -22,7 +22,7 @@ import fullcycle as fc
 
 ROOT = os.environ.get('SITE_ROOT') or os.path.dirname(HERE)
 PAGE = os.path.join(ROOT, 'index.html')
-ALL_LABEL = 'All Tracked Sponsors'
+ALL_LABEL = 'Baker 1031 All Platform Sponsors'
 PREF_LABEL = 'Baker 1031 Preferred Sponsors'
 
 
@@ -99,14 +99,15 @@ def main():
                       lambda m, v=st['ret']: '%s%.2f%%%s' % (m.group(1), v, m.group(2)), html, count=1)
 
     # Screen-reader summary of the whole chart.
-    html = re.sub(r'(<desc id="chart-desc">.*?all tracked sponsors )[\d.]+%(, Baker 1031 preferred sponsors )[\d.]+%',
+    html = re.sub(r'(<desc id="chart-desc">.*?' + re.escape(ALL_LABEL.lower()) + r' )[\d.]+%(, ' +
+                  re.escape(PREF_LABEL.lower()) + r' )[\d.]+%',
                   lambda m: '%s%.2f%%%s%.2f%%' % (m.group(1), all_st['ret'], m.group(2), pref_st['ret']),
                   html, count=1, flags=re.S)
 
     # Sources note: the program counts and the preferred-sponsor names must match the dataset they describe.
     # The em dash is written both literally and as &mdash; in this sentence, so match either.
     DASH = r'(?:&mdash;|\u2014)'
-    html = re.sub(r'(All Tracked Sponsors ' + DASH + r' simple average of the )\d+( of )\d+( full-cycle programs)',
+    html = re.sub(r'(' + re.escape(ALL_LABEL) + r' ' + DASH + r' simple average of the )\d+( of )\d+( full-cycle programs)',
                   lambda m: '%s%d%s%d%s' % (m.group(1), all_n, m.group(2), len(rows), m.group(3)), html, count=1)
     html = re.sub(r'(Baker 1031 Preferred Sponsors ' + DASH + r' the )\d+( of those programs from preferred sponsors \()[^)]*(\))',
                   lambda m: '%s%d%s%s%s' % (m.group(1), pref_n, m.group(2), names(sorted(pref_names)), m.group(3)),

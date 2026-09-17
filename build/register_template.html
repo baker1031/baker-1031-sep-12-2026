@@ -28,6 +28,9 @@
     --nav-h:56px;
   }
   *{ box-sizing:border-box; }
+  /* the hidden attribute must win over a display rule, or a [hidden] element still shows */
+  [hidden]{ display:none !important; }
+
   html{ -webkit-text-size-adjust:100%; }
   body{
     margin:0;

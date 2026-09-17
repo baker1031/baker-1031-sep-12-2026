@@ -57,6 +57,9 @@
     --nav-h:56px;
   }
   *{ box-sizing:border-box; }
+  /* the hidden attribute must win over a display rule, or a [hidden] element still shows */
+  [hidden]{ display:none !important; }
+
   html{ -webkit-text-size-adjust:100%; }
   body{
     margin:0;
@@ -523,8 +526,8 @@
     margin:0 auto;
     padding:56px 24px 40px;
     display:grid;
-    grid-template-columns:minmax(0,1.5fr) minmax(0,1.1fr) minmax(0,.7fr) minmax(0,.7fr);
-    gap:32px 48px;
+    grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,.8fr) minmax(0,.8fr) minmax(0,.8fr);
+    gap:32px 40px;
   }
   .footer__brand img{ height:24px; width:auto; display:block; margin-bottom:16px; }
   .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#000000; }
@@ -554,7 +557,7 @@
     text-decoration:none;
     transition:color .15s ease;
   }
-  .footer__col a:hover{ color:var(--black); }
+  .footer__col a:hover{ color:var(--accent-text); }
   .footer__disclosure{
     grid-column:1 / -1;
     padding-top:28px;

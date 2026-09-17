@@ -1,4 +1,4 @@
-"""Keep the committed pages' nav and footer identical to the homepage's.
+"""Keep the committed pages' nav and footer identical to the homepage's — markup AND styles.
 
 index.html is the chrome source: every generated page already takes its nav and footer from it. The
 pages that are committed rather than generated (login, register, results, update-my-info, 404) used to
@@ -34,6 +34,7 @@ NAV_TARGETS = {'login/index.html': None, 'results/index.html': '/results/'}
 FOOTER_RE = re.compile(r'<footer class="footer">.*?</footer>', re.S)
 NAV_RE = re.compile(r'<header class="nav" id="nav">.*?</header>', re.S)
 
+FOOTCSS_START = '  /* ---------- Footer ---------- */'
 NAVCSS_START = '  /* ---------- Sticky nav ---------- */'
 NAVCSS_END_SRC = '  /* section anchors land below the sticky bar */'
 # each committed page follows its nav block with its own section comment
@@ -47,6 +48,26 @@ def navcss_of(src):
     # keeping them added one more line to each target on every build, so the committed pages
     # showed a diff after a no-op rebuild.
     return src[i:j].rstrip() + '\n'
+
+
+def blockcss_of(src, start):
+    """One CSS section of the homepage, from its section comment to the next one."""
+    i = src.index(start)
+    m = NAVCSS_END_RE.search(src, i + len(start))
+    # one trailing newline exactly, so a no-op rebuild leaves no diff
+    return src[i:m.start()].rstrip() + '\n' if m else src[i:].rstrip() + '\n'
+
+
+def swap_blockcss(page, start, css):
+    """Replace that same section in a committed page. Returns (page, replaced?)."""
+    try:
+        i = page.index(start)
+    except ValueError:
+        return page, False
+    m = NAVCSS_END_RE.search(page, i + len(start))
+    if not m:
+        return page, False
+    return page[:i] + css + page[m.start() + 1:], True
 
 
 def swap_navcss(page, navcss):
@@ -77,6 +98,7 @@ def main():
         print('[chrome] index.html is missing its nav or footer — nothing synced'); return
     footer, nav = fm.group(0), nm.group(0)
     navcss = navcss_of(src)
+    footcss = blockcss_of(src, FOOTCSS_START)
 
     changed = []
     for rel in FOOTER_TARGETS:
@@ -88,6 +110,9 @@ def main():
             h = FOOTER_RE.sub(lambda _: footer, h, count=1)
         else:
             print('[chrome] %s has no footer to replace' % rel)
+        h, ok = swap_blockcss(h, FOOTCSS_START, footcss)
+        if not ok:
+            print('[chrome] %s: could not locate its footer CSS block' % rel)
         if rel in NAV_TARGETS:
             if NAV_RE.search(h):
                 h = NAV_RE.sub(lambda _: nav_for(nav, NAV_TARGETS[rel]), h, count=1)

@@ -34,6 +34,13 @@ export function personPairs(lead, extra = {}) {
     ['Household Income', lead.income],
     ['Accredited Signal', accreditedSignal(lead)],
     ['Exchange Fit', lead.fit],
+    // The 1031 clock, on the PERSON as well as the deal. These were only ever written to the deal, so
+    // a person's record showed no closing date and no deadlines, and the deadline reminder job had
+    // nothing on the person to read. Note the People attribute is titled "Closing Date" where the
+    // Deal's is "Sale Date" — mapValues matches on the title, so the deal's label finds nothing here.
+    ['Closing Date', lead.saleDate],
+    ['45-Day Deadline', lead.saleDate ? addDays(lead.saleDate, 45) : null],
+    ['180-Day Deadline', lead.saleDate ? addDays(lead.saleDate, 180) : null],
     ['Lead Source', lead.source || 'baker1031.com registration'],
     ['Acknowledgments Timestamp', lead.submittedAt],
     ...Object.entries(extra),
