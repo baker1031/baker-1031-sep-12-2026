@@ -82,7 +82,7 @@
     align-items:center;
     gap:32px;
   }
-  .nav__logo{ display:flex; align-items:center; flex:0 0 auto; }
+  .nav__logo{ display:flex; align-items:center; flex:0 0 auto; min-width:0; }
   .nav__logo img{ height:21px; width:auto; display:block; }
   .nav__links{ display:flex; align-items:center; gap:26px; margin-left:24px; }
   .nav__links a{
@@ -105,6 +105,7 @@
     transition:transform .32s cubic-bezier(.22,1,.36,1), opacity .32s ease;
     backface-visibility:hidden;
   }
+  .nav__links a .nav__hand::after{ content:attr(data-label); }
   .nav__links a .nav__hand{
     font-family:var(--hand);
     font-size:20px;
@@ -166,6 +167,9 @@
   @media (prefers-reduced-motion: reduce){
     .nav__menu span{ transition:none; }
   }
+
+
+
 
 
   /* ---------- Login stage ---------- */

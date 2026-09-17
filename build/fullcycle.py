@@ -1,9 +1,9 @@
 """The full-cycle dataset — one master file (build/fullcycle.tsv) behind both the Results page and the
 per-sponsor track records. Update the TSV and every page that shows these numbers moves with it.
 
-Source: the "Investment Data (Live)" Airtable base (appTSWSTIsB2arukB), Past Performance table —
-256 full-cycle programs across 8 sponsors, every figure independently recomputed from the sponsor's
-own PPM. Refreshed by build/fetch_performance.py on each deploy when AIRTABLE_TOKEN is set.
+Source: the "Investment Data (Live)" Airtable base (appTSWSTIsB2arukB), Past Performance table
+(tblucuax2b7dKxLzH) — 307 full-cycle programs across 11 sponsors, every figure independently
+recomputed from the sponsor's own PPM. Refreshed by build/fetch_performance.py on each deploy when AIRTABLE_TOKEN is set.
 
 Average Annual Return is stated on ONE basis for every sponsor: (Equity Multiple - 1) / Holding Period.
 It is simple, not compounded, and it is not an IRR. Sponsors' own headline returns mix IRRs,

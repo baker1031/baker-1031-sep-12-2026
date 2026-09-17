@@ -1451,6 +1451,11 @@
   }
   .ctabar__btn:hover{ background:#FCF7F0; border-color:#FCF7F0; }
   body.has-ctabar{ padding-bottom:72px; }
+  /* The bar never appears for a signed-in visitor. The CSS covers the moment before the
+     session script runs and the case where the server confirms the session after first
+     paint; update() also skips it, so no bottom padding is reserved for a hidden bar. */
+  html.is-logged-in .ctabar{ display:none !important; }
+  html.is-logged-in body.has-ctabar{ padding-bottom:0 !important; }
   @media (prefers-reduced-motion:reduce){ .ctabar{ transition:none; } }
 
   /* ---------- FAQ section ---------- */
@@ -3523,7 +3528,9 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
   var bar = document.getElementById('ctabar');
   var hero = document.querySelector('.hero');
   function update(){
-    var past = hero ? hero.getBoundingClientRect().bottom < 0 : true;
+    // Someone already signed in is not the audience for "Ready to get started?".
+    var signedIn = document.documentElement.classList.contains('is-logged-in');
+    var past = !signedIn && (hero ? hero.getBoundingClientRect().bottom < 0 : true);
     bar.classList.toggle('is-visible', past);
     document.body.classList.toggle('has-ctabar', past);
   }
