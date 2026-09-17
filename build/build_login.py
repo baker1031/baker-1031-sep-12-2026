@@ -37,8 +37,8 @@ page = r'''<!DOCTYPE html>
 
   :root{
     --black:#000; --white:#fff;
-    --accent:rgb(0,84,153); --accent-hover:rgb(0,66,122); --accent-soft:#EEF3F9;
-    --grey:#4B5563; --grey-light:#6B7280; --hair:#E5E7EB; --hair-strong:#CBD2D9; --error:#DC2626;
+    --accent:#4C0018; --accent-hover:#33000F; --accent-soft:#F2EDE7;
+    --grey:#4A4444; --grey-light:#645D5B; --hair:#DED8D1; --hair-strong:#C6BEB6; --error:#DC2626;
     --radius:6px;
     --font:"Guardian Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --display:"Sanomat", Georgia, "Times New Roman", serif;
@@ -91,8 +91,8 @@ page = r'''<!DOCTYPE html>
     background:var(--white); border:1px solid var(--hair-strong); border-radius:var(--radius);
     padding:12px 14px; outline:none; transition:border-color .2s ease, box-shadow .2s ease;
   }
-  .field input::placeholder{ color:#B4BAC3; }
-  .field input:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(0,84,153,.18); }
+  .field input::placeholder{ color:#8C837E; }
+  .field input:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(76,0,24,.18); }
   .field.is-invalid input{ border-color:var(--error); box-shadow:0 0 0 3px rgba(220,38,38,.12); }
   .field .btn{ width:100%; margin-top:14px; padding:13px 20px; font-size:15px; }
   .err{
@@ -105,7 +105,7 @@ page = r'''<!DOCTYPE html>
   .err a:hover{ text-decoration:underline; text-underline-offset:3px; }
   .ok{
     display:none; margin:12px 0 0; padding:12px 14px;
-    border:1px solid #C9DAEB; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
+    border:1px solid #D9CEC7; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
     font-size:13.5px; line-height:1.5; color:var(--grey);
   }
   .ok.is-on{ display:block; }
@@ -115,8 +115,8 @@ page = r'''<!DOCTYPE html>
   .box__help a:hover{ color:var(--accent); }
 
   .rule{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; width:100%; }
-  .rule::before{ content:""; display:block; height:1px; background:#E5E7EB; }
-  .rule--strong::before{ height:2px; background:#CBD2D9; }
+  .rule::before{ content:""; display:block; height:1px; background:#DED8D1; }
+  .rule--strong::before{ height:2px; background:#C6BEB6; }
 
   /* ---------- Footer (from the homepage) ---------- */
 ''' + footcss + r'''

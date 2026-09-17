@@ -26,9 +26,18 @@
 <link rel="canonical" href="https://baker1031.com/update-my-info/">
 <meta name="robots" content="noindex, nofollow">
 <style>
+  /* This page is standalone: it does not load /assets/css/site.css, so the tokens it uses are
+     defined here. They were previously undefined, which left the page rendering on the browser
+     default rather than the site's palette. */
+  :root{
+    --page:#DFDAD2; --ink:#1A1919; --body:#4A4444; --muted:#645D5B;
+    --hair:#DED8D1; --grey1:#F1ECE6; --blue:#4C0018; --accent-2:#6B2E3E; --rose:#8A5B66;
+    --sans:"Guardian Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+
   * { box-sizing:border-box; }
-  body { margin:0; font-family:var(--sans); color:var(--body); background:var(--ink); font-size:16px; }
-  .topbar { display:flex; justify-content:space-between; align-items:center; padding:0 40px; height:76px; }
+  body { margin:0; font-family:var(--sans); color:var(--body); background:var(--page); font-size:16px; }
+  .topbar { display:flex; justify-content:space-between; align-items:center; padding:0 40px; height:76px; background:var(--ink); }
   .umi-logo { font-weight:600; font-size:18px; color:#fff; text-decoration:none; }
   .backhome { font-size:13.5px; font-weight:300; color:rgba(255,255,255,.75); text-decoration:none; }
   .stage { max-width:840px; margin:0 auto; padding:20px 24px 90px; }
@@ -42,7 +51,7 @@
   .umi-field { margin-bottom:22px; }
   input[type=text], input[type=email], input[type=tel], input[type=date], select {
     width:100%; border:1px solid var(--hair); background:#fff; font-family:inherit; font-size:15.5px; font-weight:300; color:var(--ink); padding:13px 14px; outline:none; border-radius:2px; }
-  input:focus, select:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(0,121,194,.14); }
+  input:focus, select:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(107,46,62,.14); }
   input[disabled] { background:var(--grey1); color:var(--muted); }
   .hint { font-size:12.5px; font-weight:300; color:var(--muted); margin-top:6px; line-height:1.6; }
   .notice { display:none; border:1px solid #E8DCBB; background:#FBF6EA; color:#6B5A22; font-size:13.5px; font-weight:300; line-height:1.7; padding:14px 18px; margin:4px 0 22px; }
@@ -55,12 +64,12 @@
   .pillgroup { margin-bottom:26px; }
 
   .mselect { width:100%; border:1px solid var(--hair); background:#fff; font-family:inherit; font-size:15.5px; font-weight:300; color:var(--ink); padding:13px 14px; outline:none; border-radius:2px; }
-  .mselect:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(0,121,194,.14); }
+  .mselect:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(107,46,62,.14); }
   .msel { position:relative; }
   .msel-btn { width:100%; display:flex; justify-content:space-between; align-items:center; gap:12px; border:1px solid var(--hair); background:#fff; font-family:inherit; font-size:15px; font-weight:300; color:var(--muted); padding:13px 14px; border-radius:2px; cursor:pointer; text-align:left; }
   .msel-btn .msel-sum { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .msel-btn .msel-sum.has { color:var(--ink); font-weight:400; }
-  .msel.open .msel-btn { border-color:var(--blue); box-shadow:0 0 0 3px rgba(0,121,194,.14); }
+  .msel.open .msel-btn { border-color:var(--blue); box-shadow:0 0 0 3px rgba(107,46,62,.14); }
   .msel-panel { display:none; position:absolute; z-index:40; top:calc(100% + 6px); left:0; right:0; background:#fff; border:1px solid var(--hair); border-radius:2px; box-shadow:0 16px 44px rgba(51,46,36,.18); max-height:280px; overflow:auto; padding:6px; }
   .msel.open .msel-panel { display:block; }
   .msel-opt { display:flex; gap:11px; align-items:flex-start; padding:9px 10px; border-radius:2px; font-size:14px; font-weight:300; color:var(--ink); cursor:pointer; line-height:1.5; }
