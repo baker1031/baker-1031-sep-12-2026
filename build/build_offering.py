@@ -209,7 +209,7 @@ def render(O):
       .btn:hover{ background:var(--accent-hover); border-color:var(--accent-hover); }
       .btn svg{ width:16px; height:16px; }
       .btn--secondary{ background:transparent; color:var(--grey); border-color:#D5D2CD; }
-      .btn--secondary:hover{ background:transparent; color:var(--accent); border-color:var(--accent); }
+      .btn--secondary:hover{ background:transparent; color:var(--accent-text); border-color:var(--accent); }
       .wrap{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; }
       .rule{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; }
       .rule::before{ content:""; display:block; height:1px; background:#D5D2CD; }
@@ -223,7 +223,7 @@ def render(O):
     ''' + badgecss + tipcss + r'''
       /* ---------- Breadcrumb + title ---------- */
       .crumbs{ display:flex; align-items:center; gap:8px; margin:0; padding:20px 0 0; font-size:13px; color:var(--grey-light); list-style:none; flex-wrap:wrap; }
-      .crumbs a{ color:var(--grey); text-decoration:none; } .crumbs a:hover{ color:var(--accent); }
+      .crumbs a{ color:var(--grey); text-decoration:none; } .crumbs a:hover{ color:var(--accent-text); }
       .crumbs li + li::before{ content:"›"; margin-right:8px; color:rgba(0,0,0,.55); }
       .title{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px; padding:22px 0 8px; flex-wrap:wrap; }
       .title__eyebrow{ margin:0 0 8px; font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--grey-light); display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
@@ -254,7 +254,7 @@ def render(O):
       .stats > div:first-child{ border-left:0; }
       .stats dt{ margin:0 0 4px; font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--grey-light); }
       .stats dd{ margin:0; font-size:22px; font-weight:700; letter-spacing:-.01em; color:var(--black); font-variant-numeric:tabular-nums; }
-      .stats dd.is-accent{ color:var(--accent); }
+      .stats dd.is-accent{ color:var(--accent-text); }
       .stats dd small{ display:block; font-size:12px; font-weight:500; color:var(--grey); letter-spacing:0; margin-top:2px; }
 
       /* ---------- Body layout ---------- */
@@ -269,7 +269,7 @@ def render(O):
       .cols{ display:grid; grid-template-columns:1fr 1fr; gap:24px 40px; }
       .list{ margin:0; padding:0 0 0 18px; color:var(--grey); font-size:15px; line-height:1.6; }
       .list li{ margin:0 0 8px; padding-left:4px; }
-      .list li::marker{ color:var(--accent); }
+      .list li::marker{ color:var(--accent-text); }
       .list--risk li::marker{ color:#B45309; }
       .kv{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:0 32px; margin:0; }
       .kv div{ display:flex; justify-content:space-between; gap:16px; padding:10px 0; border-bottom:1px solid var(--hair); font-size:14.5px; }
@@ -284,7 +284,7 @@ def render(O):
       .cf-stack{ display:none; }
       .cfnote{ margin:12px 0 0; font-size:13px; line-height:1.6; color:var(--grey-light); }
       .status--rejected::before{ background:#EF4444; }
-      .sec__count{ display:inline-flex; align-items:center; justify-content:center; min-width:22px; height:22px; padding:0 7px; margin-left:8px; border-radius:11px; background:var(--accent-soft); color:var(--accent); font-size:12px; font-weight:700; vertical-align:middle; }
+      .sec__count{ display:inline-flex; align-items:center; justify-content:center; min-width:22px; height:22px; padding:0 7px; margin-left:8px; border-radius:11px; background:var(--accent-soft); color:var(--accent-text); font-size:12px; font-weight:700; vertical-align:middle; }
       .addrs{ list-style:none; margin:0; padding:0; }
       .addr{ display:flex; flex-wrap:wrap; gap:4px 16px; align-items:baseline; margin:0; padding:10px 0; border-bottom:1px solid var(--hair); font-size:15px; }
       .addrs .addr:last-child{ border-bottom:0; }
@@ -293,17 +293,17 @@ def render(O):
       .docs{ list-style:none; margin:0; padding:0; display:grid; gap:8px; }
       .doc{ display:flex; align-items:center; gap:14px; padding:12px 14px; border:1px solid var(--hair-strong); border-radius:var(--radius); text-decoration:none; color:inherit; transition:border-color .15s; }
       .doc:hover{ border-color:var(--accent); }
-      .doc__icon{ width:34px; height:34px; border-radius:6px; background:var(--accent-soft); color:var(--accent); display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto; }
+      .doc__icon{ width:34px; height:34px; border-radius:6px; background:var(--accent-soft); color:var(--accent-text); display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto; }
       .doc__icon svg{ width:18px; height:18px; }
       .doc__name{ font-size:14.5px; font-weight:600; color:var(--black); }
-      .doc:hover .doc__name{ color:var(--accent); }
+      .doc:hover .doc__name{ color:var(--accent-text); }
 
       /* Jerry's notes: soft click-through */
       .notes{ border:1px solid var(--hair-strong); border-radius:var(--radius); overflow:hidden; }
       .notes__head{ display:flex; align-items:center; gap:14px; padding:16px 18px; background:#FCF7F0; border-bottom:1px solid var(--hair); }
       .notes__photo{ width:44px; height:44px; border-radius:50%; object-fit:cover; flex:0 0 auto; }
       .notes__head h2{ margin:0; font-size:18px; }
-      .notes__head h2 .hand{ font-family:var(--hand); font-weight:600; color:var(--accent); font-size:1.4em; line-height:.8; display:inline-block; transform:rotate(-3deg); margin-right:.06em; }
+      .notes__head h2 .hand{ font-family:var(--hand); font-weight:600; color:var(--accent-text); font-size:1.4em; line-height:.8; display:inline-block; transform:rotate(-3deg); margin-right:.06em; }
       .notes__gate{ padding:18px; }
       .notes__gate p{ font-size:14px; color:var(--grey); margin:0 0 14px; }
       .notes__body{ padding:18px; }
@@ -335,9 +335,9 @@ def render(O):
       .card__jerry img{ width:44px; height:44px; border-radius:50%; object-fit:cover; }
       .card__jerry p{ margin:0; font-size:13px; color:var(--grey); line-height:1.4; }
       .card__jerry strong{ display:block; color:var(--black); font-weight:600; }
-      .card__jerry a{ color:var(--accent); text-decoration:none; }
+      .card__jerry a{ color:var(--accent-text); text-decoration:none; }
       .backlink{ display:inline-flex; align-items:center; gap:6px; margin-top:16px; font-size:13px; color:var(--grey-light); text-decoration:none; }
-      .backlink:hover{ color:var(--accent); }
+      .backlink:hover{ color:var(--accent-text); }
 
       .disclosure{ padding:24px 0 0; font-size:11px; line-height:1.55; color:rgba(0,0,0,.6); max-width:900px; }
 

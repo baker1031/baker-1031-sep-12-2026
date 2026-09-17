@@ -38,7 +38,7 @@ risk: "dst"
 <div>
 <div class="p-name">Gerald F. &ldquo;Jerry&rdquo; Baker, III</div>
 <div class="p-title">Founder &amp; Managing Principal &middot; Baker 1031 Investments, LLC</div>
-<p style="margin-bottom:4px;"><a href="tel:+14159650552" style="color:#00A071;text-decoration:none;">415.965.0552</a> &nbsp;&middot;&nbsp; <a href="mailto:jerry@baker1031.com" style="color:#00A071;text-decoration:none;">jerry@baker1031.com</a></p>
+<p style="margin-bottom:4px;"><a href="tel:+14159650552" style="color:#00805A;text-decoration:none;">415.965.0552</a> &nbsp;&middot;&nbsp; <a href="mailto:jerry@baker1031.com" style="color:#00805A;text-decoration:none;">jerry@baker1031.com</a></p>
 <p style="margin:0;">Jerry Baker founded Baker 1031 Investments to bring institutional real estate discipline to the 1031 exchange — working for the investor, not the sponsor.</p>
 </div>
 </div>
@@ -65,7 +65,7 @@ risk: "dst"
 <div class="kicker">Recognition</div>
 <h2 class="optima">GlobeSt. CRE's Aspiring Leaders of 2026</h2>
 <p>In June 2026, GlobeSt. named Jerry one of CRE's Aspiring Leaders of 2026. GlobeSt. says the program honors commercial real estate professionals under age 40 based on their accomplishments, industry impact, service, and commitment to ethical standards.</p>
-<p><a href="jerry-baker-globest-aspiring-leaders-2026.html" style="color:#00A071;text-decoration:none;">Read Baker 1031's announcement &#10142;</a></p>
+<p><a href="jerry-baker-globest-aspiring-leaders-2026.html" style="color:#00805A;text-decoration:none;">Read Baker 1031's announcement &#10142;</a></p>
 </section>
 <hr class="divider">
 <section class="about-section" id="experience">
@@ -88,11 +88,11 @@ risk: "dst"
 <div class="kicker">Credentials</div>
 <h2 class="optima">Licenses &amp; registrations</h2>
 <ul style="list-style:none;padding-left:0;margin:0;">
-<li style="padding:7px 0 7px 20px;position:relative;border-bottom:1px solid #FCF7F0;"><span style="position:absolute;left:0;color:#00A071;font-weight:900;font-size:12px;">❯</span>FINRA registration — CRD 7537416 &middot; verify on BrokerCheck</li>
-<li style="padding:7px 0 7px 20px;position:relative;border-bottom:1px solid #FCF7F0;"><span style="position:absolute;left:0;color:#00A071;font-weight:900;font-size:12px;">❯</span>FINRA Series 22 — Direct Participation Programs Representative</li>
-<li style="padding:7px 0 7px 20px;position:relative;border-bottom:1px solid #FCF7F0;"><span style="position:absolute;left:0;color:#00A071;font-weight:900;font-size:12px;">❯</span>FINRA Series 63 — Uniform Securities Agent State Law</li>
-<li style="padding:7px 0 7px 20px;position:relative;border-bottom:1px solid #FCF7F0;"><span style="position:absolute;left:0;color:#00A071;font-weight:900;font-size:12px;">❯</span>FINRA SIE — Securities Industry Essentials</li>
-<li style="padding:7px 0 7px 20px;position:relative;"><span style="position:absolute;left:0;color:#00A071;font-weight:900;font-size:12px;">❯</span>Real Estate Brokerage License</li>
+<li style="padding:7px 0 7px 20px;position:relative;border-bottom:1px solid #FCF7F0;"><span style="position:absolute;left:0;color:#00805A;font-weight:900;font-size:12px;">❯</span>FINRA registration — CRD 7537416 &middot; verify on BrokerCheck</li>
+<li style="padding:7px 0 7px 20px;position:relative;border-bottom:1px solid #FCF7F0;"><span style="position:absolute;left:0;color:#00805A;font-weight:900;font-size:12px;">❯</span>FINRA Series 22 — Direct Participation Programs Representative</li>
+<li style="padding:7px 0 7px 20px;position:relative;border-bottom:1px solid #FCF7F0;"><span style="position:absolute;left:0;color:#00805A;font-weight:900;font-size:12px;">❯</span>FINRA Series 63 — Uniform Securities Agent State Law</li>
+<li style="padding:7px 0 7px 20px;position:relative;border-bottom:1px solid #FCF7F0;"><span style="position:absolute;left:0;color:#00805A;font-weight:900;font-size:12px;">❯</span>FINRA SIE — Securities Industry Essentials</li>
+<li style="padding:7px 0 7px 20px;position:relative;"><span style="position:absolute;left:0;color:#00805A;font-weight:900;font-size:12px;">❯</span>Real Estate Brokerage License</li>
 </ul>
 </section>
 <hr class="divider">

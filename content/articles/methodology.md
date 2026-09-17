@@ -88,7 +88,7 @@ risk: "dst"
 <div>
 <div class="a-name">Jerry Baker</div>
 <div class="a-title">Founder &amp; Managing Principal, Baker 1031 Investments &middot; FINRA Series 22 / 63 &middot; SIE</div>
-<p>Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#00A071;text-decoration:none;">Read full bio &#10142;</a></p>
+<p>Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#00805A;text-decoration:none;">Read full bio &#10142;</a></p>
 </div>
 </div>
 <p class="review-note">Reviewed by Lori Kamen — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.</p>
