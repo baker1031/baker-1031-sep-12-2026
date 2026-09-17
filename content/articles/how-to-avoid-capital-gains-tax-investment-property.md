@@ -70,7 +70,7 @@ An [installment sale](installment-sale-real-estate.html) under Section 453 sprea
 
 The appeal is bracket management. A single large gain can put part of income in the 20% capital-gains band, trigger the 3.8% NIIT, and expand the state tax hit in one year. Spreading the same gain across five or ten years may keep more of it in the 15% band, keep income below NIIT thresholds, and soften state tax.
 
-There are two important cautions. An installment sale does not defer depreciation recapture. Section 1250 recapture is generally taxed in full in the year of sale even if most cash has not been collected, potentially leaving a first-year tax bill larger than first-year cash. And the seller has become the bank: buyer default can leave the seller pursuing a property no longer fully under the seller's control.
+There are two important cautions. An installment sale does not defer all depreciation recapture. Section 1245 recapture on personal property is taxed in full in the year of sale even if most cash has not been collected; unrecaptured Section 1250 gain on real property is spread under the installment method along with the rest of the gain, potentially leaving a first-year tax bill larger than first-year cash. And the seller has become the bank: buyer default can leave the seller pursuing a property no longer fully under the seller's control.
 
 An installment sale can fit someone comfortable carrying paper for a trusted buyer when bracket smoothing is meaningful. It is simpler and more limited than an exchange, but it can finance one part of a sale while the rest is exchanged.
 

@@ -26,7 +26,7 @@ The first-order question is, “Which route postpones the most tax?” The secon
 - All four defer. Only an Opportunity Zone fund can also eliminate tax on the fund's own appreciation, and only after a 10-year hold.
 - A basis step-up at death can erase deferred gain for heirs on direct 1031 property, a DST interest, and 721 OP units.
 - A DST reports on a 1099 plus a grantor letter. An Opportunity Zone fund reports on a K-1 with Forms 8997 and 8949. A 721 reports on a K-1 from the operating partnership. A direct 1031 reports on Form 8824.
-- The 2026 law makes Opportunity Zones permanent from January 1, 2027. It does not alter the 1031, DST, or 721 rules.
+- The 2025 law makes Opportunity Zones permanent from January 1, 2027. It does not alter the 1031, DST, or 721 rules.
 - The right route follows the type of gain, the control an investor wants, and the lock-up the investor can sustain—not the headline tax result alone.
 
 ## The four routes at a glance
@@ -100,7 +100,7 @@ The routes can be read as a chain: a 1031 can lead to another 1031, a DST, or a 
 
 ## The 2026 Opportunity Zone changes
 
-One route changed under 2026 law. The timeline matters because it determines which version of the rules applies.
+One route changed under 2025 law. The timeline matters because it determines which version of the rules applies.
 
 Opportunity Zones were made permanent. Starting January 1, 2027, the program continues on an ongoing basis with a rolling five-year deferral and a single ten percent basis step-up at year five. That replaces the prior fixed sunset and tiered step-ups. Investments made under the original program continue under the original rules, meaning deferred gain invested under that earlier regime is still recognized on December 31, 2026. The ten-year exclusion for the fund's own appreciation continues to run from the investment date, so that clock is unchanged.
 
@@ -148,9 +148,9 @@ Only an Opportunity Zone fund. The 1031, DST, and 721 require real property or a
 
 A direct 1031 reports on Form 8824. A DST reports on a 1099 and grantor letter under Revenue Ruling 2004-86, not a K-1. A QOF issues a Schedule K-1 and uses Forms 8997 and 8949. A 721 reports on a K-1 from the REIT operating partnership.
 
-### Did the 2026 law change the 1031, DST, or 721 rules?
+### Did the 2025 law change the 1031, DST, or 721 rules?
 
-No. The 2026 law made Opportunity Zones permanent beginning January 1, 2027 with a rolling five-year deferral and a single ten percent step-up at year five. Original-program investments still recognize deferred gain on December 31, 2026. None of that changes the 1031, DST, or 721 rules.
+No. The 2025 law made Opportunity Zones permanent beginning January 1, 2027 with a rolling five-year deferral and a single ten percent step-up at year five. Original-program investments still recognize deferred gain on December 31, 2026. None of that changes the 1031, DST, or 721 rules.
 
 ### Can I combine these routes?
 

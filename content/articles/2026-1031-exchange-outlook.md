@@ -35,7 +35,7 @@ A 1031 exchange still defers federal capital gains tax, the 3.8% net investment 
 
 For full deferral, buy replacement property of **equal or greater value**, reinvest all net equity, and replace debt paid off with new financing or additional cash. A shortfall is taxable [boot](1031-exchange-boot.html). A qualified intermediary, rather than the investor, must hold the proceeds; constructive receipt ends the exchange. See the [1031 exchange guide](1031-exchange-guide.html) and the [day-by-day timeline](1031-exchange-timeline.html).
 
-The 2026 tax law changes involving Opportunity Zones did not change section 1031 for real property held for investment or business use. The issue is not whether the tool survives. It is execution.
+The 2025 tax law changes involving Opportunity Zones did not change section 1031 for real property held for investment or business use. The issue is not whether the tool survives. It is execution.
 
 ## The market conditions that matter for an exchange
 

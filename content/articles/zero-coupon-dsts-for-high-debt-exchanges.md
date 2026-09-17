@@ -24,7 +24,7 @@ Most Delaware Statutory Trusts (DSTs) are selected for current income. A zero-co
 
 A zero-coupon DST is a high-leverage [Delaware Statutory Trust](dst-guide.html) that directs substantially all net operating cash flow to mortgage principal and interest. Investors receive little or no current income. The comparison is to a zero-coupon bond: no periodic interest, with the return realized at the end rather than along the way. Here, the potential return comes from principal paydown and any appreciation when the property is sold.
 
-These structures often use roughly **50%** to **65%** loan-to-value, or more, and the loan is designed to amortize aggressively. Rent, after operating expenses, pays the debt rather than distributions. Falling principal increases trust equity even if the market value does not change. Like other DSTs, the trust holds real property; investors own fractional beneficial interests treated as like-kind real property under IRS Revenue Ruling 2004-86, so those interests can serve as 1031 replacement property. What distinguishes this version is the use of cash flow: retire debt and build equity, rather than produce current income.
+These structures are built around high leverage — commonly **70%** or more of purchase price, and often substantially higher — with the loan designed to amortize aggressively. Rent, after operating expenses, pays the debt rather than distributions. Falling principal increases trust equity even if the market value does not change. Like other DSTs, the trust holds real property; investors own fractional beneficial interests treated as like-kind real property under IRS Revenue Ruling 2004-86, so those interests can serve as 1031 replacement property. What distinguishes this version is the use of cash flow: retire debt and build equity, rather than produce current income.
 
 ## When High Debt Replacement Is Needed
 
@@ -89,7 +89,7 @@ Rent after operating expenses pays a fully amortizing mortgage. Principal reduct
 
 ### What loan-to-value do zero-coupon DSTs typically carry?
 
-They often use roughly **50%** to **65%** loan-to-value or more. Exact terms vary by offering, sponsor, property type, and lending conditions. Review the stated loan terms, amortization schedule, and refinancing requirements. The debt is generally non-recourse, but higher leverage amplifies gains and losses and increases rate and refinancing sensitivity.
+They carry materially more leverage than an income DST — commonly **70%** or more of purchase price, and often substantially higher. That is the point of the structure: it supplies more non-recourse replacement debt per dollar of equity. Exact terms vary by offering, sponsor, property type, and lending conditions. Review the stated loan terms, amortization schedule, and refinancing requirements. The debt is generally non-recourse, but higher leverage amplifies gains and losses and increases rate and refinancing sensitivity.
 
 ### Is a zero-coupon DST riskier than a regular DST?
 

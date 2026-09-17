@@ -90,7 +90,7 @@ Because the rules interact, a CPA should map the plan well before the sale. Do n
 
 A second home used mainly for personal enjoyment is personal-use property. It is not 1031-eligible and, because it is not a primary residence, it does not use the Section 121 exclusion. A vacation property genuinely held for investment may qualify for a 1031 exchange.
 
-The IRS safe harbor for vacation-home exchanges generally looks for fair-value rental of at least **14 days** per year and personal use of no more than **14 days** or **10%** of rental days, in each of the **two years** before and after the exchange.
+The IRS safe harbor for vacation-home exchanges generally looks for fair-value rental of at least **14 days** per year and personal use of no more than the greater of **14 days** or **10%** of the days it was rented, in each of the **two years** before and after the exchange.
 
 The question is whether the property is actually an investment—rented with limited personal use—or primarily a personal retreat. Document the rental activity and personal-use limits if you intend to exchange a vacation property.
 
@@ -142,7 +142,7 @@ Partly, with limits. Non-qualified rental use reduces the exclusion, depreciatio
 
 ### Can I 1031 a vacation home?
 
-Only if the vacation property is genuinely held for investment. The safe harbor generally calls for fair-value rent for at least **14 days** per year and personal use no greater than **14 days** or **10%** of rental days. A vacation home used mainly for personal enjoyment does not qualify.
+Only if the vacation property is genuinely held for investment. The safe harbor generally calls for fair-value rent for at least **14 days** per year and personal use no greater than the greater of **14 days** or **10%** of the days it was rented. A vacation home used mainly for personal enjoyment does not qualify.
 
 ### Is there a holding period to convert a home to a rental for 1031?
 
@@ -194,7 +194,7 @@ For a property acquired in a 1031 exchange and later converted to a primary resi
 
 ### Can I exchange a second home or vacation property?
 
-Only if it is genuinely held for investment: rented at fair value for at least **14 days** each year, with personal use within the **14 days** or **10%** safe-harbor limit. A second home mainly used personally qualifies for neither a 1031 nor, because it is not a primary residence, Section 121.
+Only if it is genuinely held for investment: rented at fair value for at least **14 days** each year, with personal use within the safe harbor’s limit of the greater of **14 days** or **10%** of the days rented. A second home mainly used personally qualifies for neither a 1031 nor, because it is not a primary residence, Section 121.
 
 ### What is the Section 121 ownership and use test?
 

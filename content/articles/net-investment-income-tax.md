@@ -30,7 +30,7 @@ First-order thinking says, “My gain is taxed at 20%.” Second-order thinking 
 
 ## What the NIIT actually is
 
-Congress enacted the net investment income tax in 2013 under Section 1411 of the tax code as part of the Affordable Care Act. It is often called the Medicare surtax, although its proceeds do not flow into the Medicare trust funds in the same way as payroll Medicare tax. For a taxpayer, the mechanics are the point: it is a flat 3.8% charge on top of regular income tax and capital-gains tax, computed on **Form 8960** and carried to **Form 1040**.
+Congress enacted the net investment income tax in 2010 under Section 1411 of the tax code as part of the Affordable Care Act; it took effect for tax years beginning in 2013. It is often called the Medicare surtax, although its proceeds do not flow into the Medicare trust funds in the same way as payroll Medicare tax. For a taxpayer, the mechanics are the point: it is a flat 3.8% charge on top of regular income tax and capital-gains tax, computed on **Form 8960** and carried to **Form 1040**.
 
 The most common mistake is to treat NIIT as 3.8% of all investment income. It is not. The tax applies to the lesser of two figures: net investment income for the year, or the amount by which modified adjusted gross income (MAGI) exceeds the filing-status threshold.
 

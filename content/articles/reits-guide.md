@@ -49,9 +49,9 @@ Private REITs are unregistered and limited to accredited investors. Non-traded R
 
 ## 03 · How REITs Qualify
 
-Public, non-traded, and private REITs face the same federal tests. A REIT must distribute at least **90%** of its taxable income to shareholders each year, hold most of its assets and earn most of its income from real estate, have at least **100** shareholders, and satisfy the **5/50** rule: no five individuals may own more than **50%** of the shares in the second half of the year.
+Public, non-traded, and private REITs face the same federal tests. A REIT must distribute at least **90%** of its taxable income to shareholders each year, hold most of its assets and earn most of its income from real estate, have at least **100** shareholders, and satisfy the **5/50** rule: five or fewer individuals may not own more than **50%** of the value of its shares during the last half of the year.
 
-Failing the distribution threshold triggers a **4%** excise tax. These requirements help explain why a private REIT still needs a real shareholder base rather than serving a single owner.
+Falling short of the **90%** distribution requirement costs REIT status altogether. A separate rule, Section 4981, imposes a **4%** excise tax on a REIT that distributes less than **85%** of its ordinary income for the calendar year, which is a different and lower test. These requirements help explain why a private REIT still needs a real shareholder base rather than serving a single owner.
 
 ## 04 · Private & Non-Traded REITs Up Close
 

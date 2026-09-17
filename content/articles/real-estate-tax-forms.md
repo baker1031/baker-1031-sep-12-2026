@@ -81,7 +81,7 @@ That is a practical feature of the DST structure: rents in, expenses and depreci
 
 [Opportunity Zone](opportunity-zones-guide.html) investing has a yearly reporting cycle. In the year eligible gain is invested in a qualified opportunity fund, the investor elects deferral on **Form 8949** by reporting the gain and backing it out with an offsetting entry. For each year the fund is held, **Form 8997** reports QOF holdings at the beginning and end of the year. When deferral ends, the gain returns to Schedule D.
 
-Form 8997 is often missed. Missing it does not automatically cost the deferral, but it removes the paper trail supporting the benefit. Because most QOFs are partnerships, they also issue a **Schedule K-1** for operating income. The full sequence is covered in [Opportunity Zone tax forms](opportunity-zone-tax-forms.html).
+Form 8997 is often missed, and missing it is not a small thing: the form’s instructions provide that a failure to file may be treated as an inclusion event, which ends the deferral. It is the running proof that the qualifying investment is still held. Because most QOFs are partnerships, they also issue a **Schedule K-1** for operating income. The full sequence is covered in [Opportunity Zone tax forms](opportunity-zone-tax-forms.html).
 
 ## What each vehicle actually sends you
 

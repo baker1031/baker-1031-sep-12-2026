@@ -35,13 +35,13 @@ The practical point is commitment. A 721 is not normally a temporary holding arr
 
 Section 1031 applies to exchanges of real property held for investment or productive use for other like-kind real property. OP units are not real property. They are an interest in the REIT’s operating partnership.
 
-That distinction is decisive. Section 1031 also specifically excludes partnership interests from like-kind exchange treatment. Therefore, OP units fall outside Section 1031 both because they are not like-kind real property and because partnership interests are expressly excluded. There is no structure that turns an exchange of OP units into a 1031 exchange.
+That distinction is decisive. Since 2018 Section 1031 applies only to real property, and a partnership interest is not real property. Therefore, OP units fall outside Section 1031 both because they are not like-kind real property and because partnership interests are expressly excluded. There is no structure that turns an exchange of OP units into a 1031 exchange.
 
 Once contributed property becomes OP units, it is no longer a 1031-eligible property interest. An investor who wants to own direct real estate again may dispose of the units in a taxable transaction—for example, by converting to shares and selling them—then use the after-tax proceeds to buy real estate. That is not a tax-free 1031 exchange, and the deferred gain is generally recognized.
 
-The reason behind the one-way door is therefore fundamental, not a quirk. OP units are a partnership interest, not like-kind real property, and Section 1031 specifically excludes partnership interests. The unit itself is simply not property that can be exchanged under Section 1031.
+The reason behind the one-way door is therefore fundamental, not a quirk. OP units are a partnership interest, not like-kind real property, and since 2018 Section 1031 applies only to real property. The unit itself is simply not property that can be exchanged under Section 1031.
 
-> OP units are a partnership interest, not like-kind real property—and Section 1031 specifically excludes partnership interests. Once property becomes OP units, the 1031 door is closed.
+> OP units are a partnership interest, not like-kind real property—and since 2018 Section 1031 applies only to real property. Once property becomes OP units, the 1031 door is closed.
 
 ## What remains available after a 721 exchange
 
@@ -74,7 +74,7 @@ The move is less suitable for investors who want to keep options open. Someone w
 ## Key Takeaways
 
 - A 721 exchange is generally a one-way door: after an investor holds OP units, they lose 1031 eligibility and cannot return tax-free to direct real estate.
-- OP units cannot be used in a 1031 exchange because they are a partnership interest rather than like-kind real property, and Section 1031 specifically excludes partnership interests.
+- OP units cannot be used in a 1031 exchange because they are a partnership interest rather than like-kind real property, and since 2018 Section 1031 applies only to real property.
 - After a 721, an investor can hold units, convert to shares in a taxable transaction, redeem units for cash in some structures in a taxable transaction, or hold until death for a possible step-up in basis. They cannot tax-free reverse into direct property.
 - The trade-off is continued 1031 flexibility versus the 721’s potential diversification, liquidity, passive ownership, and estate-planning benefits. It may work for an owner committing to REIT ownership, but not for one seeking continued flexibility.
 
@@ -102,7 +102,7 @@ It is generally a one-directional, irreversible transition. An investor can go f
 
 ### Why can't I do a 1031 exchange with OP units?
 
-OP units are a partnership interest, not like-kind real property. Section 1031 requires real property and specifically excludes partnership interests from like-kind treatment. Once property becomes OP units, it is no longer 1031-eligible. To return to direct real estate, the investor would need a taxable disposition of the units—for example, conversion to shares followed by a sale that triggers the gain—not a tax-free 1031 exchange.
+OP units are a partnership interest, not like-kind real property. Section 1031 has applied only to real property since 2018, and a partnership interest is not real property. Once property becomes OP units, it is no longer 1031-eligible. To return to direct real estate, the investor would need a taxable disposition of the units—for example, conversion to shares followed by a sale that triggers the gain—not a tax-free 1031 exchange.
 
 ### What can I do after a 721 exchange?
 

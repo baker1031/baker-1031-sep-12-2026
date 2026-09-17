@@ -122,7 +122,7 @@ Potentially. An investor may transition some property for passive retirement inc
 
 ### How does the 721 fit with my other retirement accounts?
 
-OP units are direct real-estate investments held outside retirement accounts. They can complement retirement accounts and other investments as part of taxable holdings, alongside Social Security and other income sources. A financial adviser and CPA should coordinate the units with the broader retirement portfolio.
+OP units are a partnership interest in a REIT’s operating partnership, held outside retirement accounts — not a deed to a building and not REIT stock. They can complement retirement accounts and other investments as part of taxable holdings, alongside Social Security and other income sources. A financial adviser and CPA should coordinate the units with the broader retirement portfolio.
 
 ### What if I want to leave my real estate to heirs but enjoy income now?
 

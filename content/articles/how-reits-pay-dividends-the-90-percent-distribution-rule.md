@@ -204,7 +204,7 @@ Whether cash flow covers the dividend over time.
 
 ### 5/50 Rule
 
-A REIT cannot be closely held by five or fewer owners.
+A REIT cannot be closely held: five or fewer individuals may not own more than 50% of the value of its shares during the last half of the year.
 
 ### Dividend Cut
 
