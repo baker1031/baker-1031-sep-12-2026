@@ -9,8 +9,11 @@ Env:
   SITE_ROOT             repo root (defaults to the parent of this file)
 
 Published performance figures are compliance-sensitive, so this script never fails the build and never
-publishes a partial pull: without a token, on any Airtable error, or if the pull comes back materially
-smaller than the committed snapshot, it keeps the committed build/fullcycle.tsv and says so loudly.
+publishes an unreviewed dataset: without a token, on any Airtable error, or if the pull comes back
+materially smaller OR materially larger than the committed snapshot, it keeps the committed
+build/fullcycle.tsv and says so loudly. The upper bound matters as much as the lower one — the figures
+are simple averages over these rows, so a pull that triples the dataset rewrites every published
+number in a single deploy.
 The committed file is therefore always a valid, reviewed dataset — Airtable only ever moves it forward.
 
 Average Annual Return comes from the base's own comparable-return field, which is
@@ -44,6 +47,13 @@ HEADER = ['Investment Name', 'Sponsor', 'Property Type', 'Location', 'Average An
 CITY_STATE = re.compile(r'^(.+),\s*([A-Z]{2})$')
 # Below this share of the committed row count the pull is treated as broken rather than as a real shrink.
 MIN_SHARE = 0.8
+# And above this multiple it is treated as an import that has not been reviewed yet. Every published
+# performance figure on the site is a simple average over these rows, so a pull that triples the
+# dataset silently rewrites the homepage, the Results page, all 91 sponsor pages and the DST guide in
+# one deploy. A change that large should be a decision, not a side effect of a token finally working.
+# To accept one, set PERFORMANCE_ACCEPT_ROWS to the row count you have reviewed.
+MAX_GROWTH = 1.5
+ACCEPT_ROWS = (os.environ.get('PERFORMANCE_ACCEPT_ROWS') or '').strip()
 
 
 def api(url):
@@ -169,6 +179,11 @@ def main():
     if have and len(rows) < have * MIN_SHARE:
         return keep('Airtable returned only %d rows against %d committed — that looks like a bad pull, '
                     'not a real change.' % (len(rows), have))
+    if have and len(rows) > have * MAX_GROWTH and ACCEPT_ROWS != str(len(rows)):
+        return keep('Airtable returned %d rows against %d committed. That republishes every performance '
+                    'figure on the site in one deploy, so it is held until the new rows have been '
+                    'reviewed. To accept it, set PERFORMANCE_ACCEPT_ROWS=%d and redeploy.'
+                    % (len(rows), have, len(rows)))
 
     buf = io.StringIO()
     w = csv.writer(buf, delimiter='\t', lineterminator='\n', quoting=csv.QUOTE_NONE, escapechar=None)
@@ -183,6 +198,8 @@ def main():
     print('performance: %d full-cycle deals, %d sponsors (%s)%s'
           % (len(rows), len(sponsors), ', '.join(sponsors),
              '' if not have else ' — was %d' % have))
+    if ACCEPT_ROWS == str(len(rows)):
+        print('performance: accepted a reviewed row count of %s via PERFORMANCE_ACCEPT_ROWS.' % ACCEPT_ROWS)
     return 0
 
 

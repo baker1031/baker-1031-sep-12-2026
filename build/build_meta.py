@@ -1,6 +1,6 @@
 """Crawl plumbing written after the pages: sitemap.xml, robots.txt, llms.txt, build-info.json.
 The sitemap is derived from the built tree — every index.html that is not marked noindex."""
-import os, re, json, datetime
+import csv, os, re, json, datetime
 
 ROOT = os.environ.get('SITE_ROOT', '/home/claude/site')
 SITE = 'https://baker1031.com'
@@ -129,8 +129,19 @@ def main():
 - San Francisco: 1700 Montgomery St, Ste 108, San Francisco, CA 94111 — (415) 965-0552
 - Los Angeles: 2100 E Grand Ave, 1st Floor, El Segundo, CA 90245 — (310) 896-4227
 ''')
-    # exact build timestamp — the rebuild-watcher function compares it with Airtable's Last Modified
-    open(os.path.join(ROOT, 'build-info.json'), 'w').write(json.dumps({'builtAt': datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00', 'Z')}))
+    # exact build timestamp — the rebuild-watcher function compares it with Airtable's Last Modified.
+    # The dataset's shape goes in too: every published performance figure is an average over these
+    # rows, and whether the build pulled from Airtable or shipped the committed snapshot was only
+    # visible in the build log, where a stale dataset can sit unnoticed for weeks.
+    info = {'builtAt': datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00', 'Z')}
+    try:
+        tsv = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'fullcycle.tsv')
+        with open(tsv, encoding='utf-8') as fh:
+            rows = [r for r in csv.reader(fh, delimiter='\t') if r and r[0].strip()][1:]
+        info['fullCycle'] = {'deals': len(rows), 'sponsors': len({r[1] for r in rows if len(r) > 1})}
+    except OSError:
+        pass
+    open(os.path.join(ROOT, 'build-info.json'), 'w').write(json.dumps(info))
     print(f'[meta] sitemap.xml ({len(us)} urls), robots.txt, llms.txt, build-info.json')
 
 if __name__ == '__main__':

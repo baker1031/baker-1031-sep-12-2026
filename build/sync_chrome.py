@@ -43,7 +43,10 @@ NAVCSS_END_RE = re.compile(r'\n\s*/\* -+ [^*]+? -+ \*/')
 def navcss_of(src):
     i = src.index(NAVCSS_START)
     j = src.index(NAVCSS_END_SRC, i)
-    return src[i:j]
+    # normalised to exactly one trailing newline: the homepage block ends in blank lines, and
+    # keeping them added one more line to each target on every build, so the committed pages
+    # showed a diff after a no-op rebuild.
+    return src[i:j].rstrip() + '\n'
 
 
 def swap_navcss(page, navcss):
