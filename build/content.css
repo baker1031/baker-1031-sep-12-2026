@@ -1,26 +1,20 @@
-/* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
-@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-400i.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
-@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-500.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-600.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
-@font-face{font-family:"Sanomat";src:url(/assets/fonts/sanomat-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+/* Brand font: Special Gothic, loaded from Google Fonts, used for text and headings alike. */
 /* ===== Baker 1031 — content pages (Learn, sponsors, markets, glossary, calculators, policies) =====
    Tokens first, then the interior component sheet ported from the previous site with its variables
    re-pointed at these tokens, then overrides that bring type and spacing in line with the 2026 rebuild. */
 :root{
-  --black:#1A1919; --white:#fff;
-  --accent:#4C0018; --accent-hover:#33000F; --accent-soft:#F2EDE7;
-  --accent-2:#6B2E3E; --rose:#8A5B66; --stone:#DFDAD2;
-  --grey:#4A4444; --grey-light:#645D5B; --hair:#DED8D1; --hair-strong:#C6BEB6;
+  --black:#000000; --white:#fff;
+  --accent:#00A071; --accent-hover:#008F63; --accent-soft:#FCF7F0;
+  --accent-2:#00805A; --rose:#00A071; --stone:#FCF7F0;
+  --grey:#000000; --grey-light:rgba(0,0,0,.6); --hair:#D5D2CD; --hair-strong:#D5D2CD;
   --radius:6px;
-  --font:"Guardian Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
   /* previous-site variable names -> this design */
-  --ink:#1A1919; --blue-d:#33000F; --blue:#4C0018; --blue-lt:#C09AA3;
-  --pale:#F2EDE7; --grey1:#F1ECE6; --page:#FFFFFF; --body:#4A4444; --muted:#645D5B;
-  --faint:#6E6765; --steel:#4A4444; --lblue:#F2EDE7;
-  --display:"Sanomat", Georgia, "Times New Roman", serif; --sans:var(--font);
+  --ink:#000000; --blue-d:#00805A; --blue:#00A071; --blue-lt:#D5D2CD;
+  --pale:#FCF7F0; --grey1:#FCF7F0; --page:#FFFFFF; --body:#000000; --muted:rgba(0,0,0,.6);
+  --faint:rgba(0,0,0,.55); --steel:#000000; --lblue:#FCF7F0;
+  --display:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif; --sans:var(--font);
   --gut:max(24px, calc((100vw - 1200px) / 2));
   --hdr:64px;
 }
@@ -33,7 +27,7 @@ a{ color:inherit; text-decoration:none; }
 :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
 .btn{
   display:inline-flex; align-items:center; gap:10px;
-  padding:12px 20px; background:var(--accent); color:var(--white);
+  padding:12px 20px; background:var(--accent); color:var(--black);
   border:1px solid var(--accent); border-radius:var(--radius);
   font:inherit; font-size:14px; font-weight:600; text-decoration:none; cursor:pointer;
   transition:background .18s ease, border-color .18s ease;
@@ -41,12 +35,12 @@ a{ color:inherit; text-decoration:none; }
 .btn:hover{ background:var(--accent-hover); border-color:var(--accent-hover); }
 .btn svg{ width:16px; height:16px; }
 .btn--secondary, .btn--outline{ background:var(--white); color:var(--black); border-color:var(--hair-strong); }
-.btn--secondary:hover, .btn--outline:hover{ background:#FAF8F5; border-color:var(--black); color:var(--black); }
-.btn--primary{ background:var(--accent); color:var(--white); border-color:var(--accent); }
+.btn--secondary:hover, .btn--outline:hover{ background:#FCF7F0; border-color:var(--black); color:var(--black); }
+.btn--primary{ background:var(--accent); color:var(--black); border-color:var(--accent); }
 .btn-row{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
 .rule{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; }
-.rule::before{ content:""; display:block; height:1px; background:#DED8D1; }
-.rule--strong::before{ height:2px; background:#C6BEB6; }
+.rule::before{ content:""; display:block; height:1px; background:#D5D2CD; }
+.rule--strong::before{ height:2px; background:#D5D2CD; }
 
 /* ---- previous-site base rules the interior pages rely on ---- */
 /* ---------- display type: Optima Bold ---------- */
@@ -126,7 +120,7 @@ p:last-child{margin-bottom:0}
 .prose p,.prose li{font-size:16.5px;line-height:1.78;color:var(--body)}
 .prose ul,.prose ol{padding-left:22px;margin:0 0 22px}
 .prose li{margin-bottom:10px}
-.prose a{color:var(--blue);border-bottom:1px solid rgba(76,0,24,.28)}
+.prose a{color:var(--blue-d);border-bottom:1px solid rgba(0,128,90,.35)}
 .prose a:hover{color:var(--blue-d);border-bottom-color:var(--blue-d)}
 .prose blockquote{margin:32px 0;padding:4px 0 4px 26px;border-left:2px solid var(--blue);
   font-family:var(--display);font-size:22px;line-height:1.45;color:var(--blue-d)}
@@ -156,7 +150,7 @@ p:last-child{margin-bottom:0}
 .feature img{width:100%;height:clamp(260px,30vw,400px);object-fit:cover}
 .meta-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:700;
   letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
-.meta-row .cat{color:var(--blue)}
+.meta-row .cat{color:var(--blue-d)}
 .posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:clamp(26px,3.2vw,48px)}
 .post{display:flex;flex-direction:column;padding-bottom:26px;border-bottom:1px solid var(--hair)}
 .post .nm{margin:14px 0 0;font-family:var(--display);font-weight:400;font-size:22px;line-height:1.28;color:var(--ink)}
@@ -762,7 +756,7 @@ table.perf td a:hover{text-decoration:underline}
   background:#fff;border:1px solid var(--hair);border-radius:2px;
   text-decoration:none;color:inherit;transition:border-color .18s,box-shadow .18s,transform .18s}
 .pt-card:hover,.pt-card:focus-visible{border-color:var(--blue);
-  box-shadow:0 6px 22px rgba(76,0,24,.10);transform:translateY(-2px)}
+  box-shadow:0 6px 22px rgba(0,160,113,.10);transform:translateY(-2px)}
 .pt-card h3{font-family:var(--display);font-size:20px;line-height:1.22;color:var(--blue-d);margin:0}
 .pt-card p{font-size:14.5px;line-height:1.65;color:var(--body);margin:0;flex:1}
 .pt-go{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.08em;
@@ -798,7 +792,7 @@ h1,h2,h3,h4,.h1,.h2,.h3,.h6{ font-family:var(--font); font-weight:700; letter-sp
 h1,.h1{ font-size:clamp(30px,3vw,40px); line-height:1.1; }
 .h2{ font-size:clamp(24px,2.3vw,32px); line-height:1.2; }
 .h3{ font-size:clamp(20px,1.8vw,25px); line-height:1.25; }
-.eyebrow{ font-size:11px; font-weight:700; letter-spacing:.1em; color:var(--accent); margin:0 0 12px; }
+.eyebrow{ font-size:11px; font-weight:700; letter-spacing:.1em; color:var(--blue-d); margin:0 0 12px; }
 p{ max-width:none; }
 .mast, .mast--light{ background:var(--white); color:var(--black); padding:56px var(--gut) 28px; border-bottom:1px solid var(--hair); }
 .mast .h1, .mast--light .h1{ color:var(--black); max-width:none; }
@@ -810,7 +804,7 @@ p{ max-width:none; }
 .shell{ gap:clamp(32px,4vw,64px); }
 .rail{ top:80px; }
 .rail h4{ font-size:11px; letter-spacing:.1em; color:var(--accent); }
-.rail a:not(.btn){ font-size:14px; color:var(--grey); border-bottom-color:#F1ECE6; }
+.rail a:not(.btn){ font-size:14px; color:var(--grey); border-bottom-color:#FCF7F0; }
 .rail a:not(.btn):hover, .rail a:not(.btn)[aria-current]{ color:var(--black); }
 .prose{ max-width:74ch; }
 .prose h2{ font-size:clamp(22px,2vw,28px); margin:44px 0 14px; }
@@ -826,13 +820,13 @@ p{ max-width:none; }
 .prose blockquote{ border-left-color:var(--accent); }
 .callout, .takeaways{ background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:0 var(--radius) var(--radius) 0; }
 .callout h4, .takeaways .tk-h, .rail h4, .featured .flag, .art-row .cat, .more-row .c, .authorbox .label{ font-family:var(--font); }
-.tblwrap th, table.dtable2 th{ background:#FAF8F5; color:var(--grey-light); font-size:11px; letter-spacing:.06em; border-bottom:1px solid var(--hair-strong); }
+.tblwrap th, table.dtable2 th{ background:#FCF7F0; color:var(--grey-light); font-size:11px; letter-spacing:.06em; border-bottom:1px solid var(--hair-strong); }
 .tblwrap td, table.dtable2 td{ font-size:14.5px; }
 .faq summary, .more-row .t, .art-row .t, .authorbox .who, .featured h2, .prose details.faq-item summary{ font-family:var(--font); font-weight:600; }
 .faq .ic:before, .faq .ic:after{ background:var(--accent); }
 .disclosures, .footnote, .refs li{ font-size:12.5px; color:var(--grey-light); }
-.authorbox{ background:#FAF8F5; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); }
-.featured{ background:#FAF8F5; }
+.authorbox{ background:#FCF7F0; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); }
+.featured{ background:#FCF7F0; }
 .featured .wrap, .filterbar-in, .artlist{ max-width:calc(1200px + 48px); padding-left:24px; padding-right:24px; }
 a.featured, .featured a.wrap{ display:block; color:inherit; text-decoration:none; }
 .pill{ font-family:var(--font); border-radius:var(--radius); }
@@ -857,7 +851,7 @@ html.is-level2 .gate--l1{ display:none !important; }
 /* article: the opening stays readable, everything after it is blurred and fades out */
 html:not(.is-logged-in) .lockwrap--article .prose{
   max-height:820px; overflow:hidden; pointer-events:none; user-select:none;
-  -webkit-mask-image:linear-gradient(to bottom, #1A1919 34%, transparent 96%); mask-image:linear-gradient(to bottom, #1A1919 34%, transparent 96%);
+  -webkit-mask-image:linear-gradient(to bottom, #000000 34%, transparent 96%); mask-image:linear-gradient(to bottom, #000000 34%, transparent 96%);
 }
 html:not(.is-logged-in) .lockwrap--article .prose > :nth-child(n+3){ filter:blur(3px); }
 .lockwrap--article .gate{ top:auto; bottom:64px; }
@@ -865,7 +859,7 @@ html:not(.is-logged-in) .main--gated .authorbox, html:not(.is-logged-in) .main--
 /* learn index: featured article + category filters stay, the list is blurred under the card */
 html:not(.is-logged-in) .lockwrap--learn .artlist{
   max-height:900px; overflow:hidden; pointer-events:none; user-select:none; filter:blur(3px);
-  -webkit-mask-image:linear-gradient(to bottom, #1A1919 45%, transparent 100%); mask-image:linear-gradient(to bottom, #1A1919 45%, transparent 100%);
+  -webkit-mask-image:linear-gradient(to bottom, #000000 45%, transparent 100%); mask-image:linear-gradient(to bottom, #000000 45%, transparent 100%);
 }
 html:not(.is-logged-in) .filterbar{ pointer-events:none; }
 .lockwrap--learn .gate{ top:40px; }
@@ -876,7 +870,7 @@ html.is-level2 .gate--l2{ display:none !important; }
 html:not(.is-level2) .gate--l2{ display:block; }
 html:not(.is-level2) .lockwrap--l2 > *:not(.gate){
   max-height:900px; overflow:hidden; pointer-events:none; user-select:none; filter:blur(3px);
-  -webkit-mask-image:linear-gradient(to bottom, #1A1919 30%, transparent 92%); mask-image:linear-gradient(to bottom, #1A1919 30%, transparent 92%);
+  -webkit-mask-image:linear-gradient(to bottom, #000000 30%, transparent 92%); mask-image:linear-gradient(to bottom, #000000 30%, transparent 92%);
 }
 .lockwrap--l2 .gate{ top:40px; }
 /* a logged-out visitor on a level-2 section gets the ordinary log-in card, not the approval one */
@@ -887,7 +881,7 @@ html.is-logged-in:not(.is-level2) .gate--l1{ display:none !important; }
 
 @media (prefers-reduced-motion:reduce){ .prose *, .rail *, .gate *, .featured *, .art-row{ animation-duration:.01ms !important; transition-duration:.01ms !important; } }
 /* article contents list */
-.prose .toc{ margin:8px 0 36px; padding:18px 22px; border:1px solid var(--hair); border-radius:var(--radius); background:#FAF8F5; }
+.prose .toc{ margin:8px 0 36px; padding:18px 22px; border:1px solid var(--hair); border-radius:var(--radius); background:#FCF7F0; }
 .prose .toc__label{ margin:0 0 8px; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); }
 .prose .toc ol{ margin:0; padding-left:20px; columns:2; column-gap:32px; }
 .prose .toc li{ font-size:14px; line-height:1.5; margin:0 0 6px; break-inside:avoid; }
@@ -921,7 +915,7 @@ html.is-logged-in:not(.is-level2) .gate--l1{ display:none !important; }
 .prose .sp-cards{ grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr)); }
 .prose .aud-cards{ grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr)); }
 
-/* Headings in Sanomat (one weight); everything else stays in Guardian Sans */
+/* Headings share the body face; weight and letter-spacing carry the hierarchy. */
 h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;letter-spacing:-.01em}
 
 /* ===== Components that were being used without a rule =====================================

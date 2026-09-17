@@ -25,23 +25,16 @@ page = r'''<!DOCTYPE html>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <style>
 /* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
-@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-400i.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
-@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-500.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-600.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
-@font-face{font-family:"Sanomat";src:url(/assets/fonts/sanomat-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
-
-  :root{
+:root{
     --black:#000; --white:#fff;
-    --accent:#4C0018; --accent-hover:#33000F; --accent-soft:#F2EDE7;
-    --grey:#4A4444; --grey-light:#645D5B; --hair:#DED8D1; --hair-strong:#C6BEB6; --error:#DC2626;
+    --accent:#00A071; --accent-hover:#008F63; --accent-soft:#FCF7F0;
+    --grey:#000000; --grey-light:rgba(0,0,0,.6); --hair:#D5D2CD; --hair-strong:#D5D2CD; --error:#DC2626;
     --radius:6px;
-    --font:"Guardian Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --display:"Sanomat", Georgia, "Times New Roman", serif;
+    --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --display:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
   }
   *{ box-sizing:border-box; }
@@ -50,7 +43,7 @@ page = r'''<!DOCTYPE html>
   ::selection{ background:var(--accent); color:var(--white); }
   .btn{
     display:inline-flex; align-items:center; justify-content:center; gap:10px;
-    padding:12px 20px; background:var(--accent); color:var(--white);
+    padding:12px 20px; background:var(--accent); color:var(--black);
     border:1px solid var(--accent); border-radius:var(--radius);
     font:inherit; font-size:14px; font-weight:600; text-decoration:none; cursor:pointer;
     transition:background .18s ease, border-color .18s ease;
@@ -91,8 +84,8 @@ page = r'''<!DOCTYPE html>
     background:var(--white); border:1px solid var(--hair-strong); border-radius:var(--radius);
     padding:12px 14px; outline:none; transition:border-color .2s ease, box-shadow .2s ease;
   }
-  .field input::placeholder{ color:#8C837E; }
-  .field input:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(76,0,24,.18); }
+  .field input::placeholder{ color:rgba(0,0,0,.45); }
+  .field input:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(0,160,113,.18); }
   .field.is-invalid input{ border-color:var(--error); box-shadow:0 0 0 3px rgba(220,38,38,.12); }
   .field .btn{ width:100%; margin-top:14px; padding:13px 20px; font-size:15px; }
   .err{
@@ -105,7 +98,7 @@ page = r'''<!DOCTYPE html>
   .err a:hover{ text-decoration:underline; text-underline-offset:3px; }
   .ok{
     display:none; margin:12px 0 0; padding:12px 14px;
-    border:1px solid #D9CEC7; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
+    border:1px solid #D5D2CD; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
     font-size:13.5px; line-height:1.5; color:var(--grey);
   }
   .ok.is-on{ display:block; }
@@ -115,8 +108,8 @@ page = r'''<!DOCTYPE html>
   .box__help a:hover{ color:var(--accent); }
 
   .rule{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; width:100%; }
-  .rule::before{ content:""; display:block; height:1px; background:#DED8D1; }
-  .rule--strong::before{ height:2px; background:#C6BEB6; }
+  .rule::before{ content:""; display:block; height:1px; background:#D5D2CD; }
+  .rule--strong::before{ height:2px; background:#D5D2CD; }
 
   /* ---------- Footer (from the homepage) ---------- */
 ''' + footcss + r'''

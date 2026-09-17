@@ -34,7 +34,7 @@ risk: "dst"
 <p class="editorial-note">I keep seeing past-performance figures turn into a shorthand for certainty. First-order thinking stops at an average. Second-order thinking asks about the source, scope, timing, calculation, and what the figure leaves out.</p>
 
 <p class="byline">By Jerry Baker &nbsp;&middot;&nbsp; Reviewed by a registered principal &nbsp;&middot;&nbsp; Updated June 2026</p>
-<div class="article-intro" style="background:#F4F1ED;border:1px solid #EDE9E4;padding:14px 18px;margin-top:14px;">
+<div class="article-intro" style="background:#FCF7F0;border:1px solid #FCF7F0;padding:14px 18px;margin-top:14px;">
 <p style="margin:0;"><strong>What our numbers mean — and what they don't.</strong> Every performance figure on this site carries an asterisk. This is where the asterisk leads. In short: figures are sponsor-reported, cover realized programs only, are net of fees and expenses, and are not a forecast or a recommendation.</p>
 </div>
 
@@ -88,7 +88,7 @@ risk: "dst"
 <div>
 <div class="a-name">Jerry Baker</div>
 <div class="a-title">Founder &amp; Managing Principal, Baker 1031 Investments &middot; FINRA Series 22 / 63 &middot; SIE</div>
-<p>Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#4C0018;text-decoration:none;">Read full bio &#10142;</a></p>
+<p>Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. <a href="jerry-baker-bio.html" style="color:#00A071;text-decoration:none;">Read full bio &#10142;</a></p>
 </div>
 </div>
 <p class="review-note">Reviewed by Lori Kamen — President &amp; CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.</p>

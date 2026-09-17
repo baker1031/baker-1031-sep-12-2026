@@ -27,36 +27,29 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#4C0018">
+<meta name="theme-color" content="#00A071">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["Organization", "FinancialService"], "@id": "https://baker1031.com/#org", "name": "Baker 1031 Investments", "alternateName": "Baker 1031", "url": "https://baker1031.com/", "logo": {"@type": "ImageObject", "url": "https://baker1031.com/assets/media/logo.png"}, "image": "https://baker1031.com/assets/media/og-card.png", "description": "Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.", "founder": {"@id": "https://baker1031.com/#jerry"}, "employee": {"@id": "https://baker1031.com/#jerry"}, "telephone": "+1-415-965-0552", "email": "invest@baker1031.com", "areaServed": "US", "knowsAbout": ["1031 exchange", "Delaware Statutory Trust (DST)", "721 exchange (UPREIT)", "Opportunity Zone funds", "Oil and gas royalties", "Real estate investment trusts (REITs)", "Real estate credit"], "address": [{"@type": "PostalAddress", "streetAddress": "1700 Montgomery St, Ste 108", "addressLocality": "San Francisco", "addressRegion": "CA", "postalCode": "94111", "addressCountry": "US"}, {"@type": "PostalAddress", "streetAddress": "2100 E Grand Ave, 1st Floor", "addressLocality": "El Segundo", "addressRegion": "CA", "postalCode": "90245", "addressCountry": "US"}], "contactPoint": [{"@type": "ContactPoint", "telephone": "+1-415-965-0552", "contactType": "sales", "areaServed": "US", "availableLanguage": "English"}, {"@type": "ContactPoint", "telephone": "+1-310-896-4227", "contactType": "sales", "areaServed": "US", "availableLanguage": "English"}], "memberOf": {"@type": "Organization", "name": "Aurora Securities, Inc.", "url": "https://brokercheck.finra.org/firm/summary/46147"}}, {"@type": "Person", "@id": "https://baker1031.com/#jerry", "name": "Jerry Baker", "alternateName": "Gerald F. Baker, III", "jobTitle": "Founder", "worksFor": {"@id": "https://baker1031.com/#org"}, "url": "https://baker1031.com/learn/jerry-baker-bio/", "image": "https://baker1031.com/assets/media/jerry-baker.jpg", "email": "invest@baker1031.com", "sameAs": ["https://brokercheck.finra.org/individual/summary/7537416"], "knowsAbout": ["1031 exchange", "Delaware Statutory Trusts", "721 exchange", "Opportunity Zone funds", "Real estate private equity"]}, {"@type": "WebSite", "@id": "https://baker1031.com/#website", "name": "Baker 1031 Investments", "alternateName": "Baker 1031", "url": "https://baker1031.com/", "publisher": {"@id": "https://baker1031.com/#org"}, "inLanguage": "en-US"}, {"@type": "WebPage", "@id": "https://baker1031.com/#webpage", "url": "https://baker1031.com/", "name": "Baker 1031 Investments", "description": "Independent 1031 exchange brokerage founded by Jerry Baker.", "isPartOf": {"@id": "https://baker1031.com/#website"}, "about": {"@id": "https://baker1031.com/#org"}, "inLanguage": "en-US"}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <style>
   /* ---------- Tokens ---------- */
-/* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
-@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-400i.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
-@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-500.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-600.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
-@font-face{font-family:"Sanomat";src:url(/assets/fonts/sanomat-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
-
-  :root{
-    /* Baker 1031 palette: burgundy, near-black, warm stone, muted rose, wine. */
-    --black:#1A1919;
+/* Brand font: Special Gothic, loaded from Google Fonts, used for text and headings alike. */
+:root{
+    /* Baker 1031 palette: green, black, white, warm off-white, grey. */
+    --black:#000000;
     --white:#FFFFFF;
     --page:#FFFFFF;
-    --stone:#DFDAD2;
-    --accent:#4C0018;
-    --accent-hover:#33000F;
-    --accent-2:#6B2E3E;
-    --rose:#8A5B66;
-    --muted:rgba(26,25,25,.62);
-    --hairline:rgba(26,25,25,.14);
+    --stone:#FCF7F0;
+    --accent:#00A071;
+    --accent-hover:#008F63;
+    --accent-2:#00805A;   /* AA-safe green for small text */
+    --rose:#00A071;
+    --muted:rgba(0,0,0,.6);
+    --hairline:rgba(0,0,0,.12);
     --radius:6px;
-    --font:"Guardian Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --display:"Sanomat", Georgia, "Times New Roman", serif;
+    --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --display:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --hand:"Caveat", "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
   }
 
@@ -97,7 +90,7 @@
     height:64px;
     border-radius:50%;
     object-fit:cover;
-    background:#E7E1DA;
+    background:#FCF7F0;
     margin:4px 16px 4px 0;
     shape-outside:circle(50%);
   }
@@ -128,7 +121,7 @@
     padding:11px 20px;
     border-radius:var(--radius);
     background:var(--accent);
-    color:var(--white);
+    color:var(--black);
     border:1px solid var(--accent);
     font-family:var(--font);
     font-size:14px;
@@ -150,10 +143,10 @@
     max-width:200px;               /* forces the two-line wrap */
     font-size:12.5px;
     line-height:1.45;
-    color:#6E6765;                 /* medium-light grey */
+    color:rgba(0,0,0,.55);                 /* medium-light grey */
   }
   .hero__login a{
-    color:#6E6765;
+    color:rgba(0,0,0,.55);
     font-weight:500;
     text-decoration:underline;
     text-decoration-style:dotted;
@@ -242,7 +235,7 @@
     width:100%;
     aspect-ratio:4 / 3;
     object-fit:cover;
-    background:#E7E1DA;
+    background:#FCF7F0;
   }
   .property__overlay{ display:none; }
   .property__tag{
@@ -288,7 +281,7 @@
   .property__sponsor{
     margin:0 0 12px;
     font-size:12px;
-    color:#4A4444;
+    color:#000000;
   }
   .property__stats{
     margin:0;
@@ -325,8 +318,8 @@
     margin-top:0;
     width:100%;
     background:var(--white);
-    color:#4A4444;                 /* medium grey text */
-    border:1px solid #D2CBC4;      /* light grey outline */
+    color:#000000;                 /* medium grey text */
+    border:1px solid #D5D2CD;      /* light grey outline */
     font-weight:600;
   }
   .btn--secondary:hover{ background:var(--white); color:var(--accent); border-color:var(--accent); }
@@ -334,7 +327,7 @@
   .results__disclosure{
     font-size:11px;
     line-height:1.5;
-    color:#645D5B;
+    color:rgba(0,0,0,.6);
     margin:0;
   }
 
@@ -385,7 +378,7 @@
     content:"";
     display:block;
     height:1px;
-    background:#DED8D1;            /* light grey line, content width only */
+    background:#D5D2CD;            /* light grey line, content width only */
   }
   .partners{
     max-width:calc(1200px + 48px);
@@ -399,14 +392,14 @@
     font-size:15px;
     font-weight:500;
     line-height:1.5;
-    color:#4A4444;                 /* medium grey */
+    color:#000000;                 /* medium grey */
   }
   .marquee{
     position:relative;
     overflow:hidden;
     /* soft fade at both edges */
-    -webkit-mask-image:linear-gradient(90deg, transparent, #1A1919 8%, #1A1919 92%, transparent);
-            mask-image:linear-gradient(90deg, transparent, #1A1919 8%, #1A1919 92%, transparent);
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000000 8%, #000000 92%, transparent);
+            mask-image:linear-gradient(90deg, transparent, #000000 8%, #000000 92%, transparent);
   }
   .marquee__track{
     display:flex;
@@ -420,7 +413,7 @@
     flex:0 0 auto;
     height:48px;                   /* source logos are 2:1 boxes with built-in padding */
     display:flex; align-items:center;
-    color:#6E6765;
+    color:rgba(0,0,0,.55);
     font-size:15px;
     font-weight:700;
     letter-spacing:.08em;
@@ -444,7 +437,7 @@
     margin:28px auto 0;
     font-size:11px;
     line-height:1.5;
-    color:#645D5B;
+    color:rgba(0,0,0,.6);
   }
   @media (prefers-reduced-motion:reduce){
     .marquee__track{ animation:none; flex-wrap:wrap; justify-content:center; width:auto; }
@@ -499,7 +492,7 @@
     font-size:clamp(26px,2.4vw,34px);
     line-height:1;
     letter-spacing:.005em;
-    color:#2B2727;                 /* dark ink */
+    color:#000000;                 /* dark ink */
     white-space:nowrap;
     -webkit-font-smoothing:auto;
   }
@@ -511,7 +504,7 @@
     margin:0 auto;                 /* operator floats midway between the two terms */
     font-weight:500;
     font-size:.9em;
-    color:#3B3636;
+    color:#000000;
     transform:rotate(3deg) translateY(-2px);
   }
   .formula__word .op.eq{ transform:rotate(-4deg) translateY(1px); }
@@ -542,7 +535,7 @@
   }
   .formula__arrows path{
     fill:none;
-    stroke:#3B3636;
+    stroke:#000000;
     stroke-width:2;
     stroke-linecap:round;
     stroke-linejoin:round;
@@ -576,7 +569,7 @@
     margin:0;
     font-size:15px;
     line-height:1.65;
-    color:#4A4444;                 /* medium grey */
+    color:#000000;                 /* medium grey */
   }
 
   /* "I refuse to do these things." — accordion in the right quarter */
@@ -592,10 +585,10 @@
     margin:0 0 18px;
     font-size:14px;
     line-height:1.6;
-    color:#4A4444;
+    color:#000000;
   }
-  .acc{ border-top:1px solid #DED8D1; }
-  .acc__item{ border-bottom:1px solid #DED8D1; }
+  .acc{ border-top:1px solid #D5D2CD; }
+  .acc__item{ border-bottom:1px solid #D5D2CD; }
   .acc__btn{
     width:100%;
     display:flex;
@@ -646,7 +639,7 @@
     margin:0 0 12px;
     font-size:14px;
     line-height:1.65;
-    color:#4A4444;
+    color:#000000;
   }
   .acc__body p:last-child{ margin-bottom:0; }
   @media (prefers-reduced-motion:reduce){
@@ -693,7 +686,7 @@
     transform:translateY(8px);
     pointer-events:none;
     font-family:var(--hand);
-    color:#2B2727;
+    color:#000000;
   }
   .types__sticky.is-know .types__intro{ opacity:0; transform:translateY(-8px); pointer-events:none; }
   .types__sticky.is-know .types__know{ opacity:1; transform:none; }
@@ -722,7 +715,7 @@
     display:inline;
     padding:0 2px 6px;
     -webkit-box-decoration-break:clone; box-decoration-break:clone;
-    background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7 C 30 3, 60 10, 100 6 S 160 3, 198 7' fill='none' stroke='#4C0018' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M10 10 C 50 8, 100 12, 150 9 S 180 8, 194 10' fill='none' stroke='#4C0018' stroke-width='1.6' stroke-linecap='round' opacity='.55'/%3E%3C/svg%3E");
+    background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7 C 30 3, 60 10, 100 6 S 160 3, 198 7' fill='none' stroke='#00A071' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M10 10 C 50 8, 100 12, 150 9 S 180 8, 194 10' fill='none' stroke='#00A071' stroke-width='1.6' stroke-linecap='round' opacity='.55'/%3E%3C/svg%3E");
     background-repeat:repeat-x;
     background-size:200px 12px;
     background-position:0 100%;
@@ -732,7 +725,7 @@
   .itype{
     padding:0 0 56px;
     margin-bottom:56px;
-    border-bottom:1px solid #DED8D1;
+    border-bottom:1px solid #D5D2CD;
     scroll-margin-top:24px;
   }
   .itype:last-child{ margin-bottom:0; border-bottom:0; padding-bottom:16px; }
@@ -741,7 +734,7 @@
     aspect-ratio:2.6 / 1;
     border-radius:10px;
     overflow:hidden;
-    background:#E7E1DA;
+    background:#FCF7F0;
   }
   .itype__photo img,
   .itype__photo video{ width:100%; height:100%; object-fit:cover; display:block; }
@@ -769,7 +762,7 @@
     font-family:var(--font);
     font-size:14px;
     font-weight:500;
-    color:#4A4444;
+    color:#000000;
     text-decoration:underline;
     text-decoration-style:dotted;
     text-decoration-color:var(--accent);
@@ -791,7 +784,7 @@
     margin-top:14px;
     padding:16px 20px;
     border-left:2px solid var(--accent);
-    background:#FAF8F5;
+    background:#FCF7F0;
     border-radius:0 6px 6px 0;
   }
   .itype__label{
@@ -813,12 +806,12 @@
     margin:0;
     font-size:15px;
     line-height:1.65;
-    color:#3B3636;
+    color:#000000;
   }
   .itype__split{
     margin-top:28px;
     padding:28px 0 32px;
-    border-top:1px solid #DED8D1;
+    border-top:1px solid #D5D2CD;
   }
   .itype__feats{
     list-style:none; margin:0 0 28px; padding:0;
@@ -830,7 +823,7 @@
     min-width:0;
     font-size:14.5px;
     line-height:1.6;
-    color:#4A4444;
+    color:#000000;
   }
   .feat__icon{
     display:block;
@@ -844,9 +837,9 @@
     max-width:720px;
     font-size:15px;
     line-height:1.65;
-    color:#4A4444;
+    color:#000000;
   }
-  .itype__col--who{ padding-top:24px; border-top:1px solid #F1ECE6; }
+  .itype__col--who{ padding-top:24px; border-top:1px solid #FCF7F0; }
   .itype__who-head{
     display:flex;
     align-items:center;
@@ -861,7 +854,7 @@
     border:2px solid var(--white);
     box-shadow:0 0 0 1px rgba(0,0,0,.06);
     margin-left:-9px;
-    background:#DED8D1;
+    background:#D5D2CD;
     object-fit:cover;
   }
   .avatars img:first-child{ margin-left:0; }
@@ -915,7 +908,7 @@
   }
   .review__process{ min-width:0; }
   .stages{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
-  .stage{ min-width:0; position:relative; padding:28px 26px 26px; border:1px solid #DED8D1; border-radius:10px; background:var(--white); }
+  .stage{ min-width:0; position:relative; padding:28px 26px 26px; border:1px solid #D5D2CD; border-radius:10px; background:var(--white); }
   .stage__head{ display:flex; align-items:baseline; gap:14px; margin-bottom:12px; }
   .stage__num{
     font-family:var(--hand);
@@ -942,7 +935,7 @@
   .stage__takeaway{
     padding-left:16px;
     border-left:2px solid var(--accent);
-    color:#4A4444 !important;
+    color:#000000 !important;
     font-size:14.5px !important;
   }
 
@@ -1014,14 +1007,14 @@
     display:grid;
     grid-template-columns:repeat(3,minmax(0,1fr));
     gap:0 40px;
-    border-top:1px solid #DED8D1;
-    border-bottom:1px solid #DED8D1;
+    border-top:1px solid #D5D2CD;
+    border-bottom:1px solid #D5D2CD;
   }
   .numbers__row{
     min-width:0;
     padding:22px 0;
   }
-  .numbers__row + .numbers__row{ border-left:1px solid #DED8D1; padding-left:40px; margin-left:-20px; }
+  .numbers__row + .numbers__row{ border-left:1px solid #D5D2CD; padding-left:40px; margin-left:-20px; }
   .numbers dt{
     margin:0 0 8px;
     font-size:17px;
@@ -1032,7 +1025,7 @@
     margin:0;
     font-size:15px;
     line-height:1.65;
-    color:#4A4444;
+    color:#000000;
   }
 
   /* worksheet — a torn scrap of paper with a coffee ring */
@@ -1046,7 +1039,7 @@
     position:relative;
     padding:44px 28px 28px;
     background:
-      repeating-linear-gradient(180deg, transparent 0 31px, rgba(76,0,24,.13) 31px 32px),
+      repeating-linear-gradient(180deg, transparent 0 31px, rgba(0,160,113,.13) 31px 32px),
       #FBFAF6;
     background-position:0 18px;
     clip-path:polygon(0.0% 0.5%, 3.8% 0.2%, 7.7% 1.0%, 11.5% 0.1%, 15.4% 0.9%, 19.2% 0.6%, 23.1% 0.1%, 26.9% 0.8%, 30.8% 0.1%, 34.6% 0.7%, 38.5% 0.1%, 42.3% 0.1%, 46.2% 0.7%, 50.0% 1.3%, 53.8% 0.2%, 57.7% 0.4%, 61.5% 1.0%, 65.4% 1.5%, 69.2% 0.9%, 73.1% 0.6%, 76.9% 1.6%, 80.8% 0.1%, 84.6% 1.4%, 88.5% 0.5%, 92.3% 0.2%, 96.2% 0.2%, 100.0% 0.5%, 100.0% 98.7%, 96.2% 99.7%, 92.3% 99.1%, 88.5% 99.0%, 84.6% 99.4%, 80.8% 99.1%, 76.9% 99.9%, 73.1% 99.9%, 69.2% 99.7%, 65.4% 98.9%, 61.5% 99.3%, 57.7% 99.5%, 53.8% 99.1%, 50.0% 99.3%, 46.2% 99.5%, 42.3% 98.7%, 38.5% 98.9%, 34.6% 99.6%, 30.8% 99.1%, 26.9% 99.2%, 23.1% 98.6%, 19.2% 98.8%, 15.4% 99.5%, 11.5% 98.4%, 7.7% 99.8%, 3.8% 99.3%, 0.0% 98.8%);
@@ -1068,10 +1061,10 @@
     font-size:26px;
     font-weight:500;
     line-height:1.1;
-    color:#2B2727;
+    color:#000000;
   }
   .napkin__line--total{
-    border-top:2px solid #2B2727;
+    border-top:2px solid #000000;
     margin-top:4px; padding-top:10px;
     font-weight:600;
   }
@@ -1083,7 +1076,7 @@
     font-family:var(--hand);
     font-size:20px;
     line-height:1.2;
-    color:#4A4444;
+    color:#000000;
     transform:rotate(-1deg);
     transform-origin:0 50%;
   }
@@ -1094,25 +1087,25 @@
     font-size:22px;
     font-weight:600;
     line-height:1.1;
-    color:#2B2727;
+    color:#000000;
   }
   .napkin__pie{ display:block; width:100%; height:auto; margin:0 0 14px; overflow:visible; }
   .napkin__arrows path{
-    fill:none; stroke:#3B3636; stroke-width:1.7;
+    fill:none; stroke:#000000; stroke-width:1.7;
     stroke-linecap:round; stroke-linejoin:round;
   }
   .napkin__labels text{
     font-family:var(--hand);
     font-size:17px;
     font-weight:500;
-    fill:#2B2727;
+    fill:#000000;
   }
   .napkin__labels .pct{ font-weight:700; fill:var(--accent); }
   .napkin__disclosure{
     margin:0;
     font-size:11px;
     line-height:1.5;
-    color:#645D5B;
+    color:rgba(0,0,0,.6);
   }
 
   /* ---------- Why do investors work with me? ---------- */
@@ -1143,7 +1136,7 @@
     height:180px;
     object-fit:cover;
     border-radius:10px;
-    background:#E7E1DA;
+    background:#FCF7F0;
     margin:6px 28px 12px 0;
     shape-outside:inset(0 round 10px);
   }
@@ -1191,7 +1184,7 @@
     margin:24px 0 0 !important;
     font-size:11px !important;
     line-height:1.5 !important;
-    color:#645D5B !important;
+    color:rgba(0,0,0,.6) !important;
   }
 
   .chart{ margin:0; min-width:0; }
@@ -1205,12 +1198,12 @@
   .chart__sub{
     margin:0;
     font-size:12.5px;
-    color:#4A4444;
+    color:#000000;
   }
   .chart__svg{ display:block; width:100%; height:auto; overflow:visible; }
-  .c-grid{ stroke:#DED8D1; stroke-width:1; }
-  .c-grid--base{ stroke:#6E6765; }
-  .c-tick{ font-family:var(--font); font-size:11px; fill:#645D5B; }
+  .c-grid{ stroke:#D5D2CD; stroke-width:1; }
+  .c-grid--base{ stroke:rgba(0,0,0,.55); }
+  .c-tick{ font-family:var(--font); font-size:11px; fill:rgba(0,0,0,.6); }
   .c-hit{ fill:transparent; }
   .c-fill{
     fill:#B9C4D0;
@@ -1231,18 +1224,18 @@
   }
   .c-bar--hi .c-fill{ fill:var(--accent); }
   .c-bar:hover .c-fill,
-  .c-bar:focus-visible .c-fill{ fill:#6E6765; }
+  .c-bar:focus-visible .c-fill{ fill:rgba(0,0,0,.55); }
   .c-bar--hi:hover .c-fill,
   .c-bar--hi:focus-visible .c-fill{ fill:var(--accent-hover); }
   .c-bar:focus-visible{ outline:none; }
   .c-val{ font-family:var(--font); font-size:13px; font-weight:700; fill:var(--black); }
-  .c-cat{ font-family:var(--font); font-size:11.5px; fill:#4A4444; }
+  .c-cat{ font-family:var(--font); font-size:11.5px; fill:#000000; }
   .c-bar--hi .c-cat{ fill:var(--black); font-weight:600; }
   .chart__sources{
     margin:16px 0 0;
     font-size:11px;
     line-height:1.5;
-    color:#645D5B;
+    color:rgba(0,0,0,.6);
   }
   .chart__sources a{ color:inherit; text-decoration:underline; text-decoration-color:#CBD5E1; text-underline-offset:2px; }
   .chart__sources a:hover{ color:var(--accent); text-decoration-color:var(--accent); }
@@ -1263,7 +1256,7 @@
   .start__head--tight{ margin-bottom:28px; }
   .steps--top{ padding-bottom:40px; }
   .start__block--deadlines{ grid-template-columns:minmax(0,1fr) minmax(0,1.6fr); gap:24px 64px; align-items:center; }
-  .start__deadline-copy{ margin:12px 0 0; font-size:15px; line-height:1.65; color:#4A4444; }
+  .start__deadline-copy{ margin:12px 0 0; font-size:15px; line-height:1.65; color:#000000; }
   .start__deadline-copy strong{ color:var(--black); }
   .start__head h2{
     margin:0 0 20px;
@@ -1289,7 +1282,7 @@
     grid-template-columns:minmax(0,1fr) minmax(0,2.4fr);
     gap:20px 64px;
     padding:40px 0;
-    border-top:1px solid #DED8D1;
+    border-top:1px solid #D5D2CD;
     align-items:start;
   }
   /* "Before you invest": single row heading, then copy in two columns */
@@ -1309,14 +1302,14 @@
     font-size:24px;
     font-weight:500;
     line-height:1.1;
-    color:#4A4444;
+    color:#000000;
     transform:rotate(-1.5deg);
     transform-origin:0 100%;
     display:inline-block;
   }
   .start__block-body{ min-width:0; }
 
-  .start__process{ padding:40px 0; border-top:1px solid #DED8D1; }
+  .start__process{ padding:40px 0; border-top:1px solid #D5D2CD; }
   .start__h3{ margin-bottom:22px; }
   .steps{
     list-style:none; margin:0; padding:0;
@@ -1344,36 +1337,36 @@
   .step__note{
     padding-left:14px;
     border-left:2px solid var(--accent);
-    color:#4A4444 !important;
+    color:#000000 !important;
     font-size:14.5px !important;
     margin-bottom:0 !important;
   }
 
   .clock{ margin:0; }
   .clock__svg{ display:block; width:100%; height:auto; overflow:visible; }
-  .clock__ink{ fill:none; stroke:#2B2727; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
+  .clock__ink{ fill:none; stroke:#000000; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
   .clock__ink--accent{ stroke:var(--accent); }
   .clock__line{ stroke-width:3; }
   .clock__dot{ fill:var(--accent); stroke:var(--accent); stroke-width:2.2; stroke-linejoin:round; }
-  .clock__dot--open{ fill:#fff; stroke:#2B2727; }
-  .clock__span{ font-family:var(--hand); font-size:27px; font-weight:600; fill:#2B2727; }
+  .clock__dot--open{ fill:#fff; stroke:#000000; }
+  .clock__span{ font-family:var(--hand); font-size:27px; font-weight:600; fill:#000000; }
   .clock__span--accent{ fill:var(--accent); }
-  .clock__day{ font-family:var(--hand); font-size:30px; font-weight:700; fill:#2B2727; }
-  .clock__lbl{ font-family:var(--hand); font-size:22px; font-weight:500; fill:#4A4444; }
-  .clock__hand text{ font-family:var(--hand); font-size:26px; font-weight:500; fill:#3B3636; }
-  .clock__hand path{ fill:none; stroke:#3B3636; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .clock__day{ font-family:var(--hand); font-size:30px; font-weight:700; fill:#000000; }
+  .clock__lbl{ font-family:var(--hand); font-size:22px; font-weight:500; fill:#000000; }
+  .clock__hand text{ font-family:var(--hand); font-size:26px; font-weight:500; fill:#000000; }
+  .clock__hand path{ fill:none; stroke:#000000; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
   .deadlines{
     margin:0 0 18px;
     padding:0;
     list-style:none;
-    border-top:1px solid #DED8D1;
+    border-top:1px solid #D5D2CD;
   }
   .deadlines li{
     padding:12px 0;
-    border-bottom:1px solid #DED8D1;
+    border-bottom:1px solid #D5D2CD;
     font-size:16px;
     line-height:1.6;
-    color:#4A4444;
+    color:#000000;
   }
   .deadlines strong{ color:var(--black); font-weight:700; }
   .start__cta{ margin-top:16px; }
@@ -1388,9 +1381,9 @@
     color:var(--accent);
   }
   .faq .acc__btn{ font-size:16px; padding:15px 0; }
-  .start__block-body .faq .acc__body p{ font-size:15px; line-height:1.65; color:#4A4444; margin:0 0 12px; }
+  .start__block-body .faq .acc__body p{ font-size:15px; line-height:1.65; color:#000000; margin:0 0 12px; }
   .faq .acc__body ul{ margin:0 0 12px; padding-left:20px; }
-  .faq .acc__body li{ font-size:15px; line-height:1.65; color:#4A4444; margin-bottom:6px; }
+  .faq .acc__body li{ font-size:15px; line-height:1.65; color:#000000; margin-bottom:6px; }
   .faq .acc__body strong{ color:var(--black); }
   .faq .acc__body > :last-child{ margin-bottom:0; }
 
@@ -1451,7 +1444,7 @@
     color:var(--accent);
     border-color:var(--white);
   }
-  .ctabar__btn:hover{ background:#F2EDE7; border-color:#F2EDE7; }
+  .ctabar__btn:hover{ background:#FCF7F0; border-color:#FCF7F0; }
   body.has-ctabar{ padding-bottom:72px; }
   @media (prefers-reduced-motion:reduce){ .ctabar{ transition:none; } }
 
@@ -1476,7 +1469,7 @@
     font-size:26px;
     font-weight:500;
     line-height:1.1;
-    color:#4A4444;
+    color:#000000;
     transform:rotate(-1.2deg);
     transform-origin:0 100%;
     display:inline-block;
@@ -1499,11 +1492,11 @@
     text-transform:uppercase;
     color:var(--accent);
   }
-  .faq--cols .acc__body p{ font-size:15px; line-height:1.65; color:#4A4444; margin:0 0 12px; }
+  .faq--cols .acc__body p{ font-size:15px; line-height:1.65; color:#000000; margin:0 0 12px; }
 
   /* ---------- Footer ---------- */
   .footer{ background:var(--white); }
-  .rule--strong::before{ height:2px; background:#C6BEB6; }
+  .rule--strong::before{ height:2px; background:#D5D2CD; }
   .footer__inner{
     max-width:calc(1200px + 48px);
     margin:0 auto;
@@ -1513,19 +1506,19 @@
     gap:32px 40px;
   }
   .footer__brand img{ height:34px; width:auto; display:block; margin-bottom:16px; }
-  .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#4A4444; }
-  .footer__brand a{ color:#4A4444; text-decoration:none; }
+  .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#000000; }
+  .footer__brand a{ color:#000000; text-decoration:none; }
   .footer__brand a:hover{ color:var(--accent); }
   .footer__brand .footer__blurb{ max-width:46ch; }
   .footer__office{
     font-style:normal;
     margin:0 0 14px;
-    font-size:13.5px; line-height:1.6; color:#4A4444;
+    font-size:13.5px; line-height:1.6; color:#000000;
   }
   .footer__office strong{ display:block; font-weight:600; color:var(--black); }
   .footer__col .footer__office a{ display:inline; padding:0; font-size:inherit; }
   .footer__col .footer__office a:hover{ color:var(--accent); }
-  .footer__disclosure a{ color:#645D5B; text-decoration:underline; text-underline-offset:2px; }
+  .footer__disclosure a{ color:rgba(0,0,0,.6); text-decoration:underline; text-underline-offset:2px; }
   .footer__disclosure a:hover{ color:var(--accent); }
   .footer__label{
     margin:0 0 10px;
@@ -1536,7 +1529,7 @@
     display:block;
     padding:4px 0;
     font-size:14px;
-    color:#4A4444;
+    color:#000000;
     text-decoration:none;
     transition:color .15s ease;
   }
@@ -1544,10 +1537,10 @@
   .footer__disclosure{
     grid-column:1 / -1;
     padding-top:28px;
-    border-top:1px solid #DED8D1;
+    border-top:1px solid #D5D2CD;
   }
-  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:#645D5B; }
-  .footer__copy{ color:#6E6765 !important; }
+  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(0,0,0,.6); }
+  .footer__copy{ color:rgba(0,0,0,.55) !important; }
 
   /* ---------- Skyline illustration ---------- */
   .skyline{
@@ -1566,7 +1559,7 @@
     position:sticky; top:0; z-index:60;
     background:rgba(255,255,255,.92);
     -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
-    border-bottom:1px solid #DED8D1;
+    border-bottom:1px solid #D5D2CD;
     transition:box-shadow .2s ease;
   }
   .nav.is-scrolled{ box-shadow:0 2px 12px rgba(0,0,0,.06); }
@@ -1588,7 +1581,7 @@
     justify-items:center;
     font-size:14px;
     font-weight:600;
-    color:#4A4444;
+    color:#000000;
     text-decoration:none;
     padding:6px 0;
     line-height:1.2;
@@ -1623,7 +1616,7 @@
   .nav__login{
     font-size:14px;
     font-weight:600;
-    color:#4A4444;
+    color:#000000;
     text-decoration:none;
     transition:color .15s ease;
   }
@@ -1634,7 +1627,7 @@
   .nav__user{ font-size:14px; font-weight:600; color:var(--black); white-space:nowrap; }
   .nav__user-name{ color:var(--accent); }
   .nav__logout{
-    font:inherit; font-size:14px; font-weight:600; color:#4A4444;
+    font:inherit; font-size:14px; font-weight:600; color:#000000;
     background:none; border:0; padding:0; cursor:pointer; white-space:nowrap;
     transition:color .15s ease;
   }
@@ -1674,11 +1667,11 @@
       flex-direction:column; align-items:stretch; gap:0;
       margin:0; padding:8px 20px 12px;
       background:var(--white);
-      border-bottom:1px solid #DED8D1;
+      border-bottom:1px solid #D5D2CD;
       box-shadow:0 12px 24px rgba(0,0,0,.08);
     }
     .nav__links.is-open{ display:flex; }
-    .nav__links a{ padding:12px 0; border-bottom:1px solid #F1ECE6; font-size:15px; }
+    .nav__links a{ padding:12px 0; border-bottom:1px solid #FCF7F0; font-size:15px; }
     .nav__links a{ justify-items:start; }
     .nav__links a .nav__hand{ font-size:22px; }
     .nav__links a:last-child{ border-bottom:0; }
@@ -1710,7 +1703,7 @@
     .solution__grid{ grid-template-columns:1fr; gap:36px 0; }
     .napkin-wrap{ position:static; transform:none; }
     .numbers{ grid-template-columns:1fr; gap:0; }
-    .numbers__row + .numbers__row{ border-left:0; border-top:1px solid #DED8D1; padding-left:0; margin-left:0; }
+    .numbers__row + .numbers__row{ border-left:0; border-top:1px solid #D5D2CD; padding-left:0; margin-left:0; }
     .review__grid{ padding:32px 0 24px; }
     .stages{ grid-template-columns:1fr; gap:16px; }
     .types__sticky{ position:static; }
@@ -1736,7 +1729,7 @@
     .results__viewport{ overflow-x:clip; }   /* the waiting cards sit 32px to the side; never widen the page */
     .property__panel{ padding:16px; }
   }
-/* Headings in Sanomat (one weight); everything else stays in Guardian Sans */
+/* Headings share the body face; weight and letter-spacing carry the hierarchy. */
 h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;letter-spacing:-.01em}
 </style>
 </head>
@@ -1746,7 +1739,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 <header class="nav" id="nav">
   <div class="nav__inner">
     <a class="nav__logo" href="#top" aria-label="Baker 1031 — home">
-      <img src="/assets/media/logo.png" alt="Baker 1031" width="930" height="224">
+      <img src="/assets/media/logo.png" alt="Baker 1031" width="1684" height="224">
     </a>
     <nav class="nav__links" id="nav-links" aria-label="Primary">
       <a href="#top"><span class="nav__word">Home</span><span class="nav__hand" aria-hidden="true">Home</span></a>
@@ -2664,9 +2657,9 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
         <p class="napkin__split-title">One exchange, several investments</p>
         <svg class="napkin__pie" viewBox="0 0 380 200" aria-hidden="true">
           <g class="napkin__slices">
-            <path d="M150 100 L150.0 40.0 A60 60 0 0 1 150.0 160.0 Z" fill="#4C0018"/>
-            <path d="M150 100 L150.0 160.0 A60 60 0 0 1 92.9 81.5 Z" fill="rgba(76,0,24,.68)"/>
-            <path d="M150 100 L92.9 81.5 A60 60 0 0 1 150.0 40.0 Z" fill="rgba(76,0,24,.42)"/>
+            <path d="M150 100 L150.0 40.0 A60 60 0 0 1 150.0 160.0 Z" fill="#00A071"/>
+            <path d="M150 100 L150.0 160.0 A60 60 0 0 1 92.9 81.5 Z" fill="rgba(0,160,113,.68)"/>
+            <path d="M150 100 L92.9 81.5 A60 60 0 0 1 150.0 40.0 Z" fill="rgba(0,160,113,.42)"/>
             <circle cx="150" cy="100" r="60" fill="none" stroke="#FBFAF6" stroke-width="2"/>
           </g>
           <g class="napkin__arrows">
@@ -3425,7 +3418,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__brand">
-      <a href="/" class="footer__home" aria-label="Baker 1031 Investments — home"><img src="/assets/media/logo.png" alt="Baker 1031" width="930" height="224"></a>
+      <a href="/" class="footer__home" aria-label="Baker 1031 Investments — home"><img src="/assets/media/logo.png" alt="Baker 1031" width="1684" height="224"></a>
       <p class="footer__blurb">Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.</p>
       <p><a href="mailto:invest@baker1031.com">invest@baker1031.com</a></p>
     </div>

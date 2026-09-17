@@ -53,7 +53,7 @@ First-order thinking stops at “no added fee.” Second-order thinking reads th
 <h2 class="optima">How the structure keeps us honest</h2>
 <p>Because commissions are broadly similar across institutional DST offerings, we have no financial reason to steer you toward one sponsor over another — which is exactly how we want it. Our coverage is sponsor-agnostic, our diligence is published, and our analyst notes flag the cons alongside the pros on every offering.</p>
 <p>Recommendations are made under Regulation Best Interest and reviewed by the supervising registered principal at Aurora Securities. Before you invest, we walk through the fee table in the PPM together, so the load, the ongoing fees, and the disposition economics are understood — not discovered.</p>
-<p>Have a fee question we have not answered? <a href="contact.html" style="color:#4C0018;text-decoration:none;">Ask the desk directly</a>.</p>
+<p>Have a fee question we have not answered? <a href="contact.html" style="color:#00A071;text-decoration:none;">Ask the desk directly</a>.</p>
 </section>
 
 
