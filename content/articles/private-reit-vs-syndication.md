@@ -60,7 +60,7 @@ The direct comparison is covered in [DST vs. REIT](dst-vs-reit.html). There can 
 
 ## Liquidity, minimums, and lifespan
 
-All three are illiquid relative to publicly traded stock. A private REIT is an ongoing entity and may offer a limited redemption program that is conditional, capped, and subject to gating during stress. A syndication is normally finite and returns capital when its property is sold, often after a few years or more, with little or no interim liquidity. A DST is also finite, ending at a sponsor’s full-cycle sale, often **5–10 years** out, with no redemption mechanism during the hold. None is a place for money that may be needed soon.
+All three are illiquid relative to publicly traded stock. A private REIT is an ongoing entity and may offer a limited redemption program that is conditional, capped, and subject to gating during stress. A syndication is normally finite and returns capital when its property is sold, often after a few years or more, with little or no interim liquidity. A DST is also finite, ending at a sponsor’s full-cycle sale, often **5–7 years** out, sometimes as long as 10, with no redemption mechanism during the hold. None is a place for money that may be needed soon.
 
 Minimums vary. Private REITs and syndications often require tens of thousands of dollars. DST minimums for 1031 investors often run roughly **$25,000 to $100,000**—also expressed as **$25 to $100 thousand**—while cash investors can face higher floors. In every case, read the specific liquidity terms and prepare to commit capital for years.
 
@@ -108,7 +108,7 @@ Usually a syndication. It offers proximity to the property, detailed information
 
 ### How liquid are these structures?
 
-All are illiquid. A private REIT may offer capped redemptions that can be gated; a syndication commonly returns capital when its property sells after a few years; a DST normally ends at a sponsor full-cycle sale, often **5–10 years** away. Plan to leave the money committed for years.
+All are illiquid. A private REIT may offer capped redemptions that can be gated; a syndication commonly returns capital when its property sells after a few years; a DST normally ends at a sponsor full-cycle sale, often **5–7 years** away, sometimes as long as 10. Plan to leave the money committed for years.
 
 ### Which is riskiest?
 

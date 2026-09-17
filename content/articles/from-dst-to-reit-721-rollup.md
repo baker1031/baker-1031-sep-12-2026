@@ -40,7 +40,7 @@ The roll-up is usually the final move in a process that begins years earlier.
 | Stage | What happens | Tax effect |
 | --- | --- | --- |
 | 1031 into the DST | The investor exchanges relinquished property for DST beneficial interests through a qualified intermediary. | Gain is deferred under Section 1031. |
-| Hold to full cycle | The DST holds the property, typically five to ten years, and distributes income. | Distributions are taxed as earned; deferred gain remains deferred. |
+| Hold to full cycle | The DST holds the property, typically five to seven years and sometimes as long as ten, and distributes income. | Distributions are taxed as earned; deferred gain remains deferred. |
 | 721 contribution | The sponsor’s REIT acquires the property, and the investor contributes the DST interest to the operating partnership for OP units. | No gain is generally recognized under Section 721; deferral continues. |
 | Hold OP units | The investor owns a partnership interest and receives distributions reported on a K-1. | Distributions are taxed; deferred gain remains inside the units. |
 | Convert to REIT shares | The investor elects to exchange OP units for REIT common shares, generally one-for-one or at a stated ratio. | Conversion is generally taxable; deferred gain is recognized on the converted units. |
@@ -164,7 +164,7 @@ Because the investor’s long-term outcome is determined by the destination REIT
 
 **OP Units:** Operating-partnership ownership units, reported on a K-1 and generally convertible to REIT shares.
 
-**Full-Cycle Sale:** The end of a DST’s life, typically five to ten years after formation, when the property is sold or contributed.
+**Full-Cycle Sale:** The end of a DST’s life, typically five to seven years after formation and sometimes as long as ten, when the property is sold or contributed.
 
 **Destination REIT:** The sponsor’s affiliated REIT that receives the DST property and determines the investor’s long-term income, risk, and liquidity.
 

@@ -56,7 +56,7 @@ OP units are interests in that partnership. A property owner can contribute real
 
 ## Non-Traded & NAV REIT
 
-A non-traded REIT is SEC-registered but not exchange-listed. It owns or finances real estate under core REIT rules but does not have daily market pricing. It is periodically valued at NAV and generally offers only limited redemption liquidity, often capped around **5%** of shares per year and subject to reduction or suspension. It is illiquid and typically available through a broker-dealer to suitable investors.
+A non-traded REIT is SEC-registered but not exchange-listed. It owns or finances real estate under core REIT rules but does not have daily market pricing. It is periodically valued at NAV and generally offers only limited redemption liquidity, often capped around **2%** of NAV per month and **5%** per quarter, and subject to reduction or suspension. It is illiquid and typically available through a broker-dealer to suitable investors.
 
 A NAV REIT is a modern non-traded REIT valued more frequently, often monthly, with offerings and redemptions at NAV and an open-ended life. It was designed to address older non-traded-REIT concerns through more frequent valuation, perpetual life, and often lower or more transparent fees. It remains illiquid compared with a listed REIT, and redemptions can still be capped, gated, or suspended.
 
@@ -108,7 +108,7 @@ They are operating-partnership interests received for contributed property. They
 
 ### What is a non-traded REIT?
 
-It is an SEC-registered but unlisted REIT. It follows core REIT rules, including the **90%** taxable-income distribution rule, is valued periodically at NAV, and has limited redemption liquidity often capped around **5%** of shares per year, which the REIT can reduce or suspend. It can have higher upfront fees and valuation uncertainty than a listed vehicle, and is designed for longer-term investors comfortable with illiquidity.
+It is an SEC-registered but unlisted REIT. It follows core REIT rules, including the **90%** taxable-income distribution rule, is valued periodically at NAV, and has limited redemption liquidity, commonly capped around **2%** of NAV per month and **5%** per quarter, which the REIT can reduce or suspend. It can have higher upfront fees and valuation uncertainty than a listed vehicle, and is designed for longer-term investors comfortable with illiquidity.
 
 ### What is a NAV REIT?
 

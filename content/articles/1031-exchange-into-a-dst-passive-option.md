@@ -173,7 +173,7 @@ The strict trustee restrictions under Rev. Rul. 2004-86 that keep a DST passive:
 
 ### How long do I hold a DST?
 
-Typically the trust's full life cycle — often around 5–10 years — at the end of which the property is sold (full cycle) and capital returned. You generally can't exit early, since the secondary market is limited, so be comfortable holding for the projected period before investing.
+Typically the trust's full life cycle — often around 5–7 years, sometimes as long as 10 — at the end of which the property is sold (full cycle) and capital returned. You generally can't exit early, since the secondary market is limited, so be comfortable holding for the projected period before investing.
 
 ### What happens at the end of a DST (full cycle)?
 

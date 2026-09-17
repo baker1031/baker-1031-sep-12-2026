@@ -90,7 +90,7 @@ For context, long-term capital-gain rates can be **0**, **15**, or **20** percen
 
 ## Liquidity and Getting Capital Back
 
-Liquidity is a quiet but decisive difference. Direct property is naturally illiquid: selling can take months, costs commissions, and exposes the owner to the market on the closing date. A DST is illiquid too. There is little meaningful secondary market, and the typical hold period can run five to ten years.
+Liquidity is a quiet but decisive difference. Direct property is naturally illiquid: selling can take months, costs commissions, and exposes the owner to the market on the closing date. A DST is illiquid too. There is little meaningful secondary market, and the typical hold period runs five to seven years, and sometimes as long as ten.
 
 Public REITs sit at the other end. Their shares trade on an exchange and can clear in seconds. Non-traded REITs fall between these choices: they may offer periodic redemptions, but redemptions are capped, may be gated in stress, and are not a promise of liquidity.
 

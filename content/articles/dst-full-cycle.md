@@ -29,7 +29,7 @@ A DST is a finite investment, and the discipline of investing in one well includ
 
 - 'Full-cycle' means the sponsor has sold the DST's property and returned capital to investors.
 
-- Typical hold periods run roughly five to ten years, though timing depends on the market and the business plan.
+- Typical hold periods run five to seven years, and sometimes as long as ten, though timing depends on the market and the business plan.
 
 - Because IRS rules bar a DST from reinvesting sale proceeds, the next move is yours to make.
 
@@ -43,7 +43,7 @@ A DST has a defined life. When the sponsor judges conditions right, the underlyi
 
 ## Typical hold periods and what drives the timing
 
-Most DSTs target a hold of roughly five to ten years , but the precise timing is the sponsor's call, driven by market conditions and the business plan. A strong sales market or a fully executed business plan can bring an earlier exit; a weak market can extend the hold while the sponsor waits for better pricing. Because you don't control the timing, a DST suits investors who don't need a fixed exit date and can let the sponsor sell when it makes sense rather than on a schedule. Build that uncertainty into your planning rather than assuming a precise horizon.
+Most DSTs target a hold of five to seven years, and sometimes as long as ten, but the precise timing is the sponsor's call, driven by market conditions and the business plan. A strong sales market or a fully executed business plan can bring an earlier exit; a weak market can extend the hold while the sponsor waits for better pricing. Because you don't control the timing, a DST suits investors who don't need a fixed exit date and can let the sponsor sell when it makes sense rather than on a schedule. Build that uncertainty into your planning rather than assuming a precise horizon.
 
 ## The typical DST life cycle
 
@@ -177,7 +177,7 @@ No — there's no guarantee any given DST will go full cycle exactly as projecte
 
 - **Full-Cycle:** The point at which a DST's property is sold and proceeds are returned to investors.
 
-- **Hold Period:** The length of time a DST owns its property before selling, typically five to ten years.
+- **Hold Period:** The length of time a DST owns its property before selling, typically five to seven years and sometimes as long as ten.
 
 - **721 Exchange:** A contribution of property into a REIT's operating partnership for units, continuing tax deferral.
 

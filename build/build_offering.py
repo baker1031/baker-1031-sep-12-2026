@@ -426,7 +426,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
                 <h3 style="margin:0 0 10px;font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--grey-light)">Debt</h3>
                 <dl class="kv" style="grid-template-columns:1fr">
                   <div><dt>Loan amount</dt><dd>''' + money(O['loanAmount']) + r'''</dd></div>
-                  <div><dt>Loan-to-value</dt><dd>''' + f"{O['ltv']}%" + r'''</dd></div>
+                  <div><dt>Leverage (loan to total capitalization)</dt><dd>''' + f"{O['ltv']}%" + r'''</dd></div>
                   <div><dt>Rate</dt><dd>''' + O['loanRate'] + r'''</dd></div>
                   <div><dt>Term</dt><dd>''' + O['loanTerm'] + r'''</dd></div>
                 </dl>
@@ -483,7 +483,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
               <div><dt>Equity</dt><dd>''' + money(O['equityRaise']) + r'''</dd></div>
               <div><dt>Debt</dt><dd>''' + money(O['loanAmount']) + r'''</dd></div>
               <div><dt>Total Investment</dt><dd>''' + money(O['totalOffering']) + r'''</dd></div>
-              <div><dt>LTV</dt><dd>''' + f"{O['ltv']}%" + r'''</dd></div>
+              <div><dt>Leverage</dt><dd>''' + f"{O['ltv']}%" + r'''</dd></div>
               <div><dt>Initial Reserves</dt><dd>''' + money(O['initialReserves']) + r'''</dd></div>
               <div><dt>Lender</dt><dd title="''' + O['lender'] + r'''">''' + O['lender'] + r'''</dd></div>
               <div><dt>Amortization</dt><dd title="''' + O['amortization'] + r'''">''' + O['amortization'] + r'''</dd></div>

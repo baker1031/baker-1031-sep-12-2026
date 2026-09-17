@@ -105,7 +105,7 @@ It means no fixed end date or predetermined liquidation event. The REIT can cont
 
 ### How does liquidity work in a NAV REIT?
 
-Liquidity generally comes from recurring, often monthly, requests that the REIT repurchase shares at NAV. The program is commonly capped around 5% of NAV per quarter, or roughly 2% per month. Requests can be prorated, and the board can reduce, suspend, or gate the program. Holding-period conditions and early-repurchase discounts can apply. Confirm the actual terms before investing.
+Liquidity generally comes from recurring, often monthly, requests that the REIT repurchase shares at NAV. The program is commonly capped around 5% of NAV per quarter, and, within that, roughly 2% per month. Requests can be prorated, and the board can reduce, suspend, or gate the program. Holding-period conditions and early-repurchase discounts can apply. Confirm the actual terms before investing.
 
 ### What is the difference between a NAV REIT and a legacy non-traded REIT?
 

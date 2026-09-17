@@ -54,7 +54,7 @@ Mortgage REITs finance property through mortgages and mortgage-backed securities
 
 Public REITs are exchange-listed. Shares trade throughout the day at transparent market prices, with daily liquidity and generally lower upfront fees. Their prices can be volatile in the short term with the broader market even when underlying properties are stable.
 
-Non-traded REITs are SEC-registered but unlisted. They are valued periodically at net asset value, or NAV, rather than trading daily on an exchange. Liquidity usually comes through periodic redemption programs, commonly capped around 5% per year and subject to suspension. Non-traded REITs have historically carried higher loads and upfront fees and are typically designed for longer-term income investors who do not need ready liquidity. Non-traded and private REITs are generally offered through a broker-dealer and require accredited or otherwise suitable investors after a suitability review.
+Non-traded REITs are SEC-registered but unlisted. They are valued periodically at net asset value, or NAV, rather than trading daily on an exchange. Liquidity usually comes through periodic redemption programs, commonly capped around 2% of NAV per month and 5% per quarter and subject to suspension. Non-traded REITs have historically carried higher loads and upfront fees and are typically designed for longer-term income investors who do not need ready liquidity. Non-traded and private REITs are generally offered through a broker-dealer and require accredited or otherwise suitable investors after a suitability review.
 
 Two questions define the structure: does the REIT own property, hold mortgages, or both; and does the investor hold a liquid, exchange-listed share or an illiquid, NAV-priced non-traded interest?
 
@@ -94,7 +94,7 @@ Most ordinary REIT dividends are taxed as ordinary income rather than at qualifi
 
 ### Are REITs liquid?
 
-It depends on the structure. Public REITs trade on exchanges throughout the day at market prices and are generally liquid through a brokerage account. Non-traded REITs are not exchange-listed, have no daily trading, and generally rely on periodic redemption programs commonly capped around 5% per year and subject to suspension. They are intended for longer-term investors who do not need ready access to capital.
+It depends on the structure. Public REITs trade on exchanges throughout the day at market prices and are generally liquid through a brokerage account. Non-traded REITs are not exchange-listed, have no daily trading, and generally rely on periodic redemption programs commonly capped around 2% of NAV per month and 5% per quarter and subject to suspension. They are intended for longer-term investors who do not need ready access to capital.
 
 ### How are REITs different from owning property directly?
 

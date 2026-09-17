@@ -55,7 +55,7 @@ Diversifying among DSTs by sector, geography, and sponsor can reduce the depende
 
 REITs, especially non-traded NAV REITs, can provide professionally managed and diversified real-estate income. REIT dividends carry a **20% deduction** that can lower their tax cost.
 
-For retirement, the 721 UPREIT path deserves careful attention: exchange into a DST, then allow a REIT to acquire it for operating-partnership units. That can provide diversified income now and a path to liquidity later, because units may be converted to REIT shares and sold in pieces for later-retirement needs. It can also make estate division easier.
+For retirement, the 721 UPREIT path deserves careful attention: exchange into a DST, then allow a REIT to acquire it for operating-partnership units. That can provide diversified income now and a path to liquidity later, because units may be converted to REIT shares in pieces for later-retirement needs, each conversion being a taxable event. It can also make estate division easier.
 
 The trade-offs matter. A 721 move is one-way, and conversion is taxable. See the [721 guide](721-exchange-guide.html) and [REIT guide](reits-guide.html).
 

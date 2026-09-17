@@ -123,7 +123,7 @@ Generally, no. Under Section 721, the contribution of the DST property to the RE
 
 ### When does tax deferral end in the DST + 721 path?
 
-The deferral starts with the 1031 exchange into the DST and continues when the DST property moves into the operating partnership under Section 721. No deferred tax is generally recognized through property → DST → OP units. Deferral generally ends when OP units are converted to REIT shares and sold, or otherwise disposed of in a taxable transaction. Conversion from a partnership interest to a security generally triggers deferred gain. Investors can hold units for income and diversification, and holding until death can provide heirs a possible step-up in basis to fair market value that may eliminate the deferred capital-gains tax. Plan that timing with an advisor.
+The deferral starts with the 1031 exchange into the DST and continues when the DST property moves into the operating partnership under Section 721. No deferred tax is generally recognized through property → DST → OP units. Deferral generally ends when OP units are converted into REIT shares or redeemed for cash — the conversion itself is normally the taxable event, not a later sale of the shares. Conversion from a partnership interest to a security generally triggers deferred gain. Investors can hold units for income and diversification, and holding until death can provide heirs a possible step-up in basis to fair market value that may eliminate the deferred capital-gains tax. Plan that timing with an advisor.
 
 ### What are operating-partnership, or OP, units?
 

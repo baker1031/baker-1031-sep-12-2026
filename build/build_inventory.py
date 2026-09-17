@@ -434,8 +434,8 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
             <option value="name">Name — A to Z</option>
             <option value="rec">Featured</option>
             <option value="yield-desc">Current yield — high to low</option>
-            <option value="ltv-asc">LTV — low to high</option>
-            <option value="ltv-desc">LTV — high to low</option>
+            <option value="ltv-asc">Leverage — low to high</option>
+            <option value="ltv-desc">Leverage — high to low</option>
           </select>
         </label>
         <div class="view" role="group" aria-label="View">
@@ -465,7 +465,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
           <th data-key="location">Location<span class="arrow"></span></th>
           <th data-key="status">Status<span class="arrow"></span></th>
           <th data-key="yld" class="num">Current yield<span class="arrow"></span></th>
-          <th data-key="ltv" class="num">LTV<span class="arrow"></span></th>
+          <th data-key="ltv" class="num">Leverage<span class="arrow"></span></th>
           <th data-key="exit721">721 exit<span class="arrow"></span></th>
           <th data-key="rating">Rating<span class="arrow"></span></th>
         </tr></thead>
@@ -484,7 +484,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       <p class="inv__index-label">All offerings tracked on this page</p>
       ''' + ' · '.join('<a href="/offerings/%s/">%s</a>' % (o['slug'], html.escape(o['name'])) for o in sorted(OFFERINGS, key=lambda o: o['name'].lower())) + r'''
     </nav>
-    <p class="inv__disclosure">Current yield is the projected first-year cash distribution rate stated in the sponsor’s offering documents and is not guaranteed. Loan-to-value (LTV) is based on the offering’s stated debt and purchase price. Ratings reflect Jerry Baker’s opinion after his review process and are not investment advice for any particular investor. Offerings are made only by a private placement memorandum to accredited investors; availability and terms are subject to change without notice.</p>
+    <p class="inv__disclosure">Current yield is the projected first-year cash distribution rate stated in the sponsor’s offering documents and is not guaranteed. Leverage is stated as loan to total capitalization — the offering’s debt divided by its total capitalization (debt plus equity), which is how sponsors report it in these offerings. It is not loan-to-value: measured against purchase price the same debt produces a higher figure. Ratings reflect Jerry Baker’s opinion after his review process and are not investment advice for any particular investor. Offerings are made only by a private placement memorandum to accredited investors; availability and terms are subject to change without notice.</p>
   </section>
 </main>
 
@@ -542,7 +542,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     { key:'location', label:'Location', kind:'multi', options: Object.keys(stateCounts).sort(function(a,b){ return a.localeCompare(b); }).map(function(k){ return { value:k, label:k, count:stateCounts[k] }; }) },
     { key:'type', label:'Property type', kind:'multi', options: Object.keys(typeCounts).sort().map(function(k){ return { value:k, label:k, count:typeCounts[k] }; }) },
     { key:'status', label:'Status', kind:'multi', options: STATUS_ORDER.filter(function(k){ return statusCounts[k]; }).map(function(k){ return { value:k, label:k, count:statusCounts[k] }; }) },
-    { key:'ltv', label:'Min LTV', kind:'range', min:0, max:60, step:5, fmt:function(v){ return v + '%'; } },
+    { key:'ltv', label:'Min leverage', kind:'range', min:0, max:60, step:5, fmt:function(v){ return v + '%'; } },
     { key:'yld', label:'Min current yield', kind:'range', min:0, max:7.5, step:0.25, fmt:function(v){ return v.toFixed(2) + '%'; } },
     { key:'exit721', label:'721 exit', kind:'multi', options: ['mandatory','optional','none'].map(function(k){ return { value:k, label:EXIT[k], count:exitCounts[k] || 0 }; }) }
   ];
@@ -699,7 +699,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
         '<h3 class="card__name"><a href="/offerings/' + o.slug + '/">' + esc(o.name) + '</a></h3>' +
         '<dl class="card__stats">' +
           '<div><dt>Current yield</dt><dd class="is-accent">' + fmtYield(o) + '</dd></div>' +
-          '<div><dt>LTV</dt><dd>' + (o.ltv ? o.ltv + '%' : '0%<small>all-cash</small>') + '</dd></div>' +
+          '<div><dt>Leverage</dt><dd>' + (o.ltv ? o.ltv + '%' : '0%<small>all-cash</small>') + '</dd></div>' +
           '<div><dt>721 exchange exit</dt><dd>' + (o.exit721 === 'none' ? '<span style="color:var(--grey);font-weight:600">None</span>' : EXIT[o.exit721]) + '</dd></div>' +
         '</dl>' +
       '</div>' +

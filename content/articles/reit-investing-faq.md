@@ -100,7 +100,7 @@ Mostly as ordinary income. Qualified REIT dividends can receive the 20% Section 
 
 ### Are REITs liquid?
 
-Publicly traded REITs are liquid because shares trade on exchanges. Non-traded and private REITs are illiquid and rely on limited redemption programs, commonly capped around 5% per year, which may be delayed or suspended.
+Publicly traded REITs are liquid because shares trade on exchanges. Non-traded and private REITs are illiquid and rely on limited redemption programs, commonly capped around 2% of NAV per month and 5% per quarter, which may be delayed or suspended.
 
 ### Can I invest in REITs with a small amount of money?
 

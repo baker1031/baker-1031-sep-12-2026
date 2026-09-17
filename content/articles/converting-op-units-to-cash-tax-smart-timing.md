@@ -20,7 +20,7 @@ Converting OP units to REIT shares and then selling them triggers deferred gain.
 
 ## The goal: cash with minimal tax
 
-The goal is plain: access the cash you need while minimizing the tax that conversion triggers. Turning [OP units](op-units-explained.html) into cash by converting to REIT shares and selling [triggers the deferred gain](tax-consequences-of-converting-op-units-to-reit-shares.html). That gain can include four layers of tax: capital gains, depreciation recapture, the [Net Investment Income Tax](net-investment-income-tax.html), or NIIT, and state tax.
+The goal is plain: access the cash you need while minimizing the tax that conversion triggers. Turning [OP units](op-units-explained.html) into cash means converting to REIT shares, and it is that conversion that [triggers the deferred gain](tax-consequences-of-converting-op-units-to-reit-shares.html). That gain can include four layers of tax: capital gains, depreciation recapture, the [Net Investment Income Tax](net-investment-income-tax.html), or NIIT, and state tax.
 
 There is no way to make that trade disappear just by calling it [liquidity](liquidity-after-721-exchange-converting-op-units-to-reit-shares.html). More conversion means more current cash and more current tax. Less conversion leaves more tax deferred but provides less cash. The useful question is how to meet a real liquidity need with the least unnecessary recognition of gain.
 

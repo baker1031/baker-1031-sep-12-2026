@@ -57,7 +57,7 @@ Assess governance, fee structure, conflicts, and whether incentives align. Stron
 
 A publicly traded REIT offers daily liquidity, but its share price moves with markets. It can [fall sharply during a broad sell-off](reit-bear-markets-history-and-lessons.html) because of sentiment, rate expectations, or economic fears even if properties and rents remain stable. That volatility is the cost of daily liquidity.
 
-A non-traded REIT has the opposite problem: illiquidity. Its shares are not exchange-listed, and the redemption program is generally the principal exit route. Redemptions are often capped around **5%** per year and may be reduced or suspended, particularly when many investors want to exit during stress. Capital may be unavailable when it is needed.
+A non-traded REIT has the opposite problem: illiquidity. Its shares are not exchange-listed, and the redemption program is generally the principal exit route. Redemptions are commonly capped around **2%** of NAV per month and **5%** per quarter, and may be reduced or suspended, particularly when many investors want to exit during stress. Capital may be unavailable when it is needed.
 
 Both traded and non-traded structures face economic and real-estate-cycle risk. Recessions, falling occupancy, and declining rents can reduce income and value. Traded REITs carry market volatility; non-traded REITs carry limited liquidity; both carry cycle risk.
 

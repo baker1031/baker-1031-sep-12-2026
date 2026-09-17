@@ -49,7 +49,7 @@ The private structure can, by limiting its investor base and disclosure, sometim
 
 Public registration does not make a PNLR liquid. Since shares are not exchange-listed, there is no continuous market of buyers. The primary exit route is a share redemption program, also called a repurchase plan, in which the REIT periodically buys shares from owners who request redemption.
 
-The terms matter. A program can be capped by a percentage of outstanding shares or NAV per quarter or per year—often around 5% annually, sometimes with monthly or quarterly sub-limits. If requests exceed the limit, not every request can be filled in full. The board may reduce, suspend, or terminate the program, particularly when market stress produces a wave of redemption requests.
+The terms matter. A program can be capped by a percentage of NAV per period — commonly around 2% of NAV per month and 5% per quarter, sometimes with monthly or quarterly sub-limits. If requests exceed the limit, not every request can be filled in full. The board may reduce, suspend, or terminate the program, particularly when market stress produces a wave of redemption requests.
 
 Redemptions normally use the most recent NAV and may carry an early-redemption discount during a stated holding period. That makes liquidity real but constrained and discretionary. An investor can ask for a redemption. They cannot count on a sale on demand or on a price they control. PNLR capital should be treated as long-term, committed capital.
 
@@ -128,7 +128,7 @@ A distribution can also include return of capital, which reduces cost basis rath
 
 ### Can the PNLR redemption program be suspended?
 
-Yes. The board can reduce, suspend, or terminate the program. A redemption program is the main liquidity route for an unlisted REIT, but it is not a guarantee. Programs are often capped around 5% of shares per year, sometimes with quarterly sub-limits, and stress can be the very time when more requests arrive than the program can meet. Review the offering documents for the caps, pricing, holding periods, and the board’s suspension rights before investing.
+Yes. The board can reduce, suspend, or terminate the program. A redemption program is the main liquidity route for an unlisted REIT, but it is not a guarantee. Programs are commonly capped around 2% of NAV per month and 5% per quarter, and stress can be the very time when more requests arrive than the program can meet. Review the offering documents for the caps, pricing, holding periods, and the board’s suspension rights before investing.
 
 ### Is a PNLR the same as a non-traded REIT?
 

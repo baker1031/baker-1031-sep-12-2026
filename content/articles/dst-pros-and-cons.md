@@ -55,7 +55,7 @@ Before cataloging pros and cons, it helps to name the single decision underneath
 
 ## DST drawbacks, in depth
 
-**Illiquidity.** There is no public market and no reliable secondary market. Your capital is committed until the sponsor sells, often five to ten years out. If there's any real chance you'll need the money sooner, a DST is the wrong vehicle.
+**Illiquidity.** There is no public market and no reliable secondary market. Your capital is committed until the sponsor sells, typically five to seven years out and sometimes as long as ten. If there's any real chance you'll need the money sooner, a DST is the wrong vehicle.
 
 **No control.** You don't vote on the business plan, can't veto a sale, and can't replace the manager. You are, by design, a passenger — acceptable only if you trust the driver and the route.
 
