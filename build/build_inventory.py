@@ -504,13 +504,8 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       <p>Please view more important information at the bottom of this page.</p>
       <p class="invdisc__legend">FOR ACCREDITED INVESTOR USE ONLY - NOT FOR FURTHER DISTRIBUTION</p>
       <p>Because investor situations and objectives vary, this information is not intended to indicate that an investment is appropriate for or is being recommended to any individual investor.</p>
-      <p>The data shown is for informational purposes only and does not constitute an offer to purchase securitized real estate. Such offers are only offered through a sponsor Private Placement Memorandum (PPM). Subscriptions submitted may not be approved if deemed inappropriate for an investor.</p>
       <p>The information does not constitute individual investment advice and should not be relied upon as tax or legal advice. Please consult the appropriate professional regarding your individual circumstance.</p>
       <p>There is no guarantee a sponsor will meet an offering’s investment objectives.</p>
-      <p>First Year Cash Flow data is provided from the offering sponsor and may be subject to change at any time.</p>
-      <p>506(b) offerings listed herein may not be eligible for investment for certain individuals and are dependent upon a substantive relationship establishment timeframe with your registered representative.</p>
-      <p>506(c) offerings available under exemption require investor accreditation verification and must be reasonably verified by the broker-dealer prior to investment.</p>
-      <p>Product information and availability is subject to change at any time. There is no guarantee that offerings shown will be available at the time of investment. Future offerings will vary and may be significantly different than the offerings listed herein.</p>
       <p>The property images shown may not be owned or anticipated to be owned by the Offering but are representative of the type of asset the Offering intends to acquire.</p>
     </section>
 </main>
