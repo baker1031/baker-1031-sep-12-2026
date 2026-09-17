@@ -5,6 +5,8 @@
 1b. fetch_performance.py — refresh build/fullcycle.tsv from the Investment Data (Live) base, same rule
 1c. build_homepage_chart.py — redraw the homepage return chart from that dataset, so it cannot drift
                         away from the Results page (it runs before everything that copies index.html's chrome)
+1d. build_redirects.py  — refresh the retired-offering 301 list the edge gate imports, from the append-only
+                        ledger in build/published-slugs.txt, so a renamed or withdrawn offering never 404s
 2. build_inventory.py — regenerate /invest/index.html
 3. build_offering.py  — regenerate /offerings/<slug>/index.html for every offering, removing pages for deleted ones
 4. build_pages.py     — content/pages/** fragments -> sponsors, markets, glossary, calculators, policies … (+ /assets/css/site.css)
@@ -36,6 +38,6 @@ except ImportError:
     print('==> pip install -r requirements.txt', flush=True)
     subprocess.run([sys.executable, '-m', 'pip', 'install', '--quiet', '--disable-pip-version-check', '-r', os.path.join(ROOT, 'requirements.txt')])
 
-for s in ('fetch_airtable.py', 'fetch_performance.py', 'build_homepage_chart.py', 'build_inventory.py', 'build_offering.py', 'build_results_data.py', 'build_pages.py', 'build_articles.py', 'build_meta.py'):
+for s in ('fetch_airtable.py', 'fetch_performance.py', 'build_homepage_chart.py', 'build_redirects.py', 'build_inventory.py', 'build_offering.py', 'build_results_data.py', 'build_pages.py', 'build_articles.py', 'build_meta.py'):
     run(s)
 print('build complete')

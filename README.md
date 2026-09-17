@@ -171,7 +171,7 @@ variable used by functions, trigger a deploy so the functions pick it up.
 
 | Variable | Where it comes from | Used by |
 | --- | --- | --- |
-| `AIRTABLE_TOKEN` | airtable.com/create/tokens with scopes `data.records:read` + `data.records:write` and access to both bases (Investment Offerings, Investor Access) | Build (offerings, photos, documents), login, "Deals Reviewed", rebuild watcher, reminders, portal sync |
+| `AIRTABLE_TOKEN` | airtable.com/create/tokens with scopes `data.records:read` + `data.records:write` and access to both bases (Investment Data (Live), Investor Access) | Build (offerings, photos, documents), login, "Deals Reviewed", rebuild watcher, reminders, portal sync |
 | `SESSION_SECRET` | `openssl rand -hex 32` in Terminal | Signs the login cookie; the auth function and the edge gate must share it |
 | `NETLIFY_BUILD_HOOK` | New project → Site configuration → Build & deploy → Continuous deployment → **Build hooks → Add build hook** (name "Airtable", branch main) → copy the URL | Rebuild watcher (every 15 min) — without it the watcher only reports |
 | `ATTIO_API_KEY` | Attio → Workspace settings → Developers → **+ New integration** (name "Baker 1031 website") → **Generate access token**, with scopes `record_permission:read-write`, `object_configuration:read`, `note:read-write`, `user_management:read`, `list_entry:read-write`, `list_configuration:read` | Registration leads, update-my-info, portal sync, portal activity, reminder links |

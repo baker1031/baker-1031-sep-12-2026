@@ -31,7 +31,7 @@ foot = foot.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'hre
 navjs = between("  // Nav: shadow once scrolled; mobile menu toggle", "})();\n</script>")
 tipcss = between('  /* rating tooltip: Jerry\'s explanation from the homepage */', '  .table .tip__box', inv)
 
-# ---- offering data: Airtable "Investment Offerings" -> DST Offerings (offerings.json; images cached in at_imgs/) ----
+# ---- offering data: Airtable "Investment Data (Live)" -> Offering Data (offerings.json; images cached in at_imgs/) ----
 import base64, os, html as _html
 AT = json.load(open(os.path.join(HERE, 'offerings.json'), encoding='utf-8'))
 RATING_MAP = { 'Preferred':'highly', 'Common':'approved', 'Not Preferred':'specialized', 'Insufficient Data':'specialized' }
@@ -108,7 +108,14 @@ def _meta_desc(r, types, locs):
     if len(out) > 158: out = out[:out.rfind(' ', 0, 156)] + '…'
     return out
 
-STATUS_CLS = { 'Available':'', 'Limited Availability':'status--limited', 'Pending Approval':'status--soon', 'Closed':'status--sold', 'Rejected':'status--rejected' }
+# Availability Status is a single-select in Airtable, so Jerry can add a choice at any time. A status this
+# map has not seen must not take the build down — it renders with the default pill and the build says so.
+STATUS_CLS = { 'Available':'', 'Limited Availability':'status--limited', 'Pending Approval':'status--soon',
+               'Under Review':'status--soon', 'Closed':'status--sold', 'Rejected':'status--rejected' }
+_unknown_status = set()
+def status_cls(status):
+    if status not in STATUS_CLS: _unknown_status.add(status)
+    return STATUS_CLS.get(status, '')
 RATING = { 'highly':('badge--ok','👍👍','Highly Approved'), 'approved':('badge--ok','👍','Approved'), 'specialized':('badge--warn','❗','Specialized'), 'rejected':('badge--no','👎','Rejected') }
 EXIT = { 'mandatory':'Mandatory', 'optional':'Optional', 'none':'None' }
 def money(n): return '—' if n is None else '$' + f'{n:,.0f}'
@@ -469,7 +476,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
             </div>
             <dl class="kv">
               <div><dt>Investment Sponsor</dt><dd>''' + O['sponsor'] + r'''</dd></div>
-              <div><dt>Availability Status</dt><dd><span class="status ''' + STATUS_CLS[O['status']] + r'''">''' + O['status'] + r'''</span></dd></div>
+              <div><dt>Availability Status</dt><dd><span class="status ''' + status_cls(O['status']) + r'''">''' + O['status'] + r'''</span></dd></div>
               <div><dt>Registration</dt><dd>''' + O['registration'] + r'''</dd></div>
               <div><dt>721 Exchange</dt><dd>''' + EXIT[O['exit721']] + r'''</dd></div>
               <div><dt>Property Type</dt><dd>''' + O['propertyTypes'] + r'''</dd></div>
@@ -546,6 +553,10 @@ for rec in AT:
             open(os.path.join(HERE, 'offering_template.html'), 'w', encoding='utf-8').write(page)
             open('/home/claude/offering.html', 'w', encoding='utf-8').write(out)
             print('sample built', len(out))
+if _unknown_status:
+    print('NOTE: Airtable has Availability Status values this build has no styling for, so they render with the '
+          'default pill: ' + ', '.join(sorted(x for x in _unknown_status if x)) + '. Add them to STATUS_CLS in '
+          'build/build_offering.py and to STATUS_CLS / STATUS_ORDER / STATUS_SHORT in build/build_inventory.py.')
 if ROOT:
     # an offering deleted (or renamed) in Airtable disappears from the site on the next build
     import shutil

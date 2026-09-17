@@ -32,7 +32,7 @@ foot = re.sub(r'<img src="data:image/png;base64,[^"]*" alt="Baker 1031"', '<img 
 foot = foot.replace('href="#top"', 'href="/"').replace('href="#type-1031"', 'href="/invest/"').replace('href="#results"', 'href="/results/"').replace('href="#request-access"', 'href="/register/"')
 navjs = between("  // Nav: shadow once scrolled; mobile menu toggle", "})();\n</script>")
 
-# ---- inventory: Airtable "Investment Offerings" -> DST Offerings (pulled 2026-09-13 into offerings.json; images cached in at_imgs/) ----
+# ---- inventory: Airtable "Investment Data (Live)" -> Offering Data (pulled into offerings.json by fetch_airtable.py; images cached in at_imgs/) ----
 import base64, os
 AT = json.load(open(os.path.join(HERE, 'offerings.json'), encoding='utf-8'))
 # Rating badge = Coverage Review, except a Rejected availability status wins.
@@ -502,7 +502,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 
 <script>
 (function(){
-  // ---- inventory data (placeholder set; in production this comes from the Airtable "Investment Offerings" build) ----
+  // ---- inventory data (placeholder set; in production this comes from the Airtable "Investment Data (Live)" build) ----
   var OFFERINGS = ''' + json.dumps(OFFERINGS) + r''';
 
   var RATING = {
@@ -511,7 +511,10 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     specialized: { cls:'badge--warn', emoji:'❗',  label:'Specialized' },
     rejected:    { cls:'badge--no',   emoji:'👎',  label:'Rejected' }
   };
-  var STATUS_CLS = { 'Available':'', 'Limited Availability':'card__status--limited', 'Pending Approval':'card__status--soon', 'Closed':'card__status--sold', 'Rejected':'card__status--rejected' };
+  // Availability Status is a single-select in Airtable and Jerry can add a choice at any time, so every
+  // lookup here falls back rather than throwing — an unstyled status must not blank out the whole list.
+  var STATUS_CLS = { 'Available':'', 'Limited Availability':'card__status--limited', 'Pending Approval':'card__status--soon', 'Under Review':'card__status--soon', 'Closed':'card__status--sold', 'Rejected':'card__status--rejected' };
+  function statusCls(s){ return STATUS_CLS[s] || ''; }
   var OPEN = ['Available','Limited Availability'];
   var MUTED = ['Closed','Rejected'];
 
@@ -527,7 +530,10 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     rejected:    'The investment didn’t meet our standards. I passed.'
   };
   var order = { highly:0, approved:1, specialized:2, rejected:3 };
-  var STATUS_ORDER = ['Available','Limited Availability','Pending Approval','Closed','Rejected'];
+  var STATUS_ORDER = ['Available','Limited Availability','Under Review','Pending Approval','Closed','Rejected'];
+  // Any status in the data that STATUS_ORDER does not know about is appended, so it still sorts and still
+  // appears as a filter option instead of silently hiding the offerings that carry it.
+  OFFERINGS.forEach(function(o){ if(o.status && STATUS_ORDER.indexOf(o.status) === -1) STATUS_ORDER.push(o.status); });
 
   // ---- filter definitions (multi-selects and ranges) ----
   function countBy(fn){ var m = {}; OFFERINGS.forEach(function(o){ var k = fn(o); (Array.isArray(k) ? k : [k]).forEach(function(x){ m[x] = (m[x] || 0) + 1; }); }); return m; }
@@ -680,8 +686,8 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     return '<span class="tip" tabindex="0"><span class="badge ' + r.cls + '"><span class="badge__emoji" aria-hidden="true">' + r.emoji + '</span>' + r.label + '</span>' +
       '<span class="tip__box" role="tooltip"><strong>' + r.emoji + ' ' + r.label + '</strong>' + esc(RATING_TEXT[o.rating]) + '<small>My assessment, not a guarantee of performance or the return of your principal.</small></span></span>';
   }
-  var STATUS_SHORT = { 'Limited Availability':'Limited', 'Pending Approval':'Pending' };
-  function statusPill(o){ return '<span class="status ' + STATUS_CLS[o.status].replace('card__status','status') + '" title="' + esc(o.status) + '">' + esc(STATUS_SHORT[o.status] || o.status) + '</span>'; }
+  var STATUS_SHORT = { 'Limited Availability':'Limited', 'Pending Approval':'Pending', 'Under Review':'Review' };
+  function statusPill(o){ return '<span class="status ' + statusCls(o.status).replace('card__status','status') + '" title="' + esc(o.status) + '">' + esc(STATUS_SHORT[o.status] || o.status) + '</span>'; }
   function card(o){
     var sold = MUTED.indexOf(o.status) > -1;
     return '<div class="card' + (sold ? ' card--sold' : '') + '">' +

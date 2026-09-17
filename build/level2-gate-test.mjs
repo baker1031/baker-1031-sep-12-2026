@@ -8,9 +8,13 @@ globalThis.Deno = { env: { get: (k) => (k === 'SESSION_SECRET' ? SECRET : '') } 
 let src = fs.readFileSync('/home/claude/repo/netlify/edge-functions/gate.js', 'utf8');
 src = src.replace("const LEVEL2_PREFIXES = [\n  // e.g. '/strategies',\n];",
                   "const LEVEL2_PREFIXES = ['/strategies', '/vault/'];");
-const tmp = '/tmp/claude-0/-home-claude/2a6bb0cc-5fa3-5322-8fe5-76be76cf28b9/scratchpad/gate.test.mjs';
+// The copy has to sit beside the real gate.js: gate.js imports ./lib/retired-offerings.js, which only
+// resolves from that directory. Cleaned up below whether the run passes or not.
+const tmp = '/home/claude/repo/netlify/edge-functions/.gate.test.mjs';
 fs.writeFileSync(tmp, src);
 const gate = (await import(tmp)).default;
+const cleanup = () => { try { fs.unlinkSync(tmp); } catch {} };
+process.on('exit', cleanup);
 
 const b64u = (b) => Buffer.from(b).toString('base64url');
 function cookie(level, { expired = false } = {}) {
@@ -56,5 +60,20 @@ await check('no cookie on the offering docs gate', '/offerings/foo/docs/ppm.pdf'
 await check('a path merely starting with the same letters', '/strategiesX/', null,
             '302 /login/?next=%2FstrategiesX%2F');
 await check('same, with a level 1 cookie', '/strategiesX/', cookie(1), 'through');
+
+// Retired offerings: a URL that was published once must never 404. The list is generated from
+// build/published-slugs.txt, so an offering that comes back into Airtable has to stop redirecting.
+const { RETIRED_OFFERINGS } = await import('/home/claude/repo/netlify/edge-functions/lib/retired-offerings.js');
+const live = JSON.parse(fs.readFileSync('/home/claude/repo/build/offerings.json', 'utf8')).map((o) => o.slug);
+const someRetired = [...RETIRED_OFFERINGS][0];
+await check('a retired offering redirects to the inventory', `/offerings/${someRetired}/`, cookie(1),
+            '301 /invest/');
+await check('…and so does anything under it', `/offerings/${someRetired}/docs/ppm.pdf`, cookie(1),
+            '301 /invest/');
+await check('a live offering is not redirected', `/offerings/${live[0]}/`, cookie(1), 'through');
+const clash = live.filter((s) => RETIRED_OFFERINGS.has(s));
+console.log(`${clash.length === 0 ? '  ok  ' : '  FAIL'} no live offering is in the retired list` +
+            `\n         → ${clash.length ? clash.join(', ') : 'none'}`);
+clash.length === 0 ? pass++ : fail++;
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

@@ -2,8 +2,8 @@
 # Build: Airtable + content sources -> static pages (python3 build/build.py). Auth: serverless function + edge gate.
 #
 # Required environment variables (Site configuration -> Environment variables):
-#   AIRTABLE_TOKEN       personal access token — data.records:read on Investment Offerings AND
-#                        data.records:read+write on Investor Access (login, "Deals Reviewed")
+#   AIRTABLE_TOKEN       personal access token — data.records:read on Investment Data (Live) (offerings and
+#                        past performance) AND data.records:read+write on Investor Access (login, "Deals Reviewed")
 #   SESSION_SECRET       long random string (e.g. `openssl rand -hex 32`); shared by the auth function and the edge gate
 #   NETLIFY_BUILD_HOOK   this site's build hook URL (Build & deploy -> Build hooks) — used by the Airtable rebuild watcher
 # CRM (Attio): ATTIO_API_KEY (required); optional ATTIO_DEAL_OWNER, ATTIO_DEAL_STAGE, ATTIO_REVIEW_STAGE, ATTIO_LIST,
