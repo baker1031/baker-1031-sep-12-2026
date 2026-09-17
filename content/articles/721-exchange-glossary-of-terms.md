@@ -79,7 +79,7 @@ Together, DST, DST bridge or 1031-then-721, 721 exit, step-transaction doctrine,
 
 Baker 1031 Investments helps owners understand 721-exchange vocabulary and concepts in plain language: core, structure, tax, OP-unit and liquidity, process, and DST-bridge terms. The purpose is to let an investor grasp the strategy, ask the right questions, and make informed decisions from the foundation through advanced concepts.
 
-REIT units, DST interests, and related securities are offered through our broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review. We help investors understand the terms and their application, coordinating with the investor's CPA and attorney on technical aspects. Understanding this specialized vocabulary is the foundation of an informed 721-exchange decision.
+REIT units, DST interests, and related securities are offered through our broker-dealer, Aurora Securities, Inc. (member FINRA/SIPC), and any recommendation follows a suitability review. We help investors understand the terms and their application, coordinating with the investor's CPA and attorney on technical aspects.
 
 ## Frequently Asked Questions
 

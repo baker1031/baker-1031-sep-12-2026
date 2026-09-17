@@ -90,7 +90,7 @@ Navigation: [Home](baker1031.html) · [Back to All Insights](insights.html)
 </details>
 <details>
 <summary>Does the 721 exchange's liquidity have a catch?<span class="ic"></span></summary>
-<div class="ans"><p>Yes — the liquidity comes via converting OP units to REIT shares, which is a taxable event (triggering the deferred gain). So accessing liquidity beyond the deferral has a tax cost. You can convert gradually to spread the tax, but converting always triggers gain on what you convert. And for non-traded REITs, the share liquidity itself is more limited. So the liquidity is real (especially for public REITs) but comes with the conversion tax — it's not tax-free liquidity. Understanding this catch is important when weighing the liquidity pro.</p></div>
+<div class="ans"><p>Yes — the liquidity comes via converting OP units to REIT shares, which is a taxable event (triggering the deferred gain). So accessing liquidity beyond the deferral has a tax cost. You can convert gradually to spread the tax, but converting always triggers gain on what you convert. And for non-traded REITs, the share liquidity itself is more limited. So the liquidity is real (especially for public REITs) but comes with the conversion tax — it's not tax-free liquidity.</p></div>
 </details>
 <details>
 <summary>How does REIT dependence affect the decision?<span class="ic"></span></summary>

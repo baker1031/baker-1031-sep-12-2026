@@ -30,7 +30,7 @@ The clearest profile who should NOT do a [721 exchange](721-exchange-guide.html)
 
 For a control-valuing investor, this loss of control is a significant drawback, not a benefit. The passivity that appeals to a tired landlord is exactly what a hands-on, engaged investor doesn't want. So if you enjoy and value controlling your real estate, the 721 exchange's passivity makes it a poor fit.
 
-Such investors are better served by direct real estate (and [1031 exchange](1031-exchange-guide.html)s to keep repositioning), where they retain control. So the active, control-valuing investor should NOT do a 721 exchange; they should stay in direct real estate. The active, control-valuing investor — who wants to make their own real estate decisions and manage their properties — should NOT do a 721 exchange, because it takes away the control they value (making them a passive REIT investor). The passivity doesn't fit them. Understanding this profile shows the clearest disqualifying case. The active, control-valuing investor should avoid the 721 exchange and stay in direct real estate, where they retain control.
+Such investors are better served by direct real estate (and [1031 exchange](1031-exchange-guide.html)s to keep repositioning), where they retain control. The active, control-valuing investor — who wants to make their own real estate decisions and manage their properties — should NOT do a 721 exchange, because it takes away the control they value (making them a passive REIT investor). The passivity doesn't fit them. The active, control-valuing investor should avoid the 721 exchange and stay in direct real estate, where they retain control.
 
 ## The investor needing near-term liquidity
 
@@ -38,7 +38,7 @@ An investor who needs near-term liquidity should NOT do a 721 exchange, because 
 
 For an investor with near-term cash needs (a planned expense, a liquidity requirement, or uncertainty requiring accessible cash), the 721's illiquidity is a mismatch — they'd be unable to access cash when needed (during the lock-up) or would face the conversion tax. So near-term liquidity needs are incompatible with the 721's longer-term, illiquid nature.
 
-Such investors should keep their assets in more liquid forms (or not commit to the 721 until their liquidity needs are settled). So the investor needing near-term liquidity should NOT do a 721 exchange. The investor needing near-term liquidity — who needs accessible cash soon — should NOT do a 721 exchange, because the strategy is illiquid in the near term (the lock-up, the taxable conversion). The illiquidity is a mismatch. Understanding this profile shows another disqualifying case. The investor needing near-term liquidity should avoid the 721 exchange, given its near-term illiquidity, until their liquidity needs are settled.
+Such investors should keep their assets in more liquid forms (or not commit to the 721 until their liquidity needs are settled). The investor needing near-term liquidity — who needs accessible cash soon — should NOT do a 721 exchange, because the strategy is illiquid in the near term (the lock-up, the taxable conversion). The illiquidity is a mismatch. The investor needing near-term liquidity should avoid the 721 exchange, given its near-term illiquidity, until their liquidity needs are settled.
 
 If you need cash soon, the 721 exchange is the wrong tool — OP units have a lock-up before conversion, and accessing liquidity triggers tax. Near-term liquidity needs and the 721 don't mix.
 
@@ -48,7 +48,7 @@ An investor who wants the flexibility to keep exchanging via 1031 should NOT do 
 
 For an investor who values this 1031 flexibility — who wants to keep their options open for future real estate repositioning, or who isn't ready to give up the ability to 1031 — the 721's one-way nature is a dealbreaker. They'd be giving up a flexibility they want to retain.
 
-Such investors are better served by continuing with 1031 exchanges (staying in direct real estate, retaining the flexibility). So the investor wanting 1031 flexibility should NOT do a 721 exchange; they should keep using 1031 exchanges. The investor wanting 1031 flexibility — who wants to keep exchanging real property and retain their options — should NOT do a 721 exchange, because it forecloses the 1031 flexibility (the one-way nature). The flexibility loss is a dealbreaker for them. Understanding this profile shows another disqualifying case. The investor wanting 1031 flexibility should avoid the 721 exchange and continue using 1031 exchanges, retaining their flexibility.
+Such investors are better served by continuing with 1031 exchanges (staying in direct real estate, retaining the flexibility). The investor wanting 1031 flexibility — who wants to keep exchanging real property and retain their options — should NOT do a 721 exchange, because it forecloses the 1031 flexibility (the one-way nature). The flexibility loss is a dealbreaker for them. The investor wanting 1031 flexibility should avoid the 721 exchange and continue using 1031 exchanges, retaining their flexibility.
 
 ## The investor not ready to commit
 
@@ -56,7 +56,7 @@ An investor who isn't ready to commit to REIT ownership should NOT do a 721 exch
 
 For an investor who's unsure whether they want REIT ownership, or who's considering it tentatively, the irreversibility means they shouldn't proceed until they're certain. Committing to a generally permanent move while uncertain is unwise. So readiness to commit is a prerequisite, and those not ready should NOT do the 721 exchange.
 
-Such investors should take more time to decide (or keep their options open with direct real estate / 1031 exchanges) until they're certain. So the investor not ready to commit should NOT do a 721 exchange; they should wait or stay flexible. The investor not ready to commit — who's uncertain or tentative about REIT ownership — should NOT do a 721 exchange, given its generally irreversible nature (commitment is required). Uncertainty plus irreversibility is a poor mix. Understanding this profile shows another disqualifying case. The investor not ready to commit should avoid the 721 exchange until they're certain, given its irreversibility, rather than risk a regretted commitment.
+Such investors should take more time to decide (or keep their options open with direct real estate / 1031 exchanges) until they're certain. So the investor not ready to commit should NOT do a 721 exchange; they should wait or stay flexible. The investor not ready to commit — who's uncertain or tentative about REIT ownership — should NOT do a 721 exchange, given its generally irreversible nature (commitment is required). Uncertainty plus irreversibility is a poor mix. The investor not ready to commit should avoid the 721 exchange until they're certain, given its irreversibility, rather than risk a regretted commitment.
 
 ## Key Takeaways
 - The active, control-valuing investor should NOT do a 721 exchange — it removes the control they value (stay in direct real estate).
@@ -73,7 +73,7 @@ Some investors should NOT (or can't) do a 721 exchange because they don't meet t
 
 Beyond accreditation, the suitability review assesses whether the strategy fits your circumstances; if it's not suitable for you (e.g., you need liquidity the investment can't provide, the risks don't fit your situation, or your goals don't align), it shouldn't be recommended. So an investor for whom the strategy is unsuitable should NOT do it, even if accredited. The suitability review is designed to identify and prevent unsuitable recommendations.
 
-Such investors should pursue alternatives appropriate for them (e.g., a 1031 into direct property, which doesn't involve securities). So the non-accredited or unsuitable investor should NOT do a 721 exchange. The non-accredited or unsuitable investor — who doesn't meet the accreditation thresholds (can't access it) or for whom the strategy isn't suitable (shouldn't do it) — should NOT do a 721 exchange. The requirements aren't met. Understanding this profile completes the disqualifying cases. The non-accredited or unsuitable investor should avoid the 721 exchange (it's unavailable or inappropriate) and pursue alternatives suited to them.
+Such investors should pursue alternatives appropriate for them (e.g., a 1031 into direct property, which doesn't involve securities). So the non-accredited or unsuitable investor should NOT do a 721 exchange. The non-accredited or unsuitable investor — who doesn't meet the accreditation thresholds (can't access it) or for whom the strategy isn't suitable (shouldn't do it) — should NOT do a 721 exchange. The requirements aren't met. The non-accredited or unsuitable investor should avoid the 721 exchange (it's unavailable or inappropriate) and pursue alternatives suited to them.
 
 ## When the 1031 or other strategy fits better
 
