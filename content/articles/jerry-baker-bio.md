@@ -7,6 +7,7 @@ writer: "writer-b"
 draft_version: "1"
 source_unit_count: 38
 page_scope: "shared informational page"
+risk: "dst"
 ---
 
 <nav class="breadcrumbs">

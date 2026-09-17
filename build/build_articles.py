@@ -20,6 +20,102 @@ EDU_DISCLAIMER = 'This article is published for educational purposes only. It ma
 VERIFIED_DISCLOSURE = 'Securities offered through Aurora Securities, Inc. (ASI), CRD #46147, SEC #8-51322, member FINRA/SIPC. Gerald F. “Jerry” Baker, III is a registered representative of ASI (FINRA CRD #7537416). Baker 1031 Investments, LLC is independent of ASI and is not a registered broker-dealer or investment adviser.'
 PLACEHOLDER = '[Placeholder regulatory disclosure — replace with verified entity names, CRD numbers, and registrations.]'
 
+# ---------------------------------------------------------------------------
+# Disclosures. One source of truth for the risk paragraph, matched to what the
+# page is actually about. The old arrangement pasted an oil & gas + DST
+# paragraph into every article, so REIT, Opportunity Zone and estate pages
+# disclosed commodity-price risk they do not carry and said nothing about the
+# risks they do. Each article carries `risk:` in its front matter (written by
+# build/tools/tag_risk.py, overridable by hand); this maps it to the paragraph.
+RISK_INTRO = ('This article is published by Baker 1031 Investments, LLC for general educational purposes for '
+              'accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, '
+              'nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering '
+              'is made solely through a sponsor\u2019s private placement memorandum (PPM) following a suitability '
+              'determination. ' + VERIFIED_DISCLOSURE)
+
+_TAIL = ('Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. '
+         'Past performance does not guarantee future results.')
+
+RISK = {
+ 'dst': ('DST interests and other 1031 replacement-property programs are speculative, illiquid securities sold only '
+         'to verified accredited investors and involve substantial risk, including possible loss of principal, no '
+         'control over management or the timing of a sale, dependence on tenants and on the sponsor, financing and '
+         'interest-rate risk, and the risk that an intended 1031 exchange fails to qualify for tax deferral. There is '
+         'no public market for these interests and none is expected to develop. ' + _TAIL),
+ 'reit': ('REIT shares involve risk, including possible loss of principal, and their income and value depend on the '
+          'performance of the underlying real estate. Distributions are not guaranteed, may exceed earnings, and may '
+          'be reduced or suspended at the issuer\u2019s discretion. Listed REITs fluctuate in price and can be '
+          'volatile; non-traded REITs are illiquid, have no public market, and their repurchase programs are limited, '
+          'discretionary, may be suspended, and may repurchase below the price paid. ' + _TAIL),
+ 'oz': ('Qualified Opportunity Funds are speculative, illiquid securities sold only to verified accredited investors '
+        'and involve substantial risk, including possible loss of principal, development and lease-up risk, a holding '
+        'period measured in years, and the risk that an investment fails to qualify for, or later loses, the intended '
+        'Opportunity Zone treatment. The tax benefits depend on statutory deadlines and on continuing compliance by '
+        'both the fund and the investor. ' + _TAIL),
+ 'upreit': ('A 721 exchange (UPREIT) contribution is generally one-way: once an interest is contributed to an operating '
+            'partnership the investor holds OP units and can no longer complete a 1031 exchange on that interest. OP '
+            'units are illiquid securities involving substantial risk, including possible loss of principal; their '
+            'value depends on the REIT\u2019s performance, distributions are not guaranteed, and redemption is at the '
+            'REIT\u2019s discretion and is normally a taxable event. ' + _TAIL),
+ 'oilgas': ('Oil and gas mineral and royalty interests are speculative, illiquid securities sold only to verified '
+            'accredited investors and involve substantial risk, including possible loss of principal, commodity-price '
+            'and production-decline risk, no control over operations, and the risk that an intended 1031 exchange '
+            'fails to qualify for tax deferral. Whether a particular interest is like-kind real property is a '
+            'fact-specific legal determination that varies by state and by the terms of the instrument. ' + _TAIL),
+ 'mixed': ('The programs discussed here \u2014 which may include DSTs, REITs, Qualified Opportunity Funds, 721 '
+           'exchange (UPREIT) interests and oil and gas royalty interests \u2014 are speculative securities sold only '
+           'to verified accredited investors and involve substantial risk, including possible loss of principal, '
+           'illiquidity, no control over management, and, where a 1031 exchange or Opportunity Zone election is '
+           'intended, the risk that it fails to qualify for the tax treatment sought. The risks differ by structure; '
+           'read the risk factors in each offering\u2019s own documents rather than relying on a general summary. ' + _TAIL),
+ 'general': ('The investments discussed here are speculative, illiquid securities sold only to verified accredited '
+             'investors and involve substantial risk, including possible loss of principal and no control over '
+             'management. Tax and estate results depend on your individual circumstances and on law that can change. '
+             + _TAIL),
+}
+
+
+def ensure_disclosures(md, profile):
+    """Every article ends with the same two-part block: who is speaking and on what footing, then the risks
+    of the thing the page is actually about. Bespoke wording already in the section is kept."""
+    risk = RISK.get(profile) or RISK['general']
+    # a narrower substitute for the standard past-performance line narrows the disclaimer; put it back
+    md = md.replace('Past projections do not guarantee future results', 'Past performance does not guarantee future results')
+    # Two shapes in the corpus: a markdown '## Disclosures' section, and a raw-HTML block left by the
+    # legacy importer. Fill whichever one the article uses; only write a new section if it has neither.
+    hd = re.search(r'<div class="disclosures">(.*?)</div>', md, re.S)
+    if hd:
+        if 'Aurora Securities' not in hd.group(1):
+            md = md[:hd.start(1)] + '<p>' + RISK_INTRO + '</p>' + md[hd.start(1):]
+            hd = re.search(r'<div class="disclosures">(.*?)</div>', md, re.S)
+        return md[:hd.end(1)] + '<p>' + risk + '</p>' + md[hd.end(1):]
+    m = re.search(r'\n##+\s+(?:\d+\s*[\u00b7.]\s*)?Disclosures?\s*\n', md)
+    if not m:
+        return md.rstrip() + '\n\n## Disclosures\n\n' + RISK_INTRO + '\n\n' + risk + '\n'
+    start = m.end()
+    nxt = re.search(r'\n##+\s', md[start:])
+    end = start + (nxt.start() if nxt else len(md) - start)
+    section = md[start:end]
+    # Several drafts left the article's closing paragraph below the Disclosures heading, so the page ended
+    # with a conclusion filed under a legal heading. Lift any non-disclosure prose back above the heading.
+    keep, lifted = [], []
+    for para in re.split(r'\n\s*\n', section):
+        t = para.strip()
+        if not t:
+            continue
+        legal = re.search(r'Aurora|accredited|Past performance|speculative|illiquid|PPM|private placement|'
+                          r'not (?:tax|investment|legal)|does not guarantee|consult your own', t, re.I)
+        (keep if legal else lifted).append(t)
+    section = '\n' + '\n\n'.join(keep) + '\n'
+    if 'Aurora Securities' not in section:
+        section = '\n' + RISK_INTRO + '\n' + section
+    section = section.rstrip() + '\n\n' + risk + '\n'
+    head = md[:m.start()].rstrip()
+    if lifted:
+        head = head + '\n\n' + '\n\n'.join(lifted)
+    return head + md[m.start():start] + section + md[end:]
+
+
 HUB_SLUGS = {'about', 'fees', 'jerry-baker-bio', 'methodology', 'for-advisors-cpas', 'for-agents-brokers',
              'top-1031-dst-sponsor-firms', 'delaware-statutory-trusts', '1031-exchanges', 'reits',
              '721-exchange-upreit', 'mineral-royalty-interests', 'opportunity-zone-funds'}
@@ -179,10 +275,17 @@ def render_md(body):
     # section anchors (deep links) + a contents list on long guides so a section can be cited directly
     seen, heads = {}, []
     def anchor(m):
-        text = m.group(2); base = _slug(text); n = seen.get(base, 0); seen[base] = n + 1
-        hid = base if n == 0 else f'{base}-{n + 1}'
+        attrs, text = m.group(1), m.group(2)
+        # a raw-HTML heading may already carry its own id; keep it rather than emitting a second one
+        have = re.search(r'\bid="([^"]+)"', attrs)
+        if have:
+            hid = have.group(1); seen[hid] = seen.get(hid, 0) + 1
+        else:
+            base = _slug(text); n = seen.get(base, 0); seen[base] = n + 1
+            hid = base if n == 0 else f'{base}-{n + 1}'
+            attrs = f' id="{hid}"' + attrs
         heads.append((hid, re.sub(r'<[^>]+>', '', text)))
-        return f'<h2 id="{hid}"{m.group(1)}>{text}</h2>'
+        return f'<h2{attrs}>{text}</h2>'
     html = re.sub(r'<h2([^>]*)>(.*?)</h2>', anchor, html, flags=re.S)
     if len(heads) >= 5:
         toc = '<nav class="toc" aria-label="Contents"><p class="toc__label">Contents</p><ol>' + ''.join(f'<li><a href="#{h}">{t}</a></li>' for h, t in heads) + '</ol></nav>\n'
@@ -201,6 +304,7 @@ def load_articles(build_date):
         fm, raw = parse_front_matter(open(os.path.join(ARTICLES, f), encoding='utf-8').read())
         md, schema_desc, emb_title, emb_desc = clean_article_body(raw, slug_set, unresolved)
         body = md.replace(PLACEHOLDER, VERIFIED_DISCLOSURE)
+        body = ensure_disclosures(body, re.sub(r'^["\']|["\']$', '', fm.get('risk', '')).strip())
         body = re.sub(r'^\*\*Category:\*\*[^\n]*\n(\*\*(Research|Updated|Reading time|Author|Filed under):\*\*[^\n]*\n?)+', '', body, count=1, flags=re.M)
         h1 = re.search(r'^#\s+(.+)$', body, re.M)
         title = fm.get('title') or fm.get('page_title') or fm.get('seo_title') or emb_title or (h1.group(1).strip() if h1 else slug)

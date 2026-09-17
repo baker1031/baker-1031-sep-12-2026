@@ -4,6 +4,7 @@ source_sha256: 41f594af7e01f8a69887c81d81e8a70042b2eedadc8c9b562a0b514bac14b8e8
 writer: batch021_writer_a
 draft_version: 1
 source_unit_count: 66
+risk: "reit"
 ---
 
 # How Much of Your Portfolio Should Be REITs?
@@ -188,8 +189,6 @@ We help investors consider the real-estate sleeve, commonly cited ranges, income
 ## Disclosures
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
-
-Oil & gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.
 
 ## Explore Current Offerings
 

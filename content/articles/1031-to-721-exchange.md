@@ -4,6 +4,7 @@ source_sha256: 78bd3c001a2ebf116652946248549a6d122af13434aae7ddf3a1f7b6db828e03
 writer: batch-039-writer-b
 draft_version: 1
 source_unit_count: 78
+risk: "mixed"
 ---
 
 # The Two-Step 1031-to-721 Exchange: DST Now, UPREIT Later

@@ -8,6 +8,7 @@ source_category: Delaware Statutory Trust
 source_byline: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 18 min read
+risk: "dst"
 ---
 
 # DST Returns and Fees: What You Actually Keep

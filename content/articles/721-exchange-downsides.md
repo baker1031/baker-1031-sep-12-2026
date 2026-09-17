@@ -4,6 +4,7 @@ source_sha256: "500ac2411a81215de8e41707315ea52e11142a8998d6f006c32c5bcea720d1c4
 writer: "batch-040-writer-b"
 draft_version: "1"
 source_unit_count: 74
+risk: "mixed"
 ---
 
 # 721 Exchange Downsides: Risks Every Investor Should Weigh

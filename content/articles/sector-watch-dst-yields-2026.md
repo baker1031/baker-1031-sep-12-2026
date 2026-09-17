@@ -4,6 +4,7 @@ source_sha256: db03c85b537daea1cc713f0be2e71e2602e9ef1c712887c753ac3ed312d57dbd
 writer: writer-b
 draft_version: 1
 source_unit_count: 110
+risk: "dst"
 ---
 
 # Sector Watch: Where DST Yields Stand in 2026

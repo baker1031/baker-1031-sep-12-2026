@@ -4,6 +4,7 @@ source_sha256: "489b759cb649290db7d518787abad744fe6e515c6657c2960c8b26a827434d89
 writer: "writer-c"
 draft_version: "1.0"
 source_unit_count: 102
+risk: "dst"
 ---
 
 # 1031 Exchange Timeline: The 45-Day and 180-Day Deadlines

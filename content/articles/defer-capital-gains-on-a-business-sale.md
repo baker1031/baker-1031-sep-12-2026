@@ -9,6 +9,7 @@ category: "Opportunity Zones"
 source_attribution: "Baker 1031 Research"
 updated: "June 2026"
 source_read_time: "15 min read"
+risk: "mixed"
 ---
 
 # Defer Capital Gains on a Business Sale: Your Accurate Options
@@ -123,8 +124,6 @@ The same dollar cannot be both excluded and deferred. The QOF **180-day** clock 
 ## Disclosures
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
-
-Qualified Opportunity Funds are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, lack of control, development and execution risk, and the risk that intended tax benefits are not realized. Opportunity Zone tax treatment depends on individual circumstances and on rules that have changed over time. Business-sale taxation depends heavily on deal structure. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.
 
 ## Filed under
 

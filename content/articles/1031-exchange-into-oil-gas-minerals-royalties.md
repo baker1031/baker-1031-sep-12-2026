@@ -4,6 +4,7 @@ source_sha256: 25db78f5a54108478f8efbb63c74ac095420d646ff14d88d88b3128ab0ce1a28
 writer: writer-a
 draft_version: 1
 source_unit_count: 129
+risk: "mixed"
 ---
 
 # 1031 Exchange Into Oil & Gas, Minerals & Royalties
@@ -201,8 +202,6 @@ Maintaining a real-estate core while adding a royalty slice combines steadier, i
 ## Disclosures
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
-
-Oil & gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.
 
 Filed under [1031 Exchange](insights.html), [1031 Exchange](insights.html), and [Mineral & Royalty](insights.html).
 

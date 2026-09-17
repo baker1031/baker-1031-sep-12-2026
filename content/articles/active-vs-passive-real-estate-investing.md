@@ -8,6 +8,7 @@ source_category: Comparison
 source_attribution: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 13 min read
+risk: "mixed"
 ---
 
 # Active vs. Passive Real Estate Investing

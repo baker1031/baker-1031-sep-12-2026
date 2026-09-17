@@ -4,6 +4,7 @@ source_sha256: 10549ebe4f8b082c9f70927d5e7a1edac9a0d2f42736e89de1ad7c5ce9fc5d81
 writer: batch029_writer_c
 draft_version: v1
 source_unit_count: 61
+risk: "reit"
 ---
 
 # Public vs. Non-Traded REITs: A Liquidity Trade-Off

@@ -8,6 +8,7 @@ source_category: Mineral & Royalty
 source_author: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 13 min read
+risk: "oilgas"
 ---
 
 # Adding Mineral Royalties to a 1031 Replacement Mix

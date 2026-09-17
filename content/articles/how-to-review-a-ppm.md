@@ -4,6 +4,7 @@ source_sha256: "eb6c74173380a0d7c8d69a6bd5f043aec4132a88e1f9f185156899168fa36cde
 writer: "batch023_writer_a"
 draft_version: "1"
 source_unit_count: 65
+risk: "dst"
 ---
 
 # How to Review a PPM: A Deep Dive

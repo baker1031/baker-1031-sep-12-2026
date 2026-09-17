@@ -4,6 +4,7 @@ source_sha256: a4955ca076e83fc25249436f89ad3a5e9ac51f28487c74b64d4d932a82d960bd
 writer: batch025_writer_a
 draft_version: 1
 source_unit_count: 60
+risk: "dst"
 ---
 
 # Installment Sales of Real Estate (Section 453)

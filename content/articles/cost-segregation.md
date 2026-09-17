@@ -7,6 +7,7 @@ source_unit_count: 48
 source_category: Capital Gains
 source_updated: June 2026
 source_read_time: 13 min read
+risk: "dst"
 ---
 
 # Cost Segregation: Accelerating Depreciation

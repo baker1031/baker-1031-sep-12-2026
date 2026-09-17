@@ -8,6 +8,7 @@ source_category: Capital Gains
 source_attribution: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 12 min read
+risk: "dst"
 ---
 
 # What Is an Accredited Investor? 2026 Requirements

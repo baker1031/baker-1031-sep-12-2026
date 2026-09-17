@@ -6,6 +6,7 @@ source_snapshot: "source-snapshots/opportunity-zones-guide.html"
 writer: "writer-c"
 draft_version: "pilot-001-v1"
 source_unit_count: 54
+risk: "oz"
 ---
 
 # Qualified Opportunity Zone Funds: The 2026 Definitive Guide

@@ -4,6 +4,7 @@ source_sha256: e954689635edd7e3e11cedf48af10417b432cdc6833029e4731e15883350b990
 writer: batch-042-writer-a
 draft_version: 1
 source_unit_count: 120
+risk: "upreit"
 ---
 
 # The 721 Exchange (UPREIT) for DST Investors

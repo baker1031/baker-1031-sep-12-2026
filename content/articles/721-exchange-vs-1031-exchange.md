@@ -4,6 +4,7 @@ source_sha256: bebd83a0aca9da89e8a1b327986763bd1be7c0fe0a7338a944d0d47541783dd8
 writer: batch-044-writer-a
 draft_version: 1
 source_unit_count: 75
+risk: "mixed"
 ---
 
 # 721 Exchange vs. 1031 Exchange: Which One Fits?

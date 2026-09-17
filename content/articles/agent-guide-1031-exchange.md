@@ -4,6 +4,7 @@ source_sha256: "d623c6e1518e7d02e928240c7457bef54bd0c10caf35bd2279f67ec7d35354f7
 writer: "batch011_writer_a_retry"
 draft_version: "1.0"
 source_unit_count: 73
+risk: "dst"
 ---
 
 # The Agent & Broker's 2026 Guide to 1031 Exchanges

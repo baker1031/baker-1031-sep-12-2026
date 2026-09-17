@@ -4,6 +4,7 @@ source_sha256: "8f0f89f3abd3d8ac6bd95de12c4f6b5208e0b2cd9556a8b2a32b85750a1324e5
 writer: "writer-b"
 draft_version: "1"
 source_unit_count: "153"
+risk: "oz"
 ---
 
 # Reporting Opportunity Zone Investments: Forms 8997 & 8949

@@ -4,6 +4,7 @@ source_sha256: "2b223c7e8731efac8e2d0f88aa90e379d860a437c25bcf8a73f06ef7cf94c3fd
 writer: "writer-b"
 draft_version: "2026-08-31-batch-033"
 source_unit_count: 62
+risk: "dst"
 ---
 
 # Section 1033 Involuntary Conversions

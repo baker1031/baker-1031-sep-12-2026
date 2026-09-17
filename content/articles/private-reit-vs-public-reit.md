@@ -8,6 +8,7 @@ source_category: REITs
 source_author: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 15 min read
+risk: "reit"
 ---
 
 # Private vs. Public vs. Non-Traded REITs

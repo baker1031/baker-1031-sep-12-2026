@@ -8,6 +8,7 @@ source_category: Delaware Statutory Trusts
 source_author: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 16 min read
+risk: "dst"
 ---
 
 # DSTs for Trust & Estate Beneficiaries
@@ -72,7 +73,7 @@ The analysis changes again if the property has appreciated since death. That pos
 
 The trustee or executor is the fiduciary decision-maker. Fiduciary duty requires acting prudently, loyally, and in the beneficiaries' best interests. That means confirming that the governing document permits the transaction, evaluating whether passive fractional interests are suitable, documenting the reasoning, and communicating with beneficiaries where appropriate.
 
-The work has several owners. The estate-planning or trust attorney confirms authority and how the interests may be held or distributed. The CPA models the step-up, remaining or new gain, debt, and the relevant tax positions. A [qualified intermediary](what-is-a-qualified-intermediary.html) facilitates the 1031 exchange. The DST sponsor and broker-dealer handle subscription and [suitability](dst-suitability-and-finra-reg-bi.html). The trustee orchestrates the decisions and timing.
+The work has several owners. The estate-planning or trust attorney confirms authority and how the interests may be held or distributed. The CPA models the step-up, remaining or new gain, debt, and the relevant tax positions. A [qualified intermediary](what-is-a-qualified-intermediary.html) facilitates the 1031 exchange. The DST sponsor and broker-dealer handle subscription and [suitability](dst-suitability-and-reg-bi.html). The trustee orchestrates the decisions and timing.
 
 This is not a casual transaction. It must comply with the trust terms and the 1031 rules, and it must be defensible as a decision for the beneficiaries.
 
@@ -189,8 +190,6 @@ We provide education about the DST structure and coordinate the DST side with th
 ## Disclosures
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
-
-Oil & gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.
 
 ## Explore Current Offerings
 

@@ -24,8 +24,7 @@ LEVEL2_SECTIONS = ['glossary', 'calculators', 'property-types', 'markets', 'spon
 LEVEL2_GATE = '''<div class="gate gate--l2" role="region" aria-label="Approval required">
   <div class="gate__card">
     <h2>Not yet approved for this section</h2>
-    <p>You are not currently approved to visit this area. Please contact
-      <a href="mailto:invest@baker1031.com">invest@baker1031.com</a> for more information.</p>
+    <p>Email or call and I will open it up for you.</p>
     <div class="gate__actions">
       <a class="btn" href="mailto:invest@baker1031.com?subject=Access%20request">Email Baker 1031</a>
       <a class="btn btn--secondary" href="tel:+13108964227">(310) 896-4227</a>
@@ -34,7 +33,7 @@ LEVEL2_GATE = '''<div class="gate gate--l2" role="region" aria-label="Approval r
   </div>
 </div>'''
 
-LEVEL1_GATE = '''<div class="gate gate--l1" role="region" aria-label="Log in to continue">
+LEVEL1_GATE = '''<div class="gate gate--l1" id="gate-l1" role="region" aria-label="Log in to continue">
   <div class="gate__card">
     <h2>Log in to continue</h2>
     <p>This section is available to registered Baker 1031 investors. Log in with the email address on your account, or create one &mdash; it takes a few minutes.</p>
@@ -60,13 +59,29 @@ def needs_level2(rel):
     return top in LEVEL2_SECTIONS
 
 
+# Exactly one gate message is true at a time, so exactly one is ever in the document. The log-in card
+# is the served default (correct for an unauthenticated visitor and for a crawler); the approval card
+# travels inside a <template>, which is inert — not rendered, not read by assistive technology and not
+# in the text layer — and GATE_RESOLVE swaps it in for the one state where it applies.
+GATE_RESOLVE = '''<script>(function(){try{
+ var d=document,h=d.documentElement,l1=d.getElementById('gate-l1'),t=d.getElementById('gate-l2-tpl');
+ if(!l1||!t) return;
+ var inn=h.classList.contains('is-logged-in'), lvl2=h.classList.contains('is-level2');
+ if(inn && !lvl2) l1.parentNode.replaceChild(t.content.cloneNode(true), l1);
+ else if(inn && lvl2) l1.parentNode.removeChild(l1);
+ t.parentNode.removeChild(t);
+}catch(e){}})();</script>'''
+
+
 def wrap_level2(main, url_path):
-    """Wrap <main>'s children in the lock wrapper and drop both gate cards in. CSS decides which one
-    shows: logged out -> the log-in card; logged in without level 2 -> the approval card."""
+    """Wrap <main>'s children in the lock wrapper and add the gate. One card is served; the other is
+    held in an inert <template> and swapped in by GATE_RESOLVE when that state is the true one."""
     m = re.search(r'(<main[^>]*>)(.*)(</main>)', main, re.S)
     if not m:
         return main
-    inner = LEVEL1_GATE.replace('{path}', url_path) + '\n' + LEVEL2_GATE + '\n' + m.group(2)
+    inner = (LEVEL1_GATE.replace('{path}', url_path) + '\n'
+             + '<template id="gate-l2-tpl">' + LEVEL2_GATE + '</template>\n'
+             + GATE_RESOLVE + '\n' + m.group(2))
     return m.group(1) + '\n<div class="lockwrap lockwrap--l2">\n' + inner + '\n</div>\n' + m.group(3)
 
 
@@ -111,6 +126,7 @@ def build():
     if not os.path.isdir(PAGES):
         print('[pages] skipped: no', PAGES); return []
     urls = []
+    drafts = []
     for root, _, files in os.walk(PAGES):
         for f in files:
             if not f.endswith('.html'): continue
@@ -118,6 +134,11 @@ def build():
             frag = expand_fullcycle(open(os.path.join(root, f), encoding='utf-8').read(), rel)
             frag = expand_sponsor_materials(frag)
             meta, head, main, scripts = parse(frag)
+            # `draft: true` keeps a fragment in the repo but off the site. Retail communications that
+            # have not had principal approval under FINRA Rule 2210 must not be served at all — not
+            # noindexed, not gated, not served. Remove the flag once the page is approved.
+            if meta.get('draft', '').lower() == 'true':
+                drafts.append(rel); continue
             url_path = '/' + rel[:-len('index.html')] if rel.endswith('index.html') else '/' + rel
             graph = None
             if 'application/ld+json' not in head and url_path != '/404.html':
@@ -139,6 +160,8 @@ def build():
             open(dst, 'w', encoding='utf-8').write(html)
             if meta.get('noindex', '').lower() != 'true': urls.append(url_path)
     print(f'[pages] wrote {len(urls)} content pages')
+    if drafts:
+        print(f'[pages] held back {len(drafts)} draft page(s), not published: ' + ', '.join(sorted(drafts)))
     return sorted(urls)
 
 if __name__ == '__main__':

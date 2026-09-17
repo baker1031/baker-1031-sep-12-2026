@@ -7,6 +7,7 @@ source_unit_count: 183
 source_category: Real Estate Tax Center
 source_author: Baker 1031 Research
 source_updated: June 2026
+risk: "dst"
 ---
 
 # The Real Estate Tax Center

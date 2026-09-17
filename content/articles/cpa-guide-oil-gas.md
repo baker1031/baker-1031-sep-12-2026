@@ -8,6 +8,7 @@ source_category: "For Tax Advisors"
 source_author: "Baker 1031 Research"
 source_updated: "June 2026"
 source_read_time: "20 min read"
+risk: "oilgas"
 ---
 
 # The CPA's 2026 Guide to Oil & Gas Investing

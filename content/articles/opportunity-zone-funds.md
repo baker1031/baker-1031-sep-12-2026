@@ -7,6 +7,7 @@ source_unit_count: 47
 source_category: Strategy
 source_author: Baker 1031 Research
 source_updated: June 2026
+risk: "oz"
 ---
 
 # Opportunity Zone Funds

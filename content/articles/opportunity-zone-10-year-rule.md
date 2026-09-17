@@ -7,6 +7,7 @@ source_unit_count: 102
 source_category: Opportunity Zones
 source_updated: June 2026
 source_read_time: 13 min read
+risk: "oz"
 ---
 
 # The Opportunity Zone 10-Year Rule: Eliminating Tax on Growth

@@ -4,6 +4,7 @@ source_sha256: "89880109f23641eb5eac88b4408571a64208364ec17f08edebd64d2d8ca61398
 writer: "batch026_writer_a"
 draft_version: "1"
 source_unit_count: 34
+risk: "dst"
 ---
 
 # Jerry Baker Named to GlobeSt.'s 2026 CRE Aspiring Leaders List

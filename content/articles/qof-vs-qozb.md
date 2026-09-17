@@ -8,6 +8,7 @@ source_category: Opportunity Zones
 source_author: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 13 min read
+risk: "oz"
 ---
 
 # QOF vs. QOZB: Fund vs. Business, Explained

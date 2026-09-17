@@ -9,6 +9,7 @@ draft_version: "1"
 source_unit_count: 108
 source_attribution: "Baker 1031 Research"
 updated: "June 2026"
+risk: "dst"
 ---
 
 [Home](baker1031.html) › Resources › Property Types

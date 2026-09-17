@@ -8,6 +8,7 @@ source_category: "Opportunity Zones"
 source_author: "Baker 1031 Research"
 source_updated: "June 2026"
 source_read_time: "14 min read"
+risk: "oz"
 ---
 
 # Opportunity Zones at the 10-Year Mark: What Investors Should Know

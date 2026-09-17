@@ -8,6 +8,7 @@ source_category: Capital Gains
 source_author: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 17 min read
+risk: "dst"
 ---
 
 # 7 Legal Ways to Avoid Capital Gains Tax on Investment Property

@@ -4,6 +4,7 @@ source_sha256: cc78c1557b80a3e0fe4c006b1ed4cb4fa87a66f7f8268a60f0e0ce55d3f45cd9
 writer: writer-a
 draft_version: 1
 source_unit_count: 70
+risk: "dst"
 ---
 
 # The 45-Day Trap: Avoiding a Failed 1031 Exchange

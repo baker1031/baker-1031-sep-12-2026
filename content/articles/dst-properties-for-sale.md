@@ -8,6 +8,7 @@ source_sha256: 6726130f6d31447d2a795d7c7439bb09fbec33e137b34145b7c1a31ca3e0030a
 writer: writer-a
 draft_version: 1
 source_unit_count: 273
+risk: "dst"
 ---
 
 I keep seeing a search for “DST properties for sale” begin with a property name. The first question is usually not what is nearby, but whether a snapshot of an offering fits the exchange, the timeline, and the investor’s limits.

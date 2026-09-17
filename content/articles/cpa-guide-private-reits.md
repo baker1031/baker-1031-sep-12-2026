@@ -8,6 +8,7 @@ source_category: For Tax Advisors
 source_attribution: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 18 min read
+risk: "reit"
 ---
 
 # The CPA's 2026 Guide to Private & Non-Traded REITs

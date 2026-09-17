@@ -8,6 +8,7 @@ source_category: Comparison
 source_author: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 17 min read
+risk: "dst"
 ---
 
 # 1031 vs. DST vs. Opportunity Zone vs. 721: Which Fits Your Gain?

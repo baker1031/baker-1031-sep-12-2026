@@ -4,6 +4,7 @@ source_sha256: c2051352b08b92cff360097d9b79786c52294746d2e960c6b5c8dd021cc8d9b0
 writer: batch-046-writer-c
 draft_version: 1
 source_unit_count: 81
+risk: "upreit"
 ---
 
 # The CPA's 2026 Guide to 721 Exchanges (UPREITs)

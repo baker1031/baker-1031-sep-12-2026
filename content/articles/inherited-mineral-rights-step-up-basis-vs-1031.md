@@ -8,6 +8,7 @@ source_category: "Mineral & Royalty"
 source_author: "Baker 1031 Research"
 source_updated: "June 2026"
 source_read_time: "16 min read"
+risk: "mixed"
 ---
 
 # Inherited Mineral Rights: Step-Up Basis vs. 1031 Exchange
@@ -186,7 +187,7 @@ First-order thinking treats every mineral sale as a 1031 problem. Second-order t
 <p>A 1031 exchange earns its keep once the inherited minerals have appreciated meaningfully since the date of death, deferring the new gain — and it can pair with a DST for passive income. Coordinate with heirs and document the date-of-death value either way.</p>
 
 <h2 id="disclosures">Disclosures</h2>
-<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p><p>Oil &amp; gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.</p></div>
+<div class="disclosures"><p>This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.</p></div>
 
 <div class="filed"><span class="lbl">Filed under</span><a href="insights.html">Mineral &amp; Royalty</a><a href="insights.html">Mineral &amp; Royalty</a><a href="insights.html">1031 Exchange</a></div>
 

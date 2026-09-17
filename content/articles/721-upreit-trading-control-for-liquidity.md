@@ -4,6 +4,7 @@ source_sha256: 2032ff4f13d1ea39f3a7dccff898a6e17aef68c3c659cce65fc2ba0202a59cb4
 writer: batch-045-writer-c
 draft_version: 1
 source_unit_count: 116
+risk: "upreit"
 ---
 
 # Inside the 721 UPREIT Exchange: Trading Control for Liquidity

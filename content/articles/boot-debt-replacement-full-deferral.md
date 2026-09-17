@@ -9,6 +9,7 @@ category: "1031 Exchange"
 source_attribution: "Baker 1031 Research"
 updated: "June 2026"
 source_read_time: "6 min read"
+risk: "dst"
 ---
 
 # Boot, Debt Replacement, and Full Deferral

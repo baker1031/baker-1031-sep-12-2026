@@ -8,6 +8,7 @@ source_category: "For Agents & Brokers"
 source_author: "Baker 1031 Research"
 source_updated: "June 2026"
 source_read_time: "14 min read"
+risk: "oilgas"
 ---
 
 # The Agent & Broker's 2026 Guide to Oil & Gas and Mineral Rights

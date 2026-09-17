@@ -4,6 +4,7 @@ source_sha256: "28375ad4ea0e9d0799a9ed10b83d8ff4b6f7c6200e3d336dd1d5d9ea685528b2
 writer: "writer-a"
 draft_version: "1.0"
 source_unit_count: 185
+risk: "mixed"
 ---
 
 # Reverse 1031 Exchange for Mineral Rights: When You Buy First
@@ -205,8 +206,6 @@ Yes. A reverse-improvement exchange parks the replacement with the EAT while imp
 ## Disclosures
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
-
-Oil & gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.
 
 **Filed under:** [Mineral & Royalty](insights.html) · [Mineral & Royalty](insights.html) · [1031 Exchange](insights.html) · [Home](baker1031.html)
 

@@ -8,6 +8,7 @@ source_category: For Agents & Brokers
 source_author: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 15 min read
+risk: "oz"
 ---
 
 # The Agent & Broker's 2026 Guide to Opportunity Zone Funds

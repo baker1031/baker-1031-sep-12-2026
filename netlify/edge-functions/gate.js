@@ -118,6 +118,8 @@ const levelOf = (session) => (session && Number(session.lvl)) || 1;
 
 // Legacy paths from the previous site → their new homes (301).
 const LEGACY = {
+  // Reg BI is an SEC rule, not a FINRA one; the old slug said otherwise.
+  '/learn/dst-suitability-and-finra-reg-bi/': '/learn/dst-suitability-and-reg-bi/',
   '/privacy-policy': '/privacy/',
   '/privacy-policy/': '/privacy/',
   '/current-offerings': '/invest/',

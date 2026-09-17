@@ -8,6 +8,7 @@ source_category: "Delaware Statutory Trust"
 source_author: "Baker 1031 Research"
 source_updated: "June 2026"
 source_read_time: "19 min read"
+risk: "dst"
 ---
 
 # How to Evaluate a DST Sponsor: A Due-Diligence Checklist

@@ -8,6 +8,7 @@ source_category: "Oil & Gas"
 source_author: "Baker 1031 Research"
 source_updated: "June 2026"
 source_read_time: "14 min read"
+risk: "oilgas"
 ---
 
 # Oil & Gas Investment Risks Every Investor Should Know

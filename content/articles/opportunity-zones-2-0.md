@@ -6,6 +6,7 @@ source_snapshot: "source-snapshots/opportunity-zones-2-0.html"
 writer: "writer-a"
 draft_version: "batch-076-v1"
 source_unit_count: 69
+risk: "oz"
 ---
 
 # Opportunity Zones 2.0: What the One Big Beautiful Bill Changed

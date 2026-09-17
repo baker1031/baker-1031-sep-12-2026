@@ -3,6 +3,7 @@ title: The Big Beautiful Bill, Bonus Depreciation, and DSTs
 category: Delaware Statutory Trusts
 updated: September 2026
 meta_description: The One Big Beautiful Bill Act made 100% bonus depreciation permanent. What that changes for DST investors, cost segregation on fractional interests, and the math of the "lazy 1031."
+risk: "dst"
 ---
 
 # The Big Beautiful Bill, Bonus Depreciation, and DSTs

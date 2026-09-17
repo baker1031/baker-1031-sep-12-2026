@@ -8,6 +8,7 @@ source_category: "Oil & Gas"
 source_author: "Baker 1031 Research"
 source_updated: "June 2026"
 source_read_time: "12 min read"
+risk: "oilgas"
 ---
 
 # Can Oil & Gas Losses Offset W-2 Income?

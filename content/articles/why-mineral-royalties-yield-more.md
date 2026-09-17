@@ -9,6 +9,7 @@ source_category: "Mineral & Royalty"
 source_author: "Baker 1031 Research"
 source_updated: "June 2026"
 source_read_time: "14 min read"
+risk: "oilgas"
 ---
 
 # Why Mineral Royalties Yield More — and What You're Taking On

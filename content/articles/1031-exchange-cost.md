@@ -8,6 +8,7 @@ source_category: 1031 Exchange
 source_updated: June 2026
 source_read_time: 12 min read
 source_author: Baker 1031 Research
+risk: "dst"
 ---
 
 # 1031 Exchange Costs & Fees: What You’ll Actually Pay

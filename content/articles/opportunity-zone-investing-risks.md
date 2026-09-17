@@ -6,6 +6,7 @@ source_snapshot: "source-snapshots/opportunity-zone-investing-risks.html"
 writer: "writer-a"
 draft_version: "batch-074-v1"
 source_unit_count: 153
+risk: "oz"
 ---
 
 # Opportunity Zone Investing Risks: What Can Go Wrong

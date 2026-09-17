@@ -8,6 +8,7 @@ source_category: 1031 Exchange
 source_author: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 12 min read
+risk: "dst"
 ---
 
 # 1031 Identification Rules: The 3-Property, 200% and 95% Rules

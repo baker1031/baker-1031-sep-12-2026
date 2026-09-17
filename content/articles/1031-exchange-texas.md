@@ -3,6 +3,7 @@ title: 1031 Exchange in Texas
 category: 1031 Exchange
 updated: September 2026
 meta_description: How a 1031 exchange works for Texas investment property. Federal rules apply the same way in every state, and Texas adds no state income tax on the deferred gain.
+risk: "dst"
 ---
 
 # 1031 Exchange in Texas

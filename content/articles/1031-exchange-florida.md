@@ -3,6 +3,7 @@ title: 1031 Exchange in Florida
 category: 1031 Exchange
 updated: September 2026
 meta_description: How a 1031 exchange works for Florida investment property. Federal rules control the exchange, Florida adds no state income tax, and documentary stamp taxes apply at closing.
+risk: "dst"
 ---
 
 # 1031 Exchange in Florida

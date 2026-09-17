@@ -8,6 +8,7 @@ source_category: Definitive Guide
 source_author: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 32 min read
+risk: "dst"
 ---
 
 # Delaware Statutory Trusts: The 2026 Definitive Guide

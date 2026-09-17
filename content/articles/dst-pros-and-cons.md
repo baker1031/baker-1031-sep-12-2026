@@ -4,6 +4,7 @@ source_sha256: 1dcfd09d9893da703834be6f78a556aca8a4001cf3f88ad3b05875c4452d6346
 writer: writer-c
 draft_version: 1
 source_unit_count: 104
+risk: "dst"
 ---
 
 # DST Pros and Cons: Is a Delaware Statutory Trust Right for Your 1031?

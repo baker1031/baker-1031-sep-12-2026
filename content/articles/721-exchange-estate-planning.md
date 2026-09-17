@@ -8,6 +8,7 @@ source_category: 721 Exchange
 source_author: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 15 min read
+risk: "upreit"
 ---
 
 # Estate Planning With a 721 Exchange: The Step-Up Advantage

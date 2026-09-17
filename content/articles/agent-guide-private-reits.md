@@ -8,6 +8,7 @@ source_author: Baker 1031 Research
 source_category: For Agents & Brokers
 source_updated: June 2026
 source_read_time: 14 min read
+risk: "reit"
 ---
 
 # The Agent & Broker's 2026 Guide to Private REITs

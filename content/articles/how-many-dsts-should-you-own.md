@@ -4,6 +4,7 @@ source_sha256: 1e99c56deb958bcb38018504d87f41cf76dacf7f669f99fc2b786daa105d268d
 writer: writer-c
 draft_version: 1
 source_unit_count: 61
+risk: "dst"
 ---
 
 # How Many DSTs Should You Own?
@@ -79,7 +80,7 @@ The decision should be deliberate. Choose a count that meaningfully reduces conc
 
 Baker 1031 Investments helps investors consider the number of DSTs to own and how to combine them: why diversification may help, when it creates complexity, how minimums and identification rules affect the count, and how sponsors, sectors, and geographies can be combined for an exchange-specific allocation.
 
-DST interests are securities offered through Aurora Securities, Inc. (member FINRA/SIPC), to [accredited investors](accredited-investor-requirements.html) after a [suitability review](dst-suitability-and-finra-reg-bi.html). They are illiquid, fee-bearing, longer-term investments and are not suitable for everyone. Baker 1031 does not provide tax or legal advice. Your CPA and attorney address your specific tax circumstances, including multiple grantor letters and identification rules, while your [qualified intermediary](what-is-a-qualified-intermediary.html) coordinates the 45-day and 180-day deadlines.
+DST interests are securities offered through Aurora Securities, Inc. (member FINRA/SIPC), to [accredited investors](accredited-investor-requirements.html) after a [suitability review](dst-suitability-and-reg-bi.html). They are illiquid, fee-bearing, longer-term investments and are not suitable for everyone. Baker 1031 does not provide tax or legal advice. Your CPA and attorney address your specific tax circumstances, including multiple grantor letters and identification rules, while your [qualified intermediary](what-is-a-qualified-intermediary.html) coordinates the 45-day and 180-day deadlines.
 
 The work is to evaluate offerings across sponsors and sectors, size positions so they matter without over-fragmenting the exchange, and assemble an allocation that respects the rules and the investor's tolerance for complexity. Any sample portfolio is illustrative, not a recommendation. Distributions and returns are projections, never guaranteed, and past performance does not predict future results.
 
@@ -189,8 +190,6 @@ Baker 1031 helps investors examine diversification, complexity, minimums, identi
 ## Disclosures
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
-
-Oil & gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.
 
 **Filed under:** [Delaware Statutory Trusts](insights.html) · [DSTs](insights.html) · [1031 Exchange](insights.html)
 

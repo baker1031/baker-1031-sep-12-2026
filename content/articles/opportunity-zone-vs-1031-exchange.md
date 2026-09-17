@@ -7,6 +7,7 @@ source_unit_count: 62
 source_category: Opportunity Zones
 source_updated: June 2026
 source_read_time: 15 min read
+risk: "mixed"
 ---
 
 [Home](baker1031.html) › Insights

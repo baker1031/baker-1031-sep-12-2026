@@ -4,6 +4,7 @@ source_sha256: "e6609cce9170393fa8c8d89d2522ecbf0461f177bc981bc1d543500626c8cd39
 writer: "writer-b"
 draft_version: "1"
 source_unit_count: 41
+risk: "upreit"
 ---
 
 # 721 Exchanges (UPREIT)

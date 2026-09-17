@@ -4,6 +4,7 @@ source_sha256: "646f63054704a992182d95287f67e75e606881ebd4086f9fd426e7e730392ae3
 writer: "batch-034-writer-b"
 draft_version: "1"
 source_unit_count: 61
+risk: "dst"
 ---
 
 # Simplify Your Real Estate Portfolio in Retirement

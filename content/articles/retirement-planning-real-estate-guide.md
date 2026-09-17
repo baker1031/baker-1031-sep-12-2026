@@ -4,6 +4,7 @@ source_sha256: e5a65f94c31bdc260aedd36d8cc56cae02c3bde1ae895d15bdbd03c89a6029c6
 writer: writer-b
 draft_version: 1
 source_unit_count: 61
+risk: "mixed"
 ---
 
 # Retirement Planning With Real Estate

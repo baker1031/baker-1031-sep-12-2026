@@ -8,6 +8,7 @@ source_category: Net Investment Income Tax
 source_author: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 11 min read
+risk: "dst"
 ---
 
 # The 3.8% Net Investment Income Tax on Real Estate

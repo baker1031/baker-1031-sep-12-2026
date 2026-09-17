@@ -8,6 +8,7 @@ source_category: 1031 Exchange
 source_updated: June 2026
 source_read_time: 18 min read
 source_author: Baker 1031 Research
+risk: "dst"
 ---
 
 # What Is Boot in a 1031 Exchange?

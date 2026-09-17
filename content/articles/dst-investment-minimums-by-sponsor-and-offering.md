@@ -4,6 +4,7 @@ source_sha256: e45b526c906091e7064623b27b7b2cb24282f16fc96c9b21837f6380e05692db
 writer: writer-b
 draft_version: 1
 source_unit_count: 184
+risk: "dst"
 ---
 
 # DST Investment Minimums by Sponsor & Offering
@@ -51,7 +52,7 @@ Direct replacement real estate can force one large bet in one building and marke
 
 Every number can change. A DST with a $100,000 minimum last quarter may have closed, reopened, repriced, or been replaced. Confirm the 1031 or cash minimum, availability, and current terms in the PPM and [private placement memorandum](how-to-review-a-ppm.html). A trust can close once its finite equity is fully subscribed.
 
-The minimum is not total economic cost. Review [upfront costs and ongoing fees](dst-fees-and-load-explained.html), which reduce net return, alongside investment size. [Meeting an offering's dollar minimum](dst-minimum-investment-and-accreditation-requirements.html) does not itself make a DST suitable. Accreditation and a [suitability review](dst-suitability-and-finra-reg-bi.html) consider financial situation, goals, liquidity needs, and risk tolerance.
+The minimum is not total economic cost. Review [upfront costs and ongoing fees](dst-fees-and-load-explained.html), which reduce net return, alongside investment size. [Meeting an offering's dollar minimum](dst-minimum-investment-and-accreditation-requirements.html) does not itself make a DST suitable. Accreditation and a [suitability review](dst-suitability-and-reg-bi.html) consider financial situation, goals, liquidity needs, and risk tolerance.
 
 ## How Baker 1031 Helps You Navigate DST Minimums
 
@@ -148,8 +149,6 @@ We help confirm live terms, distinguish exchange and cash thresholds, coordinate
 ## Disclosures
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
-
-Oil & gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.
 
 **Filed under:** [Delaware Statutory Trusts](delaware-statutory-trusts.html) · [1031 Exchange](1031-exchange-guide.html)
 

@@ -4,6 +4,7 @@ source_sha256: "edf3b3926bc1e778049f8421f60360bc72aec74897091c4b814fa4d95ecda930
 writer: "writer-b"
 draft_version: "1.0"
 source_unit_count: 96
+risk: "mixed"
 ---
 
 # Private REIT vs. Syndication vs. DST

@@ -4,6 +4,7 @@ source_sha256: "9d3f79e40c784b17b83b31eb6760345f4cfd34e629b17906912a77557a4dc6db
 writer: "writer-b"
 draft_version: "1.0"
 source_unit_count: 178
+risk: "reit"
 ---
 
 # REIT Index Funds vs. Individual REITs
@@ -179,8 +180,6 @@ Individual REITs suit those willing to do the research and accept single-name ri
 ## Disclosures
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
-
-Oil & gas mineral and royalty interests and DST programs are speculative, illiquid securities sold only to verified accredited investors and involve substantial risk, including possible loss of principal, commodity-price and production-decline risk, lack of control, and the risk that an intended 1031 exchange fails to qualify for tax deferral. Whether a particular interest qualifies as like-kind real property is a fact-specific legal determination that varies by state and by the terms of the instrument. Tax results depend on your individual circumstances. Consult your own CPA and attorney before acting. Past performance does not guarantee future results.
 
 ## Source Attribution
 

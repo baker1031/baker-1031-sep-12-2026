@@ -4,6 +4,7 @@ source_sha256: "07ed8ceac79f18173b53e725a7237752d5d3891c268177c9054a2cdeb8680a70
 writer: "batch-031-writer-a"
 draft_version: "1"
 source_unit_count: 60
+risk: "reit"
 ---
 
 # Private & Non-Traded REITs and the 721 Exchange

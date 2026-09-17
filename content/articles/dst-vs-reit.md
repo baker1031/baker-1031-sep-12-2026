@@ -4,6 +4,7 @@ source_sha256: 10d4f336e83367bff78681bb93ecafaf7daa072151c46e3e452e6fbdd40aee68
 writer: writer-c
 draft_version: 1
 source_unit_count: 127
+risk: "mixed"
 ---
 
 # DST vs. REIT: Key Differences for 1031 Exchange Investors

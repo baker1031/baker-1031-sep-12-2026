@@ -7,6 +7,7 @@ source_unit_count: 49
 source_category: For Tax Advisors
 source_updated: June 2026
 source_read_time: 22 min read
+risk: "dst"
 ---
 
 # The CPA's 2026 Guide to 1031 Exchanges

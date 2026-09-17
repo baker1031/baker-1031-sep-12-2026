@@ -8,6 +8,7 @@ source_category: "Mineral & Royalty"
 source_author: "Baker 1031 Research"
 source_updated: "June 2026"
 page_script: "mineral-tools.js"
+risk: "mixed"
 ---
 
 # Mineral Rights & Royalties for 1031 Exchanges

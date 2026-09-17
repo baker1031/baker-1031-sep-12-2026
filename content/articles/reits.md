@@ -9,6 +9,7 @@ source_unit_count: 41
 category: "Strategy"
 source_attribution: "Baker 1031 Research"
 updated: "June 2026"
+risk: "reit"
 ---
 
 [Home](baker1031.html) › [Strategies](strategies.html) › REITs

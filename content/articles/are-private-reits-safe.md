@@ -9,6 +9,7 @@ category: "REITs"
 source_attribution: "Baker 1031 Research"
 updated: "June 2026"
 source_read_time: "14 min read"
+risk: "reit"
 ---
 
 # Are Private REITs Safe? Understanding the Risks

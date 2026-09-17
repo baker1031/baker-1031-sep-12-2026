@@ -8,6 +8,7 @@ source_category: Definitive Guide · 2026
 source_author: Baker 1031 Research
 source_updated: June 2026
 source_read_time: 34 min read
+risk: "dst"
 ---
 
 # 1031 Exchanges: The 2026 Definitive Guide

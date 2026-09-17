@@ -4,6 +4,7 @@ source_sha256: "e68caf09e98956c1c9fb8dd37a9c54edffddbe091392b604a1a89a34a5097a3e
 writer: "writer-b"
 draft_version: "1"
 source_unit_count: 41
+risk: "oilgas"
 ---
 
 # Mineral & Royalty Interests

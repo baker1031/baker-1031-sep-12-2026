@@ -4,6 +4,7 @@ source_sha256: "7fec370db5594168696051b44c15cc9a26a7dc568f5a1e33debf2a4401987783
 writer: "writer-c"
 draft_version: "1"
 source_unit_count: 103
+risk: "reit"
 ---
 
 # How to Invest in a Private REIT: Minimums, Yield & Liquidity
