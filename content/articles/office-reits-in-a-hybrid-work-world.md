@@ -178,10 +178,10 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 [Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal of Baker 1031 Investments, with FINRA Series 22 / 63 / SIE. He founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange after more than a decade on Wall Street working on $10B+ of real estate and later building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc., FINRA Series 4 / 7 / 24 / 53 / 63 / 66, the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc., FINRA Series 4 / 7 / 24 / 53 / 63 / 66, the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews educational content periodically for accuracy and regulatory compliance.
 
 ## Explore current offerings
 
 See the [REITs we currently have available](reits.html) and how they fit a strategy like this one. Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
-For now, I would keep office exposure matched to its true uncertainty, with enough liquid capital elsewhere that a lease rollover or a dividend change does not force a decision. What are you seeing in your local office market? Share your perspective in the comments?
+For now, I would keep office exposure matched to its true uncertainty, with enough liquid capital elsewhere that a lease rollover or a dividend change does not force a decision. What are you seeing in your local office market? If you are weighing this, email me and we can look at your numbers together.

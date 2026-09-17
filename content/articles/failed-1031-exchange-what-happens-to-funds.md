@@ -216,7 +216,7 @@ Founder & Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · 
 
 Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 ## Explore current offerings
 See the 1031 Exchanges we currently have available and how it may fit a strategy like this one. [View 1031 Exchanges →](1031-exchanges.html)
@@ -227,4 +227,4 @@ Educational only — not an offer of any security. Offerings are available to ve
 
 My practical stance is to manage the replacement side before the sale: begin early, maintain enough time buffer, use a sound qualified intermediary, and identify a closeable fallback if it fits the investor and the exchange. That does not make a DST suitable for everyone, and it does not eliminate tax or investment risk. It simply makes the most avoidable failure points visible before they become fixed.
 
-Does your exchange plan have a designated fallback and a calendar that has been stress-tested? Share your perspective in the comments.
+Does your exchange plan have a designated fallback and a calendar that has been stress-tested? If you are inside a deadline and this matters, get in touch — I would rather talk it through than guess.

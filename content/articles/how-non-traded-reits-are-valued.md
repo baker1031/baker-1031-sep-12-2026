@@ -189,7 +189,7 @@ Filed under: [REIT](insights.html) and [REITs](insights.html).
 
 [Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal of Baker 1031 Investments and holds FINRA Series 22 / 63 / SIE credentials. He founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange after more than a decade on Wall Street working on $10B+ of real estate and before building diversified DST portfolios for individual investors.
 
-Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 ### Explore current offerings
 

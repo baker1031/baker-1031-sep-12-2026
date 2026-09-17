@@ -213,7 +213,7 @@ Founder & Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · 
 
 Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 
 <script type="application/ld+json">
@@ -226,4 +226,4 @@ See the 721 Exchange (UPREIT) we currently have available and how it may fit a s
 
 Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
-Right now, I would not treat tax deferral as a reason to rush. I would make the one-way decision, the destination REIT, the tax exposure, and the professional team clear before commitment. Which of those questions would be hardest for you to answer today? Share your perspective in the comments.
+Right now, I would not treat tax deferral as a reason to rush. I would make the one-way decision, the destination REIT, the tax exposure, and the professional team clear before commitment. Which of those questions would be hardest for you to answer today? Email me if you want to test this against your own exchange.

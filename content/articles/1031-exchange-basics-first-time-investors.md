@@ -181,7 +181,7 @@ The QI holds funds and documents the transaction; the CPA estimates tax, tracks 
 
 ### How much does a 1031 exchange cost?
 
-QI fees are typically a base fee plus per-property charges. CPA and advisor fees add to the total. The source notes that deferred tax often reaches six figures and states that the exchange almost always saves more than it costs; assess the actual cost and tax effect for your situation.
+QI fees are typically a base fee plus per-property charges. CPA and advisor fees add to the total. Deferred tax often reaches six figures, and the exchange almost always saves more than it costs; assess the actual cost and tax effect for your situation.
 
 ### Can I do a 1031 exchange more than once?
 
@@ -189,7 +189,7 @@ Yes. Investors can exchange repeatedly over a lifetime to trade up, diversify, o
 
 ### What if I can’t find a replacement property in time?
 
-Identify a fast-closing DST backup within the 45-day window. A DST can close in days if a preferred direct property falls through, helping the exchange complete within 180 days. For a first-timer, the source describes this backup as the most reliable protection against a failed exchange. It still needs suitability review and underwriting.
+Identify a fast-closing DST backup within the 45-day window. A DST can close in days if a preferred direct property falls through, helping the exchange complete within 180 days. For a first-timer, this backup as the most reliable protection against a failed exchange. It still needs suitability review and underwriting.
 
 ### Is a DST a good first replacement property?
 

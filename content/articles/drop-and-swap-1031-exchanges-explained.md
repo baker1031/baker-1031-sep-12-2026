@@ -195,7 +195,7 @@ Filed under [1031 Exchange](insights.html) and 1031 Exchange.
 
 **About the author:** [Jerry Baker](jerry-baker-bio.html), Founder & Managing Principal, Baker 1031 Investments; FINRA Series **22** / **63** / SIE. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange after more than a decade on Wall Street and more than **$10B+** of real-estate transactions. [Read full bio →](jerry-baker-bio.html)
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc., the supervising registered principal; FINRA Series **4** / **7** / **24** / **53** / **63** / **66**. Last reviewed June **2026**. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc., the supervising registered principal; FINRA Series **4** / **7** / **24** / **53** / **63** / **66**. Last reviewed June **2026**. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 **Explore current offerings:** See the [1031 Exchanges](1031-exchanges.html) currently available and how they may fit a strategy like this one. Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 

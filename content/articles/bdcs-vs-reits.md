@@ -212,7 +212,7 @@ Founder & Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · 
 
 Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 ## Explore current offerings
 
@@ -224,4 +224,4 @@ Educational only — not an offer of any security. Offerings are available to ve
 
 My own starting point would be to identify the risk I am being paid to own before I compare distributions. For a BDC, that means borrower quality, leverage, rate sensitivity, and liquidity. For a REIT, it means property fundamentals, rates, leverage, and price relative to value. I would keep each exposure sized so a disappointment is manageable, not defining.
 
-What are you weighing more heavily right now: real-estate cash flow, private-credit income, or the risks hidden behind the yield? Share your view in the comments.
+What are you weighing more heavily right now: real-estate cash flow, private-credit income, or the risks hidden behind the yield? If that question is live for you right now, send it over and I will work through it with you.

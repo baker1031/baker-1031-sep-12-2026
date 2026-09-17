@@ -53,7 +53,7 @@ Direct real estate can become burdensome to manage later in life. Selling simply
 
 An investor may complete a standard 1031 exchange into [Delaware Statutory Trust](dst-guide.html) interests. A DST can provide passive, professionally managed, diversified institutional real-estate exposure. The investor no longer directly manages the real estate, but the 1031 deferral and potential path to a step-up can remain in place.
 
-For a retiring investor, that can mean exchanging hands-on property into DSTs, receiving passive income, and continuing to hold the investment for the estate-plan objective. The source describes DSTs as a common way to make the strategy compatible with a more hands-off retirement. They remain securities, however, and need the PPM review, suitability analysis, and independent diligence described in the disclosures.
+For a retiring investor, that can mean exchanging hands-on property into DSTs, receiving passive income, and continuing to hold the investment for the estate-plan objective. DSTs as a common way to make the strategy compatible with a more hands-off retirement. They remain securities, however, and need the PPM review, suitability analysis, and independent diligence described in the disclosures.
 
 ### A 721/UPREIT off-ramp
 

@@ -187,4 +187,4 @@ Filed under: [1031 Exchange](insights.html), [1031 Exchange](insights.html).
 
 Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Its notes are reviewed by founder Gerald F. "Jerry" Baker III, whose Wall Street real-estate private-equity career spans more than **$10** billion in transactions. Educational only — not tax or legal advice.
 
-For owners managing mixed-use property now, the practical stance is to treat the calendar, day logs, and tax reporting as risk controls before the exchange starts. How are you tracking personal use and fair-value rental days? Please share your perspective in the comments.
+For owners managing mixed-use property now, the practical stance is to treat the calendar, day logs, and tax reporting as risk controls before the exchange starts. How are you tracking personal use and fair-value rental days? If that question is live for you right now, send it over and I will work through it with you.

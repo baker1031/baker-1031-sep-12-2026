@@ -243,10 +243,10 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 [Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal of Baker 1031 Investments, with FINRA Series 22 / 63 / SIE. He founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange after more than a decade on Wall Street working on $10B+ of real estate and later building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc., FINRA Series 4 / 7 / 24 / 53 / 63 / 66, the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc., FINRA Series 4 / 7 / 24 / 53 / 63 / 66, the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews educational content periodically for accuracy and regulatory compliance.
 
 ## Explore current offerings
 
 See the [Mineral & Royalty Interests we currently have available](mineral-royalty-interests.html) and how they fit a strategy like this one. Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
-For now, I would keep the capital decision behind the document review and the deadline plan: confirm the interest first, arrange the QI before the sale, and identify a credible backup before day 45. Where do you see the greatest uncertainty in a mineral exchange? Share your perspective in the comments?
+For now, I would keep the capital decision behind the document review and the deadline plan: confirm the interest first, arrange the QI before the sale, and identify a credible backup before day 45. Where do you see the greatest uncertainty in a mineral exchange? If you are working through this now, write to me and we can go through it.

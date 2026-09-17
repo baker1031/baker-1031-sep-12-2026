@@ -180,4 +180,4 @@ Filed under: [1031 Exchange](insights.html).
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-I am managing seller-financing risk by deciding where every dollar of note value will go before the sale contract is signed. What structure would you choose to preserve flexibility without leaving an unintended piece of boot behind? Please share your perspective in the comments.
+I am managing seller-financing risk by deciding where every dollar of note value will go before the sale contract is signed. What structure would you choose to preserve flexibility without leaving an unintended piece of boot behind? If you want a second read on your own facts, email me.

@@ -196,4 +196,4 @@ Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independ
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-I am managing this kind of decision by treating the record of use as capital worth protecting, not paperwork to reconstruct later. How are you weighing time, use, and documentation before an exchange? Please share your perspective in the comments.
+I am managing this kind of decision by treating the record of use as capital worth protecting, not paperwork to reconstruct later. How are you weighing time, use, and documentation before an exchange? Email me if you want to test this against your own exchange.

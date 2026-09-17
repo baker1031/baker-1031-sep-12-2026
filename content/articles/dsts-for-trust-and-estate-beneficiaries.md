@@ -184,7 +184,7 @@ We provide education about the DST structure and coordinate the DST side with th
 
 [Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal of Baker 1031 Investments and holds FINRA Series 22 / 63 / SIE credentials. He founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange after more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read Jerry Baker's full bio](jerry-baker-bio.html).
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc., the supervising registered principal (FINRA Series 4 / 7 / 24 / 53 / 63 / 66). Last reviewed June 2026. Baker 1031 periodically reviews educational content for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc., the supervising registered principal (FINRA Series 4 / 7 / 24 / 53 / 63 / 66). Last reviewed June 2026. Baker 1031 periodically reviews educational content for accuracy and regulatory compliance.
 
 ## Disclosures
 

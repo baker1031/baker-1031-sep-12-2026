@@ -173,7 +173,7 @@ Founder & Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · 
 
 Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 
 <script type="application/ld+json">
@@ -186,4 +186,4 @@ See the Delaware Statutory Trusts we currently have available and how it may fit
 
 Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
-I would treat a sponsor ranking as a starting question, not a conclusion: underwrite the realized record, reporting, balance sheet, fees, and then the property itself before capital is committed. What evidence matters most to you when you assess a sponsor? Share your perspective in the comments.
+I would treat a sponsor ranking as a starting question, not a conclusion: underwrite the realized record, reporting, balance sheet, fees, and then the property itself before capital is committed. What evidence matters most to you when you assess a sponsor? If you want a second read on your own facts, email me.

@@ -17,9 +17,9 @@ I have been thinking about how quickly a yield screen can turn a falling share p
 
 The first-order view is that the highest dividend yield produces the most income. The second-order view asks why the yield is high, whether adjusted funds from operations (AFFO) supports the dividend, how the result compares with sector peers, and what the position contributes to total return. That is the difference between durable income and a yield trap.
 
-**Category:** REIT  
-**Research:** Baker 1031 Research  
-**Updated:** June 2026  
+**Category:** REIT 
+**Research:** Baker 1031 Research 
+**Updated:** June 2026 
 **Reading time:** 16 min read
 
 Navigation: [Back to All Insights](insights.html)
@@ -151,7 +151,7 @@ Generally, yes. Diversification across REITs and sectors—such as residential, 
 
 ### How are REIT dividends taxed, and does that affect yield?
 
-Tax affects the income an investor keeps, and Baker 1031 does not provide tax advice. Most REIT ordinary dividends are taxed as ordinary income rather than at qualified-dividend rates because the REIT did not pay corporate tax. A **20%** Section 199A deduction applies to qualified REIT dividends, lowering the effective top federal rate; the source notes that the deduction was made permanent by the 2025 OBBBA legislation. Some distributions are return of capital, which reduces cost basis rather than being currently taxed, or capital-gain distributions, which are taxed at capital-gains rates. The REIT reports the mix on Form 1099-DIV. Tax-advantaged accounts can change the calculation, so confirm individual treatment with a tax advisor.
+Tax affects the income an investor keeps, and Baker 1031 does not provide tax advice. Most REIT ordinary dividends are taxed as ordinary income rather than at qualified-dividend rates because the REIT did not pay corporate tax. A **20%** Section 199A deduction applies to qualified REIT dividends, lowering the effective top federal rate; the deduction was made permanent by the 2025 OBBBA legislation. Some distributions are return of capital, which reduces cost basis rather than being currently taxed, or capital-gain distributions, which are taxed at capital-gains rates. The REIT reports the mix on Form 1099-DIV. Tax-advantaged accounts can change the calculation, so confirm individual treatment with a tax advisor.
 
 ### How does Baker 1031 help me evaluate REIT yields?
 
@@ -189,7 +189,7 @@ We help income-focused investors understand the yield trap, test AFFO coverage, 
 
 [Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal of Baker 1031 Investments and holds FINRA Series 22 / 63 / SIE credentials. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange after more than a decade on Wall Street working on **$10B+** of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc., the supervising registered principal (FINRA Series 4 / 7 / 24 / 53 / 63 / 66). Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc., the supervising registered principal (FINRA Series 4 / 7 / 24 / 53 / 63 / 66). Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 ## Disclosures
 

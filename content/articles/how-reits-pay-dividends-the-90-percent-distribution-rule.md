@@ -72,7 +72,7 @@ This is where first-order and second-order thinking divide. First-order thinking
 
 Most REIT dividends are taxed as ordinary income rather than at the lower qualified-dividend rates that apply to many corporate dividends. The reason is the same tax design: the REIT generally did not pay corporate income tax on the distributed income, so shareholders bear the tax at ordinary rates.
 
-Qualified REIT dividends receive the **20%** Section 199A deduction. That deduction can lower the effective top federal rate on qualifying REIT dividend income to roughly **29.6%**, rather than the full top ordinary rate. The source notes that the deduction was made permanent by the **2025** One Big Beautiful Bill Act (OBBBA). It applies to the ordinary-income portion of qualified REIT dividends, not to the return-of-capital portion, which is not currently taxed, or to capital-gain distributions.
+Qualified REIT dividends receive the **20%** Section 199A deduction. That deduction can lower the effective top federal rate on qualifying REIT dividend income to roughly **29.6%**, rather than the full top ordinary rate. The deduction was made permanent by the **2025** One Big Beautiful Bill Act (OBBBA). It applies to the ordinary-income portion of qualified REIT dividends, not to the return-of-capital portion, which is not currently taxed, or to capital-gain distributions.
 
 The after-tax yield therefore depends on the distribution's character. Return of capital reduces cost basis and generally defers tax to a later sale as capital gain. These are general descriptions, not personal tax conclusions. Consult a CPA about the current rules and their application to your own facts.
 
@@ -122,7 +122,7 @@ No. A yield far above peers may show that the market is worried about dividend d
 
 ### What is the 20% deduction on REIT dividends?
 
-The Section 199A deduction allows a **20%** deduction for qualified REIT ordinary dividend income. Because REIT dividends are generally ordinary income, the deduction can reduce the effective top federal rate to roughly **29.6%**. The source states that the **2025** OBBBA made it permanent. It does not apply to return of capital, which is not currently taxed, or to capital-gain distributions. Ask a CPA how it applies to your own return.
+The Section 199A deduction allows a **20%** deduction for qualified REIT ordinary dividend income. Because REIT dividends are generally ordinary income, the deduction can reduce the effective top federal rate to roughly **29.6%**. The **2025** OBBBA made it permanent. It does not apply to return of capital, which is not currently taxed, or to capital-gain distributions. Ask a CPA how it applies to your own return.
 
 ### Can a REIT cut its dividend?
 
@@ -227,16 +227,16 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 ## About the Author
 
-[Jerry Baker](jerry-baker-bio.html)  
+[Jerry Baker](jerry-baker-bio.html) 
 Founder & Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · SIE
 
 Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on **$10B+** of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-**Reviewed by** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 ## Explore current offerings
 
-See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html)  
+See the REITs we currently have available and how it may fit a strategy like this one. [View REITs →](reits.html) 
 Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
 For capital I am managing today, I would rather own an income stream whose coverage I can explain than a headline yield I cannot. What do you review first when you decide whether a REIT dividend is worth relying on?

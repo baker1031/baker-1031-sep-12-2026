@@ -48,7 +48,7 @@ For heavily depreciated property, that makes a conversion-tax plan important. Co
 
 ## Recapture and the Step-Up
 
-The source describes a different possible outcome when an owner holds OP units until death. Under the [step-up in basis](1031-exchange-step-up-in-basis-at-death.html), heirs may receive units with basis reset to fair market value. That can erase embedded deferred gain, including the recapture component.
+A different outcome is possible when an owner holds OP units until death. Under the [step-up in basis](1031-exchange-step-up-in-basis-at-death.html), heirs may receive units with basis reset to fair market value. That can erase embedded deferred gain, including the recapture component.
 
 For an owner with substantial accumulated depreciation, this can be an important estate-planning consideration: contribute through a 721 exchange, defer the recapture during life, and hold the units rather than convert them. The result depends on the law, the facts, and later disposition decisions. It should not be treated as a universal plan or a substitute for estate, tax, and legal advice.
 

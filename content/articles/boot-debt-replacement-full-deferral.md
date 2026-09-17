@@ -178,4 +178,4 @@ Every figure and example here is general and illustrative, not a projection or a
 
 I would treat value, equity, and debt as a single closing checklist, then decide before signing whether the outcome should be full deferral or intentional boot. If a gap appears, I would measure it, review the alternatives with the QI and tax advisers, and make the cost a choice rather than a surprise.
 
-Which part of the equal-or-up calculation are you checking most carefully—value, equity, or debt? Share your view in the comments.
+Which part of the equal-or-up calculation are you checking most carefully—value, equity, or debt? That question is worth answering against your actual numbers rather than in the abstract — email me.

@@ -82,13 +82,13 @@ Oil-and-gas replacements bring several specialized issues. Sourcing and diligenc
 
 Characterization is the next issue. On the replacement side, confirm a perpetual real-property interest rather than a production payment, a short-dated term interest, or nonqualifying equipment within a working interest. The same analysis applies when exchanging out of minerals. A tax adviser's review of the conveyances can prevent the costly mistake of using a nonqualifying interest.
 
-Then there are trailing income and depletion. Royalty proceeds may arrive on a lag and need to be routed carefully through the QI. After acquiring replacement minerals, qualifying owners may generally claim depletion. The source notes that percentage depletion is often **15%** of gross income for qualifying owners, and that carryover basis affects the calculation. These items are manageable, but they are reasons to prepare earlier and use a team with appropriate experience.
+Then there are trailing income and depletion. Royalty proceeds may arrive on a lag and need to be routed carefully through the QI. After acquiring replacement minerals, qualifying owners may generally claim depletion. Percentage depletion is often **15%** of gross income for qualifying owners, and carryover basis affects the calculation. These items are manageable, but they are reasons to prepare earlier and use a team with appropriate experience.
 
 ## Choosing your replacement interests
 
 The core choice is direct interests, a royalty-pool DST, or a combination. Direct producing royalties can offer control and no DST fees. They also require sourcing infrastructure, specialized diligence, and the ability to close before the **180-day** deadline. Without a diversified basket, they may leave the investor concentrated in specific wells and operators.
 
-A royalty-pool DST packages diversified, pre-vetted royalty interests in a turnkey, fast-closing form. The source states that it qualifies under Revenue Ruling **2004-86**, diversifies across wells and basins, generally passes through depletion, and can close in days. The tradeoffs are fees, passivity, and illiquidity. For many real-estate investors unfamiliar with mineral markets, the source describes the DST as the practical route and a reliable backup.
+A royalty-pool DST packages diversified, pre-vetted royalty interests in a turnkey, fast-closing form. It qualifies under Revenue Ruling **2004-86**, diversifies across wells and basins, generally passes through depletion, and can close in days. The tradeoffs are fees, passivity, and illiquidity. For many real-estate investors unfamiliar with mineral markets, the DST is the practical route and a reliable backup.
 
 A blended approach can pair a direct interest the investor specifically wants with a DST that adds diversification and closing certainty. The selection should fit the investor's expertise, preference for control or convenience, desired commodity exposure, and confidence that the investment can actually fund on time. The best replacement is the one that advances the objective and can be acquired within the deadline.
 
@@ -157,7 +157,7 @@ A tax adviser reviews the conveyance to confirm a qualifying perpetual real-prop
 
 ### Does depletion follow the minerals I exchange into?
 
-Once replacement minerals are owned, qualifying owners can generally claim depletion. The source notes percentage depletion is often **15%** of gross royalty income. Carryover basis from the exchange affects the calculation, which the CPA handles with the new depletion schedule.
+Once replacement minerals are owned, qualifying owners can generally claim depletion. Percentage depletion is often **15%** of gross royalty income. Carryover basis from the exchange affects the calculation, which the CPA handles with the new depletion schedule.
 
 ### When should I start the process?
 

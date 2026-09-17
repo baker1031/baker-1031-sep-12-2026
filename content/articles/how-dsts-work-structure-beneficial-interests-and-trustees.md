@@ -200,7 +200,7 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 ## Explore current offerings
 
@@ -208,4 +208,4 @@ See the Delaware Statutory Trusts we currently have available and how it may fit
 
 Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
-I am managing capital by making the structure, the sponsor, the financing, and the limits on liquidity do more work in the decision than the projected distribution. Where do you think investors most often underwrite a DST too lightly? Please share your perspective in the comments.
+I am managing capital by making the structure, the sponsor, the financing, and the limits on liquidity do more work in the decision than the projected distribution. Where do you think investors most often underwrite a DST too lightly? Email me if you want to test this against your own exchange.

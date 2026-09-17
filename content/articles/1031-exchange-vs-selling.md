@@ -127,4 +127,4 @@ This article is published by Baker 1031 for general informational and educationa
 
 Every figure and example here is general and illustrative, not a projection or a representation about any specific transaction. DSTs and other private placements are speculative, illiquid securities sold only to verified accredited investors via private placement memorandum and involve substantial risk including loss of principal. Past performance does not guarantee future results, and no tax outcome, including 1031 deferral, is guaranteed.
 
-I am managing this decision by refusing to buy a weak asset simply to avoid a tax bill. Which matters more in your own comparison: the retained capital, the liquidity, or the quality of the next investment? Please share your perspective in the comments.
+I am managing this decision by refusing to buy a weak asset simply to avoid a tax bill. Which matters more in your own comparison: the retained capital, the liquidity, or the quality of the next investment? If you want a second read on your own facts, email me.

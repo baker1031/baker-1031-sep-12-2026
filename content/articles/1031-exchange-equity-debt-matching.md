@@ -137,7 +137,7 @@ You can take on at least the old debt amount, more than the old amount, or less 
 
 ### How do leveraged DSTs help with debt matching?
 
-The source describes leveraged DSTs as having pre-arranged, non-recourse financing at a known loan-to-value ratio. A DST with debt that matches the old loan can satisfy debt replacement without a new loan application or personal guarantee, subject to suitability and diligence.
+Leveraged DSTs typically have pre-arranged, non-recourse financing at a known loan-to-value ratio. A DST with debt that matches the old loan can satisfy debt replacement without a new loan application or personal guarantee, subject to suitability and diligence.
 
 ### What is the most common matching mistake?
 

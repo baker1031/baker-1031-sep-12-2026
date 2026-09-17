@@ -142,5 +142,5 @@ Every DST private placement memorandum tells its story in three numbers: the fee
 </div>
 </article>
 
-For now, I would read the fee load, debt, and rent support as one decision rather than three separate headline numbers, and I would slow down when they do not reinforce one another. Which PPM section do you read first before trusting a distribution projection? Share your perspective in the comments.
+For now, I would read the fee load, debt, and rent support as one decision rather than three separate headline numbers, and I would slow down when they do not reinforce one another. Which PPM section do you read first before trusting a distribution projection? Send me your situation and we can put real figures against it.
 

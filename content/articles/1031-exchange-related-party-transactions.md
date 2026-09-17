@@ -196,4 +196,4 @@ Filed under: [1031 Exchange](insights.html).
 
 This article is published by Baker 1031 Investments, LLC for general educational purposes for accredited investors and is not an offer to sell or a solicitation of an offer to buy any security, nor is it tax, legal, accounting, or investment advice or a recommendation. Any securities offering is made solely through a sponsor’s private placement memorandum (PPM) following a suitability determination. Securities offered through Aurora Securities, Inc. (ASI), member FINRA / SIPC; Baker 1031 Investments is independent of ASI.
 
-I am managing related-party exposure by treating the other party’s liquidity needs as part of my own risk budget for the full two years. What safeguards would you want before allowing someone else’s sale decision to affect your deferred gain? Please share your perspective in the comments.
+I am managing related-party exposure by treating the other party’s liquidity needs as part of my own risk budget for the full two years. What safeguards would you want before allowing someone else’s sale decision to affect your deferred gain? Email me if you want to test this against your own exchange.

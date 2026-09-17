@@ -27,7 +27,7 @@ An outright sale of appreciated investment property can bring federal capital-ga
 
 The deferred gain does not vanish at the exchange. It moves into the new property as a reduced, carryover basis. The benefit is that more equity stays in the investment base. Repeat the process over an investing life, and hold the final property until death, and heirs may receive a stepped-up basis that removes the deferred gain for income-tax purposes. That is the strategy often called “swap till you drop.”
 
-This guide is the common foundation for every exchange. The specialized routes discussed here include [Delaware Statutory Trusts](dst-guide.html) for passive ownership, [mineral and royalty interests](mineral-rights-1031-guide.html) where perpetual interests qualify as real property, and the related [Opportunity Zone](opportunity-zones-guide.html) alternative. Opportunity Zones are not 1031 exchanges; the source describes them as an option that can defer gain and offer tax-free appreciation over **ten years**.
+This guide is the common foundation for every exchange. The specialized routes discussed here include [Delaware Statutory Trusts](dst-guide.html) for passive ownership, [mineral and royalty interests](mineral-rights-1031-guide.html) where perpetual interests qualify as real property, and the related [Opportunity Zone](opportunity-zones-guide.html) alternative. Opportunity Zones are not 1031 exchanges; them as an option that can defer gain and offer tax-free appreciation over **ten years**.
 
 ## 02 · What Qualifies
 

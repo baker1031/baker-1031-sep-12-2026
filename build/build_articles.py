@@ -387,7 +387,7 @@ def article_main(a, html, related_rows, is_hub):
   <section class="sec authorbox">
     <div class="label">ABOUT THE AUTHOR</div>
     <div class="who">Jerry Baker</div>
-    <p>Jerry Baker is the founder and managing principal of Baker 1031 Investments, a founder-led real estate securities brokerage helping accredited investors evaluate 1031-eligible strategies. His perspective comes from more than a decade in institutional real estate and a 60-year family legacy in the business. Securities offered through Aurora Securities, Inc., member FINRA/SIPC.</p>
+    <p>Jerry Baker is the founder and managing principal of Baker 1031 Investments, a founder-led real estate securities brokerage helping accredited investors evaluate 1031-eligible strategies. His perspective comes from more than a decade in institutional real estate and a 60-year family legacy in the business.</p>
     <div class="links">
       <a href="/learn/jerry-baker-bio/">About Jerry</a>
       <a href="https://brokercheck.finra.org/individual/summary/7537416" target="_blank" rel="noopener">Verify on BrokerCheck</a>

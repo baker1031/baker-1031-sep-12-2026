@@ -49,10 +49,10 @@ Profile notes: Gerald F. “Jerry” Baker, III is also known as Jerry Baker. Hi
 
 His profile also identifies the GlobeSt. CRE's Aspiring Leaders of 2026 award and the [GlobeSt.com article](https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/) as its source. Additional public profile destinations are [BrokerCheck](https://brokercheck.finra.org/individual/summary/7537416) and [LinkedIn](https://www.linkedin.com/in/jerry-baker-1031-dst/).
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 ## Disclosures
 
-This announcement reports recognition by an independent third party. GlobeSt.com and Arc Network are not affiliated with Baker 1031 Investments, Aurora Securities, Inc., or any investment sponsor, and the recognition is not an endorsement of Baker 1031's services or of any security or investment outcome. Securities offered through Aurora Securities, Inc., member FINRA/SIPC.
+This announcement reports recognition by an independent third party. GlobeSt.com and Arc Network are not affiliated with Baker 1031 Investments, Aurora Securities, Inc., or any investment sponsor, and the recognition is not an endorsement of Baker 1031's services or of any security or investment outcome.
 
 For now, I would treat this recognition as a prompt to keep the same discipline: make incentives, debt, fees, real estate, and downside cases visible before committing capital. What do you think is the best test of accountability when you evaluate a private real estate advisor or offering?

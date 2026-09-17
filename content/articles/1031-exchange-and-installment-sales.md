@@ -165,7 +165,7 @@ The tax consequences depend on the facts and may include loss or repossession tr
 
 ### Can I use a DST for the cash portion and keep a note?
 
-Yes. The cash portion may be exchanged into a DST while the seller retains the note and applies installment treatment to its gain. The source describes this as a way to combine passive, diversified real estate for the cash portion with spread taxation for the note, subject to CPA and QI coordination.
+Yes. The cash portion may be exchanged into a DST while the seller retains the note and applies installment treatment to its gain. This as a way to combine passive, diversified real estate for the cash portion with spread taxation for the note, subject to CPA and QI coordination.
 
 ### Is the interest on the note taxable?
 

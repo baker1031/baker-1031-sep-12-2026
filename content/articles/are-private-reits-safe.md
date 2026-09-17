@@ -176,4 +176,4 @@ Tax treatment depends on your individual facts and on rules that can change; con
 
 I would manage capital here by treating private-REIT exposure as long-duration, contingent-liquidity capital. I would insist on seeing the debt, the distribution source, the appraisal method, and the redemption terms before I gave the smooth statement any credit at all.
 
-What would you need to see in an offering before you were comfortable tying up capital for years? Share your view in the comments.
+What would you need to see in an offering before you were comfortable tying up capital for years? If you are inside a deadline and this matters, get in touch — I would rather talk it through than guess.

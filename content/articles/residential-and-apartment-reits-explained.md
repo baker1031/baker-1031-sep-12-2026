@@ -117,7 +117,7 @@ It generally owns a manufactured-home community's land and shared infrastructure
 
 ### How do residential REIT dividends get taxed?
 
-Most ordinary REIT dividends are taxed as ordinary income because the REIT generally did not pay corporate tax. Qualified REIT dividends can receive a 20% deduction under Section 199A; the source notes that the 2025 OBBBA legislation made that deduction permanent. A distribution can also include return of capital, which reduces cost basis rather than being taxed currently, or capital-gain distributions. The REIT reports the breakdown on Form 1099-DIV. Some investors use tax-advantaged accounts such as IRAs. Tax treatment depends on the investor and current law, so consult a tax adviser; Baker 1031 does not provide tax advice.
+Most ordinary REIT dividends are taxed as ordinary income because the REIT generally did not pay corporate tax. Qualified REIT dividends can receive a 20% deduction under Section 199A; the 2025 OBBBA legislation made that deduction permanent. A distribution can also include return of capital, which reduces cost basis rather than being taxed currently, or capital-gain distributions. The REIT reports the breakdown on Form 1099-DIV. Some investors use tax-advantaged accounts such as IRAs. Tax treatment depends on the investor and current law, so consult a tax adviser; Baker 1031 does not provide tax advice.
 
 ### How do rising interest rates affect residential REITs?
 
@@ -175,7 +175,7 @@ Filed under: [REIT](insights.html) and [REITs](insights.html).
 
 [Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal of Baker 1031 Investments, with FINRA Series 22 / 63 / SIE. He founded Baker 1031 to bring institutional underwriting discipline to 1031 exchanges. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-**Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591)** — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591)** — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 ## Explore current offerings
 

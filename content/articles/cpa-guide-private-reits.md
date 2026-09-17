@@ -183,4 +183,4 @@ References to Code sections, regulations, rulings, and forms reflect a general u
 
 I would manage this by beginning with the boxes, not the yield: reconcile the Form 1099-DIV, maintain the basis schedule, run NIIT and UBTI checks where they apply, and make the 1031-versus-721 distinction before a client commits proceeds. The near-term distribution can look attractive while the more important result is sitting in basis, liquidity, and the future taxable exit.
 
-What detail causes the most trouble in your REIT files: 1099 character, return-of-capital basis, retirement-account UBTI, or the 1031 question? Share your perspective in the comments.
+What detail causes the most trouble in your REIT files: 1099 character, return-of-capital basis, retirement-account UBTI, or the 1031 question? If you are weighing this, email me and we can look at your numbers together.

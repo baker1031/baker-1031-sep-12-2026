@@ -136,7 +136,7 @@ Founder & Managing Principal, Baker 1031 Investments · FINRA Series **22** / **
 
 Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on **$10B+** of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series **4** / **7** / **24** / **53** / **63** / **66**), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series **4** / **7** / **24** / **53** / **63** / **66**), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 ## Explore current offerings
 
@@ -148,4 +148,4 @@ Educational only — not an offer of any security. Offerings are available to ve
 
 I would not let the prospect of deferral decide a business sale. Before closing, I would separate every component of gain, identify which timing rules apply, and test whether the QOF’s illiquidity, **10-year** horizon, and investment risks remain acceptable after the tax question is set aside. I would have the CPA settle the eligibility and structure first, then decide whether the investment itself earns a place in the plan.
 
-What question about a QOF, installment sale, or QSBS route is most important in your own sale planning? Share your view in the comments.
+What question about a QOF, installment sale, or QSBS route is most important in your own sale planning? If you want a second read on your own facts, email me.

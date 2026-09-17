@@ -230,7 +230,7 @@ Founder & Managing Principal, Baker 1031 Investments · FINRA Series 22 / 63 · 
 
 Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 ## Explore current offerings
 
@@ -242,4 +242,4 @@ Educational only — not an offer of any security. Offerings are available to ve
 
 I would manage capital by deciding the REIT’s role before deciding the ticker: income, diversification, or both. Then I would keep the allocation small enough that rate moves, a sector problem, or a distribution cut cannot dictate the rest of the portfolio. A yield is a starting point for questions, not an answer.
 
-Which trade-off carries the most weight for you right now: income, liquidity, taxes, or the risk behind the price? Share your perspective in the comments.
+Which trade-off carries the most weight for you right now: income, liquidity, taxes, or the risk behind the price? Email me if you want to test this against your own exchange.

@@ -94,7 +94,7 @@ The election makes the QOF investment's basis equal to fair market value on the 
 
 ### Does the 10-year exclusion eliminate tax on my original gain?
 
-No. The exclusion concerns appreciation in the OZ investment after it is made. The original deferred gain is recognized at its set date. Under OZ 1.0, that date is December 31, 2026; under OZ 2.0, the source describes a rolling 5 years from investing. The original gain is deferred and eventually taxed; the QOF appreciation may be tax-free after the required hold.
+No. The exclusion concerns appreciation in the OZ investment after it is made. The original deferred gain is recognized at its set date. Under OZ 1.0, that date is December 31, 2026; under OZ 2.0, a rolling 5 years from investing. The original gain is deferred and eventually taxed; the QOF appreciation may be tax-free after the required hold.
 
 ### Can you show the long-term growth math?
 
@@ -118,7 +118,7 @@ No. It depends on a full 10-year hold, actual appreciation, fund and investor co
 
 ### Is the 10-year exclusion still available under OZ 2.0?
 
-Yes. The source describes 2025 legislation as making the Opportunity Zone incentive permanent and preserving the 10-year exclusion. Other details, including the deferral period and zone designations, changed between OZ 1.0 and OZ 2.0. Regulations and implementation are evolving, so confirm the current details for a particular investment and timing.
+Yes. 2025 legislation as making the Opportunity Zone incentive permanent and preserving the 10-year exclusion. Other details, including the deferral period and zone designations, changed between OZ 1.0 and OZ 2.0. Regulations and implementation are evolving, so confirm the current details for a particular investment and timing.
 
 ### How does Baker 1031 help with the 10-year strategy?
 
@@ -183,7 +183,7 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 His credentials include FINRA Series 22 — Direct Participation Programs Limited Representative; FINRA Series 63 — Uniform Securities Agent State Law; and FINRA SIE — Securities Industry Essentials.
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc., the supervising registered principal. She holds FINRA Series 4 / 7 / 24 / 53 / 63 / 66. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc., the supervising registered principal. She holds FINRA Series 4 / 7 / 24 / 53 / 63 / 66. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 ## Explore current offerings
 

@@ -206,7 +206,7 @@ This article is published by Baker 1031 Investments, LLC for general educational
 
 The source record also identifies his work across subjects including 721 UPREIT exchanges and links to a [GlobeSt. CRE’s Aspiring Leaders of 2026 recognition](https://www.globest.com/2026/06/02/cres-aspiring-leaders-of-2026/). His BrokerCheck identifier is 7537416.
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 ### Explore current offerings
 

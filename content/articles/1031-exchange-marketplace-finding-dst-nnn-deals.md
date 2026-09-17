@@ -205,4 +205,4 @@ The research desk at Baker 1031 Investments
 
 Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Our notes are reviewed by founder Gerald F. "Jerry" Baker III, who spent his career in Wall Street real estate private equity across more than $10 billion in transactions. Educational only — not tax or legal advice.
 
-For now, I would treat marketplace access as a preparation item before selling—not a rescue plan after the 45-day clock starts. Which deal comparison would give you the most confidence in a replacement choice? Share your perspective in the comments.
+For now, I would treat marketplace access as a preparation item before selling—not a rescue plan after the 45-day clock starts. Which deal comparison would give you the most confidence in a replacement choice? Send me your situation and we can put real figures against it.

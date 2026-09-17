@@ -139,4 +139,4 @@ I have been thinking about how often a two-entity structure is presented as mere
 </div>
 </article>
 
-I would read the QOF and the QOZB together, with particular attention to the written plan, the cash runway, and the tests that must still work after a project falls behind schedule. Which part of a two-tier Opportunity Zone structure would you examine first? Please share your perspective in the comments.
+I would read the QOF and the QOZB together, with particular attention to the written plan, the cash runway, and the tests that must still work after a project falls behind schedule. Which part of a two-tier Opportunity Zone structure would you examine first? If you are weighing this, email me and we can look at your numbers together.

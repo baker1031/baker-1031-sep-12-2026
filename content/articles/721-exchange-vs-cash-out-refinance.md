@@ -166,7 +166,7 @@ It can be. OP units are divisible and may retain deferred gain until a step-up a
 
 [Jerry Baker](jerry-baker-bio.html), Founder & Managing Principal of Baker 1031 Investments, holds FINRA Series 22 / 63 / SIE credentials. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange and spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 periodically reviews educational content for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 periodically reviews educational content for accuracy and regulatory compliance.
 
 
 ## Disclosures

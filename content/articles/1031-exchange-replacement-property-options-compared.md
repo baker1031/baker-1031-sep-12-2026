@@ -259,4 +259,4 @@ Filed under: [1031 Exchange](insights.html), [1031 Exchange](insights.html), and
 
 Baker 1031 Research is the editorial desk at Baker 1031 Investments, an independent San Francisco real-estate-securities brokerage. Its notes are reviewed by founder Gerald F. "Jerry" Baker III, whose Wall Street real-estate private-equity career spans more than **$10** billion in transactions. Educational only — not tax or legal advice.
 
-For capital being allocated now, the useful stance is to make the replacement earn its place before the **45-day** clock forces a decision. Which trade-off—control, income, leverage, diversification, or liquidity—is carrying the most weight in your own next exchange? Please share your perspective in the comments.
+For capital being allocated now, the useful stance is to make the replacement earn its place before the **45-day** clock forces a decision. Which trade-off—control, income, leverage, diversification, or liquidity—is carrying the most weight in your own next exchange? If you are weighing this, email me and we can look at your numbers together.

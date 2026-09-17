@@ -235,7 +235,7 @@ Founder & Managing Principal, Baker 1031 Investments · FINRA Series **22** / **
 
 Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on **$10B+** of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series **4** / **7** / **24** / **53** / **63** / **66**), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series **4** / **7** / **24** / **53** / **63** / **66**), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 ## Explore current offerings
 
@@ -247,4 +247,4 @@ Educational only — not an offer of any security. Offerings are available to ve
 
 I would treat data-center exposure as a question of cash-flow durability, not merely of how many servers the world will need. Before committing capital, I would focus on power rights, funded capex, tenant concentration, leasing terms, facility design, and the price paid for the thesis. A strong story can remain a poor investment when its risks are underweighted or its price leaves little room for them.
 
-Which factor would carry the most weight in your own data-center REIT review: power, capex, tenant concentration, or valuation? Share your view in the comments.
+Which factor would carry the most weight in your own data-center REIT review: power, capex, tenant concentration, or valuation? That question is worth answering against your actual numbers rather than in the abstract — email me.

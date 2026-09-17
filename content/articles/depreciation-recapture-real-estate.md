@@ -167,4 +167,4 @@ Every figure and example here is general and illustrative, not a projection or a
 
 My current stance is to model the basis and every tax layer before treating a sale price as available capital, then to consider a 1031 exchange only if the replacement property clears its own underwriting. Tax deferral can preserve capital. It should not lower the standard for what that capital buys.
 
-What are you tracking before a sale: accumulated depreciation, the full tax stack, or the quality of the next investment? Share your view in the comments.
+What are you tracking before a sale: accumulated depreciation, the full tax stack, or the quality of the next investment? That question is worth answering against your actual numbers rather than in the abstract — email me.

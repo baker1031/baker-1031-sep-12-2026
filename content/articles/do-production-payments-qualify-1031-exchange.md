@@ -59,7 +59,7 @@ The best time to address eligibility is often before the interest exists. An own
 
 An unavailable 1031 does not mean there are no planning choices. An [installment sale](installment-sale-real-estate.html) can spread gain over the years payments are received, which may smooth a large gain across tax years and help manage a tax bracket. Since a production payment is already debt-like, a CPA should model how the rules interact in the owner’s actual facts.
 
-A Qualified Opportunity Fund is another possibility. It can defer gain from any source by reinvesting gain into a qualified fund, rather than requiring like-kind real property. The source notes the potential for a decade of appreciation to be tax-free. That can make a QOF worth reviewing for production-payment proceeds, though it has separate rules and timelines that a CPA should address.
+A Qualified Opportunity Fund is another possibility. It can defer gain from any source by reinvesting gain into a qualified fund, rather than requiring like-kind real property. A decade of appreciation can be tax-free. That can make a QOF worth reviewing for production-payment proceeds, though it has separate rules and timelines that a CPA should address.
 
 Structural foresight is often the strongest alternative. Before creating a production payment, an owner can decide whether retaining a perpetual real-property interest would better serve a future exchange objective. If the owner simply needs liquidity, a deliberate taxable sale, timed with a CPA, may be the cleaner path. The important thing is to make that decision knowing that a true production payment has closed the ordinary 1031 option.
 
@@ -213,7 +213,7 @@ Filed under [Mineral & Royalty](insights.html), Mineral & Royalty, and [1031 Exc
 
 **About the author:** [Jerry Baker](jerry-baker-bio.html), Founder & Managing Principal, Baker 1031 Investments; FINRA Series **22** / **63** / SIE. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange after more than a decade on Wall Street and more than **$10B+** of real-estate transactions. [Read full bio →](jerry-baker-bio.html)
 
-**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc., the supervising registered principal; FINRA Series **4** / **7** / **24** / **53** / **63** / **66**. Last reviewed June **2026**. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+**Reviewed by:** [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591), President & CCO, Aurora Securities, Inc., the supervising registered principal; FINRA Series **4** / **7** / **24** / **53** / **63** / **66**. Last reviewed June **2026**. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 **Explore current offerings:** See the [Mineral & Royalty Interests](mineral-royalty-interests.html) currently available and how they may fit a strategy like this one. Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 

@@ -189,10 +189,10 @@ Filed under: [1031 Exchange](insights.html) · [1031 Exchange](insights.html)
 
 [Jerry Baker](jerry-baker-bio.html) is Founder & Managing Principal of Baker 1031 Investments · FINRA Series 22 / 63 · SIE. Jerry founded Baker 1031 to bring institutional underwriting discipline to the 1031 exchange. He spent more than a decade on Wall Street working on $10B+ of real estate before building diversified DST portfolios for individual investors. [Read full bio →](jerry-baker-bio.html)
 
-Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance. Securities offered through Aurora Securities, member FINRA/SIPC.
+Reviewed by [Lori Kamen](https://brokercheck.finra.org/individual/summary/2805591) — President & CCO, Aurora Securities, Inc. (FINRA Series 4 / 7 / 24 / 53 / 63 / 66), the supervising registered principal. Last reviewed June 2026. Baker 1031 reviews its educational content periodically for accuracy and regulatory compliance.
 
 ## Explore current offerings
 
 See the 1031 Exchanges we currently have available and how it may fit a strategy like this one. [View 1031 Exchanges →](1031-exchanges.html) Educational only — not an offer of any security. Offerings are available to verified, accredited investors and change over time.
 
-Right now, I would manage this risk by preparing a complete, rule-compliant list before the last days of the window and retaining proof of delivery. How are you managing your identification risk? Share your perspective in the comments?
+Right now, I would manage this risk by preparing a complete, rule-compliant list before the last days of the window and retaining proof of delivery. How are you managing your identification risk? Send me your situation and we can put real figures against it.
