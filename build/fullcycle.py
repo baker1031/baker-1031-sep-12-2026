@@ -17,7 +17,18 @@ import csv, os, re as _re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TSV = os.environ.get('FULLCYCLE_TSV', os.path.join(HERE, 'fullcycle.tsv'))
-TYPE_FIX = {'Hospitality / credit': 'Hospitality / Credit', '': 'Other / Unclassified'}
+# Property Type is free text in Airtable, so the same class arrives under more than one spelling and a
+# couple of rows carry a note-to-self instead of a class. The site groups asset classes exactly as
+# Airtable holds them, so the only thing corrected here is a value that is the SAME class typed
+# differently (or is not a class at all). Anything that is a real distinction in Airtable — credit
+# against equity, net-leased against general retail — is left alone and published as its own class.
+TYPE_FIX = {
+    'Hospitality / credit': 'Hospitality / Credit',
+    'Medical office': 'Medical Office',
+    'Credit - MultiFamily': 'Credit - Multifamily',
+    'UNIDENTIFIED - not disclosed in Table 2': 'Other / Unclassified',
+    '': 'Other / Unclassified',
+}
 
 # Sponsor page slug -> sponsor name in the dataset. Derived from the dataset itself so that a sponsor
 # added in Airtable reaches its page without anyone editing this file; ALIASES covers only the names that
@@ -192,7 +203,14 @@ def track_html(name, rows, indent='        '):
 PROPERTY_TYPE_MAP = {
     'Multifamily / residential': 'multifamily',
     'Multifamily': 'multifamily',
+    'Hotel': 'hospitality',
+    'Office': 'office',
+    'Student housing': 'student-housing',
+    'Government / GSA-leased': 'government-leased',
     'Self storage': 'self-storage',
+    'Medical Office': 'healthcare',
+    'Industrial': 'industrial',
+    'Undeveloped / pre-development land': 'land',
     'Net-leased restaurant': 'net-lease',
     'Net-leased retail': 'net-lease',
     'Net-leased retail & healthcare': 'net-lease',
@@ -204,10 +222,29 @@ PROPERTY_TYPE_MAP = {
     'Single Tenant Fitness': 'net-lease',
     'Supermarket': 'net-lease',
     'Necessity Retail': 'net-lease',
-    'Medical Office': 'healthcare',
-    'Industrial': 'industrial',
-    'Undeveloped / pre-development land': 'land',
 }
+
+# Classes the dataset holds that no property-type page covers. Listed so that a class arriving from
+# Airtable for the first time shows up as a warning in the build instead of being dropped in silence,
+# which is how /property-types/hospitality/ came to state that the dataset held no hotel programs
+# while the dataset held 435 of them.
+#  - Credit - *: loan positions, not ownership of the sector they lent against. Airtable records them
+#    as their own classes and the site follows that, so they do not feed an equity sector's page.
+#  - the rest: real equity classes with no page of their own; they appear in the Results table only.
+NO_PAGE = frozenset([
+    'Retail', 'Mixed Use', 'Parking', 'Debt / notes program', 'Other / Unclassified',
+    'Hospitality / Credit',
+])
+
+
+def unmapped_types(rows=None):
+    """{class: program count} for classes that neither feed a page nor are known to have none."""
+    out = {}
+    for r in (rows if rows is not None else load()):
+        t = (r.get('type') or '').strip()
+        if t and t not in PROPERTY_TYPE_MAP and t not in NO_PAGE and not t.startswith('Credit - '):
+            out[t] = out.get(t, 0) + 1
+    return dict(sorted(out.items(), key=lambda kv: -kv[1]))
 
 # Below this many full-cycle programs an average says more about the sample than about the sector,
 # so the page reports the count and declines to publish a figure.

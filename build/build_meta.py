@@ -141,6 +141,17 @@ def main():
         info['fullCycle'] = {'deals': len(rows), 'sponsors': len({r[1] for r in rows if len(r) > 1})}
     except OSError:
         pass
+    # Any asset class that reaches no property-type page is recorded here too: a sector page that
+    # silently drops its programs reads as "no results yet", which is worse than a wrong average.
+    try:
+        import sys
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import fullcycle as _fc
+        stray = _fc.unmapped_types()
+        if stray:
+            info['unmappedAssetClasses'] = stray
+    except Exception:
+        pass
     open(os.path.join(ROOT, 'build-info.json'), 'w').write(json.dumps(info))
     print(f'[meta] sitemap.xml ({len(us)} urls), robots.txt, llms.txt, build-info.json')
 

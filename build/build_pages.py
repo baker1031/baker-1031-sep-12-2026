@@ -183,7 +183,14 @@ def expand_property_type(main, rel):
     stated basis, so a sector figure can always be reproduced from the dataset behind it."""
     global _PT
     if '<!--pt:facts' not in main: return main
-    if _PT is None: _PT = fc.by_property_type()
+    if _PT is None:
+        _PT = fc.by_property_type()
+        stray = fc.unmapped_types()
+        if stray:
+            print('WARNING: %d asset class(es) in build/fullcycle.tsv reach no property-type page, so their '
+                  'programs are excluded from every sector figure: %s. Add them to PROPERTY_TYPE_MAP (or to '
+                  'NO_PAGE if they are meant to have no page) in build/fullcycle.py.'
+                  % (len(stray), ', '.join('%s (%d)' % kv for kv in stray.items())))
     slug = rel.split('/')[1] if rel.startswith('property-types/') else ''
     return re.sub(r'([ \t]*)<!--pt:facts:([^>]*?)-->',
                   lambda m: fc.pt_facts_html(slug, _PT.get(slug, []), m.group(2), m.group(1)), main)
