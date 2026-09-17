@@ -38,7 +38,8 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
 /* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
 :root{ --page:#FFFFFF; --accent-2:#00A071; --rose:#00A071;
     --black:#000; --white:#fff;
-    --accent:#00A071; --accent-hover:#008F63; --accent-soft:#FCF7F0;
+    --accent:#00A071;
+    --btn:#00805A; --btn-hover:#006847; --accent-text:#00805A; --accent-hover:#008F63; --accent-soft:#FCF7F0;
     --grey:#000000; --grey-light:rgba(0,0,0,.6); --hair:#D5D2CD; --hair-strong:#D5D2CD;
     --radius:6px;
     --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -51,12 +52,12 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   ::selection{ background:var(--accent); color:var(--white); }
   .btn{
     display:inline-flex; align-items:center; gap:10px;
-    padding:12px 20px; background:var(--accent); color:var(--black);
-    border:1px solid var(--accent); border-radius:var(--radius);
+    padding:12px 20px; background:var(--btn); color:var(--white);
+    border:1px solid var(--btn); border-radius:var(--radius);
     font:inherit; font-size:14px; font-weight:600; text-decoration:none; cursor:pointer;
     transition:background .18s ease, border-color .18s ease;
   }
-  .btn:hover{ background:var(--accent-hover); border-color:var(--accent-hover); }
+  .btn:hover{ background:var(--btn-hover); border-color:var(--btn-hover); }
   .btn svg{ width:16px; height:16px; }
   .btn--secondary{ background:transparent; color:var(--grey); border-color:#D5D2CD; }
   .btn--secondary:hover{ background:transparent; color:var(--accent-text); border-color:var(--accent); }
@@ -80,8 +81,8 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     align-items:center;
     gap:32px;
   }
-  .nav__logo{ display:flex; align-items:center; flex:0 0 auto; }
-  .nav__logo img{ height:30px; width:auto; display:block; }
+  .nav__logo{ display:flex; align-items:center; flex:0 0 auto; min-width:0; }
+  .nav__logo img{ height:21px; width:auto; display:block; }
   .nav__links{ display:flex; align-items:center; gap:26px; margin-left:24px; }
   .nav__links a{
     display:inline-grid;
@@ -151,6 +152,13 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .nav__menu span{ display:block; height:2px; background:var(--black); border-radius:1px; }
 
   .nav__links a[aria-current="page"] .nav__word{ color:var(--black); }
+  /* Below this width the greeting cannot show a name without truncating it to nothing,
+     and "Log Out" is what the row actually needs to keep. The user still knows they are
+     signed in because the log-out control is the thing on screen. */
+  @media (max-width:480px){
+    .nav__user{ display:none !important; }
+    .nav__actions{ gap:12px; }
+  }
   [id]{ scroll-margin-top:72px; }
 
   /* ---------- Rating badges (from the homepage) ---------- */
@@ -442,7 +450,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,.8fr) minmax(0,.8fr) minmax(0,.8fr);
     gap:32px 40px;
   }
-  .footer__brand img{ height:34px; width:auto; display:block; margin-bottom:16px; }
+  .footer__brand img{ height:24px; width:auto; display:block; margin-bottom:16px; }
   .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#000000; }
   .footer__brand a{ color:#000000; text-decoration:none; }
   .footer__brand a:hover{ color:var(--accent-text); }
@@ -510,11 +518,17 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     .nav__links a{ justify-items:start; }
     .nav__links a .nav__hand{ font-size:22px; }
     .nav__links a:last-child{ border-bottom:0; }
-    .nav__logo img{ height:22px; }
-    .nav__actions{ gap:12px; }
-    .nav__login{ font-size:13px; white-space:nowrap; }
-    .nav__user{ font-size:13px; }
-    .nav__logout{ font-size:13px; }
+    .nav__logo img{ height:17px; }
+    /* The greeting is the only elastic thing in this row, so it is the thing that gives.
+       Without min-width:0 a flex item refuses to shrink below its content and pushes
+       "Log Out" and the menu button off the right edge -- at 320px always, and at 390px
+       as soon as the first name is longer than about six characters. */
+    .nav__actions{ gap:10px; min-width:0; }
+    .nav__login{ font-size:13px; white-space:nowrap; flex:0 0 auto; }
+    .nav__user{ font-size:13px; min-width:0; overflow:hidden; text-overflow:ellipsis; }
+    .nav__logout{ font-size:13px; flex:0 0 auto; }
+    .nav__menu{ flex:0 0 auto; }
+    .nav__cta{ flex:0 0 auto; }
     .nav__cta{ padding:7px 11px; font-size:12.5px; white-space:nowrap; }
     .nav__cta svg{ display:none; }
     .nav__menu{ display:flex; width:30px; padding:7px 4px; }

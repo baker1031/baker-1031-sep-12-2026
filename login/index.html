@@ -37,6 +37,7 @@
 :root{ --page:#FFFFFF; --accent-2:#00A071; --rose:#00A071;
     --black:#000000; --white:#fff;
     --accent:#00A071;
+    --btn:#00805A; --btn-hover:#006847;
   /* Text-safe green: brand #00A071 is 3.35:1 on white, under the 4.5:1 AA minimum for
      normal-size text. #00805A is 4.96:1. Backgrounds and borders keep --accent. */
   --accent-text:#00805A; --accent-hover:#008F63; --accent-soft:#FCF7F0;
@@ -52,12 +53,12 @@
   ::selection{ background:var(--accent); color:var(--white); }
   .btn{
     display:inline-flex; align-items:center; justify-content:center; gap:10px;
-    padding:12px 20px; background:var(--accent); color:var(--black);
-    border:1px solid var(--accent); border-radius:var(--radius);
+    padding:12px 20px; background:var(--btn); color:var(--white);
+    border:1px solid var(--btn); border-radius:var(--radius);
     font:inherit; font-size:14px; font-weight:600; text-decoration:none; cursor:pointer;
     transition:background .18s ease, border-color .18s ease;
   }
-  .btn:hover{ background:var(--accent-hover); border-color:var(--accent-hover); }
+  .btn:hover{ background:var(--btn-hover); border-color:var(--btn-hover); }
   .btn svg{ width:16px; height:16px; }
   .btn[disabled]{ opacity:.6; cursor:default; }
 
@@ -81,7 +82,7 @@
     gap:32px;
   }
   .nav__logo{ display:flex; align-items:center; flex:0 0 auto; }
-  .nav__logo img{ height:30px; width:auto; display:block; }
+  .nav__logo img{ height:21px; width:auto; display:block; }
   .nav__links{ display:flex; align-items:center; gap:26px; margin-left:24px; }
   .nav__links a{
     display:inline-grid;
@@ -219,7 +220,7 @@
     grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,.8fr) minmax(0,.8fr) minmax(0,.8fr);
     gap:32px 40px;
   }
-  .footer__brand img{ height:34px; width:auto; display:block; margin-bottom:16px; }
+  .footer__brand img{ height:24px; width:auto; display:block; margin-bottom:16px; }
   .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#000000; }
   .footer__brand a{ color:#000000; text-decoration:none; }
   .footer__brand a:hover{ color:var(--accent-text); }
@@ -269,6 +270,13 @@
   }
 
 
+  /* Below this width the greeting cannot show a name without truncating it to nothing,
+     and "Log Out" is what the row actually needs to keep. The user still knows they are
+     signed in because the log-out control is the thing on screen. */
+  @media (max-width:480px){
+    .nav__user{ display:none !important; }
+    .nav__actions{ gap:12px; }
+  }
   @media (max-width:900px){
     .nav__inner{ gap:16px; height:54px; }
     .nav__links{
@@ -285,11 +293,17 @@
     .nav__links a{ justify-items:start; }
     .nav__links a .nav__hand{ font-size:22px; }
     .nav__links a:last-child{ border-bottom:0; }
-    .nav__logo img{ height:22px; }
-    .nav__actions{ gap:12px; }
-    .nav__login{ font-size:13px; white-space:nowrap; }
-    .nav__user{ font-size:13px; }
-    .nav__logout{ font-size:13px; }
+    .nav__logo img{ height:17px; }
+    /* The greeting is the only elastic thing in this row, so it is the thing that gives.
+       Without min-width:0 a flex item refuses to shrink below its content and pushes
+       "Log Out" and the menu button off the right edge -- at 320px always, and at 390px
+       as soon as the first name is longer than about six characters. */
+    .nav__actions{ gap:10px; min-width:0; }
+    .nav__login{ font-size:13px; white-space:nowrap; flex:0 0 auto; }
+    .nav__user{ font-size:13px; min-width:0; overflow:hidden; text-overflow:ellipsis; }
+    .nav__logout{ font-size:13px; flex:0 0 auto; }
+    .nav__menu{ flex:0 0 auto; }
+    .nav__cta{ flex:0 0 auto; }
     .nav__cta{ padding:7px 11px; font-size:12.5px; white-space:nowrap; }
     .nav__cta svg{ display:none; }
     .nav__menu{ display:flex; width:30px; padding:7px 4px; }
@@ -314,10 +328,10 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       <img src="/assets/media/logo.png" alt="Baker 1031" width="1684" height="224">
     </a>
     <nav class="nav__links" id="nav-links" aria-label="Primary">
-      <a href="/"><span class="nav__word">Home</span><span class="nav__hand" aria-hidden="true">Home</span></a>
-      <a href="/invest/"><span class="nav__word">Invest</span><span class="nav__hand" aria-hidden="true">Invest</span></a>
-      <a href="/results/"><span class="nav__word">Results</span><span class="nav__hand" aria-hidden="true">Results</span></a>
-      <a href="/learn/"><span class="nav__word">Learn</span><span class="nav__hand" aria-hidden="true">Learn</span></a>
+      <a href="/"><span class="nav__word">Home</span><span class="nav__hand" aria-hidden="true" data-label="Home"></span></a>
+      <a href="/invest/"><span class="nav__word">Invest</span><span class="nav__hand" aria-hidden="true" data-label="Invest"></span></a>
+      <a href="/results/"><span class="nav__word">Results</span><span class="nav__hand" aria-hidden="true" data-label="Results"></span></a>
+      <a href="/learn/"><span class="nav__word">Learn</span><span class="nav__hand" aria-hidden="true" data-label="Learn"></span></a>
     </nav>
     <div class="nav__actions">
       <a class="nav__login" href="/login/">Log In</a>

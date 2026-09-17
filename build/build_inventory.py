@@ -86,7 +86,8 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
 /* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
 :root{ --page:#FFFFFF; --accent-2:#00A071; --rose:#00A071;
     --black:#000; --white:#fff;
-    --accent:#00A071; --accent-hover:#008F63; --accent-soft:#FCF7F0;
+    --accent:#00A071;
+    --btn:#00805A; --btn-hover:#006847; --accent-text:#00805A; --accent-hover:#008F63; --accent-soft:#FCF7F0;
     --grey:#000000; --grey-light:rgba(0,0,0,.6); --hair:#D5D2CD; --hair-strong:#D5D2CD;
     --radius:6px;
     --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -99,18 +100,25 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   ::selection{ background:var(--accent); color:var(--white); }
   .btn{
     display:inline-flex; align-items:center; gap:10px;
-    padding:12px 20px; background:var(--accent); color:var(--black);
-    border:1px solid var(--accent); border-radius:var(--radius);
+    padding:12px 20px; background:var(--btn); color:var(--white);
+    border:1px solid var(--btn); border-radius:var(--radius);
     font:inherit; font-size:14px; font-weight:600; text-decoration:none; cursor:pointer;
     transition:background .18s ease, border-color .18s ease;
   }
-  .btn:hover{ background:var(--accent-hover); border-color:var(--accent-hover); }
+  .btn:hover{ background:var(--btn-hover); border-color:var(--btn-hover); }
   .btn svg{ width:16px; height:16px; }
   .btn--secondary{ background:transparent; color:var(--grey); border-color:#D5D2CD; }
   .btn--secondary:hover{ background:transparent; color:var(--accent-text); border-color:var(--accent); }
 
   /* ---------- Sticky nav (from the homepage) ---------- */
 ''' + navcss + r'''  .nav__links a[aria-current="page"] .nav__word{ color:var(--black); }
+  /* Below this width the greeting cannot show a name without truncating it to nothing,
+     and "Log Out" is what the row actually needs to keep. The user still knows they are
+     signed in because the log-out control is the thing on screen. */
+  @media (max-width:480px){
+    .nav__user{ display:none !important; }
+    .nav__actions{ gap:12px; }
+  }
   [id]{ scroll-margin-top:72px; }
 
   /* ---------- Rating badges (from the homepage) ---------- */

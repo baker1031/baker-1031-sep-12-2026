@@ -48,6 +48,12 @@ def site_css():
     return f'''{CONTENT_CSS}
 /* ---------- Sticky nav (from the homepage) ---------- */
 {s['navcss']}  .nav__links a[aria-current="page"] .nav__word{{ color:var(--black); }}
+  /* Below this width the greeting cannot show a name without truncating it to nothing,
+     and "Log Out" is what the row actually needs to keep. */
+  @media (max-width:480px){{
+    .nav__user{{ display:none !important; }}
+    .nav__actions{{ gap:12px; }}
+  }}
 /* ---------- Footer (from the homepage) ---------- */
 {s['footcss']}
 @media (max-width:900px){{

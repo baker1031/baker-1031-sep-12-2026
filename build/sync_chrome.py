@@ -1,41 +1,70 @@
-"""Keep the committed pages' footer identical to the homepage's.
+"""Keep the committed pages' nav and footer identical to the homepage's.
 
-index.html is the chrome source: every generated page already takes its nav and footer from it. The five
+index.html is the chrome source: every generated page already takes its nav and footer from it. The
 pages that are committed rather than generated (login, register, results, update-my-info, 404) used to
-carry hand-maintained copies, which drifted into four different footers — two of them linking the
-level-2 gated sections to visitors who cannot open them. This copies the homepage footer into them on
-every build, so there is one footer on the site and no way for a sixth to appear.
+carry hand-maintained copies, which drifted -- into four different footers, two of them linking the
+level-2 gated sections to visitors who cannot open them, and into navs that had missed two later
+fixes: /results/ and /login/ still printed the hover label as real text inside the link
+(<span class="nav__hand">Home</span>) instead of drawing it from data-label in CSS, which puts every
+nav word on the page twice for a crawler. This copies the homepage nav and footer into them on every
+build, so there is one nav and one footer on the site and no way for a sixth to appear.
 
-/update-my-info/ is a standalone form with its own stylesheet, so it keeps its own footer markup; only
-its disclosure text is checked against the homepage's.
+Two things are deliberately per-page and are re-applied after the copy: aria-current on the link for
+the page you are on, and the homepage's #top anchors, which become / everywhere else.
+
+/register/ keeps its own nav. It is a multi-step form with a progress bar in the header and no primary
+links, on purpose -- a funnel should not offer four ways out of it. Its footer is still synced.
+
+/update-my-info/ is a standalone form with its own stylesheet, so it keeps its own chrome; only its
+disclosure text is checked against the homepage's.
 """
 import os, re, sys
 
 ROOT = os.environ.get('SITE_ROOT', os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SRC = os.path.join(ROOT, 'index.html')
-TARGETS = ['login/index.html', 'register/index.html', 'results/index.html']
+FOOTER_TARGETS = ['login/index.html', 'register/index.html', 'results/index.html']
+# register is left out: see the module docstring
+NAV_TARGETS = {'login/index.html': None, 'results/index.html': '/results/'}
 
 FOOTER_RE = re.compile(r'<footer class="footer">.*?</footer>', re.S)
+NAV_RE = re.compile(r'<header class="nav" id="nav">.*?</header>', re.S)
+
+
+def nav_for(nav, current):
+    """The homepage nav, retargeted for a subpage."""
+    nav = nav.replace('href="#top"', 'href="/"')
+    nav = re.sub(r'\saria-current="page"', '', nav)
+    if current:
+        nav = nav.replace(f'<a href="{current}">', f'<a href="{current}" aria-current="page">', 1)
+    return nav
 
 
 def main():
     src = open(SRC, encoding='utf-8').read()
-    m = FOOTER_RE.search(src)
-    if not m:
-        print('[chrome] no footer in index.html — nothing synced'); return
-    footer = m.group(0)
+    fm = FOOTER_RE.search(src)
+    nm = NAV_RE.search(src)
+    if not fm or not nm:
+        print('[chrome] index.html is missing its nav or footer — nothing synced'); return
+    footer, nav = fm.group(0), nm.group(0)
+
     changed = []
-    for rel in TARGETS:
+    for rel in FOOTER_TARGETS:
         p = os.path.join(ROOT, rel)
         if not os.path.exists(p):
             continue
-        h = open(p, encoding='utf-8').read()
-        if not FOOTER_RE.search(h):
-            print('[chrome] %s has no footer to replace' % rel); continue
-        new = FOOTER_RE.sub(lambda _: footer, h, count=1)
-        if new != h:
-            open(p, 'w', encoding='utf-8').write(new); changed.append(rel)
-    print('[chrome] footer synced from index.html' + (': ' + ', '.join(changed) if changed else ' (all current)'))
+        h = open(p, encoding='utf-8').read(); before = h
+        if FOOTER_RE.search(h):
+            h = FOOTER_RE.sub(lambda _: footer, h, count=1)
+        else:
+            print('[chrome] %s has no footer to replace' % rel)
+        if rel in NAV_TARGETS:
+            if NAV_RE.search(h):
+                h = NAV_RE.sub(lambda _: nav_for(nav, NAV_TARGETS[rel]), h, count=1)
+            else:
+                print('[chrome] %s has no nav to replace' % rel)
+        if h != before:
+            open(p, 'w', encoding='utf-8').write(h); changed.append(rel)
+    print('[chrome] nav + footer synced from index.html' + (': ' + ', '.join(changed) if changed else ' (all current)'))
 
     # the standalone form page keeps its own markup; flag it if its disclosure loses a clause
     umi = os.path.join(ROOT, 'update-my-info/index.html')

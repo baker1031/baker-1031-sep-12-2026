@@ -157,6 +157,8 @@ def render(O):
     # the table, not a second name for the section. Seven different headings for one row of numbers made
     # the offerings look like they were measuring different things.
     cf_basis = ''
+    # Not printed any more: the same sentence appeared twice under the distribution table and is
+    # already covered by the foot-note below it and by the page disclosure.
     cf_note = ('<p class="cf-basis">These are the sponsor\u2019s projections, stated in the offering documents as '
                '\u201c' + O['cfBasis'] + '\u201d. They are not guaranteed.</p>') if O['cfBasis'] else ''
     cf_hidden = '' if cf else ' hidden'
@@ -189,6 +191,7 @@ def render(O):
 :root{ --page:#FFFFFF; --accent-2:#00A071; --rose:#00A071;
         --black:#000; --white:#fff;
         --accent:#00A071; --accent-hover:#008F63; --accent-soft:#FCF7F0;
+        --accent-text:#00805A; --btn:#00805A; --btn-hover:#006847;
         --grey:#000000; --grey-light:rgba(0,0,0,.6); --hair:#D5D2CD; --hair-strong:#D5D2CD;
         --radius:6px;
         --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -201,12 +204,12 @@ def render(O):
       ::selection{ background:var(--accent); color:var(--white); }
       .btn{
         display:inline-flex; align-items:center; justify-content:center; gap:10px;
-        padding:12px 20px; background:var(--accent); color:var(--black);
-        border:1px solid var(--accent); border-radius:var(--radius);
+        padding:12px 20px; background:var(--btn); color:var(--white);
+        border:1px solid var(--btn); border-radius:var(--radius);
         font:inherit; font-size:14px; font-weight:600; text-decoration:none; cursor:pointer;
         transition:background .18s ease, border-color .18s ease;
       }
-      .btn:hover{ background:var(--accent-hover); border-color:var(--accent-hover); }
+      .btn:hover{ background:var(--btn-hover); border-color:var(--btn-hover); }
       .btn svg{ width:16px; height:16px; }
       .btn--secondary{ background:transparent; color:var(--grey); border-color:#D5D2CD; }
       .btn--secondary:hover{ background:transparent; color:var(--accent-text); border-color:var(--accent); }
@@ -217,6 +220,13 @@ def render(O):
 
       /* ---------- Sticky nav (from the homepage) ---------- */
     ''' + navcss + r'''  .nav__links a[aria-current="page"] .nav__word{ color:var(--black); }
+  /* Below this width the greeting cannot show a name without truncating it to nothing,
+     and "Log Out" is what the row actually needs to keep. The user still knows they are
+     signed in because the log-out control is the thing on screen. */
+  @media (max-width:480px){
+    .nav__user{ display:none !important; }
+    .nav__actions{ gap:12px; }
+  }
       [id]{ scroll-margin-top:84px; }
 
       /* ---------- Rating badges + tooltip ---------- */
@@ -299,18 +309,6 @@ def render(O):
       .doc:hover .doc__name{ color:var(--accent-text); }
 
       /* Jerry's notes: soft click-through */
-      .notes{ border:1px solid var(--hair-strong); border-radius:var(--radius); overflow:hidden; }
-      .notes__head{ display:flex; align-items:center; gap:14px; padding:16px 18px; background:#FCF7F0; border-bottom:1px solid var(--hair); }
-      .notes__photo{ width:44px; height:44px; border-radius:50%; object-fit:cover; flex:0 0 auto; }
-      .notes__head h2{ margin:0; font-size:18px; }
-      .notes__head h2 .hand{ font-family:var(--hand); font-weight:600; color:var(--accent-text); font-size:1.4em; line-height:.8; display:inline-block; transform:rotate(-3deg); margin-right:.06em; }
-      .notes__gate{ padding:18px; }
-      .notes__gate p{ font-size:14px; color:var(--grey); margin:0 0 14px; }
-      .notes__body{ padding:18px; }
-      .notes__body p{ font-size:15.5px; line-height:1.7; color:var(--black); }
-      .notes__body[hidden]{ display:none; }
-      .notes__gate[hidden]{ display:none; }
-      .notes__fine{ font-size:12px !important; color:var(--grey-light) !important; margin-top:10px !important; }
 
       /* ---------- Sticky side card ---------- */
       .side{ position:sticky; top:84px; }
@@ -437,8 +435,6 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
                 <dl class="kv" style="grid-template-columns:1fr">
                   <div><dt>Total offering</dt><dd>''' + money(O['totalOffering']) + r'''</dd></div>
                   <div><dt>Equity raise</dt><dd>''' + money(O['equityRaise']) + r'''</dd></div>
-                  <div><dt>Purchase price</dt><dd>''' + money(O['purchasePrice']) + r'''</dd></div>
-                  <div><dt>Initial reserves</dt><dd>''' + money(O['initialReserves']) + r'''</dd></div>
                 </dl>
               </div>
               <div>
@@ -450,24 +446,11 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
             <div class="tablewrap"''' + cf_hidden + r'''><table class="cf">
               <thead><tr>''' + cf_head + r'''</tr></thead>
               <tbody><tr>''' + cf_row + r'''</tr></tbody>
-            </table></div>''' + cf_note + r'''
-            <dl class="cf-stack">''' + cf_stack + r'''</dl>''' + cf_note + r'''
+            </table></div>
+            <dl class="cf-stack">''' + cf_stack + r'''</dl>
             <p class="foot-note">Projections from the sponsor’s offering documents. Distributions are not guaranteed and may be lower than shown or suspended. See the PPM for assumptions.</p>
           </section>
 
-          <section class="sec" id="notes">
-            <div class="notes">
-              <div class="notes__head"><h2><span class="hand">Jerry’s</span> notes on this offering</h2></div>
-              <div class="notes__gate" id="notes-gate">
-                <p>These are my opinions after reviewing the offering. They aren’t investment advice or a recommendation for any particular investor, and they don’t replace the PPM — please read it before investing.</p>
-                <button type="button" class="btn btn--secondary" id="notes-open">Understood — show me the notes</button>
-              </div>
-              <div class="notes__body" id="notes-body" hidden>
-                ''' + notes + r'''
-                <p class="notes__fine">Opinion only. Not investment, tax, or legal advice. Review the private placement memorandum and consult your own advisors.</p>
-              </div>
-            </div>
-          </section>
 
           <section class="sec" id="properties">
             <h2>''' + props_title + r'''</h2>
@@ -498,9 +481,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
               <div><dt>Debt</dt><dd>''' + money(O['loanAmount']) + r'''</dd></div>
               <div><dt>Total Investment</dt><dd>''' + money(O['totalOffering']) + r'''</dd></div>
               <div><dt>Leverage</dt><dd>''' + f"{O['ltv']}%" + r'''</dd></div>
-              <div><dt>Initial Reserves</dt><dd>''' + money(O['initialReserves']) + r'''</dd></div>
               <div><dt>Lender</dt><dd title="''' + O['lender'] + r'''">''' + O['lender'] + r'''</dd></div>
-              <div><dt>Amortization</dt><dd title="''' + O['amortization'] + r'''">''' + O['amortization'] + r'''</dd></div>
               <div><dt>Estimated Hold Period</dt><dd>''' + O['holdTarget'] + r'''</dd></div>
             </dl>
             <div class="card__jerry">
@@ -527,11 +508,6 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     </script>
     <script>
     (function(){
-      // Jerry's notes: soft click-through
-      document.getElementById('notes-open').addEventListener('click', function(){
-        document.getElementById('notes-gate').hidden = true;
-        document.getElementById('notes-body').hidden = false;
-      });
       // documents: files are downloaded at build time into offerings/<slug>/docs/ and hard-gated at the edge;
       // a doc that has no file yet stays a placeholder.
 
