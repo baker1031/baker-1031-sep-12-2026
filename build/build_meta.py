@@ -157,6 +157,22 @@ def main():
             info['unclassifiedRows'] = n
     except Exception:
         pass
+    # Homepage Select Results cards whose program is not in the dataset: their figures cannot be
+    # checked against anything, so they are named here rather than only in the build log.
+    try:
+        import json as _json, re as _re, sys as _sys
+        _sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import build_homepage_results as _cards
+        src = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
+        m = _cards.ARRAY_RE.search(src)
+        if m:
+            rows = _cards.load_rows()
+            stray = ['%s (%s)' % (c.get('title', '?'), c.get('sponsor', '?'))
+                     for c in _json.loads(m.group(2)) if not _cards.match(c.get('title', ''), rows)]
+            if stray:
+                info['unsourcedResultCards'] = stray
+    except Exception:
+        pass
     open(os.path.join(ROOT, 'build-info.json'), 'w').write(json.dumps(info))
     print(f'[meta] sitemap.xml ({len(us)} urls), robots.txt, llms.txt, build-info.json')
 
