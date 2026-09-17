@@ -44,7 +44,7 @@ Your QI should calculate the date, but mark it yourself. A useful internal sched
 
 The notice must be in writing, describe the property unambiguously, be signed by the taxpayer doing the exchange, and reach a permitted party—almost always the QI—by midnight on day 45. Verbal notices do nothing.
 
-Giving the list only to an agent, attorney, or seller does not satisfy the rule. Use the QI’s form and delivery method. Retain a dated, signed copy and confirmation of timely receipt; validity and timing are among the first facts the IRS may examine.
+Deliver the list to the qualified intermediary. The regulation also permits delivery to the person obligated to transfer the replacement property to you — the seller — but not to your own agent, attorney or employee, who are disqualified persons under Treas. Reg. §1.1031(k)-1(k). In practice the QI is the safe route. Use the QI’s form and delivery method. Retain a dated, signed copy and confirmation of timely receipt; validity and timing are among the first facts the IRS may examine.
 
 ## How to Describe a Property
 

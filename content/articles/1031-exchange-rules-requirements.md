@@ -21,7 +21,7 @@ First-order thinking is, “Find a replacement inside 180 days.” Second-order 
 
 A valid exchange has five core requirements: both properties are like-kind U.S. real property held for investment or business; the same taxpayer sells and buys; the replacement has equal or greater value with all equity reinvested and debt replaced; a qualified intermediary holds proceeds so the seller never receives them; and the 45-day and 180-day deadlines are met.
 
-The QI and deadlines are procedural validity rules. Like-kind, same taxpayer, and value determine whether the exchange qualifies and whether deferral is complete or taxable boot remains. Section 1031 has applied only to real property since the 2017 Tax Cuts and Jobs Act, and the 2025 One Big Beautiful Bill Act made that real-property limitation permanent. In 2026, start by confirming that the asset is qualifying real property.
+The QI and deadlines are procedural validity rules. Like-kind, same taxpayer, and value determine whether the exchange qualifies and whether deferral is complete or taxable boot remains. Section 1031 has applied only to real property since the 2017 Tax Cuts and Jobs Act, a limitation that was permanent when enacted and has not been revisited since. In 2026, start by confirming that the asset is qualifying real property.
 
 ## The Like-Kind Property Requirement
 
@@ -83,7 +83,7 @@ Days include weekends and holidays. There is no requested-extension or grace per
 
 Boot is non-like-kind value received and is taxable up to the gain. Cash boot is sale equity not reinvested. Mortgage boot is debt relief not offset by new debt or added cash.
 
-Consider a $600,000 sale with a $200,000 mortgage and $400,000 equity. A $500,000 replacement with a $100,000 loan leaves $100,000 of cash boot and $100,000 of mortgage boot—roughly $200,000 of taxable boot. A $600,000 replacement with a $200,000 loan, all equity reinvested, produces zero boot and full deferral.
+Consider a $600,000 sale with a $200,000 mortgage and $400,000 equity. A $500,000 replacement with a $100,000 loan absorbs the whole $400,000 of equity, so there is no cash boot; what is left is $100,000 of debt relief, which is mortgage boot. A $600,000 replacement with a $200,000 loan, all equity reinvested, produces zero boot and full deferral.
 
 | Scenario | Result | Why |
 | --- | --- | --- |
@@ -152,7 +152,7 @@ Not directly within the partnership exchange. Drop-and-swap or swap-and-drop may
 Yes. A QI holds proceeds and prevents constructive receipt; engage it before closing.
 
 ### Are the rules different in 2026?
-Core rules continue. The 2025 One Big Beautiful Bill Act made permanent the 2017 real-property-only framework; deadlines, identification, taxpayer, and value rules remain.
+Core rules continue. The 2017 real-property-only framework was permanent when enacted and has not been revisited; deadlines, identification, taxpayer, and value rules remain.
 
 ## Glossary
 

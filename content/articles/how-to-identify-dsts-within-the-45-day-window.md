@@ -112,7 +112,7 @@ The three-property rule permits up to three properties of any value. The 200% ru
 
 ### Which identification rule should I use with DSTs?
 
-The three-property or 200% rule is generally the practical choice. Three properties can accommodate a direct target plus one or two DST backups, or a small DST group. If the investor plans to diversify into more than three DSTs, the 200% rule can work if aggregate value stays within 200% of the relinquished property value. The 95% rule is usually avoided because it requires acquiring 95% of every property identified. Ask the QI and advisor to confirm the structure.
+The three-property or 200% rule is generally the practical choice. Three properties can accommodate a direct target plus one or two DST backups, or a small DST group. If the investor plans to diversify into more than three DSTs, the 200% rule can work if aggregate value stays within 200% of the relinquished property value. The 95% rule is usually avoided because it requires acquiring at least 95% of the total value identified. Ask the QI and advisor to confirm the structure.
 
 ### What is the role of the qualified intermediary in identification?
 

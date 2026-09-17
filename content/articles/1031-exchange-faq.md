@@ -61,7 +61,7 @@ U.S. real property held for investment or business use qualifies: apartments, co
 
 ### Is a 1031 exchange still available in 2026?
 
-Yes. Section 1031 remains available for real property in **2026**. The source states that the **2025** OBBBA made the framework permanent and that no limiting legislation has passed.
+Yes. Section 1031 remains available for real property in **2026**. The 2017 narrowing carried no sunset date, and no legislation limiting or eliminating real-property exchanges has passed since.
 
 ### Can I exchange my primary residence?
 

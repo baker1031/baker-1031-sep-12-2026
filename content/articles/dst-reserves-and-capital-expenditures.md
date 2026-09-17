@@ -104,7 +104,7 @@ Capital expenditures, often called capex, are larger, longer-lived property inve
 
 ### What is the no-new-capital restriction?
 
-The no-new-capital restriction is one of the IRS “seven deadly sins” under Revenue Ruling 2004-86 that keep a DST passive and 1031-eligible. It generally bars new investor capital after closing, so the trust cannot raise more equity once funded. A related rule generally blocks debt renegotiation or refinancing except in narrow circumstances such as tenant bankruptcy. The trust is financially locked: broadly, the capital it has at closing is its capital for the whole hold. That is why it must establish an adequate reserve cushion upfront, and why a major expense can be difficult when reserves are insufficient.
+The no-new-capital restriction is one of the “seven deadly sins” (the industry’s name for the Rev. Rul. 2004-86 restrictions) under Revenue Ruling 2004-86 that keep a DST passive and 1031-eligible. It generally bars new investor capital after closing, so the trust cannot raise more equity once funded. A related rule generally blocks debt renegotiation or refinancing except in narrow circumstances such as tenant bankruptcy. The trust is financially locked: broadly, the capital it has at closing is its capital for the whole hold. That is why it must establish an adequate reserve cushion upfront, and why a major expense can be difficult when reserves are insufficient.
 
 ### What is a springing LLC in a DST?
 

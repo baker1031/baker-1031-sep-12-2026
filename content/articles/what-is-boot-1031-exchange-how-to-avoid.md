@@ -79,11 +79,11 @@ Prorated rents, security deposits, and certain closing credits can produce small
 
 Consider a $600,000 sale with a $200,000 mortgage. The sale leaves $400,000 of equity, and realized gain is $350,000.
 
-**Scenario A: boot.** The investor acquires a $500,000 replacement with a $100,000 loan. The investor has kept $100,000 of cash and reduced debt by $100,000. That is roughly $200,000 of taxable boot, recognized only up to the $350,000 gain and potentially taxed partly as recapture.
+**Scenario A: boot.** The investor acquires a $500,000 replacement with a $100,000 loan. The purchase takes $400,000 of cash, which is the entire equity from the sale, so no cash is kept and there is no cash boot. Debt, though, has fallen from $200,000 to $100,000. That $100,000 of debt relief is mortgage boot, recognized only up to the $350,000 gain and potentially taxed partly as recapture. It is a common mistake to count the $100,000 twice — once as cash and once as debt — and arrive at $200,000. The equity went into the property; only the debt went missing.
 
 **Scenario B: zero boot.** The investor acquires a $600,000 replacement with a $200,000 loan, reinvests all $400,000 of equity, and replaces all $200,000 of debt. There is no boot, and the entire $350,000 gain is deferred.
 
-The sale and gain are identical in each case. The replacement structure decides whether roughly $200,000 is currently taxable. These figures are illustrative, but the value-and-debt logic is the real issue.
+The sale and gain are identical in each case. The replacement structure decides whether $100,000 is currently taxable. These figures are illustrative, but the value-and-debt logic is the real issue.
 
 ### Key takeaways
 

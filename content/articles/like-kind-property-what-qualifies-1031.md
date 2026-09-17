@@ -26,7 +26,7 @@ The first-order question is whether the replacement looks like what was sold. Th
 <p>This is the single most misunderstood term in the 1031 world. Investors routinely assume they must replace an apartment building with another apartment building, or commercial with commercial. In reality, the real-property requirement is satisfied broadly, and you can change asset class entirely.</p>
 <p>The breadth is intentional and long-standing, reflecting the idea that an investor who continues their investment in real estate — in whatever form — hasn't truly cashed out. The character that matters is simply "real property held for investment or business."</p>
 <h2 id="realreal">Real Property for Real Property (Post-2017)</h2>
-<p>Before 2018, Section 1031 applied to many kinds of property, including equipment, vehicles, and other personal property. The 2017 Tax Cuts and Jobs Act narrowed it to <strong>real property only</strong>, and the 2025 One Big Beautiful Bill Act made that framework permanent.</p>
+<p>Before 2018, Section 1031 applied to many kinds of property, including equipment, vehicles, and other personal property. The 2017 Tax Cuts and Jobs Act narrowed it to <strong>real property only</strong>, a change that carried no sunset date.</p>
 <p>So the modern rule is simple: real property exchanged for like-kind real property. Personal property, equipment, intangibles, and other non-real-property no longer qualify, even if exchanged for similar items.</p>
 <p>This change makes the threshold question for any exchange: is what I'm giving up, and what I'm acquiring, real property? If both are real property held for investment or business, the like-kind requirement is generally satisfied.</p>
 <h2 id="breadth">The Breadth of Like-Kind for Real Estate</h2>
@@ -71,7 +71,7 @@ The first-order question is whether the replacement looks like what was sold. Th
 <p>These situations are technical and timing-sensitive, and they reward planning. If your property has mixed use or a changing purpose, work through the allocation and timing with your CPA before you sell or exchange.</p>
 <h2 id="tcja">The 2017 Change and 2025 Permanence</h2>
 <p>The 2017 Tax Cuts and Jobs Act made the defining modern change to like-kind exchanges: it limited Section 1031 to real property, ending like-kind treatment for personal property and equipment that had previously qualified. Treasury later issued final regulations defining "real property" for these purposes.</p>
-<p>The 2025 One Big Beautiful Bill Act made this framework permanent, and no legislation limiting or eliminating real-property 1031 exchanges has passed. So as of 2026, the rule is settled: real property qualifies, personal property does not.</p>
+<p>That change carried no sunset date, and no legislation limiting or eliminating real-property 1031 exchanges has passed since. So as of 2026, the rule is settled: real property qualifies, personal property does not.</p>
 <p>For real estate investors, the practical effect is minimal — real estate was always the core use of 1031 — but it's why the threshold question is always whether your property is real property, and why bundled personal property (furniture, equipment) is treated as non-like-kind <a href="what-is-boot-1031-exchange-how-to-avoid.html">boot</a>.</p>
 <h2 id="confirm">How to Confirm Your Property Qualifies</h2>
 <p>To confirm eligibility, ask three questions. First, is it real property? (Buildings, land, long-term leaseholds, DSTs, TICs, and mineral royalties generally are; personal property and entity interests aren't.) Second, is it held for investment or business use, rather than personal use or primarily for sale? Third, is it U.S. property?</p>
@@ -111,7 +111,7 @@ The first-order question is whether the replacement looks like what was sold. Th
 </details>
 <details>
 <summary>Did the 2017 tax law change like-kind rules?<span class="ic"></span></summary>
-<div class="ans"><p>Yes. The Tax Cuts and Jobs Act limited Section 1031 to real property, ending like-kind treatment for personal property and equipment. The 2025 OBBBA made this permanent. Real property still qualifies broadly; non-real property no longer does.</p></div>
+<div class="ans"><p>Yes. The Tax Cuts and Jobs Act limited Section 1031 to real property, ending like-kind treatment for personal property and equipment. That narrowing carried no sunset date. Real property still qualifies broadly; non-real property no longer does.</p></div>
 </details>
 <details>
 <summary>Is a vacation home like-kind property?<span class="ic"></span></summary>

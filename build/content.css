@@ -18,7 +18,7 @@
   --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
   /* previous-site variable names -> this design */
   --ink:#1A1919; --blue-d:#33000F; --blue:#4C0018; --blue-lt:#C09AA3;
-  --pale:#F2EDE7; --grey1:#F1ECE6; --page:#DFDAD2; --body:#4A4444; --muted:#645D5B;
+  --pale:#F2EDE7; --grey1:#F1ECE6; --page:#FFFFFF; --body:#4A4444; --muted:#645D5B;
   --faint:#6E6765; --steel:#4A4444; --lblue:#F2EDE7;
   --display:"Sanomat", Georgia, "Times New Roman", serif; --sans:var(--font);
   --gut:max(24px, calc((100vw - 1200px) / 2));
@@ -130,7 +130,7 @@ p:last-child{margin-bottom:0}
 .prose a:hover{color:var(--blue-d);border-bottom-color:var(--blue-d)}
 .prose blockquote{margin:32px 0;padding:4px 0 4px 26px;border-left:2px solid var(--blue);
   font-family:var(--display);font-size:22px;line-height:1.45;color:var(--blue-d)}
-.callout{background:var(--pale);border-left:3px solid var(--blue);padding:26px 28px;margin:34px 0}
+.callout{background:var(--stone);border-left:3px solid var(--blue);padding:26px 28px;margin:34px 0}
 .callout h4{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:.15em;
   text-transform:uppercase;color:var(--blue-d);margin:0 0 10px}
 .callout p{margin:0;font-size:15.5px;line-height:1.7}
@@ -558,7 +558,7 @@ table.dtable2{margin:30px 0;display:block;overflow-x:auto}
 .prose .sp-fact{background: var(--pale); border: 1px solid var(--hair); border-radius: 3px; padding: 0.75rem 0.9rem;}
 .prose .sp-fact .l{font-size: 0.64rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted);}
 .prose .sp-fact .v{font-size: 1.02rem; font-weight: 700; margin-top: 0.15rem;}
-.prose .sp-adv{background: var(--pale); border-left: 3px solid var(--blue-d); border-radius: 3px; padding: 0.9rem 1.1rem; font-size: 0.9rem; margin: 1.2rem 0;}
+.prose .sp-adv{background: var(--stone); border-left: 3px solid var(--blue-d); border-radius: 3px; padding: 0.9rem 1.1rem; font-size: 0.9rem; margin: 1.2rem 0;}
 .prose table.sp-deals{width: 100%; border-collapse: collapse; font-size: 0.84rem;}
 .prose table.sp-deals caption{text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); padding: 0.7rem 0.9rem 0;}
 .prose table.sp-deals thead th{text-align: left; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); background: var(--pale); padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--hair); white-space: nowrap;}

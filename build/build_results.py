@@ -42,7 +42,7 @@ page = r'''<!DOCTYPE html>
 @font-face{font-family:"Guardian Sans";src:url(/assets/fonts/guardian-sans-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
 @font-face{font-family:"Sanomat";src:url(/assets/fonts/sanomat-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
 
-  :root{ --page:#DFDAD2; --accent-2:#6B2E3E; --rose:#8A5B66;
+  :root{ --page:#FFFFFF; --accent-2:#6B2E3E; --rose:#8A5B66;
     --black:#000; --white:#fff;
     --accent:#4C0018; --accent-hover:#33000F; --accent-soft:#F2EDE7;
     --grey:#4A4444; --grey-light:#645D5B; --hair:#DED8D1; --hair-strong:#C6BEB6;

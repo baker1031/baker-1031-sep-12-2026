@@ -51,7 +51,7 @@ A partial exchange can make sense when an investor wants some cash while still d
 
 It can also support rebalancing. An investor overweight real estate may retain some proceeds for other assets while keeping much of the exchange deferred. An investor wanting less leverage may accept mortgage boot in return for lower replacement debt.
 
-The decision is a comparison between the tax cost and the value of the cash. Boot is taxable and may contain ordinary-income depreciation recapture. If the cash serves a genuine need better than the alternatives, accepting the tax can be sensible. If it does not, full deferral may preserve more wealth. A CPA can quantify the result before the investor decides.
+The decision is a comparison between the tax cost and the value of the cash. Boot is taxable and may contain depreciation recapture — for real property, unrecaptured §1250 gain, taxed at a maximum federal rate of 25% rather than at ordinary rates. If the cash serves a genuine need better than the alternatives, accepting the tax can be sensible. If it does not, full deferral may preserve more wealth. A CPA can quantify the result before the investor decides.
 
 ## Calculating your deferred vs. taxed portion
 
@@ -118,7 +118,7 @@ It can fit a specific cash need, a decision to reduce real-estate exposure or le
 
 ### Is the tax on boot at the capital-gains rate?
 
-Not always. Recognized boot can include recaptured depreciation, which can be taxed at higher ordinary-income rates. A CPA should model the property’s history and the actual boot to determine the tax result.
+Not always. Recognized boot can include recaptured depreciation. For real property that is unrecaptured §1250 gain, taxed at a maximum federal rate of 25% — higher than the long-term capital-gain rate, but not ordinary income. A CPA should model the property’s history and the actual boot to determine the tax result.
 
 ### How do I calculate my deferred vs. taxed portions?
 
@@ -165,7 +165,7 @@ Compare the alternatives. Cash taken in a partial exchange is taxable boot now. 
 - **Realized Gain:** Total sale gain: proceeds less adjusted basis and selling costs.
 - **Recognized Gain:** The taxed portion, equal to the lesser of total boot or realized gain.
 - **Deferred Gain:** Gain not recognized and carried forward to replacement property.
-- **Depreciation Recapture:** Higher-rate tax on prior depreciation that can be included in recognized boot.
+- **Depreciation Recapture:** Tax on prior depreciation that can be included in recognized boot. For real property it is unrecaptured §1250 gain, capped at 25% federal.
 - **Equal-or-Greater-Value Rule:** The requirement to acquire replacement value at least equal to net sale price for full deferral.
 - **Debt Replacement:** New debt or added cash at least equal to debt paid off, to avoid mortgage boot.
 - **Adjusted Basis:** Original cost reduced by depreciation, used in realized-gain calculation.

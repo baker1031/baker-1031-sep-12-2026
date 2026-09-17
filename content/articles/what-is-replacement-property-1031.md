@@ -27,7 +27,7 @@ The replacement must be real property, held for investment or productive use in 
 
 “Like-kind” refers to the nature or character of real estate held for investment, not its grade, type, location, or condition. A duplex can be exchanged for farmland, an office building for an apartment community, or a retail strip for a fractional interest in a hospital. Each can be investment real estate even though the operating experience differs.
 
-The 2017 Tax Cuts and Jobs Act narrowed Section 1031 to real property, eliminating personal-property exchanges. Subsequent legislation made that change permanent. The standard remains broad inside real estate.
+The 2017 Tax Cuts and Jobs Act narrowed Section 1031 to real property, eliminating personal-property exchanges. That change carried no sunset date. The standard remains broad inside real estate.
 
 The boundaries are also important. A primary residence and a personally used second home do not qualify as investment property. Property held primarily for resale, such as fix-and-flip or dealer inventory, does not qualify. Nor do ordinary securities or partnership interests. A [Delaware Statutory Trust](dst-guide.html) beneficial interest is the notable exception because the IRS treats a qualifying DST interest as a direct interest in real estate for 1031 purposes.
 

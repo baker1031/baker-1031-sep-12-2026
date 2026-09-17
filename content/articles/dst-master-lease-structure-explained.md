@@ -61,7 +61,7 @@ So investor income flows through the master lease — a base rent plus possible 
 
 Key Takeaways
 
-- DSTs use a master lease because the trustee can't actively manage or re-lease the property under the IRS 'seven deadly sins' restrictions.
+- DSTs use a master lease because the trustee can't actively manage or re-lease the property under the trustee restrictions in Rev. Rul. 2004-86 — what the industry calls the “seven deadly sins” — restrictions.
 
 - A master tenant — typically a sponsor affiliate — leases the entire property and handles operations, leasing, and management, while the trustee stays passive.
 
@@ -97,7 +97,7 @@ DST interests are securities offered through the broker-dealer, Aurora Securitie
 
 ### What is a master lease in a DST?
 
-A master lease in a Delaware Statutory Trust (DST) is an arrangement in which a single tenant — the 'master tenant,' typically an affiliate of the sponsor — leases the entire property from the trust under one long-term lease and takes on the active operation of the property. The master tenant manages the property, signs and renegotiates leases with the actual occupants (the space tenants), handles maintenance, and runs day-to-day operations, paying the trust rent under the master lease. The trust, in turn, distributes that rent to investors. The reason DSTs use this structure is that the IRS rules making a DST 1031-eligible (the 'seven deadly sins') prohibit the trustee from actively managing or re-leasing the property. The master lease moves those active functions out to the master tenant, keeping the trustee passive and the DST compliant. So a master lease is the mechanism that lets a DST operate a real property while staying within the passivity rules the IRS requires for like-kind treatment.
+A master lease in a Delaware Statutory Trust (DST) is an arrangement in which a single tenant — the 'master tenant,' typically an affiliate of the sponsor — leases the entire property from the trust under one long-term lease and takes on the active operation of the property. The master tenant manages the property, signs and renegotiates leases with the actual occupants (the space tenants), handles maintenance, and runs day-to-day operations, paying the trust rent under the master lease. The trust, in turn, distributes that rent to investors. The reason DSTs use this structure is that the the conditions in Rev. Rul. 2004-86 that make a DST 1031-eligible — the industry’s “seven deadly sins” — prohibit the trustee from actively managing or re-leasing the property. The master lease moves those active functions out to the master tenant, keeping the trustee passive and the DST compliant. So a master lease is the mechanism that lets a DST operate a real property while staying within the passivity rules the IRS requires for like-kind treatment.
 
 ### Why do DSTs use a master lease?
 
