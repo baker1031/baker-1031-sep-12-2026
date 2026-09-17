@@ -106,11 +106,21 @@ def main():
     # Sources note: the program counts and the preferred-sponsor names must match the dataset they describe.
     # The em dash is written both literally and as &mdash; in this sentence, so match either.
     DASH = r'(?:&mdash;|\u2014)'
-    html = re.sub(r'(All Tracked Sponsors ' + DASH + r' simple average of the )\d+( full-cycle programs)',
-                  lambda m: '%s%d%s' % (m.group(1), all_n, m.group(2)), html, count=1)
+    html = re.sub(r'(All Tracked Sponsors ' + DASH + r' simple average of the )\d+( of )\d+( full-cycle programs)',
+                  lambda m: '%s%d%s%d%s' % (m.group(1), all_n, m.group(2), len(rows), m.group(3)), html, count=1)
     html = re.sub(r'(Baker 1031 Preferred Sponsors ' + DASH + r' the )\d+( of those programs from preferred sponsors \()[^)]*(\))',
                   lambda m: '%s%d%s%s%s' % (m.group(1), pref_n, m.group(2), names(sorted(pref_names)), m.group(3)),
                   html, count=1)
+
+    # The hold answer in the FAQ quoted its own program count and average, which had drifted to more
+    # than twice the dataset's size. Generated here from the same rows as the chart above it.
+    holds = [r['hold'] for r in rows if r.get('hold')]
+    if holds:
+        html = re.sub(r'Across the [\d,]+ completed sponsor programs in the track record data I maintain, '
+                      r'the average hold was [\d.]+ years\.',
+                      'Across the %d completed sponsor programs in the track record data I maintain, the '
+                      'average hold was %.1f years.' % (len(holds), sum(holds) / len(holds)),
+                      html, count=1)
 
     if html == before:
         print('[chart] already current: %s %.2f%% (n=%d), preferred %.2f%% (n=%d)'

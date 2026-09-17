@@ -96,9 +96,11 @@ def row(rec):
 
 def refresh_preferred():
     """Which sponsors Baker 1031 prefers is Jerry's call, made in the Preferred column of the Sponsor
-    Performance table — not something the build should carry as a hand-edited list that goes stale the
-    moment a sponsor is added. Written to build/preferred-sponsors.txt for fullcycle.py to read. On any
-    error the committed file stands, because an empty list would silently empty the homepage's preferred bar."""
+    Performance table. The build does NOT apply that column on its own: the preferred cohort sets a
+    published performance figure on the homepage, and a published performance figure must not change
+    because someone ticked a checkbox. build/preferred-sponsors.txt is the approved list; Airtable
+    proposes, this file disposes. When the two differ the build says so, loudly, and keeps the approved
+    list. To approve a change, edit build/preferred-sponsors.txt and commit it."""
     try:
         recs = fetch_records(SPONSORS)
     except Exception as e:
@@ -112,11 +114,26 @@ def refresh_preferred():
         print('WARNING: no sponsor is marked Preferred in Airtable. Keeping the committed preferred-sponsors.txt '
               'rather than publishing an empty preferred-sponsor bar.')
         return
-    header = ('# Sponsors Baker 1031 prefers, from the Preferred column of the Sponsor Performance table.\n'
-              '# Rewritten by build/fetch_performance.py on each deploy. Edit it in Airtable, not here.\n')
-    with open(OUT_PREFERRED, 'w', encoding='utf-8') as fh:
-        fh.write(header + '\n'.join(names) + '\n')
-    print('preferred sponsors: ' + ', '.join(names))
+    approved = []
+    if os.path.exists(OUT_PREFERRED):
+        with open(OUT_PREFERRED, encoding='utf-8') as fh:
+            approved = sorted(ln.strip() for ln in fh if ln.strip() and not ln.startswith('#'))
+    if not approved:
+        header = ('# Sponsors Baker 1031 prefers. This is the APPROVED list and it is what the site publishes.\n'
+                  '# Airtable\'s Preferred column proposes changes; this file has to be edited to accept one,\n'
+                  '# because the preferred cohort sets a published performance figure on the homepage.\n')
+        with open(OUT_PREFERRED, 'w', encoding='utf-8') as fh:
+            fh.write(header + '\n'.join(names) + '\n')
+        print('preferred sponsors (seeded from Airtable): ' + ', '.join(names))
+        return
+    added, removed = sorted(set(names) - set(approved)), sorted(set(approved) - set(names))
+    if added or removed:
+        print('NOTE: Airtable\'s Preferred column differs from the approved list in build/preferred-sponsors.txt.')
+        if added:   print('      Airtable marks preferred, the site does not: ' + ', '.join(added))
+        if removed: print('      The site publishes as preferred, Airtable does not: ' + ', '.join(removed))
+        print('      The homepage keeps publishing the approved list. To accept a change, edit')
+        print('      build/preferred-sponsors.txt and commit it \u2014 that moves a published performance figure.')
+    print('preferred sponsors (approved): ' + ', '.join(approved))
 
 
 def committed_rows():

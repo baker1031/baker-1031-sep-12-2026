@@ -10,6 +10,7 @@ import content_shell as cs
 import seo
 import fullcycle as fc
 import sponsor_materials as sm
+from html import escape as _esc
 
 OUT = os.environ.get('SITE_ROOT', '/home/claude/site')
 CONTENT = os.environ.get('CONTENT_SRC', os.path.join(OUT, 'content'))
@@ -87,6 +88,107 @@ def wrap_level2(main, url_path):
 
 _FC = None
 _SLUGMAP = None
+
+
+def sponsor_cards(indent='          '):
+    """The directory cards carried hand-typed full-cycle counts that had drifted from the dataset (and
+    from each sponsor's own page), and a "Preferred" chip from a different preferred list than the one
+    behind the homepage figure. Built here from the sponsor pages plus build/fullcycle.tsv."""
+    root = os.path.join(PAGES, 'sponsors')
+    counts = {k: len(v) for k, v in fc.by_sponsor().items()}
+    slugmap = fc.slug2sponsor()
+    pref_names = set(fc.preferred())
+    cards = []
+    for d in sorted(os.listdir(root)):
+        f = os.path.join(root, d, 'index.html')
+        if not os.path.isdir(os.path.join(root, d)) or not os.path.exists(f):
+            continue
+        h = open(f, encoding='utf-8').read()
+        name = (re.search(r'<h1 class="h1">(.*?)</h1>', h, re.S) or [None, d.replace('-', ' ').title()])[1].strip()
+        logo = re.search(r'<img class="sp-logo" src="([^"]+)"', h)
+        aum = re.search(r'<div class="l">Assets Under Mgmt</div><div class="v">([^<]+)</div>', h)
+        sponsor = slugmap.get(d)
+        n = counts.get(sponsor, 0)
+        bits = []
+        if aum: bits.append('%s AUM' % aum.group(1).strip())
+        bits.append('%d full-cycle %s' % (n, 'deal' if n == 1 else 'deals') if n
+                    else 'no full-cycle results tracked yet')
+        if n: bits.append('deal-by-deal track record')
+        chip = '<span class="chip">Preferred</span>' if sponsor in pref_names else ''
+        img = ('<img src="%s" alt="%s logo" width="260" height="260" loading="lazy" '
+               'onerror="this.style.display=\'none\'">' % (logo.group(1), _esc(name))) if logo else ''
+        cards.append('%s<a class="sp-card" href="/sponsors/%s/"><div class="top">%s%s</div><h3>%s</h3>'
+                     '<p>%s</p><span class="go">View profile &rarr;</span></a>'
+                     % (indent, d, img, chip, _esc(name), ' &middot; '.join(bits)))
+    return '\n'.join(cards)
+
+
+def expand_sponsor_cards(main, rel):
+    if rel != 'sponsors/index.html' or '<div class="sp-cards"' not in main:
+        return main
+    return re.sub(r'(<div class="sp-cards" id="sp-list">).*?(\n[ \t]*</div>)',
+                  lambda m: m.group(1) + '\n' + sponsor_cards() + m.group(2), main, count=1, flags=re.S)
+
+
+_RAIL = None
+def sponsor_rail(active_slug, indent='    '):
+    """The sponsor rail was hand-written into all 90 sponsor pages, so its "Preferred sponsors" group had
+    drifted into a second, longer definition of preferred than the one behind the homepage figure. Built
+    here from build/preferred-sponsors.txt (the approved list) and the pages that actually exist."""
+    global _RAIL
+    if _RAIL is None:
+        root = os.path.join(PAGES, 'sponsors')
+        names = {}
+        for d in sorted(os.listdir(root)):
+            f = os.path.join(root, d, 'index.html')
+            if not os.path.isdir(os.path.join(root, d)) or not os.path.exists(f):
+                continue
+            h = open(f, encoding='utf-8').read()
+            t = re.search(r'<h1 class="h1">(.*?)</h1>', h, re.S)
+            names[d] = (t.group(1).strip() if t else d.replace('-', ' ').title())
+        slugmap = fc.slug2sponsor()
+        pref_names = set(fc.preferred())
+        pref = [d for d in names if slugmap.get(d) in pref_names]
+        _RAIL = (names, sorted(pref, key=lambda d: names[d].casefold()),
+                 sorted(names, key=lambda d: names[d].casefold()))
+    names, pref, allslugs = _RAIL
+    i = indent
+    def li(d):
+        cls = ' class="active" aria-current="page"' if d == active_slug else ''
+        return '%s          <li><a%s href="/sponsors/%s/">%s</a></li>' % (i, cls, d, names[d])
+    out = ['%s<aside class="rail rail--grouped"><h4>Sponsors</h4>' % i,
+           '%s    <a class="learn-back" href="/sponsors/"><span aria-hidden="true">&larr;</span> Back to Sponsors</a>' % i]
+    if pref:
+        out.append('%s    <details open><summary>Preferred sponsors</summary><ul>' % i)
+        out += [li(d) for d in pref]
+        out.append('%s    </ul></details>' % i)
+    out.append('%s    <details><summary>All sponsors (A&ndash;Z)</summary><ul>' % i)
+    out += [li(d) for d in allslugs]
+    out.append('%s    </ul></details>' % i)
+    out.append('%s</aside>' % i)
+    return '\n'.join(out)
+
+
+def expand_sponsor_rail(main, rel):
+    if not rel.startswith('sponsors/') or '<aside class="rail rail--grouped">' not in main:
+        return main
+    slug = rel.split('/')[1]
+    return re.sub(r'[ \t]*<aside class="rail rail--grouped">.*?</aside>',
+                  lambda m: sponsor_rail(slug), main, count=1, flags=re.S)
+
+
+_PT = None
+def expand_property_type(main, rel):
+    """<!--pt:facts:Label--> on a property-type page is filled from build/fullcycle.tsv, on the site's
+    stated basis, so a sector figure can always be reproduced from the dataset behind it."""
+    global _PT
+    if '<!--pt:facts' not in main: return main
+    if _PT is None: _PT = fc.by_property_type()
+    slug = rel.split('/')[1] if rel.startswith('property-types/') else ''
+    return re.sub(r'([ \t]*)<!--pt:facts:([^>]*?)-->',
+                  lambda m: fc.pt_facts_html(slug, _PT.get(slug, []), m.group(2), m.group(1)), main)
+
+
 def expand_fullcycle(main, rel):
     """<!--fc:facts--> and <!--fc:track:Name--> on a sponsor page are filled from build/fullcycle.tsv,
     so the Results page and every sponsor track record move together when the dataset is updated."""
@@ -133,6 +235,9 @@ def build():
             rel = os.path.relpath(os.path.join(root, f), PAGES).replace('\\', '/')
             frag = expand_fullcycle(open(os.path.join(root, f), encoding='utf-8').read(), rel)
             frag = expand_sponsor_materials(frag)
+            frag = expand_property_type(frag, rel)
+            frag = expand_sponsor_rail(frag, rel)
+            frag = expand_sponsor_cards(frag, rel)
             meta, head, main, scripts = parse(frag)
             # `draft: true` keeps a fragment in the repo but off the site. Retail communications that
             # have not had principal approval under FINRA Rule 2210 must not be served at all — not

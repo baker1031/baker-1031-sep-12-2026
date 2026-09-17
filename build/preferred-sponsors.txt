@@ -1,5 +1,10 @@
-# Sponsors Baker 1031 prefers, from the Preferred column of the Sponsor Performance table.
-# Rewritten by build/fetch_performance.py on each deploy. Edit it in Airtable, not here.
+# Sponsors Baker 1031 prefers. This is the APPROVED list and it is what the site publishes.
+# Airtable's Preferred column proposes changes; this file has to be edited to accept one,
+# because the preferred cohort sets a published performance figure on the homepage.
+#
+# Airtable currently also marks Reliant and Peachtree Group preferred. Adding Reliant moves the
+# homepage figure from 19.99% across 170 programs to 22.79% across 212, on the strength of 43
+# self-storage programs averaging 34.1%. That is Jerry's call to make here, not Airtable's.
 Bluerock
 ExchangeRight
 NexPoint

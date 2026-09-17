@@ -182,3 +182,79 @@ def track_html(name, rows, indent='        '):
     out.append('%s</table>' % i2)
     out.append('%s</div>' % i)
     return '\n'.join(out)
+
+
+# ---- rendering for the property-type pages -----------------------------------------------------
+# The nine property-type pages used to carry hand-typed "realized" figures. None of them could be
+# reproduced from this dataset, and five described programs the dataset does not contain at all, so
+# they are now derived here on the same basis as everywhere else: (equity multiple - 1) / hold.
+PROPERTY_TYPE_MAP = {
+    'Multifamily / residential': 'multifamily',
+    'Multifamily': 'multifamily',
+    'Self storage': 'self-storage',
+    'Net-leased restaurant': 'net-lease',
+    'Net-leased retail': 'net-lease',
+    'Net-leased retail & healthcare': 'net-lease',
+    'Net-leased early education / childcare': 'net-lease',
+    'Net-leased retail (fund-level)': 'net-lease',
+    'Net-leased pharmacy': 'net-lease',
+    'Net-leased grocery': 'net-lease',
+    'Single Tenant Retail': 'net-lease',
+    'Single Tenant Fitness': 'net-lease',
+    'Supermarket': 'net-lease',
+    'Necessity Retail': 'net-lease',
+    'Medical Office': 'healthcare',
+    'Industrial': 'industrial',
+    'Undeveloped / pre-development land': 'land',
+}
+
+# Below this many full-cycle programs an average says more about the sample than about the sector,
+# so the page reports the count and declines to publish a figure.
+MIN_SAMPLE = 5
+
+
+def by_property_type(rows=None):
+    rows = rows if rows is not None else load()
+    out = {}
+    for r in rows:
+        slug = PROPERTY_TYPE_MAP.get((r.get('type') or '').strip())
+        if slug:
+            out.setdefault(slug, []).append(r)
+    return out
+
+
+def pt_facts_html(slug, rows, label, indent='        '):
+    """Realized figures for one property type, or a plain statement when the sample is too small."""
+    i, i2 = indent, indent + '  '
+    st = stats(rows)
+    n = st['n'] if st else 0
+    if n < MIN_SAMPLE:
+        if n == 0:
+            low = label.lower()
+            body = ('The Baker 1031 full-cycle dataset does not yet contain %s %s program that has run its '
+                    'course, so there is no realized return, equity multiple or hold to report for this '
+                    'sector. Sector figures elsewhere on this page are market benchmarks, not results.'
+                    % ('an' if low[0] in 'aeiou' else 'a', low))
+        else:
+            body = ('The Baker 1031 full-cycle dataset contains %d %s program%s that %s run their course — too '
+                    'few to average into a figure that would tell you anything about the sector. The realized '
+                    'results are published deal by deal on the <a href="/results/">full-cycle results page</a>.'
+                    % (n, label.lower(), '' if n == 1 else 's', 'has' if n == 1 else 'have'))
+        return '%s<p class="pt-nodata">%s</p>' % (i, body)
+    vals = fact_values(st)
+    rowsout = [('Full-cycle programs', str(n)),
+               ('Avg. annual return, realized', vals['Avg Annual Return']),
+               ('Avg. equity multiple, realized', vals['Avg Equity Multiple']),
+               ('Avg. hold, realized', '\u2014' if st['hold'] is None else '%.1f Years' % st['hold'])]
+    out = ['%s<div class="tblwrap">' % i, '%s<table class="pt-realized">' % i2,
+           '%s  <caption>Realized results — %s</caption>' % (i2, _html.escape(label)),
+           '%s  <tbody>' % i2]
+    for k, v in rowsout:
+        out.append('%s    <tr><th scope="row">%s</th><td>%s</td></tr>' % (i2, k, v))
+    out += ['%s  </tbody>' % i2, '%s</table>' % i2, '%s</div>' % i]
+    out.append('%s<p class="pt-note">Computed from the %d full-cycle %s program%s in the Baker 1031 dataset on the '
+               'basis used everywhere on this site — (equity multiple &minus; 1) &divide; holding period, which is '
+               'simple rather than compounded and is not an IRR. Sponsor-reported, recomputed from each sponsor’s '
+               'own offering documents, and subject to selection and survivorship bias. Past performance does not '
+               'guarantee future results.</p>' % (i, n, label.lower(), '' if n == 1 else 's'))
+    return '\n'.join(out)
