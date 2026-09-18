@@ -101,12 +101,18 @@ async function sendCrsReceipt(lead, ip) {
   const now = new Date();
   const utc = now.toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
   const pacific = now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles', dateStyle: 'medium', timeStyle: 'medium' }) + ' PT';
-  const row = (k, v) => `<tr><td style="padding:6px 14px 6px 0;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#666;white-space:nowrap;vertical-align:top;">${k}</td><td style="padding:6px 0;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#243856;">${v}</td></tr>`;
+  const F = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+  const base = (process.env.URL || 'https://baker1031.com').replace(/\/$/, '');
+  const row = (k, v) => `<tr><td style="padding:6px 14px 6px 0;font-family:${F};font-size:13px;color:#666666;white-space:nowrap;vertical-align:top;">${k}</td><td style="padding:6px 0;font-family:${F};font-size:13px;color:#000000;">${v}</td></tr>`;
   const esc = (s) => String(s ?? '').replace(/[<>&"]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]));
-  const html = `<!doctype html><html><body style="margin:0;padding:24px 20px;background:#ffffff;">
-<div style="max-width:640px;">
-  <p style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#243856;margin:0 0 4px;font-weight:bold;">Form CRS delivery receipt</p>
-  <p style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:19px;color:#666;margin:0 0 16px;">The person below completed the registration form at baker1031.com and acknowledged reviewing Aurora Securities&rsquo; Form CRS as part of the final acknowledgments.</p>
+  const html = `<!doctype html><html><body style="margin:0;padding:0;background:#ffffff;">
+<div style="max-width:620px;margin:0;padding:28px 20px;">
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;margin:0 0 26px 0"><tbody>
+  <tr><td style="padding:0 0 14px 0"><img src="${base}/assets/media/logo.png" alt="Baker 1031 Investments" width="180" height="24" style="display:block;width:180px;height:24px;border:0;outline:none;text-decoration:none"></td></tr>
+  <tr><td style="padding:0;border-top:2px solid #00A071;font-size:0;line-height:0">&nbsp;</td></tr>
+  </tbody></table>
+  <p style="font-family:${F};font-size:15px;line-height:24px;color:#000000;margin:0 0 4px;font-weight:bold;">Form CRS delivery receipt</p>
+  <p style="font-family:${F};font-size:13px;line-height:20px;color:#666666;margin:0 0 18px;">The person below completed the registration form at baker1031.com and acknowledged reviewing Aurora Securities&rsquo; Form CRS as part of the final acknowledgments.</p>
   <table cellpadding="0" cellspacing="0" border="0">
     ${row('Name', esc(`${lead.firstName || ''} ${lead.lastName || ''}`.trim()))}
     ${row('Email', esc(lead.email))}
@@ -115,7 +121,7 @@ async function sendCrsReceipt(lead, ip) {
     ${row('IP address', esc(ip || 'unavailable'))}
     ${row('Form submitted at', esc(lead.submittedAt || '—'))}
   </table>
-  <p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;color:#999;margin:18px 0 0;">Automated compliance record from the baker1031.com registration form. Retain per books-and-records policy.</p>
+  <p style="font-family:${F};font-size:11px;line-height:17px;color:#767676;margin:20px 0 0;">Automated compliance record from the baker1031.com registration form. Retain per books-and-records policy.</p>
 </div>
 </body></html>`;
   const who = [lead.lastName, lead.firstName].filter(Boolean).join(', ') || lead.email;

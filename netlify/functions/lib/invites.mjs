@@ -51,27 +51,48 @@ export function noticeKind(lead) {
   return null;
 }
 
-const P = 'style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#243856;margin:0 0 16px;"';
-const BTN = 'style="display:inline-block;background:#243856;color:#ffffff;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;text-decoration:none;padding:13px 28px;border-radius:2px;"';
+/* ---- house style -------------------------------------------------------------------------------
+   The site's palette and type, translated into the inline CSS email clients accept. Brand font is
+   Special Gothic on the web; no email client will load a webfont reliably, so this uses the same
+   fallback stack the site declares after it. Green #00805A is the AA-safe text/button green from
+   :root; #00A071 is the display green and is only ever used as a background or rule.
+   -------------------------------------------------------------------------------------------- */
+const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+const INK = '#000000';
+const GREY = '#666666';
+const GREEN = '#00805A';
+
+const P = `style="font-family:${FONT};font-size:15px;line-height:24px;color:${INK};margin:0 0 16px;"`;
+const BTN = `style="display:inline-block;background:${GREEN};color:#ffffff;font-family:${FONT};font-size:15px;font-weight:bold;text-decoration:none;padding:13px 26px;border-radius:6px;"`;
+const A = `style="color:${GREEN};text-decoration:underline;"`;
 
 const SITE_BASE = (process.env.URL || 'https://baker1031.com').replace(/\/$/, '');
-const SIG = `<div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#243856;">-Jerry</div>
-<br>
-<table cellpadding="0" cellspacing="0" border="0" width="640" style="border-collapse:collapse;table-layout:fixed;width:640px;max-width:100%;font-family:Arial,Helvetica,sans-serif"><tbody>
-<tr><td style="padding:0;font-family:Arial,Helvetica,sans-serif"><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;font-weight:bold;color:#243856">Gerald F. Baker, III</div><div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#243856">Founder &amp; Managing Principal | Baker 1031 Investments</div></td></tr>
-<tr><td style="padding:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#666666"><b style="font-weight:bold;color:#666666">Office +1 415 991 4895</b><span> | </span><span>Mobile +1 310 905 7706</span></td></tr>
-<tr><td style="padding:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px"><a href="mailto:jerry@baker1031.com" rel="noopener noreferrer" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#666666;text-decoration:underline" target="_blank">jerry@baker1031.com</a></td></tr>
-<tr><td style="padding:22px 0 18px 0"><a href="https://baker1031.com" rel="noopener noreferrer" style="text-decoration:none;border:0" target="_blank"><img src="${SITE_BASE}/assets/media/logo.png" alt="Baker 1031 Investments" width="200" height="37" style="display:block;width:200px;height:37px;border:0;outline:none;text-decoration:none"></a></td></tr>
-<tr><td style="padding:0 0 10px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px"><br></td></tr>
-<tr><td style="padding:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#000000">1700 Montgomery St, Ste 108 | San Francisco, CA 94111</td></tr>
-<tr><td style="padding:0 0 15px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px"><a href="https://baker1031.com" rel="noopener noreferrer" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#243856;text-decoration:none" target="_blank">baker1031.com</a></td></tr>
-<tr><td width="640" style="width:640px;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:8px;line-height:12px;color:#808080"><div style="padding-bottom:8px;font-family:Arial,Helvetica,sans-serif;font-size:8px;line-height:12px;color:#808080">Securities offered through Aurora Securities, Inc. (ASI), Member: FINRA/SIPC. Baker 1031 Investments is independent of ASI.</div><div style="font-family:Arial,Helvetica,sans-serif;font-size:8px;line-height:12px;color:#808080">Please note that this email is subject to the regulatory review and retention policies of Baker 1031 Investments, LLC and Aurora Securities, Inc. Neither this email nor any attachments constitute an offer to sell or a solicitation of an offer to purchase securities. Any such offer shall be made solely pursuant to the applicable PPM or Prospectus. Any information contained in this email or its attachments may contain errors; please review the PPM for correct information prior to investing. Delaware Statutory Trust (DST) investments are illiquid and involve a high degree of risk. Investment offerings may sell out quickly; even if an investment is shown as available, the only way to ensure participation is through a closed transaction. The investment sponsor is responsible for the closing process and final availability, not Jerry Baker or Baker 1031 Investments. Information provided is for educational purposes and should not be relied upon for investment, tax, or legal decisions. Past performance and forward-looking statements are never an assurance of future results.</div></td></tr>
-</tbody></table>`;
 
-const wrap = (inner) => `<!doctype html><html><body style="margin:0;padding:0;background:#ffffff;">
-<div style="max-width:640px;margin:0;padding:24px 20px;">
+/* Jerry's current standard signature, matched to the screenshot he sent: a grey "--" rule, his name
+   bold in the brand green, "Founder, Baker 1031", the 415 office number, then both Aurora
+   paragraphs at body size -- the first in the body colour, the second in grey. No "Thank you,"
+   line, no email line, no company line, no logo: the wordmark at the top of the message carries
+   the branding. */
+const SIG = `<div style="font-family:${FONT};font-size:15px;line-height:26px;color:${INK}">
+<div style="color:#999999">--</div>
+<div style="font-weight:bold;color:${GREEN}">Jerry Baker</div>
+<div>Founder, Baker 1031</div>
+<div><a href="tel:+14159650552" style="color:${INK};text-decoration:none">415.965.0552</a></div>
+<div style="height:26px;line-height:26px;font-size:0">&nbsp;</div>
+<div>Securities offered through Aurora Securities, Inc. (ASI), Member: FINRA/SIPC. Baker 1031 Investments is independent of ASI.</div>
+<div style="height:26px;line-height:26px;font-size:0">&nbsp;</div>
+<div style="color:#8A8A8A">Please note that this email is subject to the regulatory review and retention policies of Baker 1031 Investments, LLC and Aurora Securities, Inc. Neither this email nor any attachments constitute an offer to sell or a solicitation of an offer to purchase securities. Any such offer shall be made solely pursuant to the applicable PPM or Prospectus. Any information contained in this email or its attachments may contain errors; please review the PPM for correct information prior to investing. Delaware Statutory Trust (DST) investments are illiquid and involve a high degree of risk. Investment offerings may sell out quickly; even if an investment is shown as available, the only way to ensure participation is through a closed transaction. The investment sponsor is responsible for the closing process and final availability, not Jerry Baker or Baker 1031 Investments. Information provided is for educational purposes and should not be relied upon for investment, tax, or legal decisions. Past performance and forward-looking statements are never an assurance of future results.</div>
+</div>`;
+
+/* The wordmark at the top is the site's own logo asset at its true 1684x224 aspect ratio; the rule
+   under it is the display green. The signature already closes the message, so nothing follows it. */
+const wrap = (inner) => `<!doctype html><html><body style="margin:0;padding:0;background:#FFFFFF;">
+<div style="max-width:620px;margin:0;padding:28px 20px;">
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;margin:0 0 26px 0"><tbody>
+  <tr><td style="padding:0 0 14px 0"><a href="${SITE_BASE}/" rel="noopener noreferrer" target="_blank" style="text-decoration:none;border:0"><img src="${SITE_BASE}/assets/media/logo.png" alt="Baker 1031 Investments" width="180" height="24" style="display:block;width:180px;height:24px;border:0;outline:none;text-decoration:none"></a></td></tr>
+  <tr><td style="padding:0;border-top:2px solid #00A071;font-size:0;line-height:0">&nbsp;</td></tr>
+  </tbody></table>
 ${inner}
-  <p ${P}>Thank you,</p>
   ${SIG}
 </div>
 </body></html>`;
@@ -122,7 +143,7 @@ export function buildWelcome(first, loginLink, base) {
     html: wrap(`  <p ${P}>Hi ${first} -</p>
   <p ${P}>Good news - your access to the Baker 1031 investor portal is set up. You can now review the current investments, offering details, and documents.</p>
   <p style="margin:24px 0;"><a href="${loginLink}" ${BTN}>View current investments</a></p>
-  <p ${P}>That button signs you in automatically - no password needed. After the first visit, you can log in anytime at <a href="${base}/login/" style="color:#243856;">${base.replace(/^https?:\/\//, '')}/login/</a> using this email address.</p>
+  <p ${P}>That button signs you in automatically - no password needed. After the first visit, you can log in anytime at <a href="${base}/login/" >${base.replace(/^https?:\/\//, '')}/login/</a> using this email address.</p>
   <p ${P}>If you have questions about anything you see, just reply - I'm happy to walk through it with you.</p>`),
   };
 }
@@ -135,7 +156,7 @@ export function buildLevel2Request(name, email, path) {
   return {
     subject: `Access request: ${name || email}`,
     html: wrap(`  <p ${P}>${name || email} asked for access to a restricted page.</p>
-  <p ${P}><strong>Page:</strong> <a href="${where}" style="color:#243856;">${where}</a><br>
+  <p ${P}><strong>Page:</strong> <a href="${where}" >${where}</a><br>
   <strong>Email:</strong> ${email}</p>
   <p ${P}>They are already an approved investor, so this is the second tier only. To grant it, open their
   record in Attio and set <strong>Portal Access - Level 2</strong> to <strong>Yes</strong> — the site picks
@@ -162,10 +183,10 @@ const fmtDate = (iso) => {
   return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 };
 
-const LINKBTN = 'style="color:#243856;text-decoration:underline;font-family:Arial,Helvetica,sans-serif;font-size:14px;"';
+const LINKBTN = `style="color:${GREEN};text-decoration:underline;font-family:${FONT};font-size:15px;"`;
 
 const optOutLine = (optOutLink) => optOutLink
-  ? `<p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:17px;color:#8A93A0;margin:26px 0 0;">You're receiving these reminders because you have a 1031 exchange on file with me. <a href="${optOutLink}" style="color:#8A93A0;text-decoration:underline;">Stop these reminders</a> - your portal access and everything else is unaffected.</p>`
+  ? `<p style="font-family:${FONT};font-size:12px;line-height:18px;color:#767676;margin:26px 0 22px;">You're receiving these reminders because you have a 1031 exchange on file with me. <a href="${optOutLink}" style="color:#767676;text-decoration:underline;">Stop these reminders</a> - your portal access and everything else is unaffected.</p>`
   : '';
 
 // kind: 'id' (45-day identification) | 'exchange' (180-day completion)
