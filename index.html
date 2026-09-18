@@ -1671,6 +1671,64 @@
   /* section anchors land below the sticky bar */
   [id]{ scroll-margin-top:72px; }
 
+  /* ---------- "Pardon our dust" banner ---------- */
+  /* Homepage only, and deliberately outside the nav CSS block: sync_chrome.py copies the nav block
+     into /login/ and /results/, and this belongs on the homepage alone.
+     The bar is --btn green rather than --accent: white on #00A071 is 2.9:1, which is fine for the
+     CTA bar's 20px display type but under AA for text this size. #00805A is 4.6:1. */
+  .dustbar{
+    background:var(--btn);
+    color:var(--white);
+  }
+  .dustbar__inner{
+    max-width:calc(1200px + 48px);
+    margin:0 auto;
+    padding:9px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+  }
+  .dustbar__text{
+    margin:0;
+    font-size:14px;
+    line-height:1.5;
+    text-align:center;
+  }
+  .dustbar__link{
+    color:var(--white);
+    text-decoration:underline;
+    text-underline-offset:2px;
+    text-decoration-thickness:1px;
+  }
+  .dustbar__link:hover{ text-decoration-thickness:2px; }
+  .dustbar__x{
+    flex:0 0 auto;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:26px; height:26px;
+    margin:0; padding:0;
+    background:none;
+    border:0;
+    border-radius:4px;
+    color:var(--white);
+    cursor:pointer;
+    opacity:.75;
+    transition:opacity .15s ease, background-color .15s ease;
+  }
+  .dustbar__x:hover{ opacity:1; background:rgba(255,255,255,.16); }
+  .dustbar__x:focus-visible{ outline:2px solid var(--white); outline-offset:2px; }
+  .dustbar__x svg{ width:15px; height:15px; }
+  /* Never shown to a signed-in investor -- same rule as the CTA bar. The inline script below also
+     checks, so the bar is not un-hidden in the first place; this covers a session confirmed after
+     first paint. */
+  html.is-logged-in .dustbar{ display:none !important; }
+  /* Off on small screens, per the brief: at phone width it would push the hero below the fold. */
+  @media (max-width:900px){
+    .dustbar{ display:none !important; }
+  }
+
   /* ---------- Responsive ---------- */
   /* Below this width the greeting cannot show a name without truncating it to nothing,
      and "Log Out" is what the row actually needs to keep. The user still knows they are
@@ -1774,6 +1832,34 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 </style>
 </head>
 <body id="top">
+
+<!-- Rebuild notice. Homepage only, hidden for signed-in investors and below 900px. Starts hidden so
+     neither a signed-in visitor nor someone who has already dismissed it sees a flash; the script
+     directly below decides before first paint. -->
+<div class="dustbar" id="dustbar" role="status" hidden>
+  <div class="dustbar__inner">
+    <p class="dustbar__text">Pardon our dust — we’re refreshing our client experience. <a class="dustbar__link" href="mailto:invest@baker1031.com">Let me know if you have any questions.</a></p>
+    <button class="dustbar__x" type="button" id="dustbar-x" aria-label="Dismiss this notice">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+</div>
+<script>
+(function(){
+  var bar = document.getElementById('dustbar');
+  if (!bar) return;
+  // b31_ui is the readable companion cookie set at login; its presence is the same signal the nav
+  // and the CTA bar use. Not a security control -- it only decides whether a notice is shown.
+  if (/(?:^|;\s*)b31_ui=/.test(document.cookie)) return;
+  var KEY = 'b31-dustbar-dismissed';
+  try { if (localStorage.getItem(KEY)) return; } catch (e) { /* private window: just show it */ }
+  bar.hidden = false;
+  document.getElementById('dustbar-x').addEventListener('click', function(){
+    bar.hidden = true;
+    try { localStorage.setItem(KEY, '1'); } catch (e) { /* dismissal lasts this page view only */ }
+  });
+})();
+</script>
 
 <!-- Sticky top nav -->
 <header class="nav" id="nav">

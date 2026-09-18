@@ -76,15 +76,17 @@ async function patchAccess(rid, fields) {
   return res;
 }
 
-/* Read the two flags off an Attio person, with the person's exchange dates. */
-async function readPerson(recordId) {
-  const person = await attio.getPerson(recordId);
+/* The two flags and the exchange dates off an Attio person record that is already in hand. The
+   attribute list is cached, so after the first call this costs no requests at all -- which is what
+   lets the scheduled reconcile decide 117 rows without 117 round trips. */
+export async function personValues(record) {
   const pAttrs = await attio.attributes('people');
-  const flat = attio.flatValues(person);
+  const flat = attio.flatValues(record);
   const val = (title) => { const a = pAttrs.find((x) => x.title.toLowerCase() === title.toLowerCase()); return a ? flat[a.slug] : undefined; };
   const name = Array.isArray(flat.name) ? flat.name[0] : flat.name;
   return {
-    recordId,
+    recordId: record?.id?.record_id || record?.id,
+    record,
     email: Array.isArray(flat.email_addresses) ? flat.email_addresses[0] : flat.email_addresses,
     firstName: name?.first_name || '',
     lastName: name?.last_name || '',
@@ -94,6 +96,11 @@ async function readPerson(recordId) {
     day45: asDate(val('45-Day Deadline')),
     day180: asDate(val('180-Day Deadline')),
   };
+}
+
+/* Read the two flags off an Attio person, with the person's exchange dates. */
+async function readPerson(recordId) {
+  return personValues(await attio.getPerson(recordId));
 }
 
 /* The exchange timeline for the Airtable row: the person's own dates, else the newest open deal's. */
@@ -242,4 +249,232 @@ export async function allInvestors() {
     offset = data.offset;
   } while (offset);
   return rows;
+}
+
+/* ---- the scheduled reconcile ---------------------------------------------------------------------
+
+   reconcileRow is right for one investor and wrong for all of them: per row it searches Attio for the
+   person, fetches the person, fetches the person again for the deal lookup, then fetches each linked
+   deal. Over 117 rows that is several hundred sequential requests, which no function invocation has
+   time for -- and because a row with no Portal Access value writes nothing, a run that dies partway
+   leaves no trace at all. That is exactly what the 2026-09-18 00:17Z pass did: nothing written, no
+   note, no stamp.
+
+   So the scheduled pass works the other way round. It reads the investor table once, pulls the whole
+   access-flagged population out of Attio in five paged queries, matches the two in memory, and only
+   then spends a request -- on the rows that actually differ. Roughly ten requests instead of five
+   hundred.
+
+   Two deliberate splits:
+     - Access is decided for every row, always. It is what the login reads, so it is never the thing
+       that gets dropped when time runs short.
+     - The exchange dates are enrichment. They need a deal lookup, so they happen afterwards, capped,
+       with whatever budget is left, and carry over to the next hour if they do not fit.
+   -------------------------------------------------------------------------------------------------- */
+
+// Every person who has either flag set. Select attributes are filtered by option title.
+const ACCESS_FILTERS = [
+  { portal_access: 'Yes' },
+  { portal_access: 'No' },
+  { portal_access_level_2: 'Yes' },
+  { portal_access_level_2: 'Requested' },
+  { portal_access_level_2: 'No' },
+];
+
+/* Which of the three Airtable date fields the person's own dates can fill. `missing` means the row is
+   still short a date that the person record does not have -- an open deal might, so it is worth a look
+   later, but never worth a write now. */
+function personDateFields(p, row) {
+  const f = row.fields || {};
+  const fields = {};
+  let missing = false;
+  for (const [key, value] of [['Start Date', p.closing], ['ID Period Expiration', p.day45], ['1031 Expiration', p.day180]]) {
+    if (f[key]) continue;
+    if (value) fields[key] = value;
+    else missing = true;
+  }
+  return { fields, missing };
+}
+
+/* The whole decision for one row, as a pure function of the row and the Attio person (null when the
+   person has neither flag set). No I/O, so the scheduled pass can decide before it spends a request --
+   and so this is testable against real data without touching either system. */
+export function planRow(row, person) {
+  const f = row.fields || {};
+  if (!f['Email Address']) return { action: 'skip', reason: 'row has no email' };
+  if (airtableIsNewer(row)) return { action: 'push', reason: 'Airtable edited since the last sync' };
+  if (!person) return { action: 'skip', reason: 'no Attio person with an access flag' };
+  if (person.portal !== 'yes' && person.portal !== 'no') {
+    return { action: 'skip', reason: `Portal Access is "${person.portal || 'empty'}"` };
+  }
+
+  if (person.portal === 'no') {
+    // Attio's No means "not approved". Only Approved is a demotion; Call Needed is the site's own
+    // pre-approval state and is left alone.
+    if (f['Access Level'] !== 'Approved') {
+      return { action: 'skip', reason: `Access Level is already "${f['Access Level'] || 'empty'}"` };
+    }
+    return { action: 'revoke', fields: { 'Access Level': 'Revoked' } };
+  }
+
+  const fields = {};
+  if (f['Access Level'] !== 'Approved') fields['Access Level'] = 'Approved';
+  const wantL2 = L2_TO_AT[person.level2] || null;
+  const grantedL2 = wantL2 === 'Approved' && f['Level 2 Access'] !== 'Approved';
+  if (wantL2 && f['Level 2 Access'] !== wantL2) {
+    fields['Level 2 Access'] = wantL2;
+    if (grantedL2 && !f['Level 2 Approved On']) fields['Level 2 Approved On'] = stamp().slice(0, 10);
+  }
+  const dates = personDateFields(person, row);
+  Object.assign(fields, dates.fields);
+  const needsWelcome = !f['Welcome Email Sent'];
+
+  // A missing date on its own is not work: without an open deal to read there is nothing to write.
+  if (!Object.keys(fields).length && !grantedL2 && !needsWelcome) {
+    return { action: 'skip', reason: 'already in step', datesMissing: dates.missing };
+  }
+  return { action: 'approve', fields, grantedL2, needsWelcome, datesMissing: dates.missing };
+}
+
+/* Carry out a plan. Same writes and same emails as syncOne, from a decision already made. */
+async function applyPlan(row, person, plan) {
+  if (plan.action === 'revoke') {
+    await patchAccess(row.id, plan.fields);
+    const action = `revoked portal access for ${person.email}`;
+    await attio.addNote('people', person.recordId, 'Portal sync', `${action} (${stamp().slice(0, 16)}Z)`, 'plaintext').catch(() => {});
+    return { action, direction: 'attio->airtable' };
+  }
+
+  await patchAccess(row.id, plan.fields);
+  let action = `approved existing investor row for ${person.email}`;
+  const changed = Object.keys(plan.fields);
+  if (changed.length) action += ` (${changed.join(', ')})`;
+
+  if (plan.grantedL2) {
+    action += ' + level 2 granted';
+    try {
+      const msg = buildLevel2Granted(person.firstName || 'there', process.env.URL || 'https://baker1031.com');
+      if (await sendViaResend(person.email, msg.subject, msg.html)) action += ' + level 2 email sent';
+    } catch (e) { console.error('[portal] level2 email:', e.message); }
+  }
+  if (plan.needsWelcome && process.env.SESSION_SECRET) {
+    try {
+      const base = process.env.URL || 'https://baker1031.com';
+      const t = Date.now();
+      const msg = buildWelcome(person.firstName || 'there', `${base}/api/login-link?rid=${row.id}&t=${t}&sig=${linkSig(row.id, t)}`, base);
+      if (await sendViaResend(person.email, msg.subject, msg.html)) {
+        await at(`/${row.id}`, { method: 'PATCH', body: JSON.stringify({ fields: { 'Welcome Email Sent': `${stamp().slice(0, 16)}Z` } }) }).catch(() => {});
+        action += ' + welcome email sent';
+      }
+    } catch (e) { console.error('[portal] welcome:', e.message); }
+  }
+  await attio.addNote('people', person.recordId, 'Portal sync', `${action} (${stamp().slice(0, 16)}Z)`, 'plaintext').catch(() => {});
+  return { action, direction: 'attio->airtable' };
+}
+
+/* Dates off the person's newest open deal, for the fields the row is still missing. */
+async function dealDateFields(deal, row) {
+  const dAttrs = await attio.attributes('deals');
+  const df = attio.flatValues(deal);
+  const dv = (title) => { const a = dAttrs.find((x) => x.title.toLowerCase() === title.toLowerCase()); return a ? df[a.slug] : undefined; };
+  const f = row.fields || {};
+  const out = {};
+  for (const [key, title] of [['Start Date', 'Sale Date'], ['ID Period Expiration', '45-Day Deadline'], ['1031 Expiration', '180-Day Deadline']]) {
+    if (f[key]) continue;
+    const d = asDate(dv(title));
+    if (d) out[key] = d;
+  }
+  return out;
+}
+
+export async function reconcileAll({ budgetMs = 20000, maxDealLookups = 25, dry = false } = {}) {
+  const started = Date.now();
+  const left = () => budgetMs - (Date.now() - started);
+  const rows = await allInvestors();
+
+  // The whole access-flagged population, in five paged queries.
+  const byEmail = new Map();
+  for (const filter of ACCESS_FILTERS) {
+    try {
+      for (const rec of await attio.queryPeople(filter)) {
+        for (const v of rec.values?.email_addresses || []) {
+          const em = String(v.email_address || '').trim().toLowerCase();
+          if (em && !byEmail.has(em)) byEmail.set(em, rec);
+        }
+      }
+    } catch (e) { console.error('[portal] people query', JSON.stringify(filter), e.message); }
+  }
+
+  // If the bulk queries came back with nothing while there are rows to check, something is wrong with
+  // them rather than with the data. Fall back to the per-row path so the pass still does its job, and
+  // say so loudly in the log.
+  if (!byEmail.size && rows.length) {
+    console.error('[portal] access-flag queries returned no people — falling back to per-row lookups');
+    const results = [];
+    let checked = 0;
+    for (const row of rows) {
+      if (left() < 4000) break;
+      checked++;
+      try { const r = await reconcileRow(row); if (r.action) results.push({ email: row.fields['Email Address'], ...r }); }
+      catch (e) { results.push({ email: row.fields['Email Address'], error: e.message }); }
+    }
+    return { rows: rows.length, checked, changes: results, fallback: true, ms: Date.now() - started };
+  }
+
+  const results = [];
+  const deferred = [];
+  let checked = 0;
+  let skipped = 0;
+  let ranOut = false;
+
+  for (const row of rows) {
+    if (left() < 3000) { ranOut = true; break; }
+    const email = String(row.fields['Email Address'] || '').trim().toLowerCase();
+    const rec = email ? byEmail.get(email) || null : null;
+    const person = rec ? await personValues(rec) : null;
+    const plan = planRow(row, person);
+    checked++;
+
+    if (plan.action === 'skip') {
+      skipped++;
+      if (plan.datesMissing && (rec?.values?.associated_deals || []).length) deferred.push({ row, person });
+      continue;
+    }
+    if (dry) {
+      results.push({ email, would: plan.action, fields: plan.fields || {}, welcome: !!plan.needsWelcome, level2: !!plan.grantedL2 });
+      continue;
+    }
+    try {
+      const r = plan.action === 'push' ? await pushToAttio(row) : await applyPlan(row, person, plan);
+      if (r.action) results.push({ email, ...r });
+      else if (r.error) results.push({ email, error: r.error });
+    } catch (e) {
+      console.error('[portal] reconcile', email, e.message);
+      results.push({ email, error: e.message });
+    }
+    if (plan.datesMissing && (rec?.values?.associated_deals || []).length) deferred.push({ row, person });
+  }
+
+  // Enrichment pass: exchange dates, capped, only for people who actually have a deal to read.
+  let dealLookups = 0;
+  if (!dry) {
+    for (const { row, person } of deferred) {
+      if (dealLookups >= maxDealLookups || left() < 4000) break;
+      dealLookups++;
+      try {
+        const deal = await attio.openDealFrom(person.record);
+        if (!deal) continue;
+        const fields = await dealDateFields(deal, row);
+        if (!Object.keys(fields).length) continue;
+        await patchAccess(row.id, fields);
+        results.push({ email: row.fields['Email Address'], action: `exchange dates from the open deal (${Object.keys(fields).join(', ')})`, direction: 'attio->airtable' });
+      } catch (e) { console.error('[portal] dates', row.fields['Email Address'], e.message); }
+    }
+  }
+
+  return {
+    rows: rows.length, checked, skipped, flagged: byEmail.size,
+    deferredDates: deferred.length, dealLookups, ranOutOfTime: ranOut,
+    ms: Date.now() - started, changes: results,
+  };
 }

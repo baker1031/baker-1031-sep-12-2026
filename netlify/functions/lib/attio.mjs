@@ -111,6 +111,47 @@ export async function getPerson(recordId) {
   return res.data;
 }
 
+/* Every person matching a filter, paged. The scheduled reconcile uses this to pull the whole
+   access-flagged population in a handful of requests instead of one query per investor row. */
+export async function queryPeople(filter, { pageSize = 500, maxPages = 20 } = {}) {
+  const out = [];
+  for (let page = 0; page < maxPages; page++) {
+    const res = await attio('/objects/people/records/query', 'POST', {
+      filter, limit: pageSize, offset: page * pageSize,
+    });
+    const batch = res.data || [];
+    out.push(...batch);
+    if (batch.length < pageSize) break;
+  }
+  return out;
+}
+
+/* Deals by id, memoised for the life of the container. reconcileAll looks the same deal up for
+   several people, and a warm container keeps them between runs. */
+const dealCache = new Map();
+export async function getDeal(id) {
+  if (dealCache.has(id)) return dealCache.get(id);
+  try {
+    const d = (await attio(`/objects/deals/records/${id}`)).data;
+    dealCache.set(id, d);
+    return d;
+  } catch (e) { console.error('[attio] get deal:', e.message); dealCache.set(id, null); return null; }
+}
+
+/* openDeal, but for a person record already in hand: no second fetch of the person. */
+export async function openDealFrom(personRecord) {
+  const ids = (personRecord?.values?.associated_deals || []).map((v) => v.target_record_id).filter(Boolean);
+  let best = null;
+  for (const id of ids) {
+    const d = await getDeal(id);
+    if (!d) continue;
+    const stage = d.values?.stage?.[0]?.status?.title || '';
+    if (/won|lost/i.test(stage)) continue;
+    if (!best || new Date(d.created_at) > new Date(best.created_at)) best = d;
+  }
+  return best;
+}
+
 // flatten an Attio record's values to { slug: first value (or array for multiselect) }
 export function flatValues(record) {
   const out = {};

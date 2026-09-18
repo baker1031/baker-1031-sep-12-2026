@@ -29,7 +29,7 @@
   Env:  ATTIO_API_KEY, AIRTABLE_TOKEN, PORTAL_SYNC_KEY, ACCESS_BASE_ID, ACCESS_TABLE_ID.
 */
 import * as attio from './lib/attio.mjs';
-import { allInvestors, findInvestorByEmail, reconcileRow, airtableIsNewer } from './lib/portal.mjs';
+import { findInvestorByEmail, reconcileRow, reconcileAll, airtableIsNewer } from './lib/portal.mjs';
 
 const json = (status, body) => ({
   statusCode: status,
@@ -60,28 +60,29 @@ export const handler = async (event) => {
   let body = {};
   try { body = JSON.parse(event.body || '{}'); } catch { /* no body is fine */ }
 
-  let rows;
+  const dry = q.dry === '1' || body.dry === true;
+
+  // One investor: the thorough per-row path, which is cheap for a single record.
   if (body.email) {
     const row = await findInvestorByEmail(body.email);
     if (!row) return json(200, { ok: true, skipped: `no investor row for ${body.email}` });
-    rows = [row];
-  } else {
-    rows = await allInvestors();
-  }
-
-  const dry = q.dry === '1' || body.dry === true;
-  if (dry) return json(200, { ok: true, dry: true, rows: rows.map(describe) });
-
-  const results = [];
-  for (const row of rows) {
+    if (dry) return json(200, { ok: true, dry: true, rows: [describe(row)] });
     try {
       const res = await reconcileRow(row);
-      if (res.action) results.push({ email: row.fields['Email Address'], ...res });
+      console.log(`[access-sync] ${body.email}: ${res.action || res.skipped || res.error || 'no change'}`);
+      return json(200, { ok: true, checked: 1, changes: res.action ? [{ email: row.fields['Email Address'], ...res }] : [], result: res });
     } catch (e) {
-      console.error('[access-sync]', row.fields['Email Address'], e.message);
-      results.push({ email: row.fields['Email Address'], error: e.message });
+      console.error('[access-sync]', body.email, e.message);
+      return json(500, { error: e.message });
     }
   }
-  console.log(`[access-sync] ${rows.length} row(s) checked, ${results.length} change(s)`);
-  return json(200, { ok: true, checked: rows.length, changes: results });
+
+  // Everyone: the bulk pass. It reads the table once, pulls the access-flagged people out of Attio in
+  // five paged queries and matches in memory, so it finishes inside the invocation instead of dying
+  // partway through a few hundred sequential lookups.
+  const budgetMs = Math.min(Math.max(Number(q.budget) || 20000, 5000), 25000);
+  const out = await reconcileAll({ dry, budgetMs });
+  console.log(`[access-sync] ${out.checked}/${out.rows} row(s) checked against ${out.flagged ?? '?'} flagged people in ${out.ms}ms — `
+    + `${out.changes.length} change(s), ${out.dealLookups ?? 0} deal lookup(s)${out.ranOutOfTime ? ', OUT OF TIME' : ''}`);
+  return json(200, { ok: true, dry: dry || undefined, ...out });
 };
