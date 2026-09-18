@@ -35,12 +35,27 @@ const json = (status, body) => ({
   body: JSON.stringify(body),
 });
 
+/* Attio signs with a SHA256 HMAC of the raw request body, hex-encoded, in Attio-Signature
+   (X-Attio-Signature is the legacy duplicate) -- https://docs.attio.com/rest-api/guides/webhooks.
+   Two details that will silently fail an otherwise correct secret, so both are handled here:
+   Netlify hands the body over base64-encoded when it decides the payload is binary, and the HMAC has
+   to be taken over the decoded bytes; and a hex digest compared case-sensitively will not match if
+   the two sides disagree on case. A mismatch returns 403, which Attio counts as a failed delivery and
+   retries 10 times over ~3 days before disabling the webhook -- so log enough to tell a wrong secret
+   apart from a missing one without ever printing either. */
 function signedByAttio(event) {
   const secret = process.env.ATTIO_WEBHOOK_SECRET;
   const sig = event.headers['attio-signature'] || event.headers['x-attio-signature'];
-  if (!secret || !sig) return false;
-  const want = crypto.createHmac('sha256', secret).update(event.body || '', 'utf8').digest('hex');
-  return want.length === sig.length && crypto.timingSafeEqual(Buffer.from(want), Buffer.from(sig));
+  if (!secret) { console.error('[portal-sync] ATTIO_WEBHOOK_SECRET is not set — webhook cannot be verified'); return false; }
+  if (!sig) { console.error('[portal-sync] no Attio-Signature header on the request'); return false; }
+  const raw = event.isBase64Encoded ? Buffer.from(event.body || '', 'base64') : Buffer.from(event.body || '', 'utf8');
+  const want = crypto.createHmac('sha256', secret).update(raw).digest('hex');
+  const got = String(sig).trim().toLowerCase();
+  if (want.length !== got.length || !crypto.timingSafeEqual(Buffer.from(want), Buffer.from(got))) {
+    console.error(`[portal-sync] Attio signature did not verify (body ${raw.length}B, base64=${!!event.isBase64Encoded}) — the secret in ATTIO_WEBHOOK_SECRET is not the one Attio is signing with`);
+    return false;
+  }
+  return true;
 }
 
 export const handler = async (event) => {
