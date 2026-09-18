@@ -47,18 +47,22 @@ const describe = (row) => ({
 
 export const handler = async (event) => {
   const q = event.queryStringParameters || {};
-  // A scheduled invocation has no HTTP request around it; anything arriving over HTTP needs the key.
-  const scheduled = !event.httpMethod;
+  let body = {};
+  try { body = JSON.parse(event.body || '{}'); } catch { /* no body is fine */ }
+
+  /* Netlify runs a scheduled function by POSTing to it with a JSON body carrying `next_run` -- there
+     IS an HTTP request around it. This used to test `!event.httpMethod`, which is never true for a
+     scheduled run, so every scheduled pass fell straight through to the key check, returned 403 and
+     logged nothing. deadline-reminders and rebuild-watcher in this same directory already key on
+     body.next_run; this now matches them. */
+  const scheduled = !!body.next_run || !event.httpMethod;
   if (!scheduled) {
     if (event.httpMethod !== 'POST') return json(405, { error: 'POST only' });
-    const key = event.headers['x-portal-key'] || q.key;
+    const key = (event.headers && event.headers['x-portal-key']) || q.key;
     if (!process.env.PORTAL_SYNC_KEY || key !== process.env.PORTAL_SYNC_KEY) return json(403, { error: 'forbidden' });
   }
   if (!process.env.AIRTABLE_TOKEN) return json(500, { error: 'AIRTABLE_TOKEN not configured' });
   if (!attio.configured()) return json(500, { error: 'ATTIO_API_KEY not configured' });
-
-  let body = {};
-  try { body = JSON.parse(event.body || '{}'); } catch { /* no body is fine */ }
 
   const dry = q.dry === '1' || body.dry === true;
 
