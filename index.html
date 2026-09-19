@@ -28,6 +28,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#00A071">
+<script>/* data notice: mark the document before first paint so an acknowledged visitor never sees a flash of it */
+try{ if(sessionStorage.getItem('b31_data_notice') === '1') document.documentElement.classList.add('dnote-ok'); }catch(e){}</script>
 <script defer src="/assets/js/favicon.js"></script>
 <script defer src="/assets/js/analytics.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["Organization", "FinancialService"], "@id": "https://baker1031.com/#org", "name": "Baker 1031 Investments", "alternateName": "Baker 1031", "url": "https://baker1031.com/", "logo": {"@type": "ImageObject", "url": "https://baker1031.com/assets/media/logo.png"}, "image": "https://baker1031.com/assets/media/og-card.png", "description": "Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.", "founder": {"@id": "https://baker1031.com/#jerry"}, "employee": {"@id": "https://baker1031.com/#jerry"}, "telephone": "+1-415-965-0552", "email": "invest@baker1031.com", "areaServed": "US", "knowsAbout": ["1031 exchange", "Delaware Statutory Trust (DST)", "721 exchange (UPREIT)", "Opportunity Zone funds", "Oil and gas royalties", "Real estate investment trusts (REITs)", "Real estate credit"], "address": [{"@type": "PostalAddress", "streetAddress": "1700 Montgomery St, Ste 108", "addressLocality": "San Francisco", "addressRegion": "CA", "postalCode": "94111", "addressCountry": "US"}, {"@type": "PostalAddress", "streetAddress": "2100 E Grand Ave, 1st Floor", "addressLocality": "El Segundo", "addressRegion": "CA", "postalCode": "90245", "addressCountry": "US"}], "contactPoint": [{"@type": "ContactPoint", "telephone": "+1-415-965-0552", "contactType": "sales", "areaServed": "US", "availableLanguage": "English"}, {"@type": "ContactPoint", "telephone": "+1-310-896-4227", "contactType": "sales", "areaServed": "US", "availableLanguage": "English"}], "memberOf": {"@type": "Organization", "name": "Aurora Securities, Inc.", "url": "https://brokercheck.finra.org/firm/summary/46147"}}, {"@type": "Person", "@id": "https://baker1031.com/#jerry", "name": "Jerry Baker", "alternateName": "Gerald F. Baker, III", "jobTitle": "Founder", "worksFor": {"@id": "https://baker1031.com/#org"}, "url": "https://baker1031.com/learn/jerry-baker-bio/", "image": "https://baker1031.com/assets/media/jerry-baker.jpg", "email": "invest@baker1031.com", "sameAs": ["https://brokercheck.finra.org/individual/summary/7537416"], "knowsAbout": ["1031 exchange", "Delaware Statutory Trusts", "721 exchange", "Opportunity Zone funds", "Real estate private equity"]}, {"@type": "WebSite", "@id": "https://baker1031.com/#website", "name": "Baker 1031 Investments", "alternateName": "Baker 1031", "url": "https://baker1031.com/", "publisher": {"@id": "https://baker1031.com/#org"}, "inLanguage": "en-US"}, {"@type": "WebPage", "@id": "https://baker1031.com/#webpage", "url": "https://baker1031.com/", "name": "Baker 1031 Investments", "description": "Independent 1031 exchange brokerage founded by Jerry Baker.", "isPartOf": {"@id": "https://baker1031.com/#website"}, "about": {"@id": "https://baker1031.com/#org"}, "inLanguage": "en-US"}]}</script>
@@ -1730,6 +1732,46 @@
     .dustbar{ display:none !important; }
   }
 
+
+  /* ---------- Data notice ----------
+     The track-record figures are sponsor-reported and assembled by hand, so a visitor has to
+     acknowledge how they may be wrong before they can read them. Homepage: scoped to the chart.
+     /results/: the whole page. Acknowledging once covers both for the browser session. */
+  .dnote{ display:flex; align-items:center; justify-content:center; }
+  html.dnote-ok .dnote{ display:none !important; }
+  .dnote__card{ width:min(520px, 100%); max-height:calc(100vh - 56px); overflow:auto;
+    background:var(--white); border:1px solid var(--hair-strong); border-radius:10px;
+    padding:30px 32px 26px; box-shadow:0 30px 60px -26px rgba(0,0,0,.42), 0 2px 6px rgba(0,0,0,.08);
+    text-align:left; }
+  .dnote__eyebrow{ display:flex; align-items:center; gap:8px; margin:0 0 12px; font-size:11px;
+    font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--grey-light); }
+  .dnote__eyebrow svg{ width:14px; height:14px; flex:none; }
+  .dnote h2{ margin:0 0 14px; font-size:22px; font-weight:400; line-height:1.25; letter-spacing:-.015em; }
+  .dnote p{ margin:0 0 14px; font-size:15px; line-height:1.6; color:var(--grey); }
+  .dnote p:last-of-type{ margin-bottom:0; }
+  .dnote__hard{ font-weight:600; color:var(--black) !important; }
+  .dnote__ok{ margin-top:22px; }
+
+  /* full-page variant (/results/) */
+  .dnote--page{ position:fixed; inset:0; z-index:200; padding:28px; background:rgba(18,22,20,.5); }
+  html:not(.dnote-ok) body.dnote-lock{ overflow:hidden; }
+
+  /* inline variant (the homepage chart) */
+  .dnote--inline{ position:absolute; inset:-14px; z-index:5; padding:12px; border-radius:12px;
+    background:rgba(255,255,255,.62); align-items:flex-start; }
+  .dnote--inline .dnote__card{ margin-top:48px; }
+  .dnote--inline .dnote__card{ width:min(430px, 100%); padding:24px 26px 22px;
+    box-shadow:0 18px 44px -22px rgba(0,0,0,.34), 0 1px 3px rgba(0,0,0,.06); }
+  .dnote--inline h2{ font-size:20px; }
+  .dnote--inline p{ font-size:14px; }
+
+  /* what sits behind a notice is blurred and inert until it is acknowledged */
+  html:not(.dnote-ok) .dnote-blur{ filter:blur(5px); pointer-events:none; user-select:none; }
+  @media (max-width:560px){
+    .dnote__card{ padding:24px 22px 22px; }
+    .dnote--inline{ inset:-8px; }
+  }
+
   /* ---------- Responsive ---------- */
   /* Below this width the greeting cannot show a name without truncating it to nothing,
      and "Log Out" is what the row actually needs to keep. The user still knows they are
@@ -2950,12 +2992,12 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       <p class="results-sec__disclosure">These figures are sponsor-reported and reflect a limited sample of completed investments. They’re subject to selection and survivorship bias, don’t represent the entire industry, and don’t guarantee future results.</p>
     </div>
 
-    <figure class="chart">
-      <figcaption class="chart__head">
+    <figure class="chart" style="position:relative">
+      <figcaption class="chart__head dnote-blur">
         <p class="chart__title">Average annual return by investment type</p>
         <p class="chart__sub">Avg. annual return, %</p>
       </figcaption>
-      <svg class="chart__svg" viewBox="0 0 640 360" role="img" aria-labelledby="chart-desc">
+      <svg class="chart__svg dnote-blur" viewBox="0 0 640 360" role="img" aria-labelledby="chart-desc">
         <desc id="chart-desc">Bar chart comparing average annual return: 1031 exchange crowdfunding 3.7%, net-leased DST funds 5.1%, private real estate funds 8.5%, baker 1031 all platform sponsors 21.16%, Baker 1031 preferred sponsors 29.19%.</desc>
       <line class="c-grid c-grid--base" x1="44" x2="628" y1="302.0" y2="302.0"/>
       <text class="c-tick" x="36" y="306.0" text-anchor="end">0%</text>
@@ -3012,7 +3054,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
         <text class="c-cat" x="569.6" y="338.0" text-anchor="middle">Preferred Sponsors</text>
       </g>
       </svg>
-      <table class="visually-hidden">
+      <table class="visually-hidden dnote-blur">
         <caption>Average annual return by investment type</caption>
         <thead><tr><th scope="col">Investment type</th><th scope="col">Avg. annual return</th></tr></thead>
         <tbody>
@@ -3023,7 +3065,17 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
           <tr><td>Baker 1031 Preferred Sponsors</td><td>29.19%</td></tr>
         </tbody>
       </table>
-      <p class="chart__sources">Sources: 1031 Exchange Crowdfunding — <a href="https://fundrise.com/real-estate-strategies" rel="noopener">Fundrise</a>; Net-Leased (NNN) DST Funds — <a href="https://covecapitalinvestments.com/" rel="noopener">Cove Capital Investments</a>; Private Real Estate Funds — <a href="https://origininvestments.com/" rel="noopener">Origin IncomePlus Fund</a>; Baker 1031 All Platform Sponsors — simple average of the 991 of 1038 full-cycle programs in the <a href="/results/">Baker 1031 results dataset</a> that report both an equity multiple and a holding period, each recomputed from the sponsor&rsquo;s own offering documents; Baker 1031 Preferred Sponsors — the 644 of those programs from preferred sponsors (Bluerock, ExchangeRight, NexPoint, Peachtree Group and Reliant). Baker 1031 figures are stated on one basis for every sponsor &mdash; (equity multiple &minus; 1) &divide; holding period &mdash; a simple annual return over the life of each completed program, not compounded and not an IRR. The third-party figures are as published by each provider, on the bases they state: Cove Capital&rsquo;s 5.10% is a simple average across its full-cycle debt-free DST offerings, measured as total distributions plus net sale proceeds less original equity over the life of each investment &mdash; the same construction used here; Fundrise&rsquo;s 3.7% is a compound annualized return since the fund&rsquo;s inception; Origin&rsquo;s figure is for an open-ended fund rather than completed programs. A compounded figure and a simple one are not identical measures, and a fund still running is not a completed-program record. Each is the number its provider publishes for the strategy named, which is the comparison being drawn. Past performance is not a guarantee of future results.</p>
+      <p class="chart__sources dnote-blur">Sources: 1031 Exchange Crowdfunding — <a href="https://fundrise.com/real-estate-strategies" rel="noopener">Fundrise</a>; Net-Leased (NNN) DST Funds — <a href="https://covecapitalinvestments.com/" rel="noopener">Cove Capital Investments</a>; Private Real Estate Funds — <a href="https://origininvestments.com/" rel="noopener">Origin IncomePlus Fund</a>; Baker 1031 All Platform Sponsors — simple average of the 991 of 1038 full-cycle programs in the <a href="/results/">Baker 1031 results dataset</a> that report both an equity multiple and a holding period, each recomputed from the sponsor&rsquo;s own offering documents; Baker 1031 Preferred Sponsors — the 644 of those programs from preferred sponsors (Bluerock, ExchangeRight, NexPoint, Peachtree Group and Reliant). Baker 1031 figures are stated on one basis for every sponsor &mdash; (equity multiple &minus; 1) &divide; holding period &mdash; a simple annual return over the life of each completed program, not compounded and not an IRR. The third-party figures are as published by each provider, on the bases they state: Cove Capital&rsquo;s 5.10% is a simple average across its full-cycle debt-free DST offerings, measured as total distributions plus net sale proceeds less original equity over the life of each investment &mdash; the same construction used here; Fundrise&rsquo;s 3.7% is a compound annualized return since the fund&rsquo;s inception; Origin&rsquo;s figure is for an open-ended fund rather than completed programs. A compounded figure and a simple one are not identical measures, and a fund still running is not a completed-program record. Each is the number its provider publishes for the strategy named, which is the comparison being drawn. Past performance is not a guarantee of future results.</p>
+      <div class="dnote dnote--inline" role="dialog" aria-modal="true" aria-labelledby="dnote-home">
+        <div class="dnote__card">
+          <p class="dnote__eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v5"/><path d="M12 17.5v.5"/><path d="M10.3 3.9 2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>About this data</p>
+      <h2 id="dnote-home">Please read before you use these figures.</h2>
+      <p>This information is collected from sources I believe to be correct. It may still contain inconsistencies, data-collection errors, corrupted data, or figures that misrepresent an investment.</p>
+      <p class="dnote__hard">Do not use this information to make an investment decision.</p>
+      <p>Always review the Private Placement Memorandum, including the sponsor track record presented in the PPM.</p>
+      <button class="btn dnote__ok" type="button" data-dnote-ok>I understand</button>
+        </div>
+      </div>
     </figure>
 
   </div>
@@ -3645,6 +3697,38 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     });
   }, { rootMargin: '400px 0px' });
   vids.forEach(function(v){ io.observe(v); });
+})();
+</script>
+<noscript><style>
+  /* No JS means no way to acknowledge, so the notice becomes a plain block of text at the top
+     of the content instead of an overlay that cannot be cleared. */
+  .dnote{ position:static !important; display:block !important; inset:auto !important;
+    z-index:auto !important; background:none !important; padding:0 0 28px !important; }
+  .dnote__card{ width:100% !important; max-width:640px; margin:0 auto; box-shadow:none !important; }
+  .dnote__ok{ display:none !important; }
+  html:not(.dnote-ok) .dnote-blur{ filter:none !important; pointer-events:auto !important; user-select:auto !important; }
+  html:not(.dnote-ok) body.dnote-lock{ overflow:auto !important; }
+</style></noscript>
+<script>
+(function(){
+  /* Data notice: shown until acknowledged, then remembered for the browser session so the same
+     visitor is not stopped again on the other page. The pre-paint script in <head> has already
+     applied the class if it was acknowledged. Storage can throw (private mode, blocked site
+     data) -- if it does the notice simply shows again, which is the safe direction. */
+  if (document.documentElement.classList.contains('dnote-ok')) return;
+  var notices = document.querySelectorAll('.dnote');
+  if (!notices.length) return;
+  function ok(){
+    try{ sessionStorage.setItem('b31_data_notice', '1'); }catch(e){}
+    document.documentElement.classList.add('dnote-ok');
+  }
+  Array.prototype.forEach.call(notices, function(n){
+    var btn = n.querySelector('[data-dnote-ok]');
+    if (btn) btn.addEventListener('click', ok);
+  });
+  /* land keyboard and screen-reader users on the acknowledgement */
+  var first = document.querySelector('.dnote [data-dnote-ok]');
+  if (first){ try{ first.focus({ preventScroll:true }); }catch(e){ first.focus(); } }
 })();
 </script>
 </body>

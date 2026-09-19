@@ -28,6 +28,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#00A071">
+<script>/* data notice: mark the document before first paint so an acknowledged visitor never sees a flash of it */
+try{ if(sessionStorage.getItem('b31_data_notice') === '1') document.documentElement.classList.add('dnote-ok'); }catch(e){}</script>
 <script defer src="/assets/js/favicon.js"></script>
 <script defer src="/assets/js/analytics.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://baker1031.com/results/#webpage", "url": "https://baker1031.com/results/", "name": "Full-Cycle Results", "description": "Sponsor-reported results for completed DST and 1031 exchange investments.", "isPartOf": {"@id": "https://baker1031.com/#website"}, "about": {"@id": "https://baker1031.com/#org"}, "inLanguage": "en-US", "mainEntity": {"@type": "Dataset", "name": "Full-cycle DST investment results tracked by Baker 1031", "description": "Completed DST and 1031 exchange investments with sponsor, property type, location, average annual return, equity multiple and hold period, as reported by each sponsor.", "creator": {"@id": "https://baker1031.com/#org"}, "license": "https://baker1031.com/terms/", "isAccessibleForFree": true}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://baker1031.com/"}, {"@type": "ListItem", "position": 2, "name": "Results"}]}]}</script>
@@ -355,9 +357,47 @@
   }
 /* Headings in Sanomat (one weight); everything else stays in Guardian Sans */
 h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;letter-spacing:-.01em}
+
+  /* ---------- Data notice ----------
+     The track-record figures are sponsor-reported and assembled by hand, so a visitor has to
+     acknowledge how they may be wrong before they can read them. Homepage: scoped to the chart.
+     /results/: the whole page. Acknowledging once covers both for the browser session. */
+  .dnote{ display:flex; align-items:center; justify-content:center; }
+  html.dnote-ok .dnote{ display:none !important; }
+  .dnote__card{ width:min(520px, 100%); max-height:calc(100vh - 56px); overflow:auto;
+    background:var(--white); border:1px solid var(--hair-strong); border-radius:10px;
+    padding:30px 32px 26px; box-shadow:0 30px 60px -26px rgba(0,0,0,.42), 0 2px 6px rgba(0,0,0,.08);
+    text-align:left; }
+  .dnote__eyebrow{ display:flex; align-items:center; gap:8px; margin:0 0 12px; font-size:11px;
+    font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--grey-light); }
+  .dnote__eyebrow svg{ width:14px; height:14px; flex:none; }
+  .dnote h2{ margin:0 0 14px; font-size:22px; font-weight:400; line-height:1.25; letter-spacing:-.015em; }
+  .dnote p{ margin:0 0 14px; font-size:15px; line-height:1.6; color:var(--grey); }
+  .dnote p:last-of-type{ margin-bottom:0; }
+  .dnote__hard{ font-weight:600; color:var(--black) !important; }
+  .dnote__ok{ margin-top:22px; }
+
+  /* full-page variant (/results/) */
+  .dnote--page{ position:fixed; inset:0; z-index:200; padding:28px; background:rgba(18,22,20,.5); }
+  html:not(.dnote-ok) body.dnote-lock{ overflow:hidden; }
+
+  /* inline variant (the homepage chart) */
+  .dnote--inline{ position:absolute; inset:-14px; z-index:5; padding:12px; border-radius:12px;
+    background:rgba(255,255,255,.62); }
+  .dnote--inline .dnote__card{ width:min(430px, 100%); padding:24px 26px 22px;
+    box-shadow:0 18px 44px -22px rgba(0,0,0,.34), 0 1px 3px rgba(0,0,0,.06); }
+  .dnote--inline h2{ font-size:20px; }
+  .dnote--inline p{ font-size:14px; }
+
+  /* what sits behind a notice is blurred and inert until it is acknowledged */
+  html:not(.dnote-ok) .dnote-blur{ filter:blur(5px); pointer-events:none; user-select:none; }
+  @media (max-width:560px){
+    .dnote__card{ padding:24px 22px 22px; }
+    .dnote--inline{ inset:-8px; }
+  }
 </style>
 </head>
-<body id="top">
+<body id="top" class="dnote-lock">
 
 <header class="nav" id="nav">
   <div class="nav__inner">
@@ -382,13 +422,24 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
   </div>
 </header>
 
-<header class="head">
+<header class="head dnote-blur">
   <h1>Results</h1>
   <p>Every investment here went full-cycle — bought, operated, and sold — and these are the results the sponsors reported to investors. Click any column heading to sort, or search the full list by name, sponsor, property type, or state.</p>
 </header>
-<div class="rule" aria-hidden="true"></div>
+<div class="rule dnote-blur" aria-hidden="true"></div>
 
-<main class="wrap">
+<div class="dnote dnote--page" role="dialog" aria-modal="true" aria-labelledby="dnote-results">
+  <div class="dnote__card">
+    <p class="dnote__eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v5"/><path d="M12 17.5v.5"/><path d="M10.3 3.9 2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>About this data</p>
+      <h2 id="dnote-results">Please read before you use these figures.</h2>
+      <p>This information is collected from sources I believe to be correct. It may still contain inconsistencies, data-collection errors, corrupted data, or figures that misrepresent an investment.</p>
+      <p class="dnote__hard">Do not use this information to make an investment decision.</p>
+      <p>Always review the Private Placement Memorandum, including the sponsor track record presented in the PPM.</p>
+      <button class="btn dnote__ok" type="button" data-dnote-ok>I understand</button>
+  </div>
+</div>
+
+<main class="wrap dnote-blur">
   <section class="sec" id="sponsors">
     <div class="bar">
       <h2>Sponsor Performance</h2>
@@ -777,6 +828,39 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     renderAssets();
   });
   renderAssets();
+})();
+</script>
+
+<noscript><style>
+  /* No JS means no way to acknowledge, so the notice becomes a plain block of text at the top
+     of the content instead of an overlay that cannot be cleared. */
+  .dnote{ position:static !important; display:block !important; inset:auto !important;
+    z-index:auto !important; background:none !important; padding:0 0 28px !important; }
+  .dnote__card{ width:100% !important; max-width:640px; margin:0 auto; box-shadow:none !important; }
+  .dnote__ok{ display:none !important; }
+  html:not(.dnote-ok) .dnote-blur{ filter:none !important; pointer-events:auto !important; user-select:auto !important; }
+  html:not(.dnote-ok) body.dnote-lock{ overflow:auto !important; }
+</style></noscript>
+<script>
+(function(){
+  /* Data notice: shown until acknowledged, then remembered for the browser session so the same
+     visitor is not stopped again on the other page. The pre-paint script in <head> has already
+     applied the class if it was acknowledged. Storage can throw (private mode, blocked site
+     data) -- if it does the notice simply shows again, which is the safe direction. */
+  if (document.documentElement.classList.contains('dnote-ok')) return;
+  var notices = document.querySelectorAll('.dnote');
+  if (!notices.length) return;
+  function ok(){
+    try{ sessionStorage.setItem('b31_data_notice', '1'); }catch(e){}
+    document.documentElement.classList.add('dnote-ok');
+  }
+  Array.prototype.forEach.call(notices, function(n){
+    var btn = n.querySelector('[data-dnote-ok]');
+    if (btn) btn.addEventListener('click', ok);
+  });
+  /* land keyboard and screen-reader users on the acknowledgement */
+  var first = document.querySelector('.dnote [data-dnote-ok]');
+  if (first){ try{ first.focus({ preventScroll:true }); }catch(e){ first.focus(); } }
 })();
 </script>
 
