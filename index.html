@@ -29,7 +29,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#00A071">
 <script>/* data notice: mark the document before first paint so an acknowledged visitor never sees a flash of it */
-try{ if(sessionStorage.getItem('b31_data_notice') === '1') document.documentElement.classList.add('dnote-ok'); }catch(e){}</script>
+try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement.classList.add('dnote-ok'); }catch(e){}</script>
 <script defer src="/assets/js/favicon.js"></script>
 <script defer src="/assets/js/analytics.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["Organization", "FinancialService"], "@id": "https://baker1031.com/#org", "name": "Baker 1031 Investments", "alternateName": "Baker 1031", "url": "https://baker1031.com/", "logo": {"@type": "ImageObject", "url": "https://baker1031.com/assets/media/logo.png"}, "image": "https://baker1031.com/assets/media/og-card.png", "description": "Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.", "founder": {"@id": "https://baker1031.com/#jerry"}, "employee": {"@id": "https://baker1031.com/#jerry"}, "telephone": "+1-415-965-0552", "email": "invest@baker1031.com", "areaServed": "US", "knowsAbout": ["1031 exchange", "Delaware Statutory Trust (DST)", "721 exchange (UPREIT)", "Opportunity Zone funds", "Oil and gas royalties", "Real estate investment trusts (REITs)", "Real estate credit"], "address": [{"@type": "PostalAddress", "streetAddress": "1700 Montgomery St, Ste 108", "addressLocality": "San Francisco", "addressRegion": "CA", "postalCode": "94111", "addressCountry": "US"}, {"@type": "PostalAddress", "streetAddress": "2100 E Grand Ave, 1st Floor", "addressLocality": "El Segundo", "addressRegion": "CA", "postalCode": "90245", "addressCountry": "US"}], "contactPoint": [{"@type": "ContactPoint", "telephone": "+1-415-965-0552", "contactType": "sales", "areaServed": "US", "availableLanguage": "English"}, {"@type": "ContactPoint", "telephone": "+1-310-896-4227", "contactType": "sales", "areaServed": "US", "availableLanguage": "English"}], "memberOf": {"@type": "Organization", "name": "Aurora Securities, Inc.", "url": "https://brokercheck.finra.org/firm/summary/46147"}}, {"@type": "Person", "@id": "https://baker1031.com/#jerry", "name": "Jerry Baker", "alternateName": "Gerald F. Baker, III", "jobTitle": "Founder", "worksFor": {"@id": "https://baker1031.com/#org"}, "url": "https://baker1031.com/learn/jerry-baker-bio/", "image": "https://baker1031.com/assets/media/jerry-baker.jpg", "email": "invest@baker1031.com", "sameAs": ["https://brokercheck.finra.org/individual/summary/7537416"], "knowsAbout": ["1031 exchange", "Delaware Statutory Trusts", "721 exchange", "Opportunity Zone funds", "Real estate private equity"]}, {"@type": "WebSite", "@id": "https://baker1031.com/#website", "name": "Baker 1031 Investments", "alternateName": "Baker 1031", "url": "https://baker1031.com/", "publisher": {"@id": "https://baker1031.com/#org"}, "inLanguage": "en-US"}, {"@type": "WebPage", "@id": "https://baker1031.com/#webpage", "url": "https://baker1031.com/", "name": "Baker 1031 Investments", "description": "Independent 1031 exchange brokerage founded by Jerry Baker.", "isPartOf": {"@id": "https://baker1031.com/#website"}, "about": {"@id": "https://baker1031.com/#org"}, "inLanguage": "en-US"}]}</script>
@@ -3066,7 +3066,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
         </tbody>
       </table>
       <p class="chart__sources dnote-blur">Sources: 1031 Exchange Crowdfunding — <a href="https://fundrise.com/real-estate-strategies" rel="noopener">Fundrise</a>; Net-Leased (NNN) DST Funds — <a href="https://covecapitalinvestments.com/" rel="noopener">Cove Capital Investments</a>; Private Real Estate Funds — <a href="https://origininvestments.com/" rel="noopener">Origin IncomePlus Fund</a>; Baker 1031 All Platform Sponsors — simple average of the 991 of 1038 full-cycle programs in the <a href="/results/">Baker 1031 results dataset</a> that report both an equity multiple and a holding period, each recomputed from the sponsor&rsquo;s own offering documents; Baker 1031 Preferred Sponsors — the 644 of those programs from preferred sponsors (Bluerock, ExchangeRight, NexPoint, Peachtree Group and Reliant). Baker 1031 figures are stated on one basis for every sponsor &mdash; (equity multiple &minus; 1) &divide; holding period &mdash; a simple annual return over the life of each completed program, not compounded and not an IRR. The third-party figures are as published by each provider, on the bases they state: Cove Capital&rsquo;s 5.10% is a simple average across its full-cycle debt-free DST offerings, measured as total distributions plus net sale proceeds less original equity over the life of each investment &mdash; the same construction used here; Fundrise&rsquo;s 3.7% is a compound annualized return since the fund&rsquo;s inception; Origin&rsquo;s figure is for an open-ended fund rather than completed programs. A compounded figure and a simple one are not identical measures, and a fund still running is not a completed-program record. Each is the number its provider publishes for the strategy named, which is the comparison being drawn. Past performance is not a guarantee of future results.</p>
-      <div class="dnote dnote--inline" role="dialog" aria-modal="true" aria-labelledby="dnote-home">
+      <div class="dnote dnote--inline" data-dnote-key="b31_dn_chart" role="dialog" aria-modal="true" aria-labelledby="dnote-home">
         <div class="dnote__card">
           <p class="dnote__eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v5"/><path d="M12 17.5v.5"/><path d="M10.3 3.9 2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>About this data</p>
       <h2 id="dnote-home">Please read before you use these figures.</h2>
@@ -3711,20 +3711,23 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 </style></noscript>
 <script>
 (function(){
-  /* Data notice: shown until acknowledged, then remembered for the browser session so the same
-     visitor is not stopped again on the other page. The pre-paint script in <head> has already
-     applied the class if it was acknowledged. Storage can throw (private mode, blocked site
-     data) -- if it does the notice simply shows again, which is the safe direction. */
+  /* Data notice: shown until acknowledged, then remembered for the rest of the browser session
+     so the same visitor is not stopped twice on the same page. Each placement has its own key,
+     so clearing the homepage chart does not let anyone past /results/, or the reverse. The
+     pre-paint script in <head> has already applied the class if this page's key was set.
+     Storage can throw (private mode, blocked site data) -- if it does the notice simply shows
+     again, which is the safe direction to fail. */
   if (document.documentElement.classList.contains('dnote-ok')) return;
   var notices = document.querySelectorAll('.dnote');
   if (!notices.length) return;
-  function ok(){
-    try{ sessionStorage.setItem('b31_data_notice', '1'); }catch(e){}
-    document.documentElement.classList.add('dnote-ok');
-  }
   Array.prototype.forEach.call(notices, function(n){
     var btn = n.querySelector('[data-dnote-ok]');
-    if (btn) btn.addEventListener('click', ok);
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      var k = n.getAttribute('data-dnote-key');
+      if (k){ try{ sessionStorage.setItem(k, '1'); }catch(e){} }
+      document.documentElement.classList.add('dnote-ok');
+    });
   });
   /* land keyboard and screen-reader users on the acknowledgement */
   var first = document.querySelector('.dnote [data-dnote-ok]');
