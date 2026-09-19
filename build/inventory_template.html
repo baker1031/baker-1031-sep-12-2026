@@ -438,11 +438,18 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
 
   /* ---------- Approved-investor gate: filters + headers stay, the offerings render as a blurred skeleton with the gate card over them ---------- */
   .lockwrap{ position:relative; }
-  .gate{ display:none; position:absolute; left:50%; top:48px; transform:translateX(-50%); z-index:3; width:min(560px, calc(100% - 8px)); }
+  .gate{ display:none; position:absolute; left:50%; top:48px; transform:translateX(-50%); z-index:3; width:min(520px, calc(100% - 8px)); }
   html:not(.is-logged-in) .gate{ display:block; }
-  .gate__card{ background:var(--white); border:1px solid var(--hair-strong); border-radius:10px; padding:32px 32px 28px; text-align:center; box-shadow:0 24px 48px -24px rgba(0,0,0,.28), 0 2px 6px rgba(0,0,0,.06); }
-  .gate__card h2{ margin:0 0 10px; font-size:clamp(22px,2.4vw,28px); font-weight:700; line-height:1.15; letter-spacing:-.02em; }
-  .gate__card p{ margin:0 0 20px; font-size:15px; line-height:1.6; color:var(--grey); }
+  .gate__card{ background:var(--white); border:1px solid var(--hair-strong); border-radius:10px; padding:26px 30px 24px; box-shadow:0 26px 52px -28px rgba(0,0,0,.24), 0 1px 3px rgba(0,0,0,.05); }
+  .gate__lock{ display:flex; align-items:center; gap:8px; margin:0 0 12px; font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--grey-light); }
+  .gate__lock svg{ width:13px; height:13px; flex:none; }
+  .gate__card h2{ margin:0 0 16px; font-size:24px; font-weight:400; line-height:1.2; letter-spacing:-.015em; }
+  .gate__list{ list-style:none; margin:0 0 22px; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; }
+  .gate__list li{ display:flex; align-items:center; gap:8px; font-size:14px; color:var(--grey); }
+  .gate__list li::before{ content:""; width:5px; height:5px; border-radius:50%; background:var(--accent); flex:none; }
+  .gate__alt{ font-size:14px; color:var(--grey-light); }
+  .gate__alt a{ color:var(--accent-text); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(0,128,90,.35); }
+  .gate__alt a:hover{ border-bottom-color:var(--accent); }
   /* locked state: the grid is inert and softly blurred, fading out toward the bottom; controls stay visible but can't be used */
   html:not(.is-logged-in) .lockwrap > .grid{
     filter:blur(3px); pointer-events:none; user-select:none;
@@ -460,10 +467,9 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .card--skel .card__stats dt .sk{ width:84px; height:12px; }
   @keyframes t-skel-pulse{ 0%,100%{ opacity:1; } 50%{ opacity:var(--pulse-min); } }
   @media (prefers-reduced-motion:reduce){ .sk{ animation:none; } }
-  .gate__actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-  .gate__actions .btn--secondary{ background:var(--white); color:var(--black); border-color:var(--hair-strong); }
-  .gate__actions .btn--secondary:hover{ background:#FCF7F0; border-color:var(--black); }
-  .gate__note{ margin:20px 0 0 !important; font-size:13px !important; color:var(--grey-light) !important; }
+  .gate__actions{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .gate__note{ margin:20px 0 0; padding-top:16px; border-top:1px solid #ECEAE6; font-size:11px; line-height:1.5; color:rgba(0,0,0,.5); }
+  @media (max-width:560px){ .gate__list{ grid-template-columns:1fr; gap:7px; } .gate__card{ padding:22px 22px 20px; } }
   .is-logged-in .gate{ display:none; }
 
   /* ---------- Footer (from the homepage) ---------- */
@@ -638,13 +644,19 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     <div class="lockwrap">
 <section class="gate" id="gate" aria-labelledby="gate-heading">
   <div class="gate__card">
-    <h2 id="gate-heading">These investments are for approved investors.</h2>
-    <p>Log in with the email address on your account to see what’s currently available. New here? Registration takes a few minutes, and the last step is scheduling a call with me.</p>
+    <p class="gate__lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Approved investors</p>
+    <h2 id="gate-heading">Log in to see what’s available.</h2>
+    <ul class="gate__list">
+      <li>Every current offering</li>
+      <li>Projected distributions</li>
+      <li>Property photos</li>
+      <li>Financials and leverage</li>
+    </ul>
     <div class="gate__actions">
       <a class="btn" href="/login/?next=/invest/">Log In</a>
-      <a class="btn btn--secondary" href="/register/">Create an Account</a>
+      <span class="gate__alt">New here? <a href="/register/">Create an account</a></span>
     </div>
-    <p class="gate__note">Offerings are available solely to accredited investors and are made only by a sponsor’s private placement memorandum.</p>
+    <p class="gate__note">Registration takes a few minutes and ends with a call with me. Offerings are available solely to accredited investors and are made only by a sponsor’s private placement memorandum.</p>
   </div>
 </section>
     <div class="grid" id="grid" aria-live="polite"></div>

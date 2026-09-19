@@ -405,18 +405,60 @@ def render(O):
 
       .disclosure{ padding:24px 0 0; font-size:11px; line-height:1.55; color:rgba(0,0,0,.6); max-width:900px; }
 
-      /* ---------- Approved-investor gate ---------- */
-      .gate{ max-width:calc(1200px + 48px); margin:0 auto; padding:24px 24px 96px; }
+      /* ---------- Approved-investor gate ----------
+         Locked: the real content stays in the DOM but hidden (so its photos never download and the
+         paywalled-content JSON-LD still matches .gated) and a cheap blurred ghost of the page layout
+         renders in its place, with the gate card floating over it. Unlocked: ghost and card both vanish. */
       .wrap--head{ padding-bottom:0; }
-      .gate__card{ max-width:560px; margin:0 auto; text-align:center; }
-      .gate__card h2{ margin:0 0 12px; font-size:clamp(28px,3vw,36px); font-weight:700; line-height:1.1; letter-spacing:-.02em; }
-      .gate__card p{ margin:0 0 24px; font-size:16px; line-height:1.65; color:var(--grey); }
-      .gate__actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-      .gate__actions .btn--secondary{ background:var(--white); color:var(--black); border-color:var(--hair-strong); }
-      .gate__actions .btn--secondary:hover{ background:#FCF7F0; border-color:var(--black); }
-      .gate__note{ margin:20px 0 0 !important; font-size:13px !important; color:var(--grey-light) !important; }
+      .lockwrap{ position:relative; }
+      .gate{ display:none; position:absolute; left:50%; top:52px; transform:translateX(-50%); z-index:3; width:min(520px, calc(100% - 40px)); }
+      html:not(.is-logged-in) .gate{ display:block; }
       html:not(.is-logged-in) .gated{ display:none; }
-      .is-logged-in .gate{ display:none; }
+
+      .gate__card{ background:var(--white); border:1px solid var(--hair-strong); border-radius:10px;
+        padding:26px 30px 24px; box-shadow:0 26px 52px -28px rgba(0,0,0,.24), 0 1px 3px rgba(0,0,0,.05); }
+      .gate__lock{ display:flex; align-items:center; gap:8px; margin:0 0 12px; font-size:11px; font-weight:600;
+        letter-spacing:.08em; text-transform:uppercase; color:var(--grey-light); }
+      .gate__lock svg{ width:13px; height:13px; flex:none; }
+      .gate__card h2{ margin:0 0 16px; font-size:24px; font-weight:400; line-height:1.2; letter-spacing:-.015em; }
+      .gate__list{ list-style:none; margin:0 0 22px; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; }
+      .gate__list li{ display:flex; align-items:center; gap:8px; font-size:14px; color:var(--grey); }
+      .gate__list li::before{ content:""; width:5px; height:5px; border-radius:50%; background:var(--accent); flex:none; }
+      .gate__actions{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+      .gate__alt{ font-size:14px; color:var(--grey-light); }
+      .gate__alt a{ color:var(--accent-text); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(0,128,90,.35); }
+      .gate__alt a:hover{ border-bottom-color:var(--accent); }
+      .gate__note{ margin:20px 0 0; padding-top:16px; border-top:1px solid #ECEAE6; font-size:11px; line-height:1.5; color:rgba(0,0,0,.5); }
+
+      /* the locked title: the real text stays in the DOM for crawlers and is painted over as a bar.
+         box-decoration-break:clone keeps one bar per wrapped line; the negative margin cancels the
+         padding so unlocking shifts nothing. */
+      :root{ --pulse-dur:1400ms; --pulse-min:.58; --sk:#E3E6EA; }
+      @keyframes t-skel-pulse{ 0%,100%{ opacity:1; } 50%{ opacity:var(--pulse-min); } }
+      html:not(.is-logged-in) .tmask{ display:block; overflow:hidden; white-space:nowrap; text-indent:110%;
+        background:var(--sk); border-radius:6px; animation:t-skel-pulse var(--pulse-dur) ease-in-out infinite; }
+      html:not(.is-logged-in) .title h1 .tmask{ height:.60em; width:min(660px, 74%); margin:.20em 0 .18em; }
+      html:not(.is-logged-in) .title__sub .tmask{ height:1em; width:min(420px, 56%); border-radius:3px; }
+
+      /* the ghost: the real page's geometry, so the card sits where the content would be */
+      .ghost{ display:none; filter:blur(3px); opacity:.9; pointer-events:none; user-select:none;
+        -webkit-mask-image:linear-gradient(to bottom, #000 42%, transparent 94%); mask-image:linear-gradient(to bottom, #000 42%, transparent 94%); }
+      html:not(.is-logged-in) .ghost{ display:block; }
+      .ghost .body{ padding-bottom:64px; }
+      .sk{ display:block; background:var(--sk); border-radius:4px; height:12px; animation:t-skel-pulse var(--pulse-dur) ease-in-out infinite; }
+      .ghost__photo{ aspect-ratio:21 / 9; border-radius:var(--radius); background:linear-gradient(105deg,#C9CFD6,#DDE2E7 55%,#CBD2D8); }
+      .ghost__sec{ padding:28px 0 0; }
+      .ghost__sec .sk--h{ height:20px; width:190px; margin-bottom:18px; }
+      .ghost__sec .sk--t{ margin-bottom:10px; }
+      .ghost__card{ border:1px solid var(--hair-strong); border-radius:var(--radius); padding:18px; }
+      .ghost__card .sk--h{ height:13px; width:110px; margin-bottom:16px; }
+      .ghost__row{ display:flex; justify-content:space-between; gap:16px; padding:9px 0; border-bottom:1px solid var(--hair); }
+      .ghost__row:last-child{ border-bottom:0; }
+      .ghost__row .sk:first-child{ width:96px; }
+      .ghost__row .sk:last-child{ width:62px; height:14px; }
+      @media (prefers-reduced-motion:reduce){ .sk, html:not(.is-logged-in) .tmask{ animation:none; } }
+      @media (max-width:900px){ .gate{ top:40px; } .ghost .body{ padding-bottom:40px; } }
+      @media (max-width:560px){ .gate__list{ grid-template-columns:1fr; gap:7px; } .gate__card{ padding:22px 22px 20px; } }
 
       /* ---------- Footer (from the homepage) ---------- */
     ''' + footcss + r'''
@@ -459,23 +501,62 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       </ol>
       <div class="title">
         <div>
-          <h1>''' + O['name'] + r'''</h1>
-          <p class="title__sub">''' + O['type'] + ' · ' + O['city'] + r'''</p>
+          <h1><span class="tmask">''' + O['name'] + r'''</span></h1>
+          <p class="title__sub"><span class="tmask">''' + O['type'] + ' · ' + O['city'] + r'''</span></p>
         </div>
       </div>
     </div>
 
+    <div class="lockwrap">
+
     <section class="gate" id="gate" aria-labelledby="gate-heading">
       <div class="gate__card">
-        <h2 id="gate-heading">The details of this offering are for approved investors.</h2>
-        <p>Log in with the email address on your account to see the photos, financials, distributions and documents. New here? Registration takes a few minutes, and the last step is scheduling a call with me.</p>
+        <p class="gate__lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Approved investors</p>
+        <h2 id="gate-heading">Log in to see this offering.</h2>
+        <ul class="gate__list">
+          <li>Property photos</li>
+          <li>Projected distributions</li>
+          <li>Financials and debt</li>
+          <li>Sponsor documents</li>
+        </ul>
         <div class="gate__actions">
           <a class="btn" href="/login/?next=/offerings/''' + O['slug'] + r'''/">Log In</a>
-          <a class="btn btn--secondary" href="/register/">Create an Account</a>
+          <span class="gate__alt">New here? <a href="/register/">Create an account</a></span>
         </div>
-        <p class="gate__note">Offerings are available solely to accredited investors and are made only by a sponsor’s private placement memorandum.</p>
+        <p class="gate__note">Registration takes a few minutes and ends with a call with me. Offerings are available solely to accredited investors and are made only by a sponsor&rsquo;s private placement memorandum.</p>
       </div>
     </section>
+
+    <div class="ghost" aria-hidden="true">
+      <div class="wrap">
+        <div class="body">
+          <div>
+            <div class="ghost__photo"></div>
+            <div class="ghost__sec">
+              <span class="sk sk--h"></span>
+              <span class="sk sk--t"></span><span class="sk sk--t"></span><span class="sk sk--t" style="width:78%"></span>
+            </div>
+            <div class="ghost__sec">
+              <span class="sk sk--h" style="width:150px"></span>
+              <span class="sk sk--t"></span><span class="sk sk--t" style="width:91%"></span><span class="sk sk--t" style="width:64%"></span>
+            </div>
+          </div>
+          <aside class="side">
+            <div class="ghost__card">
+              <span class="sk sk--h"></span>
+              <div class="ghost__row"><span class="sk"></span><span class="sk"></span></div>
+              <div class="ghost__row"><span class="sk"></span><span class="sk"></span></div>
+              <div class="ghost__row"><span class="sk"></span><span class="sk"></span></div>
+              <div class="ghost__row"><span class="sk"></span><span class="sk"></span></div>
+              <div class="ghost__row"><span class="sk"></span><span class="sk"></span></div>
+              <div class="ghost__row"><span class="sk"></span><span class="sk"></span></div>
+              <div class="ghost__row"><span class="sk"></span><span class="sk"></span></div>
+              <div class="ghost__row"><span class="sk"></span><span class="sk"></span></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
 
     <div class="gated">
 
@@ -561,6 +642,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     </div>
 
     </div><!-- /.gated -->
+    </div><!-- /.lockwrap -->
     <div class="rule rule--strong" aria-hidden="true"></div>
     ''' + foot + r'''
 
