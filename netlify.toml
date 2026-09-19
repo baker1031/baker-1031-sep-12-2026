@@ -1,11 +1,14 @@
 # Baker 1031 Investments — Netlify configuration
-# Build: Airtable + content sources -> static pages (python3 build/build.py). Auth: serverless function + edge gate.
+# Build: Opportunities tool feed + content sources -> static pages (python3 build/build.py). Auth: serverless function + edge gate.
+# Offerings, past performance and preferred sponsors come from https://opportunities.baker1031.com (public feed);
+# that tool fires NETLIFY_BUILD_HOOK automatically about a minute after any change there.
 #
 # Required environment variables (Site configuration -> Environment variables):
-#   AIRTABLE_TOKEN       personal access token — data.records:read on Investment Data (Live) (offerings and
-#                        past performance) AND data.records:read+write on Investor Access (login, "Deals Reviewed")
+#   OPPORTUNITIES_FEED_KEY  the Opportunities tool's FEED_KEY — lets the build download offering documents
+#   AIRTABLE_TOKEN       personal access token — data.records:read+write on Investor Access (login, "Deals Reviewed").
+#                        No longer used for offerings or performance.
 #   SESSION_SECRET       long random string (e.g. `openssl rand -hex 32`); shared by the auth function and the edge gate
-#   NETLIFY_BUILD_HOOK   this site's build hook URL (Build & deploy -> Build hooks) — used by the Airtable rebuild watcher
+#   NETLIFY_BUILD_HOOK   this site's build hook URL (Build & deploy -> Build hooks) — used by the rebuild watcher backstop
 # CRM (Attio): ATTIO_API_KEY (required); optional ATTIO_DEAL_OWNER, ATTIO_DEAL_STAGE, ATTIO_REVIEW_STAGE, ATTIO_LIST,
 #   ATTIO_DEALS=off, ATTIO_WEBHOOK_SECRET (portal-sync webhook signature)
 #   A first offering view moves the open deal to "Reviewing Opportunities" by default (forward-only).
@@ -43,8 +46,8 @@
 [functions."access-sync"]
   schedule = "17 * * * *"
 
-# Every 15 minutes: rebuild if an offering changed in Airtable since the last publish
-# (compares Last Modified vs /build-info.json, then POSTs NETLIFY_BUILD_HOOK).
+# Every 15 minutes (backstop): rebuild if an offering changed in the Opportunities tool since the last publish
+# (compares the feed's newest updatedAt vs /build-info.json, then POSTs NETLIFY_BUILD_HOOK).
 [functions."rebuild-watcher"]
   schedule = "*/15 * * * *"
 

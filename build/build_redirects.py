@@ -9,7 +9,7 @@ So it is derived instead. build/published-slugs.txt is an append-only ledger of 
 script adds any new ones, then writes the difference against the current inventory to a module the edge gate
 imports. A slug that returns to the inventory drops out of the redirect set on its own.
 
-Run by build/build.py after fetch_airtable.py, so the ledger sees the current inventory.
+Run by build/build.py after fetch_opportunities.py, so the ledger sees the current inventory.
 """
 import json, os, sys
 

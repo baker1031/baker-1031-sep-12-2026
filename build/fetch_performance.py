@@ -1,5 +1,10 @@
 """Refresh build/fullcycle.tsv — the full-cycle dataset behind the Results page, the homepage chart and every
-sponsor-page track record — from the "Investment Data (Live)" Airtable base at build time.
+sponsor-page track record — at build time.
+
+Since 2026-09-19 the source is the Past Performance area of the Opportunities tool
+(https://opportunities.baker1031.com/api/public/performance), which also carries the preferred-sponsor list.
+Set PERFORMANCE_SOURCE=airtable to fall back to the old Airtable pull described below. Every safety rule
+(minimum share, maximum growth, keep the committed snapshot on any error) applies to both sources.
 
 Env:
   AIRTABLE_TOKEN        personal access token with data.records:read on the Investment Data (Live) base (required)
@@ -166,7 +171,60 @@ def keep(msg):
     return 0
 
 
+PERF_FEED = os.environ.get('PERFORMANCE_FEED', 'https://opportunities.baker1031.com/api/public/performance')
+
+
+def num6(v):
+    return num(v, 6)
+
+
+def main_feed():
+    have = committed_rows()
+    try:
+        req = urllib.request.Request(PERF_FEED, headers={'User-Agent': 'baker1031-site-build'})
+        with urllib.request.urlopen(req, timeout=60) as r:
+            feed = json.load(r)
+    except Exception as e:
+        return keep('Opportunities performance feed unreachable (%s).' % e)
+    rows = []
+    for p in feed.get('performance', []):
+        rows.append([txt(p.get('name')), txt(p.get('sponsor')), txt(p.get('propertyType')), txt(p.get('state')),
+                     num6(p.get('avgAnnualReturn')), num6(p.get('equityMultiple')), num6(p.get('holdYears')),
+                     txt(p.get('city')), txt(p.get('locationNote')), txt(p.get('assetClass')), txt(p.get('assetClass2'))])
+    rows = [r for r in rows if r[0] and r[1]]
+    if not rows:
+        return keep('The performance feed returned no usable rows.')
+    if have and len(rows) < have * MIN_SHARE:
+        return keep('The performance feed returned only %d rows against %d committed — that looks like a bad pull, '
+                    'not a real change.' % (len(rows), have))
+    if have and len(rows) > have * MAX_GROWTH and ACCEPT_ROWS != str(len(rows)):
+        return keep('The performance feed returned %d rows against %d committed. That republishes every performance '
+                    'figure on the site in one deploy, so it is held until the new rows have been reviewed. To accept '
+                    'it, set PERFORMANCE_ACCEPT_ROWS=%d and redeploy.' % (len(rows), have, len(rows)))
+    buf = io.StringIO()
+    w = csv.writer(buf, delimiter='\t', lineterminator='\n', quoting=csv.QUOTE_NONE, escapechar=None)
+    w.writerow(HEADER)
+    for r in rows:
+        w.writerow([c.replace('\t', ' ') for c in r])
+    with open(OUT, 'w', encoding='utf-8', newline='') as fh:
+        fh.write(buf.getvalue())
+    names = sorted(txt(n) for n in (feed.get('preferredSponsors') or []) if txt(n))
+    if names:
+        with open(OUT_PREFERRED, 'w', encoding='utf-8') as fh:
+            fh.write(PREFERRED_HEADER.replace('fetch_performance.py from the Preferred column of the Sponsor Performance\n# table in Airtable',
+                                              'fetch_performance.py from the preferred-sponsor stars in the Opportunities\n# tool (Past performance -> By sponsor)')
+                     .replace('tick or untick the column in Airtable', 'star or unstar the sponsor in the Opportunities tool') + '\n'.join(names) + '\n')
+        print('preferred sponsors (from the Opportunities tool): ' + ', '.join(names))
+    else:
+        print('WARNING: no preferred sponsors in the feed. Keeping the committed preferred-sponsors.txt.')
+    print('performance (from the Opportunities tool): %d full-cycle deals, %d sponsors%s'
+          % (len(rows), len({r[1] for r in rows}), '' if not have else ' — was %d' % have))
+    return 0
+
+
 def main():
+    if os.environ.get('PERFORMANCE_SOURCE', 'feed').lower() != 'airtable':
+        return main_feed()
     have = committed_rows()
     if not TOKEN:
         print('AIRTABLE_TOKEN not set — keeping the committed fullcycle.tsv snapshot (%d deals).' % have)

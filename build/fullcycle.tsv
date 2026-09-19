@@ -22,6 +22,7 @@ Best Space Realty Corp - Irving, TX	Peachtree Group	Credit - Retail		1.1193	1.19
 Sleep Inn - Oxford, AL	Peachtree Group	Credit - Hotel		0.8419	2.92	2.28			Credit / Debt	
 Candlewood Suites - North Syracuse, NY	Peachtree Group	Credit - Hotel		0.2918	1.6	2.06			Credit / Debt	
 Springhill Suites - San Antonio, TX	Peachtree Group	Hotel		0.1558	1.81	5.2			Hotel / Hospitality	
+McEver 985 Distribution Center	NewStar	Industrial							Industrial	
 Home2 Suites - Fort Worth, TX	Peachtree Group	Credit - Hotel		0.2497	1.32	1.28			Credit / Debt	
 Vinings - Greenville, SC	Passco Companies	Multifamily / residential	SC	0.1015	1.677	6.67	Greenville		Multifamily / Residential	
 Net-Leased Portfolio 13	ExchangeRight	Net-leased retail		0.103395	1.43	4.158795		Multiple states - not disclosed in PPM	Net Lease (NNN) Retail	
@@ -47,8 +48,8 @@ Net-Leased Portfolio 19	ExchangeRight	Net-leased retail & healthcare		0.102707	1
 Crowne Plaza - North Charleston, SC	Peachtree Group	Hotel		0.3155	1.92	2.92			Hotel / Hospitality	
 Parker - Fairfax County, VA	Passco Companies	Multifamily / residential	VA	0.0633	1.2849	4.5	Fairfax County		Multifamily / Residential	
 Passco Waikoloa, LLC	Passco Companies	Undeveloped / pre-development land			0				Undeveloped Land	
+CS1031 Marina Pointe Apartments	Capital Square	multifamily (308-unit apartment community)		0.081408	1.3989	4.9		Chattanooga, Tennessee		
 Holiday Inn Express - Tacoma, WA	Peachtree Group	Credit - Hotel		0.3142	1.08	0.25			Credit / Debt	
-Plainfield 1031, L.L.C.	Inland Private Capital	Retail		0.033	1.39	11.83			Net Lease (NNN) Retail	
 Clearwater	Bluerock	Multifamily / residential	FL	0.12616	1.872605	6.916667	Clearwater		Multifamily / Residential	
 CVS - Weeki Wachee, FL	Syndicated Equities	Net-leased pharmacy	FL	0.1205	2.21	10.04	Weeki Wachee		Net Lease (NNN) Retail	
 Upham Hotel - Santa Barbara, CA	Peachtree Group	Credit - Hotel		0.3199	1.24	0.75			Credit / Debt	
@@ -58,6 +59,7 @@ Marriott TownePlace Suites - Indianapolis, IN	Syndicated Equities	Hotel	IN	-0.09
 Staybridge Suites- Baltimore, MD	Peachtree Group	Credit - Hotel		0.8145	2.61	1.98			Credit / Debt	
 Hampton Inn - Sarasota, FL	Peachtree Group	Hotel		0.4902	1.91	1.86			Hotel / Hospitality	
 Fairfield Inn & Suites - Lewisville, TX	Peachtree Group	Hotel		0.578	1.69	1.19			Hotel / Hospitality	
+JLLX Whitestown, DST	JLL	Industrial	IN	0.069091	1.19	2.75	Suburban Indianapolis		Industrial	
 Sands Parc	Bluerock	Multifamily / residential	FL	0.138776	1.601363	4.333333	Daytona Beach		Multifamily / Residential	
 Days Inn - State College, PA	Peachtree Group	Credit - Hotel		0.3705	1.21	0.57			Credit / Debt	
 Eastwind Center - Las Vegas, NV	Passco Companies	Retail	NV	-0.0219	0.64	13.58	Las Vegas		Net Lease (NNN) Retail	
@@ -77,6 +79,7 @@ Hampton - Canton, GA	Peachtree Group	Credit - Hotel							Credit / Debt
 Garden Ridge	AEI	Net-leased retail	TX	0.027481	1.079	2.874743	Conroe		Net Lease (NNN) Retail	
 Storesmart Warner Robins	Reliant	Self storage		0.473036	3.01	4.25		United States - state not disclosed in the Full Cycle Programs table	Self Storage	
 CF Hendry Multifamily DST	Cantor Fitzgerald	Multifamily		0.190263	1.723	3.8		Not disclosed in PPM	Multifamily / Residential	
+Self-Storage Portfolio II DST	Inland Private Capital	Self storage		0.167002	1.83	4.97			Self Storage	
 Courtyard - Lafayette, IN	Peachtree Group	Credit - Hotel		0.4023	2.01	2.51			Credit / Debt	
 President Hotel (A Note) - Kansas City, MO	Peachtree Group	Credit - Hotel		0.3021	1.11	0.36			Credit / Debt	
 Hampton Inn - Enterprise, AL	Peachtree Group	Credit - Hotel		0.4232	1.19	0.45			Credit / Debt	
@@ -91,6 +94,7 @@ Fairfield Inn - Valdosta, GA	Peachtree Group	Hotel		0.2981	2.11	3.72			Hotel / H
 Champps	AEI	Net-leased restaurant	OH	0.018171	1.3561	19.597536	Columbus (Crosswood)		Net Lease (NNN) Retail	
 Super 8 - Mound City, MO	Peachtree Group	Credit - Hotel		0.1857	1.09	0.48			Credit / Debt	
 Port Richey 1031, L.L.C.	Inland Private Capital	Retail		-0.0378	0.55	11.92			Net Lease (NNN) Retail	
+JLLX Louisville Logistics Center, DST	JLL	Industrial	KY	0.072	1.198	2.75	Louisville		Industrial	
 Walgreens - Chicago Heights, IL	Syndicated Equities	Net-leased pharmacy	IL	0.0725	1.72	9.93	Chicago Heights		Net Lease (NNN) Retail	
 Courtyard - Fairfield, CA	Peachtree Group	Credit - Hotel		0.1819	1.24	1.32			Credit / Debt	
 Cumberland Mall - Vineland, NJ	Peachtree Group	Credit - Retail		0.2534	1.12	0.47			Credit / Debt	
@@ -133,6 +137,7 @@ Fashion Outlet Center - Rosemont, IL	Syndicated Equities	Retail	IL	0.5236	3.97	5
 LaQuinta Inn (Note 1) - Lenexa, KS	Peachtree Group	Credit - Hotel		0.3949	1.16	0.41			Credit / Debt	
 Traton Homes East Park Village - Kennesaw, GA	Peachtree Group	Credit - Land		0.1668	1.31	1.86			Credit / Debt	
 Omaha Headquarters Ventures DST	Inland Private Capital	Office		0.0105	1.1	9.5			Office	
+CS1031 Fairway View Apartments, DST	Capital Square	multifamily (243-unit apartment property)		0.223707	1.9172	4.1		Atlanta, Georgia (suburb)		
 Carmel Office 1031, L.L.C.	Inland Private Capital	Office		0.0411	1.36	8.75			Office	
 AC Hotel - Brentwood, TN	Peachtree Group	Credit - Hotel		0.1219	1.49	4.02			Credit / Debt	
 Cambria - Uniontown, OH	Peachtree Group	Credit - Hotel		0.4342	2.41	3.25			Credit / Debt	
@@ -155,6 +160,7 @@ Hampton Inn (Note A) - Cullman, AL	Peachtree Group	Credit - Hotel		0.3062	1.55	1
 Holiday Inn (A Note) - Omaha, NE	Peachtree Group	Credit - Hotel		0.2181	1.08	0.37			Credit / Debt	
 Days Inn - Shorter, AL	Peachtree Group	Credit - Hotel		0.2113	1.38	1.8			Credit / Debt	
 Staybridge Suites - Indianapolis, IN	Peachtree Group	Credit - Hotel		0.1428	1.5	3.5			Credit / Debt	
+Retail Portfolio II DST	Inland Private Capital	Retail		0.026786	1.27	10.08			Net Lease (NNN) Retail	
 Midgard Woodstock	Reliant	Self storage		0.642695	3.84	4.42		United States - state not disclosed in the Full Cycle Programs table	Self Storage	
 Peak Housing Operating Partnership	Bluerock	Multifamily / residential	TX	0.062411	1.228839	3.666667	Dallas		Multifamily / Residential	
 Social Security Administration - Valparaiso, IN	Syndicated Equities	Government / GSA-leased	IN	0.0154	1.2	12.98	Valparaiso		Government / GSA-Leased	
@@ -162,6 +168,7 @@ DoubleTree (Note A) - New Bern, NC	Peachtree Group	Credit - Hotel		0.6845	2.28	1
 Hyatt Place - Jacksonville, FL	Peachtree Group	Hotel		0.2624	1.97	3.7			Hotel / Hospitality	
 Student Housing Development - Ottawa, Canada	Syndicated Equities	Student housing		0.1503	1.36	2.4		Ottawa, Canada	Student Housing	
 CF Net Lease Portfolio DST 8	Cantor Fitzgerald	Retail		0.062941	1.321	5.1		Not disclosed in PPM	Net Lease (NNN) Retail	
+CS1031 Promenade at Newnan Apartments, DST	Capital Square	multifamily (298-unit apartment community)		0.08275	1.4303	5.2		Newnan, Georgia		
 Holiday Inn (Note 2) - Lancaster, PA	Peachtree Group	Credit - Hotel		0.4645	1.22	0.47			Credit / Debt	
 Two Blocks - Dunwoody, GA	Passco Companies	Multifamily / residential	GA	0.1608	1.804	5	Dunwoody		Multifamily / Residential	
 Multifamily 5 - Crystal Lake Florida Apartments	ExchangeRight	Multifamily		0.112684	1.29	2.57358		Florida (implied by program name)	Multifamily / Residential	
@@ -175,6 +182,7 @@ Comfort Inn - Omaha, NE	Peachtree Group	Credit - Hotel		0.0354	1.09	2.54			Credi
 Glen at Alexander - Augusta, GA	Passco Companies	Multifamily / residential	GA	0.1016	1.6685	6.58	Augusta		Multifamily / Residential	
 Comfort Suites - Starkville, MS	Peachtree Group	Hotel		0.1407	3.04	14.5			Hotel / Hospitality	
 Custom Spring TX Storage, L.L.C.	Inland Private Capital	Self storage		0.2725	2.12	4.11			Self Storage	
+CS1031 Saltmeadow Bay Apartments, DST	Capital Square	multifamily (Class A apartment property)		0.227583	1.8193	3.6		Virginia Beach, Virginia		
 Colorado Springs Multifamily DST	Inland Private Capital	Multifamily		0.0632	1.4	6.33			Multifamily / Residential	
 Sonesta ES Suites - Lombard, IL	Peachtree Group	Credit - Hotel		0.2052	1.5	2.44			Credit / Debt	
 Encore Chandler Development	Bluerock	Multifamily / residential	AZ	0.16369	1.300098	1.833333	Chandler		Multifamily / Residential	
@@ -199,12 +207,14 @@ FSC Healthcare II, DST	Four Springs TEN31 Xchange	Medical Office		0.056113	1.408
 Warminster Business Center - Warminster, PA	Passco Companies	Office	PA	-0.0004	0.996	12.75	Warminster		Office	
 Timber Lodge	AEI	Net-leased restaurant	MN	0.020508	1.2064	10.064339	Rochester		Net Lease (NNN) Retail	
 Merritt - Duluth, GA	Passco Companies	Multifamily / residential	GA	0.1956	1.9135	4.67	Duluth		Multifamily / Residential	
+CS1031 Hickory Creek Apartments, DST	Capital Square	multifamily (294-unit apartment property)		0.178886	1.6261	3.5		Richmond, Virginia (suburb)		
 Cambria - New York, NY	Peachtree Group	Credit - Hotel		0.1173	1.2	1.71			Credit / Debt	
 Net-Leased Portfolio 9	ExchangeRight	Net-leased retail		0.079932	1.59	7.381246		Multiple states - not disclosed in PPM	Net Lease (NNN) Retail	
 Courtyard - Jacksonville, FL	Peachtree Group	Hotel		0.4243	2.1	2.59			Hotel / Hospitality	
 Sonesta ES Suites - Minneapolis, MN	Peachtree Group	Credit - Hotel		0.1627	1.2	1.23			Credit / Debt	
 DoubleTree - Biloxi, MS	Peachtree Group	Hotel		0.1467	2.19	8.11			Hotel / Hospitality	
 Fairfield Inn & Suites - Indianapolis, IN	Peachtree Group	Hotel		0.1987	3.32	11.68			Hotel / Hospitality	
+CS1031 Olde Towne Lofts Apartments, DST	Capital Square	multifamily (223-unit apartment property)		0.080815	1.5253	6.5		Petersburg, Virginia		
 Retail and Single Family - Brevard, NC	Peachtree Group	Credit - Multifamily		0.496	1.22	0.44			Credit / Debt	
 Springhill Suites - Reno, NV	Peachtree Group	Credit - Hotel		0.0708	1.09	1.27			Credit / Debt	
 Element - Houston, TX (Non-Fund)	Peachtree Group	Credit - Hotel		0.1978	1.99	5			Credit / Debt	
@@ -218,10 +228,12 @@ Days Inn - Kearney, NE	Peachtree Group	Credit - Hotel		0.1922	1.05	0.26			Credit
 Aloft - Detroit, MI	Peachtree Group	Credit - Hotel		0.1459	1.31	2.12			Credit / Debt	
 Hampton Inn & Suites - Charlotte Airport, NC	Peachtree Group	Credit - Hotel		0.283	1.21	0.74			Credit / Debt	
 LSC-BIO HC1, DST	Livingston Street Capital	Not disclosed		0.151373	1.643335	4.25		Not disclosed		
+JLLX West Phoenix Distribution Center, DST	JLL	Industrial	AZ	-0.019884	0.9487	2.58	Phoenix		Industrial	
 TownePlace Suites - Loveland, CO	Peachtree Group	Credit - Hotel		0.1849	1.4	2.16			Credit / Debt	
 Crocker & Towne Wholesale Mart - Los Angeles, CA	Peachtree Group	Credit - Retail		0.2531	1.21	0.83			Credit / Debt	
 University Lofts, L.L.C.	Inland Private Capital	Student housing		0.0511	1.43	8.42			Student Housing	
 Arlington Highlands Retail Center - Arlington, TX	Syndicated Equities	Retail	TX	0.1602	1.5	3.12	Arlington		Net Lease (NNN) Retail	
+CSRA Candleglow Apartments, DST	Capital Square	multifamily (152-unit apartment property)		0.289264	2.5331	5.3		Tampa, Florida		
 Bull Moose Lodge - Alpine, WY	Peachtree Group	Credit - Hotel		0.2447	2.37	5.6			Credit / Debt	
 Jared	AEI	Net-leased retail	MO	0.014195	1.223	15.709788	Hazelwood		Net Lease (NNN) Retail	
 Courtyard (Note 1) - Newark, OH	Peachtree Group	Credit - Hotel		0.2784	1.17	0.61			Credit / Debt	
@@ -253,6 +265,7 @@ Miami Office DST	Inland Private Capital	Office		0.0128	1.13	10.17			Office
 Parkcrest Landings - Bradenton, FL	Passco Companies	Multifamily / residential	FL	0.107	1.7576	7.08	Bradenton		Multifamily / Residential	
 Holiday Inn - Tacoma, WA	Peachtree Group	Credit - Hotel		0.1985	1.47	2.37			Credit / Debt	
 Hampton / Holiday Inn Express (A Note) - Kansas City, KS	Peachtree Group	Credit - Hotel		0.4214	1.3	0.71			Credit / Debt	
+Cummings Research Park III - Huntsville, AL	Bluerock	Office				12.3			Office	
 Best Western - Santa Clara, CA	Peachtree Group	Credit - Hotel		0.2326	1.1	0.43			Credit / Debt	
 Village Green	Bluerock	Multifamily / residential	MI	0.283088	2.250305	4.416667	Ann Arbor		Multifamily / Residential	
 Avenue 25	Bluerock	Multifamily / residential	AZ	0.716347	2.969955	2.75	Phoenix		Multifamily / Residential	
@@ -275,10 +288,12 @@ Country Inn & Suites - McDonough, GA	Peachtree Group	Credit - Hotel		0.292	2.22	
 Homewood Suites - East Syracuse, NY	Peachtree Group	Credit - Hotel		0.4396	2.2	2.73			Credit / Debt	
 Big Creek	Bluerock	Multifamily / residential	GA	0.104278	1.434492	4.166667	Alpharetta		Multifamily / Residential	
 FSC AS Mt. Juliet TN, DST	Four Springs TEN31 Xchange	Retail		0.047532	1.3717	7.82		United States	Net Lease (NNN) Retail	
+CS1031 Ivy Commons Apartments, DST	Capital Square	multifamily (344-unit apartment property)		0.241905	2.016	4.2		Marietta, Georgia		
 Hilton Garden Inn - Pascagoula, MS	Peachtree Group	Credit - Hotel		0.2392	1.97	4.05			Credit / Debt	
 Net-Leased Portfolio 21	ExchangeRight	Net-leased retail & healthcare		0.085729	1.38	4.43258		Multiple states - not disclosed in PPM	Net Lease (NNN) Retail	Healthcare / Medical Office
 Net-Leased Portfolio 2	ExchangeRight	Net-leased retail		0.111797	1.79	7.066393		Multiple states - not disclosed in PPM	Net Lease (NNN) Retail	
 Home2 Suites - Youngstown, OH	Peachtree Group	Credit - Hotel		0.2101	1.65	3.09			Credit / Debt	
+CS1031 Crossroads Apartments, DST	Capital Square	multifamily (316-unit apartment property)		0.196739	1.4525	2.3		Phoenix, Arizona		
 Multifamily 2 - Mira Bella and San Martin Apartments	ExchangeRight	Multifamily		0.076968	1.33	4.287474		Not disclosed in PPM	Multifamily / Residential	
 Courtyard - Starkville, MS	Peachtree Group	Hotel		0.0768	1.68	8.85			Hotel / Hospitality	
 Ansley Village	Bluerock	Multifamily / residential	GA	0.06699	1.37403	5.583333	Macon		Multifamily / Residential	
@@ -336,6 +351,7 @@ CoHo House	Bluerock	Multifamily / residential	GA	0.076352	1.26087	3.416667	Atlan
 Holiday Inn (B Note) - Omaha, NE	Peachtree Group	Credit - Hotel		0.2453	1.09	0.37			Credit / Debt	
 Arium Glenridge	Bluerock	Multifamily / residential	GA	0.282259	2.693554	6	Atlanta		Multifamily / Residential	
 My Place Hotel - Fargo, ND	Peachtree Group	Credit - Hotel		0.4783	1.11	0.23			Credit / Debt	
+Town and Country, DST	Bluerock	Office				10.4			Office	
 840 1st Street - Washington, DC	Syndicated Equities		DC	0.2636	1.41	1.56	Washington			
 Strategic Storage Trust IV, Inc. (SST IV)	Blue Door	Self storage						United States (multi-state)	Self Storage	
 Cincinnati Eastgate 1031, L.L.C.	Inland Private Capital	Retail		-0.0338	0.6	11.83			Net Lease (NNN) Retail	
@@ -349,6 +365,7 @@ Rite Aid	AEI	Net-leased pharmacy	NY	0.012121	1.233	19.22245	Cicero		Net Lease (N
 Staybridge Suites - Willowbrook, TX	Peachtree Group	Credit - Hotel		-0.041	0.81	4.64			Credit / Debt	
 Wingate - Sioux City, IA	Peachtree Group	Credit - Hotel		0.2695	1.47	1.74			Credit / Debt	
 LV-M Venture Holdings, DST	Inland Private Capital	Office		-0.0126	0.79	16.67			Office	
+CS1031 Bedford Parke Apartments, DST	Capital Square	multifamily (232-unit apartment property)		0.189509	2.0044	5.3		Warner Robins, Georgia		
 Sonesta Simply Suites - Detroit, MI	Peachtree Group	Credit - Hotel		0.1888	1.46	2.44			Credit / Debt	
 Countrywood Crossing Shopping Center - Memphis, TN (LOAN DEFAULT - excluded from IPC disposition table)	Inland Private Capital	Retail							Net Lease (NNN) Retail	
 Curio (Note 1) - Chattanooga, TN	Peachtree Group	Credit - Hotel		0.2016	1.51	2.53			Credit / Debt	
@@ -369,6 +386,7 @@ Wilkinson Crossings at Dawsonville	Bluerock	Multifamily / residential	GA	0.10870
 Laveen Market Place - Phoenix, AZ	Passco Companies	Retail	AZ	-0.0544	0.446	10.09	Phoenix		Net Lease (NNN) Retail	
 Cary Custom 1031, L.L.C.	Inland Private Capital	Multifamily		0.0954	1.35	3.67			Multifamily / Residential	
 Lincoln Plaza - Tacoma, WA	Passco Companies	Retail	WA	0.034	1.34	10	Tacoma		Net Lease (NNN) Retail	
+CS1031 Bellemeade Apartments, DST	Capital Square	multifamily (316-unit apartment property)		0.065429	1.3664	5.6		Leesburg, Virginia		
 Lexington - Nashville, TN	Passco Companies	Multifamily / residential	TN	0.0875	1.4594	5.25	Nashville		Multifamily / Residential	
 Holiday Inn Express - Bellevue, KY	Peachtree Group	Credit - Hotel		0.1702	1.11	0.65			Credit / Debt	
 Passco Diversified Development Fund III, LLC	Passco Companies	Undeveloped / pre-development land			0.413				Undeveloped Land	
@@ -383,6 +401,7 @@ Broadway Commons DBT	Inland Private Capital	Retail		0.043	1.57	13.25			Net Lease
 The Sanctuary	Bluerock	Multifamily / residential	NV	0.619135	3.012189	3.25	Las Vegas		Multifamily / Residential	
 KinderCare / Children's World	AEI	Net-leased early education / childcare	WI	0.060306	1.8934	14.814511	De Pere		Net Lease (NNN) Retail	
 River Oaks - Houston, TX	Passco Companies	Self storage	TX	-0.0061	0.9507	8.08	Houston		Self Storage	
+JLLX Rockwell Apartments, DST	JLL	Multifamily	MA	-0.013636	0.967	2.42	Greater Boston		Multifamily / Residential	
 Passco Diversified Fund II, LLC	Passco Companies	Debt / notes program			0.473				Credit / Debt	
 Vicker’s Historic Roswell	Bluerock	Multifamily / residential	GA	0.077967	1.357349	4.583333	Roswell		Multifamily / Residential	
 Holiday Inn Express - Birmingham, AL	Peachtree Group	Credit - Hotel		0.6832	3.4	3.51			Credit / Debt	
@@ -395,6 +414,7 @@ Mt. Pleasant Retail Venture DST	Inland Private Capital	Retail		0.095	1.84	8.84		
 Multifamily 6 - El Paso Apartment Portfolio	ExchangeRight	Multifamily	TX	0.17907	1.68	3.797399	El Paso		Multifamily / Residential	
 Aurora 1031, L.L.C.	Inland Private Capital	Retail		0.0452	1.55	12.17			Net Lease (NNN) Retail	
 National Fire & Resource - Tucson, AZ	Syndicated Equities	Government / GSA-leased	AZ	0.0557	1.56	10.05	Tucson		Government / GSA-Leased	
+CS1031 Canopy Apartments, DST	Capital Square	multifamily (220-unit apartment property)		0.141691	1.7793	5.5		San Antonio, Texas		
 Holiday Inn Express (Note B) - Solana Beach, CA	Peachtree Group	Credit - Hotel		0.113	1.16	1.42			Credit / Debt	
 The Stratford	Bluerock	Multifamily / residential	NC	0.348271	1.493384	1.416667	Cary		Multifamily / Residential	
 Arby's	AEI	Net-leased restaurant	AL	0.033944	1.6063	17.861739	Homewood		Net Lease (NNN) Retail	
@@ -404,6 +424,7 @@ Champps	AEI	Net-leased restaurant	OH	0.054861	1.8527	15.542779	Columbus (Easton)
 Homewood Suites - Eatontown, NJ	Peachtree Group	Credit - Hotel		0.121	1.46	3.8			Credit / Debt	
 Storesmart Fayetteville GA	Reliant	Self storage		0.345952	2.47	4.25		United States - state not disclosed in the Full Cycle Programs table	Self Storage	
 Pointe Plaza Shopping Center - Niles, IL	Syndicated Equities	Retail	IL	0.0682	1.17	2.49	Niles		Net Lease (NNN) Retail	
+JLLX Montecito Marketplace, DST	JLL	Retail	NV	0.024719	1.066	2.67	Las Vegas		Net Lease (NNN) Retail	
 SpringHill Suites (Note 2) - Coralville, IA	Peachtree Group	Credit - Hotel		0.2748	1.24	0.87			Credit / Debt	
 Stanford 1050 - Los Angeles, CA	Peachtree Group	Credit - Mixed Use		0.6641	1.04	0.06			Credit / Debt	
 LaQuinta Inn (Note 2) - Lenexa, KS	Peachtree Group	Credit - Hotel		0.4195	1.17	0.41			Credit / Debt	
@@ -425,6 +446,7 @@ Raveneaux - Houston, TX	Passco Companies	Multifamily / residential	TX	0.084	1.80
 Country Suites - Wilmington, NC	Peachtree Group	Credit - Hotel		0.2778	1.2	0.72			Credit / Debt	
 ARC Houston Healthcare, DST	ARCTRUST	Medical Office						Houston, Texas	Healthcare / Medical Office	
 President Hotel (B Note) - Kansas City, MO	Peachtree Group	Credit - Hotel		0.2472	1.09	0.36			Credit / Debt	
+JLLX Milford Crossing, DST	JLL	Retail	MA	0.059176	1.158	2.67	Greater Boston		Net Lease (NNN) Retail	
 Customs & Border Patrol - Atlanta, GA	Syndicated Equities	Government / GSA-leased	GA	0.1404	1.95	6.77	Atlanta		Government / GSA-Leased	
 TownePlace Suites - Irving, TX	Peachtree Group	Credit - Hotel		0.197	1.35	1.78			Credit / Debt	
 Legacy at Acworth - Acworth, GA	Syndicated Equities		GA	0.1382	1.54	3.91	Acworth			
@@ -437,7 +459,9 @@ Applebee's	AEI	Net-leased restaurant	KY	0.093059	1.8739	9.390828	Crestview Hills
 Fashion Outlet Center - Las Vegas, NV	Syndicated Equities	Retail	NV	-0.2365	0.19	3.43	Las Vegas		Net Lease (NNN) Retail	
 Fuddruckers	AEI	Net-leased restaurant	CO	0.022543	1.2404	10.663929	Thornton		Net Lease (NNN) Retail	
 Holiday Inn Express - Jacksonville, FL	Peachtree Group	Credit - Hotel		0.1673	1.36	2.15			Credit / Debt	
+CS1031 High Ridge Apartments, DST	Capital Square	multifamily (160-unit apartment property)		0.194308	2.263	6.5		Athens, Georgia		
 Staybridge Suites - Middleton, WI	Peachtree Group	Hotel		-0.1712	0.13	5.08			Hotel / Hospitality	
+Discount Retail Portfolio DST	Inland Private Capital	Retail		0.062036	1.92	14.83			Net Lease (NNN) Retail	
 Hampton Inn - Plantation, FL	Peachtree Group	Hotel		0.0065	1.03	4.64			Hotel / Hospitality	
 Hampton Inn (Note B) - Cullman, AL	Peachtree Group	Credit - Hotel		0.2951	1.53	1.8			Credit / Debt	
 Self-Storage Portfolio V DST	Inland Private Capital	Self storage		0.1378	1.93	6.75			Self Storage	
@@ -449,6 +473,7 @@ Hampton Inn - Tampa, FL	Peachtree Group	Credit - Hotel		0.1736	1.45	2.59			Credi
 Office Building (Acorn) - Thomasville, GA	Peachtree Group	Credit - Office							Credit / Debt	
 Riverside Apartments	Bluerock	Multifamily / residential	TX	0.092181	1.184362	2	Austin		Multifamily / Residential	
 Midgard Mall Drive	Reliant	Self storage		0.269105	3.13	7.92		United States - state not disclosed in the Full Cycle Programs table	Self Storage	
+CS1031 Richmond VA Apartments, DST	Capital Square	multifamily (296-unit apartment property)		0.108058	1.5619	5.2		Chesterfield County, Virginia		
 Clay 1031, L.L.C.	Inland Private Capital	Retail		0.0353	1.52	14.73			Net Lease (NNN) Retail	
 Dolphin Inn - Virginia Beach, VA	Peachtree Group	Credit - Hotel		0.1869	1.13	0.7			Credit / Debt	
 Arlington - Spanish Fort, AL	Passco Companies	Multifamily / residential	AL	0.0838	1.4827	5.76	Spanish Fort		Multifamily / Residential	
@@ -466,6 +491,7 @@ Creekside Village	Bluerock	Multifamily / residential	TN	0.317308	2.269231	4	Chat
 Hotel Indigo - College Park, GA	Peachtree Group	Credit - Hotel		0.4383	1.9	2.05			Credit / Debt	
 Family Discount Portfolio III DST	Inland Private Capital	Retail		-0.0258	0.74	10.08			Net Lease (NNN) Retail	
 Walgreens - Clarkston, MI	Syndicated Equities	Net-leased pharmacy	MI	0.1003	1.99	9.87	Clarkston		Net Lease (NNN) Retail	
+CSRA Perry Place Apartments, DST	Capital Square	multifamily (71-unit apartment property)		0.090708	1.4354	4.8		Richmond, Virginia		
 Storesmart South Wake (Raleigh)	Reliant	Self storage		0.490792	3.33	4.75		United States - state not disclosed in the Full Cycle Programs table	Self Storage	
 Sonesta Simply Suites - Detroit, MI	Peachtree Group	Credit - Hotel		0.1888	1.46	2.44			Credit / Debt	
 Champps	AEI	Net-leased restaurant	OH	0.00113	1.0194	17.169062	Lyndhurst		Net Lease (NNN) Retail	
@@ -477,11 +503,12 @@ Hilton Garden Inn - Tupelo, MS	Peachtree Group	Hotel		0.1293	2.09	8.43			Hotel /
 Hampton Inn - Kilgore, TX	Peachtree Group	Credit - Hotel		0.207	1.14	0.68			Credit / Debt	
 Lone Oak - Round Rock, TX	Passco Companies	Multifamily / residential	TX	0.0865	1.4472	5.17	Round Rock		Multifamily / Residential	
 Holiday Inn Express - Daytona Beach, FL	Peachtree Group	Credit - Hotel		0.1232	1.45	3.65			Credit / Debt	
-Macon Office DST	Inland Private Capital	Office		0.0583	1.69	11.83			Office	
+JLLX Stony Point, DST	JLL	Medical Office	VA	-0.014667	0.967	2.25	Richmond		Healthcare / Medical Office	
 Sea Breeze Inn - Fort Walton, FL	Peachtree Group	Credit - Hotel		2.9934	2.09	0.36			Credit / Debt	
 EVEN - Tinley Park, IL	Peachtree Group	Credit - Hotel		0.1107	1.03	0.27			Credit / Debt	
 Home2 - Fort Mill, SC	Peachtree Group	Credit - Hotel		0.2122	1.81	3.82			Credit / Debt	
 Carino's	AEI	Net-leased restaurant	TX	0.058386	1.7195	12.323066	Austin		Net Lease (NNN) Retail	
+CSRA Bridgeview Apartments, DST	Capital Square	multifamily (348-unit apartment property)		0.150042	1.7202	4.8		Tampa, Florida		
 Fairfield Inn & Suites - Temecula, CA	Peachtree Group	Credit - Hotel		0.3023	1.36	1.19			Credit / Debt	
 TownePlace Suites - Chandler, AZ	Peachtree Group	Hotel		0.1123	1.53	4.72			Hotel / Hospitality	
 Self-Storage Portfolio IV DST	Inland Private Capital	Self storage		0.1659	1.76	4.58			Self Storage	
@@ -490,6 +517,7 @@ Hyatt Place - Fort Myers, FL	Peachtree Group	Credit - Hotel		0.3412	1.34	1			Cre
 Hampton Inn - Milwaukee NW, WI	Peachtree Group	Credit - Hotel		0.1534	1.31	2.02			Credit / Debt	
 Hotel Indigo - Sarasota, FL	Peachtree Group	Credit - Hotel		0.1927	2.02	5.29			Credit / Debt	
 Sears Sterling - Lombard, IL	Syndicated Equities	Retail	IL	0.1386	3.11	15.23	Lombard		Net Lease (NNN) Retail	
+Discount Retail Portfolio III DST	Inland Private Capital	Retail		0.052143	1.73	14			Net Lease (NNN) Retail	
 Multifamily 3 - Lakeside at Arbor Place Apartments	ExchangeRight	Multifamily		0.143848	1.46	3.19781		Not disclosed in PPM	Multifamily / Residential	
 Mall at Robinson - Pittsburgh, PA	Peachtree Group	Credit - Retail		0.1691	1.32	1.89			Credit / Debt	
 EVEN - Atlanta, GA	Peachtree Group	Credit - Hotel		0.1985	1.8	4.03			Credit / Debt	
@@ -504,13 +532,16 @@ Hickory Hollow - Antioch, TN	Passco Companies	Multifamily / residential	TN	0.198
 Candlewood Suites - Winnemucca, NV	Peachtree Group	Credit - Hotel		0.0086	1.03	3.49			Credit / Debt	
 Acquisition Notes	ExchangeRight	Debt / notes program		0.072566	1.39	5.374401		Multiple states - not disclosed in PPM	Credit / Debt	
 PNS Grocery DST	Inland Private Capital	Retail		0.0565	1.24	4.25			Net Lease (NNN) Retail	
+JLLX Louisville Airport Distribution Center, DST	JLL	Industrial	KY	0.027132	1.07	2.58	Louisville		Industrial	
 Discount Retail Venture II DST	Inland Private Capital	Retail		-0.0093	0.89	11.83			Net Lease (NNN) Retail	
 Lake Meade - North Las Vegas, CA	Passco Companies	Retail	CA	0.0787	1.203	2.58	North Las Vegas		Net Lease (NNN) Retail	
 Pharmacy Sale Leaseback II DST	Inland Private Capital	Retail		0.076	1.57	7.5			Net Lease (NNN) Retail	
 The Riley	Bluerock	Multifamily / residential	TX	0.118875	1.188218	1.583333	Richardson		Multifamily / Residential	
+Tampa-Coconut Palms Office Building 1031, L.L.C.	Inland Private Capital	Office		-0.006375	0.92	12.55			Office	
 Fairfield Inn & Suites - Alexandria, VA	Peachtree Group	Credit - Hotel		0.2655	1.82	3.09			Credit / Debt	
 Villas at Oak Crest	Bluerock	Multifamily / residential	TN	0.096534	1.329825	3.416667	Chattanooga		Multifamily / Residential	
 Storesmart Buford	Reliant	Self storage		0.004707	1.02	4.25		United States - state not disclosed in the Full Cycle Programs table	Self Storage	
+JLLX San Marcos, DST	JLL	Multifamily	AZ	0.269611	1.763	2.83	Chandler		Multifamily / Residential	
 Tech Ridge	Bluerock	Multifamily / residential	TX	0.473632	2.18408	2.5	Austin		Multifamily / Residential	
 Metropolitan Place Retail - Chicago, IL	Syndicated Equities	Retail	IL	0.0867	1.78	9	Chicago		Net Lease (NNN) Retail	
 Marriott Fairfield Inn - Milwaukee, WI	Syndicated Equities	Hotel	WI	-0.1971	0.08	4.67	Milwaukee		Hotel / Hospitality	
@@ -555,6 +586,7 @@ Multifamily 4 - North Austin Apartment Portfolio	ExchangeRight	Multifamily		0.08
 Fairfield Inn & Suites / Four Points - Amarillo, TX	Peachtree Group	Credit - Hotel		0.1123	1.36	3.21			Credit / Debt	
 Chi-Chi's	AEI	Net-leased restaurant	WI	0.054397	1.4526	8.320329	Appleton		Net Lease (NNN) Retail	
 My Place Hotel - Jamestown, ND	Peachtree Group	Credit - Hotel		0.3026	1.14	0.46			Credit / Debt	
+JLLX Diversified Portfolio I	JLL	Medical Office/Industrial	GA	0.191736	1.464	2.42	Orange County, CA/Suburban Atlanta			
 Ample Korean Restaurant - Barstow, CA	Peachtree Group	Credit - Other		0.1616	1.05	0.31			Credit / Debt	
 Leigh House	Bluerock	Multifamily / residential	NC	0.255455	1.936667	3.666667	Raleigh		Multifamily / Residential	
 DoubleTree - West Fargo, ND	Peachtree Group	Credit - Hotel		0.1331	1.2	1.5			Credit / Debt	
@@ -593,6 +625,7 @@ Ontario, Canada - VTB SALES (vendor take-back)	Walton Global	Undeveloped / pre-d
 Holiday Inn (A Note) - Bristol, VA	Peachtree Group	Credit - Hotel							Credit / Debt	
 Resort at Port Arrowhead - Lake Ozark, MO	Peachtree Group	Credit - Hotel		-0.0828	0.63	4.47			Credit / Debt	
 Holiday Inn Express - New Albany, IN	Peachtree Group	Credit - Hotel		0.0152	1.07	4.6			Credit / Debt	
+JLLX Johns Creek, DST	JLL	Multifamily	GA	0.22809	1.609	2.67	Suburban Atlanta		Multifamily / Residential	
 Element - Detroit, MI (Mezz)	Peachtree Group	Credit - Hotel		0.1367	1.07	0.51			Credit / Debt	
 Aaron's	AEI	Net-leased retail	AL	-0.012181	0.7861	17.560575	Muscle Shoals		Net Lease (NNN) Retail	
 Fox Hill	Bluerock	Multifamily / residential	TX	0.309983	1.619966	2	Austin		Multifamily / Residential	
@@ -600,7 +633,9 @@ Brier Creek - Raleigh, NC	Passco Companies	Multifamily / residential	NC	0.0744	1
 Olivet Church 1031, L.L.C.	Inland Private Capital	Retail		-0.028	0.64	12.88			Net Lease (NNN) Retail	
 Country Inn & Suites (Note 2) - Kearney, NE	Peachtree Group	Credit - Hotel		0.5383	1.14	0.26			Credit / Debt	
 Best Western - Simi Valley, CA	Peachtree Group	Credit - Hotel		0.3483	1.41	1.18			Credit / Debt	
+CS1031 Kay Maple Springs Apartments, DST	Capital Square	multifamily (268-unit apartment property)		0.152773	1.6722	4.4		Richmond, Virginia		
 Crowne Plaza - Wauwatosa, WI	Peachtree Group	Hotel		0.2961	1.3	1.01			Hotel / Hospitality	
+CSRA Ashford Club Apartments, DST	Capital Square	multifamily (102-unit apartment property)		0.116583	1.6995	6		Tallahassee, Florida		
 Willow Park	Bluerock	Multifamily / residential	TX	0.090096	1.315335	3.5	Fort Worth		Multifamily / Residential	
 Homewood Suites - Gretna, LA	Peachtree Group	Credit - Hotel		0.1409	1.6	4.26			Credit / Debt	
 Home2 Suites - Lakewood Ranch, FL	Peachtree Group	Credit - Hotel		0.7642	1.77	1.01			Credit / Debt	
@@ -616,6 +651,7 @@ Strategic Storage Growth Trust II, Inc. (SSGT II)	Blue Door	Self storage						Un
 Orange City Apartments	Bluerock	Multifamily / residential	FL	0.214711	1.250496	1.166667	Orange City		Multifamily / Residential	
 Country Inn & Suites - Birmingham, AL	Peachtree Group	Credit - Hotel		0.946	3.73	2.89			Credit / Debt	
 Veranda - Prospect, KY	Passco Companies	Multifamily / residential	KY	0.1464	1.8535	5.83	Prospect		Multifamily / Residential	
+Summit at Southpoint - Jacksonville, FL	Bluerock	Office				11.8			Office	
 Best Western Portfolio - Various, VA	Peachtree Group	Credit - Hotel		0.3724	1.47	1.26			Credit / Debt	
 Sonesta ES Suites - Montgomery, AL	Peachtree Group	Credit - Hotel		0.1847	1.45	2.44			Credit / Debt	
 Timber Lodge	AEI	Net-leased restaurant	MN	0.015741	1.2138	13.582478	St. Cloud		Net Lease (NNN) Retail	
@@ -656,7 +692,6 @@ Midgard Greenville 2 (Butler Rd)	Reliant	Self storage		0.127779	1.65	5.09		Unite
 Village at Orange - Orange, CA	Passco Companies	Retail	CA	-0.0583	0.3	12.04	Orange		Net Lease (NNN) Retail	
 Passco Germantown, LLC - Germantown, Tennessee	Passco Companies	Undeveloped / pre-development land		-0.143062	0	6.99		Germantown, Tennessee	Undeveloped Land	
 Turkey Creek - Knoxville, TN	Passco Companies	Multifamily / residential	TN	0.153	1.9058	5.92	Knoxville		Multifamily / Residential	
-Denver MSA Multifamily DST	Inland Private Capital	Multifamily		0.2229	1.39	1.75			Multifamily / Residential	
 Multifamily 1 - Van Mark Creek Apartments	ExchangeRight	Multifamily		0.088838	1.35	3.939767		Not disclosed in PPM	Multifamily / Residential	
 LSC-UKHS HC2, DST	Livingston Street Capital	Not disclosed		0.102682	1.299457	2.92		Not disclosed		
 Almeria - Chandler, AZ	Passco Companies	Multifamily / residential	AZ	0.202	1.9252	4.58	Chandler		Multifamily / Residential	
@@ -678,6 +713,7 @@ Storesmart Spring Lake	Reliant	Self storage		0.808858	4.84	4.75		United States -
 Thompson - San Antonio, TX	Peachtree Group	Credit - Hotel		0.1851	1.11	0.59			Credit / Debt	
 Hampton Inn & Suites - Lake Mary, FL	Peachtree Group	Hotel		0.4326	2.06	2.45			Hotel / Hospitality	
 Azure - St. Petersburg, FL	Passco Companies	Multifamily / residential	FL	0.1081	1.5135	4.75	St. Petersburg		Multifamily / Residential	
+JLLX Penfield, DST	JLL	Multifamily	MN	-0.055102	0.784	3.92	St. Paul		Multifamily / Residential	
 Holiday Inn Express (Note B) - Las Vegas, NM	Peachtree Group	Credit - Hotel		0.2694	1.18	0.67			Credit / Debt	
 Marcus Pointe - Pensacola, FL	Passco Companies	Multifamily / residential	FL	0.1192	1.7355	6.17	Pensacola		Multifamily / Residential	
 Belmont Crossing	Bluerock	Multifamily / residential	GA	0.109489	1.218978	2	Smyrna		Multifamily / Residential	
@@ -711,21 +747,26 @@ Shelby - Alexandria, VA	Passco Companies	Multifamily / residential	VA	0.047	1.26
 The Woods at Forrest Hill	Bluerock	Multifamily / residential	TX	0.049784	1.149351	3	Forrest Hill		Multifamily / Residential	
 Burbank 1031, L.L.C.	Inland Private Capital	Retail		0.0214	1.21	9.83			Net Lease (NNN) Retail	
 Providence Trail	Bluerock	Multifamily / residential	TN	0.579595	2.931982	3.333333	Mount Juliet		Multifamily / Residential	
+JLLX Diversified II, DST	JLL	Industrial/MOB/Retail	NV	-0.020424	0.9422	2.83	AZ, CA, GA, NC			
 Craig Crossing 1031, L.L.C.	Inland Private Capital	Retail		-0.0604	0.34	10.92			Net Lease (NNN) Retail	
+Telecommunications 1031 Venture, DST	Inland Private Capital	Office		0.000563	1.01	17.75			Office	
 Sonesta ES Suites - Dublin, OH	Peachtree Group	Credit - Hotel		0.2339	1.57	2.44			Credit / Debt	
 West Orange Fitness, DST	ARCTRUST	Single Tenant Fitness						West Orange, New Jersey	Net Lease (NNN) Retail	
 Tru - Florida City, FL	Peachtree Group	Credit - Hotel		0.1486	1.33	2.22			Credit / Debt	
 Courtyard - Buffalo, NY	Peachtree Group	Credit - Hotel		0.1872	2.03	5.5			Credit / Debt	
+CSRA Galeria Del Rio, DST	Capital Square	multifamily (101-unit apartment property)		0.230623	2.2223	5.3		Tucson, Arizona		
 KinderCare / Children's World	AEI	Net-leased early education / childcare	TX	0.084371	2.2289	14.565366	Houston		Net Lease (NNN) Retail	
 Rockport Harvey Housing Phase I - Rockport, TX	Peachtree Group	Credit - Multifamily		0.2392	1.59	2.47			Credit / Debt	
 Water’s Edge	Bluerock	Multifamily / residential	FL	0.119161	1.218462	1.833333	Pensacola		Multifamily / Residential	
 Hilton Garden Inn - Buford, GA	Peachtree Group	Credit - Hotel							Credit / Debt	
 Hampton Inn - Corydon, IN	Peachtree Group	Hotel		0.0492	1.36	7.32			Hotel / Hospitality	
 Custom Pharmacy Sale Leaseback, L.L.C.	Inland Private Capital	Retail		0.0945	1.8	8.47			Net Lease (NNN) Retail	
+CS1031 Misty Ridge Apartments, DST	Capital Square	multifamily (409-unit apartment community)		0.069391	1.4441	6.4		Woodbridge, Virginia		
 Social Security Administration - Worthington, OH	Syndicated Equities	Government / GSA-leased	OH	0.0284	1.36	12.65	Worthington		Government / GSA-Leased	
 Houston 1031 Limited Partnership	Inland Private Capital	Office		-0.0198	0.68	16.18			Office	
 Ridgehouse Multifamily - Olivette, MO	Peachtree Group	Credit - Multifamily		0.209	1.4	1.91			Credit / Debt	
 Holiday Inn Express - Commerce, GA	Peachtree Group	Credit - Hotel		0.5798	1.2	0.34			Credit / Debt	
+Landmark Portfolio - St. Louis, MO (FORECLOSED)	Bluerock	Office		-0.147059	0	6.8			Office	
 Hilton Garden Inn - Overland Park, KS	Peachtree Group	Hotel		0.3442	1.85	2.47			Hotel / Hospitality	
 Wingate (A Note) - Lancaster, PA	Peachtree Group	Credit - Hotel		1.0388	1.31	0.3			Credit / Debt	
 Park on the Square	Bluerock	Multifamily / residential	FL	0.10021	1.225473	2.25	Pensacola		Multifamily / Residential	
@@ -736,6 +777,7 @@ Midgard Little River	Reliant	Self storage		0.098337	1.77	7.83		United States - s
 Webster Place Shopping Center - Chicago, IL	Syndicated Equities	Retail	IL	0.05	1.68	13.6	Chicago		Net Lease (NNN) Retail	
 Hampton Inn - Birmingham, AL	Peachtree Group	Credit - Hotel		0.5668	1.09	0.16			Credit / Debt	
 Carino's	AEI	Net-leased restaurant	TX	-0.007288	0.9237	10.469541	Mansfield		Net Lease (NNN) Retail	
+JLLX Ardenwood	JLL	Life Science	CA	0.007491	1.02	2.67	East Bay Area			
 Springhill Suites - Roswell, GA	Peachtree Group	Credit - Hotel		0.2195	1.56	2.55			Credit / Debt	
 Suburban Extended Stay - Westminster, CO	Peachtree Group	Credit - Hotel		0.1724	1.38	2.2			Credit / Debt	
 Homewood Suites - Covington, LA	Peachtree Group	Hotel		-0.0893	0.77	2.58			Hotel / Hospitality	
@@ -761,12 +803,12 @@ CF WAG Portfolio DST	Cantor Fitzgerald	Necessity Retail		-0.050222	0.887	2.25		N
 Self-Storage Portfolio I DST	Inland Private Capital	Self storage		0.1099	1.61	5.55			Self Storage	
 FSC BJ Tilton NH, DST	Four Springs TEN31 Xchange	Retail		0.07737	1.6383	8.25		United States	Net Lease (NNN) Retail	
 Meadows at Home Place - Prattville, AL	Passco Companies	Multifamily / residential	AL	0.0832	1.5475	6.58	Prattville		Multifamily / Residential	
-Naples Multifamily DST	Inland Private Capital	Multifamily		0.2292	1.44	1.92			Multifamily / Residential	
 Marisol - Viera, FL	Passco Companies	Multifamily / residential	FL	0.0935	1.7171	7.67	Viera		Multifamily / Residential	
 Hampton Inn - Waldorf, MD	Peachtree Group	Credit - Hotel		0.3387	1.65	1.92			Credit / Debt	
 Cranberry Retail Venture DST	Inland Private Capital	Retail		0.0587	1.58	9.88			Net Lease (NNN) Retail	
 Homewood Suites - Eatontown, NJ	Peachtree Group	Credit - Hotel		0.121	1.46	3.8			Credit / Debt	
 Midgard Murfreesboro Cason	Reliant	Self storage		0.514943	1.86	1.67		United States - state not disclosed in the Full Cycle Programs table	Self Storage	
+JLLX Friendship Distribution, DST	JLL	Industrial	GA	-0.128	0.84	1.25	Suburban Atlanta		Industrial	
 Storesmart Summerville	Reliant	Self storage		-0.025888	0.89	4.25		United States - state not disclosed in the Full Cycle Programs table	Self Storage	
 Best Western - Enterprise, AL	Peachtree Group	Credit - Hotel		0.3812	2.17	3.07			Credit / Debt	
 Retail Shopping Centers - Indiana & Kentucky	Syndicated Equities	Retail		-0.0842	0.32	8.08		Indiana & Kentucky	Net Lease (NNN) Retail	
@@ -793,6 +835,7 @@ W Pharmacy I DST	Inland Private Capital	Retail		0.0384	1.47	12.25			Net Lease (N
 Comfort Inn & Suites - Tacoma, WA	Peachtree Group	Credit - Hotel		0.1299	1.18	1.39			Credit / Debt	
 Four Points - Huntersville, NC	Peachtree Group	Credit - Hotel		0.0742	1.2	2.7			Credit / Debt	
 Marquis Portfolio (4 properties, reported on a portfolio basis)	Bluerock	Multifamily / residential		0.154035	1.423596	2.75		Not disclosed	Multifamily / Residential	
+CS1031 Kay Alexander Pointe Apartments, DST	Capital Square	multifamily (232-unit apartment property)		0.357422	2.6084	4.5		Jacksonville, Florida		
 CF Rivertop Multifamily DST	Cantor Fitzgerald	Multifamily		0.129688	1.415	3.2		Not disclosed in PPM	Multifamily / Residential	
 Veranda at Centerfield	Bluerock	Multifamily / residential	TX	0.246476	2.026982	4.166667	Houston		Multifamily / Residential	
 Arium Metrowest	Bluerock	Multifamily / residential	FL	0.011179	1.055896	5	Orlando		Multifamily / Residential	
@@ -813,6 +856,7 @@ Chateau Elite	AEI	Net-leased restaurant	IL	0.053034	1.9631	18.160164	Mundelein		
 Home2 - Hilton Head, SC	Peachtree Group	Credit - Hotel		0.387	1.16	0.41			Credit / Debt	
 Desert Parks Vista - Scottsdale, AZ	Passco Companies	Multifamily / residential	AZ	0.1082	1.911	8.42	Scottsdale		Multifamily / Residential	
 Amarillo Self-Storage Portfolio DST	Inland Private Capital	Self storage		0.1867	1.59	3.16			Self Storage	
+JLLX Villas at Legacy, DST	JLL	Multifamily	TX	0.131008	1.338	2.58	Plano		Multifamily / Residential	
 SpringHill Suites - Birmingham, AL	Peachtree Group	Hotel		-0.0056	0.97	5.39			Hotel / Hospitality	
 Enclave at Rivergate - Charlotte, NC	Passco Companies	Multifamily / residential	NC	0.1235	1.6583	5.33	Charlotte		Multifamily / Residential	
 Hampton - Buellton, CA	Peachtree Group	Credit - Hotel		0.0975	1.29	2.97			Credit / Debt	
@@ -848,6 +892,7 @@ Land (98 Lots) - Meadow Springs, GA	Peachtree Group	Credit - Land							Credit /
 Chicagoland Street Retail DST	Inland Private Capital	Retail		0.0257	1.26	10.13			Net Lease (NNN) Retail	
 Mira Vista	Bluerock	Multifamily / residential	TX	0.118639	1.207619	1.75	Austin		Multifamily / Residential	
 Paul Hotel - New York, NY	Peachtree Group	Credit - Hotel		0.1749	1.41	2.34			Credit / Debt	
+JLLX The Preserve at the Meadows, DST	JLL	Multifamily	CO	-0.029339	0.929	2.42	Fort Collins		Multifamily / Residential	
 Denim	Bluerock	Multifamily / residential	AZ	0.689958	3.242365	3.25	Scottsdale		Multifamily / Residential	
 Estates at Perimeter	Bluerock	Multifamily / residential	GA	0.059689	1.248705	4.166667	Augusta		Multifamily / Residential	
 Storesmart Warner Robins Two	Reliant	Self storage		0.228281	1.97	4.25		United States - state not disclosed in the Full Cycle Programs table	Self Storage	
@@ -856,6 +901,7 @@ Courtyard (Note 1) - Niagara, NY	Peachtree Group	Credit - Hotel		0.1889	1.12	0.6
 Reynoldsburg 1031, L.L.C.	Inland Private Capital	Retail		0.0346	1.56	16.17			Net Lease (NNN) Retail	
 Passco Palm Desert, LLC - Palm Desert, California	Passco Companies	Undeveloped / pre-development land		-0.165837	0	6.03		Palm Desert, California	Undeveloped Land	
 Pearland Multifamily DST	Inland Private Capital	Multifamily		0.0559	1.27	4.83			Multifamily / Residential	
+Hadley Crossing	NewStar	Residential								
 Hunter’s Pointe	Bluerock	Multifamily / residential	FL	0.109091	1.2	1.833333	Pensacola		Multifamily / Residential	
 Springhill Suites - Montgomery, AL	Peachtree Group	Credit - Hotel		0.179	1.85	4.75			Credit / Debt	
 Briad Working Capital Loan	Peachtree Group	Credit - Hotel		0.1509	1.19	1.26			Credit / Debt	
@@ -906,6 +952,7 @@ Walgreens - Amarillo, TX	Syndicated Equities	Net-leased pharmacy	TX	0.0808	1.79	
 Candlewood Suites - Indianapolis, IN	Peachtree Group	Credit - Hotel		0.2044	2.01	4.94			Credit / Debt	
 The Preserve at Henderson Beach	Bluerock	Multifamily / residential	FL	0.577941	4.804779	6.583333	Destin		Multifamily / Residential	
 Staybridge Suites - Baltimore, MD (Exit Fee Loan)	Peachtree Group	Credit - Hotel		0.1131	1.1	0.88			Credit / Debt	
+Cummings Research Park I - Huntsville, AL	Bluerock	Office				12.3			Office	
 Margaritaville - South Padre, TX	Peachtree Group	Credit - Hotel		0.1948	1.56	2.87			Credit / Debt	
 Home2 Suites - Barstow, CA	Peachtree Group	Credit - Hotel		0.1601	1.43	2.69			Credit / Debt	
 New York Grocery DST	Inland Private Capital	Retail		-0.0627	0.76	3.83			Net Lease (NNN) Retail	
@@ -948,6 +995,7 @@ Country Inn & Suites (Note B) - California, MD	Peachtree Group	Credit - Hotel		0
 Twenty25 - Kennesaw, GA	Passco Companies	Multifamily / residential	GA	0.2119	2.3773	6.5	Kennesaw		Multifamily / Residential	
 Element - Orlando, FL	Peachtree Group	Hotel		0.2226	2.19	5.35			Hotel / Hospitality	
 Fort Myers Multifamily DST	Inland Private Capital	Multifamily		0.0673	1.37	5.5			Multifamily / Residential	
+1355 First Avenue - New York, NY	Bluerock	Multifamily / residential		-0.028369	0.6	14.1			Multifamily / Residential	
 Storesmart Durham	Reliant	Self storage		0.244343	2.16	4.75		United States - state not disclosed in the Full Cycle Programs table	Self Storage	
 Wilkinson Spring Parc	Bluerock	Multifamily / residential	TX	0.109	1.13625	1.25	Dallas		Multifamily / Residential	
 Meadows	Bluerock	Multifamily / residential	TX	0.485294	2.375	2.833333	Austin		Multifamily / Residential	
@@ -1004,6 +1052,8 @@ San Marcos Student Living DST	Inland Private Capital	Student housing		0.0565	1.4
 Hampton Inn - Tiffin, OH	Peachtree Group	Credit - Hotel		0.2244	1.18	0.8			Credit / Debt	
 Chicagoland Fresh Market Venture DST	Inland Private Capital	Retail		0.1135	1.53	4.67			Net Lease (NNN) Retail	
 Walker House Apartments - Gaithersburg, MD	Syndicated Equities	Multifamily / residential	MD	0.1607	1.62	3.86	Gaithersburg		Multifamily / Residential	
+CS1031 Woodshire Apartments, DST	Capital Square	multifamily (288-unit apartment property)		0.15055	1.6022	4		Virginia Beach, Virginia		
+JLLX Reserve at Venice, DST**	JLL	Multifamily	FL	-0.1008	0.748	2.5	Venice		Multifamily / Residential	
 Champps	AEI	Net-leased restaurant	MI	-0.037333	0.6397	9.650924	Utica		Net Lease (NNN) Retail	
 Hampton Inn & Suites - Charlotte, NC	Peachtree Group	Credit - Hotel		0.2087	1.12	0.57			Credit / Debt	
 Comfort Suites - Fishers, IN/Comfort Inn - Avon, IN	Peachtree Group	Credit - Hotel		0	1	2.63			Credit / Debt	
@@ -1019,6 +1069,7 @@ Wolfchase - Memphis, TN	Passco Companies	Multifamily / residential	TN	0.0924	1.6
 Courtyard - Gretna, LA	Peachtree Group	Credit - Hotel		0.0607	1.23	3.79			Credit / Debt	
 Four Points - Brunswick, GA	Peachtree Group	Credit - Hotel		0.2168	1.46	2.12			Credit / Debt	
 AC/Autograph - Sunnyvale, CA (PACE 2021)	Peachtree Group	Credit - Hotel		0.6519	2.99	3.05			Credit / Debt	
+Cummings Research Park II - Huntsville, AL (FORECLOSED)	Bluerock	Office		-0.092593	0	10.8			Office	
 Plano 1031 Limited Partnership	Inland Private Capital	Office		-0.0437	0.61	8.92			Office	
 Ashton Reserve	Bluerock	Multifamily / residential	NC	0.148647	1.706075	4.75	Charlotte		Multifamily / Residential	
 AHT1 2018-ASHF - Various, US	Peachtree Group	Credit - Hotel		0.2739	1.03	0.11			Credit / Debt	
@@ -1033,7 +1084,7 @@ Social Security Administration - Fort Smith, AR	Syndicated Equities	Government /
 Taco Cabana	AEI	Net-leased restaurant	TX	0.110404	2.5322	13.878166	Waco		Net Lease (NNN) Retail	
 Hotel on Philips (Note 1) - Sioux Falls, SD	Peachtree Group	Credit - Hotel		0.248	1.63	2.54			Credit / Debt	
 Passco Development Fund I, LLC	Passco Companies	Undeveloped / pre-development land			0				Undeveloped Land	
-Olathe Station - Olathe, KS	Passco Companies	Retail	KS	-0.0569	0.2365	11.92	Olathe		Net Lease (NNN) Retail	
+Olathe Station - Olathe, KS	Passco Companies	Retail	KS	-0.056658	0.2365	13.4757	Olathe		Net Lease (NNN) Retail	
 Quinn35	Bluerock	Multifamily / residential	MA	0.093836	1.492639	5.25	Shrewsbury		Multifamily / Residential	
 CF Pearland Multifamily DST	Cantor Fitzgerald	Multifamily		0.0328	1.082	2.5		Not disclosed in PPM	Multifamily / Residential	
 CF Sawyer Multifamily DST	Cantor Fitzgerald	Multifamily		0.108824	1.37	3.4		Not disclosed in PPM	Multifamily / Residential	
