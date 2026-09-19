@@ -13,6 +13,7 @@
 import crypto from 'node:crypto';
 import { accreditedSignal, inviteVariant, noticeKind, buildInvite, buildNotice, sendViaResend, STATUS_FIELD } from './lib/invites.mjs';
 import * as attio from './lib/attio.mjs';
+import { tellCrm } from './lib/crm.mjs';
 import { commissionValue, dealName, addDays, personPairs, dealPairs } from './lib/lead-shape.mjs';
 
 const json = (status, body) => ({
@@ -143,6 +144,10 @@ export const handler = async (event) => {
     catch (e) { console.error('[lead] Attio delivery failed:', e.message); }
   }
   if (!via) console.log('[lead] not delivered to CRM (ATTIO_API_KEY missing or Attio rejected the request) — submission from', email);
+
+  // The CRM at crm.baker1031.com hears about the registration too: someone new becomes a lead there.
+  await tellCrm('site.signup', email, { firstName: lead.firstName || '', lastName: lead.lastName || '', phone: lead.phone || '', role: lead.role || '', path: lead.path || '',
+    saleDate: lead.saleDate || '', equity: Number(lead.equity) || 0, debt: Number(lead.debt) || 0 }, [lead.firstName, lead.lastName].filter(Boolean).join(' '));
 
   // Compliance receipt — independent of CRM delivery success.
   try {

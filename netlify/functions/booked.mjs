@@ -34,6 +34,7 @@
 */
 import crypto from 'node:crypto';
 import * as attio from './lib/attio.mjs';
+import { tellCrm } from './lib/crm.mjs';
 import { syncOne } from './lib/portal.mjs';
 import { isInvestor } from './lib/invites.mjs';
 
@@ -95,6 +96,8 @@ export const handler = async (event) => {
 
   const bk = readBooking(body);
   if (!bk.email.includes('@')) return json(400, { error: 'no attendee email in payload' });
+
+  await tellCrm('site.booking', bk.email, { when: when(bk.start), eventType: String(bk.eventType || '').slice(0, 120), verified });
 
   const found = await attio.findPersonByEmail(bk.email);
   if (!found) return json(200, { ok: true, skipped: `no Attio person for ${bk.email} — nothing to update` });

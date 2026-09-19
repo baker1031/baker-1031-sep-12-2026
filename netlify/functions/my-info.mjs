@@ -9,6 +9,7 @@
 import crypto from 'node:crypto';
 import { accreditedSignal, inviteVariant, buildInvite, sendViaResend, STATUS_FIELD } from './lib/invites.mjs';
 import * as attio from './lib/attio.mjs';
+import { tellCrm } from './lib/crm.mjs';
 import { commissionValue, dealName, addDays, personPairs, dealPairs } from './lib/lead-shape.mjs';
 
 const json = (status, body) => ({
@@ -106,6 +107,10 @@ export const handler = async (event) => {
   await attio.addNote('people', cid, 'Information updated via personal link',
     `Client updated their information via the self-service link (${new Date().toISOString().slice(0, 16)}Z).\n\nFields: ${changed.join(', ')}`, 'plaintext')
     .catch(() => {});
+
+  // ---- tell the CRM, which moves its own copy of the closing date and the 45/180-day dates ----
+  await tellCrm('site.info_updated', email, { saleDate: /^\d{4}-\d{2}-\d{2}$/.test(String(body.saleDate || '')) ? body.saleDate : '', ...(Number(body.equity) > 0 ? { equity: Number(body.equity) } : {}), ...(Number(body.debt) > 0 ? { debt: Number(body.debt) } : {}), fields: changed.slice(0, 20) },
+    [body.firstName || name?.first_name, body.lastName || name?.last_name].filter(Boolean).join(' '));
 
   // ---- update the open deal ----
   const roleAttr = bySlug(pAttrs, 'Role (This Transaction)');

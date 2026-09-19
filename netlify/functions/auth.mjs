@@ -10,6 +10,8 @@
                                 Attio) and emails Jerry
     logout                   -> clears the session cookie
     track_view  {slug}       -> appends the offering to the investor's "Deals Reviewed" (first view only)
+    track       {kind, ...}  -> reports a page view (with time on page) or a document download to the CRM.
+                                kind: view {pv, slug, title, path} | view_end {pv, seconds} | download {href, name, slug, offering}
 
   Env: AIRTABLE_TOKEN (data.records:read + write on Investor Access),
        ACCESS_BASE_ID, ACCESS_TABLE_ID, SESSION_SECRET (long random string),
@@ -17,6 +19,7 @@
   The session is a signed HttpOnly cookie; the browser never sees the Airtable token.
 */
 import crypto from 'node:crypto';
+import { tellCrm } from './lib/crm.mjs';
 
 const BASE = process.env.ACCESS_BASE_ID || 'appiKLSyAUmP0h8cJ';
 const TABLE = process.env.ACCESS_TABLE_ID || 'tblbuFMpfv5R4DIyp';
@@ -110,6 +113,7 @@ export const handler = async (event) => {
       if (level === 'Call Needed') return json(200, { status: 'call_needed', scheduleUrl: SCHEDULE_URL });
       if (level !== 'Approved') return json(200, { status: 'not_found' }); // Revoked etc. — no portal access
       const first = rec.fields['First Name'] || 'Investor';
+      await tellCrm('site.login', rec.fields['Email Address'], {}, [first, rec.fields['Last Name']].filter(Boolean).join(' '));
       return json(200, { status: 'ok', firstName: first, level: levelOf(rec) },
         makeCookie(rec.id, first, levelOf(rec)));
     }
@@ -152,6 +156,26 @@ export const handler = async (event) => {
       return json(200, { ok: true });
     }
 
+    // What a logged-in investor does on the site, reported to the CRM: each page view, how long the page was
+    // in front of them, and each document they open. Identity comes from the signed session, never the request.
+    if (action === 'track') {
+      const s = readSession(event);
+      if (!s) return json(200, { ok: false });
+      const rec = await at(`/${s.rid}`).catch(() => null);
+      const email = rec?.fields?.['Email Address'];
+      if (!email || rec.fields['Access Level'] !== 'Approved') return json(200, { ok: false });
+      const name = [rec.fields['First Name'], rec.fields['Last Name']].filter(Boolean).join(' ');
+      const text = (v, n) => String(v || '').replace(/[\u0000-\u001f]/g, ' ').trim().slice(0, n);
+      const slug = String(body.slug || '').toLowerCase().replace(/[^a-z0-9-]/g, '').slice(0, 120);
+      const pv = /^[A-Za-z0-9_-]{6,40}$/.test(String(body.pv || '')) ? String(body.pv) : '';
+      const pathOnly = (v) => { try { const u = new URL(String(v || ''), 'https://baker1031.com'); return (u.origin === 'https://baker1031.com' ? '' : u.origin) + u.pathname; } catch { return ''; } };
+      if (body.kind === 'view' && pv) await tellCrm('site.view', email, { pv, slug, title: text(body.title, 160), path: pathOnly(body.path).slice(0, 200) }, name);
+      else if (body.kind === 'view_end' && pv) await tellCrm('site.view_end', email, { pv, seconds: Math.max(0, Math.min(Math.round(Number(body.seconds) || 0), 14400)) }, name);
+      else if (body.kind === 'download') await tellCrm('site.download', email, { href: pathOnly(body.href).slice(0, 300), name: text(body.name, 160), slug, offering: text(body.offering, 160) }, name);
+      else return json(400, { error: 'bad kind' });
+      return json(200, { ok: true });
+    }
+
     // An investor on a restricted page asking to be let in. Records the ask in Airtable and Attio and
     // emails Jerry; granting it is a manual flip of "Portal Access - Level 2" in Attio.
     if (action === 'request_level2') {
@@ -172,6 +196,7 @@ export const handler = async (event) => {
       }
       await noteLevel2Request(email, [first, rec.fields['Last Name']].filter(Boolean).join(' '), path)
         .catch((e) => console.error('[auth] level2 attio:', e.message));
+      await tellCrm('site.level2_request', email, { path }, [first, rec.fields['Last Name']].filter(Boolean).join(' '));
       return json(200, { ok: true });
     }
 

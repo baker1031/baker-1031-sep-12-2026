@@ -13,6 +13,7 @@
   Env: AIRTABLE_TOKEN, SESSION_SECRET (+ optional ACCESS_BASE_ID, ACCESS_TABLE_ID,
        SESSION_DAYS).
 */
+import { tellCrm } from './lib/crm.mjs';
 import crypto from 'node:crypto';
 
 const BASE = process.env.ACCESS_BASE_ID || 'appiKLSyAUmP0h8cJ';
@@ -65,6 +66,7 @@ export const handler = async (event) => {
     // Explicit query stops Netlify from forwarding the token params onto the
     // destination URL (keeps the signed token out of the address bar/history).
     const level = String((rec.fields || {})['Level 2 Access'] || '').toLowerCase() === 'approved' ? 2 : 1;
+    await tellCrm('site.login', rec.fields['Email Address'], { via: 'email link' }, [rec.fields['First Name'], rec.fields['Last Name']].filter(Boolean).join(' '));
     return redirect('/invest/?welcome=1', makeCookie(rid, rec.fields['First Name'] || 'Investor', level));
   } catch {
     return toLogin;

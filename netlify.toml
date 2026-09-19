@@ -62,6 +62,10 @@
   to = "/.netlify/functions/login-link"
   status = 200
 [[redirects]]
+  from = "/api/crm-link"
+  to = "/.netlify/functions/crm-link"
+  status = 200
+[[redirects]]
   from = "/api/my-info"
   to = "/.netlify/functions/my-info"
   status = 200
