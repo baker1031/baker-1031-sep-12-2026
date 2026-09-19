@@ -234,6 +234,23 @@ export async function createDeal({ name, value, personId, pairs = [] }) {
   }
 }
 
+// The website pipeline, in order. Stage moves made by the site only ever go forward along it: a deal
+// that Jerry (or a later event) has already advanced is never pulled back by an earlier-stage event
+// such as a rescheduled booking. A deal sitting in a stage that is not on this list (an imported
+// GoHighLevel stage, Won, Lost) is left alone.
+export const STAGE_ORDER = ['Lead', 'Intro Call Scheduled', 'Reviewing Opportunities', 'Actively Reviewing', 'Completing Paperwork', 'Closing'];
+export const stageRank = (title) => STAGE_ORDER.findIndex((s) => s.toLowerCase() === String(title || '').trim().toLowerCase());
+export const dealStage = (deal) => deal?.values?.stage?.[0]?.status?.title || '';
+// Returns 'moved' | 'already-there' | 'further-along' | 'off-pipeline'. Throws if Attio refuses the write.
+export async function advanceDeal(deal, target) {
+  const cur = dealStage(deal), from = stageRank(cur), to = stageRank(target);
+  if (cur.trim().toLowerCase() === String(target).trim().toLowerCase()) return 'already-there';
+  if (from < 0) return 'off-pipeline';
+  if (to >= 0 && to < from) return 'further-along';
+  await attio(`/objects/deals/records/${deal.id.record_id}`, 'PATCH', { data: { values: { stage: target } } });
+  return 'moved';
+}
+
 // most recent deal linked to the person that is not Won/Lost
 export async function openDeal(personId) {
   try {

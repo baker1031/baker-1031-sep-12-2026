@@ -35,6 +35,7 @@
 import crypto from 'node:crypto';
 import * as attio from './lib/attio.mjs';
 import { syncOne } from './lib/portal.mjs';
+import { isInvestor } from './lib/invites.mjs';
 
 const STAGE = process.env.ATTIO_BOOKED_STAGE || 'Intro Call Scheduled';
 
@@ -104,8 +105,9 @@ export const handler = async (event) => {
   try {
     const deal = await attio.openDeal(personId);
     if (deal) {
-      await attio.updateDeal(deal.id.record_id, { pairs: [['Deal stage', STAGE]] });
-      done.push(`deal moved to ${STAGE}`);
+      // forward-only: a reschedule or a second booking never drags a deal back from a later stage
+      const res = await attio.advanceDeal(deal, STAGE);
+      done.push(res === 'moved' ? `deal moved to ${STAGE}` : `deal left in "${attio.dealStage(deal)}" (${res})`);
     } else {
       done.push('no open deal to move');
     }
@@ -131,6 +133,15 @@ export const handler = async (event) => {
     const flat = attio.flatValues(await attio.getPerson(personId));
     const cur = pAttrs.find((a) => a.title.toLowerCase() === 'portal access');
     const already = cur && String(flat[cur.slug] ?? '').trim().toLowerCase() === 'yes';
+    // Someone who registered to help an investor (realtor, attorney, CPA, advisor, family) was never asked
+    // the accreditation questions, so a booking alone does not open the offerings to them. Jerry can still
+    // set Portal Access to Yes by hand in Attio.
+    const roleAttr = pAttrs.find((a) => a.title.toLowerCase() === 'role (this transaction)');
+    const role = roleAttr ? String(flat[roleAttr.slug] ?? '') : '';
+    if (!already && !isInvestor({ role })) {
+      done.push(`Portal Access left as is - registered as "${role}", not as the investor`);
+      return json(200, { ok: true, verified: true, done });
+    }
     if (!already) {
       await attio.setValues('people', personId, [['Portal Access', 'Yes']]);
       done.push('Portal Access set to Yes');

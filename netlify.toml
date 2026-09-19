@@ -8,6 +8,8 @@
 #   NETLIFY_BUILD_HOOK   this site's build hook URL (Build & deploy -> Build hooks) — used by the Airtable rebuild watcher
 # CRM (Attio): ATTIO_API_KEY (required); optional ATTIO_DEAL_OWNER, ATTIO_DEAL_STAGE, ATTIO_REVIEW_STAGE, ATTIO_LIST,
 #   ATTIO_DEALS=off, ATTIO_WEBHOOK_SECRET (portal-sync webhook signature)
+#   A first offering view moves the open deal to "Reviewing Opportunities" by default (forward-only).
+#   ATTIO_REVIEW_STAGE changes the target or, set to "off", disables it; ATTIO_PROMOTE_FROM narrows the source stages.
 # Email / misc: RESEND_API_KEY, PORTAL_SYNC_KEY, SCHEDULE_CALL_URL, CRS_RECEIPT_TO
 # Booking (Cal.com): CAL_WEBHOOK_SECRET — the signing secret on the Cal.com "Booking created" webhook
 #   pointed at /api/booked. Without it a booking still moves the deal and notes it on the person, but it

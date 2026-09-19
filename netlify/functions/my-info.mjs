@@ -96,6 +96,8 @@ export const handler = async (event) => {
     if (Object.keys(values).length) await attio.attio(`/objects/people/records/${cid}`, 'PATCH', { data: { values } });
   } catch (e) { console.error('[my-info] person update:', e.message); return json(502, { error: 'contact update failed' }); }
   const pairs = PERSON_MAP.filter(([k]) => k in body).map(([k, title]) => [title, body[k]]);
+  // the role decides whether the accreditation screen applies; an update that does not resend it falls back to the stored one
+  { const ra = bySlug(pAttrs, 'Role (This Transaction)'); if (merged.role == null && ra && flat[ra.slug]) merged.role = String(flat[ra.slug]); }
   pairs.push(['Accredited Signal', accreditedSignal(merged)]);
   await attio.setValues('people', cid, pairs);
 

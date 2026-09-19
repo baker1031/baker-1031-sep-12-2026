@@ -183,10 +183,12 @@ export const handler = async (event) => {
 };
 
 /*
-  First offering view → in Attio, note it on the investor's person record and (when ATTIO_REVIEW_STAGE is
-  set, e.g. "Actively Reviewing") move their open website deal to that stage. Promotes only from the stages
-  listed in ATTIO_PROMOTE_FROM (comma-separated titles; default: the new-deal stage, "Lead") so a deal that
-  is further along is never moved backwards. Best effort — never blocks the page.
+  First offering view → in Attio, note it on the investor's person record and move their open website deal
+  to "Reviewing Opportunities" (override with ATTIO_REVIEW_STAGE; set it to "off" to leave stages alone).
+  The move is forward-only along the website pipeline (attio.STAGE_ORDER): a deal in Lead or Intro Call
+  Scheduled is promoted, a deal that is already further along stays where it is. ATTIO_PROMOTE_FROM
+  (comma-separated stage titles) narrows which stages may be promoted, for anyone who wants the old
+  behaviour. Best effort — never blocks the page.
 */
 import * as attio from './lib/attio.mjs';
 
@@ -195,14 +197,13 @@ async function moveToActivelyReviewing(email, slug) {
   const person = await attio.findPersonByEmail(email);
   if (!person) return;
   const personId = person.id.record_id;
-  const target = process.env.ATTIO_REVIEW_STAGE;
+  const target = (process.env.ATTIO_REVIEW_STAGE || 'Reviewing Opportunities').trim();
   let moved = false;
-  if (target) {
-    const from = new Set((process.env.ATTIO_PROMOTE_FROM || process.env.ATTIO_DEAL_STAGE || 'Lead').split(',').map((x) => x.trim().toLowerCase()).filter(Boolean));
+  if (target && target.toLowerCase() !== 'off') {
+    const only = (process.env.ATTIO_PROMOTE_FROM || '').split(',').map((x) => x.trim().toLowerCase()).filter(Boolean);
     const deal = await attio.openDeal(personId);
-    const stage = deal?.values?.stage?.[0]?.status?.title || '';
-    if (deal && from.has(stage.toLowerCase()) && stage.toLowerCase() !== target.toLowerCase()) {
-      try { await attio.attio(`/objects/deals/records/${deal.id.record_id}`, 'PATCH', { data: { values: { stage: target } } }); moved = true; }
+    if (deal && (!only.length || only.includes(attio.dealStage(deal).toLowerCase()))) {
+      try { moved = (await attio.advanceDeal(deal, target)) === 'moved'; }
       catch (e) { console.error('[auth] deal stage:', e.message); }
     }
   }

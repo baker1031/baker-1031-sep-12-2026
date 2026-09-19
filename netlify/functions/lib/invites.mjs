@@ -8,6 +8,9 @@
     - Not U.S.       → residency notice with the personal update link
     - Not accredited → accreditation notice with the personal update link
       (residency takes precedence when both fail)
+    - Registering to help someone else (realtor, attorney, CPA, advisor, family, "Other") → scheduling
+      email written for them. They skip both screens: the form never asks them the net-worth and income
+      questions, and the residency and accreditation rules apply to the investor, not to the helper.
 
   Duplicate protection ("Intro Invite Status" person attribute in Attio, when it exists):
     - "invited …"  → never auto-send another scheduling email, even after updates
@@ -16,10 +19,19 @@
 
 export const STATUS_FIELD = 'Intro Invite Status';
 
+// The registration form's roles are "Investor", "Realtor, agent, or broker", "Loved one or friend",
+// "Attorney, CPA, or investment advisor" and "Other: <text>". Only the investor is screened. A missing
+// role (the previous form did not ask) is treated as the investor, which keeps the old behaviour.
+export function isInvestor(lead) {
+  const role = String(lead.role || '').trim();
+  return role === '' || /^investor\b/i.test(role);
+}
+
 // The 2026 registration form sends the net-worth / income *ranges* it showed (plus its own
 // `accreditedLikely` verdict); the previous request-access form sent numeric income and shorter
 // range labels. Both shapes are handled so corrections through update-my-info keep working.
 export function accreditedSignal(lead) {
+  if (!isInvestor(lead)) return ''; // not asked, so nothing is written to Attio's "Accredited Signal" for them
   if (typeof lead.accreditedLikely === 'boolean') return lead.accreditedLikely ? 'Indicated' : 'Unclear';
   const nw = String(lead.netWorth || '');
   const worthOk = nw !== '' && !/^under/i.test(nw);
@@ -38,14 +50,16 @@ export function isUS(lead) {
   return true;
 }
 
-// 'exchange' | 'cash' when qualified; null otherwise
+// 'exchange' | 'cash' when qualified; 'assist-exchange' | 'assist-cash' for someone helping an investor; null otherwise
 export function inviteVariant(lead) {
+  if (!isInvestor(lead)) return lead.path === 'exchange' ? 'assist-exchange' : 'assist-cash';
   if (accreditedSignal(lead) !== 'Indicated' || !isUS(lead)) return null;
   return lead.path === 'exchange' ? 'exchange' : 'cash';
 }
 
 // 'residency' | 'accreditation' when not qualified; null when qualified
 export function noticeKind(lead) {
+  if (!isInvestor(lead)) return null;
   if (!isUS(lead)) return 'residency';
   if (accreditedSignal(lead) !== 'Indicated') return 'accreditation';
   return null;
@@ -98,7 +112,18 @@ ${inner}
 </body></html>`;
 
 export function buildInvite(variant, first, base) {
-  const link = variant === 'exchange' ? `${base}/schedule-call/` : `${base}/schedule-consultation/`;
+  const link = /exchange$/.test(variant) ? `${base}/schedule-call/` : `${base}/schedule-consultation/`;
+  if (/^assist/.test(variant)) {
+    return {
+      subject: 'One step left - schedule a quick call',
+      html: wrap(`  <p ${P}>Hi ${first} -</p>
+  <p ${P}>Thanks for registering - I appreciate it, and I've read through what you shared.</p>
+  <p ${P}>Since you're helping someone else with their investment, the next step is a quick call so I can understand their situation and timing before I point you both at anything.</p>
+  <p style="margin:24px 0;"><a href="${link}" ${BTN}>Schedule a call</a></p>
+  <p ${P}>It's about 30 minutes, and the investor is welcome to join. When they're ready to look at specific investments I'll need them to register too, because regulators limit those to accredited investors.</p>
+  <p ${P}>If none of the times work, just reply to this email and we'll find one that does.</p>`),
+    };
+  }
   const middle = variant === 'exchange'
     ? "The last step is a quick introductory call. Regulators require it before I can open the current investments to you, and honestly it's the fastest way for me to point you at what fits."
     : "The last step is a quick introductory call. Regulators require it before I can open the current investments to you, and it's the best way for me to understand what you're trying to accomplish before I point you at anything.";
