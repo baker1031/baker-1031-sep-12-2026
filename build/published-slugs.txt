@@ -5,6 +5,7 @@
 aei-healthcare-portfolio-vii-dst
 arctrust-exchange-dst
 ax-diversified-retail-portfolio-dst
+ax-essential-retail-portfolio-dst
 blue-door-property-ii-dst
 blue-door-property-iii-dst
 blue-owl-real-estate-exchange-v-dst
@@ -12,10 +13,14 @@ br-diversified-industrial-portfolio-7-dst
 br-diversified-industrial-portfolio-8-dst
 br-parkview-multifamily-dst
 brex-net-lease-industrial-i-dst
+bxrex-portfolio-ii-dst
 cf-biscayne-multifamily-dst
 cf-fleetwood-multifamily-dst
 cf-westshore-multifamily-dst
 colorado-growth-1-holly-ridge-dst
+cs1031-colony-at-centerpointe-apartments-dst
+cs1031-texas-active-living-portfolio-ii-dst
+erp-1031-industrial-portfolio-iv-dst
 exchangeright-essential-income-12-dst
 exchangeright-essential-income-13-dst
 exchangeright-net-leased-all-cash-21-dst
@@ -29,6 +34,8 @@ hpi-deer-creek-dst
 ideal-ecco-park-dst
 inland-alt-senior-living-ii-dst
 inland-long-island-residential-dst
+inland-mokena-senior-living-dst
+inland-student-housing-portfolio-dst
 irex-v-diversified-portfolio-dst
 jllx-industrial-portfolio-dst
 jwcm-vivian-dst
