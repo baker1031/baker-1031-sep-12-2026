@@ -22,9 +22,9 @@ Run it locally from the repo root: `pip install -r requirements.txt && python3 b
 | URL | Source | Notes |
 | --- | --- | --- |
 | `/` | `index.html` | Homepage |
-| `/register/` | `register/index.html` | Registration; posts to `/api/lead` when the acknowledgments are accepted (Attio person + note + deal, see below), then books on Cal.com |
-| `/login/` | `login/index.html` | Email-only login via `/api/auth` (Investor Access base) |
-| `/invest/` | `build/build_inventory.py` | Available Investments — skeleton + blur until logged in |
+| `/register/` | `register/index.html` | Registration; posts to `/api/lead` when the acknowledgments are accepted (to the CRM, see below), then books on Cal.com |
+| `/login/` | `login/index.html` | Email-only login via `/api/auth` (the CRM's portal access) |
+| `/invest/` | `build/build_inventory.py` | Available Investments — skeleton + blur until logged in; status corrected live (below) |
 | `/offerings/<slug>/` | `build/build_offering.py` | One page per DST offering; documents under `/offerings/<slug>/docs/` are hard-gated at the edge |
 | `/results/` | `results/index.html` | Full-cycle results (1,009 deals). `/performance/` from the old site 301s here |
 | `/learn/`, `/learn/<slug>/` | `build/build_articles.py` | Learn library + category filter — **soft-gated**: served in full to crawlers (paywalled-content schema), visitors see the opening and a log-in card |
@@ -59,14 +59,27 @@ Old URLs: `/offerings/` → `/invest/`, `/request-access/` → `/register/`, `/p
   Property photos: `assets/media/offerings/<slug>-card.jpg` (800px) and `-hero.jpg` (1600px) are committed; the full-resolution original is
   downloaded during the build and linked from the offering photo. Documents (PPMs, supplements) are downloaded during the build to
   `offerings/<slug>/docs/` and served only to logged-in investors.
-- **Investor Access** → Airtable base `appiKLSyAUmP0h8cJ`, table *Investors* (`tblbuFMpfv5R4DIyp`) — read only by the auth function at
-  request time. The build never touches it and the list never reaches the browser.
+- **Investors and portal access** → the CRM (crm.baker1031.com); investors.baker1031.com manages portal accounts on the same data.
+  The Airtable *Investor Access* base (`appiKLSyAUmP0h8cJ`, table `tblbuFMpfv5R4DIyp`) is read only on the `CRM_BACKEND=attio`
+  emergency path, and by `/api/crm-export` when the CRM asks for it during its import. The build never touches it.
 - **Full-cycle results** → `build/fullcycle.tsv`.
 
 Rating badge = Coverage Review (Preferred → Highly Approved, Common → Approved, Not Preferred / Insufficient Data → Specialized);
 an Availability Status of Rejected shows the Rejected badge.
 
+**Live status between builds.** `assets/js/live-status.js` (loaded on `/invest/` and every offering page) fetches the public feed
+`https://opportunities.baker1031.com/api/public/opportunities` once per page load (60 s sessionStorage cache) and corrects each
+offering's status in place: the elements are marked at build time with `data-opp-slug` / `data-opp-status`, the pill with
+`data-opp-label`. Closed reads "Closed — no longer available" and is dimmed; a deal that has left the feed reads "No longer
+available" and is treated the same; `/invest/` re-renders from the live statuses so its own order and filters apply. With JS off or
+the feed down the built status stays. The site sets no Content-Security-Policy; if one is added, it needs
+`connect-src https://opportunities.baker1031.com`.
+
 ## Login and the gate
+
+On the CRM (the default) `POST /api/auth` asks the CRM (`op login`, `person`): Portal Access = Yes lets the person in, level 2 = Yes
+opens the restricted pages, and revoking either in the CRM or investors.baker1031.com logs them out on their next page view. The
+description below is the Attio / Airtable path, which runs only with `CRM_BACKEND=attio`.
 
 `POST /api/auth` (`netlify/functions/auth.mjs`) looks the email up in Investor Access: `Approved` → signed HttpOnly session cookie
 (`b31_session`, 30 days) plus a readable companion cookie `b31_ui` holding the first name, which every page reads before first paint to
@@ -89,7 +102,24 @@ offering appends it to the investor's "Deals Reviewed" (`track_view`). The edge 
 - After cutover: verify the domain in Google Search Console and Bing Webmaster Tools, submit `https://baker1031.com/sitemap.xml`, and
   (optional) set `INDEXNOW_KEY` for instant Bing/Copilot updates.
 
-## CRM: Attio
+## CRM
+
+The site runs on the CRM at crm.baker1031.com (`netlify/functions/lib/crm.mjs`, `POST /api/site` with `CRM_SHARED_KEY`). This is pinned
+in code: no request asks the CRM which system to use. `CRM_BACKEND=attio` is the emergency switch back to Attio + Airtable (it needs
+`ATTIO_API_KEY` and `AIRTABLE_TOKEN`); `CRM_BACKEND=switch` follows the CRM's Settings → Website switch again, at the cost of one
+request per cold start.
+
+**Registrations** (`/api/lead`) go only to the CRM (`op lead`), which creates or matches the contact, opens the deal, notes the answers
+and sends the scheduling / fix-your-answers email and the Form CRS receipt. If the CRM cannot take one, it is kept in the Netlify Blobs
+store `pending-leads` and `netlify/functions/lead-retry.mjs` re-sends it every 5 minutes, deleting it once the CRM confirms; after
+24 hours of failures the raw registration is emailed to jerry@ once (`RESEND_API_KEY`, `LEAD_ALERT_TO` overrides), and entries are
+dropped 7 days after that email. The visitor sees success either way, and the Form CRS receipt goes from the site straight away when
+the CRM did not confirm it. A retry that lands after a slow CRM had actually saved the first try is matched by email (no second
+contact), but adds a second note and a second Form CRS receipt. Nothing goes to Attio, Airtable or GoHighLevel.
+
+`deadline-reminders`, `access-sync` and `portal-sync` stand down on the CRM (the CRM sends reminders and holds portal access).
+
+## Attio (emergency path, `CRM_BACKEND=attio`)
 
 `netlify/functions/lead.mjs` delivers every completed registration to Attio (`netlify/functions/lib/attio.mjs` is the client):
 
@@ -171,13 +201,15 @@ variable used by functions, trigger a deploy so the functions pick it up.
 
 | Variable | Where it comes from | Used by |
 | --- | --- | --- |
-| `AIRTABLE_TOKEN` | airtable.com/create/tokens with scopes `data.records:read` + `data.records:write` and access to both bases (Investment Data (Live), Investor Access) | Build (offerings, photos, documents), login, "Deals Reviewed", rebuild watcher, reminders, portal sync |
+| `CRM_SHARED_KEY` | Same value as on the CRM project (24+ characters) | Every function: login, registrations, update links, bookings, activity |
+| `OPPORTUNITIES_FEED_KEY` | The Opportunities tool's `FEED_KEY` | Build: downloads offering documents |
+| `AIRTABLE_TOKEN` | **Optional** — only for `CRM_BACKEND=attio` and the CRM's import through `/api/crm-export`. airtable.com/create/tokens, `data.records:read` + `data.records:write` on Investor Access | Attio-path login, "Deals Reviewed", reminders, portal sync |
 | `SESSION_SECRET` | `openssl rand -hex 32` in Terminal | Signs the login cookie; the auth function and the edge gate must share it |
 | `NETLIFY_BUILD_HOOK` | New project → Site configuration → Build & deploy → Continuous deployment → **Build hooks → Add build hook** (name "Airtable", branch main) → copy the URL | Rebuild watcher (every 15 min) — without it the watcher only reports |
 | `ATTIO_API_KEY` | Attio → Workspace settings → Developers → **+ New integration** (name "Baker 1031 website") → **Generate access token**, with scopes `record_permission:read-write`, `object_configuration:read`, `note:read-write`, `user_management:read`, `list_entry:read-write`, `list_configuration:read` | Registration leads, update-my-info, portal sync, portal activity, reminder links |
 | `ATTIO_DEAL_OWNER` | Your Attio login email | Owner of the deals the website creates |
 | `ATTIO_WEBHOOK_SECRET` | Attio → Developers → the integration → Webhooks → add `https://<site>/api/portal-sync` for `record.updated` (People) → copy the signing secret | Verifies portal-sync calls from Attio |
-| `RESEND_API_KEY` | resend.com → API Keys | Registration confirmations, portal welcome emails, deadline reminders |
+| `RESEND_API_KEY` | resend.com → API Keys | Form CRS receipts when the CRM did not send one, the 24-hour missed-registration email; on the Attio path also confirmations, welcome emails, reminders |
 | `PORTAL_SYNC_KEY` | Any long random string (`openssl rand -hex 24`) | Manual runs of portal sync, the watcher and the reminders |
 | `SCHEDULE_CALL_URL` | Set to `/schedule-call/` (the "call needed" login message links here) | Login |
 | `CRS_RECEIPT_TO` | Optional; defaults to crs@baker1031.com | Form CRS receipt emails |
@@ -188,6 +220,11 @@ After adding variables: **Deploys → Trigger deploy → Clear cache and deploy 
 Then add the same build-hook URL as the GitHub secret `NETLIFY_BUILD_HOOK` (repo → Settings → Secrets and variables → Actions) for the hourly safety net.
 
 At cutover, update the Attio webhook's target URL to `https://baker1031.com/api/portal-sync`.
+
+## Tests
+
+`npm install && npm test` runs `test/*.test.mjs` (Node 20+; the live-status builder checks need `python3`). After a build,
+`node build/level2-gate-test.mjs` and `node build/calculator-test.mjs` check the edge gate and the calculators.
 
 ## Before launch
 

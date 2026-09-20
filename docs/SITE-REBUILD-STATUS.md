@@ -4,6 +4,24 @@
 Nothing here is on baker1031.com: this repo deploys to the `baker103191226` Netlify project, while
 the production domain still serves off the `redesign` branch in `baker1031-v2`.
 
+## 19 September 2026: the site on the CRM only, live offering status
+
+- **Backend pinned to the CRM.** `lib/crm.mjs` no longer asks the CRM which system to use; `CRM_BACKEND=attio` is the
+  emergency switch-back and `CRM_BACKEND=switch` restores the Settings → Website switch. The switch in the CRM is otherwise
+  ignored now.
+- **Registrations go only to the CRM.** The Attio fallback for a registration the CRM missed is gone (there was never an
+  Airtable or GoHighLevel send on this path; the register page's comment saying GoHighLevel was stale). A missed registration
+  is kept in the Netlify Blobs store `pending-leads` and re-sent every 5 minutes by `lead-retry`; after 24 h it is emailed to
+  jerry@. The visitor always sees success.
+- **Portal functions** (`auth`, `login-link`, `my-info`, `booked`, `reminders-off`) read nothing from Airtable or Attio on the
+  CRM; a test now fails if they do. `deadline-reminders`, `access-sync` and `portal-sync` stand down. The only Airtable reader
+  left in CRM mode is `/api/crm-export` (`kind: investors`), and only when the CRM calls it with the shared key.
+- **Live status.** `assets/js/live-status.js` corrects Available / Limited / Closed on `/invest/` and offering pages from the
+  Opportunities feed between builds; a deal that leaves the feed shows "No longer available".
+- **Netlify env:** nothing new is required (Blobs needs no setup). `AIRTABLE_TOKEN` is optional now and can be removed once
+  the CRM import no longer needs `/api/crm-export` and the Attio switch-back is retired. Make sure `CRM_BACKEND` is unset or
+  `crm` (a leftover `attio` would pin the site back).
+
 ---
 
 ## Decisions waiting on Jerry
@@ -172,7 +190,7 @@ text-extraction weakness in the review.
 
 ## Build and verification
 
-`python3 build/build.py` → 820 pages. Checks: `node build/level2-gate-test.mjs` (16),
+`python3 build/build.py` → 820 pages. Checks: `npm install && npm test` (functions + live status), `node build/level2-gate-test.mjs` (16),
 `node build/calculator-test.mjs` (16, added this session). Return basis site-wide is
 **(equity multiple − 1) ÷ holding period** — simple, not compounded, not an IRR; all 298
 complete rows satisfy it exactly.
