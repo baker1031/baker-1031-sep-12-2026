@@ -28,6 +28,7 @@
 import crypto from 'node:crypto';
 import * as attio from './lib/attio.mjs';
 import { syncOne } from './lib/portal.mjs';
+import { usingCrm } from './lib/crm.mjs';
 
 const json = (status, body) => ({
   statusCode: status,
@@ -63,6 +64,8 @@ export const handler = async (event) => {
   const key = event.headers['x-portal-key'] || (event.queryStringParameters || {}).key;
   const keyed = !!process.env.PORTAL_SYNC_KEY && key === process.env.PORTAL_SYNC_KEY;
   if (!keyed && !signedByAttio(event)) return json(403, { error: 'forbidden' });
+  // 200, not an error: Attio retries and then disables a webhook that keeps failing, and this one has simply retired.
+  if (await usingCrm()) return json(200, { ok: true, skipped: 'portal access is held by the CRM' });
   if (!process.env.AIRTABLE_TOKEN) return json(500, { error: 'AIRTABLE_TOKEN not configured' });
   if (!attio.configured()) return json(500, { error: 'ATTIO_API_KEY not configured' });
 

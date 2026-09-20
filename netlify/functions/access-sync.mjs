@@ -29,6 +29,7 @@
   Env:  ATTIO_API_KEY, AIRTABLE_TOKEN, PORTAL_SYNC_KEY, ACCESS_BASE_ID, ACCESS_TABLE_ID.
 */
 import * as attio from './lib/attio.mjs';
+import { usingCrm } from './lib/crm.mjs';
 import { findInvestorByEmail, reconcileRow, reconcileAll, airtableIsNewer } from './lib/portal.mjs';
 
 const json = (status, body) => ({
@@ -61,6 +62,8 @@ export const handler = async (event) => {
     const key = (event.headers && event.headers['x-portal-key']) || q.key;
     if (!process.env.PORTAL_SYNC_KEY || key !== process.env.PORTAL_SYNC_KEY) return json(403, { error: 'forbidden' });
   }
+  // Portal access lives in one place once the site is on the CRM, so there is nothing left to keep in step.
+  if (await usingCrm()) return json(200, { ok: true, skipped: 'portal access is held by the CRM' });
   if (!process.env.AIRTABLE_TOKEN) return json(500, { error: 'AIRTABLE_TOKEN not configured' });
   if (!attio.configured()) return json(500, { error: 'ATTIO_API_KEY not configured' });
 

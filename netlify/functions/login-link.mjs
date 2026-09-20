@@ -13,7 +13,7 @@
   Env: AIRTABLE_TOKEN, SESSION_SECRET (+ optional ACCESS_BASE_ID, ACCESS_TABLE_ID,
        SESSION_DAYS).
 */
-import { tellCrm } from './lib/crm.mjs';
+import { tellCrm, crmApi, usingCrm } from './lib/crm.mjs';
 import crypto from 'node:crypto';
 
 const BASE = process.env.ACCESS_BASE_ID || 'appiKLSyAUmP0h8cJ';
@@ -48,12 +48,30 @@ export const handler = async (event) => {
   const { rid, t, sig } = q;
   const toLogin = redirect('/login/?ll=expired');
 
+  // Links the CRM issued (?cid=...): the CRM signed them, so the CRM checks them, along with whether access is still on.
+  if (q.cid) {
+    if (!/^[A-Za-z0-9_-]{6,80}$/.test(q.cid) || !/^\d{10,16}$/.test(String(t || '')) || !sig || !(await usingCrm())) return toLogin;
+    const r = await crmApi('login_link', { cid: q.cid, t, sig: String(sig).slice(0, 80) });
+    if (!r.ok || !r.body.ok) return toLogin;
+    await tellCrm('site.login', r.body.email, { via: 'email link' }, [r.body.firstName, r.body.lastName].filter(Boolean).join(' '));
+    return redirect('/invest/?welcome=1', makeCookie(r.body.rid, r.body.firstName || 'Investor', r.body.level));
+  }
+
   if (!rid || !t || !sig || !/^rec[A-Za-z0-9]{14}$/.test(rid) || !/^\d{10,16}$/.test(t)) return toLogin;
 
   const want = Buffer.from(linkSig(rid, t));
   const got = Buffer.from(String(sig));
   if (want.length !== got.length || !crypto.timingSafeEqual(want, got)) return toLogin;
   if (Date.now() - Number(t) > LINK_MAX_AGE_MS) return toLogin; // expired — normal login still works
+
+  // A link from before the move, with the site now on the CRM: this site signed it, so the check above stands, and
+  // the CRM says whether that person still has access (it kept the old id when it imported them).
+  if (await usingCrm()) {
+    const r = await crmApi('person', { rid });
+    if (!r.ok || !r.body.ok || !r.body.approved) return toLogin;
+    await tellCrm('site.login', r.body.email, { via: 'email link' }, [r.body.firstName, r.body.lastName].filter(Boolean).join(' '));
+    return redirect('/invest/?welcome=1', makeCookie(r.body.rid, r.body.firstName || 'Investor', r.body.level));
+  }
 
   // Live check: only currently-Approved investors get a session.
   try {

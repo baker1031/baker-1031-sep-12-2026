@@ -10,6 +10,7 @@
 */
 
 import crypto from 'node:crypto';
+import { crmApi, usingCrm } from './lib/crm.mjs';
 
 const AT_BASE = process.env.ACCESS_BASE_ID || 'appiKLSyAUmP0h8cJ';
 const AT_TABLE = process.env.ACCESS_TABLE_ID || 'tblbuFMpfv5R4DIyp';
@@ -33,11 +34,26 @@ export const handler = async (event) => {
   const q = event.queryStringParameters || {};
   const rid = String(q.rid || '');
   const sig = String(q.sig || '');
+  const DONE = ['Reminders stopped', 'Done — you won’t receive any more automated deadline reminders from me. Your portal access and everything else stays exactly as it was. If you change your mind, just reply to any of my emails and I’ll turn them back on. —Jerry'];
+  const BAD = ['Link not valid', 'This link doesn’t check out. If you were trying to stop reminder emails, just reply to the email and I’ll take care of it. —Jerry'];
+  const OOPS = ['Something went wrong', 'I couldn’t update your preference just now. Reply to the reminder email and I’ll switch it off by hand. —Jerry'];
+
+  // A link from a reminder the CRM sent (?cid=...): the CRM signed it and the CRM checks it.
+  if (q.cid) {
+    if (!/^[A-Za-z0-9_-]{6,80}$/.test(String(q.cid)) || !sig || !(await usingCrm())) return page(...BAD);
+    const r = await crmApi('reminders_off', { cid: String(q.cid), sig: sig.slice(0, 80) });
+    return r.ok ? page(...DONE) : r.status === 403 || r.status === 404 ? page(...BAD) : page(...OOPS);
+  }
   if (!/^rec[A-Za-z0-9]{14}$/.test(rid) || !sig) return page('Link not valid', 'This link is missing information. If you were trying to stop reminder emails, just reply to the email and I’ll take care of it. —Jerry');
   const want = Buffer.from(offSig(rid));
   const got = Buffer.from(sig);
   if (want.length !== got.length || !crypto.timingSafeEqual(want, got)) {
     return page('Link not valid', 'This link doesn’t check out. If you were trying to stop reminder emails, just reply to the email and I’ll take care of it. —Jerry');
+  }
+  // A link from a reminder sent before the move, with the site now on the CRM: checked above, switched off in the CRM.
+  if (await usingCrm()) {
+    const r = await crmApi('reminders_off', { rid, legacy: true });
+    return r.ok ? page(...DONE) : r.status === 404 ? page(...BAD) : page(...OOPS);
   }
   try {
     const r = await fetch(`https://api.airtable.com/v0/${AT_BASE}/${AT_TABLE}/${rid}`, {

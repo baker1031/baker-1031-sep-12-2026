@@ -41,6 +41,7 @@ import { buildDeadlineReminder, buildSaleCheckin, sendViaResend } from './lib/in
 import { linkSig } from './login-link.mjs';
 import { offSig } from './reminders-off.mjs';
 import * as attio from './lib/attio.mjs';
+import { usingCrm } from './lib/crm.mjs';
 const AT_BASE = process.env.ACCESS_BASE_ID || 'appiKLSyAUmP0h8cJ';
 const AT_TABLE = process.env.ACCESS_TABLE_ID || 'tblbuFMpfv5R4DIyp';
 
@@ -95,6 +96,9 @@ export const handler = async (event) => {
   const isScheduled = !!body.next_run;
   const keyed = process.env.PORTAL_SYNC_KEY && q.key === process.env.PORTAL_SYNC_KEY;
   if (!isScheduled && !keyed) return json(403, { error: 'forbidden' });
+  // Once the site is on the CRM, the CRM sends these (same rules, same wording, and it carried the log of what
+  // already went out). This job stands down so nobody can ever get the same reminder from both.
+  if (await usingCrm()) { console.log('[reminders] the CRM sends reminders now; nothing to do here'); return json(200, { ok: true, skipped: 'reminders are sent by the CRM' }); }
   const dry = keyed && q.dry === '1';
   const only = keyed && q.only ? String(q.only).toLowerCase() : null;
 

@@ -19,7 +19,7 @@
   The session is a signed HttpOnly cookie; the browser never sees the Airtable token.
 */
 import crypto from 'node:crypto';
-import { tellCrm } from './lib/crm.mjs';
+import { tellCrm, crmApi, usingCrm } from './lib/crm.mjs';
 
 const BASE = process.env.ACCESS_BASE_ID || 'appiKLSyAUmP0h8cJ';
 const TABLE = process.env.ACCESS_TABLE_ID || 'tblbuFMpfv5R4DIyp';
@@ -101,6 +101,8 @@ export const handler = async (event) => {
   const action = body.action;
 
   try {
+    if (await usingCrm()) return await viaCrm(action, body, event);
+
     if (action === 'check_email') {
       const rec = await findByEmail(body.email);
       return json(200, { exists: !!rec });
@@ -206,6 +208,72 @@ export const handler = async (event) => {
     return json(500, { error: 'server error' });
   }
 };
+
+/*
+  The same routes with the CRM behind them instead of Airtable and Attio. Portal access = Yes on the CRM contact is
+  what lets someone in; level 2 = Yes opens the restricted pages. `me` asks the CRM on every page load, so taking
+  access away in the CRM logs the person out on their next click. The session cookie is the same cookie: its rid is
+  the CRM contact id for anyone who logs in from now on, and the CRM still recognises the Airtable ids in cookies
+  issued before the move.
+*/
+async function viaCrm(action, body, event) {
+  const who = async (s) => { const r = await crmApi('person', { rid: s.rid }, { timeoutMs: 5000 }); return r.ok ? r.body : null; };
+
+  if (action === 'check_email') {
+    const r = await crmApi('check_email', { email: body.email });
+    return json(200, { exists: !!(r.ok && r.body.exists) });
+  }
+  if (action === 'login') {
+    const r = await crmApi('login', { email: body.email });
+    if (!r.ok) return json(500, { error: 'server error' });
+    if (r.body.status === 'call_needed') return json(200, { status: 'call_needed', scheduleUrl: SCHEDULE_URL });
+    if (r.body.status !== 'ok') return json(200, { status: 'not_found' });
+    await tellCrm('site.login', r.body.email, {}, [r.body.firstName, r.body.lastName].filter(Boolean).join(' '));
+    return json(200, { status: 'ok', firstName: r.body.firstName, level: r.body.level }, makeCookie(r.body.rid, r.body.firstName, r.body.level));
+  }
+  if (action === 'logout') return json(200, { ok: true }, clearCookie());
+
+  const s = readSession(event);
+  if (action === 'me') {
+    if (!s) return json(200, { authed: false });
+    const p = await who(s);
+    // The CRM could not be reached: that is not the same as access being taken away, so nobody is logged out over it.
+    if (!p) return json(200, { authed: true, firstName: s.fn || 'Investor', level: Number(s.lvl) || 1 });
+    if (!p.ok || !p.approved) return json(200, { authed: false }, clearCookie());
+    const stale = Number(s.lvl || 1) !== p.level || s.rid !== p.rid; // also moves a pre-move cookie onto the CRM's id
+    return json(200, { authed: true, firstName: p.firstName, level: p.level }, stale ? makeCookie(p.rid, p.firstName, p.level) : undefined);
+  }
+  if (action === 'track_view') {
+    if (!s) return json(401, { error: 'not logged in' });
+    const slug = String(body.slug || '').slice(0, 120).replace(/[^a-z0-9-]/g, '');
+    if (!slug) return json(400, { error: 'bad slug' });
+    const r = await crmApi('track_view', { rid: s.rid, slug });
+    return r.status === 401 ? json(401, { error: 'unknown investor' }) : json(200, { ok: true });
+  }
+  if (action === 'track') {
+    if (!s) return json(200, { ok: false });
+    const p = await who(s);
+    if (!p || !p.ok || !p.approved) return json(200, { ok: false });
+    const name = [p.firstName, p.lastName].filter(Boolean).join(' ');
+    const text = (v, n) => String(v || '').replace(/[\u0000-\u001f]/g, ' ').trim().slice(0, n);
+    const slug = String(body.slug || '').toLowerCase().replace(/[^a-z0-9-]/g, '').slice(0, 120);
+    const pv = /^[A-Za-z0-9_-]{6,40}$/.test(String(body.pv || '')) ? String(body.pv) : '';
+    const pathOnly = (v) => { try { const u = new URL(String(v || ''), 'https://baker1031.com'); return (u.origin === 'https://baker1031.com' ? '' : u.origin) + u.pathname; } catch { return ''; } };
+    if (body.kind === 'view' && pv) await tellCrm('site.view', p.email, { pv, slug, title: text(body.title, 160), path: pathOnly(body.path).slice(0, 200) }, name);
+    else if (body.kind === 'view_end' && pv) await tellCrm('site.view_end', p.email, { pv, seconds: Math.max(0, Math.min(Math.round(Number(body.seconds) || 0), 14400)) }, name);
+    else if (body.kind === 'download') await tellCrm('site.download', p.email, { href: pathOnly(body.href).slice(0, 300), name: text(body.name, 160), slug, offering: text(body.offering, 160) }, name);
+    else return json(400, { error: 'bad kind' });
+    return json(200, { ok: true });
+  }
+  if (action === 'request_level2') {
+    if (!s) return json(401, { error: 'not logged in' });
+    const r = await crmApi('level2_request', { rid: s.rid, path: String(body.path || '').slice(0, 200) });
+    if (r.status === 401) return json(401, { error: 'not an approved investor' });
+    if (!r.ok) return json(500, { error: 'server error' });
+    return json(200, { ok: true, ...(r.body.already ? { already: true } : {}) });
+  }
+  return json(400, { error: 'unknown action' });
+}
 
 /*
   First offering view → in Attio, note it on the investor's person record and move their open website deal

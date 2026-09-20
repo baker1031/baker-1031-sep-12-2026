@@ -9,6 +9,10 @@
 #                        No longer used for offerings or performance.
 #   SESSION_SECRET       long random string (e.g. `openssl rand -hex 32`); shared by the auth function and the edge gate
 #   NETLIFY_BUILD_HOOK   this site's build hook URL (Build & deploy -> Build hooks) — used by the rebuild watcher backstop
+# Which CRM the site runs on is a switch in the CRM itself (crm.baker1031.com -> Settings -> Website): "Attio" as built, or "This CRM".
+#   On "This CRM" every function below talks to the CRM (POST https://crm.baker1031.com/api/site, CRM_SHARED_KEY) and Attio, the
+#   Airtable investor table and this site's Resend key are no longer used except as the fallback for a registration the CRM missed.
+#   Optional: CRM_BACKEND = crm | attio pins it from here and ignores the switch; CRM_SITE_URL, CRM_EVENTS_URL override the addresses.
 # CRM (Attio): ATTIO_API_KEY (required); optional ATTIO_DEAL_OWNER, ATTIO_DEAL_STAGE, ATTIO_REVIEW_STAGE, ATTIO_LIST,
 #   ATTIO_DEALS=off, ATTIO_WEBHOOK_SECRET (portal-sync webhook signature)
 #   A first offering view moves the open deal to "Reviewing Opportunities" by default (forward-only).
@@ -67,6 +71,10 @@
 [[redirects]]
   from = "/api/crm-link"
   to = "/.netlify/functions/crm-link"
+  status = 200
+[[redirects]]
+  from = "/api/crm-export"
+  to = "/.netlify/functions/crm-export"
   status = 200
 [[redirects]]
   from = "/api/my-info"

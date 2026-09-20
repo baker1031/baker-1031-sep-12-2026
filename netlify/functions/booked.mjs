@@ -34,7 +34,7 @@
 */
 import crypto from 'node:crypto';
 import * as attio from './lib/attio.mjs';
-import { tellCrm } from './lib/crm.mjs';
+import { tellCrm, crmApi, usingCrm } from './lib/crm.mjs';
 import { syncOne } from './lib/portal.mjs';
 import { isInvestor } from './lib/invites.mjs';
 
@@ -82,7 +82,8 @@ const when = (iso) => {
 
 export const handler = async (event) => {
   if (event.httpMethod !== 'POST') return json(405, { error: 'POST only' });
-  if (!attio.configured()) return json(500, { error: 'ATTIO_API_KEY not configured' });
+  const crm = await usingCrm();
+  if (!crm && !attio.configured()) return json(500, { error: 'ATTIO_API_KEY not configured' });
 
   let body = {};
   try { body = JSON.parse(event.body || '{}'); } catch { return json(400, { error: 'bad JSON' }); }
@@ -96,6 +97,14 @@ export const handler = async (event) => {
 
   const bk = readBooking(body);
   if (!bk.email.includes('@')) return json(400, { error: 'no attendee email in payload' });
+
+  // With the site on the CRM, the CRM does the rest: the deal moves forward (never back), the booking is noted, and
+  // a verified booking by the investor opens the portal and sends the welcome email. Whether the request is
+  // verified is still decided here, where the Cal.com secret lives.
+  if (crm) {
+    const r = await crmApi('booked', { booking: { email: bk.email, firstName: bk.firstName, uid: bk.uid, when: when(bk.start), start: bk.start, eventType: String(bk.eventType || '').slice(0, 120) }, verified });
+    return r.ok ? json(200, r.body) : json(502, { error: 'crm unavailable' });
+  }
 
   await tellCrm('site.booking', bk.email, { when: when(bk.start), eventType: String(bk.eventType || '').slice(0, 120), verified });
 

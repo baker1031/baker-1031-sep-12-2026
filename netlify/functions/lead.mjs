@@ -13,7 +13,7 @@
 import crypto from 'node:crypto';
 import { accreditedSignal, inviteVariant, noticeKind, buildInvite, buildNotice, sendViaResend, STATUS_FIELD } from './lib/invites.mjs';
 import * as attio from './lib/attio.mjs';
-import { tellCrm } from './lib/crm.mjs';
+import { tellCrm, crmApi, usingCrm } from './lib/crm.mjs';
 import { commissionValue, dealName, addDays, personPairs, dealPairs } from './lib/lead-shape.mjs';
 
 const json = (status, body) => ({
@@ -138,23 +138,33 @@ export const handler = async (event) => {
   if (!lead.firstName || !email.includes('@')) return json(400, { error: 'missing required fields' });
   if (JSON.stringify(lead).length > 50000) return json(413, { error: 'payload too large' });
 
-  let via = null;
-  if (attio.configured()) {
+  const ip = event.headers['x-nf-client-connection-ip']
+    || String(event.headers['x-forwarded-for'] || '').split(',')[0].trim();
+
+  // When the site runs on the CRM, the CRM does all of it: the person, the deal, the note, the scheduling or
+  // fix-your-answers email and the Form CRS receipt. If it cannot be reached the submission still goes the
+  // old way (while Attio is still there), and the receipt below is sent from here, so nothing is lost.
+  let via = null, crsSent = false;
+  if (await usingCrm()) {
+    const res = await crmApi('lead', { lead, ip }, { timeoutMs: 9000 });
+    if (res.ok && res.body.ok) { via = 'crm'; crsSent = !!res.body.crs; }
+    else console.error('[lead] CRM delivery failed:', res.status, res.body && res.body.error);
+  }
+  if (!via && attio.configured()) {
     try { via = await deliverToAttio(lead); }
     catch (e) { console.error('[lead] Attio delivery failed:', e.message); }
   }
-  if (!via) console.log('[lead] not delivered to CRM (ATTIO_API_KEY missing or Attio rejected the request) — submission from', email);
+  if (!via) console.log('[lead] not delivered to a CRM — submission from', email);
 
-  // The CRM at crm.baker1031.com hears about the registration too: someone new becomes a lead there.
-  await tellCrm('site.signup', email, { firstName: lead.firstName || '', lastName: lead.lastName || '', phone: lead.phone || '', role: lead.role || '', path: lead.path || '',
+  // While the site is still on Attio, the CRM at crm.baker1031.com hears about the registration too: someone new becomes a lead there.
+  if (via !== 'crm') await tellCrm('site.signup', email, { firstName: lead.firstName || '', lastName: lead.lastName || '', phone: lead.phone || '', role: lead.role || '', path: lead.path || '',
     saleDate: lead.saleDate || '', equity: Number(lead.equity) || 0, debt: Number(lead.debt) || 0 }, [lead.firstName, lead.lastName].filter(Boolean).join(' '));
 
-  // Compliance receipt — independent of CRM delivery success.
-  try {
-    const ip = event.headers['x-nf-client-connection-ip']
-      || String(event.headers['x-forwarded-for'] || '').split(',')[0].trim();
-    await sendCrsReceipt(lead, ip);
-  } catch (e) { console.error('[lead] crs receipt:', e.message); }
+  // Compliance receipt — independent of CRM delivery success. The CRM sends it when it handled the registration;
+  // this is the same receipt, sent from here whenever the CRM did not confirm it went.
+  if (!crsSent) {
+    try { await sendCrsReceipt(lead, ip); } catch (e) { console.error('[lead] crs receipt:', e.message); }
+  }
 
   return json(200, { ok: true, via });
 };

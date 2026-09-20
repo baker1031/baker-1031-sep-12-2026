@@ -9,7 +9,7 @@
 import crypto from 'node:crypto';
 import { accreditedSignal, inviteVariant, buildInvite, sendViaResend, STATUS_FIELD } from './lib/invites.mjs';
 import * as attio from './lib/attio.mjs';
-import { tellCrm } from './lib/crm.mjs';
+import { tellCrm, crmApi, usingCrm } from './lib/crm.mjs';
 import { commissionValue, dealName, addDays, personPairs, dealPairs } from './lib/lead-shape.mjs';
 
 const json = (status, body) => ({
@@ -43,12 +43,31 @@ const DEAL_MAP = [
 ];
 const bySlug = (attrs, title) => attrs.find((a) => a.title.toLowerCase() === title.toLowerCase());
 
-export const handler = async (event) => {
-  if (!attio.configured()) return json(500, { error: 'not configured' });
+// With the site on the CRM, the update page reads and writes the CRM contact. A link the CRM issued (its contact ids
+// start "c_") carries the CRM's signature and the CRM checks it. A link from before the move carries this site's
+// signature over the Attio id: it is checked here, exactly as before, and the CRM finds the person by that old id.
+async function viaCrm(event, q, body) {
+  if (event.httpMethod !== 'GET' && event.httpMethod !== 'POST') return json(405, { error: 'GET or POST' });
+  const cid = String((event.httpMethod === 'GET' ? q.cid : body.cid) || ''), sig = String((event.httpMethod === 'GET' ? q.sig : body.sig) || '').slice(0, 80);
+  if (!/^[A-Za-z0-9_-]{6,80}$/.test(cid)) return json(403, { error: 'invalid link' });
+  const own = /^c_/.test(cid);
+  if (!own && !validSig(cid, sig)) return json(403, { error: 'invalid link' });
+  const ident = own ? { cid, sig } : { cid, legacy: true };
+  const { cid: _c, sig: _s, ...fields } = body;
+  const r = event.httpMethod === 'GET' ? await crmApi('myinfo_get', ident) : await crmApi('myinfo_post', { ...ident, fields });
+  if (r.status === 403) return json(403, { error: 'invalid link' });
+  if (r.status === 404) return json(404, { error: 'not found' });
+  if (!r.ok) return json(502, { error: 'crm unavailable' });
+  return json(200, r.body);
+}
 
+export const handler = async (event) => {
   const q = event.queryStringParameters || {};
   let body = {};
   if (event.httpMethod === 'POST') { try { body = JSON.parse(event.body || '{}'); } catch { return json(400, { error: 'bad json' }); } }
+  if (await usingCrm()) return viaCrm(event, q, body);
+  if (!attio.configured()) return json(500, { error: 'not configured' });
+
   const cid = event.httpMethod === 'GET' ? q.cid : body.cid;
   const sig = event.httpMethod === 'GET' ? q.sig : body.sig;
   if (!validSig(cid, sig)) return json(403, { error: 'invalid link' });
