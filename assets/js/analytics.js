@@ -95,7 +95,8 @@
     if (!a) return;
     var u; try { u = new URL(a.getAttribute('href'), location.href); } catch (x) { return; }
     if (!(FILE.test(u.pathname) || a.hasAttribute('download') || HOSTS.test(u.hostname))) return;
-    var label = (a.getAttribute('data-doc') || a.textContent || '').replace(/\s+/g, ' ').trim() || decodeURIComponent(u.pathname.split('/').pop() || 'Document');
+    // the link's own words ("… - PPM"); data-doc on these links is a position number, not a name
+    var label = (a.textContent || '').replace(/\s+/g, ' ').trim() || decodeURIComponent(u.pathname.split('/').pop() || 'Document');
     send({ kind: 'download', href: u.origin + u.pathname, name: label.slice(0, 160), slug: slug, offering: slug ? title : '' }, true);
   }, true);
 })();
