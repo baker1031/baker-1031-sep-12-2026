@@ -1866,8 +1866,8 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     submitLead();
     return true;
   }
-  // CRM hand-off: POST /api/lead (Netlify function -> GoHighLevel contact + note + "Leads / Registered" opportunity),
-  // in the shape the previous request-access form used. Fired once, when the acknowledgments are accepted; never
+  // CRM hand-off: POST /api/lead (Netlify function -> the CRM at crm.baker1031.com: contact, note and deal; kept and
+  // retried on the server if the CRM is unreachable), in the shape the previous request-access form used. Fired once, when the acknowledgments are accepted; never
   // blocks the person, and a failure is only logged (the Cal.com booking that follows is independent).
   var leadSent = false, bookingSent = false;
   function submitLead(){

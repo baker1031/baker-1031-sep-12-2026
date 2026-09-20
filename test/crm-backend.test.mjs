@@ -46,7 +46,17 @@ test('a registration goes to the CRM with the visitor IP; the receipt is sent he
   let res = await handler(ev({ firstName: 'Dana', email: 'dana@example.org', role: 'Investor' }, { headers: { 'x-nf-client-connection-ip': '203.0.113.9' } }));
   assert.deepEqual(JSON.parse(res.body), { ok: true, via: 'crm' }); assert.deepEqual([last().op, last().auth, last().ip, last().lead.email], ['lead', 'Bearer ' + KEY, '203.0.113.9', 'dana@example.org']); assert.equal(mail.length, 0);
   reply.lead = { ok: true, contactId: 'c_1', crs: false }; await handler(ev({ firstName: 'Dana', email: 'dana@example.org' })); assert.equal(mail.length, 1); assert.deepEqual(mail[0].to, ['crs@baker1031.com']);
-  down = true; res = await handler(ev({ firstName: 'Dana', email: 'dana@example.org' })); assert.equal(JSON.parse(res.body).via, null); assert.equal(mail.length, 2, 'CRM unreachable: the compliance receipt still goes'); down = false;
+  const pl = await import('../netlify/functions/lib/pending-leads.mjs'), { memoryStore } = await import('./helpers/memory-store.mjs'), store = memoryStore(); pl._useStore(store);
+  const outside = []; const f0 = globalThis.fetch; globalThis.fetch = async (u, init) => { if (/attio|airtable|leadconnector|gohighlevel/.test(String(u))) outside.push(String(u)); return f0(u, init); };
+  process.env.ATTIO_API_KEY = 'attio-unit'; process.env.AIRTABLE_TOKEN = 'at-unit';
+  down = true; res = await handler(ev({ firstName: 'Dana', email: 'dana@example.org' }));
+  assert.deepEqual(JSON.parse(res.body), { ok: true, via: 'queued' }, 'the visitor still sees success');
+  assert.equal(mail.length, 2, 'CRM unreachable: the compliance receipt still goes, from here'); assert.equal(store.m.size, 1, 'kept for the retry');
+  const kept = JSON.parse([...store.m.values()][0]); assert.deepEqual([kept.lead.email, kept.crsSent, kept.attempts], ['dana@example.org', true, 1]); assert.match(kept.lastError, /^CRM 500/);
+  assert.deepEqual(outside, [], 'no Attio, Airtable or GoHighLevel fallback'); down = false;
+  pl._useStore(memoryStore({ failWrites: true })); down = true; res = await handler(ev({ firstName: 'Eve', email: 'eve@example.org' }));
+  assert.equal(JSON.parse(res.body).ok, true); assert.deepEqual(mail.at(-1).to, ['jerry@baker1031.com'], 'the store is down too: Jerry gets the registration now'); assert.match(mail.at(-1).html, /eve@example.org/); down = false;
+  pl._useStore(null); globalThis.fetch = f0; delete process.env.ATTIO_API_KEY; delete process.env.AIRTABLE_TOKEN;
 });
 
 test('the portal door reads the CRM', async () => {

@@ -1,0 +1,11 @@
+{
+  "name": "baker1031-website",
+  "private": true,
+  "description": "Static site + Netlify functions. The build is Python (build/build.py); npm is only for the functions' dependencies and the tests.",
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^10.0.0"
+  }
+}

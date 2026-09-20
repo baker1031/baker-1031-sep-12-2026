@@ -10,7 +10,9 @@
 #   CRM_SHARED_KEY       same value as on the CRM project; every function talks to the CRM (POST https://crm.baker1031.com/api/site)
 # The site runs on the CRM (crm.baker1031.com): login, registrations, update links, bookings, reminders and portal access
 #   all live there, and investors.baker1031.com manages portal accounts on top of the same data. This is pinned here —
-#   no request asks the CRM which system to use.
+#   no request asks the CRM which system to use. Registrations go only to the CRM; one the CRM cannot take is kept in the
+#   Netlify Blobs store "pending-leads" and re-sent every 5 minutes by lead-retry; after 24 h of failures it is emailed
+#   to jerry@ (RESEND_API_KEY; LEAD_ALERT_TO overrides the address). Blobs needs no setup or variable.
 #   CRM_BACKEND = attio   emergency switch back to Attio + the Airtable investor table (needs ATTIO_API_KEY, AIRTABLE_TOKEN)
 #   CRM_BACKEND = switch  follow the CRM's Settings -> Website switch again (one request per cold start)
 #   Optional: CRM_SITE_URL, CRM_EVENTS_URL override the addresses.
@@ -54,6 +56,11 @@
 # backstop so a flip in either system is never left stranded.
 [functions."access-sync"]
   schedule = "17 * * * *"
+
+# Every 5 minutes: re-send registrations the CRM missed (Netlify Blobs store "pending-leads"), delete each once the CRM
+# confirms it, and email jerry@ any still failing after 24 hours.
+[functions."lead-retry"]
+  schedule = "*/5 * * * *"
 
 # Every 15 minutes (backstop): rebuild if an offering changed in the Opportunities tool since the last publish
 # (compares the feed's newest updatedAt vs /build-info.json, then POSTs NETLIFY_BUILD_HOOK).
