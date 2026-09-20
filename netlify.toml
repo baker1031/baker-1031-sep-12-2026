@@ -5,15 +5,18 @@
 #
 # Required environment variables (Site configuration -> Environment variables):
 #   OPPORTUNITIES_FEED_KEY  the Opportunities tool's FEED_KEY — lets the build download offering documents
-#   AIRTABLE_TOKEN       personal access token — data.records:read+write on Investor Access (login, "Deals Reviewed").
-#                        No longer used for offerings or performance.
 #   SESSION_SECRET       long random string (e.g. `openssl rand -hex 32`); shared by the auth function and the edge gate
 #   NETLIFY_BUILD_HOOK   this site's build hook URL (Build & deploy -> Build hooks) — used by the rebuild watcher backstop
-# Which CRM the site runs on is a switch in the CRM itself (crm.baker1031.com -> Settings -> Website): "Attio" as built, or "This CRM".
-#   On "This CRM" every function below talks to the CRM (POST https://crm.baker1031.com/api/site, CRM_SHARED_KEY) and Attio, the
-#   Airtable investor table and this site's Resend key are no longer used except as the fallback for a registration the CRM missed.
-#   Optional: CRM_BACKEND = crm | attio pins it from here and ignores the switch; CRM_SITE_URL, CRM_EVENTS_URL override the addresses.
-# CRM (Attio): ATTIO_API_KEY (required); optional ATTIO_DEAL_OWNER, ATTIO_DEAL_STAGE, ATTIO_REVIEW_STAGE, ATTIO_LIST,
+#   CRM_SHARED_KEY       same value as on the CRM project; every function talks to the CRM (POST https://crm.baker1031.com/api/site)
+# The site runs on the CRM (crm.baker1031.com): login, registrations, update links, bookings, reminders and portal access
+#   all live there, and investors.baker1031.com manages portal accounts on top of the same data. This is pinned here —
+#   no request asks the CRM which system to use.
+#   CRM_BACKEND = attio   emergency switch back to Attio + the Airtable investor table (needs ATTIO_API_KEY, AIRTABLE_TOKEN)
+#   CRM_BACKEND = switch  follow the CRM's Settings -> Website switch again (one request per cold start)
+#   Optional: CRM_SITE_URL, CRM_EVENTS_URL override the addresses.
+# Optional, only for the CRM_BACKEND=attio emergency path (and the CRM's one-time import through /api/crm-export):
+#   AIRTABLE_TOKEN       personal access token — data.records:read+write on Investor Access. Not used for offerings or performance.
+# Attio (emergency path only): ATTIO_API_KEY; optional ATTIO_DEAL_OWNER, ATTIO_DEAL_STAGE, ATTIO_REVIEW_STAGE, ATTIO_LIST,
 #   ATTIO_DEALS=off, ATTIO_WEBHOOK_SECRET (portal-sync webhook signature)
 #   A first offering view moves the open deal to "Reviewing Opportunities" by default (forward-only).
 #   ATTIO_REVIEW_STAGE changes the target or, set to "off", disables it; ATTIO_PROMOTE_FROM narrows the source stages.
@@ -41,10 +44,12 @@
   ROBOTS_NOINDEX = "true"
 
 # Daily 1031 deadline reminders (8am PT): reads Airtable dates, emails via Resend, logs to the row's "Reminder Log".
+# On the CRM (the default) it stands down: the CRM sends the reminders.
 [functions."deadline-reminders"]
   schedule = "0 15 * * *"
 
 # Hourly: reconcile investor access between Attio and Airtable in whichever direction was edited last.
+# On the CRM (the default) it stands down: portal access lives only in the CRM.
 # Airtable can also call /api/access-sync directly from an automation for an instant push; this is the
 # backstop so a flip in either system is never left stranded.
 [functions."access-sync"]

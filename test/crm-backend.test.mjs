@@ -24,13 +24,20 @@ const ev = (body, extra = {}) => ({ httpMethod: 'POST', headers: {}, queryString
 const cookieOf = (res) => (res.multiValueHeaders?.['set-cookie'] || []).find((c) => c.startsWith('b31_session='))?.split(';')[0] || '';
 const last = () => asked.at(-1);
 
-test('the switch: asked of the CRM, remembered, kept through an outage, overridable', async () => {
-  assert.equal(await crm.backend(), 'crm');
-  mode = 'attio'; assert.equal(await crm.backend(), 'crm', 'remembered for a minute');
-  crm._resetBackend(); assert.equal(await crm.backend(), 'attio');
-  crm._resetBackend(); down = true; assert.equal(await crm.backend(), 'attio', 'never reached the CRM: stay on Attio'); down = false;
-  mode = 'crm'; crm._resetBackend(); assert.equal(await crm.backend(), 'crm'); down = true; assert.equal(await crm.backend(), 'crm', 'an outage does not flip a site that was on the CRM'); down = false;
-  process.env.CRM_BACKEND = 'attio'; assert.equal(await crm.backend(), 'attio'); delete process.env.CRM_BACKEND;
+test('the backend: the CRM by default with no call to ask; CRM_BACKEND=attio switches back; =switch follows the CRM setting', async () => {
+  let modeCalls = 0; const count = globalThis.fetch; globalThis.fetch = async (u, init) => { if (init && String(init.body || '').includes('"op":"mode"')) modeCalls++; return count(u, init); };
+  crm._resetBackend(); mode = 'attio';
+  assert.equal(await crm.backend(), 'crm'); assert.equal(modeCalls, 0, 'no round trip to find out');
+  down = true; assert.equal(await crm.backend(), 'crm', 'an outage never flips the site'); down = false;
+  const key = process.env.CRM_SHARED_KEY; delete process.env.CRM_SHARED_KEY; assert.equal(await crm.backend(), 'crm', 'even without the key'); process.env.CRM_SHARED_KEY = key;
+  process.env.CRM_BACKEND = 'attio'; assert.equal(await crm.backend(), 'attio'); assert.equal(await crm.usingCrm(), false);
+  process.env.CRM_BACKEND = 'crm'; assert.equal(await crm.backend(), 'crm');
+  process.env.CRM_BACKEND = 'switch';
+  assert.equal(await crm.backend(), 'attio', 'the CRM setting, asked'); assert.equal(modeCalls, 1);
+  mode = 'crm'; assert.equal(await crm.backend(), 'attio', 'remembered for a minute'); assert.equal(modeCalls, 1);
+  crm._resetBackend(); down = true; assert.equal(await crm.backend(), 'crm', 'never reached the CRM: stay on the CRM'); down = false;
+  crm._resetBackend(); assert.equal(await crm.backend(), 'crm'); down = true; assert.equal(await crm.backend(), 'crm', 'the last answer is kept through an outage'); down = false;
+  delete process.env.CRM_BACKEND; crm._resetBackend(); globalThis.fetch = count;
 });
 
 test('a registration goes to the CRM with the visitor IP; the receipt is sent here only if the CRM did not confirm it', async () => {
@@ -86,6 +93,8 @@ test('one-click login and stop-reminders links from the CRM; a browser-reported 
 test('the old jobs stand down instead of double-sending or erroring', async () => {
   const rem = (await import('../netlify/functions/deadline-reminders.mjs')).handler, sync = (await import('../netlify/functions/access-sync.mjs')).handler;
   assert.match((await rem({ body: JSON.stringify({ next_run: 'x' }) })).body, /sent by the CRM/); assert.match((await sync({ httpMethod: 'POST', headers: {}, body: JSON.stringify({ next_run: 'x' }) })).body, /held by the CRM/);
+  const psync = (await import('../netlify/functions/portal-sync.mjs')).handler; process.env.PORTAL_SYNC_KEY = 'unit-portal-key';
+  assert.match((await psync({ httpMethod: 'POST', headers: { 'x-portal-key': 'unit-portal-key' }, body: '{"email":"a@example.org"}' })).body, /held by the CRM/); delete process.env.PORTAL_SYNC_KEY;
 });
 
 test('/api/crm-export: key required, read only', async () => {

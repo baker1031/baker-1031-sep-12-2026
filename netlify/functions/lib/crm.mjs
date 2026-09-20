@@ -37,17 +37,23 @@ export async function tellCrm(type, email, data = {}, name = '') {
 }
 
 /*
-  Which system is behind the site right now: Attio + Airtable (as built) or the CRM.
+  Which system is behind the site: the CRM, unless told otherwise.
 
-  The switch lives in the CRM (Settings -> Website), so moving over and moving back are one click and no deploy. This site asks the CRM, remembers the
-  answer for a minute, and falls back to the last answer it had -- or to Attio if it never had one -- when the CRM cannot be reached. CRM_BACKEND, when
-  set to "crm" or "attio", overrides all of that.
+  The site runs on the CRM. backend() answers "crm" straight away, with no network call, so no request pays a round
+  trip to find that out and a slow or unreachable CRM can never flip the site back to Attio by accident.
+
+    CRM_BACKEND unset or "crm"  -> the CRM (the default)
+    CRM_BACKEND = "attio"       -> Attio + the Airtable investor table, as built (the emergency switch-back; needs
+                                   ATTIO_API_KEY and AIRTABLE_TOKEN)
+    CRM_BACKEND = "switch"      -> follow the Website switch in the CRM (Settings -> Website), as before: ask the CRM,
+                                   remember the answer for a minute, keep the last answer through an outage, and stay on
+                                   the CRM if it never answered. Opt-in, because it costs a request per cold start.
 
   crmApi(op, body) is the call itself: POST https://crm.baker1031.com/api/site with the shared key. It never throws; { ok:false } means "could not".
 */
 const API_DEFAULT = 'https://crm.baker1031.com/api/site';
 export async function crmApi(op, body = {}, { timeoutMs = 8000 } = {}) {
-  if (!crmConfigured()) return { ok: false, status: 0, body: {} };
+  if (!crmConfigured()) { console.error('[crm]', op, 'CRM_SHARED_KEY is not set (24+ characters), so the CRM cannot be reached'); return { ok: false, status: 0, body: {} }; }
   const ctl = new AbortController();
   const timer = setTimeout(() => ctl.abort(), timeoutMs);
   try {
@@ -65,14 +71,15 @@ export async function crmApi(op, body = {}, { timeoutMs = 8000 } = {}) {
 
 let modeSeen = { mode: '', at: 0 };
 export async function backend() {
-  const forced = String(process.env.CRM_BACKEND || '').trim().toLowerCase();
-  if (forced === 'crm' || forced === 'attio') return forced;
-  if (!crmConfigured()) return 'attio';
+  const pinned = String(process.env.CRM_BACKEND || '').trim().toLowerCase();
+  if (pinned === 'attio') return 'attio';
+  if (pinned !== 'switch') return 'crm';
+  if (!crmConfigured()) return 'crm';
   if (modeSeen.mode && Date.now() - modeSeen.at < 60000) return modeSeen.mode;
   const res = await crmApi('mode', {}, { timeoutMs: 2500 });
   if (res.ok && (res.body.mode === 'crm' || res.body.mode === 'attio')) modeSeen = { mode: res.body.mode, at: Date.now() };
   else if (modeSeen.mode) modeSeen.at = Date.now() - 45000; // keep the last answer, and ask again soon
-  return modeSeen.mode || 'attio';
+  return modeSeen.mode || 'crm';
 }
 export const usingCrm = async () => (await backend()) === 'crm';
 export const _resetBackend = () => { modeSeen = { mode: '', at: 0 }; }; // tests only

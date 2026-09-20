@@ -8,6 +8,9 @@
   at the config check, which sits immediately after the auth gate — so "not 403" is proof the run got
   through, and 403 is proof it did not.
 
+  The site now runs on the CRM by default, where this job stands down; the gate is pinned here on the Attio path
+  (CRM_BACKEND=attio, the emergency switch-back), which is the only place it still does work.
+
   Run:  node --test test/access-sync-auth.test.mjs
 */
 import test from 'node:test';
@@ -15,6 +18,7 @@ import assert from 'node:assert/strict';
 
 delete process.env.AIRTABLE_TOKEN;
 delete process.env.PORTAL_SYNC_KEY;
+process.env.CRM_BACKEND = 'attio';
 const { handler } = await import('../netlify/functions/access-sync.mjs');
 
 const scheduledEvent = () => ({
@@ -59,4 +63,12 @@ test('next_run cannot be forged past the key check by an outside caller alone', 
   // endpoint only reconciles Attio and Airtable with each other, it takes no caller input.
   const res = await handler(scheduledEvent());
   assert.notEqual(res.statusCode, 403);
+});
+
+test('on the CRM (the default) a scheduled run stands down without touching Airtable', async () => {
+  delete process.env.CRM_BACKEND;
+  const res = await handler(scheduledEvent());
+  assert.equal(res.statusCode, 200);
+  assert.match(res.body, /held by the CRM/);
+  process.env.CRM_BACKEND = 'attio';
 });
