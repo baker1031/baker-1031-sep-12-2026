@@ -185,6 +185,11 @@ def _meta_desc(r, types, locs):
 # map has not seen must not take the build down — it renders with the default pill and the build says so.
 STATUS_CLS = { 'Available':'', 'Limited Availability':'status--limited', 'Pending Approval':'status--soon',
                'Under Review':'status--soon', 'Closed':'status--sold', 'Rejected':'status--rejected' }
+# How the page words a status. A closed deal says so plainly; /assets/js/live-status.js uses the same wording when a
+# deal closes between builds.
+STATUS_LABEL = { 'Closed': 'Closed \u2014 no longer available' }
+def status_label(status):
+    return STATUS_LABEL.get(status, status)
 _unknown_status = set()
 def status_cls(status):
     if status not in STATUS_CLS: _unknown_status.add(status)
@@ -496,7 +501,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     <div class="wrap wrap--head">
       <ol class="crumbs" aria-label="Breadcrumb">
         <li><a href="/">Home</a></li>
-        <li><a href="/invest/">''' + ('Available Investments' if O['status'] in ('Available', 'Limited Availability') else 'Investments') + r'''</a></li>
+        <li><a href="/invest/" data-opp-crumb="''' + O['slug'] + r'''">''' + ('Available Investments' if O['status'] in ('Available', 'Limited Availability') else 'Investments') + r'''</a></li>
         <li aria-current="page">''' + O['name'] + r'''</li>
       </ol>
       <div class="title">
@@ -620,7 +625,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
             </div>
             <dl class="kv">
               <div><dt>Investment Sponsor</dt><dd>''' + O['sponsor'] + r'''</dd></div>
-              <div><dt>Availability Status</dt><dd><span class="status ''' + status_cls(O['status']) + r'''">''' + O['status'] + r'''</span></dd></div>
+              <div data-opp-slug="''' + O['slug'] + r'''" data-opp-status="''' + _html.escape(O['status'], quote=True) + r'''"><dt>Availability Status</dt><dd><span class="status ''' + status_cls(O['status']) + r'''" data-opp-label="full">''' + status_label(O['status']) + r'''</span></dd></div>
               <div><dt>Registration</dt><dd>''' + O['registration'] + r'''</dd></div>
               <div><dt>721 Exchange</dt><dd>''' + EXIT[O['exit721']] + r'''</dd></div>
               <div><dt>Property Type</dt><dd>''' + O['propertyTypes'] + r'''</dd></div>
@@ -661,6 +666,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 
     })();
     </script>
+    <script defer src="/assets/js/live-status.js"></script>
 
     </body>
     </html>

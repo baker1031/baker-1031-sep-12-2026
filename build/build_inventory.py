@@ -562,10 +562,13 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
   };
   // Availability Status is a single-select in Airtable and Jerry can add a choice at any time, so every
   // lookup here falls back rather than throwing — an unstyled status must not blank out the whole list.
-  var STATUS_CLS = { 'Available':'', 'Limited Availability':'card__status--limited', 'Pending Approval':'card__status--soon', 'Under Review':'card__status--soon', 'Closed':'card__status--sold', 'Rejected':'card__status--rejected' };
+  // "No longer available" never comes from the build: /assets/js/live-status.js sets it on a deal that has left the
+  // Opportunities feed since this page was built (see the b1031:live-status listener below).
+  var GONE = 'No longer available';
+  var STATUS_CLS = { 'Available':'', 'Limited Availability':'card__status--limited', 'Pending Approval':'card__status--soon', 'Under Review':'card__status--soon', 'Closed':'card__status--sold', 'Rejected':'card__status--rejected', 'No longer available':'card__status--sold' };
   function statusCls(s){ return STATUS_CLS[s] || ''; }
   var OPEN = ['Available','Limited Availability'];
-  var MUTED = ['Closed','Rejected'];
+  var MUTED = ['Closed','Rejected',GONE];
 
   var grid = document.getElementById('grid'), count = document.getElementById('count'), tbody = document.getElementById('tbody');
   var sort = document.getElementById('sort');
@@ -579,7 +582,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     rejected:    'The investment didn’t meet our standards. I passed.'
   };
   var order = { highly:0, approved:1, specialized:2, rejected:3 };
-  var STATUS_ORDER = ['Available','Limited Availability','Under Review','Pending Approval','Closed','Rejected'];
+  var STATUS_ORDER = ['Available','Limited Availability','Under Review','Pending Approval','Closed','Rejected',GONE];
   // Any status in the data that STATUS_ORDER does not know about is appended, so it still sorts and still
   // appears as a filter option instead of silently hiding the offerings that carry it.
   OFFERINGS.forEach(function(o){ if(o.status && STATUS_ORDER.indexOf(o.status) === -1) STATUS_ORDER.push(o.status); });
@@ -735,11 +738,14 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     return '<span class="tip" tabindex="0"><span class="badge ' + r.cls + '"><span class="badge__emoji" aria-hidden="true">' + r.emoji + '</span>' + r.label + '</span>' +
       '<span class="tip__box" role="tooltip"><strong>' + r.emoji + ' ' + r.label + '</strong>' + esc(RATING_TEXT[o.rating]) + '<small>My assessment, not a guarantee of performance or the return of your principal.</small></span></span>';
   }
-  var STATUS_SHORT = { 'Limited Availability':'Limited', 'Pending Approval':'Pending', 'Under Review':'Review' };
-  function statusPill(o){ return '<span class="status ' + statusCls(o.status).replace('card__status','status') + '" title="' + esc(o.status) + '">' + esc(STATUS_SHORT[o.status] || o.status) + '</span>'; }
+  var STATUS_SHORT = { 'Limited Availability':'Limited', 'Pending Approval':'Pending', 'Under Review':'Review', 'No longer available':'Unavailable' };
+  var STATUS_TITLE = { 'Closed':'Closed \u2014 no longer available' };
+  // data-opp-* marks each offering for /assets/js/live-status.js, which corrects the status between builds.
+  function oppAttrs(o, mutedClass){ return ' data-opp-slug="' + esc(o.slug) + '" data-opp-status="' + esc(o.status) + '" data-opp-muted-class="' + mutedClass + '"'; }
+  function statusPill(o){ return '<span class="status ' + statusCls(o.status).replace('card__status','status') + '" data-opp-label="short" title="' + esc(STATUS_TITLE[o.status] || o.status) + '">' + esc(STATUS_SHORT[o.status] || o.status) + '</span>'; }
   function card(o){
     var sold = MUTED.indexOf(o.status) > -1;
-    return '<div class="card' + (sold ? ' card--sold' : '') + '">' +
+    return '<div class="card' + (sold ? ' card--sold' : '') + '"' + oppAttrs(o, 'card--sold') + '>' +
       '<a class="card__media" href="/offerings/' + o.slug + '/" aria-label="' + esc(o.name) + '"><img src="' + o.img + '" alt="" loading="lazy"></a>' +
       '<span class="card__rating">' + badge(o) + '</span>' +
       '<div class="card__body">' +
@@ -785,7 +791,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     }, 380 + 8 * 18);
   }
   function row(o){
-    return '<tr data-id="' + o.slug + '"' + (MUTED.indexOf(o.status) > -1 ? ' class="is-sold"' : '') + '>' +
+    return '<tr data-id="' + o.slug + '"' + (MUTED.indexOf(o.status) > -1 ? ' class="is-sold"' : '') + oppAttrs(o, 'is-sold') + '>' +
       '<td><div style="display:flex;align-items:center;gap:12px"><img class="table__thumb" src="' + o.img + '" alt="" loading="lazy"><div><a class="table__name" href="/offerings/' + o.slug + '/">' + esc(o.name) + '</a></div></div></td>' +
       '<td>' + esc(o.typeLabel) + '</td>' +
       '<td>' + esc(loc(o)) + '</td>' +
@@ -893,8 +899,28 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     }
   } catch(e){}
   apply();
+
+  // Live status between builds (/assets/js/live-status.js): take the feed's current status for every offering, and
+  // treat one that has left the feed as no longer available, then re-render — so the usual rules apply: open deals
+  // first in the recommended order, closed and unavailable ones dimmed, and the Status filter counts the live values.
+  document.addEventListener('b1031:live-status', function(e){
+    var live = e.detail && e.detail.bySlug; if(!live) return;
+    var changed = false;
+    OFFERINGS.forEach(function(o){
+      var s = live[o.slug] ? (live[o.slug].status || 'Available') : GONE;
+      if(s !== o.status){ o.status = s; changed = true; }
+      if(s && STATUS_ORDER.indexOf(s) === -1) STATUS_ORDER.push(s);
+    });
+    if(!changed) return;
+    statusCounts = countBy(function(o){ return o.status; });
+    FILTERS.forEach(function(def){
+      if(def.key === 'status') def.options = STATUS_ORDER.filter(function(k){ return statusCounts[k]; }).map(function(k){ return { value:k, label:k, count:statusCounts[k] }; });
+    });
+    apply();
+  });
 })();
 </script>
+<script defer src="/assets/js/live-status.js"></script>
 
 </body>
 </html>
