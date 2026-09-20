@@ -13,7 +13,10 @@
     track       {kind, ...}  -> reports a page view (with time on page) or a document download to the CRM.
                                 kind: view {pv, slug, title, path} | view_end {pv, seconds} | download {href, name, slug, offering}
 
-  Env: AIRTABLE_TOKEN (data.records:read + write on Investor Access),
+  On the CRM (the default, lib/crm.mjs) every route is answered by the CRM (viaCrm below) and Airtable and Attio are
+  never read. The Airtable routes that follow viaCrm run only with CRM_BACKEND=attio.
+
+  Env: AIRTABLE_TOKEN (Attio path only: data.records:read + write on Investor Access),
        ACCESS_BASE_ID, ACCESS_TABLE_ID, SESSION_SECRET (long random string),
        SESSION_DAYS (default 30), SCHEDULE_CALL_URL.
   The session is a signed HttpOnly cookie; the browser never sees the Airtable token.

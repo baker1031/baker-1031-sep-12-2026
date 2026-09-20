@@ -17,7 +17,8 @@ const at = `http://127.0.0.1:${server.address().port}`;
 Object.assign(process.env, { CRM_SHARED_KEY: KEY, CRM_SITE_URL: at + '/api/site', CRM_EVENTS_URL: at + '/api/events', SESSION_SECRET: 'unit-test-session-secret', RESEND_API_KEY: 're_unit' });
 delete process.env.ATTIO_API_KEY; delete process.env.AIRTABLE_TOKEN; delete process.env.CRM_BACKEND;
 const realFetch = globalThis.fetch;
-globalThis.fetch = async (u, init) => (String(u).startsWith('https://api.resend.com/') ? (mail.push(JSON.parse(init.body)), new Response('{"id":"x"}', { status: 200 })) : realFetch(u, init));
+const airtable = [];
+globalThis.fetch = async (u, init) => (/api\.airtable\.com|api\.attio\.com/.test(String(u)) ? (airtable.push(String(u)), new Response('{}', { status: 599 })) : String(u).startsWith('https://api.resend.com/') ? (mail.push(JSON.parse(init.body)), new Response('{"id":"x"}', { status: 200 })) : realFetch(u, init));
 
 const crm = await import('../netlify/functions/lib/crm.mjs');
 const ev = (body, extra = {}) => ({ httpMethod: 'POST', headers: {}, queryStringParameters: {}, body: JSON.stringify(body), ...extra });
@@ -60,6 +61,7 @@ test('a registration goes to the CRM with the visitor IP; the receipt is sent he
 });
 
 test('the portal door reads the CRM', async () => {
+  Object.assign(process.env, { AIRTABLE_TOKEN: 'at-unit', ATTIO_API_KEY: 'attio-unit' }); // present, and still never used on the CRM
   const { handler } = await import('../netlify/functions/auth.mjs');
   reply.login = { status: 'call_needed' }; assert.equal(JSON.parse((await handler(ev({ action: 'login', email: 'a@example.org' }))).body).status, 'call_needed');
   reply.login = { status: 'not_found' }; assert.equal(JSON.parse((await handler(ev({ action: 'login', email: 'a@example.org' }))).body).status, 'not_found');
@@ -108,9 +110,13 @@ test('the old jobs stand down instead of double-sending or erroring', async () =
 });
 
 test('/api/crm-export: key required, read only', async () => {
+  delete process.env.AIRTABLE_TOKEN; delete process.env.ATTIO_API_KEY;
   const { handler } = await import('../netlify/functions/crm-export.mjs');
   assert.equal((await handler({ httpMethod: 'GET', headers: {} })).statusCode, 405); assert.equal((await handler(ev({ kind: 'people' }))).statusCode, 401);
   assert.equal((await handler(ev({ kind: 'people' }, { headers: { authorization: 'Bearer ' + KEY } }))).statusCode, 503, 'no Attio key in this test');
   assert.equal((await handler(ev({ kind: 'investors' }, { headers: { authorization: 'Bearer ' + KEY } }))).statusCode, 503);
+});
+test('on the CRM, login, update links, one-click links, bookings and opt-outs never read Airtable or Attio', () => {
+  assert.deepEqual(airtable, []);
 });
 test.after(() => server.close());

@@ -9,6 +9,9 @@
   into the portal. Any failure lands on /login/ where the person can sign in
   the usual way — never an error page.
 
+  On the CRM (the default) the CRM checks access for both link kinds; the Airtable read at the end runs only
+  with CRM_BACKEND=attio.
+
   No personal data travels in the URL: rid is an opaque Airtable record id.
   Env: AIRTABLE_TOKEN, SESSION_SECRET (+ optional ACCESS_BASE_ID, ACCESS_TABLE_ID,
        SESSION_DAYS).
