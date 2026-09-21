@@ -552,6 +552,15 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     .nav__links a .nav__hand{ font-size:22px; }
     .nav__links a:last-child{ border-bottom:0; }
     .nav__logo img{ height:26px; }
+    /* Log In, the CTA and the menu button are all fixed-size and all have to stay on screen,
+       so the action cluster must never shrink -- it was being squeezed below its own content,
+       which pushed the menu button clean off the right edge at every phone width and left the
+       nav unopenable (and gave the page a horizontal scroll). The logo is the elastic thing in
+       this row instead: max-height plus max-width lets it scale down in proportion rather than
+       distort when the row runs out of space. */
+    .nav__actions{ flex:0 0 auto; }
+    .nav__logo{ flex:0 1 auto; min-width:0; }
+    .nav__logo img{ height:auto; max-height:26px; max-width:100%; }
     /* The greeting is the only elastic thing in this row, so it is the thing that gives.
        Without min-width:0 a flex item refuses to shrink below its content and pushes
        "Log Out" and the menu button off the right edge -- at 320px always, and at 390px

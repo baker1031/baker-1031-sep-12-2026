@@ -440,6 +440,11 @@ def render(O):
          padding so unlocking shifts nothing. */
       :root{ --pulse-dur:1400ms; --pulse-min:.58; --sk:#E3E6EA; }
       @keyframes t-skel-pulse{ 0%,100%{ opacity:1; } 50%{ opacity:var(--pulse-min); } }
+      /* white-space:nowrap makes the hidden title's min-content width the whole title, and a flex
+         item will not shrink below that -- which widened the header past the viewport and gave every
+         locked offering page a horizontal scroll on a phone. min-width:0 on the title column removes
+         that floor; the mask itself is already clipped. */
+      .title > div{ min-width:0; }
       html:not(.is-logged-in) .tmask{ display:block; overflow:hidden; white-space:nowrap; text-indent:110%;
         background:var(--sk); border-radius:6px; animation:t-skel-pulse var(--pulse-dur) ease-in-out infinite; }
       html:not(.is-logged-in) .title h1 .tmask{ height:.60em; width:min(660px, 74%); margin:.20em 0 .18em; }
