@@ -74,11 +74,11 @@ export function noticeKind(lead) {
 const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 const INK = '#000000';
 const GREY = '#666666';
-const GREEN = '#243856';
+const NAVY = '#243856';
 
 const P = `style="font-family:${FONT};font-size:15px;line-height:24px;color:${INK};margin:0 0 16px;"`;
-const BTN = `style="display:inline-block;background:${GREEN};color:#ffffff;font-family:${FONT};font-size:15px;font-weight:bold;text-decoration:none;padding:13px 26px;border-radius:6px;"`;
-const A = `style="color:${GREEN};text-decoration:underline;"`;
+const BTN = `style="display:inline-block;background:${NAVY};color:#ffffff;font-family:${FONT};font-size:15px;font-weight:bold;text-decoration:none;padding:13px 26px;border-radius:6px;"`;
+const A = `style="color:${NAVY};text-decoration:underline;"`;
 
 const SITE_BASE = (process.env.URL || 'https://baker1031.com').replace(/\/$/, '');
 
@@ -89,7 +89,7 @@ const SITE_BASE = (process.env.URL || 'https://baker1031.com').replace(/\/$/, ''
    the branding. */
 const SIG = `<div style="font-family:${FONT};font-size:15px;line-height:26px;color:${INK}">
 <div style="color:#999999">--</div>
-<div style="font-weight:bold;color:${GREEN}">Jerry Baker</div>
+<div style="font-weight:bold;color:${NAVY}">Jerry Baker</div>
 <div>Founder, Baker 1031</div>
 <div><a href="tel:+14159650552" style="color:${INK};text-decoration:none">415.965.0552</a></div>
 <div style="height:26px;line-height:26px;font-size:0">&nbsp;</div>
@@ -98,12 +98,12 @@ const SIG = `<div style="font-family:${FONT};font-size:15px;line-height:26px;col
 <div style="color:#8A8A8A">Please note that this email is subject to the regulatory review and retention policies of Baker 1031 Investments, LLC and Aurora Securities, Inc. Neither this email nor any attachments constitute an offer to sell or a solicitation of an offer to purchase securities. Any such offer shall be made solely pursuant to the applicable PPM or Prospectus. Any information contained in this email or its attachments may contain errors; please review the PPM for correct information prior to investing. Delaware Statutory Trust (DST) investments are illiquid and involve a high degree of risk. Investment offerings may sell out quickly; even if an investment is shown as available, the only way to ensure participation is through a closed transaction. The investment sponsor is responsible for the closing process and final availability, not Jerry Baker or Baker 1031 Investments. Information provided is for educational purposes and should not be relied upon for investment, tax, or legal decisions. Past performance and forward-looking statements are never an assurance of future results.</div>
 </div>`;
 
-/* The wordmark at the top is the site's own logo asset at its true 1684x224 aspect ratio; the rule
+/* The wordmark at the top is the site's own logo asset at its true 1574x448 aspect ratio; the rule
    under it is the display green. The signature already closes the message, so nothing follows it. */
 const wrap = (inner) => `<!doctype html><html><body style="margin:0;padding:0;background:#FFFFFF;">
 <div style="max-width:620px;margin:0;padding:28px 20px;">
   <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;margin:0 0 26px 0"><tbody>
-  <tr><td style="padding:0 0 14px 0"><a href="${SITE_BASE}/" rel="noopener noreferrer" target="_blank" style="text-decoration:none;border:0"><img src="${SITE_BASE}/assets/media/logo.png" alt="Baker 1031 Investments" width="180" height="24" style="display:block;width:180px;height:24px;border:0;outline:none;text-decoration:none"></a></td></tr>
+  <tr><td style="padding:0 0 14px 0"><a href="${SITE_BASE}/" rel="noopener noreferrer" target="_blank" style="text-decoration:none;border:0"><img src="${SITE_BASE}/assets/media/logo.png" alt="Baker 1031 Investments" width="180" height="51" style="display:block;width:180px;height:51px;border:0;outline:none;text-decoration:none"></a></td></tr>
   <tr><td style="padding:0;border-top:2px solid #243856;font-size:0;line-height:0">&nbsp;</td></tr>
   </tbody></table>
 ${inner}
@@ -208,7 +208,7 @@ const fmtDate = (iso) => {
   return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 };
 
-const LINKBTN = `style="color:${GREEN};text-decoration:underline;font-family:${FONT};font-size:15px;"`;
+const LINKBTN = `style="color:${NAVY};text-decoration:underline;font-family:${FONT};font-size:15px;"`;
 
 const optOutLine = (optOutLink) => optOutLink
   ? `<p style="font-family:${FONT};font-size:12px;line-height:18px;color:#767676;margin:26px 0 22px;">You're receiving these reminders because you have a 1031 exchange on file with me. <a href="${optOutLink}" style="color:#767676;text-decoration:underline;">Stop these reminders</a> - your portal access and everything else is unaffected.</p>`
