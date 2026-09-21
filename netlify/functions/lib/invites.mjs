@@ -68,13 +68,13 @@ export function noticeKind(lead) {
 /* ---- house style -------------------------------------------------------------------------------
    The site's palette and type, translated into the inline CSS email clients accept. Brand font is
    Special Gothic on the web; no email client will load a webfont reliably, so this uses the same
-   fallback stack the site declares after it. Green #00805A is the AA-safe text/button green from
-   :root; #00A071 is the display green and is only ever used as a background or rule.
+   fallback stack the site declares after it. Green #243856 is the AA-safe text/button green from
+   :root; #243856 is the display green and is only ever used as a background or rule.
    -------------------------------------------------------------------------------------------- */
 const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 const INK = '#000000';
 const GREY = '#666666';
-const GREEN = '#00805A';
+const GREEN = '#243856';
 
 const P = `style="font-family:${FONT};font-size:15px;line-height:24px;color:${INK};margin:0 0 16px;"`;
 const BTN = `style="display:inline-block;background:${GREEN};color:#ffffff;font-family:${FONT};font-size:15px;font-weight:bold;text-decoration:none;padding:13px 26px;border-radius:6px;"`;
@@ -104,7 +104,7 @@ const wrap = (inner) => `<!doctype html><html><body style="margin:0;padding:0;ba
 <div style="max-width:620px;margin:0;padding:28px 20px;">
   <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;margin:0 0 26px 0"><tbody>
   <tr><td style="padding:0 0 14px 0"><a href="${SITE_BASE}/" rel="noopener noreferrer" target="_blank" style="text-decoration:none;border:0"><img src="${SITE_BASE}/assets/media/logo.png" alt="Baker 1031 Investments" width="180" height="24" style="display:block;width:180px;height:24px;border:0;outline:none;text-decoration:none"></a></td></tr>
-  <tr><td style="padding:0;border-top:2px solid #00A071;font-size:0;line-height:0">&nbsp;</td></tr>
+  <tr><td style="padding:0;border-top:2px solid #243856;font-size:0;line-height:0">&nbsp;</td></tr>
   </tbody></table>
 ${inner}
   ${SIG}

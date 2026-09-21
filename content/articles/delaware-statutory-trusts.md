@@ -64,7 +64,7 @@ First-order thinking sees passive ownership and a way to meet a 1031 timeline. S
 <section class="about-section" id="numbers">
 <div class="kicker">By the Numbers</div>
 <h2 class="optima">Sector yields at a glance</h2>
-<p style="color:#00805A;font-weight:700;margin:12px 0 4px;">Average current distribution by DST sector</p>
+<p style="color:#243856;font-weight:700;margin:12px 0 4px;">Average current distribution by DST sector</p>
 <p class="scenario-note">Going-in yield &middot; current offerings &middot; Source: Baker 1031 Master Listings (sponsor-projected)</p>
 <svg viewBox="0 0 560 200" style="width:100%;max-width:680px;display:block;" role="img" aria-label="Bar chart of average going-in yields by DST sector">
 <g stroke="#FCF7F0" stroke-width="1">
@@ -74,7 +74,7 @@ First-order thinking sees passive ownership and a way to meet a 1031 timeline. S
 <g fill="rgba(0,0,0,.45)" font-size="10" text-anchor="end">
 <text x="40" y="23">8%</text><text x="40" y="56.75">6%</text><text x="40" y="90.5">4%</text><text x="40" y="124.25">2%</text><text x="40" y="158">0%</text>
 </g>
-<g fill="#00805A">
+<g fill="#243856">
 <rect x="60" y="20.3" width="52" height="134.7"><title>Marina — 7.98%</title></rect>
 <rect x="141" y="46.8" width="52" height="108.2"><title>Healthcare — 6.41%</title></rect>
 <rect x="222" y="67.5" width="52" height="87.5"><title>Net Lease — 5.18%</title></rect>

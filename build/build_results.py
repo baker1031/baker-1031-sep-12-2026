@@ -35,9 +35,9 @@ page = r'''<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Special+Gothic&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <style>
 /* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
-:root{ --page:#FFFFFF; --accent-2:#00A071; --rose:#00A071;
+:root{ --page:#FFFFFF; --accent-2:#243856; --rose:#243856;
     --black:#000; --white:#fff;
-    --accent:#00A071; --accent-hover:#008F63; --accent-soft:#FCF7F0;
+    --accent:#243856; --accent-hover:#1B2B42; --accent-soft:#FCF7F0;
     --grey:#000000; --grey-light:rgba(0,0,0,.6); --hair:#D5D2CD; --hair-strong:#D5D2CD;
     --radius:6px;
     --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -77,7 +77,7 @@ page = r'''<!DOCTYPE html>
   .bar h2{ margin:0; font-size:22px; font-weight:700; letter-spacing:-.015em; line-height:1.2; }
   .bar__count{ margin-left:10px; font-size:14px; font-weight:400; color:var(--grey); letter-spacing:0; }
   .bar__count strong{ color:var(--black); font-weight:600; }
-  .star{ color:#00A071; font-size:15px; margin-left:6px; vertical-align:-1px; }
+  .star{ color:#243856; font-size:15px; margin-left:6px; vertical-align:-1px; }
   .legend{ margin:12px 0 0; font-size:12.5px; line-height:1.55; color:var(--grey-light); max-width:820px; }
   .legend .star{ margin:0 4px 0 0; }
   .bar__hint{ margin:0; font-size:13px; color:var(--grey-light); }
@@ -91,7 +91,7 @@ page = r'''<!DOCTYPE html>
   .tools select{ flex:0 1 auto; max-width:100%; padding-right:32px; -webkit-appearance:none; appearance:none;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%234B5563' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat:no-repeat; background-position:right 12px center; }
-  .tools input:focus, .tools select:focus{ outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(0,160,113,.18); }
+  .tools input:focus, .tools select:focus{ outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(36,56,86,.18); }
   .tools__clear{ font:inherit; font-size:13.5px; font-weight:600; color:var(--accent); background:none; border:0; padding:8px 4px; cursor:pointer; }
   .tools__clear:hover{ color:var(--accent-hover); text-decoration:underline; }
   .tools__clear[hidden]{ display:none; }

@@ -27,8 +27,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#00A071">
-<script defer src="/assets/js/favicon.js"></script>
+<meta name="theme-color" content="#243856">
 <script defer src="/assets/js/analytics.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://baker1031.com/register/#webpage", "url": "https://baker1031.com/register/", "name": "Get Started", "description": "Register with Baker 1031 Investments and schedule an introductory call.", "isPartOf": {"@id": "https://baker1031.com/#website"}, "about": {"@id": "https://baker1031.com/#org"}, "inLanguage": "en-US"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://baker1031.com/"}, {"@type": "ListItem", "position": 2, "name": "Get Started"}]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,15 +35,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Special+Gothic&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <style>
 /* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
-:root{ --page:#FFFFFF; --accent-2:#00A071; --rose:#00A071;
+:root{ --page:#FFFFFF; --accent-2:#243856; --rose:#243856;
     --black:#000000;
     --white:#fff;
-    --accent:#00A071;
-    --btn:#00805A; --btn-hover:#006847;
-  /* Text-safe green: brand #00A071 is 3.35:1 on white, under the 4.5:1 AA minimum for
-     normal-size text. #00805A is 4.96:1. Backgrounds and borders keep --accent. */
-  --accent-text:#00805A;
-    --accent-hover:#008F63;
+    --accent:#243856;
+    --btn:#243856; --btn-hover:#162335;
+  /* Text-safe green: brand #243856 is 3.35:1 on white, under the 4.5:1 AA minimum for
+     normal-size text. #243856 is 4.96:1. Backgrounds and borders keep --accent. */
+  --accent-text:#243856;
+    --accent-hover:#1B2B42;
     --accent-soft:#FCF7F0;
     --grey:#000000;
     --grey-light:rgba(0,0,0,.6);
@@ -348,7 +347,7 @@
     transition:border-color .15s ease, background .15s ease, box-shadow .15s ease;
   }
   .choice:hover{ border-color:var(--accent); background:var(--accent-soft); }
-  .choice:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(0,160,113,.25); border-color:var(--accent); }
+  .choice:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(36,56,86,.25); border-color:var(--accent); }
   .choice[aria-checked="true"]{ border-color:var(--accent); background:var(--accent-soft); box-shadow:inset 0 0 0 1px var(--accent); }
   .choice__key{
     flex:0 0 auto;
@@ -398,7 +397,7 @@
   .ack__box svg{ width:14px; height:14px; opacity:0; transform:scale(.6); transition:opacity .15s ease, transform .15s ease; }
   .ack input:checked ~ .ack__box{ background:var(--accent); border-color:var(--accent); }
   .ack input:checked ~ .ack__box svg{ opacity:1; transform:none; }
-  .ack input:focus-visible ~ .ack__box{ box-shadow:0 0 0 3px rgba(0,160,113,.25); }
+  .ack input:focus-visible ~ .ack__box{ box-shadow:0 0 0 3px rgba(36,56,86,.25); }
   .ack input:checked ~ .ack__text{ color:var(--black); }
   .ack__text{ font-size:15px; line-height:1.5; color:var(--grey); }
   .ack__text a{ color:var(--accent-text); text-decoration:underline; text-underline-offset:3px; }
@@ -671,7 +670,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 <header class="nav">
   <div class="nav__inner">
     <a class="nav__logo" href="/" aria-label="Baker 1031 — home">
-      <img src="/assets/media/logo.png" alt="Baker 1031" width="1684" height="224">
+      <img src="/assets/media/logo.png" alt="Baker 1031" width="1574" height="448">
     </a>
     <div class="nav__right">
       <span>Already working with Jerry?</span>
@@ -1110,7 +1109,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__brand">
-      <a href="/" class="footer__home" aria-label="Baker 1031 Investments — home"><img src="/assets/media/logo.png" alt="Baker 1031" width="1684" height="224"></a>
+      <a href="/" class="footer__home" aria-label="Baker 1031 Investments — home"><img src="/assets/media/logo.png" alt="Baker 1031" width="1574" height="448"></a>
       <p class="footer__blurb">Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.</p>
       <p><a href="mailto:invest@baker1031.com">invest@baker1031.com</a></p>
     </div>
@@ -2045,7 +2044,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       config: calPrefill(),
       calLink: "jerry-baker-yn6qn1/25min",
     });
-    Cal.ns["25min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#00A071"}},"hideEventTypeDetails":false,"layout":"month_view"});
+    Cal.ns["25min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#243856"}},"hideEventTypeDetails":false,"layout":"month_view"});
     // Cal.com tells the page when a booking is made; record it and show a confirmation above the calendar.
     var onBooked = function(e){
       var d = (e && e.detail && e.detail.data) || {};

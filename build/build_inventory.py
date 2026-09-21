@@ -84,10 +84,10 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
 <link href="https://fonts.googleapis.com/css2?family=Special+Gothic&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <style>
 /* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
-:root{ --page:#FFFFFF; --accent-2:#00A071; --rose:#00A071;
+:root{ --page:#FFFFFF; --accent-2:#243856; --rose:#243856;
     --black:#000; --white:#fff;
-    --accent:#00A071;
-    --btn:#00805A; --btn-hover:#006847; --accent-text:#00805A; --accent-hover:#008F63; --accent-soft:#FCF7F0;
+    --accent:#243856;
+    --btn:#243856; --btn-hover:#162335; --accent-text:#243856; --accent-hover:#1B2B42; --accent-soft:#FCF7F0;
     --grey:#000000; --grey-light:rgba(0,0,0,.6); --hair:#D5D2CD; --hair-strong:#D5D2CD;
     --radius:6px;
     --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -146,7 +146,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     padding:9px 34px 9px 12px; background:var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%234B5563' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center / 14px;
     border:1px solid var(--hair-strong); border-radius:var(--radius); outline:none; cursor:pointer;
   }
-  .select:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(0,160,113,.18); }
+  .select:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(36,56,86,.18); }
   .chipwrap{ position:relative; flex:0 0 auto; }
   .chipwrap.is-hidden{ display:none; }
   .chip{
@@ -184,7 +184,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .check__box svg{ width:11px; height:11px; opacity:0; }
   .check input:checked ~ .check__box{ background:var(--accent); border-color:var(--accent); }
   .check input:checked ~ .check__box svg{ opacity:1; }
-  .check input:focus-visible ~ .check__box{ box-shadow:0 0 0 3px rgba(0,160,113,.25); }
+  .check input:focus-visible ~ .check__box{ box-shadow:0 0 0 3px rgba(36,56,86,.25); }
   .check input:checked ~ .check__text{ color:var(--black); }
   .check__count{ margin-left:auto; font-size:12px; color:rgba(0,0,0,.55); }
   .pop__range{ padding:14px 16px 8px; }
@@ -267,7 +267,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     display:inline-flex; align-items:center; gap:7px;
     font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--grey);
   }
-  .status::before{ content:""; width:7px; height:7px; border-radius:50%; background:#00A071; flex:0 0 auto; }
+  .status::before{ content:""; width:7px; height:7px; border-radius:50%; background:#243856; flex:0 0 auto; }
   .status--limited::before{ background:#F59E0B; }
   .status--closing::before{ background:#EF4444; }
   .status--soon::before{ background:var(--accent); }
@@ -378,7 +378,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .gate__list li{ display:flex; align-items:center; gap:8px; font-size:14px; color:var(--grey); }
   .gate__list li::before{ content:""; width:5px; height:5px; border-radius:50%; background:var(--accent); flex:none; }
   .gate__alt{ font-size:14px; color:var(--grey-light); }
-  .gate__alt a{ color:var(--accent-text); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(0,128,90,.35); }
+  .gate__alt a{ color:var(--accent-text); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(36,56,86,.35); }
   .gate__alt a:hover{ border-bottom-color:var(--accent); }
   /* locked state: the grid is inert and softly blurred, fading out toward the bottom; controls stay visible but can't be used */
   html:not(.is-logged-in) .lockwrap > .grid{

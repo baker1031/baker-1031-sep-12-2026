@@ -256,10 +256,10 @@ def render(O):
     <link href="https://fonts.googleapis.com/css2?family=Special+Gothic&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
     <style>
 /* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
-:root{ --page:#FFFFFF; --accent-2:#00A071; --rose:#00A071;
+:root{ --page:#FFFFFF; --accent-2:#243856; --rose:#243856;
         --black:#000; --white:#fff;
-        --accent:#00A071; --accent-hover:#008F63; --accent-soft:#FCF7F0;
-        --accent-text:#00805A; --btn:#00805A; --btn-hover:#006847;
+        --accent:#243856; --accent-hover:#1B2B42; --accent-soft:#FCF7F0;
+        --accent-text:#243856; --btn:#243856; --btn-hover:#162335;
         --grey:#000000; --grey-light:rgba(0,0,0,.6); --hair:#D5D2CD; --hair-strong:#D5D2CD;
         --radius:6px;
         --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -306,7 +306,7 @@ def render(O):
       .title{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px; padding:22px 0 8px; flex-wrap:wrap; }
       .title__eyebrow{ margin:0 0 8px; font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--grey-light); display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
       .status{ display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--grey); }
-      .status::before{ content:""; width:7px; height:7px; border-radius:50%; background:#00A071; }
+      .status::before{ content:""; width:7px; height:7px; border-radius:50%; background:#243856; }
       .status--limited::before{ background:#F59E0B; } .status--closing::before{ background:#EF4444; } .status--soon::before{ background:var(--accent); } .status--sold::before{ background:rgba(0,0,0,.55); }
       .title h1{ margin:0; font-size:clamp(28px,3vw,40px); font-weight:700; line-height:1.1; letter-spacing:-.02em; }
       .title__sub{ margin:8px 0 0; font-size:14px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--grey-light); }
@@ -324,7 +324,7 @@ def render(O):
       .gal__thumb{ padding:0; border:2px solid transparent; border-radius:var(--radius); overflow:hidden; background:#FCF7F0; cursor:pointer; min-height:0; }
       .gal__thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
       .gal__thumb.is-on{ border-color:var(--accent); }
-      .gal__thumb:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(0,160,113,.35); }
+      .gal__thumb:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(36,56,86,.35); }
 
       /* ---------- Key stats strip ---------- */
       .stats{ display:grid; grid-template-columns:repeat(6, minmax(0,1fr)); margin:24px 0 0; padding:0; border:1px solid var(--hair-strong); border-radius:var(--radius); overflow:hidden; }
@@ -431,7 +431,7 @@ def render(O):
       .gate__list li::before{ content:""; width:5px; height:5px; border-radius:50%; background:var(--accent); flex:none; }
       .gate__actions{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
       .gate__alt{ font-size:14px; color:var(--grey-light); }
-      .gate__alt a{ color:var(--accent-text); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(0,128,90,.35); }
+      .gate__alt a{ color:var(--accent-text); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(36,56,86,.35); }
       .gate__alt a:hover{ border-bottom-color:var(--accent); }
       .gate__note{ margin:20px 0 0; padding-top:16px; border-top:1px solid #ECEAE6; font-size:11px; line-height:1.5; color:rgba(0,0,0,.5); }
 

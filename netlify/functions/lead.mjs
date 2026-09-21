@@ -114,7 +114,7 @@ async function sendCrsReceipt(lead, ip) {
 <div style="max-width:620px;margin:0;padding:28px 20px;">
   <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;margin:0 0 26px 0"><tbody>
   <tr><td style="padding:0 0 14px 0"><img src="${base}/assets/media/logo.png" alt="Baker 1031 Investments" width="180" height="24" style="display:block;width:180px;height:24px;border:0;outline:none;text-decoration:none"></td></tr>
-  <tr><td style="padding:0;border-top:2px solid #00A071;font-size:0;line-height:0">&nbsp;</td></tr>
+  <tr><td style="padding:0;border-top:2px solid #243856;font-size:0;line-height:0">&nbsp;</td></tr>
   </tbody></table>
   <p style="font-family:${F};font-size:15px;line-height:24px;color:#000000;margin:0 0 4px;font-weight:bold;">Form CRS delivery receipt</p>
   <p style="font-family:${F};font-size:13px;line-height:20px;color:#666666;margin:0 0 18px;">The person below completed the registration form at baker1031.com and acknowledged reviewing Aurora Securities&rsquo; Form CRS as part of the final acknowledgments.</p>

@@ -19,8 +19,7 @@ ICONS = '''<link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#00A071">
-<script defer src="/assets/js/favicon.js"></script>
+<meta name="theme-color" content="#243856">
 <script defer src="/assets/js/analytics.js"></script>'''
 
 def organization():

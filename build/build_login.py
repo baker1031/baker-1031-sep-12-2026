@@ -30,7 +30,7 @@ page = r'''<!DOCTYPE html>
 /* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
 :root{
     --black:#000; --white:#fff;
-    --accent:#00A071; --accent-hover:#008F63; --accent-soft:#FCF7F0;
+    --accent:#243856; --accent-hover:#1B2B42; --accent-soft:#FCF7F0;
     --grey:#000000; --grey-light:rgba(0,0,0,.6); --hair:#D5D2CD; --hair-strong:#D5D2CD; --error:#DC2626;
     --radius:6px;
     --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -85,7 +85,7 @@ page = r'''<!DOCTYPE html>
     padding:12px 14px; outline:none; transition:border-color .2s ease, box-shadow .2s ease;
   }
   .field input::placeholder{ color:rgba(0,0,0,.45); }
-  .field input:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(0,160,113,.18); }
+  .field input:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(36,56,86,.18); }
   .field.is-invalid input{ border-color:var(--error); box-shadow:0 0 0 3px rgba(220,38,38,.12); }
   .field .btn{ width:100%; margin-top:14px; padding:13px 20px; font-size:15px; }
   .err{
