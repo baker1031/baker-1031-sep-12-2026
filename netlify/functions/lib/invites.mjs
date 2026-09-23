@@ -68,28 +68,29 @@ export function noticeKind(lead) {
 /* ---- house style -------------------------------------------------------------------------------
    The site's palette and type, translated into the inline CSS email clients accept. Brand font is
    Special Gothic on the web; no email client will load a webfont reliably, so this uses the same
-   fallback stack the site declares after it. Green #2E4183 is the AA-safe text/button green from
-   :root; #2E4183 is the display green and is only ever used as a background or rule.
+   fallback stack the site declares after it. #2E4183 is --ink-700, the site's accent: it carries
+   buttons, links, the rule under the wordmark and Jerry's name in the signature. Body copy is
+   #23232A, the same near-black the site types in, and the message sits on the site's paper.
    -------------------------------------------------------------------------------------------- */
 const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 const INK = '#23232A';
 const GREY = '#666666';
-const NAVY = '#2E4183';
+const ACCENT = '#2E4183';   // --ink-700
 
 const P = `style="font-family:${FONT};font-size:15px;line-height:24px;color:${INK};margin:0 0 16px;"`;
-const BTN = `style="display:inline-block;background:${NAVY};color:#FDFBF7;font-family:${FONT};font-size:15px;font-weight:bold;text-decoration:none;padding:13px 26px;border-radius:6px;"`;
-const A = `style="color:${NAVY};text-decoration:underline;"`;
+const BTN = `style="display:inline-block;background:${ACCENT};color:#FDFBF7;font-family:${FONT};font-size:15px;font-weight:bold;text-decoration:none;padding:13px 26px;border-radius:6px;"`;
+const A = `style="color:${ACCENT};text-decoration:underline;"`;
 
 const SITE_BASE = (process.env.URL || 'https://baker1031.com').replace(/\/$/, '');
 
 /* Jerry's current standard signature, matched to the screenshot he sent: a grey "--" rule, his name
-   bold in the brand green, "Founder, Baker 1031", the 415 office number, then both Aurora
+   bold in the accent ink, "Founder, Baker 1031", the 415 office number, then both Aurora
    paragraphs at body size -- the first in the body colour, the second in grey. No "Thank you,"
    line, no email line, no company line, no logo: the wordmark at the top of the message carries
    the branding. */
 const SIG = `<div style="font-family:${FONT};font-size:15px;line-height:26px;color:${INK}">
 <div style="color:#999999">--</div>
-<div style="font-weight:bold;color:${NAVY}">Jerry Baker</div>
+<div style="font-weight:bold;color:${ACCENT}">Jerry Baker</div>
 <div>Founder, Baker 1031</div>
 <div><a href="tel:+14159650552" style="color:${INK};text-decoration:none">415.965.0552</a></div>
 <div style="height:26px;line-height:26px;font-size:0">&nbsp;</div>
@@ -99,7 +100,7 @@ const SIG = `<div style="font-family:${FONT};font-size:15px;line-height:26px;col
 </div>`;
 
 /* The wordmark at the top is the site's own logo asset at its true 1574x448 aspect ratio; the rule
-   under it is the display green. The signature already closes the message, so nothing follows it. */
+   under it is the accent ink. The signature already closes the message, so nothing follows it. */
 const wrap = (inner) => `<!doctype html><html><body style="margin:0;padding:0;background:#FDFBF7;">
 <div style="max-width:620px;margin:0;padding:28px 20px;">
   <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;margin:0 0 26px 0"><tbody>
@@ -208,7 +209,7 @@ const fmtDate = (iso) => {
   return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 };
 
-const LINKBTN = `style="color:${NAVY};text-decoration:underline;font-family:${FONT};font-size:15px;"`;
+const LINKBTN = `style="color:${ACCENT};text-decoration:underline;font-family:${FONT};font-size:15px;"`;
 
 const optOutLine = (optOutLink) => optOutLink
   ? `<p style="font-family:${FONT};font-size:12px;line-height:18px;color:#767676;margin:26px 0 22px;">You're receiving these reminders because you have a 1031 exchange on file with me. <a href="${optOutLink}" style="color:#767676;text-decoration:underline;">Stop these reminders</a> - your portal access and everything else is unaffected.</p>`

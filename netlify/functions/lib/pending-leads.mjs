@@ -54,7 +54,7 @@ export function alertEmail(entry, { queued = true } = {}) {
 <p style="font-size:13px;line-height:20px;margin:0 0 14px;">${esc(who)} &lt;${esc(l.email)}&gt; registered at baker1031.com on ${esc(entry.queuedAt)}. ${what}
 ${entry.crsSent ? 'The Form CRS receipt was sent from the website when they registered.' : 'No Form CRS receipt has been confirmed for this registration.'}</p>
 <p style="font-size:12px;margin:0 0 6px;color:#666666;">The registration exactly as submitted (visitor IP ${esc(entry.ip || 'unavailable')}):</p>
-<pre style="font-size:12px;line-height:17px;background:#F4F5F7;padding:12px;white-space:pre-wrap;word-break:break-word;">${esc(JSON.stringify(l, null, 2))}</pre>
+<pre style="font-size:12px;line-height:17px;background:#F5F1E9;padding:12px;white-space:pre-wrap;word-break:break-word;">${esc(JSON.stringify(l, null, 2))}</pre>
 </body></html>`;
   return { subject: `Registration not in the CRM - ${who}`, html };
 }

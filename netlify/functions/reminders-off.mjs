@@ -22,11 +22,11 @@ const page = (title, body) => ({
   statusCode: 200,
   headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' },
   body: `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>${title} — Baker 1031 Investments</title></head>
-<body style="margin:0;background:#F4F5F7;font-family:'Helvetica Neue',Arial,sans-serif;">
-<div style="max-width:520px;margin:80px auto;padding:44px 40px;background:#FDFBF7;border-top:3px solid #1E2846;">
-<div style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#5F6873;margin-bottom:18px;">Baker 1031 Investments</div>
-<h1 style="font-size:24px;font-weight:400;color:#1E2846;margin:0 0 14px;">${title}</h1>
-<div style="font-size:15px;line-height:1.7;color:#37404E;">${body}</div>
+<body style="margin:0;background:#F5F1E9;font-family:'Helvetica Neue',Arial,sans-serif;">
+<div style="max-width:520px;margin:80px auto;padding:44px 40px;background:#FDFBF7;border-top:3px solid #2E4183;">
+<div style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#2E4183;margin-bottom:18px;">Baker 1031 Investments</div>
+<h1 style="font-size:24px;font-weight:400;color:#23232A;margin:0 0 14px;">${title}</h1>
+<div style="font-size:15px;line-height:1.7;color:rgba(35,35,42,.8);">${body}</div>
 </div></body></html>`,
 });
 
