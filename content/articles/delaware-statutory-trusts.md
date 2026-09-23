@@ -34,7 +34,7 @@ First-order thinking sees passive ownership and a way to meet a 1031 timeline. S
 <main>
 <a class="back-link" href="strategies.html">Back to All Strategies</a>
 
-<p style="margin-top:14px;font-size:16px;color:#000000;">Passive, fractional ownership of institutional real estate that qualifies as 1031 replacement property — professionally managed, debt pre-arranged, and accessible at lower minimums than whole assets.</p>
+<p style="margin-top:14px;font-size:16px;color:#23232A;">Passive, fractional ownership of institutional real estate that qualifies as 1031 replacement property — professionally managed, debt pre-arranged, and accessible at lower minimums than whole assets.</p>
 
 <div class="stat-band">
 <div class="stat-tile"><div class="num">2004</div><div class="lbl">IRS Rev. Rul. 2004-86</div></div>
@@ -64,17 +64,17 @@ First-order thinking sees passive ownership and a way to meet a 1031 timeline. S
 <section class="about-section" id="numbers">
 <div class="kicker">By the Numbers</div>
 <h2 class="optima">Sector yields at a glance</h2>
-<p style="color:#243856;font-weight:700;margin:12px 0 4px;">Average current distribution by DST sector</p>
+<p style="color:#2E4183;font-weight:700;margin:12px 0 4px;">Average current distribution by DST sector</p>
 <p class="scenario-note">Going-in yield &middot; current offerings &middot; Source: Baker 1031 Master Listings (sponsor-projected)</p>
 <svg viewBox="0 0 560 200" style="width:100%;max-width:680px;display:block;" role="img" aria-label="Bar chart of average going-in yields by DST sector">
-<g stroke="#FCF7F0" stroke-width="1">
+<g stroke="#F5F1E9" stroke-width="1">
 <line x1="46" y1="20" x2="545" y2="20"/><line x1="46" y1="53.75" x2="545" y2="53.75"/><line x1="46" y1="87.5" x2="545" y2="87.5"/><line x1="46" y1="121.25" x2="545" y2="121.25"/>
 </g>
-<line x1="46" y1="155" x2="545" y2="155" stroke="#D5D2CD" stroke-width="1"/>
-<g fill="rgba(0,0,0,.45)" font-size="10" text-anchor="end">
+<line x1="46" y1="155" x2="545" y2="155" stroke="#EAE4DA" stroke-width="1"/>
+<g fill="rgba(35,35,42,.45)" font-size="10" text-anchor="end">
 <text x="40" y="23">8%</text><text x="40" y="56.75">6%</text><text x="40" y="90.5">4%</text><text x="40" y="124.25">2%</text><text x="40" y="158">0%</text>
 </g>
-<g fill="#243856">
+<g fill="#2E4183">
 <rect x="60" y="20.3" width="52" height="134.7"><title>Marina — 7.98%</title></rect>
 <rect x="141" y="46.8" width="52" height="108.2"><title>Healthcare — 6.41%</title></rect>
 <rect x="222" y="67.5" width="52" height="87.5"><title>Net Lease — 5.18%</title></rect>
@@ -82,7 +82,7 @@ First-order thinking sees passive ownership and a way to meet a 1031 timeline. S
 <rect x="384" y="79.1" width="52" height="75.9"><title>Self-Storage — 4.50%</title></rect>
 <rect x="465" y="107.9" width="52" height="47.1"><title>Office — 2.79%</title></rect>
 </g>
-<g fill="rgba(0,0,0,.6)" font-size="10" text-anchor="middle">
+<g fill="rgba(35,35,42,.6)" font-size="10" text-anchor="middle">
 <text x="86" y="172">Marina</text><text x="167" y="172">Healthcare</text><text x="248" y="172">Net Lease</text><text x="329" y="172">Multifamily</text><text x="410" y="172">Self-Storage</text><text x="491" y="172">Office</text>
 </g>
 </svg>

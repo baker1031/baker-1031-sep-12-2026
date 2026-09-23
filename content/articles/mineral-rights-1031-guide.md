@@ -208,7 +208,7 @@ Producing oil, gas, and mineral interests can be exchanged tax-deferred into rea
 <p>Mineral and royalty investments carry commodity-price, depletion, valuation, and title risks, and replacement investments such as DSTs are illiquid and may lose value. Whether a given interest qualifies as like-kind real property, and the treatment of depletion and Section 1254 recapture, depend on your specific facts. Consult a qualified intermediary, a CPA, and oil-and-gas counsel before acting. The interactive tools provide general educational output, not a legal determination.</p>
 </div>
 <div class="authorbio" style="display:flex;gap:20px;align-items:flex-start;margin-top:46px;padding-top:34px;border-top:1px solid var(--hair);max-width:780px">
-<div style="width:74px;height:74px;flex:none;background:var(--ink);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'QuincyCF',serif;font-size:26px">B</div>
+<div style="width:74px;height:74px;flex:none;background:var(--ink);display:flex;align-items:center;justify-content:center;color:#FDFBF7;font-family:'QuincyCF',serif;font-size:26px">B</div>
 <div>
 <div style="font-family:'QuincyCF',serif;font-size:21px;color:var(--ink)">Baker 1031 Research</div>
 <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:4px">1031 &amp; Mineral / Royalty Desk</div>

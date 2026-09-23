@@ -98,7 +98,7 @@ shutil.copy(SP + 'icons/favicon.ico', f'{OUT}/favicon.ico')
 shutil.copy(SP + 'icons/apple-touch-icon.png', f'{OUT}/apple-touch-icon.png')
 shutil.copy(SP + 'icons/og-card.png', f'{OUT}/assets/media/og-card.png')
 open(f'{OUT}/site.webmanifest', 'w').write(json.dumps({'name': 'Baker 1031 Investments', 'short_name': 'Baker 1031', 'start_url': '/', 'display': 'browser',
-    'background_color': '#ffffff', 'theme_color': '#243856',
+    'background_color': '#FDFBF7', 'theme_color': '#2E4183',
     'icons': [{'src': '/assets/icons/favicon-192.png', 'sizes': '192x192', 'type': 'image/png'}, {'src': '/assets/icons/favicon-512.png', 'sizes': '512x512', 'type': 'image/png'}]}, indent=1))
 for f in ('favicon-32.png', 'favicon-48.png'):   # the old site's favicons, still referenced by update-my-info
     shutil.copy(f'{V2}/static/assets/{f}', f'{OUT}/assets/{f}')

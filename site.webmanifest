@@ -3,8 +3,8 @@
  "short_name": "Baker 1031",
  "start_url": "/",
  "display": "browser",
- "background_color": "#ffffff",
- "theme_color": "#243856",
+ "background_color": "#FDFBF7",
+ "theme_color": "#243372",
  "icons": [
   {
    "src": "/assets/icons/favicon-192.png",

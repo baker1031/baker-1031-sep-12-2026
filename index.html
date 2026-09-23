@@ -27,7 +27,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#243856">
+<meta name="theme-color" content="#243372">
 <script>/* data notice: mark the document before first paint so an acknowledged visitor never sees a flash of it */
 try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement.classList.add('dnote-ok'); }catch(e){}</script>
 <script defer src="/assets/js/analytics.js"></script>
@@ -40,20 +40,20 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
 /* Brand font: Special Gothic, loaded from Google Fonts, used for text and headings alike. */
 :root{
     /* Baker 1031 palette: green, black, white, warm off-white, grey. */
-    --black:#000000;
-    --white:#FFFFFF;
-    --page:#FFFFFF;
-    --stone:#FCF7F0;
-    --accent:#243856;
-    --btn:#243856; --btn-hover:#162335;
-    /* Text-safe green: brand #243856 is 3.35:1 on white, under the 4.5:1 AA minimum for
-       normal-size text. #243856 is 4.96:1. Backgrounds and borders keep --accent. */
-    --accent-text:#243856;
-    --accent-hover:#1B2B42;
-    --accent-2:#243856;   /* AA-safe green for small text */
-    --rose:#243856;
-    --muted:rgba(0,0,0,.6);
-    --hairline:rgba(0,0,0,.12);
+    --black:#23232A;
+    --white:#FDFBF7;
+    --page:#FDFBF7;
+    --stone:#F5F1E9;
+    --accent:#2E4183;
+    --btn:#2E4183; --btn-hover:#243372;
+    /* Text-safe green: brand #2E4183 is 3.35:1 on white, under the 4.5:1 AA minimum for
+       normal-size text. #2E4183 is 4.96:1. Backgrounds and borders keep --accent. */
+    --accent-text:#2E4183;
+    --accent-hover:#243372;
+    --accent-2:#2E4183;   /* AA-safe green for small text */
+    --rose:#2E4183;
+    --muted:rgba(35,35,42,.6);
+    --hairline:rgba(35,35,42,.12);
     --radius:6px;
     --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --display:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -97,7 +97,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     height:64px;
     border-radius:50%;
     object-fit:cover;
-    background:#FCF7F0;
+    background:#F5F1E9;
     margin:4px 16px 4px 0;
     shape-outside:circle(50%);
   }
@@ -147,14 +147,14 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   .hero__actions .btn{ margin-top:0; }
   .hero__copy .hero__login{
     margin:0;
-    max-width:200px;               /* forces the two-line wrap */
-    font-size:12.5px;
-    line-height:1.45;
-    color:rgba(0,0,0,.55);                 /* medium-light grey */
+    max-width:220px;               /* forces the two-line wrap */
+    font-size:13.5px;
+    line-height:1.5;
+    color:rgba(35,35,42,.8);       /* 12.5px at 55% fell under 4.5:1 on paper */
   }
   .hero__login a{
-    color:rgba(0,0,0,.55);
-    font-weight:500;
+    color:var(--accent-text);
+    font-weight:600;
     text-decoration:underline;
     text-decoration-style:dotted;
     text-decoration-color:var(--accent);
@@ -197,7 +197,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     display:inline-flex; align-items:center; justify-content:center;
     border-radius:50%;
     background:var(--white);
-    border:1px solid rgba(0,0,0,.15);
+    border:1px solid rgba(35,35,42,.15);
     color:var(--black);
     cursor:pointer;
     padding:0;
@@ -220,8 +220,8 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     flex-direction:column;
     border-radius:10px;
     overflow:hidden;
-    background:var(--white);
-    box-shadow:0 1px 2px rgba(0,0,0,.06), 0 12px 32px rgba(0,0,0,.08);
+    background:#FFFFFF;        /* the one surface that lifts off the paper */
+    box-shadow:0 1px 2px rgba(35,35,42,.05), 0 10px 28px rgba(35,35,42,.07);
     opacity:0;
     transform:translateX(32px) scale(.985);
     pointer-events:none;
@@ -242,7 +242,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     width:100%;
     aspect-ratio:4 / 3;
     object-fit:cover;
-    background:#FCF7F0;
+    background:#F5F1E9;
   }
   .property__overlay{ display:none; }
   .property__tag{
@@ -250,7 +250,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     display:inline-flex; align-items:center; gap:6px;
     padding:6px 10px;
     border-radius:999px;
-    background:rgba(255,255,255,.9);
+    background:rgba(253,251,247,.9);
     -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
     color:var(--black);
     font-size:11px;
@@ -264,7 +264,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   }
   .property__panel{
     padding:18px 18px 16px;
-    background:var(--white);
+    background:#FFFFFF;
     color:var(--black);
   }
   .property__type{
@@ -288,11 +288,11 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   .property__sponsor{
     margin:0 0 12px;
     font-size:12px;
-    color:#000000;
+    color:#23232A;
   }
   .property__stats{
     margin:0;
-    border-top:1px solid rgba(0,0,0,.1);
+    border-top:1px solid rgba(35,35,42,.1);
   }
   .stat{
     display:flex;
@@ -300,7 +300,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     align-items:baseline;
     gap:16px;
     padding:9px 0;
-    border-bottom:1px solid rgba(0,0,0,.08);
+    border-bottom:1px solid rgba(35,35,42,.08);
   }
   .stat:last-child{ border-bottom:0; padding-bottom:0; }
   .stat dt{
@@ -325,8 +325,8 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     margin-top:0;
     width:100%;
     background:var(--white);
-    color:#000000;                 /* medium grey text */
-    border:1px solid #D5D2CD;      /* light grey outline */
+    color:#23232A;                 /* medium grey text */
+    border:1px solid #EAE4DA;      /* light grey outline */
     font-weight:600;
   }
   .btn--secondary:hover{ background:var(--white); color:var(--accent-text); border-color:var(--accent); }
@@ -334,7 +334,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   .results__disclosure{
     font-size:11px;
     line-height:1.5;
-    color:rgba(0,0,0,.6);
+    color:rgba(35,35,42,.6);
     margin:0;
   }
 
@@ -385,7 +385,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     content:"";
     display:block;
     height:1px;
-    background:#D5D2CD;            /* light grey line, content width only */
+    background:#EAE4DA;            /* light grey line, content width only */
   }
   .partners{
     max-width:calc(1200px + 48px);
@@ -399,14 +399,14 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     font-size:15px;
     font-weight:500;
     line-height:1.5;
-    color:#000000;                 /* medium grey */
+    color:#23232A;                 /* medium grey */
   }
   .marquee{
     position:relative;
     overflow:hidden;
     /* soft fade at both edges */
-    -webkit-mask-image:linear-gradient(90deg, transparent, #000000 8%, #000000 92%, transparent);
-            mask-image:linear-gradient(90deg, transparent, #000000 8%, #000000 92%, transparent);
+    -webkit-mask-image:linear-gradient(90deg, transparent, #23232A 8%, #23232A 92%, transparent);
+            mask-image:linear-gradient(90deg, transparent, #23232A 8%, #23232A 92%, transparent);
   }
   .marquee__track{
     display:flex;
@@ -420,7 +420,8 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     flex:0 0 auto;
     height:48px;                   /* source logos are 2:1 boxes with built-in padding */
     display:flex; align-items:center;
-    color:rgba(0,0,0,.55);
+    background:var(--page);
+    color:rgba(35,35,42,.6);
     font-size:15px;
     font-weight:700;
     letter-spacing:.08em;
@@ -433,7 +434,11 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     width:auto;
     display:block;
     filter:grayscale(1) contrast(1.25);
-    opacity:.9;
+    /* the source files are opaque white boxes. multiply has no backdrop here -- the
+       marquee track is its own stacking context -- so .logo carries the paper colour
+       and the image blends 'darken' against it: white falls away, the mark stays. */
+    mix-blend-mode:darken;
+    opacity:.85;
   }
   @keyframes marquee{
     from{ transform:translateX(0); }
@@ -444,7 +449,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     margin:28px auto 0;
     font-size:11px;
     line-height:1.5;
-    color:rgba(0,0,0,.6);
+    color:rgba(35,35,42,.6);
   }
   @media (prefers-reduced-motion:reduce){
     .marquee__track{ animation:none; flex-wrap:wrap; justify-content:center; width:auto; }
@@ -499,7 +504,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     font-size:clamp(26px,2.4vw,34px);
     line-height:1;
     letter-spacing:.005em;
-    color:#000000;                 /* dark ink */
+    color:#23232A;                 /* dark ink */
     white-space:nowrap;
     -webkit-font-smoothing:auto;
   }
@@ -511,7 +516,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     margin:0 auto;                 /* operator floats midway between the two terms */
     font-weight:500;
     font-size:.9em;
-    color:#000000;
+    color:#23232A;
     transform:rotate(3deg) translateY(-2px);
   }
   .formula__word .op.eq{ transform:rotate(-4deg) translateY(1px); }
@@ -542,7 +547,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   }
   .formula__arrows path{
     fill:none;
-    stroke:#000000;
+    stroke:#23232A;
     stroke-width:2;
     stroke-linecap:round;
     stroke-linejoin:round;
@@ -576,7 +581,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     margin:0;
     font-size:15px;
     line-height:1.65;
-    color:#000000;                 /* medium grey */
+    color:#23232A;                 /* medium grey */
   }
 
   /* "I refuse to do these things." — accordion in the right quarter */
@@ -592,10 +597,10 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     margin:0 0 18px;
     font-size:14px;
     line-height:1.6;
-    color:#000000;
+    color:#23232A;
   }
-  .acc{ border-top:1px solid #D5D2CD; }
-  .acc__item{ border-bottom:1px solid #D5D2CD; }
+  .acc{ border-top:1px solid #EAE4DA; }
+  .acc__item{ border-bottom:1px solid #EAE4DA; }
   .acc__btn{
     width:100%;
     display:flex;
@@ -646,7 +651,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     margin:0 0 12px;
     font-size:14px;
     line-height:1.65;
-    color:#000000;
+    color:#23232A;
   }
   .acc__body p:last-child{ margin-bottom:0; }
   @media (prefers-reduced-motion:reduce){
@@ -693,7 +698,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     transform:translateY(8px);
     pointer-events:none;
     font-family:var(--hand);
-    color:#000000;
+    color:#23232A;
   }
   .types__sticky.is-know .types__intro{ opacity:0; transform:translateY(-8px); pointer-events:none; }
   .types__sticky.is-know .types__know{ opacity:1; transform:none; }
@@ -722,7 +727,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     display:inline;
     padding:0 2px 6px;
     -webkit-box-decoration-break:clone; box-decoration-break:clone;
-    background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7 C 30 3, 60 10, 100 6 S 160 3, 198 7' fill='none' stroke='#243856' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M10 10 C 50 8, 100 12, 150 9 S 180 8, 194 10' fill='none' stroke='#243856' stroke-width='1.6' stroke-linecap='round' opacity='.55'/%3E%3C/svg%3E");
+    background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7 C 30 3, 60 10, 100 6 S 160 3, 198 7' fill='none' stroke='#2E4183' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M10 10 C 50 8, 100 12, 150 9 S 180 8, 194 10' fill='none' stroke='#2E4183' stroke-width='1.6' stroke-linecap='round' opacity='.55'/%3E%3C/svg%3E");
     background-repeat:repeat-x;
     background-size:200px 12px;
     background-position:0 100%;
@@ -732,7 +737,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   .itype{
     padding:0 0 56px;
     margin-bottom:56px;
-    border-bottom:1px solid #D5D2CD;
+    border-bottom:1px solid #EAE4DA;
     scroll-margin-top:24px;
   }
   .itype:last-child{ margin-bottom:0; border-bottom:0; padding-bottom:16px; }
@@ -741,7 +746,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     aspect-ratio:2.6 / 1;
     border-radius:10px;
     overflow:hidden;
-    background:#FCF7F0;
+    background:#F5F1E9;
   }
   .itype__photo img,
   .itype__photo video{ width:100%; height:100%; object-fit:cover; display:block; }
@@ -769,7 +774,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     font-family:var(--font);
     font-size:14px;
     font-weight:500;
-    color:#000000;
+    color:#23232A;
     text-decoration:underline;
     text-decoration-style:dotted;
     text-decoration-color:var(--accent);
@@ -791,7 +796,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     margin-top:14px;
     padding:16px 20px;
     border-left:2px solid var(--accent);
-    background:#FCF7F0;
+    background:#F5F1E9;
     border-radius:0 6px 6px 0;
   }
   .itype__label{
@@ -813,12 +818,12 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     margin:0;
     font-size:15px;
     line-height:1.65;
-    color:#000000;
+    color:#23232A;
   }
   .itype__split{
     margin-top:28px;
     padding:28px 0 32px;
-    border-top:1px solid #D5D2CD;
+    border-top:1px solid #EAE4DA;
   }
   .itype__feats{
     list-style:none; margin:0 0 28px; padding:0;
@@ -830,7 +835,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     min-width:0;
     font-size:14.5px;
     line-height:1.6;
-    color:#000000;
+    color:#23232A;
   }
   .feat__icon{
     display:block;
@@ -844,9 +849,9 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     max-width:720px;
     font-size:15px;
     line-height:1.65;
-    color:#000000;
+    color:#23232A;
   }
-  .itype__col--who{ padding-top:24px; border-top:1px solid #FCF7F0; }
+  .itype__col--who{ padding-top:24px; border-top:1px solid #F5F1E9; }
   .itype__who-head{
     display:flex;
     align-items:center;
@@ -859,9 +864,9 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     width:30px; height:30px;
     border-radius:50%;
     border:2px solid var(--white);
-    box-shadow:0 0 0 1px rgba(0,0,0,.06);
+    box-shadow:0 0 0 1px rgba(35,35,42,.06);
     margin-left:-9px;
-    background:#D5D2CD;
+    background:#EAE4DA;
     object-fit:cover;
   }
   .avatars img:first-child{ margin-left:0; }
@@ -915,7 +920,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   }
   .review__process{ min-width:0; }
   .stages{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
-  .stage{ min-width:0; position:relative; padding:28px 26px 26px; border:1px solid #D5D2CD; border-radius:10px; background:var(--white); }
+  .stage{ min-width:0; position:relative; padding:28px 26px 26px; border:1px solid #EAE4DA; border-radius:10px; background:var(--white); }
   .stage__head{ display:flex; align-items:baseline; gap:14px; margin-bottom:12px; }
   .stage__num{
     font-family:var(--hand);
@@ -942,7 +947,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   .stage__takeaway{
     padding-left:16px;
     border-left:2px solid var(--accent);
-    color:#000000 !important;
+    color:#23232A !important;
     font-size:14.5px !important;
   }
 
@@ -1014,14 +1019,14 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     display:grid;
     grid-template-columns:repeat(3,minmax(0,1fr));
     gap:0 40px;
-    border-top:1px solid #D5D2CD;
-    border-bottom:1px solid #D5D2CD;
+    border-top:1px solid #EAE4DA;
+    border-bottom:1px solid #EAE4DA;
   }
   .numbers__row{
     min-width:0;
     padding:22px 0;
   }
-  .numbers__row + .numbers__row{ border-left:1px solid #D5D2CD; padding-left:40px; margin-left:-20px; }
+  .numbers__row + .numbers__row{ border-left:1px solid #EAE4DA; padding-left:40px; margin-left:-20px; }
   .numbers dt{
     margin:0 0 8px;
     font-size:17px;
@@ -1032,13 +1037,13 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     margin:0;
     font-size:15px;
     line-height:1.65;
-    color:#000000;
+    color:#23232A;
   }
 
   /* worksheet — a torn scrap of paper with a coffee ring */
   .napkin-wrap{
     position:sticky; top:96px;
-    filter:drop-shadow(0 1px 2px rgba(0,0,0,.08)) drop-shadow(0 10px 24px rgba(0,0,0,.08));
+    filter:drop-shadow(0 1px 2px rgba(35,35,42,.08)) drop-shadow(0 10px 24px rgba(35,35,42,.08));
     transform:rotate(-1.2deg);
     transform-origin:50% 50%;
   }
@@ -1068,10 +1073,10 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     font-size:26px;
     font-weight:500;
     line-height:1.1;
-    color:#000000;
+    color:#23232A;
   }
   .napkin__line--total{
-    border-top:2px solid #000000;
+    border-top:2px solid #23232A;
     margin-top:4px; padding-top:10px;
     font-weight:600;
   }
@@ -1083,7 +1088,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     font-family:var(--hand);
     font-size:20px;
     line-height:1.2;
-    color:#000000;
+    color:#23232A;
     transform:rotate(-1deg);
     transform-origin:0 50%;
   }
@@ -1094,25 +1099,25 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     font-size:22px;
     font-weight:600;
     line-height:1.1;
-    color:#000000;
+    color:#23232A;
   }
   .napkin__pie{ display:block; width:100%; height:auto; margin:0 0 14px; overflow:visible; }
   .napkin__arrows path{
-    fill:none; stroke:#000000; stroke-width:1.7;
+    fill:none; stroke:#23232A; stroke-width:1.7;
     stroke-linecap:round; stroke-linejoin:round;
   }
   .napkin__labels text{
     font-family:var(--hand);
     font-size:17px;
     font-weight:500;
-    fill:#000000;
+    fill:#23232A;
   }
   .napkin__labels .pct{ font-weight:700; fill:var(--accent-text); }
   .napkin__disclosure{
     margin:0;
     font-size:11px;
     line-height:1.5;
-    color:rgba(0,0,0,.6);
+    color:rgba(35,35,42,.6);
   }
 
   /* ---------- Why do investors work with me? ---------- */
@@ -1143,7 +1148,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     height:180px;
     object-fit:cover;
     border-radius:10px;
-    background:#FCF7F0;
+    background:#F5F1E9;
     margin:6px 28px 12px 0;
     shape-outside:inset(0 round 10px);
   }
@@ -1191,7 +1196,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     margin:24px 0 0 !important;
     font-size:11px !important;
     line-height:1.5 !important;
-    color:rgba(0,0,0,.6) !important;
+    color:rgba(35,35,42,.6) !important;
   }
 
   .chart{ margin:0; min-width:0; }
@@ -1205,12 +1210,12 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   .chart__sub{
     margin:0;
     font-size:12.5px;
-    color:#000000;
+    color:#23232A;
   }
   .chart__svg{ display:block; width:100%; height:auto; overflow:visible; }
-  .c-grid{ stroke:#D5D2CD; stroke-width:1; }
-  .c-grid--base{ stroke:rgba(0,0,0,.55); }
-  .c-tick{ font-family:var(--font); font-size:11px; fill:rgba(0,0,0,.6); }
+  .c-grid{ stroke:#EAE4DA; stroke-width:1; }
+  .c-grid--base{ stroke:rgba(35,35,42,.55); }
+  .c-tick{ font-family:var(--font); font-size:11px; fill:rgba(35,35,42,.6); }
   .c-hit{ fill:transparent; }
   .c-fill{
     fill:#B9C4D0;
@@ -1231,18 +1236,18 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   }
   .c-bar--hi .c-fill{ fill:var(--accent); }
   .c-bar:hover .c-fill,
-  .c-bar:focus-visible .c-fill{ fill:rgba(0,0,0,.55); }
+  .c-bar:focus-visible .c-fill{ fill:rgba(35,35,42,.55); }
   .c-bar--hi:hover .c-fill,
   .c-bar--hi:focus-visible .c-fill{ fill:var(--accent-hover); }
   .c-bar:focus-visible{ outline:none; }
   .c-val{ font-family:var(--font); font-size:13px; font-weight:700; fill:var(--black); }
-  .c-cat{ font-family:var(--font); font-size:11.5px; fill:#000000; }
+  .c-cat{ font-family:var(--font); font-size:11.5px; fill:#23232A; }
   .c-bar--hi .c-cat{ fill:var(--black); font-weight:600; }
   .chart__sources{
     margin:16px 0 0;
     font-size:11px;
     line-height:1.5;
-    color:rgba(0,0,0,.6);
+    color:rgba(35,35,42,.6);
   }
   .chart__sources a{ color:inherit; text-decoration:underline; text-decoration-color:#CBD5E1; text-underline-offset:2px; }
   .chart__sources a:hover{ color:var(--accent-text); text-decoration-color:var(--accent); }
@@ -1263,7 +1268,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   .start__head--tight{ margin-bottom:28px; }
   .steps--top{ padding-bottom:40px; }
   .start__block--deadlines{ grid-template-columns:minmax(0,1fr) minmax(0,1.6fr); gap:24px 64px; align-items:center; }
-  .start__deadline-copy{ margin:12px 0 0; font-size:15px; line-height:1.65; color:#000000; }
+  .start__deadline-copy{ margin:12px 0 0; font-size:15px; line-height:1.65; color:#23232A; }
   .start__deadline-copy strong{ color:var(--black); }
   .start__head h2{
     margin:0 0 20px;
@@ -1289,7 +1294,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     grid-template-columns:minmax(0,1fr) minmax(0,2.4fr);
     gap:20px 64px;
     padding:40px 0;
-    border-top:1px solid #D5D2CD;
+    border-top:1px solid #EAE4DA;
     align-items:start;
   }
   /* "Before you invest": single row heading, then copy in two columns */
@@ -1309,14 +1314,14 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     font-size:24px;
     font-weight:500;
     line-height:1.1;
-    color:#000000;
+    color:#23232A;
     transform:rotate(-1.5deg);
     transform-origin:0 100%;
     display:inline-block;
   }
   .start__block-body{ min-width:0; }
 
-  .start__process{ padding:40px 0; border-top:1px solid #D5D2CD; }
+  .start__process{ padding:40px 0; border-top:1px solid #EAE4DA; }
   .start__h3{ margin-bottom:22px; }
   .steps{
     list-style:none; margin:0; padding:0;
@@ -1344,36 +1349,36 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   .step__note{
     padding-left:14px;
     border-left:2px solid var(--accent);
-    color:#000000 !important;
+    color:#23232A !important;
     font-size:14.5px !important;
     margin-bottom:0 !important;
   }
 
   .clock{ margin:0; }
   .clock__svg{ display:block; width:100%; height:auto; overflow:visible; }
-  .clock__ink{ fill:none; stroke:#000000; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
+  .clock__ink{ fill:none; stroke:#23232A; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
   .clock__ink--accent{ stroke:var(--accent); }
   .clock__line{ stroke-width:3; }
   .clock__dot{ fill:var(--accent); stroke:var(--accent); stroke-width:2.2; stroke-linejoin:round; }
-  .clock__dot--open{ fill:#fff; stroke:#000000; }
-  .clock__span{ font-family:var(--hand); font-size:27px; font-weight:600; fill:#000000; }
+  .clock__dot--open{ fill:#FDFBF7; stroke:#23232A; }
+  .clock__span{ font-family:var(--hand); font-size:27px; font-weight:600; fill:#23232A; }
   .clock__span--accent{ fill:var(--accent-text); }
-  .clock__day{ font-family:var(--hand); font-size:30px; font-weight:700; fill:#000000; }
-  .clock__lbl{ font-family:var(--hand); font-size:22px; font-weight:500; fill:#000000; }
-  .clock__hand text{ font-family:var(--hand); font-size:26px; font-weight:500; fill:#000000; }
-  .clock__hand path{ fill:none; stroke:#000000; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .clock__day{ font-family:var(--hand); font-size:30px; font-weight:700; fill:#23232A; }
+  .clock__lbl{ font-family:var(--hand); font-size:22px; font-weight:500; fill:#23232A; }
+  .clock__hand text{ font-family:var(--hand); font-size:26px; font-weight:500; fill:#23232A; }
+  .clock__hand path{ fill:none; stroke:#23232A; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
   .deadlines{
     margin:0 0 18px;
     padding:0;
     list-style:none;
-    border-top:1px solid #D5D2CD;
+    border-top:1px solid #EAE4DA;
   }
   .deadlines li{
     padding:12px 0;
-    border-bottom:1px solid #D5D2CD;
+    border-bottom:1px solid #EAE4DA;
     font-size:16px;
     line-height:1.6;
-    color:#000000;
+    color:#23232A;
   }
   .deadlines strong{ color:var(--black); font-weight:700; }
   .start__cta{ margin-top:16px; }
@@ -1388,9 +1393,9 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     color:var(--accent-text);
   }
   .faq .acc__btn{ font-size:16px; padding:15px 0; }
-  .start__block-body .faq .acc__body p{ font-size:15px; line-height:1.65; color:#000000; margin:0 0 12px; }
+  .start__block-body .faq .acc__body p{ font-size:15px; line-height:1.65; color:#23232A; margin:0 0 12px; }
   .faq .acc__body ul{ margin:0 0 12px; padding-left:20px; }
-  .faq .acc__body li{ font-size:15px; line-height:1.65; color:#000000; margin-bottom:6px; }
+  .faq .acc__body li{ font-size:15px; line-height:1.65; color:#23232A; margin-bottom:6px; }
   .faq .acc__body strong{ color:var(--black); }
   .faq .acc__body > :last-child{ margin-bottom:0; }
 
@@ -1402,7 +1407,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     color:var(--white);
     transform:translateY(100%);
     transition:transform .35s cubic-bezier(.22,1,.36,1);
-    box-shadow:0 -6px 24px rgba(0,0,0,.12);
+    box-shadow:0 -6px 24px rgba(35,35,42,.12);
   }
   .ctabar.is-visible{ transform:none; }
   .ctabar__inner{
@@ -1451,7 +1456,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     color:var(--accent-text);
     border-color:var(--white);
   }
-  .ctabar__btn:hover{ background:#FCF7F0; border-color:#FCF7F0; }
+  .ctabar__btn:hover{ background:#F5F1E9; border-color:#F5F1E9; }
   body.has-ctabar{ padding-bottom:72px; }
   /* The bar never appears for a signed-in visitor. The CSS covers the moment before the
      session script runs and the case where the server confirms the session after first
@@ -1481,7 +1486,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     font-size:26px;
     font-weight:500;
     line-height:1.1;
-    color:#000000;
+    color:#23232A;
     transform:rotate(-1.2deg);
     transform-origin:0 100%;
     display:inline-block;
@@ -1504,44 +1509,65 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     text-transform:uppercase;
     color:var(--accent-text);
   }
-  .faq--cols .acc__body p{ font-size:15px; line-height:1.65; color:#000000; margin:0 0 12px; }
+  .faq--cols .acc__body p{ font-size:15px; line-height:1.65; color:#23232A; margin:0 0 12px; }
 
   /* ---------- Footer ---------- */
+  /* The hand (Caveat, already loaded for the site's lettering) carries the opening
+     line and the link columns. Contact detail is typed on purpose: an address and a
+     phone number are things people copy, dial and check, and they have to be
+     unambiguous. The disclosure block stays typed for the same reason.
+     NB: the marker line above is what build/sync_chrome.py looks for -- leave it exact. */
+  .footer__intro{
+    grid-column:1 / -1; margin:0 0 36px; padding-bottom:30px;
+    border-bottom:1px solid var(--hair);
+    font-family:var(--hand); font-size:30px; line-height:1.45;
+    color:var(--accent-text); max-width:none;
+  }
+  .footer__email{ margin:0 0 22px !important; font-size:15px !important; line-height:1.6 !important; }
+  .footer__email a{ font-family:var(--font); color:var(--accent-text); font-weight:600; text-decoration:none; }
+  .footer__email a:hover{ color:#243372; text-decoration:underline; }
+  .footer__contact{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px 28px; }
   .footer{ background:var(--white); }
-  .rule--strong::before{ height:2px; background:#D5D2CD; }
+  .rule--strong::before{ height:2px; background:#EAE4DA; }
   .footer__inner{
     max-width:calc(1200px + 48px);
     margin:0 auto;
     padding:56px 24px 40px;
     display:grid;
-    grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,.8fr) minmax(0,.8fr) minmax(0,.8fr);
+    grid-template-columns:minmax(0,1.5fr) minmax(0,.9fr) minmax(0,.9fr) minmax(0,.9fr);
     gap:32px 40px;
   }
   .footer__brand img{ height:40px; width:auto; display:block; margin-bottom:16px; }
-  .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#000000; }
-  .footer__brand a{ color:#000000; text-decoration:none; }
+  .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#23232A; }
+  .footer__brand a{ color:#23232A; text-decoration:none; }
   .footer__brand a:hover{ color:var(--accent-text); }
-  .footer__brand .footer__blurb{ max-width:46ch; }
+
   .footer__office{
     font-style:normal;
-    margin:0 0 14px;
-    font-size:13.5px; line-height:1.6; color:#000000;
+    margin:0;
+    font-size:14px; line-height:1.65; color:rgba(35,35,42,.78);
   }
-  .footer__office strong{ display:block; font-weight:600; color:var(--black); }
+  .footer__office strong{
+    display:block; font-size:12px; font-weight:700; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--accent-text); margin-bottom:6px;
+  }
+  .footer__office a{ color:rgba(35,35,42,.78); text-decoration:none; }
+  .footer__office a:hover{ color:var(--accent-text); text-decoration:underline; }
   .footer__col .footer__office a{ display:inline; padding:0; font-size:inherit; }
   .footer__col .footer__office a:hover{ color:var(--accent-text); }
-  .footer__disclosure a{ color:rgba(0,0,0,.6); text-decoration:underline; text-underline-offset:2px; }
+  .footer__disclosure a{ color:rgba(35,35,42,.6); text-decoration:underline; text-underline-offset:2px; }
   .footer__disclosure a:hover{ color:var(--accent-text); }
   .footer__label{
-    margin:0 0 10px;
-    font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-    color:var(--accent-text);
+    margin:0 0 16px;
+    font-family:var(--hand); font-size:24px; font-weight:600;
+    letter-spacing:0; text-transform:none; color:var(--accent-text);
+    text-decoration:underline; text-underline-offset:5px; text-decoration-thickness:1px;
   }
   .footer__col a{
     display:block;
-    padding:4px 0;
-    font-size:14px;
-    color:#000000;
+    padding:6px 0;
+    font-family:var(--hand); font-size:22px; line-height:1.5;
+    color:var(--accent-text);
     text-decoration:none;
     transition:color .15s ease;
   }
@@ -1549,10 +1575,15 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   .footer__disclosure{
     grid-column:1 / -1;
     padding-top:28px;
-    border-top:1px solid #D5D2CD;
+    border-top:1px solid #EAE4DA;
   }
-  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(0,0,0,.6); }
-  .footer__copy{ color:rgba(0,0,0,.55) !important; }
+  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(35,35,42,.6); }
+  .footer__copy{ color:rgba(35,35,42,.55) !important; }
+
+  @media (max-width:900px){
+    .footer__intro{ font-size:24px; margin-bottom:28px; padding-bottom:22px; }
+    .footer__contact{ grid-template-columns:1fr; }
+  }
 
   /* ---------- Skyline illustration ---------- */
   .skyline{
@@ -1569,31 +1600,30 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   /* ---------- Sticky nav ---------- */
   .nav{
     position:sticky; top:0; z-index:60;
-    background:rgba(255,255,255,.92);
+    background:rgba(253,251,247,.92);
     -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
-    border-bottom:1px solid #D5D2CD;
+    border-bottom:1px solid #EAE4DA;
     transition:box-shadow .2s ease;
   }
-  .nav.is-scrolled{ box-shadow:0 2px 12px rgba(0,0,0,.06); }
+  .nav.is-scrolled{ box-shadow:0 2px 12px rgba(35,35,42,.06); }
   .nav__inner{
     max-width:calc(1200px + 48px);
     margin:0 auto;
-    padding:0 24px;
-    height:56px;
+    padding:18px 24px;          /* room above and below instead of a fixed bar height */
     display:flex;
     align-items:center;
     gap:32px;
   }
   .nav__logo{ display:flex; align-items:center; flex:0 0 auto; min-width:0; }
-  .nav__logo img{ height:32px; width:auto; display:block; }
-  .nav__links{ display:flex; align-items:center; gap:26px; margin-left:24px; }
+  .nav__logo img{ height:38px; width:auto; display:block; }
+  .nav__links{ display:flex; align-items:center; gap:30px; margin-left:24px; }
   .nav__links a{
     display:inline-grid;
     align-items:center;
     justify-items:center;
-    font-size:14px;
+    font-size:15.5px;
     font-weight:600;
-    color:#000000;
+    color:#23232A;
     text-decoration:none;
     padding:6px 0;
     line-height:1.2;
@@ -1627,20 +1657,20 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   }
   .nav__actions{ margin-left:auto; display:flex; align-items:center; gap:18px; }
   .nav__login{
-    font-size:14px;
+    font-size:15px;
     font-weight:600;
-    color:#000000;
+    color:#23232A;
     text-decoration:none;
     transition:color .15s ease;
   }
   .nav__login:hover{ color:var(--accent-text); }
-  .nav__cta{ margin:0; padding:8px 16px; font-size:13.5px; }
+  .nav__cta{ margin:0; padding:10px 20px; font-size:15px; }
   /* logged-in state: greeting + Log Out replace Log In / Get Started */
   .nav__actions [hidden]{ display:none !important; }
   .nav__user{ font-size:14px; font-weight:600; color:var(--black); white-space:nowrap; }
   .nav__user-name{ color:var(--accent-text); }
   .nav__logout{
-    font:inherit; font-size:14px; font-weight:600; color:#000000;
+    font:inherit; font-size:14px; font-weight:600; color:#23232A;
     background:none; border:0; padding:0; cursor:pointer; white-space:nowrap;
     transition:color .15s ease;
   }
@@ -1671,13 +1701,13 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   }
 
   /* section anchors land below the sticky bar */
-  [id]{ scroll-margin-top:72px; }
+  [id]{ scroll-margin-top:92px; }
 
   /* ---------- "Pardon our dust" banner ---------- */
   /* Homepage only, and deliberately outside the nav CSS block: sync_chrome.py copies the nav block
      into /login/ and /results/, and this belongs on the homepage alone.
-     The bar is --btn green rather than --accent: white on #243856 is 2.9:1, which is fine for the
-     CTA bar's 20px display type but under AA for text this size. #243856 is 4.6:1. */
+     The bar is --btn green rather than --accent: white on #2E4183 is 2.9:1, which is fine for the
+     CTA bar's 20px display type but under AA for text this size. #2E4183 is 4.6:1. */
   .dustbar{
     background:var(--btn);
     color:var(--white);
@@ -1719,7 +1749,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     opacity:.75;
     transition:opacity .15s ease, background-color .15s ease;
   }
-  .dustbar__x:hover{ opacity:1; background:rgba(255,255,255,.16); }
+  .dustbar__x:hover{ opacity:1; background:rgba(253,251,247,.16); }
   .dustbar__x:focus-visible{ outline:2px solid var(--white); outline-offset:2px; }
   .dustbar__x svg{ width:15px; height:15px; }
   /* Never shown to a signed-in investor -- same rule as the CTA bar. The inline script below also
@@ -1740,7 +1770,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   html.dnote-ok .dnote{ display:none !important; }
   .dnote__card{ width:min(520px, 100%); max-height:calc(100vh - 56px); overflow:auto;
     background:var(--white); border:1px solid var(--hair-strong); border-radius:10px;
-    padding:30px 32px 26px; box-shadow:0 30px 60px -26px rgba(0,0,0,.42), 0 2px 6px rgba(0,0,0,.08);
+    padding:30px 32px 26px; box-shadow:0 30px 60px -26px rgba(35,35,42,.42), 0 2px 6px rgba(35,35,42,.08);
     text-align:left; }
   .dnote__eyebrow{ display:flex; align-items:center; gap:8px; margin:0 0 12px; font-size:11px;
     font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--grey-light); }
@@ -1757,10 +1787,10 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
 
   /* inline variant (the homepage chart) */
   .dnote--inline{ position:absolute; inset:-14px; z-index:5; padding:12px; border-radius:12px;
-    background:rgba(255,255,255,.62); align-items:flex-start; }
+    background:rgba(253,251,247,.62); align-items:flex-start; }
   .dnote--inline .dnote__card{ margin-top:48px; }
   .dnote--inline .dnote__card{ width:min(430px, 100%); padding:24px 26px 22px;
-    box-shadow:0 18px 44px -22px rgba(0,0,0,.34), 0 1px 3px rgba(0,0,0,.06); }
+    box-shadow:0 18px 44px -22px rgba(35,35,42,.34), 0 1px 3px rgba(35,35,42,.06); }
   .dnote--inline h2{ font-size:20px; }
   .dnote--inline p{ font-size:14px; }
 
@@ -1791,8 +1821,6 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     .footer__inner{ grid-template-columns:1fr 1fr; padding:40px 20px 32px; }
     .skyline{ padding-top:32px; }
     .footer__brand{ grid-column:1 / -1; }
-    .footer__offices{ grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; column-gap:24px; }
-    .footer__offices .footer__label{ grid-column:1 / -1; }
     .faq--cols{ columns:1; }
     .nav__inner{ gap:16px; height:54px; }
     .nav__links{
@@ -1801,15 +1829,19 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
       flex-direction:column; align-items:stretch; gap:0;
       margin:0; padding:8px 20px 12px;
       background:var(--white);
-      border-bottom:1px solid #D5D2CD;
-      box-shadow:0 12px 24px rgba(0,0,0,.08);
+      border-bottom:1px solid #EAE4DA;
+      box-shadow:0 12px 24px rgba(35,35,42,.08);
     }
     .nav__links.is-open{ display:flex; }
-    .nav__links a{ padding:12px 0; border-bottom:1px solid #FCF7F0; font-size:15px; }
+    .nav__links a{ padding:12px 0; border-bottom:1px solid #F5F1E9; font-size:15px; }
     .nav__links a{ justify-items:start; }
     .nav__links a .nav__hand{ font-size:22px; }
     .nav__links a:last-child{ border-bottom:0; }
-    .nav__logo img{ height:26px; }
+    .nav__logo img{ height:auto; max-height:30px; max-width:100%; }
+    .nav__inner{ padding:12px 20px; }
+    .nav__links{ top:100%; }        /* the bar is no longer a fixed 54px */
+    .nav__login{ font-size:14px; }
+    .nav__cta{ padding:8px 13px; font-size:13.5px; }
     /* Log In, the CTA and the menu button are all fixed-size and all have to stay on screen,
        so the action cluster must never shrink -- it was being squeezed below its own content,
        which pushed the menu button clean off the right edge at every phone width and left the
@@ -1852,7 +1884,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     .solution__grid{ grid-template-columns:1fr; gap:36px 0; }
     .napkin-wrap{ position:static; transform:none; }
     .numbers{ grid-template-columns:1fr; gap:0; }
-    .numbers__row + .numbers__row{ border-left:0; border-top:1px solid #D5D2CD; padding-left:0; margin-left:0; }
+    .numbers__row + .numbers__row{ border-left:0; border-top:1px solid #EAE4DA; padding-left:0; margin-left:0; }
     .review__grid{ padding:32px 0 24px; }
     .stages{ grid-template-columns:1fr; gap:16px; }
     .types__sticky{ position:static; }
@@ -2801,9 +2833,9 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
           </filter>
           <!-- one side of the ring sat lighter on the paper -->
           <linearGradient id="fade" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#fff" stop-opacity="1"/>
-            <stop offset=".55" stop-color="#fff" stop-opacity=".85"/>
-            <stop offset="1" stop-color="#fff" stop-opacity=".35"/>
+            <stop offset="0" stop-color="#FDFBF7" stop-opacity="1"/>
+            <stop offset=".55" stop-color="#FDFBF7" stop-opacity=".85"/>
+            <stop offset="1" stop-color="#FDFBF7" stop-opacity=".35"/>
           </linearGradient>
           <mask id="fadeMask"><rect width="200" height="200" fill="url(#fade)"/></mask>
           <radialGradient id="body" cx="50%" cy="50%" r="50%">
@@ -2838,7 +2870,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
         <p class="napkin__split-title">One exchange, several investments</p>
         <svg class="napkin__pie" viewBox="0 0 380 200" aria-hidden="true">
           <g class="napkin__slices">
-            <path d="M150 100 L150.0 40.0 A60 60 0 0 1 150.0 160.0 Z" fill="#243856"/>
+            <path d="M150 100 L150.0 40.0 A60 60 0 0 1 150.0 160.0 Z" fill="#2E4183"/>
             <path d="M150 100 L150.0 160.0 A60 60 0 0 1 92.9 81.5 Z" fill="rgba(36,56,86,.68)"/>
             <path d="M150 100 L92.9 81.5 A60 60 0 0 1 150.0 40.0 Z" fill="rgba(36,56,86,.42)"/>
             <circle cx="150" cy="100" r="60" fill="none" stroke="#FBFAF6" stroke-width="2"/>
@@ -3611,23 +3643,22 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 <!-- Footer: edit here; every generated page copies it on the next build -->
 <footer class="footer">
   <div class="footer__inner">
+      <p class="footer__intro">Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.</p>
     <div class="footer__brand">
       <a href="/" class="footer__home" aria-label="Baker 1031 Investments — home"><img src="/assets/media/logo.png" alt="Baker 1031" width="1574" height="448"></a>
-      <p class="footer__blurb">Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.</p>
-      <p><a href="mailto:invest@baker1031.com">invest@baker1031.com</a></p>
-    </div>
-    <div class="footer__col footer__offices">
-      <p class="footer__label">Offices</p>
-      <address class="footer__office">
+      <p class="footer__email"><a href="mailto:invest@baker1031.com">invest@baker1031.com</a></p>
+      <div class="footer__contact">
+        <address class="footer__office">
         <strong>San Francisco</strong>
         1700 Montgomery St, Ste 108<br>San Francisco, CA 94111<br>
         <a href="tel:+14159650552">(415) 965-0552</a>
       </address>
-      <address class="footer__office">
+        <address class="footer__office">
         <strong>Los Angeles</strong>
         2100 E Grand Ave, 1st Floor<br>El Segundo, CA 90245<br>
         <a href="tel:+13108964227">(310) 896-4227</a>
       </address>
+      </div>
     </div>
     <div class="footer__col">
       <p class="footer__label">Baker 1031</p>

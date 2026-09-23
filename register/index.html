@@ -27,7 +27,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#243856">
+<meta name="theme-color" content="#243372">
 <script defer src="/assets/js/analytics.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://baker1031.com/register/#webpage", "url": "https://baker1031.com/register/", "name": "Get Started", "description": "Register with Baker 1031 Investments and schedule an introductory call.", "isPartOf": {"@id": "https://baker1031.com/#website"}, "about": {"@id": "https://baker1031.com/#org"}, "inLanguage": "en-US"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://baker1031.com/"}, {"@type": "ListItem", "position": 2, "name": "Get Started"}]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,26 +35,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Special+Gothic&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <style>
 /* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
-:root{ --page:#FFFFFF; --accent-2:#243856; --rose:#243856;
-    --black:#000000;
-    --white:#fff;
-    --accent:#243856;
-    --btn:#243856; --btn-hover:#162335;
-  /* Text-safe green: brand #243856 is 3.35:1 on white, under the 4.5:1 AA minimum for
-     normal-size text. #243856 is 4.96:1. Backgrounds and borders keep --accent. */
-  --accent-text:#243856;
-    --accent-hover:#1B2B42;
-    --accent-soft:#FCF7F0;
-    --grey:#000000;
-    --grey-light:rgba(0,0,0,.6);
-    --hair:#D5D2CD;
-    --hair-strong:#D5D2CD;
+:root{ --page:#FDFBF7; --accent-2:#2E4183; --rose:#2E4183;
+    --black:#23232A;
+    --white:#FDFBF7;
+    --accent:#2E4183;
+    --btn:#2E4183; --btn-hover:#243372;
+  /* Text-safe green: brand #2E4183 is 3.35:1 on white, under the 4.5:1 AA minimum for
+     normal-size text. #2E4183 is 4.96:1. Backgrounds and borders keep --accent. */
+  --accent-text:#2E4183;
+    --accent-hover:#243372;
+    --accent-soft:#F5F1E9;
+    --grey:#23232A;
+    --grey-light:rgba(35,35,42,.6);
+    --hair:#EAE4DA;
+    --hair-strong:#EAE4DA;
     --error:#DC2626;
     --radius:6px;
     --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --display:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
-    --nav-h:56px;
+    --nav-h:82px;
   }
   *{ box-sizing:border-box; }
   /* the hidden attribute must win over a display rule, or a [hidden] element still shows */
@@ -78,7 +78,7 @@
   /* ---------- Nav (same as homepage, trimmed) ---------- */
   .nav{
     position:sticky; top:0; z-index:40;
-    background:rgba(255,255,255,.9);
+    background:rgba(253,251,247,.9);
     -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
     border-bottom:1px solid var(--hair);
   }
@@ -259,7 +259,7 @@
     outline:none;
     transition:border-color .2s ease;
   }
-  .field input::placeholder{ color:rgba(0,0,0,.45); }
+  .field input::placeholder{ color:rgba(35,35,42,.45); }
   .field input:focus{ border-bottom-color:var(--accent); }
   .field.is-invalid input{ border-bottom-color:var(--error); }
   .field__err{
@@ -273,7 +273,7 @@
   .suggest{
     margin-top:10px;
     padding:12px 14px;
-    border:1px solid #D5D2CD;
+    border:1px solid #EAE4DA;
     border-left:3px solid var(--accent);
     border-radius:var(--radius);
     background:var(--accent-soft);
@@ -290,7 +290,7 @@
     transition:background .15s ease, border-color .15s ease, color .15s ease;
   }
   .suggest__btn:hover{ background:var(--accent-hover); border-color:var(--accent-hover); }
-  .suggest__btn--ghost{ background:var(--white); color:var(--grey); border-color:#D5D2CD; }
+  .suggest__btn--ghost{ background:var(--white); color:var(--grey); border-color:#EAE4DA; }
   .suggest__btn--ghost:hover{ background:var(--white); color:var(--accent-text); border-color:var(--accent); }
   .suggest__hint{ margin:8px 0 0; font-size:12.5px; color:var(--grey-light); }
   .suggest.is-required{ border-color:#FECACA; border-left-color:var(--error); background:#FEF2F2; }
@@ -312,13 +312,13 @@
   .btn svg{ width:16px; height:16px; }
   .btn--ghost{
     background:transparent; color:var(--grey);
-    border-color:#D5D2CD;
+    border-color:#EAE4DA;
   }
   .btn--ghost:hover{ background:transparent; color:var(--accent-text); border-color:var(--accent); }
   .hint{ font-size:12.5px; color:var(--grey-light); }
   .hint kbd{
     font:inherit; font-size:11px; font-weight:600;
-    padding:2px 6px; border:1px solid var(--hair-strong); border-radius:4px; background:#FCF7F0;
+    padding:2px 6px; border:1px solid var(--hair-strong); border-radius:4px; background:#F5F1E9;
     margin-right:4px;
   }
   .q__privacy{
@@ -424,7 +424,7 @@
     background:var(--accent-soft); color:var(--accent-text);
     display:inline-flex; align-items:center; justify-content:center;
     font-size:20px; font-weight:700; letter-spacing:.02em;
-    border:1px solid #D5D2CD;
+    border:1px solid #EAE4DA;
   }
   .profile__name{ margin:0; font-size:20px; font-weight:700; letter-spacing:-.01em; color:var(--black); }
   .profile__role{ margin:2px 0 0; font-size:14px; color:var(--grey); }
@@ -457,7 +457,7 @@
   .booked{
     display:flex; align-items:flex-start; gap:12px;
     margin:0 0 16px; padding:14px 16px;
-    border:1px solid #D5D2CD; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
+    border:1px solid #EAE4DA; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
     font-size:15px; line-height:1.5; color:var(--grey);
   }
   .booked svg{ flex:0 0 auto; width:20px; height:20px; color:var(--accent-text); margin-top:2px; }
@@ -466,7 +466,7 @@
   .done__note{
     display:flex; align-items:flex-start; gap:12px;
     padding:14px 16px; max-width:560px;
-    border:1px solid #D5D2CD; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
+    border:1px solid #EAE4DA; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
     font-size:14px; line-height:1.5; color:var(--grey);
   }
   .done__note svg{ flex:0 0 auto; width:20px; height:20px; color:var(--accent-text); margin-top:1px; }
@@ -497,7 +497,7 @@
     padding:8px 0 10px; outline:none;
     transition:border-color .2s ease;
   }
-  .field textarea::placeholder{ color:rgba(0,0,0,.45); }
+  .field textarea::placeholder{ color:rgba(35,35,42,.45); }
   .field textarea:focus{ border-bottom-color:var(--accent); }
   .field.is-invalid textarea{ border-bottom-color:var(--error); }
   .field__meta{ display:flex; justify-content:space-between; gap:12px; align-items:baseline; }
@@ -519,41 +519,62 @@
 
 
   /* ---------- Footer ---------- */
+  /* The hand (Caveat, already loaded for the site's lettering) carries the opening
+     line and the link columns. Contact detail is typed on purpose: an address and a
+     phone number are things people copy, dial and check, and they have to be
+     unambiguous. The disclosure block stays typed for the same reason.
+     NB: the marker line above is what build/sync_chrome.py looks for -- leave it exact. */
+  .footer__intro{
+    grid-column:1 / -1; margin:0 0 36px; padding-bottom:30px;
+    border-bottom:1px solid var(--hair);
+    font-family:var(--hand); font-size:30px; line-height:1.45;
+    color:var(--accent-text); max-width:none;
+  }
+  .footer__email{ margin:0 0 22px !important; font-size:15px !important; line-height:1.6 !important; }
+  .footer__email a{ font-family:var(--font); color:var(--accent-text); font-weight:600; text-decoration:none; }
+  .footer__email a:hover{ color:#243372; text-decoration:underline; }
+  .footer__contact{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px 28px; }
   .footer{ background:var(--white); }
-  .rule--strong::before{ height:2px; background:#D5D2CD; }
+  .rule--strong::before{ height:2px; background:#EAE4DA; }
   .footer__inner{
     max-width:calc(1200px + 48px);
     margin:0 auto;
     padding:56px 24px 40px;
     display:grid;
-    grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,.8fr) minmax(0,.8fr) minmax(0,.8fr);
+    grid-template-columns:minmax(0,1.5fr) minmax(0,.9fr) minmax(0,.9fr) minmax(0,.9fr);
     gap:32px 40px;
   }
   .footer__brand img{ height:40px; width:auto; display:block; margin-bottom:16px; }
-  .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#000000; }
-  .footer__brand a{ color:#000000; text-decoration:none; }
+  .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#23232A; }
+  .footer__brand a{ color:#23232A; text-decoration:none; }
   .footer__brand a:hover{ color:var(--accent-text); }
-  .footer__brand .footer__blurb{ max-width:46ch; }
+
   .footer__office{
     font-style:normal;
-    margin:0 0 14px;
-    font-size:13.5px; line-height:1.6; color:#000000;
+    margin:0;
+    font-size:14px; line-height:1.65; color:rgba(35,35,42,.78);
   }
-  .footer__office strong{ display:block; font-weight:600; color:var(--black); }
+  .footer__office strong{
+    display:block; font-size:12px; font-weight:700; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--accent-text); margin-bottom:6px;
+  }
+  .footer__office a{ color:rgba(35,35,42,.78); text-decoration:none; }
+  .footer__office a:hover{ color:var(--accent-text); text-decoration:underline; }
   .footer__col .footer__office a{ display:inline; padding:0; font-size:inherit; }
   .footer__col .footer__office a:hover{ color:var(--accent-text); }
-  .footer__disclosure a{ color:rgba(0,0,0,.6); text-decoration:underline; text-underline-offset:2px; }
+  .footer__disclosure a{ color:rgba(35,35,42,.6); text-decoration:underline; text-underline-offset:2px; }
   .footer__disclosure a:hover{ color:var(--accent-text); }
   .footer__label{
-    margin:0 0 10px;
-    font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-    color:var(--accent-text);
+    margin:0 0 16px;
+    font-family:var(--hand); font-size:24px; font-weight:600;
+    letter-spacing:0; text-transform:none; color:var(--accent-text);
+    text-decoration:underline; text-underline-offset:5px; text-decoration-thickness:1px;
   }
   .footer__col a{
     display:block;
-    padding:4px 0;
-    font-size:14px;
-    color:#000000;
+    padding:6px 0;
+    font-family:var(--hand); font-size:22px; line-height:1.5;
+    color:var(--accent-text);
     text-decoration:none;
     transition:color .15s ease;
   }
@@ -561,10 +582,15 @@
   .footer__disclosure{
     grid-column:1 / -1;
     padding-top:28px;
-    border-top:1px solid #D5D2CD;
+    border-top:1px solid #EAE4DA;
   }
-  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(0,0,0,.6); }
-  .footer__copy{ color:rgba(0,0,0,.55) !important; }
+  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(35,35,42,.6); }
+  .footer__copy{ color:rgba(35,35,42,.55) !important; }
+
+  @media (max-width:900px){
+    .footer__intro{ font-size:24px; margin-bottom:28px; padding-bottom:22px; }
+    .footer__contact{ grid-template-columns:1fr; }
+  }
 
   /* ---------- Skyline illustration ---------- */
   .skyline{
@@ -579,8 +605,8 @@
   }
 
   .rule{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; }
-  .rule::before{ content:""; display:block; height:1px; background:#D5D2CD; }
-  .rule--strong::before{ height:2px; background:#D5D2CD; }
+  .rule::before{ content:""; display:block; height:1px; background:#EAE4DA; }
+  .rule--strong::before{ height:2px; background:#EAE4DA; }
   .shell{ flex:1 0 auto; }
   @media (max-width:900px){
     .footer__inner{ grid-template-columns:1fr 1fr; padding:40px 20px 32px; }
@@ -600,7 +626,7 @@
   .foot__nav{ display:flex; gap:6px; }
   .foot__nav button{
     width:36px; height:36px; border-radius:var(--radius);
-    border:1px solid #D5D2CD; background:var(--white); color:var(--grey);
+    border:1px solid #EAE4DA; background:var(--white); color:var(--grey);
     display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
     transition:color .15s ease, border-color .15s ease;
   }
@@ -626,7 +652,12 @@
   /* ---------- Responsive ---------- */
   @media (max-width:900px){
     .nav__inner{ padding:0 20px; }
-    .nav__logo img{ height:26px; }
+    :root{ --nav-h:64px; }
+    .nav__logo img{ height:auto; max-height:30px; max-width:100%; }
+    .nav__inner{ padding:12px 20px; }
+    .nav__links{ top:100%; }        /* the bar is no longer a fixed 54px */
+    .nav__login{ font-size:14px; }
+    .nav__cta{ padding:8px 13px; font-size:13.5px; }
     /* Log In, the CTA and the menu button are all fixed-size and all have to stay on screen,
        so the action cluster must never shrink -- it was being squeezed below its own content,
        which pushed the menu button clean off the right edge at every phone width and left the
@@ -1117,23 +1148,22 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 <div class="rule rule--strong" aria-hidden="true"></div>
 <footer class="footer">
   <div class="footer__inner">
+      <p class="footer__intro">Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.</p>
     <div class="footer__brand">
       <a href="/" class="footer__home" aria-label="Baker 1031 Investments — home"><img src="/assets/media/logo.png" alt="Baker 1031" width="1574" height="448"></a>
-      <p class="footer__blurb">Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.</p>
-      <p><a href="mailto:invest@baker1031.com">invest@baker1031.com</a></p>
-    </div>
-    <div class="footer__col footer__offices">
-      <p class="footer__label">Offices</p>
-      <address class="footer__office">
+      <p class="footer__email"><a href="mailto:invest@baker1031.com">invest@baker1031.com</a></p>
+      <div class="footer__contact">
+        <address class="footer__office">
         <strong>San Francisco</strong>
         1700 Montgomery St, Ste 108<br>San Francisco, CA 94111<br>
         <a href="tel:+14159650552">(415) 965-0552</a>
       </address>
-      <address class="footer__office">
+        <address class="footer__office">
         <strong>Los Angeles</strong>
         2100 E Grand Ave, 1st Floor<br>El Segundo, CA 90245<br>
         <a href="tel:+13108964227">(310) 896-4227</a>
       </address>
+      </div>
     </div>
     <div class="footer__col">
       <p class="footer__label">Baker 1031</p>
@@ -2053,7 +2083,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       config: calPrefill(),
       calLink: "jerry-baker-yn6qn1/25min",
     });
-    Cal.ns["25min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#243856"}},"hideEventTypeDetails":false,"layout":"month_view"});
+    Cal.ns["25min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#2E4183"}},"hideEventTypeDetails":false,"layout":"month_view"});
     // Cal.com tells the page when a booking is made; record it and show a confirmation above the calendar.
     var onBooked = function(e){
       var d = (e && e.detail && e.detail.data) || {};

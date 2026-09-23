@@ -3,7 +3,9 @@
 # with a token overwrites it. To change who is preferred, star or unstar the sponsor in the Opportunities tool.
 # Committed so a build without a token still has the last known list rather than an empty bar.
 Bluerock
+Capital Square
 ExchangeRight
+Net Lease Capital
 NexPoint
 Peachtree Group
 Reliant

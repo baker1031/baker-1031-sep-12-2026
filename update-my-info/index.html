@@ -31,8 +31,8 @@
      defined here. They were previously undefined, which left the page rendering on the browser
      default rather than the site's palette. */
   :root{
-    --page:#FFFFFF; --ink:#000000; --body:#000000; --muted:rgba(0,0,0,.6);
-    --hair:#D5D2CD; --grey1:#FCF7F0; --blue:#243856; --accent-2:#243856; --rose:#243856;
+    --page:#FDFBF7; --ink:#23232A; --body:#23232A; --muted:rgba(35,35,42,.6);
+    --hair:#EAE4DA; --grey1:#F5F1E9; --blue:#2E4183; --accent-2:#2E4183; --rose:#2E4183;
     --sans:"Guardian Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   }
 
@@ -42,10 +42,10 @@
 
   body { margin:0; font-family:var(--sans); color:var(--body); background:var(--page); font-size:16px; }
   .topbar { display:flex; justify-content:space-between; align-items:center; padding:0 40px; height:76px; background:var(--ink); }
-  .umi-logo { font-weight:600; font-size:18px; color:#fff; text-decoration:none; }
-  .backhome { font-size:13.5px; font-weight:300; color:rgba(255,255,255,.75); text-decoration:none; }
+  .umi-logo { font-weight:600; font-size:18px; color:#FDFBF7; text-decoration:none; }
+  .backhome { font-size:13.5px; font-weight:300; color:rgba(253,251,247,.75); text-decoration:none; }
   .stage { max-width:840px; margin:0 auto; padding:20px 24px 90px; }
-  .panel { background:#fff; padding:46px 52px 52px; }
+  .panel { background:#FDFBF7; padding:46px 52px 52px; }
   h1 { font-weight:300; font-size:28px; letter-spacing:-.01em; margin:0 0 8px; }
   .lead { font-size:14.5px; font-weight:300; line-height:1.75; color:var(--muted); margin:0 0 34px; }
   h2 { font-weight:400; font-size:16px; letter-spacing:.01em; margin:40px 0 18px; padding-top:26px; border-top:1px solid var(--hair); }
@@ -54,27 +54,27 @@
   .umi-grid2 { display:grid; grid-template-columns:1fr 1fr; gap:20px 24px; }
   .umi-field { margin-bottom:22px; }
   input[type=text], input[type=email], input[type=tel], input[type=date], select {
-    width:100%; border:1px solid var(--hair); background:#fff; font-family:inherit; font-size:15.5px; font-weight:300; color:var(--ink); padding:13px 14px; outline:none; border-radius:2px; }
+    width:100%; border:1px solid var(--hair); background:#FDFBF7; font-family:inherit; font-size:15.5px; font-weight:300; color:var(--ink); padding:13px 14px; outline:none; border-radius:2px; }
   input:focus, select:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(36,56,86,.14); }
   input[disabled] { background:var(--grey1); color:var(--muted); }
   .hint { font-size:12.5px; font-weight:300; color:var(--muted); margin-top:6px; line-height:1.6; }
   .notice { display:none; border:1px solid #E8DCBB; background:#FBF6EA; color:#6B5A22; font-size:13.5px; font-weight:300; line-height:1.7; padding:14px 18px; margin:4px 0 22px; }
   .notice.on { display:block; }
   .pills { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:8px; }
-  .pill { border:1px solid var(--hair); background:#fff; font-family:inherit; font-size:13.5px; font-weight:400; color:var(--ink); padding:10px 18px; border-radius:100px; cursor:pointer; transition:transform .12s ease, border-color .12s ease; }
+  .pill { border:1px solid var(--hair); background:#FDFBF7; font-family:inherit; font-size:13.5px; font-weight:400; color:var(--ink); padding:10px 18px; border-radius:100px; cursor:pointer; transition:transform .12s ease, border-color .12s ease; }
   .pill:hover { transform:translateY(-1px); border-color:var(--blue); }
-  .pill.sel { background:var(--ink); border-color:var(--ink); color:#fff; }
+  .pill.sel { background:var(--ink); border-color:var(--ink); color:#FDFBF7; }
   .pill.sel:before { content:"\2713\00a0"; }
   .pillgroup { margin-bottom:26px; }
 
-  .mselect { width:100%; border:1px solid var(--hair); background:#fff; font-family:inherit; font-size:15.5px; font-weight:300; color:var(--ink); padding:13px 14px; outline:none; border-radius:2px; }
+  .mselect { width:100%; border:1px solid var(--hair); background:#FDFBF7; font-family:inherit; font-size:15.5px; font-weight:300; color:var(--ink); padding:13px 14px; outline:none; border-radius:2px; }
   .mselect:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(36,56,86,.14); }
   .msel { position:relative; }
-  .msel-btn { width:100%; display:flex; justify-content:space-between; align-items:center; gap:12px; border:1px solid var(--hair); background:#fff; font-family:inherit; font-size:15px; font-weight:300; color:var(--muted); padding:13px 14px; border-radius:2px; cursor:pointer; text-align:left; }
+  .msel-btn { width:100%; display:flex; justify-content:space-between; align-items:center; gap:12px; border:1px solid var(--hair); background:#FDFBF7; font-family:inherit; font-size:15px; font-weight:300; color:var(--muted); padding:13px 14px; border-radius:2px; cursor:pointer; text-align:left; }
   .msel-btn .msel-sum { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .msel-btn .msel-sum.has { color:var(--ink); font-weight:400; }
   .msel.open .msel-btn { border-color:var(--blue); box-shadow:0 0 0 3px rgba(36,56,86,.14); }
-  .msel-panel { display:none; position:absolute; z-index:40; top:calc(100% + 6px); left:0; right:0; background:#fff; border:1px solid var(--hair); border-radius:2px; box-shadow:0 16px 44px rgba(51,46,36,.18); max-height:280px; overflow:auto; padding:6px; }
+  .msel-panel { display:none; position:absolute; z-index:40; top:calc(100% + 6px); left:0; right:0; background:#FDFBF7; border:1px solid var(--hair); border-radius:2px; box-shadow:0 16px 44px rgba(51,46,36,.18); max-height:280px; overflow:auto; padding:6px; }
   .msel.open .msel-panel { display:block; }
   .msel-opt { display:flex; gap:11px; align-items:flex-start; padding:9px 10px; border-radius:2px; font-size:14px; font-weight:300; color:var(--ink); cursor:pointer; line-height:1.5; }
   .msel-opt:hover { background:var(--grey1); }
@@ -84,7 +84,7 @@
   .umi-calcbox .ck { font-weight:300; color:var(--muted); }
   .umi-calcbox .cv { font-weight:600; }
   .btnrow { margin-top:38px; display:flex; align-items:center; gap:20px; }
-  .btn-save { background:var(--ink); border:0; color:#fff; font-family:inherit; font-size:14.5px; font-weight:500; padding:15px 38px; cursor:pointer; border-radius:2px; }
+  .btn-save { background:var(--ink); border:0; color:#FDFBF7; font-family:inherit; font-size:14.5px; font-weight:500; padding:15px 38px; cursor:pointer; border-radius:2px; }
   .btn-save:hover { background:var(--blue-d); }
   .btn-save[disabled] { opacity:.5; cursor:default; }
   .savemsg { font-size:14px; font-weight:400; display:none; }
@@ -99,9 +99,9 @@
   @media (max-width:720px) { .panel { padding:32px 24px 40px; } .umi-grid2 { grid-template-columns:1fr; } .btn-save { width:100%; } .btnrow { flex-direction:column; } }
   .footer { background:var(--blue-d); }
   .legal { padding:48px; max-width:1240px; margin:0 auto; }
-  .legal .rule { font-size:11.5px; font-weight:300; line-height:1.85; color:rgba(255,255,255,.82); }
-  .legal .row { display:flex; justify-content:space-between; margin-top:20px; font-size:12.5px; font-weight:300; color:rgba(255,255,255,.72); flex-wrap:wrap; gap:8px; border-top:1px solid rgba(255,255,255,.15); padding-top:20px; }
-  .legal a { color:rgba(255,255,255,.72); }
+  .legal .rule { font-size:11.5px; font-weight:300; line-height:1.85; color:rgba(253,251,247,.82); }
+  .legal .row { display:flex; justify-content:space-between; margin-top:20px; font-size:12.5px; font-weight:300; color:rgba(253,251,247,.72); flex-wrap:wrap; gap:8px; border-top:1px solid rgba(253,251,247,.15); padding-top:20px; }
+  .legal a { color:rgba(253,251,247,.72); }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Review & Update Your Information","url":"https://baker1031.com/update-my-info/","isPartOf":{"@type":"WebSite","name":"Baker 1031 Investments","url":"https://baker1031.com/"},"inLanguage":"en-US"}</script>
 </head>

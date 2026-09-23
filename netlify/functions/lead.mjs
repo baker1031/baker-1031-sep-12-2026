@@ -108,15 +108,15 @@ async function sendCrsReceipt(lead, ip) {
   const pacific = now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles', dateStyle: 'medium', timeStyle: 'medium' }) + ' PT';
   const F = "'Helvetica Neue', Helvetica, Arial, sans-serif";
   const base = (process.env.URL || 'https://baker1031.com').replace(/\/$/, '');
-  const row = (k, v) => `<tr><td style="padding:6px 14px 6px 0;font-family:${F};font-size:13px;color:#666666;white-space:nowrap;vertical-align:top;">${k}</td><td style="padding:6px 0;font-family:${F};font-size:13px;color:#000000;">${v}</td></tr>`;
+  const row = (k, v) => `<tr><td style="padding:6px 14px 6px 0;font-family:${F};font-size:13px;color:#666666;white-space:nowrap;vertical-align:top;">${k}</td><td style="padding:6px 0;font-family:${F};font-size:13px;color:#23232A;">${v}</td></tr>`;
   const esc = (s) => String(s ?? '').replace(/[<>&"]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]));
-  const html = `<!doctype html><html><body style="margin:0;padding:0;background:#ffffff;">
+  const html = `<!doctype html><html><body style="margin:0;padding:0;background:#FDFBF7;">
 <div style="max-width:620px;margin:0;padding:28px 20px;">
   <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;margin:0 0 26px 0"><tbody>
   <tr><td style="padding:0 0 14px 0"><img src="${base}/assets/media/logo.png" alt="Baker 1031 Investments" width="180" height="51" style="display:block;width:180px;height:51px;border:0;outline:none;text-decoration:none"></td></tr>
-  <tr><td style="padding:0;border-top:2px solid #243856;font-size:0;line-height:0">&nbsp;</td></tr>
+  <tr><td style="padding:0;border-top:2px solid #2E4183;font-size:0;line-height:0">&nbsp;</td></tr>
   </tbody></table>
-  <p style="font-family:${F};font-size:15px;line-height:24px;color:#000000;margin:0 0 4px;font-weight:bold;">Form CRS delivery receipt</p>
+  <p style="font-family:${F};font-size:15px;line-height:24px;color:#23232A;margin:0 0 4px;font-weight:bold;">Form CRS delivery receipt</p>
   <p style="font-family:${F};font-size:13px;line-height:20px;color:#666666;margin:0 0 18px;">The person below completed the registration form at baker1031.com and acknowledged reviewing Aurora Securities&rsquo; Form CRS as part of the final acknowledgments.</p>
   <table cellpadding="0" cellspacing="0" border="0">
     ${row('Name', esc(`${lead.firstName || ''} ${lead.lastName || ''}`.trim()))}

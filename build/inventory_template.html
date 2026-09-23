@@ -29,7 +29,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#243856">
+<meta name="theme-color" content="#243372">
 <script defer src="/assets/js/analytics.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://baker1031.com/invest/#webpage", "url": "https://baker1031.com/invest/", "name": "Available Investments", "description": "Current 1031 exchange investments with sponsor, property type, location, yield and LTV.", "isPartOf": {"@id": "https://baker1031.com/#website"}, "about": {"@id": "https://baker1031.com/#org"}, "inLanguage": "en-US", "isAccessibleForFree": false, "hasPart": {"@type": "WebPageElement", "isAccessibleForFree": false, "cssSelector": ".lockwrap"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://baker1031.com/"}, {"@type": "ListItem", "position": 2, "name": "Available Investments"}]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,11 +37,11 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
 <link href="https://fonts.googleapis.com/css2?family=Special+Gothic&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <style>
 /* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
-:root{ --page:#FFFFFF; --accent-2:#243856; --rose:#243856;
-    --black:#000; --white:#fff;
-    --accent:#243856;
-    --btn:#243856; --btn-hover:#162335; --accent-text:#243856; --accent-hover:#1B2B42; --accent-soft:#FCF7F0;
-    --grey:#000000; --grey-light:rgba(0,0,0,.6); --hair:#D5D2CD; --hair-strong:#D5D2CD;
+:root{ --page:#FDFBF7; --accent-2:#2E4183; --rose:#2E4183;
+    --black:#23232A; --white:#FDFBF7;
+    --accent:#2E4183;
+    --btn:#2E4183; --btn-hover:#243372; --accent-text:#2E4183; --accent-hover:#243372; --accent-soft:#F5F1E9;
+    --grey:#23232A; --grey-light:rgba(35,35,42,.6); --hair:#EAE4DA; --hair-strong:#EAE4DA;
     --radius:6px;
     --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --display:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -60,38 +60,37 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   }
   .btn:hover{ background:var(--btn-hover); border-color:var(--btn-hover); }
   .btn svg{ width:16px; height:16px; }
-  .btn--secondary{ background:transparent; color:var(--grey); border-color:#D5D2CD; }
+  .btn--secondary{ background:transparent; color:var(--grey); border-color:#EAE4DA; }
   .btn--secondary:hover{ background:transparent; color:var(--accent-text); border-color:var(--accent); }
 
   /* ---------- Sticky nav (from the homepage) ---------- */
   /* ---------- Sticky nav ---------- */
   .nav{
     position:sticky; top:0; z-index:60;
-    background:rgba(255,255,255,.92);
+    background:rgba(253,251,247,.92);
     -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
-    border-bottom:1px solid #D5D2CD;
+    border-bottom:1px solid #EAE4DA;
     transition:box-shadow .2s ease;
   }
-  .nav.is-scrolled{ box-shadow:0 2px 12px rgba(0,0,0,.06); }
+  .nav.is-scrolled{ box-shadow:0 2px 12px rgba(35,35,42,.06); }
   .nav__inner{
     max-width:calc(1200px + 48px);
     margin:0 auto;
-    padding:0 24px;
-    height:56px;
+    padding:18px 24px;          /* room above and below instead of a fixed bar height */
     display:flex;
     align-items:center;
     gap:32px;
   }
   .nav__logo{ display:flex; align-items:center; flex:0 0 auto; min-width:0; }
-  .nav__logo img{ height:32px; width:auto; display:block; }
-  .nav__links{ display:flex; align-items:center; gap:26px; margin-left:24px; }
+  .nav__logo img{ height:38px; width:auto; display:block; }
+  .nav__links{ display:flex; align-items:center; gap:30px; margin-left:24px; }
   .nav__links a{
     display:inline-grid;
     align-items:center;
     justify-items:center;
-    font-size:14px;
+    font-size:15.5px;
     font-weight:600;
-    color:#000000;
+    color:#23232A;
     text-decoration:none;
     padding:6px 0;
     line-height:1.2;
@@ -125,20 +124,20 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   }
   .nav__actions{ margin-left:auto; display:flex; align-items:center; gap:18px; }
   .nav__login{
-    font-size:14px;
+    font-size:15px;
     font-weight:600;
-    color:#000000;
+    color:#23232A;
     text-decoration:none;
     transition:color .15s ease;
   }
   .nav__login:hover{ color:var(--accent-text); }
-  .nav__cta{ margin:0; padding:8px 16px; font-size:13.5px; }
+  .nav__cta{ margin:0; padding:10px 20px; font-size:15px; }
   /* logged-in state: greeting + Log Out replace Log In / Get Started */
   .nav__actions [hidden]{ display:none !important; }
   .nav__user{ font-size:14px; font-weight:600; color:var(--black); white-space:nowrap; }
   .nav__user-name{ color:var(--accent-text); }
   .nav__logout{
-    font:inherit; font-size:14px; font-weight:600; color:#000000;
+    font:inherit; font-size:14px; font-weight:600; color:#23232A;
     background:none; border:0; padding:0; cursor:pointer; white-space:nowrap;
     transition:color .15s ease;
   }
@@ -203,8 +202,8 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .head h1 .hand{ font-family:var(--hand); font-weight:600; color:var(--accent-text); font-size:1.3em; line-height:.8; display:inline-block; transform:rotate(-3deg) translateY(.04em); margin-right:.08em; }
   .head p{ margin:0; max-width:720px; font-size:16px; line-height:1.65; color:var(--grey); }
   .rule{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; }
-  .rule::before{ content:""; display:block; height:1px; background:#D5D2CD; }
-  .rule--strong::before{ height:2px; background:#D5D2CD; }
+  .rule::before{ content:""; display:block; height:1px; background:#EAE4DA; }
+  .rule--strong::before{ height:2px; background:#EAE4DA; }
 
   /* ---------- Layout: filter chips across the top, results fill the width ---------- */
   .inv{ max-width:calc(1200px + 48px); margin:0 auto; padding:28px 24px 72px; }
@@ -242,12 +241,12 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     position:absolute; top:calc(100% + 8px); left:0; z-index:30;
     min-width:260px; max-width:340px;
     background:var(--white); border:1px solid var(--hair-strong); border-radius:var(--radius);
-    box-shadow:0 12px 32px rgba(0,0,0,.12); padding:6px 0 0;
+    box-shadow:0 12px 32px rgba(35,35,42,.12); padding:6px 0 0;
   }
   .pop[hidden]{ display:none; }
   .pop__list{ max-height:280px; overflow:auto; padding:4px 8px; }
   .check{ display:flex; align-items:center; gap:10px; font-size:14px; color:var(--grey); cursor:pointer; padding:7px 8px; border-radius:4px; }
-  .check:hover{ background:#FCF7F0; }
+  .check:hover{ background:#F5F1E9; }
   .check input{ position:absolute; opacity:0; width:0; height:0; }
   .check__box{ width:18px; height:18px; border:2px solid var(--hair-strong); border-radius:4px; display:inline-flex; align-items:center; justify-content:center; color:var(--white); flex:0 0 auto; transition:background .15s, border-color .15s; }
   .check__box svg{ width:11px; height:11px; opacity:0; }
@@ -255,12 +254,12 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .check input:checked ~ .check__box svg{ opacity:1; }
   .check input:focus-visible ~ .check__box{ box-shadow:0 0 0 3px rgba(36,56,86,.25); }
   .check input:checked ~ .check__text{ color:var(--black); }
-  .check__count{ margin-left:auto; font-size:12px; color:rgba(0,0,0,.55); }
+  .check__count{ margin-left:auto; font-size:12px; color:rgba(35,35,42,.55); }
   .pop__range{ padding:14px 16px 8px; }
   .pop__rangehead{ display:flex; justify-content:space-between; align-items:baseline; margin:0 0 10px; font-size:13px; color:var(--grey); }
   .pop__rangehead output{ font-size:16px; font-weight:700; color:var(--accent-text); font-variant-numeric:tabular-nums; }
   input[type="range"]{ width:100%; accent-color:var(--accent); margin:0; }
-  .range__scale{ display:flex; justify-content:space-between; font-size:11.5px; color:rgba(0,0,0,.55); margin-top:4px; }
+  .range__scale{ display:flex; justify-content:space-between; font-size:11.5px; color:rgba(35,35,42,.55); margin-top:4px; }
   .pop__range.is-off input[type="range"]{ opacity:.35; }
   .pop__range.is-off .pop__rangehead{ opacity:.5; }
   .pop__alt{ padding:4px 12px 10px; }
@@ -284,9 +283,9 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .pop__done:hover{ background:var(--accent-hover); }
 
   /* "all filters" modal */
-  .modal{ position:fixed; inset:0; z-index:80; display:flex; align-items:center; justify-content:center; padding:24px; background:rgba(0,0,0,.4); }
+  .modal{ position:fixed; inset:0; z-index:80; display:flex; align-items:center; justify-content:center; padding:24px; background:rgba(35,35,42,.4); }
   .modal[hidden]{ display:none; }
-  .modal__panel{ width:100%; max-width:720px; max-height:calc(100vh - 48px); overflow:auto; background:var(--white); border-radius:8px; box-shadow:0 24px 64px rgba(0,0,0,.25); }
+  .modal__panel{ width:100%; max-width:720px; max-height:calc(100vh - 48px); overflow:auto; background:var(--white); border-radius:8px; box-shadow:0 24px 64px rgba(35,35,42,.25); }
   .modal__head{ display:flex; align-items:center; justify-content:space-between; padding:18px 22px; border-bottom:1px solid var(--hair); position:sticky; top:0; background:var(--white); z-index:1; }
   .modal__head h2{ margin:0; font-size:18px; font-weight:700; letter-spacing:-.01em; }
   .modal__close{ width:34px; height:34px; border-radius:50%; border:1px solid var(--hair-strong); background:var(--white); cursor:pointer; display:inline-flex; align-items:center; justify-content:center; color:var(--grey); }
@@ -325,10 +324,10 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     background:var(--white); color:inherit; text-decoration:none;
     transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease;
   }
-  .card:hover{ border-color:var(--accent); box-shadow:0 10px 28px rgba(0,0,0,.08); transform:translateY(-2px); }
-  .card__media{ position:relative; aspect-ratio:4 / 3; background:#FCF7F0; border-radius:var(--radius) var(--radius) 0 0; overflow:hidden; }
+  .card:hover{ border-color:var(--accent); box-shadow:0 10px 28px rgba(35,35,42,.08); transform:translateY(-2px); }
+  .card__media{ position:relative; aspect-ratio:4 / 3; background:#F5F1E9; border-radius:var(--radius) var(--radius) 0 0; overflow:hidden; }
   .card__rating{ position:absolute; right:12px; top:12px; z-index:2; }
-  .card__rating .badge{ box-shadow:0 1px 4px rgba(0,0,0,.14); }
+  .card__rating .badge{ box-shadow:0 1px 4px rgba(35,35,42,.14); }
   .card__media img{ width:100%; height:100%; object-fit:cover; display:block; }
   .card__body{ padding:14px 16px 16px; display:flex; flex-direction:column; gap:8px; flex:1; }
   .card__row{ display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap; }
@@ -336,11 +335,11 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     display:inline-flex; align-items:center; gap:7px;
     font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--grey);
   }
-  .status::before{ content:""; width:7px; height:7px; border-radius:50%; background:#243856; flex:0 0 auto; }
+  .status::before{ content:""; width:7px; height:7px; border-radius:50%; background:#2E4183; flex:0 0 auto; }
   .status--limited::before{ background:#F59E0B; }
   .status--closing::before{ background:#EF4444; }
   .status--soon::before{ background:var(--accent); }
-  .status--sold::before{ background:rgba(0,0,0,.55); }
+  .status--sold::before{ background:rgba(35,35,42,.55); }
   .status--rejected::before{ background:#EF4444; }
   .card__rating .badge{ height:26px; font-size:11.5px; padding:0 9px 0 8px; gap:6px; }
   .card__rating .badge__emoji{ font-size:13px; }
@@ -348,16 +347,16 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .tip{ position:relative; display:inline-flex; }
   .tip__box{
     position:absolute; z-index:40; right:0; top:calc(100% + 8px); width:260px;
-    padding:12px 14px; background:#000000; color:#FCF7F0; border-radius:6px;
+    padding:12px 14px; background:#23232A; color:#F5F1E9; border-radius:6px;
     font-size:13px; font-weight:400; line-height:1.5; letter-spacing:0; white-space:normal; text-transform:none;
-    box-shadow:0 10px 28px rgba(0,0,0,.25);
+    box-shadow:0 10px 28px rgba(35,35,42,.25);
     opacity:0; visibility:hidden; transform:translateY(-4px);
     transition:opacity .15s ease, transform .15s ease, visibility 0s linear .15s;
     pointer-events:none;
   }
-  .tip__box::before{ content:""; position:absolute; right:18px; top:-6px; border-left:6px solid transparent; border-right:6px solid transparent; border-bottom:6px solid #000000; }
-  .tip__box strong{ display:block; margin-bottom:3px; color:#fff; }
-  .tip__box small{ display:block; margin-top:6px; font-size:11px; color:rgba(0,0,0,.55); }
+  .tip__box::before{ content:""; position:absolute; right:18px; top:-6px; border-left:6px solid transparent; border-right:6px solid transparent; border-bottom:6px solid #23232A; }
+  .tip__box strong{ display:block; margin-bottom:3px; color:#FDFBF7; }
+  .tip__box small{ display:block; margin-top:6px; font-size:11px; color:rgba(35,35,42,.55); }
   .tip:hover .tip__box, .tip:focus-within .tip__box{ opacity:1; visibility:visible; transform:none; transition-delay:0s; }
   .table .tip__box{ right:auto; left:0; } .table .tip__box::before{ right:auto; left:18px; }
   .card__type{ margin:0; font-size:11.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--grey-light); line-height:1.4; }
@@ -367,7 +366,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .card{ position:relative; }
   .card__media{ display:block; }
   .card__stats{ margin:auto 0 0; padding-top:4px; border-top:1px solid var(--hair); }
-  .card__stats div{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding:7px 0; border-bottom:1px solid #FCF7F0; }
+  .card__stats div{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding:7px 0; border-bottom:1px solid #F5F1E9; }
   .card__stats div:last-child{ border-bottom:0; }
   .card__stats dt{ margin:0; font-size:12.5px; color:var(--grey); }
   .card__stats dd{ margin:0; font-size:15px; font-weight:700; letter-spacing:-.01em; color:var(--black); font-variant-numeric:tabular-nums; text-align:right; }
@@ -377,21 +376,21 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .card--sold:hover{ transform:none; box-shadow:none; border-color:var(--hair-strong); }
   .empty{ grid-column:1 / -1; text-align:center; padding:64px 24px; border:1px dashed var(--hair-strong); border-radius:var(--radius); color:var(--grey); }
   .empty .hand{ display:block; font-family:var(--hand); font-size:30px; font-weight:600; color:var(--accent-text); margin-bottom:6px; transform:rotate(-2deg); }
-  .inv__index{ margin:40px 0 0; font-size:12.5px; line-height:1.9; color:rgba(0,0,0,.6); }
-  .inv__index-label{ margin:0 0 4px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:rgba(0,0,0,.6); }
-  .inv__index a{ color:#000000; text-decoration:none; }
+  .inv__index{ margin:40px 0 0; font-size:12.5px; line-height:1.9; color:rgba(35,35,42,.6); }
+  .inv__index-label{ margin:0 0 4px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:rgba(35,35,42,.6); }
+  .inv__index a{ color:#23232A; text-decoration:none; }
   .inv__index a:hover{ color:var(--accent-text); text-decoration:underline; }
-  .inv__disclosure{ margin:24px 0 0; font-size:11px; line-height:1.6; color:rgba(0,0,0,.6); }
+  .inv__disclosure{ margin:24px 0 0; font-size:11px; line-height:1.6; color:rgba(35,35,42,.6); }
 
   /* ---------- Important Disclosure (foot of the offerings page) ---------- */
   .invdisc{ border-top:1px solid var(--hair-strong); margin:56px 0 0; padding:28px 0 8px; }
   .invdisc h2{ margin:0 0 14px; font-family:var(--display); font-weight:400; font-size:1.15rem; letter-spacing:-.01em; }
-  .invdisc p{ margin:0 0 10px; font-size:11px; line-height:1.6; color:rgba(0,0,0,.6); }
+  .invdisc p{ margin:0 0 10px; font-size:11px; line-height:1.6; color:rgba(35,35,42,.6); }
   .invdisc p:last-child{ margin-bottom:0; }
-  .invdisc .invdisc__legend{ font-weight:700; letter-spacing:.04em; color:rgba(0,0,0,.75); }
+  .invdisc .invdisc__legend{ font-weight:700; letter-spacing:.04em; color:rgba(35,35,42,.75); }
   .invdisc h2 + p{ margin-top:0; }
   .invdisc h2:not(:first-of-type){ margin-top:24px; }
-  .invdisc .invdisc__note{ padding-left:12px; border-left:2px solid var(--hair-strong); color:rgba(0,0,0,.55); }
+  .invdisc .invdisc__note{ padding-left:12px; border-left:2px solid var(--hair-strong); color:rgba(35,35,42,.55); }
 
   /* ---------- List view (sortable table) ---------- */
   .tablewrap{ overflow-x:auto; border:1px solid var(--hair-strong); border-radius:var(--radius); }
@@ -399,7 +398,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .table th, .table td{ padding:12px 14px; text-align:left; border-bottom:1px solid var(--hair); vertical-align:middle; }
   .table th{
     font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--grey-light);
-    background:#FCF7F0; white-space:nowrap; cursor:pointer; user-select:none;
+    background:#F5F1E9; white-space:nowrap; cursor:pointer; user-select:none;
   }
   .table th:hover{ color:var(--accent-text); }
   .table th[aria-sort] { color:var(--black); }
@@ -422,7 +421,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     .table th .arrow, .table tbody tr, .table tbody td{ transition:none; }
   }
   .table tbody tr:last-child td{ border-bottom:0; }
-  .table tbody tr:hover td{ background:#FCF7F0; }
+  .table tbody tr:hover td{ background:#F5F1E9; }
   .table td.num{ text-align:right; font-variant-numeric:tabular-nums; font-weight:600; }
   .table th.num{ text-align:right; }
   .table td.num.is-accent{ color:var(--accent-text); font-weight:700; }
@@ -439,7 +438,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .lockwrap{ position:relative; }
   .gate{ display:none; position:absolute; left:50%; top:48px; transform:translateX(-50%); z-index:3; width:min(520px, calc(100% - 8px)); }
   html:not(.is-logged-in) .gate{ display:block; }
-  .gate__card{ background:var(--white); border:1px solid var(--hair-strong); border-radius:10px; padding:26px 30px 24px; box-shadow:0 26px 52px -28px rgba(0,0,0,.24), 0 1px 3px rgba(0,0,0,.05); }
+  .gate__card{ background:var(--white); border:1px solid var(--hair-strong); border-radius:10px; padding:26px 30px 24px; box-shadow:0 26px 52px -28px rgba(35,35,42,.24), 0 1px 3px rgba(35,35,42,.05); }
   .gate__lock{ display:flex; align-items:center; gap:8px; margin:0 0 12px; font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--grey-light); }
   .gate__lock svg{ width:13px; height:13px; flex:none; }
   .gate__card h2{ margin:0 0 16px; font-size:24px; font-weight:400; line-height:1.2; letter-spacing:-.015em; }
@@ -452,14 +451,14 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   /* locked state: the grid is inert and softly blurred, fading out toward the bottom; controls stay visible but can't be used */
   html:not(.is-logged-in) .lockwrap > .grid{
     filter:blur(3px); pointer-events:none; user-select:none;
-    -webkit-mask-image:linear-gradient(to bottom, #000 55%, transparent 100%); mask-image:linear-gradient(to bottom, #000 55%, transparent 100%);
+    -webkit-mask-image:linear-gradient(to bottom, #23232A 55%, transparent 100%); mask-image:linear-gradient(to bottom, #23232A 55%, transparent 100%);
   }
   html:not(.is-logged-in) .fbar, html:not(.is-logged-in) .results__bar{ pointer-events:none; }
   html:not(.is-logged-in) .results__bar select, html:not(.is-logged-in) .results__bar .view button{ opacity:.7; }
   /* skeleton cards: same footprint as a real card so unlocking causes no layout shift (skeleton recipe from transitions.dev) */
   :root{ --pulse-dur:1400ms; --pulse-min:.55; }
-  .card--skel .card__media{ background:#EEF0F3; }
-  .sk{ display:block; background:#E3E6EA; border-radius:4px; animation:t-skel-pulse var(--pulse-dur) ease-in-out infinite; }
+  .card--skel .card__media{ background:#F5F1E9; }
+  .sk{ display:block; background:#F5F1E9; border-radius:4px; animation:t-skel-pulse var(--pulse-dur) ease-in-out infinite; }
   .card--skel .card__row{ min-height:20px; }
   .card--skel .card__stats div{ align-items:center; }
   .card--skel .card__stats dd .sk{ width:56px; height:23px; }
@@ -467,47 +466,68 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   @keyframes t-skel-pulse{ 0%,100%{ opacity:1; } 50%{ opacity:var(--pulse-min); } }
   @media (prefers-reduced-motion:reduce){ .sk{ animation:none; } }
   .gate__actions{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
-  .gate__note{ margin:20px 0 0; padding-top:16px; border-top:1px solid #ECEAE6; font-size:11px; line-height:1.5; color:rgba(0,0,0,.5); }
+  .gate__note{ margin:20px 0 0; padding-top:16px; border-top:1px solid #EAE4DA; font-size:11px; line-height:1.5; color:rgba(35,35,42,.5); }
   @media (max-width:560px){ .gate__list{ grid-template-columns:1fr; gap:7px; } .gate__card{ padding:22px 22px 20px; } }
   .is-logged-in .gate{ display:none; }
 
   /* ---------- Footer (from the homepage) ---------- */
   /* ---------- Footer ---------- */
+  /* The hand (Caveat, already loaded for the site's lettering) carries the opening
+     line and the link columns. Contact detail is typed on purpose: an address and a
+     phone number are things people copy, dial and check, and they have to be
+     unambiguous. The disclosure block stays typed for the same reason.
+     NB: the marker line above is what build/sync_chrome.py looks for -- leave it exact. */
+  .footer__intro{
+    grid-column:1 / -1; margin:0 0 36px; padding-bottom:30px;
+    border-bottom:1px solid var(--hair);
+    font-family:var(--hand); font-size:30px; line-height:1.45;
+    color:var(--accent-text); max-width:none;
+  }
+  .footer__email{ margin:0 0 22px !important; font-size:15px !important; line-height:1.6 !important; }
+  .footer__email a{ font-family:var(--font); color:var(--accent-text); font-weight:600; text-decoration:none; }
+  .footer__email a:hover{ color:#243372; text-decoration:underline; }
+  .footer__contact{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px 28px; }
   .footer{ background:var(--white); }
-  .rule--strong::before{ height:2px; background:#D5D2CD; }
+  .rule--strong::before{ height:2px; background:#EAE4DA; }
   .footer__inner{
     max-width:calc(1200px + 48px);
     margin:0 auto;
     padding:56px 24px 40px;
     display:grid;
-    grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,.8fr) minmax(0,.8fr) minmax(0,.8fr);
+    grid-template-columns:minmax(0,1.5fr) minmax(0,.9fr) minmax(0,.9fr) minmax(0,.9fr);
     gap:32px 40px;
   }
   .footer__brand img{ height:40px; width:auto; display:block; margin-bottom:16px; }
-  .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#000000; }
-  .footer__brand a{ color:#000000; text-decoration:none; }
+  .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#23232A; }
+  .footer__brand a{ color:#23232A; text-decoration:none; }
   .footer__brand a:hover{ color:var(--accent-text); }
-  .footer__brand .footer__blurb{ max-width:46ch; }
+
   .footer__office{
     font-style:normal;
-    margin:0 0 14px;
-    font-size:13.5px; line-height:1.6; color:#000000;
+    margin:0;
+    font-size:14px; line-height:1.65; color:rgba(35,35,42,.78);
   }
-  .footer__office strong{ display:block; font-weight:600; color:var(--black); }
+  .footer__office strong{
+    display:block; font-size:12px; font-weight:700; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--accent-text); margin-bottom:6px;
+  }
+  .footer__office a{ color:rgba(35,35,42,.78); text-decoration:none; }
+  .footer__office a:hover{ color:var(--accent-text); text-decoration:underline; }
   .footer__col .footer__office a{ display:inline; padding:0; font-size:inherit; }
   .footer__col .footer__office a:hover{ color:var(--accent-text); }
-  .footer__disclosure a{ color:rgba(0,0,0,.6); text-decoration:underline; text-underline-offset:2px; }
+  .footer__disclosure a{ color:rgba(35,35,42,.6); text-decoration:underline; text-underline-offset:2px; }
   .footer__disclosure a:hover{ color:var(--accent-text); }
   .footer__label{
-    margin:0 0 10px;
-    font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-    color:var(--accent-text);
+    margin:0 0 16px;
+    font-family:var(--hand); font-size:24px; font-weight:600;
+    letter-spacing:0; text-transform:none; color:var(--accent-text);
+    text-decoration:underline; text-underline-offset:5px; text-decoration-thickness:1px;
   }
   .footer__col a{
     display:block;
-    padding:4px 0;
-    font-size:14px;
-    color:#000000;
+    padding:6px 0;
+    font-family:var(--hand); font-size:22px; line-height:1.5;
+    color:var(--accent-text);
     text-decoration:none;
     transition:color .15s ease;
   }
@@ -515,10 +535,15 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .footer__disclosure{
     grid-column:1 / -1;
     padding-top:28px;
-    border-top:1px solid #D5D2CD;
+    border-top:1px solid #EAE4DA;
   }
-  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(0,0,0,.6); }
-  .footer__copy{ color:rgba(0,0,0,.55) !important; }
+  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(35,35,42,.6); }
+  .footer__copy{ color:rgba(35,35,42,.55) !important; }
+
+  @media (max-width:900px){
+    .footer__intro{ font-size:24px; margin-bottom:28px; padding-bottom:22px; }
+    .footer__contact{ grid-template-columns:1fr; }
+  }
 
   /* ---------- Skyline illustration ---------- */
   .skyline{
@@ -543,15 +568,19 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
       flex-direction:column; align-items:stretch; gap:0;
       margin:0; padding:8px 20px 12px;
       background:var(--white);
-      border-bottom:1px solid #D5D2CD;
-      box-shadow:0 12px 24px rgba(0,0,0,.08);
+      border-bottom:1px solid #EAE4DA;
+      box-shadow:0 12px 24px rgba(35,35,42,.08);
     }
     .nav__links.is-open{ display:flex; }
-    .nav__links a{ padding:12px 0; border-bottom:1px solid #FCF7F0; font-size:15px; }
+    .nav__links a{ padding:12px 0; border-bottom:1px solid #F5F1E9; font-size:15px; }
     .nav__links a{ justify-items:start; }
     .nav__links a .nav__hand{ font-size:22px; }
     .nav__links a:last-child{ border-bottom:0; }
-    .nav__logo img{ height:26px; }
+    .nav__logo img{ height:auto; max-height:30px; max-width:100%; }
+    .nav__inner{ padding:12px 20px; }
+    .nav__links{ top:100%; }        /* the bar is no longer a fixed 54px */
+    .nav__login{ font-size:14px; }
+    .nav__cta{ padding:8px 13px; font-size:13.5px; }
     /* Log In, the CTA and the menu button are all fixed-size and all have to stay on screen,
        so the action cluster must never shrink -- it was being squeezed below its own content,
        which pushed the menu button clean off the right edge at every phone width and left the
@@ -693,7 +722,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     </div>
     <nav class="inv__index" aria-label="All offerings">
       <p class="inv__index-label">All offerings tracked on this page</p>
-      <a href="/offerings/aei-healthcare-portfolio-vii-dst/">AEI Healthcare Portfolio VII DST</a> · <a href="/offerings/arctrust-exchange-dst/">ARCTRUST Exchange DST</a> · <a href="/offerings/ax-essential-retail-portfolio-dst/">AX Essential Retail Portfolio, DST</a> · <a href="/offerings/blue-door-property-iii-dst/">Blue Door Property III, DST</a> · <a href="/offerings/br-diversified-industrial-portfolio-8-dst/">BR Diversified Industrial Portfolio 8, DST</a> · <a href="/offerings/br-parkview-multifamily-dst/">BR Parkview Multifamily, DST</a> · <a href="/offerings/brex-net-lease-industrial-i-dst/">BREX Net Lease Industrial I DST</a> · <a href="/offerings/bxrex-portfolio-ii-dst/">BXREX Portfolio II DST</a> · <a href="/offerings/cf-biscayne-multifamily-dst/">CF Biscayne Multifamily DST</a> · <a href="/offerings/cs1031-colony-at-centerpointe-apartments-dst/">CS1031 Colony at Centerpointe Apartments, DST</a> · <a href="/offerings/cs1031-texas-active-living-portfolio-ii-dst/">CS1031 Texas Active Living Portfolio II, DST</a> · <a href="/offerings/erp-1031-industrial-portfolio-iv-dst/">ERP 1031 Industrial Portfolio IV DST</a> · <a href="/offerings/exchangeright-essential-income-13-dst/">ExchangeRight Essential Income 13 DST</a> · <a href="/offerings/exchangeright-net-leased-all-cash-21-dst/">ExchangeRight Net-Leased All-Cash 21 DST</a> · <a href="/offerings/exchangeright-net-leased-portfolio-76-dst/">ExchangeRight Net-Leased Portfolio 76 DST</a> · <a href="/offerings/florida-growth-2-jubilee-1-dst/">Florida Growth 2 - Jubilee 1 DST</a> · <a href="/offerings/frex-db-series-i-dst/">FREX DB Series I DST</a> · <a href="/offerings/fsx-industrial-35-dst/">FSX Industrial 35, DST</a> · <a href="/offerings/ideal-ecco-park-dst/">IDEAL Ecco Park DST</a> · <a href="/offerings/inland-long-island-residential-dst/">Inland Long Island Residential DST</a> · <a href="/offerings/inland-mokena-senior-living-dst/">Inland Mokena Senior Living DST</a> · <a href="/offerings/inland-student-housing-portfolio-dst/">Inland Student Housing Portfolio DST</a> · <a href="/offerings/irex-v-diversified-portfolio-dst/">IREX V Diversified Portfolio DST</a> · <a href="/offerings/jllx-industrial-portfolio-dst/">JLLX Industrial Portfolio, DST</a> · <a href="/offerings/jwcm-vivian-dst/">JWCM Vivian, DST</a> · <a href="/offerings/lsc-fort-washington-md-dst/">LSC-Fort Washington MD, DST</a> · <a href="/offerings/newstar-17-sweetwater-springs-dst/">NewStar 17 Sweetwater Springs, DST</a> · <a href="/offerings/nexpoint-life-sciences-iii-dst/">NexPoint Life Sciences III DST</a> · <a href="/offerings/nexpoint-lodging-ii-dst/">NexPoint Lodging II DST</a> · <a href="/offerings/nexpoint-marina-dst/">NexPoint Marina DST</a> · <a href="/offerings/nexpoint-marina-ii-dst/">NexPoint Marina II DST</a> · <a href="/offerings/nexpoint-oasis-dst/">NexPoint Oasis DST</a> · <a href="/offerings/nexpoint-small-bay-iii-dst/">NexPoint Small Bay III DST</a> · <a href="/offerings/nexpoint-waterford-dst/">NexPoint Waterford DST</a> · <a href="/offerings/passco-allure-dst/">Passco Allure DST</a> · <a href="/offerings/pg-cape-canaveral-dst/">PG Cape Canaveral DST</a> · <a href="/offerings/reliant-midgard-self-storage-dst-i/">Reliant/Midgard Self Storage DST I</a> · <a href="/offerings/resource-royalty-28-llc/">Resource Royalty 28, LLC</a>
+      <a href="/offerings/aei-healthcare-portfolio-vii-dst/">AEI Healthcare Portfolio VII DST</a> · <a href="/offerings/arctrust-exchange-dst/">ARCTRUST Exchange DST</a> · <a href="/offerings/ax-essential-retail-portfolio-dst/">AX Essential Retail Portfolio, DST</a> · <a href="/offerings/blue-door-property-iii-dst/">Blue Door Property III, DST</a> · <a href="/offerings/br-diversified-industrial-portfolio-8-dst/">BR Diversified Industrial Portfolio 8, DST</a> · <a href="/offerings/br-parkview-multifamily-dst/">BR Parkview Multifamily, DST</a> · <a href="/offerings/brex-net-lease-data-center-i-dst/">BREX Net Lease Data Center I DST</a> · <a href="/offerings/brex-net-lease-industrial-i-dst/">BREX Net Lease Industrial I DST</a> · <a href="/offerings/bxrex-portfolio-ii-dst/">BXREX Portfolio II DST</a> · <a href="/offerings/cf-biscayne-multifamily-dst/">CF Biscayne Multifamily DST</a> · <a href="/offerings/cs1031-colony-at-centerpointe-apartments-dst/">CS1031 Colony at Centerpointe Apartments, DST</a> · <a href="/offerings/cs1031-texas-active-living-portfolio-ii-dst/">CS1031 Texas Active Living Portfolio II, DST</a> · <a href="/offerings/erp-1031-industrial-portfolio-iv-dst/">ERP 1031 Industrial Portfolio IV DST</a> · <a href="/offerings/exchangeright-essential-income-13-dst/">ExchangeRight Essential Income 13 DST</a> · <a href="/offerings/exchangeright-net-leased-all-cash-21-dst/">ExchangeRight Net-Leased All-Cash 21 DST</a> · <a href="/offerings/exchangeright-net-leased-portfolio-76-dst/">ExchangeRight Net-Leased Portfolio 76 DST</a> · <a href="/offerings/florida-growth-2-jubilee-1-dst/">Florida Growth 2 - Jubilee 1 DST</a> · <a href="/offerings/frex-db-series-i-dst/">FREX DB Series I DST</a> · <a href="/offerings/frex-series-ii-dst/">FREX Series II DST</a> · <a href="/offerings/fsx-industrial-35-dst/">FSX Industrial 35, DST</a> · <a href="/offerings/ideal-ecco-park-dst/">IDEAL Ecco Park DST</a> · <a href="/offerings/inland-long-island-residential-dst/">Inland Long Island Residential DST</a> · <a href="/offerings/inland-mokena-senior-living-dst/">Inland Mokena Senior Living DST</a> · <a href="/offerings/inland-student-housing-portfolio-dst/">Inland Student Housing Portfolio DST</a> · <a href="/offerings/irex-v-diversified-portfolio-dst/">IREX V Diversified Portfolio DST</a> · <a href="/offerings/jllx-industrial-portfolio-dst/">JLLX Industrial Portfolio, DST</a> · <a href="/offerings/jwcm-vivian-dst/">JWCM Vivian, DST</a> · <a href="/offerings/lsc-fort-washington-md-dst/">LSC-Fort Washington MD, DST</a> · <a href="/offerings/newstar-17-sweetwater-springs-dst/">NewStar 17 Sweetwater Springs, DST</a> · <a href="/offerings/nexpoint-life-sciences-iii-dst/">NexPoint Life Sciences III DST</a> · <a href="/offerings/nexpoint-lodging-ii-dst/">NexPoint Lodging II DST</a> · <a href="/offerings/nexpoint-marina-dst/">NexPoint Marina DST</a> · <a href="/offerings/nexpoint-marina-ii-dst/">NexPoint Marina II DST</a> · <a href="/offerings/nexpoint-oasis-dst/">NexPoint Oasis DST</a> · <a href="/offerings/nexpoint-small-bay-iii-dst/">NexPoint Small Bay III DST</a> · <a href="/offerings/nexpoint-waterford-dst/">NexPoint Waterford DST</a> · <a href="/offerings/nlc-florida-healthcare-sciences-dst/">NLC Florida Healthcare Sciences DST</a> · <a href="/offerings/passco-allure-dst/">Passco Allure DST</a> · <a href="/offerings/pg-cape-canaveral-dst/">PG Cape Canaveral DST</a> · <a href="/offerings/reliant-midgard-self-storage-dst-i/">Reliant/Midgard Self Storage DST I</a> · <a href="/offerings/resource-royalty-28-llc/">Resource Royalty 28, LLC</a>
     </nav>
     <p class="inv__disclosure">Note: Current yield is the annualized first-year cash distribution projected in the sponsor’s offering memorandum, stated as a percentage of offering equity on the basis that sponsor discloses — each offering page names the basis it used. Future cash distributions are not guaranteed. Leverage is stated as loan to total capitalization — the offering’s debt divided by its total capitalization (debt plus equity), which is how sponsors report it in these offerings. It is not loan-to-value: measured against purchase price the same debt produces a higher figure. Ratings reflect Jerry Baker’s opinion after his review process and are not investment advice for any particular investor. Offerings are made only by a private placement memorandum to accredited investors; availability and terms are subject to change without notice.</p>
   </section>
@@ -728,23 +757,22 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 <div class="rule rule--strong" aria-hidden="true"></div>
 <footer class="footer">
   <div class="footer__inner">
+      <p class="footer__intro">Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.</p>
     <div class="footer__brand">
       <a href="/" class="footer__home" aria-label="Baker 1031 Investments — home"><img src="/assets/media/logo.png" alt="Baker 1031" width="1574" height="448"></a>
-      <p class="footer__blurb">Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.</p>
-      <p><a href="mailto:invest@baker1031.com">invest@baker1031.com</a></p>
-    </div>
-    <div class="footer__col footer__offices">
-      <p class="footer__label">Offices</p>
-      <address class="footer__office">
+      <p class="footer__email"><a href="mailto:invest@baker1031.com">invest@baker1031.com</a></p>
+      <div class="footer__contact">
+        <address class="footer__office">
         <strong>San Francisco</strong>
         1700 Montgomery St, Ste 108<br>San Francisco, CA 94111<br>
         <a href="tel:+14159650552">(415) 965-0552</a>
       </address>
-      <address class="footer__office">
+        <address class="footer__office">
         <strong>Los Angeles</strong>
         2100 E Grand Ave, 1st Floor<br>El Segundo, CA 90245<br>
         <a href="tel:+13108964227">(310) 896-4227</a>
       </address>
+      </div>
     </div>
     <div class="footer__col">
       <p class="footer__label">Baker 1031</p>

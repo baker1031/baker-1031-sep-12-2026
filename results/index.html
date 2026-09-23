@@ -27,7 +27,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#243856">
+<meta name="theme-color" content="#243372">
 <script>/* data notice: mark the document before first paint so an acknowledged visitor never sees a flash of it */
 try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentElement.classList.add('dnote-ok'); }catch(e){}</script>
 <script defer src="/assets/js/analytics.js"></script>
@@ -37,14 +37,14 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
 <link href="https://fonts.googleapis.com/css2?family=Special+Gothic&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <style>
 /* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
-:root{ --page:#FFFFFF; --accent-2:#243856; --rose:#243856;
-    --black:#000000; --white:#fff;
-    --accent:#243856;
-    --btn:#243856; --btn-hover:#162335;
-  /* Text-safe green: brand #243856 is 3.35:1 on white, under the 4.5:1 AA minimum for
-     normal-size text. #243856 is 4.96:1. Backgrounds and borders keep --accent. */
-  --accent-text:#243856; --accent-hover:#1B2B42; --accent-soft:#FCF7F0;
-    --grey:#000000; --grey-light:rgba(0,0,0,.6); --hair:#D5D2CD; --hair-strong:#D5D2CD;
+:root{ --page:#FDFBF7; --accent-2:#2E4183; --rose:#2E4183;
+    --black:#23232A; --white:#FDFBF7;
+    --accent:#2E4183;
+    --btn:#2E4183; --btn-hover:#243372;
+  /* Text-safe green: brand #2E4183 is 3.35:1 on white, under the 4.5:1 AA minimum for
+     normal-size text. #2E4183 is 4.96:1. Backgrounds and borders keep --accent. */
+  --accent-text:#2E4183; --accent-hover:#243372; --accent-soft:#F5F1E9;
+    --grey:#23232A; --grey-light:rgba(35,35,42,.6); --hair:#EAE4DA; --hair-strong:#EAE4DA;
     --radius:6px;
     --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --display:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -68,31 +68,30 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
   /* ---------- Sticky nav ---------- */
   .nav{
     position:sticky; top:0; z-index:60;
-    background:rgba(255,255,255,.92);
+    background:rgba(253,251,247,.92);
     -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
-    border-bottom:1px solid #D5D2CD;
+    border-bottom:1px solid #EAE4DA;
     transition:box-shadow .2s ease;
   }
-  .nav.is-scrolled{ box-shadow:0 2px 12px rgba(0,0,0,.06); }
+  .nav.is-scrolled{ box-shadow:0 2px 12px rgba(35,35,42,.06); }
   .nav__inner{
     max-width:calc(1200px + 48px);
     margin:0 auto;
-    padding:0 24px;
-    height:56px;
+    padding:18px 24px;          /* room above and below instead of a fixed bar height */
     display:flex;
     align-items:center;
     gap:32px;
   }
   .nav__logo{ display:flex; align-items:center; flex:0 0 auto; min-width:0; }
-  .nav__logo img{ height:32px; width:auto; display:block; }
-  .nav__links{ display:flex; align-items:center; gap:26px; margin-left:24px; }
+  .nav__logo img{ height:38px; width:auto; display:block; }
+  .nav__links{ display:flex; align-items:center; gap:30px; margin-left:24px; }
   .nav__links a{
     display:inline-grid;
     align-items:center;
     justify-items:center;
-    font-size:14px;
+    font-size:15.5px;
     font-weight:600;
-    color:#000000;
+    color:#23232A;
     text-decoration:none;
     padding:6px 0;
     line-height:1.2;
@@ -126,20 +125,20 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
   }
   .nav__actions{ margin-left:auto; display:flex; align-items:center; gap:18px; }
   .nav__login{
-    font-size:14px;
+    font-size:15px;
     font-weight:600;
-    color:#000000;
+    color:#23232A;
     text-decoration:none;
     transition:color .15s ease;
   }
   .nav__login:hover{ color:var(--accent-text); }
-  .nav__cta{ margin:0; padding:8px 16px; font-size:13.5px; }
+  .nav__cta{ margin:0; padding:10px 20px; font-size:15px; }
   /* logged-in state: greeting + Log Out replace Log In / Get Started */
   .nav__actions [hidden]{ display:none !important; }
   .nav__user{ font-size:14px; font-weight:600; color:var(--black); white-space:nowrap; }
   .nav__user-name{ color:var(--accent-text); }
   .nav__logout{
-    font:inherit; font-size:14px; font-weight:600; color:#000000;
+    font:inherit; font-size:14px; font-weight:600; color:#23232A;
     background:none; border:0; padding:0; cursor:pointer; white-space:nowrap;
     transition:color .15s ease;
   }
@@ -177,8 +176,8 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
   .head h1{ margin:0 0 12px; font-size:clamp(30px,3vw,40px); font-weight:700; line-height:1.1; letter-spacing:-.02em; }
   .head p{ margin:0; max-width:760px; font-size:16px; line-height:1.65; color:var(--grey); }
   .rule{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; }
-  .rule::before{ content:""; display:block; height:1px; background:#D5D2CD; }
-  .rule--strong::before{ height:2px; background:#D5D2CD; }
+  .rule::before{ content:""; display:block; height:1px; background:#EAE4DA; }
+  .rule--strong::before{ height:2px; background:#EAE4DA; }
 
   /* ---------- Results table ---------- */
   .wrap{ max-width:calc(1200px + 48px); margin:0 auto; padding:28px 24px 72px; }
@@ -188,7 +187,7 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
   .bar h2{ margin:0; font-size:22px; font-weight:700; letter-spacing:-.015em; line-height:1.2; }
   .bar__count{ margin-left:10px; font-size:14px; font-weight:400; color:var(--grey); letter-spacing:0; }
   .bar__count strong{ color:var(--black); font-weight:600; }
-  .star{ color:#243856; font-size:15px; margin-left:6px; vertical-align:-1px; }
+  .star{ color:#2E4183; font-size:15px; margin-left:6px; vertical-align:-1px; }
   .legend{ margin:12px 0 0; font-size:12.5px; line-height:1.55; color:var(--grey-light); max-width:820px; }
   .legend .star{ margin:0 4px 0 0; }
   .bar__hint{ margin:0; font-size:13px; color:var(--grey-light); }
@@ -198,7 +197,7 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
     border:1px solid var(--hair-strong); border-radius:var(--radius); padding:9px 12px; height:40px;
   }
   .tools input{ flex:1 1 260px; min-width:200px; }
-  .tools input::placeholder{ color:rgba(0,0,0,.55); }
+  .tools input::placeholder{ color:rgba(35,35,42,.55); }
   .tools select{ flex:0 1 auto; max-width:100%; padding-right:32px; -webkit-appearance:none; appearance:none;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%234B5563' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat:no-repeat; background-position:right 12px center; }
@@ -206,14 +205,14 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
   .tools__clear{ font:inherit; font-size:13.5px; font-weight:600; color:var(--accent-text); background:none; border:0; padding:8px 4px; cursor:pointer; }
   .tools__clear:hover{ color:var(--accent-hover); text-decoration:underline; }
   .tools__clear[hidden]{ display:none; }
-  .table td.na{ color:rgba(0,0,0,.55); font-weight:400; }
+  .table td.na{ color:rgba(35,35,42,.55); font-weight:400; }
   .empty{ padding:36px 16px; text-align:center; color:var(--grey); font-size:14.5px; }
   .tablewrap{ overflow-x:auto; border:1px solid var(--hair-strong); border-radius:var(--radius); }
   .table{ width:100%; border-collapse:collapse; font-size:14.5px; min-width:820px; }
   .table th, .table td{ padding:13px 16px; text-align:left; border-bottom:1px solid var(--hair); vertical-align:middle; }
   .table th{
     font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--grey-light);
-    background:#FCF7F0; white-space:nowrap; cursor:pointer; user-select:none;
+    background:#F5F1E9; white-space:nowrap; cursor:pointer; user-select:none;
   }
   .table th:hover{ color:var(--accent-text); }
   .table th[aria-sort]{ color:var(--black); }
@@ -236,54 +235,75 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
     .table th .arrow, .table tbody tr, .table tbody td{ transition:none; }
   }
   .table tbody tr:last-child td{ border-bottom:0; }
-  .table tbody tr:hover td{ background:#FCF7F0; }
+  .table tbody tr:hover td{ background:#F5F1E9; }
   .table td.name{ font-weight:700; color:var(--black); }
   .table td.num, .table th.num{ text-align:left; font-variant-numeric:tabular-nums; }
   .table td.num{ font-weight:600; }
   .table td.num.is-accent{ color:var(--accent-text); font-weight:700; }
-  .table tfoot td{ padding:13px 16px; background:#FCF7F0; border-top:1px solid var(--hair); font-size:13.5px; color:var(--grey); }
+  .table tfoot td{ padding:13px 16px; background:#F5F1E9; border-top:1px solid var(--hair); font-size:13.5px; color:var(--grey); }
   .table tfoot tr:first-child td{ border-top:2px solid var(--hair-strong); }
   .table tfoot td.num{ font-weight:700; color:var(--black); }
   .table tfoot td.name{ font-weight:600; color:var(--black); }
-  .disclosure{ margin:28px 0 0; font-size:11px; line-height:1.55; color:rgba(0,0,0,.6); max-width:900px; }
+  .disclosure{ margin:28px 0 0; font-size:11px; line-height:1.55; color:rgba(35,35,42,.6); max-width:900px; }
 
   /* ---------- Footer (from the homepage) ---------- */
   /* ---------- Footer ---------- */
+  /* The hand (Caveat, already loaded for the site's lettering) carries the opening
+     line and the link columns. Contact detail is typed on purpose: an address and a
+     phone number are things people copy, dial and check, and they have to be
+     unambiguous. The disclosure block stays typed for the same reason.
+     NB: the marker line above is what build/sync_chrome.py looks for -- leave it exact. */
+  .footer__intro{
+    grid-column:1 / -1; margin:0 0 36px; padding-bottom:30px;
+    border-bottom:1px solid var(--hair);
+    font-family:var(--hand); font-size:30px; line-height:1.45;
+    color:var(--accent-text); max-width:none;
+  }
+  .footer__email{ margin:0 0 22px !important; font-size:15px !important; line-height:1.6 !important; }
+  .footer__email a{ font-family:var(--font); color:var(--accent-text); font-weight:600; text-decoration:none; }
+  .footer__email a:hover{ color:#243372; text-decoration:underline; }
+  .footer__contact{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px 28px; }
   .footer{ background:var(--white); }
-  .rule--strong::before{ height:2px; background:#D5D2CD; }
+  .rule--strong::before{ height:2px; background:#EAE4DA; }
   .footer__inner{
     max-width:calc(1200px + 48px);
     margin:0 auto;
     padding:56px 24px 40px;
     display:grid;
-    grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,.8fr) minmax(0,.8fr) minmax(0,.8fr);
+    grid-template-columns:minmax(0,1.5fr) minmax(0,.9fr) minmax(0,.9fr) minmax(0,.9fr);
     gap:32px 40px;
   }
   .footer__brand img{ height:40px; width:auto; display:block; margin-bottom:16px; }
-  .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#000000; }
-  .footer__brand a{ color:#000000; text-decoration:none; }
+  .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#23232A; }
+  .footer__brand a{ color:#23232A; text-decoration:none; }
   .footer__brand a:hover{ color:var(--accent-text); }
-  .footer__brand .footer__blurb{ max-width:46ch; }
+
   .footer__office{
     font-style:normal;
-    margin:0 0 14px;
-    font-size:13.5px; line-height:1.6; color:#000000;
+    margin:0;
+    font-size:14px; line-height:1.65; color:rgba(35,35,42,.78);
   }
-  .footer__office strong{ display:block; font-weight:600; color:var(--black); }
+  .footer__office strong{
+    display:block; font-size:12px; font-weight:700; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--accent-text); margin-bottom:6px;
+  }
+  .footer__office a{ color:rgba(35,35,42,.78); text-decoration:none; }
+  .footer__office a:hover{ color:var(--accent-text); text-decoration:underline; }
   .footer__col .footer__office a{ display:inline; padding:0; font-size:inherit; }
   .footer__col .footer__office a:hover{ color:var(--accent-text); }
-  .footer__disclosure a{ color:rgba(0,0,0,.6); text-decoration:underline; text-underline-offset:2px; }
+  .footer__disclosure a{ color:rgba(35,35,42,.6); text-decoration:underline; text-underline-offset:2px; }
   .footer__disclosure a:hover{ color:var(--accent-text); }
   .footer__label{
-    margin:0 0 10px;
-    font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-    color:var(--accent-text);
+    margin:0 0 16px;
+    font-family:var(--hand); font-size:24px; font-weight:600;
+    letter-spacing:0; text-transform:none; color:var(--accent-text);
+    text-decoration:underline; text-underline-offset:5px; text-decoration-thickness:1px;
   }
   .footer__col a{
     display:block;
-    padding:4px 0;
-    font-size:14px;
-    color:#000000;
+    padding:6px 0;
+    font-family:var(--hand); font-size:22px; line-height:1.5;
+    color:var(--accent-text);
     text-decoration:none;
     transition:color .15s ease;
   }
@@ -291,10 +311,15 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
   .footer__disclosure{
     grid-column:1 / -1;
     padding-top:28px;
-    border-top:1px solid #D5D2CD;
+    border-top:1px solid #EAE4DA;
   }
-  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(0,0,0,.6); }
-  .footer__copy{ color:rgba(0,0,0,.55) !important; }
+  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(35,35,42,.6); }
+  .footer__copy{ color:rgba(35,35,42,.55) !important; }
+
+  @media (max-width:900px){
+    .footer__intro{ font-size:24px; margin-bottom:28px; padding-bottom:22px; }
+    .footer__contact{ grid-template-columns:1fr; }
+  }
 
   /* ---------- Skyline illustration ---------- */
   .skyline{
@@ -324,15 +349,19 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
       flex-direction:column; align-items:stretch; gap:0;
       margin:0; padding:8px 20px 12px;
       background:var(--white);
-      border-bottom:1px solid #D5D2CD;
-      box-shadow:0 12px 24px rgba(0,0,0,.08);
+      border-bottom:1px solid #EAE4DA;
+      box-shadow:0 12px 24px rgba(35,35,42,.08);
     }
     .nav__links.is-open{ display:flex; }
-    .nav__links a{ padding:12px 0; border-bottom:1px solid #FCF7F0; font-size:15px; }
+    .nav__links a{ padding:12px 0; border-bottom:1px solid #F5F1E9; font-size:15px; }
     .nav__links a{ justify-items:start; }
     .nav__links a .nav__hand{ font-size:22px; }
     .nav__links a:last-child{ border-bottom:0; }
-    .nav__logo img{ height:26px; }
+    .nav__logo img{ height:auto; max-height:30px; max-width:100%; }
+    .nav__inner{ padding:12px 20px; }
+    .nav__links{ top:100%; }        /* the bar is no longer a fixed 54px */
+    .nav__login{ font-size:14px; }
+    .nav__cta{ padding:8px 13px; font-size:13.5px; }
     /* Log In, the CTA and the menu button are all fixed-size and all have to stay on screen,
        so the action cluster must never shrink -- it was being squeezed below its own content,
        which pushed the menu button clean off the right edge at every phone width and left the
@@ -374,7 +403,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
   html.dnote-ok .dnote{ display:none !important; }
   .dnote__card{ width:min(520px, 100%); max-height:calc(100vh - 56px); overflow:auto;
     background:var(--white); border:1px solid var(--hair-strong); border-radius:10px;
-    padding:30px 32px 26px; box-shadow:0 30px 60px -26px rgba(0,0,0,.42), 0 2px 6px rgba(0,0,0,.08);
+    padding:30px 32px 26px; box-shadow:0 30px 60px -26px rgba(35,35,42,.42), 0 2px 6px rgba(35,35,42,.08);
     text-align:left; }
   .dnote__eyebrow{ display:flex; align-items:center; gap:8px; margin:0 0 12px; font-size:11px;
     font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--grey-light); }
@@ -391,9 +420,9 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 
   /* inline variant (the homepage chart) */
   .dnote--inline{ position:absolute; inset:-14px; z-index:5; padding:12px; border-radius:12px;
-    background:rgba(255,255,255,.62); }
+    background:rgba(253,251,247,.62); }
   .dnote--inline .dnote__card{ width:min(430px, 100%); padding:24px 26px 22px;
-    box-shadow:0 18px 44px -22px rgba(0,0,0,.34), 0 1px 3px rgba(0,0,0,.06); }
+    box-shadow:0 18px 44px -22px rgba(35,35,42,.34), 0 1px 3px rgba(35,35,42,.06); }
   .dnote--inline h2{ font-size:20px; }
   .dnote--inline p{ font-size:14px; }
 
@@ -529,23 +558,22 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 <div class="rule rule--strong" aria-hidden="true"></div>
 <footer class="footer">
   <div class="footer__inner">
+      <p class="footer__intro">Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.</p>
     <div class="footer__brand">
       <a href="/" class="footer__home" aria-label="Baker 1031 Investments — home"><img src="/assets/media/logo.png" alt="Baker 1031" width="1574" height="448"></a>
-      <p class="footer__blurb">Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.</p>
-      <p><a href="mailto:invest@baker1031.com">invest@baker1031.com</a></p>
-    </div>
-    <div class="footer__col footer__offices">
-      <p class="footer__label">Offices</p>
-      <address class="footer__office">
+      <p class="footer__email"><a href="mailto:invest@baker1031.com">invest@baker1031.com</a></p>
+      <div class="footer__contact">
+        <address class="footer__office">
         <strong>San Francisco</strong>
         1700 Montgomery St, Ste 108<br>San Francisco, CA 94111<br>
         <a href="tel:+14159650552">(415) 965-0552</a>
       </address>
-      <address class="footer__office">
+        <address class="footer__office">
         <strong>Los Angeles</strong>
         2100 E Grand Ave, 1st Floor<br>El Segundo, CA 90245<br>
         <a href="tel:+13108964227">(310) 896-4227</a>
       </address>
+      </div>
     </div>
     <div class="footer__col">
       <p class="footer__label">Baker 1031</p>

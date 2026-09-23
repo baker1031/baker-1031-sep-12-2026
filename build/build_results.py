@@ -35,10 +35,10 @@ page = r'''<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Special+Gothic&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <style>
 /* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
-:root{ --page:#FFFFFF; --accent-2:#243856; --rose:#243856;
-    --black:#000; --white:#fff;
-    --accent:#243856; --accent-hover:#1B2B42; --accent-soft:#FCF7F0;
-    --grey:#000000; --grey-light:rgba(0,0,0,.6); --hair:#D5D2CD; --hair-strong:#D5D2CD;
+:root{ --page:#FDFBF7; --accent-2:#2E4183; --rose:#2E4183;
+    --black:#23232A; --white:#FDFBF7;
+    --accent:#2E4183; --accent-hover:#243372; --accent-soft:#F5F1E9;
+    --grey:#23232A; --grey-light:rgba(35,35,42,.6); --hair:#EAE4DA; --hair-strong:#EAE4DA;
     --radius:6px;
     --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --display:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -66,8 +66,8 @@ page = r'''<!DOCTYPE html>
   .head h1{ margin:0 0 12px; font-size:clamp(30px,3vw,40px); font-weight:700; line-height:1.1; letter-spacing:-.02em; }
   .head p{ margin:0; max-width:760px; font-size:16px; line-height:1.65; color:var(--grey); }
   .rule{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; }
-  .rule::before{ content:""; display:block; height:1px; background:#D5D2CD; }
-  .rule--strong::before{ height:2px; background:#D5D2CD; }
+  .rule::before{ content:""; display:block; height:1px; background:#EAE4DA; }
+  .rule--strong::before{ height:2px; background:#EAE4DA; }
 
   /* ---------- Results table ---------- */
   .wrap{ max-width:calc(1200px + 48px); margin:0 auto; padding:28px 24px 72px; }
@@ -77,7 +77,7 @@ page = r'''<!DOCTYPE html>
   .bar h2{ margin:0; font-size:22px; font-weight:700; letter-spacing:-.015em; line-height:1.2; }
   .bar__count{ margin-left:10px; font-size:14px; font-weight:400; color:var(--grey); letter-spacing:0; }
   .bar__count strong{ color:var(--black); font-weight:600; }
-  .star{ color:#243856; font-size:15px; margin-left:6px; vertical-align:-1px; }
+  .star{ color:#2E4183; font-size:15px; margin-left:6px; vertical-align:-1px; }
   .legend{ margin:12px 0 0; font-size:12.5px; line-height:1.55; color:var(--grey-light); max-width:820px; }
   .legend .star{ margin:0 4px 0 0; }
   .bar__hint{ margin:0; font-size:13px; color:var(--grey-light); }
@@ -87,7 +87,7 @@ page = r'''<!DOCTYPE html>
     border:1px solid var(--hair-strong); border-radius:var(--radius); padding:9px 12px; height:40px;
   }
   .tools input{ flex:1 1 260px; min-width:200px; }
-  .tools input::placeholder{ color:rgba(0,0,0,.55); }
+  .tools input::placeholder{ color:rgba(35,35,42,.55); }
   .tools select{ flex:0 1 auto; max-width:100%; padding-right:32px; -webkit-appearance:none; appearance:none;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%234B5563' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat:no-repeat; background-position:right 12px center; }
@@ -95,14 +95,14 @@ page = r'''<!DOCTYPE html>
   .tools__clear{ font:inherit; font-size:13.5px; font-weight:600; color:var(--accent); background:none; border:0; padding:8px 4px; cursor:pointer; }
   .tools__clear:hover{ color:var(--accent-hover); text-decoration:underline; }
   .tools__clear[hidden]{ display:none; }
-  .table td.na{ color:rgba(0,0,0,.55); font-weight:400; }
+  .table td.na{ color:rgba(35,35,42,.55); font-weight:400; }
   .empty{ padding:36px 16px; text-align:center; color:var(--grey); font-size:14.5px; }
   .tablewrap{ overflow-x:auto; border:1px solid var(--hair-strong); border-radius:var(--radius); }
   .table{ width:100%; border-collapse:collapse; font-size:14.5px; min-width:820px; }
   .table th, .table td{ padding:13px 16px; text-align:left; border-bottom:1px solid var(--hair); vertical-align:middle; }
   .table th{
     font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--grey-light);
-    background:#FCF7F0; white-space:nowrap; cursor:pointer; user-select:none;
+    background:#F5F1E9; white-space:nowrap; cursor:pointer; user-select:none;
   }
   .table th:hover{ color:var(--accent); }
   .table th[aria-sort]{ color:var(--black); }
@@ -125,17 +125,17 @@ page = r'''<!DOCTYPE html>
     .table th .arrow, .table tbody tr, .table tbody td{ transition:none; }
   }
   .table tbody tr:last-child td{ border-bottom:0; }
-  .table tbody tr:hover td{ background:#FCF7F0; }
+  .table tbody tr:hover td{ background:#F5F1E9; }
   .table td.name{ font-weight:700; color:var(--black); }
   .table td.name small{ display:block; font-size:12px; font-weight:400; color:var(--grey-light); margin-top:2px; }
   .table td.num, .table th.num{ text-align:left; font-variant-numeric:tabular-nums; }
   .table td.num{ font-weight:600; }
   .table td.num.is-accent{ color:var(--accent); font-weight:700; }
-  .table tfoot td{ padding:13px 16px; background:#FCF7F0; border-top:1px solid var(--hair); font-size:13.5px; color:var(--grey); }
+  .table tfoot td{ padding:13px 16px; background:#F5F1E9; border-top:1px solid var(--hair); font-size:13.5px; color:var(--grey); }
   .table tfoot tr:first-child td{ border-top:2px solid var(--hair-strong); }
   .table tfoot td.num{ font-weight:700; color:var(--black); }
   .table tfoot td.name{ font-weight:600; color:var(--black); }
-  .disclosure{ margin:28px 0 0; font-size:11px; line-height:1.55; color:rgba(0,0,0,.6); max-width:900px; }
+  .disclosure{ margin:28px 0 0; font-size:11px; line-height:1.55; color:rgba(35,35,42,.6); max-width:900px; }
 
   /* ---------- Footer (from the homepage) ---------- */
 ''' + footcss + r'''
