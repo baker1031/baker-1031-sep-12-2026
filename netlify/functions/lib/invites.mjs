@@ -65,21 +65,17 @@ export function noticeKind(lead) {
   return null;
 }
 
-/* ---- house style -------------------------------------------------------------------------------
-   The site's palette and type, translated into the inline CSS email clients accept. Brand face is
-   Inter on the web; no email client will load a webfont reliably, so Inter is named first for the
-   clients that have it installed and the same fallback stack the site declares follows it. #266EEF
-   is the site's accent: it carries buttons, links, the rule under the wordmark and Jerry's name in
-   the signature. Body copy is #202022, the same near-black the site types in, on white.
-   -------------------------------------------------------------------------------------------- */
-const FONT = "Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif";
+/* ---- house style: the Baker 1031 Investments logo (served by app.baker1031.com/brand) and the platform's palette. ---- */
+// The Baker 1031 Investments logo and the platform's palette (platform lib/email-style.ts): near-black text, grey labels,
+// hairlines, the logo's blue #266EEF for buttons and the name in the signature, #1F63DE for links.
+const FONT = "Inter,'Helvetica Neue',Helvetica,Arial,sans-serif";
 const INK = '#202022';
-const GREY = '#666666';
-const ACCENT = '#266EEF';   // the site's primary blue
+const GREY = '#5c5c61';
+const ACCENT = '#266eef';
 
 const P = `style="font-family:${FONT};font-size:15px;line-height:24px;color:${INK};margin:0 0 16px;"`;
-const BTN = `style="display:inline-block;background:${ACCENT};color:#FFFFFF;font-family:${FONT};font-size:15px;font-weight:bold;text-decoration:none;padding:13px 26px;border-radius:6px;"`;
-const A = `style="color:${ACCENT};text-decoration:underline;"`;
+const BTN = `style="display:inline-block;background:${ACCENT};color:#ffffff;font-family:${FONT};font-size:15px;font-weight:600;text-decoration:none;padding:12px 24px;border-radius:8px;"`;
+const A = `style="color:#1f63de;text-decoration:underline;"`;
 
 const SITE_BASE = (process.env.URL || 'https://baker1031.com').replace(/\/$/, '');
 
@@ -89,23 +85,22 @@ const SITE_BASE = (process.env.URL || 'https://baker1031.com').replace(/\/$/, ''
    line, no email line, no company line, no logo: the wordmark at the top of the message carries
    the branding. */
 const SIG = `<div style="font-family:${FONT};font-size:15px;line-height:26px;color:${INK}">
-<div style="color:#999999">--</div>
+<div style="color:#6b6b70">--</div>
 <div style="font-weight:bold;color:${ACCENT}">Jerry Baker</div>
 <div>Founder, Baker 1031</div>
 <div><a href="tel:+14159650552" style="color:${INK};text-decoration:none">415.965.0552</a></div>
 <div style="height:26px;line-height:26px;font-size:0">&nbsp;</div>
 <div>Securities offered through Aurora Securities, Inc. (ASI), Member: FINRA/SIPC. Baker 1031 Investments is independent of ASI.</div>
 <div style="height:26px;line-height:26px;font-size:0">&nbsp;</div>
-<div style="color:#8A8A8A">Please note that this email is subject to the regulatory review and retention policies of Baker 1031 Investments, LLC and Aurora Securities, Inc. Neither this email nor any attachments constitute an offer to sell or a solicitation of an offer to purchase securities. Any such offer shall be made solely pursuant to the applicable PPM or Prospectus. Any information contained in this email or its attachments may contain errors; please review the PPM for correct information prior to investing. Delaware Statutory Trust (DST) investments are illiquid and involve a high degree of risk. Investment offerings may sell out quickly; even if an investment is shown as available, the only way to ensure participation is through a closed transaction. The investment sponsor is responsible for the closing process and final availability, not Jerry Baker or Baker 1031 Investments. Information provided is for educational purposes and should not be relied upon for investment, tax, or legal decisions. Past performance and forward-looking statements are never an assurance of future results.</div>
+<div style="color:#6b6b70">Please note that this email is subject to the regulatory review and retention policies of Baker 1031 Investments, LLC and Aurora Securities, Inc. Neither this email nor any attachments constitute an offer to sell or a solicitation of an offer to purchase securities. Any such offer shall be made solely pursuant to the applicable PPM or Prospectus. Any information contained in this email or its attachments may contain errors; please review the PPM for correct information prior to investing. Delaware Statutory Trust (DST) investments are illiquid and involve a high degree of risk. Investment offerings may sell out quickly; even if an investment is shown as available, the only way to ensure participation is through a closed transaction. The investment sponsor is responsible for the closing process and final availability, not Jerry Baker or Baker 1031 Investments. Information provided is for educational purposes and should not be relied upon for investment, tax, or legal decisions. Past performance and forward-looking statements are never an assurance of future results.</div>
 </div>`;
 
-/* The wordmark at the top is the site's own logo asset at its true 1600x462 aspect ratio; the rule
-   under it is the accent ink. The signature already closes the message, so nothing follows it. */
+/* The logo lockup at the top (on white, so it reads in dark mode), a hairline under it. The signature closes the message. */
 const wrap = (inner) => `<!doctype html><html><body style="margin:0;padding:0;background:#FFFFFF;">
 <div style="max-width:620px;margin:0;padding:28px 20px;">
-  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;margin:0 0 26px 0"><tbody>
-  <tr><td style="padding:0 0 14px 0"><a href="${SITE_BASE}/" rel="noopener noreferrer" target="_blank" style="text-decoration:none;border:0"><img src="${SITE_BASE}/assets/media/logo.png" alt="Baker 1031 Investments" width="180" height="52" style="display:block;width:180px;height:52px;border:0;outline:none;text-decoration:none"></a></td></tr>
-  <tr><td style="padding:0;border-top:2px solid #266EEF;font-size:0;line-height:0">&nbsp;</td></tr>
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;margin:0 0 24px 0"><tbody>
+  <tr><td style="padding:0 0 16px 0"><a href="${SITE_BASE}/" rel="noopener noreferrer" target="_blank" style="text-decoration:none;border:0"><img src="https://app.baker1031.com/brand/logo-email@2x.png" alt="Baker 1031 Investments" width="200" height="58" style="display:block;width:200px;height:58px;border:0;outline:none;text-decoration:none"></a></td></tr>
+  <tr><td style="padding:0;border-top:1px solid #ececee;font-size:0;line-height:0">&nbsp;</td></tr>
   </tbody></table>
 ${inner}
   ${SIG}

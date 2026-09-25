@@ -44,16 +44,17 @@ const esc = (s) => String(s ?? '').replace(/[<>&"]/g, (c) => ({ '<': '&lt;', '>'
 export function alertEmail(entry, { queued = true } = {}) {
   const l = entry.lead || {};
   const who = [l.firstName, l.lastName].filter(Boolean).join(' ') || l.email || 'unknown';
-  const F = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+  const F = "Inter,'Helvetica Neue',Helvetica,Arial,sans-serif";
   const head = queued ? 'A website registration has not reached the CRM for 24 hours' : 'A website registration did not reach the CRM and could not be kept for a retry';
   const what = queued
     ? `The CRM has refused or not answered ${esc(entry.attempts)} time(s); the last error was: ${esc(entry.lastError || 'no answer')}. The site keeps retrying every 5 minutes. To be safe, enter this person in the CRM by hand; if a retry lands later, the CRM matches them by email and does not create a second contact.`
     : `The CRM call failed (${esc(entry.lastError || 'no answer')}) and the pending-leads store was unavailable, so nothing will retry this one. Please enter this person in the CRM by hand.`;
-  const html = `<!doctype html><html><body style="margin:0;padding:24px;background:#FFFFFF;font-family:${F};color:#202022;">
+  const html = `<!doctype html><html><body style="margin:0;padding:24px;background:#ffffff;font-family:${F};color:#202022;">
+<div style="margin:0 0 20px"><img src="https://app.baker1031.com/brand/logo-email@2x.png" alt="Baker 1031 Investments" width="200" height="58" style="display:block;width:200px;height:58px;border:0;outline:none;text-decoration:none"></div>
 <p style="font-size:15px;font-weight:bold;margin:0 0 8px;">${head}</p>
 <p style="font-size:13px;line-height:20px;margin:0 0 14px;">${esc(who)} &lt;${esc(l.email)}&gt; registered at baker1031.com on ${esc(entry.queuedAt)}. ${what}
 ${entry.crsSent ? 'The Form CRS receipt was sent from the website when they registered.' : 'No Form CRS receipt has been confirmed for this registration.'}</p>
-<p style="font-size:12px;margin:0 0 6px;color:#666666;">The registration exactly as submitted (visitor IP ${esc(entry.ip || 'unavailable')}):</p>
+<p style="font-size:12px;margin:0 0 6px;color:#5c5c61;">The registration exactly as submitted (visitor IP ${esc(entry.ip || 'unavailable')}):</p>
 <pre style="font-size:12px;line-height:17px;background:#F4F5F7;padding:12px;white-space:pre-wrap;word-break:break-word;">${esc(JSON.stringify(l, null, 2))}</pre>
 </body></html>`;
   return { subject: `Registration not in the CRM - ${who}`, html };
