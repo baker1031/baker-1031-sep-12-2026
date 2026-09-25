@@ -510,7 +510,7 @@ def render(O):
         .footer__offices .footer__label{ grid-column:1 / -1; }
       }
     /* Headings in Sanomat (one weight); everything else stays in Guardian Sans */
-h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;letter-spacing:-.01em}
+h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:600;letter-spacing:-.01em}
 
       /* ---------- Attio surface ----------
          One face, near-black on white, a #ECECEE hairline doing the dividing, #266EEF
@@ -543,6 +543,10 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
         border-radius:6px; font-size:12px; font-weight:500;
         background:var(--chip-bg); border:1px solid var(--chip-line); color:var(--chip-text);
       }
+      /* .status was a bare dot-and-label with no box of its own -- the chip treatment
+         above gave it a border with nothing between that and the text. */
+      .status{ padding:3px 9px; line-height:1.25; }
+      .card__top .badge, .card__rating .badge{ height:auto; padding:3px 9px; }
       .nav-btn, .view button, .select, .fbar button{
         border-radius:8px; border:1px solid var(--btn-line); background:#FFFFFF;
         box-shadow:var(--shadow-btn); font-family:var(--font); font-size:13.5px; color:var(--black);

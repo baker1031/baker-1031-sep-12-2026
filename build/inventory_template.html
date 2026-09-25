@@ -36,8 +36,22 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <style>
-/* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
+/* Brand face: Inter for text and headings alike; Caveat for the handwritten marks. */
 :root{ --page:#FFFFFF; --accent-2:#266EEF; --rose:#266EEF;
+    /* Attio surface tokens: greys for labels and rails, the hairline, the chip,
+       and the two shadows every raised thing on the site uses. */
+    --label:#717173;
+    --tertiary:#9E9EA0;
+    --rail:#FBFBFB;
+    --band:#F7F8F9;
+    --hover:#F4F5F7;
+    --line:#ECECEE;
+    --line-soft:#F0F0F0;
+    --btn-line:#E3E3E5;
+    --blue-text:#2160D8;
+    --chip-bg:#F3FAFF; --chip-line:#BAD5FF; --chip-text:#4479EF;
+    --shadow-card:0 1px 2px rgba(16,24,40,.04), 0 1px 3px rgba(16,24,40,.03);
+    --shadow-btn:0 1px 2px rgba(16,24,40,.05);
     --black:#202022; --white:#FFFFFF;
     --accent:#266EEF;
     --btn:#266EEF; --btn-hover:#1B57C7; --accent-text:#266EEF; --accent-hover:#1B57C7; --accent-soft:#F4F5F7;
@@ -549,22 +563,10 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     .footer__contact{ grid-template-columns:1fr; }
   }
 
-  /* ---------- Skyline illustration ---------- */
-  .skyline{
-    background:var(--white);
-    padding-top:56px;
-    overflow:hidden;
-  }
-  .skyline img{
-    display:block;
-    width:100%;
-    height:auto;
-  }
-
-  /* Attio surface: a rail-grey band under a hairline, the column headings set as
+  /* Attio surface: a white band under a hairline, the column headings set as
      record-pane labels, and every piece of contact information typed rather than
      handwritten -- an address is not a place for a flourish. */
-  .footer{ background:var(--rail); border-top:1px solid var(--line); }
+  .footer{ background:#FFFFFF; border-top:1px solid var(--line); }
   .footer__label{ font-family:var(--font); text-transform:uppercase; letter-spacing:.06em;
                   font-weight:600; font-size:12px; color:var(--label); text-decoration:none; }
   .footer__col a{ font-family:var(--font); font-size:14px; font-weight:450;
@@ -583,6 +585,19 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .footer__about{ color:var(--label) !important; font-size:13px !important;
                   line-height:1.65 !important; margin:0 0 14px !important;
                   padding-bottom:14px; border-bottom:1px solid var(--line); }
+
+
+  /* ---------- Skyline illustration ---------- */
+  .skyline{
+    background:var(--white);
+    padding-top:56px;
+    overflow:hidden;
+  }
+  .skyline img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
 
 
   /* ---------- Responsive ---------- */
@@ -642,8 +657,48 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   }
   @media (min-width:600px) and (max-width:900px){ .grid{ grid-template-columns:repeat(2, minmax(0,1fr)); } }
 
-/* Headings in Sanomat (one weight); everything else stays in Guardian Sans */
-h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;letter-spacing:-.01em}
+/* Headings share the body face; weight and letter-spacing carry the hierarchy. */
+h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:600;letter-spacing:-.01em}
+
+  /* ---------- Attio surface ----------
+     One face, near-black on white, a #ECECEE hairline doing the dividing, #266EEF
+     carrying every action, 8px buttons and 12px cards on a shadow you can barely
+     see. Headings keep whatever scale the page already set; this changes weight,
+     tracking, colour and the geometry of the things you click. */
+  h1,h2,h3,h4,h5,h6{ font-family:var(--font); font-weight:600; letter-spacing:-.01em; }
+  a{ color:var(--blue-text); }
+  .btn{
+    font-family:var(--font); font-size:14px; font-weight:500; letter-spacing:0;
+    height:36px; padding:0 16px; border-radius:8px;
+    background:var(--btn); color:#FFFFFF; border:1px solid var(--btn);
+    box-shadow:var(--shadow-btn);
+  }
+  .btn:hover{ background:var(--btn-hover); border-color:var(--btn-hover); }
+  .btn--secondary, .btn--ghost{
+    background:#FFFFFF; color:var(--black); border:1px solid var(--btn-line);
+    box-shadow:var(--shadow-btn);
+  }
+  .btn--secondary:hover, .btn--ghost:hover{
+    background:var(--hover); color:var(--black); border-color:#DCDCDE;
+  }
+  .card, .property, .faq__item, .stage, .dnote__card, .gate__card, .panel, .tile{
+    border-radius:12px; border:1px solid var(--line); background:#FFFFFF;
+    box-shadow:var(--shadow-card);
+  }
+  .stats{ border-radius:12px; border:1px solid var(--line); }
+  .tablewrap, .table{ border-radius:10px; }
+  .badge, .status, .card__label--chip{
+    border-radius:6px; font-size:12px; font-weight:500;
+    background:var(--chip-bg); border:1px solid var(--chip-line); color:var(--chip-text);
+  }
+  .nav-btn, .view button, .select, .fbar button{
+    border-radius:8px; border:1px solid var(--btn-line); background:#FFFFFF;
+    box-shadow:var(--shadow-btn); font-family:var(--font); font-size:13.5px; color:var(--black);
+  }
+  /* .status was a bare dot-and-label with no box of its own -- the chip treatment
+     above gave it a border with nothing between that and the text. */
+  .status{ padding:3px 9px; line-height:1.25; }
+  .card__rating .badge{ height:auto; padding:3px 9px; }
 </style>
 </head>
 <body id="top">

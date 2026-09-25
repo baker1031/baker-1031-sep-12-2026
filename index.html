@@ -1593,22 +1593,10 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     .footer__contact{ grid-template-columns:1fr; }
   }
 
-  /* ---------- Skyline illustration ---------- */
-  .skyline{
-    background:var(--white);
-    padding-top:56px;
-    overflow:hidden;
-  }
-  .skyline img{
-    display:block;
-    width:100%;
-    height:auto;
-  }
-
-  /* Attio surface: a rail-grey band under a hairline, the column headings set as
+  /* Attio surface: a white band under a hairline, the column headings set as
      record-pane labels, and every piece of contact information typed rather than
      handwritten -- an address is not a place for a flourish. */
-  .footer{ background:var(--rail); border-top:1px solid var(--line); }
+  .footer{ background:#FFFFFF; border-top:1px solid var(--line); }
   .footer__label{ font-family:var(--font); text-transform:uppercase; letter-spacing:.06em;
                   font-weight:600; font-size:12px; color:var(--label); text-decoration:none; }
   .footer__col a{ font-family:var(--font); font-size:14px; font-weight:450;
@@ -1627,6 +1615,19 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   .footer__about{ color:var(--label) !important; font-size:13px !important;
                   line-height:1.65 !important; margin:0 0 14px !important;
                   padding-bottom:14px; border-bottom:1px solid var(--line); }
+
+
+  /* ---------- Skyline illustration ---------- */
+  .skyline{
+    background:var(--white);
+    padding-top:56px;
+    overflow:hidden;
+  }
+  .skyline img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
 
   /* ---------- Sticky nav ---------- */
   .nav{
@@ -1957,7 +1958,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     .property__panel{ padding:16px; }
   }
 /* Headings share the body face; weight and letter-spacing carry the hierarchy. */
-h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;letter-spacing:-.01em}
+h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:600;letter-spacing:-.01em}
 
   /* ---------- Attio surface ----------
      One face, near-black on white, a #ECECEE hairline doing the dividing, #266EEF
@@ -1990,6 +1991,10 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
     border-radius:6px; font-size:12px; font-weight:500;
     background:var(--chip-bg); border:1px solid var(--chip-line); color:var(--chip-text);
   }
+  /* .status was a bare dot-and-label with no box of its own -- the chip treatment
+     above gave it a border with nothing between that and the text. */
+  .status{ padding:3px 9px; line-height:1.25; }
+  .card__top .badge, .card__rating .badge{ height:auto; padding:3px 9px; }
   .nav-btn, .view button, .select, .fbar button{
     border-radius:8px; border:1px solid var(--btn-line); background:#FFFFFF;
     box-shadow:var(--shadow-btn); font-family:var(--font); font-size:13.5px; color:var(--black);
@@ -2062,7 +2067,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
   /* the sponsor tiles are filled to hide the logos' own backgrounds; on the band they
      have to take the band colour rather than white */
   .logo{ background:var(--band); }
-  .skyline{ background:var(--rail); }
+  .skyline{ background:#FFFFFF; }
 
   /* The announcement bar: a quiet chip rather than a full-bleed blue band. */
   .dustbar{ background:var(--chip-bg); border-bottom:1px solid var(--chip-line); }
