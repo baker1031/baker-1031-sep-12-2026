@@ -872,7 +872,7 @@ html:not(.is-logged-in) .gate{ display:block; }
 html:not(.is-logged-in) .gate--l2{ display:none; }
 html.is-level2 .gate--l1{ display:none !important; }
 .gate__card{ background:var(--white); border:1px solid var(--hair-strong); border-radius:10px; padding:32px 32px 28px; text-align:center; box-shadow:0 24px 48px -24px rgba(32,32,34,.28), 0 2px 6px rgba(32,32,34,.06); }
-.gate__card h2, .gate__card .gate__title{ margin:0 0 10px; font-size:clamp(22px,2.4vw,28px); font-weight:700; line-height:1.15; letter-spacing:-.02em; }
+.gate__card h2, .gate__card .gate__title{ margin:0 0 10px; font-size:clamp(22px,2.4vw,28px); font-weight:600; line-height:1.15; letter-spacing:-.02em; }
 .gate__card p{ margin:0 0 20px; font-size:15px; line-height:1.6; color:var(--grey); }
 .gate__actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 .gate__note{ margin:20px 0 0 !important; font-size:13px !important; color:var(--grey-light) !important; }
@@ -901,6 +901,15 @@ html:not(.is-level2) .lockwrap--l2 > *:not(.gate){
   -webkit-mask-image:linear-gradient(to bottom, #202022 30%, transparent 92%); mask-image:linear-gradient(to bottom, #202022 30%, transparent 92%);
 }
 .lockwrap--l2 .gate{ top:40px; }
+
+/* ===== Level 1 — the same soft gate keyed on registration rather than approval. Built and served
+   in full so crawlers read every word; a logged-out visitor gets the card over blurred content and
+   any logged-in investor is through. ===== */
+html:not(.is-logged-in) .lockwrap--l1 > *:not(.gate){
+  max-height:900px; overflow:hidden; pointer-events:none; user-select:none; filter:blur(3px);
+  -webkit-mask-image:linear-gradient(to bottom, #202022 30%, transparent 92%); mask-image:linear-gradient(to bottom, #202022 30%, transparent 92%);
+}
+.lockwrap--l1 .gate{ top:40px; }
 /* a logged-out visitor on a level-2 section gets the ordinary log-in card, not the approval one */
 html:not(.is-logged-in) .gate--l2{ display:none !important; }
 html.is-logged-in:not(.is-level2) .gate--l1{ display:none !important; }

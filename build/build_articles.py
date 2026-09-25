@@ -348,7 +348,9 @@ def load_articles(build_date):
 
 # Articles that stay open to everyone: the founder bio and the fee page are trust pages, and gating them
 # would cost more than it protects.
-PUBLIC_SLUGS = {'jerry-baker-bio', 'fees'}
+# Jerry's bio is the one article that stays open: it is the page people are sent to in order to
+# find out who they would be working with, so a gate there defeats its purpose.
+PUBLIC_SLUGS = {'jerry-baker-bio'}
 
 def gate_card_l2():
     return '''<div class="gate gate--l2" role="region" aria-label="Approval required">

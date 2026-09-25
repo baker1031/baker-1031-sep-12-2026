@@ -28,10 +28,18 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#266EEF">
-<script>/* data notice: mark the document before first paint so an acknowledged visitor never sees a flash of it */
-try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentElement.classList.add('dnote-ok'); }catch(e){}</script>
+<script>/* Data notice: mark the document before first paint so an acknowledged visitor never sees a
+   flash of it. A visitor who is not logged in is skipped too -- the figures are behind the gate and
+   blurred, so stopping them to acknowledge data they cannot read yet stacks two overlays on one
+   screen. They meet the notice on the far side of the log-in, which is the moment it matters. */
+try{
+  if(sessionStorage.getItem('b31_dn_results') === '1') document.documentElement.classList.add('dnote-ok');
+}catch(e){}
+try{
+  if(!/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.classList.add('dnote-ok');
+}catch(e){}</script>
 <script defer src="/assets/js/analytics.js"></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://baker1031.com/results/#webpage", "url": "https://baker1031.com/results/", "name": "Full-Cycle Results", "description": "Sponsor-reported results for completed DST and 1031 exchange investments.", "isPartOf": {"@id": "https://baker1031.com/#website"}, "about": {"@id": "https://baker1031.com/#org"}, "inLanguage": "en-US", "mainEntity": {"@type": "Dataset", "name": "Full-cycle DST investment results tracked by Baker 1031", "description": "Completed DST and 1031 exchange investments with sponsor, property type, location, average annual return, equity multiple and hold period, as reported by each sponsor.", "creator": {"@id": "https://baker1031.com/#org"}, "license": "https://baker1031.com/terms/", "isAccessibleForFree": true}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://baker1031.com/"}, {"@type": "ListItem", "position": 2, "name": "Results"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://baker1031.com/results/#webpage", "url": "https://baker1031.com/results/", "name": "Full-Cycle Results", "description": "Sponsor-reported results for completed DST and 1031 exchange investments.", "isPartOf": {"@id": "https://baker1031.com/#website"}, "about": {"@id": "https://baker1031.com/#org"}, "inLanguage": "en-US", "mainEntity": {"@type": "Dataset", "name": "Full-cycle DST investment results tracked by Baker 1031", "description": "Completed DST and 1031 exchange investments with sponsor, property type, location, average annual return, equity multiple and hold period, as reported by each sponsor.", "creator": {"@id": "https://baker1031.com/#org"}, "license": "https://baker1031.com/terms/", "isAccessibleForFree": false, "hasPart": {"@type": "WebPageElement", "isAccessibleForFree": false, "cssSelector": ".lockwrap"}}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://baker1031.com/"}, {"@type": "ListItem", "position": 2, "name": "Results"}]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
@@ -472,6 +480,31 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:600;lett
 
   /* what sits behind a notice is blurred and inert until it is acknowledged */
   html:not(.dnote-ok) .dnote-blur{ filter:blur(5px); pointer-events:none; user-select:none; }
+
+  /* ---------- Soft gate (level 1) ----------
+     The page is built and served in full, so search engines and AI crawlers read the whole dataset;
+     a logged-out visitor sees the log-in card over blurred tables. Registration is enough -- any
+     logged-in investor is through, the same bar as /invest/. The rules mirror content.css so the
+     card is the same object here as on every other gated page. */
+  .lockwrap{ position:relative; }
+  .gate{ display:none; position:absolute; left:50%; top:40px; transform:translateX(-50%);
+         z-index:3; width:min(560px, calc(100% - 8px)); }
+  html:not(.is-logged-in) .gate{ display:block; }
+  html:not(.is-logged-in) .lockwrap--l1 > *:not(.gate){
+    max-height:900px; overflow:hidden; pointer-events:none; user-select:none; filter:blur(3px);
+    -webkit-mask-image:linear-gradient(to bottom, #202022 30%, transparent 92%);
+            mask-image:linear-gradient(to bottom, #202022 30%, transparent 92%);
+  }
+  .gate__card{ background:#FFFFFF; border:1px solid var(--line); border-radius:12px;
+    padding:32px 32px 28px; text-align:center;
+    box-shadow:0 24px 48px -24px rgba(32,32,34,.28), 0 2px 6px rgba(32,32,34,.06); }
+  .gate__card p{ margin:0 0 20px; font-size:15px; line-height:1.6; color:var(--label); }
+  /* the title is a <p>, so it has to outrank .gate__card p or it renders at body size */
+  .gate__card .gate__title{ margin:0 0 10px; font-size:clamp(22px,2.4vw,28px); font-weight:600;
+                            line-height:1.15; letter-spacing:-.02em; color:var(--black); }
+  .gate__actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .gate__note{ margin:20px 0 0 !important; font-size:12.5px !important; color:var(--tertiary) !important; }
+  @media (max-width:900px){ .gate{ top:24px; } .gate__card{ padding:24px 20px 22px; } }
   @media (max-width:560px){
     .dnote__card{ padding:24px 22px 22px; }
     .dnote--inline{ inset:-8px; }
@@ -561,6 +594,18 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:600;lett
 </div>
 
 <main class="wrap dnote-blur">
+<div class="lockwrap lockwrap--l1">
+<div class="gate" role="region" aria-label="Log in to continue">
+  <div class="gate__card">
+    <p class="gate__title">Log in to see the full record</p>
+    <p>The full-cycle results are available to registered Baker 1031 investors. Log in with the email address on your account, or create one — it takes a few minutes.</p>
+    <div class="gate__actions">
+      <a class="btn" href="/login/?next=/results/">Log In</a>
+      <a class="btn btn--secondary" href="/register/">Create an Account</a>
+    </div>
+    <p class="gate__note">Sponsor-reported results for completed programs. Past performance does not guarantee future results, and nothing here is an offer to sell or a solicitation to buy any security.</p>
+  </div>
+</div>
   <section class="sec" id="sponsors">
     <div class="bar">
       <h2>Sponsor Performance</h2>
@@ -637,6 +682,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:600;lett
   </section>
   <p class="disclosure">These figures are sponsor-reported and reflect a limited sample of completed investments. They’re subject to selection and survivorship bias, don’t represent the entire industry, and don’t guarantee future results. Average annual return and equity multiple are as reported by each sponsor at the time of sale, before individual investor taxes. Averages shown are simple (unweighted) averages of the investments listed; where a sponsor did not report a figure it is shown as “—” and excluded from that average. Past performance does not guarantee future results; investments in DSTs and other private placements involve substantial risk, including loss of principal.</p>
 
+</div>
 </main>
 
 <div class="rule rule--strong" aria-hidden="true"></div>

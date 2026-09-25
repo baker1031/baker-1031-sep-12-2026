@@ -22,6 +22,11 @@ SITE = 'https://baker1031.com'
 # content. Hard gating lives in netlify/edge-functions/gate.js (LEVEL2_PREFIXES) and is separate.
 LEVEL2_SECTIONS = ['glossary', 'calculators', 'property-types', 'markets', 'sponsors']
 
+# Sections behind a level-1 gate: registration is enough, no second approval. Same soft-gate
+# construction -- the page is built and served in full for crawlers -- but any logged-in investor
+# reads it. These are top-of-funnel pages, so gating them harder than /invest/ would be backwards.
+LEVEL1_SECTIONS = ['audiences', 'process']
+
 LEVEL2_GATE = '''<div class="gate gate--l2" role="region" aria-label="Approval required">
   <div class="gate__card">
     <p class="gate__title">Not yet approved for this section</p>
@@ -31,6 +36,18 @@ LEVEL2_GATE = '''<div class="gate gate--l2" role="region" aria-label="Approval r
       <a class="btn btn--secondary" href="tel:+13108964227">(310) 896-4227</a>
     </div>
     <p class="gate__note">Educational content for approved Baker 1031 investors. Nothing here is an offer to sell or a solicitation to buy any security.</p>
+  </div>
+</div>'''
+
+LEVEL1_ONLY_GATE = '''<div class="gate" role="region" aria-label="Log in to continue">
+  <div class="gate__card">
+    <p class="gate__title">Log in to continue</p>
+    <p>This section is available to registered Baker 1031 investors. Log in with the email address on your account, or create one — it takes a few minutes.</p>
+    <div class="gate__actions">
+      <a class="btn" href="/login/?next={path}">Log In</a>
+      <a class="btn btn--secondary" href="/register/">Create an Account</a>
+    </div>
+    <p class="gate__note">Educational content for registered investors. Nothing here is an offer to sell or a solicitation to buy any security.</p>
   </div>
 </div>'''
 
@@ -60,6 +77,11 @@ def needs_level2(rel):
     return top in LEVEL2_SECTIONS
 
 
+def needs_level1(rel):
+    top = rel.split('/')[0]
+    return top in LEVEL1_SECTIONS
+
+
 # Exactly one gate message is true at a time, so exactly one is ever in the document. The log-in card
 # is the served default (correct for an unauthenticated visitor and for a crawler); the approval card
 # travels inside a <template>, which is inert — not rendered, not read by assistive technology and not
@@ -72,6 +94,16 @@ GATE_RESOLVE = '''<script>(function(){try{
  else if(inn && lvl2) l1.parentNode.removeChild(l1);
  t.parentNode.removeChild(t);
 }catch(e){}})();</script>'''
+
+
+def wrap_level1(main, url_path):
+    """Level 1: one card, shown to a logged-out visitor and to nobody else. No <template> and no
+    GATE_RESOLVE are needed -- the CSS alone hides .gate once <html> carries is-logged-in."""
+    m = re.search(r'(<main[^>]*>)(.*)(</main>)', main, re.S)
+    if not m:
+        return main
+    inner = LEVEL1_ONLY_GATE.replace('{path}', url_path) + '\n' + m.group(2)
+    return m.group(1) + '\n<div class="lockwrap lockwrap--l1">\n' + inner + '\n</div>\n' + m.group(3)
 
 
 def wrap_level2(main, url_path):
@@ -287,6 +319,8 @@ def build():
                 graph = [seo.webpage(SITE + url_path, meta.get('title', ''), meta.get('description', '')), seo.breadcrumbs(crumbs)]
             if needs_level2(rel):
                 main = wrap_level2(main, url_path)
+            elif needs_level1(rel):
+                main = wrap_level1(main, url_path)
             html = cs.page(title=meta.get('title') or 'Baker 1031 Investments', desc=meta.get('description', ''),
                            canonical=SITE + url_path, main_html=main, head_extra=head, body_end=scripts,
                            body_attrs=meta.get('body', ''), current=meta.get('nav') or None,
