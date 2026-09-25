@@ -32,6 +32,7 @@ const PUBLIC_PREFIXES = [
   '/update-my-info',
   '/schedule-call',
   '/schedule-consultation',
+  '/check-in',      // the lead check-in pages: a personal link from Jerry's email, served by the platform (see netlify.toml)
   '/privacy',
   '/terms',
   '/disclosures',

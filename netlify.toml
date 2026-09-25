@@ -119,6 +119,14 @@
   to = "/.netlify/functions/rebuild-watcher"
   status = 200
 
+# The lead check-in pages (the personal links in Jerry's check-in emails and texts to leads who registered but didn't book).
+# They live on the platform (app.baker1031.com, src/app/check-in); this keeps the links on baker1031.com. Public in the edge gate.
+[[redirects]]
+  from = "/check-in/*"
+  to = "https://app.baker1031.com/check-in/:splat"
+  status = 200
+  force = true
+
 # Friendly aliases. Old-site URLs (/offerings/, /request-access/, /performance/, /current-offerings/…) are
 # 301-redirected by the edge gate (netlify/edge-functions/gate.js), which sees every request first.
 [[redirects]]
