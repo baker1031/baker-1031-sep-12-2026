@@ -27,25 +27,39 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#243372">
+<meta name="theme-color" content="#266EEF">
 <script defer src="/assets/js/analytics.js"></script>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Special+Gothic&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <style>
 /* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
-:root{ --page:#FDFBF7; --accent-2:#2E4183; --rose:#2E4183;
-    --black:#23232A; --white:#FDFBF7;
-    --accent:#2E4183;
-    --btn:#2E4183; --btn-hover:#243372;
-  /* Text-safe green: brand #2E4183 is 3.35:1 on white, under the 4.5:1 AA minimum for
-     normal-size text. #2E4183 is 4.96:1. Backgrounds and borders keep --accent. */
-  --accent-text:#2E4183; --accent-hover:#243372; --accent-soft:#F5F1E9;
-    --grey:#23232A; --grey-light:rgba(35,35,42,.6); --hair:#EAE4DA; --hair-strong:#EAE4DA; --error:#DC2626;
+:root{ --page:#FFFFFF; --accent-2:#266EEF; --rose:#266EEF;
+    /* Attio surface tokens: greys for labels and rails, the hairline, the chip,
+       and the two shadows every raised thing on the site uses. */
+    --label:#717173;
+    --tertiary:#9E9EA0;
+    --rail:#FBFBFB;
+    --band:#F7F8F9;
+    --hover:#F4F5F7;
+    --line:#ECECEE;
+    --line-soft:#F0F0F0;
+    --btn-line:#E3E3E5;
+    --blue-text:#2160D8;
+    --chip-bg:#F3FAFF; --chip-line:#BAD5FF; --chip-text:#4479EF;
+    --shadow-card:0 1px 2px rgba(16,24,40,.04), 0 1px 3px rgba(16,24,40,.03);
+    --shadow-btn:0 1px 2px rgba(16,24,40,.05);
+    --black:#202022; --white:#FFFFFF;
+    --accent:#266EEF;
+    --btn:#266EEF; --btn-hover:#1B57C7;
+  /* Text-safe green: brand #266EEF is 3.35:1 on white, under the 4.5:1 AA minimum for
+     normal-size text. #266EEF is 4.96:1. Backgrounds and borders keep --accent. */
+  --accent-text:#266EEF; --accent-hover:#1B57C7; --accent-soft:#F4F5F7;
+    --grey:#202022; --grey-light:rgba(32,32,34,.6); --hair:#ECECEE; --hair-strong:#ECECEE; --error:#DC2626;
     --radius:6px;
-    --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --display:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --display:var(--font);
     --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
   }
   *{ box-sizing:border-box; }
@@ -67,12 +81,12 @@
   /* ---------- Sticky nav ---------- */
   .nav{
     position:sticky; top:0; z-index:60;
-    background:rgba(253,251,247,.92);
+    background:rgba(255,255,255,.92);
     -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
-    border-bottom:1px solid #EAE4DA;
+    border-bottom:1px solid #ECECEE;
     transition:box-shadow .2s ease;
   }
-  .nav.is-scrolled{ box-shadow:0 2px 12px rgba(35,35,42,.06); }
+  .nav.is-scrolled{ box-shadow:0 2px 12px rgba(32,32,34,.06); }
   .nav__inner{
     max-width:calc(1200px + 48px);
     margin:0 auto;
@@ -90,7 +104,7 @@
     justify-items:center;
     font-size:15.5px;
     font-weight:600;
-    color:#23232A;
+    color:#202022;
     text-decoration:none;
     padding:6px 0;
     line-height:1.2;
@@ -126,7 +140,7 @@
   .nav__login{
     font-size:15px;
     font-weight:600;
-    color:#23232A;
+    color:#202022;
     text-decoration:none;
     transition:color .15s ease;
   }
@@ -137,7 +151,7 @@
   .nav__user{ font-size:14px; font-weight:600; color:var(--black); white-space:nowrap; }
   .nav__user-name{ color:var(--accent-text); }
   .nav__logout{
-    font:inherit; font-size:14px; font-weight:600; color:#23232A;
+    font:inherit; font-size:14px; font-weight:600; color:#202022;
     background:none; border:0; padding:0; cursor:pointer; white-space:nowrap;
     transition:color .15s ease;
   }
@@ -167,6 +181,17 @@
     .nav__menu span{ transition:none; }
   }
 
+  /* Attio surface: the nav words sit in a mid grey so the wordmark and the primary
+     button carry the weight of the bar; hover brings them up to full ink. */
+  .nav__links a{ font-size:14px; font-weight:500; }
+  .nav__links a .nav__word{ color:#54545A; letter-spacing:0; }
+  .nav__links a:hover .nav__word,
+  .nav__links a:focus-visible .nav__word{ color:#202022; }
+  .nav__links a[aria-current="page"] .nav__word{ color:#202022; }
+  .nav__login{ font-size:14px; font-weight:500; color:#54545A; }
+  .nav__login:hover{ color:#202022; }
+  .nav__cta{ margin:0; height:32px; padding:0 14px; font-size:13.5px; }
+
 
 
 
@@ -185,7 +210,7 @@
     position:relative; z-index:1;
     width:100%; max-width:460px;
     background:var(--white); border:1px solid var(--hair-strong); border-radius:10px;
-    box-shadow:0 20px 50px rgba(35,35,42,.08);
+    box-shadow:0 20px 50px rgba(32,32,34,.08);
     padding:36px 36px 32px;
     margin-bottom:220px;
   }
@@ -201,7 +226,7 @@
     background:var(--white); border:1px solid var(--hair-strong); border-radius:var(--radius);
     padding:12px 14px; outline:none; transition:border-color .2s ease, box-shadow .2s ease;
   }
-  .field input::placeholder{ color:rgba(35,35,42,.45); }
+  .field input::placeholder{ color:rgba(32,32,34,.45); }
   .field input:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(36,56,86,.18); }
   .field.is-invalid input{ border-color:var(--error); box-shadow:0 0 0 3px rgba(220,38,38,.12); }
   .field .btn{ width:100%; margin-top:14px; padding:13px 20px; font-size:15px; }
@@ -215,7 +240,7 @@
   .err a:hover{ text-decoration:underline; text-underline-offset:3px; }
   .ok{
     display:none; margin:12px 0 0; padding:12px 14px;
-    border:1px solid #EAE4DA; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
+    border:1px solid #ECECEE; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
     font-size:13.5px; line-height:1.5; color:var(--grey);
   }
   .ok.is-on{ display:block; }
@@ -225,28 +250,22 @@
   .box__help a:hover{ color:var(--accent-text); }
 
   .rule{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; width:100%; }
-  .rule::before{ content:""; display:block; height:1px; background:#EAE4DA; }
-  .rule--strong::before{ height:2px; background:#EAE4DA; }
+  .rule::before{ content:""; display:block; height:1px; background:#ECECEE; }
+  .rule--strong::before{ height:2px; background:#ECECEE; }
 
   /* ---------- Footer (from the homepage) ---------- */
   /* ---------- Footer ---------- */
-  /* The hand (Caveat, already loaded for the site's lettering) carries the opening
-     line and the link columns. Contact detail is typed on purpose: an address and a
-     phone number are things people copy, dial and check, and they have to be
-     unambiguous. The disclosure block stays typed for the same reason.
+  /* Everything here is typed. Contact detail has to be: an address and a phone number
+     are things people copy, dial and check, and a flourish makes them ambiguous. The
+     firm statement that used to open this block at display size now sits inside the
+     legal block as .footer__about -- it reads as a disclosure, so it is set as one.
      NB: the marker line above is what build/sync_chrome.py looks for -- leave it exact. */
-  .footer__intro{
-    grid-column:1 / -1; margin:0 0 36px; padding-bottom:30px;
-    border-bottom:1px solid var(--hair);
-    font-family:var(--hand); font-size:30px; line-height:1.45;
-    color:var(--accent-text); max-width:none;
-  }
   .footer__email{ margin:0 0 22px !important; font-size:15px !important; line-height:1.6 !important; }
   .footer__email a{ font-family:var(--font); color:var(--accent-text); font-weight:600; text-decoration:none; }
-  .footer__email a:hover{ color:#243372; text-decoration:underline; }
+  .footer__email a:hover{ color:#1B57C7; text-decoration:underline; }
   .footer__contact{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px 28px; }
   .footer{ background:var(--white); }
-  .rule--strong::before{ height:2px; background:#EAE4DA; }
+  .rule--strong::before{ height:2px; background:#ECECEE; }
   .footer__inner{
     max-width:calc(1200px + 48px);
     margin:0 auto;
@@ -256,24 +275,24 @@
     gap:32px 40px;
   }
   .footer__brand img{ height:40px; width:auto; display:block; margin-bottom:16px; }
-  .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#23232A; }
-  .footer__brand a{ color:#23232A; text-decoration:none; }
+  .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#202022; }
+  .footer__brand a{ color:#202022; text-decoration:none; }
   .footer__brand a:hover{ color:var(--accent-text); }
 
   .footer__office{
     font-style:normal;
     margin:0;
-    font-size:14px; line-height:1.65; color:rgba(35,35,42,.78);
+    font-size:14px; line-height:1.65; color:rgba(32,32,34,.78);
   }
   .footer__office strong{
     display:block; font-size:12px; font-weight:700; letter-spacing:.08em;
     text-transform:uppercase; color:var(--accent-text); margin-bottom:6px;
   }
-  .footer__office a{ color:rgba(35,35,42,.78); text-decoration:none; }
+  .footer__office a{ color:rgba(32,32,34,.78); text-decoration:none; }
   .footer__office a:hover{ color:var(--accent-text); text-decoration:underline; }
   .footer__col .footer__office a{ display:inline; padding:0; font-size:inherit; }
   .footer__col .footer__office a:hover{ color:var(--accent-text); }
-  .footer__disclosure a{ color:rgba(35,35,42,.6); text-decoration:underline; text-underline-offset:2px; }
+  .footer__disclosure a{ color:rgba(32,32,34,.6); text-decoration:underline; text-underline-offset:2px; }
   .footer__disclosure a:hover{ color:var(--accent-text); }
   .footer__label{
     margin:0 0 16px;
@@ -293,13 +312,12 @@
   .footer__disclosure{
     grid-column:1 / -1;
     padding-top:28px;
-    border-top:1px solid #EAE4DA;
+    border-top:1px solid #ECECEE;
   }
-  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(35,35,42,.6); }
-  .footer__copy{ color:rgba(35,35,42,.55) !important; }
+  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(32,32,34,.6); }
+  .footer__copy{ color:rgba(32,32,34,.55) !important; }
 
   @media (max-width:900px){
-    .footer__intro{ font-size:24px; margin-bottom:28px; padding-bottom:22px; }
     .footer__contact{ grid-template-columns:1fr; }
   }
 
@@ -331,11 +349,11 @@
       flex-direction:column; align-items:stretch; gap:0;
       margin:0; padding:8px 20px 12px;
       background:var(--white);
-      border-bottom:1px solid #EAE4DA;
-      box-shadow:0 12px 24px rgba(35,35,42,.08);
+      border-bottom:1px solid #ECECEE;
+      box-shadow:0 12px 24px rgba(32,32,34,.08);
     }
     .nav__links.is-open{ display:flex; }
-    .nav__links a{ padding:12px 0; border-bottom:1px solid #F5F1E9; font-size:15px; }
+    .nav__links a{ padding:12px 0; border-bottom:1px solid #F4F5F7; font-size:15px; }
     .nav__links a{ justify-items:start; }
     .nav__links a .nav__hand{ font-size:22px; }
     .nav__links a:last-child{ border-bottom:0; }
@@ -376,6 +394,42 @@
   }
 /* Headings in Sanomat (one weight); everything else stays in Guardian Sans */
 h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;letter-spacing:-.01em}
+
+  /* ---------- Attio surface ----------
+     One face, near-black on white, a #ECECEE hairline doing the dividing, #266EEF
+     carrying every action, 8px buttons and 12px cards on a shadow you can barely
+     see. Headings keep whatever scale the page already set; this changes weight,
+     tracking, colour and the geometry of the things you click. */
+  h1,h2,h3,h4,h5,h6{ font-family:var(--font); font-weight:600; letter-spacing:-.01em; }
+  a{ color:var(--blue-text); }
+  .btn{
+    font-family:var(--font); font-size:14px; font-weight:500; letter-spacing:0;
+    height:36px; padding:0 16px; border-radius:8px;
+    background:var(--btn); color:#FFFFFF; border:1px solid var(--btn);
+    box-shadow:var(--shadow-btn);
+  }
+  .btn:hover{ background:var(--btn-hover); border-color:var(--btn-hover); }
+  .btn--secondary, .btn--ghost{
+    background:#FFFFFF; color:var(--black); border:1px solid var(--btn-line);
+    box-shadow:var(--shadow-btn);
+  }
+  .btn--secondary:hover, .btn--ghost:hover{
+    background:var(--hover); color:var(--black); border-color:#DCDCDE;
+  }
+  .card, .property, .faq__item, .stage, .dnote__card, .gate__card, .panel, .tile{
+    border-radius:12px; border:1px solid var(--line); background:#FFFFFF;
+    box-shadow:var(--shadow-card);
+  }
+  .stats{ border-radius:12px; border:1px solid var(--line); }
+  .tablewrap, .table{ border-radius:10px; }
+  .badge, .status, .card__label--chip{
+    border-radius:6px; font-size:12px; font-weight:500;
+    background:var(--chip-bg); border:1px solid var(--chip-line); color:var(--chip-text);
+  }
+  .nav-btn, .view button, .select, .fbar button{
+    border-radius:8px; border:1px solid var(--btn-line); background:#FFFFFF;
+    box-shadow:var(--shadow-btn); font-family:var(--font); font-size:13.5px; color:var(--black);
+  }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Log In","url":"https://baker1031.com/login/","isPartOf":{"@type":"WebSite","name":"Baker 1031 Investments","url":"https://baker1031.com/"},"inLanguage":"en-US"}</script>
 </head>
@@ -384,7 +438,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 <header class="nav" id="nav">
   <div class="nav__inner">
     <a class="nav__logo" href="/" aria-label="Baker 1031 — home">
-      <img src="/assets/media/logo.png" alt="Baker 1031" width="1574" height="448">
+      <img src="/assets/media/logo.png" alt="Baker 1031" width="1600" height="462">
     </a>
     <nav class="nav__links" id="nav-links" aria-label="Primary">
       <a href="/"><span class="nav__word">Home</span><span class="nav__hand" aria-hidden="true" data-label="Home"></span></a>
@@ -437,9 +491,8 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 <div class="rule rule--strong" aria-hidden="true"></div>
 <footer class="footer">
   <div class="footer__inner">
-      <p class="footer__intro">Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.</p>
     <div class="footer__brand">
-      <a href="/" class="footer__home" aria-label="Baker 1031 Investments — home"><img src="/assets/media/logo.png" alt="Baker 1031" width="1574" height="448"></a>
+      <a href="/" class="footer__home" aria-label="Baker 1031 Investments — home"><img src="/assets/media/logo.png" alt="Baker 1031" width="1600" height="462"></a>
       <p class="footer__email"><a href="mailto:invest@baker1031.com">invest@baker1031.com</a></p>
       <div class="footer__contact">
         <address class="footer__office">
@@ -479,6 +532,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       <a href="https://brokercheck.finra.org/firm/summary/46147" rel="noopener">FINRA BrokerCheck</a>
     </div>
     <div class="footer__disclosure">
+      <p class="footer__about">Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.</p>
       <p>Securities are offered through Aurora Securities, Inc., member <a href="https://www.finra.org/" rel="noopener">FINRA</a>/<a href="https://www.sipc.org/" rel="noopener">SIPC</a>. Baker 1031 Investments, LLC is independent of Aurora Securities, Inc. and is not a registered broker-dealer or investment adviser. <a href="https://brokercheck.finra.org/firm/summary/46147" rel="noopener">Check Aurora Securities, Inc. on FINRA BrokerCheck</a>. This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security. Offerings are made only by a sponsor’s private placement memorandum, are available solely to accredited investors, and are subject to suitability requirements. Real estate investments involve substantial risk, including illiquidity, potential loss of principal, and market and interest-rate risk. Where an offering involves oil and gas mineral or royalty interests, those interests carry commodity-price and production-decline risk and depend on reserves and operations the investor does not control. DST interests are long-term investments and generally cannot be sold on demand. Past performance, including full-cycle results shown on this site, is not a guarantee of future results. Baker 1031 Investments is not a tax or legal advisor. Prospective investors should consult their own CPA and attorney regarding their individual circumstances before investing.</p>
       <p class="footer__copy">© 2026 Baker 1031 Investments. All rights reserved.</p>
     </div>

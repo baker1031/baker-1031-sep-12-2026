@@ -7,23 +7,23 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Special+Gothic&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <style>
 /* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
 :root{
-    --black:#23232A;
-    --white:#FDFBF7;
-    --accent:#2E4183;
-    --accent-hover:#243372;
-    --accent-soft:#F5F1E9;
-    --grey:#23232A;
-    --grey-light:rgba(35,35,42,.6);
-    --hair:#EAE4DA;
-    --hair-strong:#EAE4DA;
+    --black:#202022;
+    --white:#FFFFFF;
+    --accent:#266EEF;
+    --accent-hover:#1B57C7;
+    --accent-soft:#F4F5F7;
+    --grey:#202022;
+    --grey-light:rgba(32,32,34,.6);
+    --hair:#ECECEE;
+    --hair-strong:#ECECEE;
     --error:#DC2626;
     --radius:6px;
-    --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --display:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --display:var(--font);
     --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
     --nav-h:82px;
   }
@@ -49,7 +49,7 @@
   /* ---------- Nav (same as homepage, trimmed) ---------- */
   .nav{
     position:sticky; top:0; z-index:40;
-    background:rgba(253,251,247,.9);
+    background:rgba(255,255,255,.9);
     -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
     border-bottom:1px solid var(--hair);
   }
@@ -230,7 +230,7 @@
     outline:none;
     transition:border-color .2s ease;
   }
-  .field input::placeholder{ color:rgba(35,35,42,.45); }
+  .field input::placeholder{ color:rgba(32,32,34,.45); }
   .field input:focus{ border-bottom-color:var(--accent); }
   .field.is-invalid input{ border-bottom-color:var(--error); }
   .field__err{
@@ -244,7 +244,7 @@
   .suggest{
     margin-top:10px;
     padding:12px 14px;
-    border:1px solid #EAE4DA;
+    border:1px solid #ECECEE;
     border-left:3px solid var(--accent);
     border-radius:var(--radius);
     background:var(--accent-soft);
@@ -261,7 +261,7 @@
     transition:background .15s ease, border-color .15s ease, color .15s ease;
   }
   .suggest__btn:hover{ background:var(--accent-hover); border-color:var(--accent-hover); }
-  .suggest__btn--ghost{ background:var(--white); color:var(--grey); border-color:#EAE4DA; }
+  .suggest__btn--ghost{ background:var(--white); color:var(--grey); border-color:#ECECEE; }
   .suggest__btn--ghost:hover{ background:var(--white); color:var(--accent); border-color:var(--accent); }
   .suggest__hint{ margin:8px 0 0; font-size:12.5px; color:var(--grey-light); }
   .suggest.is-required{ border-color:#FECACA; border-left-color:var(--error); background:#FEF2F2; }
@@ -283,13 +283,13 @@
   .btn svg{ width:16px; height:16px; }
   .btn--ghost{
     background:transparent; color:var(--grey);
-    border-color:#EAE4DA;
+    border-color:#ECECEE;
   }
   .btn--ghost:hover{ background:transparent; color:var(--accent); border-color:var(--accent); }
   .hint{ font-size:12.5px; color:var(--grey-light); }
   .hint kbd{
     font:inherit; font-size:11px; font-weight:600;
-    padding:2px 6px; border:1px solid var(--hair-strong); border-radius:4px; background:#F5F1E9;
+    padding:2px 6px; border:1px solid var(--hair-strong); border-radius:4px; background:#F4F5F7;
     margin-right:4px;
   }
   .q__privacy{
@@ -395,7 +395,7 @@
     background:var(--accent-soft); color:var(--accent);
     display:inline-flex; align-items:center; justify-content:center;
     font-size:20px; font-weight:700; letter-spacing:.02em;
-    border:1px solid #EAE4DA;
+    border:1px solid #ECECEE;
   }
   .profile__name{ margin:0; font-size:20px; font-weight:700; letter-spacing:-.01em; color:var(--black); }
   .profile__role{ margin:2px 0 0; font-size:14px; color:var(--grey); }
@@ -428,7 +428,7 @@
   .booked{
     display:flex; align-items:flex-start; gap:12px;
     margin:0 0 16px; padding:14px 16px;
-    border:1px solid #EAE4DA; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
+    border:1px solid #ECECEE; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
     font-size:15px; line-height:1.5; color:var(--grey);
   }
   .booked svg{ flex:0 0 auto; width:20px; height:20px; color:var(--accent); margin-top:2px; }
@@ -437,7 +437,7 @@
   .done__note{
     display:flex; align-items:flex-start; gap:12px;
     padding:14px 16px; max-width:560px;
-    border:1px solid #EAE4DA; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
+    border:1px solid #ECECEE; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
     font-size:14px; line-height:1.5; color:var(--grey);
   }
   .done__note svg{ flex:0 0 auto; width:20px; height:20px; color:var(--accent); margin-top:1px; }
@@ -468,7 +468,7 @@
     padding:8px 0 10px; outline:none;
     transition:border-color .2s ease;
   }
-  .field textarea::placeholder{ color:rgba(35,35,42,.45); }
+  .field textarea::placeholder{ color:rgba(32,32,34,.45); }
   .field textarea:focus{ border-bottom-color:var(--accent); }
   .field.is-invalid textarea{ border-bottom-color:var(--error); }
   .field__meta{ display:flex; justify-content:space-between; gap:12px; align-items:baseline; }
@@ -493,21 +493,21 @@
     position:fixed; left:16px; bottom:16px; z-index:60;
     display:flex; align-items:center; gap:6px;
     padding:6px 8px 6px 10px;
-    background:#111; color:#FDFBF7; border-radius:999px;
+    background:#111; color:#FFFFFF; border-radius:999px;
     font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
-    box-shadow:0 6px 20px rgba(35,35,42,.25);
+    box-shadow:0 6px 20px rgba(32,32,34,.25);
   }
   .devjump span{ margin-right:4px; opacity:.7; }
   .devjump button{
     min-width:26px; height:26px; padding:0 6px; border-radius:13px;
-    border:1px solid rgba(253,251,247,.35); background:transparent; color:#FDFBF7;
+    border:1px solid rgba(255,255,255,.35); background:transparent; color:#FFFFFF;
     font:inherit; font-size:12px; cursor:pointer;
   }
   .devjump button:hover, .devjump button.is-on{ background:var(--accent); border-color:var(--accent); }
 
   /* ---------- Footer ---------- */
   .footer{ background:var(--white); }
-  .rule--strong::before{ height:2px; background:#EAE4DA; }
+  .rule--strong::before{ height:2px; background:#ECECEE; }
   .footer__inner{
     max-width:calc(1200px + 48px);
     margin:0 auto;
@@ -517,19 +517,19 @@
     gap:32px 48px;
   }
   .footer__brand img{ height:40px; width:auto; display:block; margin-bottom:16px; }
-  .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#23232A; }
-  .footer__brand a{ color:#23232A; text-decoration:none; }
+  .footer__brand p{ margin:0 0 12px; font-size:13.5px; line-height:1.6; color:#202022; }
+  .footer__brand a{ color:#202022; text-decoration:none; }
   .footer__brand a:hover{ color:var(--accent); }
   .footer__brand .footer__blurb{ max-width:46ch; }
   .footer__office{
     font-style:normal;
     margin:0 0 14px;
-    font-size:13.5px; line-height:1.6; color:#23232A;
+    font-size:13.5px; line-height:1.6; color:#202022;
   }
   .footer__office strong{ display:block; font-weight:600; color:var(--black); }
   .footer__col .footer__office a{ display:inline; padding:0; font-size:inherit; }
   .footer__col .footer__office a:hover{ color:var(--accent); }
-  .footer__disclosure a{ color:rgba(35,35,42,.6); text-decoration:underline; text-underline-offset:2px; }
+  .footer__disclosure a{ color:rgba(32,32,34,.6); text-decoration:underline; text-underline-offset:2px; }
   .footer__disclosure a:hover{ color:var(--accent); }
   .footer__label{
     margin:0 0 10px;
@@ -540,7 +540,7 @@
     display:block;
     padding:4px 0;
     font-size:14px;
-    color:#23232A;
+    color:#202022;
     text-decoration:none;
     transition:color .15s ease;
   }
@@ -548,10 +548,10 @@
   .footer__disclosure{
     grid-column:1 / -1;
     padding-top:28px;
-    border-top:1px solid #EAE4DA;
+    border-top:1px solid #ECECEE;
   }
-  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(35,35,42,.6); }
-  .footer__copy{ color:rgba(35,35,42,.55) !important; }
+  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(32,32,34,.6); }
+  .footer__copy{ color:rgba(32,32,34,.55) !important; }
 
   /* ---------- Skyline illustration ---------- */
   .skyline{
@@ -566,8 +566,8 @@
   }
 
   .rule{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; }
-  .rule::before{ content:""; display:block; height:1px; background:#EAE4DA; }
-  .rule--strong::before{ height:2px; background:#EAE4DA; }
+  .rule::before{ content:""; display:block; height:1px; background:#ECECEE; }
+  .rule--strong::before{ height:2px; background:#ECECEE; }
   .shell{ flex:1 0 auto; }
   @media (max-width:900px){
     .footer__inner{ grid-template-columns:1fr 1fr; padding:40px 20px 32px; }
@@ -587,7 +587,7 @@
   .foot__nav{ display:flex; gap:6px; }
   .foot__nav button{
     width:36px; height:36px; border-radius:var(--radius);
-    border:1px solid #EAE4DA; background:var(--white); color:var(--grey);
+    border:1px solid #ECECEE; background:var(--white); color:var(--grey);
     display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
     transition:color .15s ease, border-color .15s ease;
   }
@@ -672,7 +672,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 <header class="nav">
   <div class="nav__inner">
     <a class="nav__logo" href="/" aria-label="Baker 1031 — home">
-      <img src="{{LOGO}}" alt="Baker 1031" width="1574" height="448">
+      <img src="{{LOGO}}" alt="Baker 1031" width="1600" height="462">
     </a>
     <div class="nav__right">
       <span>Already working with Jerry?</span>
@@ -1111,7 +1111,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__brand">
-      <img src="{{LOGO}}" alt="Baker 1031" width="1574" height="448">
+      <img src="{{LOGO}}" alt="Baker 1031" width="1600" height="462">
       <p class="footer__blurb">Founded by Jerry Baker, Baker 1031 Investments is a real estate securities brokerage specializing in 1031 exchange investment solutions. Clients work directly with Jerry to evaluate investments based on their income needs, long-term goals, and exchange requirements. The firm has offices in San Francisco and Los Angeles, California.</p>
       <p><a href="mailto:invest@baker1031.com">invest@baker1031.com</a></p>
     </div>
@@ -2040,7 +2040,7 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;lett
       config: calPrefill(),
       calLink: "jerry-baker-yn6qn1/25min",
     });
-    Cal.ns["25min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#2E4183"}},"hideEventTypeDetails":false,"layout":"month_view"});
+    Cal.ns["25min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#266EEF"}},"hideEventTypeDetails":false,"layout":"month_view"});
     // Cal.com tells the page when a booking is made; record it and show a confirmation above the calendar.
     var onBooked = function(e){
       var d = (e && e.detail && e.detail.data) || {};

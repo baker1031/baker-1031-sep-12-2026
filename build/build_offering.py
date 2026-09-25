@@ -253,17 +253,31 @@ def render(O):
                         (O['name'] + ' | Baker 1031' if len(O['name']) <= 46 else O['name'])), desc=O['metaDesc'], canonical='https://baker1031.com/offerings/' + O['slug'] + '/', image=('https://baker1031.com' + O['ogImage']) if O.get('ogImage') else seo.OG_IMAGE, image_alt=O['name'] + ' property photo', graph=[seo.webpage('https://baker1031.com/offerings/' + O['slug'] + '/', O['name'], O['metaDesc'], {'isAccessibleForFree': False, 'hasPart': {'@type': 'WebPageElement', 'isAccessibleForFree': False, 'cssSelector': '.gated'}}), seo.breadcrumbs([('Home', 'https://baker1031.com/'), ('Available Investments' if O['status'] in ('Available', 'Limited Availability') else 'Investments', 'https://baker1031.com/invest/'), (O['name'], None)])]) + r'''
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
     <style>
-/* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
-:root{ --page:#FDFBF7; --accent-2:#2E4183; --rose:#2E4183;
-        --black:#23232A; --white:#FDFBF7;
-        --accent:#2E4183; --accent-hover:#243372; --accent-soft:#F5F1E9;
-        --accent-text:#2E4183; --btn:#2E4183; --btn-hover:#243372;
-        --grey:#23232A; --grey-light:rgba(35,35,42,.6); --hair:#EAE4DA; --hair-strong:#EAE4DA;
+/* Brand face: Inter for text and headings alike; Caveat for the handwritten marks. */
+:root{ --page:#FFFFFF; --accent-2:#266EEF; --rose:#266EEF;
+    /* Attio surface tokens: greys for labels and rails, the hairline, the chip,
+       and the two shadows every raised thing on the site uses. */
+    --label:#717173;
+    --tertiary:#9E9EA0;
+    --rail:#FBFBFB;
+    --band:#F7F8F9;
+    --hover:#F4F5F7;
+    --line:#ECECEE;
+    --line-soft:#F0F0F0;
+    --btn-line:#E3E3E5;
+    --blue-text:#2160D8;
+    --chip-bg:#F3FAFF; --chip-line:#BAD5FF; --chip-text:#4479EF;
+    --shadow-card:0 1px 2px rgba(16,24,40,.04), 0 1px 3px rgba(16,24,40,.03);
+    --shadow-btn:0 1px 2px rgba(16,24,40,.05);
+        --black:#202022; --white:#FFFFFF;
+        --accent:#266EEF; --accent-hover:#1B57C7; --accent-soft:#F4F5F7;
+        --accent-text:#266EEF; --btn:#266EEF; --btn-hover:#1B57C7;
+        --grey:#202022; --grey-light:rgba(32,32,34,.6); --hair:#ECECEE; --hair-strong:#ECECEE;
         --radius:6px;
-        --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --display:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --font:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --display:var(--font);
         --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
       }
       *{ box-sizing:border-box; }
@@ -279,12 +293,12 @@ def render(O):
       }
       .btn:hover{ background:var(--btn-hover); border-color:var(--btn-hover); }
       .btn svg{ width:16px; height:16px; }
-      .btn--secondary{ background:transparent; color:var(--grey); border-color:#EAE4DA; }
+      .btn--secondary{ background:transparent; color:var(--grey); border-color:#ECECEE; }
       .btn--secondary:hover{ background:transparent; color:var(--accent-text); border-color:var(--accent); }
       .wrap{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; }
       .rule{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; }
-      .rule::before{ content:""; display:block; height:1px; background:#EAE4DA; }
-      .rule--strong::before{ height:2px; background:#EAE4DA; }
+      .rule::before{ content:""; display:block; height:1px; background:#ECECEE; }
+      .rule--strong::before{ height:2px; background:#ECECEE; }
 
       /* ---------- Sticky nav (from the homepage) ---------- */
     ''' + navcss + r'''  .nav__links a[aria-current="page"] .nav__word{ color:var(--black); }
@@ -302,12 +316,12 @@ def render(O):
       /* ---------- Breadcrumb + title ---------- */
       .crumbs{ display:flex; align-items:center; gap:8px; margin:0; padding:20px 0 0; font-size:13px; color:var(--grey-light); list-style:none; flex-wrap:wrap; }
       .crumbs a{ color:var(--grey); text-decoration:none; } .crumbs a:hover{ color:var(--accent-text); }
-      .crumbs li + li::before{ content:"›"; margin-right:8px; color:rgba(35,35,42,.55); }
+      .crumbs li + li::before{ content:"›"; margin-right:8px; color:rgba(32,32,34,.55); }
       .title{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px; padding:22px 0 8px; flex-wrap:wrap; }
       .title__eyebrow{ margin:0 0 8px; font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--grey-light); display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
       .status{ display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--grey); }
-      .status::before{ content:""; width:7px; height:7px; border-radius:50%; background:#2E4183; }
-      .status--limited::before{ background:#F59E0B; } .status--closing::before{ background:#EF4444; } .status--soon::before{ background:var(--accent); } .status--sold::before{ background:rgba(35,35,42,.55); }
+      .status::before{ content:""; width:7px; height:7px; border-radius:50%; background:#266EEF; }
+      .status--limited::before{ background:#F59E0B; } .status--closing::before{ background:#EF4444; } .status--soon::before{ background:var(--accent); } .status--sold::before{ background:rgba(32,32,34,.55); }
       .title h1{ margin:0; font-size:clamp(28px,3vw,40px); font-weight:700; line-height:1.1; letter-spacing:-.02em; }
       .title__sub{ margin:8px 0 0; font-size:14px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--grey-light); }
       .title__sub strong{ color:var(--black); font-weight:600; }
@@ -316,12 +330,12 @@ def render(O):
 
       /* ---------- Gallery ---------- */
       .gal{ display:grid; grid-template-columns:minmax(0,2.3fr) minmax(0,1fr); gap:10px; }
-      .gal__main{ position:relative; aspect-ratio:16 / 9; border-radius:var(--radius); overflow:hidden; background:#F5F1E9; }
+      .gal__main{ position:relative; aspect-ratio:16 / 9; border-radius:var(--radius); overflow:hidden; background:#F4F5F7; }
       .gal__main img{ width:100%; height:100%; object-fit:cover; display:block; }
-      .gal__count{ position:absolute; right:12px; bottom:12px; padding:5px 10px; border-radius:999px; background:rgba(35,35,42,.6); color:#FDFBF7; font-size:12px; font-weight:600; }
+      .gal__count{ position:absolute; right:12px; bottom:12px; padding:5px 10px; border-radius:999px; background:rgba(32,32,34,.6); color:#FFFFFF; font-size:12px; font-weight:600; }
       .gal__side{ display:grid; grid-template-rows:repeat(2, minmax(0,1fr)); gap:10px; }
       .gal__thumbs{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; }
-      .gal__thumb{ padding:0; border:2px solid transparent; border-radius:var(--radius); overflow:hidden; background:#F5F1E9; cursor:pointer; min-height:0; }
+      .gal__thumb{ padding:0; border:2px solid transparent; border-radius:var(--radius); overflow:hidden; background:#F4F5F7; cursor:pointer; min-height:0; }
       .gal__thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
       .gal__thumb.is-on{ border-color:var(--accent); }
       .gal__thumb:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(36,56,86,.35); }
@@ -337,7 +351,7 @@ def render(O):
 
       /* ---------- Body layout ---------- */
       .body{ display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:0 56px; padding:20px 0 72px; align-items:start; }
-      .photo{ aspect-ratio:16 / 9; border-radius:var(--radius); overflow:hidden; background:#F5F1E9; margin-bottom:28px; }
+      .photo{ aspect-ratio:16 / 9; border-radius:var(--radius); overflow:hidden; background:#F4F5F7; margin-bottom:28px; }
       .photo img{ width:100%; height:100%; object-fit:cover; display:block; }
       .sec{ padding:32px 0; border-top:1px solid var(--hair); }
       .sec:first-child{ border-top:0; padding-top:0; }
@@ -355,7 +369,7 @@ def render(O):
       .tablewrap{ overflow-x:auto; border:1px solid var(--hair-strong); border-radius:var(--radius); }
       table{ width:100%; border-collapse:collapse; font-size:14px; }
       th, td{ padding:11px 14px; text-align:left; border-bottom:1px solid var(--hair); }
-      th{ font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--grey-light); background:#F5F1E9; white-space:nowrap; }
+      th{ font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--grey-light); background:#F4F5F7; white-space:nowrap; }
       tr:last-child td{ border-bottom:0; }
       td.num, th.num{ text-align:right; font-variant-numeric:tabular-nums; }
       .cf{ min-width:760px; } .cf td.num{ font-weight:600; }
@@ -408,7 +422,7 @@ def render(O):
       .backlink{ display:inline-flex; align-items:center; gap:6px; margin-top:16px; font-size:13px; color:var(--grey-light); text-decoration:none; }
       .backlink:hover{ color:var(--accent-text); }
 
-      .disclosure{ padding:24px 0 0; font-size:11px; line-height:1.55; color:rgba(35,35,42,.6); max-width:900px; }
+      .disclosure{ padding:24px 0 0; font-size:11px; line-height:1.55; color:rgba(32,32,34,.6); max-width:900px; }
 
       /* ---------- Approved-investor gate ----------
          Locked: the real content stays in the DOM but hidden (so its photos never download and the
@@ -421,7 +435,7 @@ def render(O):
       html:not(.is-logged-in) .gated{ display:none; }
 
       .gate__card{ background:var(--white); border:1px solid var(--hair-strong); border-radius:10px;
-        padding:26px 30px 24px; box-shadow:0 26px 52px -28px rgba(35,35,42,.24), 0 1px 3px rgba(35,35,42,.05); }
+        padding:26px 30px 24px; box-shadow:0 26px 52px -28px rgba(32,32,34,.24), 0 1px 3px rgba(32,32,34,.05); }
       .gate__lock{ display:flex; align-items:center; gap:8px; margin:0 0 12px; font-size:11px; font-weight:600;
         letter-spacing:.08em; text-transform:uppercase; color:var(--grey-light); }
       .gate__lock svg{ width:13px; height:13px; flex:none; }
@@ -433,12 +447,12 @@ def render(O):
       .gate__alt{ font-size:14px; color:var(--grey-light); }
       .gate__alt a{ color:var(--accent-text); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(36,56,86,.35); }
       .gate__alt a:hover{ border-bottom-color:var(--accent); }
-      .gate__note{ margin:20px 0 0; padding-top:16px; border-top:1px solid #EAE4DA; font-size:11px; line-height:1.5; color:rgba(35,35,42,.5); }
+      .gate__note{ margin:20px 0 0; padding-top:16px; border-top:1px solid #ECECEE; font-size:11px; line-height:1.5; color:rgba(32,32,34,.5); }
 
       /* the locked title: the real text stays in the DOM for crawlers and is painted over as a bar.
          box-decoration-break:clone keeps one bar per wrapped line; the negative margin cancels the
          padding so unlocking shifts nothing. */
-      :root{ --pulse-dur:1400ms; --pulse-min:.58; --sk:#F5F1E9; }
+      :root{ --pulse-dur:1400ms; --pulse-min:.58; --sk:#F4F5F7; }
       @keyframes t-skel-pulse{ 0%,100%{ opacity:1; } 50%{ opacity:var(--pulse-min); } }
       /* white-space:nowrap makes the hidden title's min-content width the whole title, and a flex
          item will not shrink below that -- which widened the header past the viewport and gave every
@@ -452,11 +466,11 @@ def render(O):
 
       /* the ghost: the real page's geometry, so the card sits where the content would be */
       .ghost{ display:none; filter:blur(3px); opacity:.9; pointer-events:none; user-select:none;
-        -webkit-mask-image:linear-gradient(to bottom, #23232A 42%, transparent 94%); mask-image:linear-gradient(to bottom, #23232A 42%, transparent 94%); }
+        -webkit-mask-image:linear-gradient(to bottom, #202022 42%, transparent 94%); mask-image:linear-gradient(to bottom, #202022 42%, transparent 94%); }
       html:not(.is-logged-in) .ghost{ display:block; }
       .ghost .body{ padding-bottom:64px; }
       .sk{ display:block; background:var(--sk); border-radius:4px; height:12px; animation:t-skel-pulse var(--pulse-dur) ease-in-out infinite; }
-      .ghost__photo{ aspect-ratio:21 / 9; border-radius:var(--radius); background:linear-gradient(105deg,#F5F1E9,#F5F1E9 55%,#CBD2D8); }
+      .ghost__photo{ aspect-ratio:21 / 9; border-radius:var(--radius); background:linear-gradient(105deg,#F4F5F7,#F4F5F7 55%,#CBD2D8); }
       .ghost__sec{ padding:28px 0 0; }
       .ghost__sec .sk--h{ height:20px; width:190px; margin-bottom:18px; }
       .ghost__sec .sk--t{ margin-bottom:10px; }
@@ -497,6 +511,42 @@ def render(O):
       }
     /* Headings in Sanomat (one weight); everything else stays in Guardian Sans */
 h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:400;letter-spacing:-.01em}
+
+      /* ---------- Attio surface ----------
+         One face, near-black on white, a #ECECEE hairline doing the dividing, #266EEF
+         carrying every action, 8px buttons and 12px cards on a shadow you can barely
+         see. Headings keep whatever scale the page already set; this changes weight,
+         tracking, colour and the geometry of the things you click. */
+      h1,h2,h3,h4,h5,h6{ font-family:var(--font); font-weight:600; letter-spacing:-.01em; }
+      a{ color:var(--blue-text); }
+      .btn{
+        font-family:var(--font); font-size:14px; font-weight:500; letter-spacing:0;
+        height:36px; padding:0 16px; border-radius:8px;
+        background:var(--btn); color:#FFFFFF; border:1px solid var(--btn);
+        box-shadow:var(--shadow-btn);
+      }
+      .btn:hover{ background:var(--btn-hover); border-color:var(--btn-hover); }
+      .btn--secondary, .btn--ghost{
+        background:#FFFFFF; color:var(--black); border:1px solid var(--btn-line);
+        box-shadow:var(--shadow-btn);
+      }
+      .btn--secondary:hover, .btn--ghost:hover{
+        background:var(--hover); color:var(--black); border-color:#DCDCDE;
+      }
+      .card, .property, .faq__item, .stage, .dnote__card, .gate__card, .panel, .tile{
+        border-radius:12px; border:1px solid var(--line); background:#FFFFFF;
+        box-shadow:var(--shadow-card);
+      }
+      .stats{ border-radius:12px; border:1px solid var(--line); }
+      .tablewrap, .table{ border-radius:10px; }
+      .badge, .status, .card__label--chip{
+        border-radius:6px; font-size:12px; font-weight:500;
+        background:var(--chip-bg); border:1px solid var(--chip-line); color:var(--chip-text);
+      }
+      .nav-btn, .view button, .select, .fbar button{
+        border-radius:8px; border:1px solid var(--btn-line); background:#FFFFFF;
+        box-shadow:var(--shadow-btn); font-family:var(--font); font-size:13.5px; color:var(--black);
+      }
 </style>
     </head>
     <body id="top" data-offering="''' + O['slug'] + r'''">

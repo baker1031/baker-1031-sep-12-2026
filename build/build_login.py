@@ -25,16 +25,16 @@ page = r'''<!DOCTYPE html>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Special+Gothic&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 <style>
 /* Brand fonts (self-hosted): Guardian Sans for text, Sanomat for headings */
 :root{
-    --black:#23232A; --white:#FDFBF7;
-    --accent:#2E4183; --accent-hover:#243372; --accent-soft:#F5F1E9;
-    --grey:#23232A; --grey-light:rgba(35,35,42,.6); --hair:#EAE4DA; --hair-strong:#EAE4DA; --error:#DC2626;
+    --black:#202022; --white:#FFFFFF;
+    --accent:#266EEF; --accent-hover:#1B57C7; --accent-soft:#F4F5F7;
+    --grey:#202022; --grey-light:rgba(32,32,34,.6); --hair:#ECECEE; --hair-strong:#ECECEE; --error:#DC2626;
     --radius:6px;
-    --font:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --display:"Special Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --display:var(--font);
     --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
   }
   *{ box-sizing:border-box; }
@@ -68,7 +68,7 @@ page = r'''<!DOCTYPE html>
     position:relative; z-index:1;
     width:100%; max-width:460px;
     background:var(--white); border:1px solid var(--hair-strong); border-radius:10px;
-    box-shadow:0 20px 50px rgba(35,35,42,.08);
+    box-shadow:0 20px 50px rgba(32,32,34,.08);
     padding:36px 36px 32px;
     margin-bottom:220px;
   }
@@ -84,7 +84,7 @@ page = r'''<!DOCTYPE html>
     background:var(--white); border:1px solid var(--hair-strong); border-radius:var(--radius);
     padding:12px 14px; outline:none; transition:border-color .2s ease, box-shadow .2s ease;
   }
-  .field input::placeholder{ color:rgba(35,35,42,.45); }
+  .field input::placeholder{ color:rgba(32,32,34,.45); }
   .field input:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(36,56,86,.18); }
   .field.is-invalid input{ border-color:var(--error); box-shadow:0 0 0 3px rgba(220,38,38,.12); }
   .field .btn{ width:100%; margin-top:14px; padding:13px 20px; font-size:15px; }
@@ -98,7 +98,7 @@ page = r'''<!DOCTYPE html>
   .err a:hover{ text-decoration:underline; text-underline-offset:3px; }
   .ok{
     display:none; margin:12px 0 0; padding:12px 14px;
-    border:1px solid #EAE4DA; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
+    border:1px solid #ECECEE; border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--accent-soft);
     font-size:13.5px; line-height:1.5; color:var(--grey);
   }
   .ok.is-on{ display:block; }
@@ -108,8 +108,8 @@ page = r'''<!DOCTYPE html>
   .box__help a:hover{ color:var(--accent); }
 
   .rule{ max-width:calc(1200px + 48px); margin:0 auto; padding:0 24px; width:100%; }
-  .rule::before{ content:""; display:block; height:1px; background:#EAE4DA; }
-  .rule--strong::before{ height:2px; background:#EAE4DA; }
+  .rule::before{ content:""; display:block; height:1px; background:#ECECEE; }
+  .rule--strong::before{ height:2px; background:#ECECEE; }
 
   /* ---------- Footer (from the homepage) ---------- */
 ''' + footcss + r'''
