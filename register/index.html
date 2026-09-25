@@ -173,7 +173,7 @@
     grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);
     gap:48px 96px;
     align-items:start;
-    padding:40px 0 56px;
+    padding:40px 44px 56px;   /* the card around .stage needs an inset, or the fields touch it */
     opacity:0;
     visibility:hidden;
     transform:translateY(40px);
@@ -709,7 +709,7 @@
       grid-template-columns:1fr;
       gap:24px;
       align-items:start;
-      padding:28px 0 40px;
+      padding:28px 22px 40px;
     }
     /* on small screens the form comes first; Jerry's note follows it as a compact aside */
     .jerry--recap{ display:none; }   /* keep the small screens short: no recap column */

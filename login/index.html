@@ -460,6 +460,9 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:600;lett
     border-radius:8px; border:1px solid var(--btn-line); background:#FFFFFF;
     box-shadow:var(--shadow-btn); font-family:var(--font); font-size:13.5px; color:var(--black);
   }
+  /* On this page .stage is the <main> region, not a card -- the shared card rule drew a
+     hairline box around the entire page and across the skyline. The log-in .box is the card. */
+  main.stage{ border:0; box-shadow:none; border-radius:0; background:transparent; }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Log In","url":"https://baker1031.com/login/","isPartOf":{"@type":"WebSite","name":"Baker 1031 Investments","url":"https://baker1031.com/"},"inLanguage":"en-US"}</script>
 </head>
