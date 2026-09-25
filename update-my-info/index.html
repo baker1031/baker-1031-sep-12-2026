@@ -59,19 +59,19 @@
   .backhome:hover { color:var(--ink); }
   .stage { max-width:840px; margin:0 auto; padding:20px 24px 90px; }
   .panel { background:#FFFFFF; padding:46px 52px 52px; }
-  h1 { font-weight:300; font-size:28px; letter-spacing:-.01em; margin:0 0 8px; }
-  .lead { font-size:14.5px; font-weight:300; line-height:1.75; color:var(--muted); margin:0 0 34px; }
-  h2 { font-weight:400; font-size:16px; letter-spacing:.01em; margin:40px 0 18px; padding-top:26px; border-top:1px solid var(--hair); }
+  h1 { font-weight:600; font-size:28px; letter-spacing:-.01em; margin:0 0 8px; }
+  .lead { font-size:14.5px; font-weight:400; line-height:1.75; color:var(--muted); margin:0 0 34px; }
+  h2 { font-weight:600; font-size:16px; letter-spacing:.01em; margin:40px 0 18px; padding-top:26px; border-top:1px solid var(--hair); }
   h2:first-of-type { border-top:0; padding-top:0; margin-top:8px; }
   label, .glabel { display:block; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink); margin-bottom:8px; }
   .umi-grid2 { display:grid; grid-template-columns:1fr 1fr; gap:20px 24px; }
   .umi-field { margin-bottom:22px; }
   input[type=text], input[type=email], input[type=tel], input[type=date], select {
-    width:100%; border:1px solid var(--hair); background:#FFFFFF; font-family:inherit; font-size:15.5px; font-weight:300; color:var(--ink); padding:13px 14px; outline:none; border-radius:2px; }
+    width:100%; border:1px solid var(--hair); background:#FFFFFF; font-family:inherit; font-size:15.5px; font-weight:400; color:var(--ink); padding:13px 14px; outline:none; border-radius:2px; }
   input:focus, select:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(36,56,86,.14); }
   input[disabled] { background:var(--grey1); color:var(--muted); }
-  .hint { font-size:12.5px; font-weight:300; color:var(--muted); margin-top:6px; line-height:1.6; }
-  .notice { display:none; border:1px solid #E8DCBB; background:#FBF6EA; color:#6B5A22; font-size:13.5px; font-weight:300; line-height:1.7; padding:14px 18px; margin:4px 0 22px; }
+  .hint { font-size:12.5px; font-weight:400; color:var(--muted); margin-top:6px; line-height:1.6; }
+  .notice { display:none; border:1px solid #E8DCBB; background:#FBF6EA; color:#6B5A22; font-size:13.5px; font-weight:400; line-height:1.7; padding:14px 18px; margin:4px 0 22px; }
   .notice.on { display:block; }
   .pills { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:8px; }
   .pill { border:1px solid var(--hair); background:#FFFFFF; font-family:inherit; font-size:13.5px; font-weight:400; color:var(--ink); padding:10px 18px; border-radius:100px; cursor:pointer; transition:transform .12s ease, border-color .12s ease; }
@@ -80,21 +80,21 @@
   .pill.sel:before { content:"\2713\00a0"; }
   .pillgroup { margin-bottom:26px; }
 
-  .mselect { width:100%; border:1px solid var(--hair); background:#FFFFFF; font-family:inherit; font-size:15.5px; font-weight:300; color:var(--ink); padding:13px 14px; outline:none; border-radius:2px; }
+  .mselect { width:100%; border:1px solid var(--hair); background:#FFFFFF; font-family:inherit; font-size:15.5px; font-weight:400; color:var(--ink); padding:13px 14px; outline:none; border-radius:2px; }
   .mselect:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(36,56,86,.14); }
   .msel { position:relative; }
-  .msel-btn { width:100%; display:flex; justify-content:space-between; align-items:center; gap:12px; border:1px solid var(--hair); background:#FFFFFF; font-family:inherit; font-size:15px; font-weight:300; color:var(--muted); padding:13px 14px; border-radius:2px; cursor:pointer; text-align:left; }
+  .msel-btn { width:100%; display:flex; justify-content:space-between; align-items:center; gap:12px; border:1px solid var(--hair); background:#FFFFFF; font-family:inherit; font-size:15px; font-weight:400; color:var(--muted); padding:13px 14px; border-radius:2px; cursor:pointer; text-align:left; }
   .msel-btn .msel-sum { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .msel-btn .msel-sum.has { color:var(--ink); font-weight:400; }
   .msel.open .msel-btn { border-color:var(--blue); box-shadow:0 0 0 3px rgba(36,56,86,.14); }
   .msel-panel { display:none; position:absolute; z-index:40; top:calc(100% + 6px); left:0; right:0; background:#FFFFFF; border:1px solid var(--hair); border-radius:2px; box-shadow:0 16px 44px rgba(51,46,36,.18); max-height:280px; overflow:auto; padding:6px; }
   .msel.open .msel-panel { display:block; }
-  .msel-opt { display:flex; gap:11px; align-items:flex-start; padding:9px 10px; border-radius:2px; font-size:14px; font-weight:300; color:var(--ink); cursor:pointer; line-height:1.5; }
+  .msel-opt { display:flex; gap:11px; align-items:flex-start; padding:9px 10px; border-radius:2px; font-size:14px; font-weight:400; color:var(--ink); cursor:pointer; line-height:1.5; }
   .msel-opt:hover { background:var(--grey1); }
   .msel-opt input { width:16px; height:16px; margin-top:2px; accent-color:var(--ink); flex:none; cursor:pointer; }
   .umi-calcbox { background:var(--grey1); border:1px solid var(--hair); padding:20px 24px; margin:6px 0 24px; }
   .umi-calcbox .crow { display:flex; justify-content:space-between; font-size:13.5px; padding:6px 0; }
-  .umi-calcbox .ck { font-weight:300; color:var(--muted); }
+  .umi-calcbox .ck { font-weight:400; color:var(--muted); }
   .umi-calcbox .cv { font-weight:600; }
   .btnrow { margin-top:38px; display:flex; align-items:center; gap:20px; }
   .btn-save { background:var(--ink); border:0; color:#FFFFFF; font-family:inherit; font-size:14.5px; font-weight:500; padding:15px 38px; cursor:pointer; border-radius:2px; }
@@ -105,14 +105,14 @@
   .savemsg.err { display:block; color:#A8271E; }
   .gatecard { text-align:center; padding:60px 20px; }
   .gatecard h1 { margin-bottom:12px; }
-  .gatecard p { font-size:14.5px; font-weight:300; line-height:1.75; color:var(--muted); max-width:440px; margin:0 auto; }
+  .gatecard p { font-size:14.5px; font-weight:400; line-height:1.75; color:var(--muted); max-width:440px; margin:0 auto; }
   #formBody { display:none; }
   #formBody.on { display:block; }
-  #loading { text-align:center; padding:60px 0; color:var(--muted); font-weight:300; }
+  #loading { text-align:center; padding:60px 0; color:var(--muted); font-weight:400; }
   @media (max-width:720px) { .panel { padding:32px 24px 40px; } .umi-grid2 { grid-template-columns:1fr; } .btn-save { width:100%; } .btnrow { flex-direction:column; } }
   /* The disclosure block reads the way it does everywhere else on the site: quiet
      grey on the rail, not white on a dark slab. */
-  .footer { background:#FBFBFB; border-top:1px solid var(--hair); }
+  .footer { background:#FFFFFF; border-top:1px solid var(--hair); }
   .legal { padding:48px 24px; max-width:1240px; margin:0 auto; }
   .legal .rule { font-size:12.5px; font-weight:400; line-height:1.6; color:#9E9EA0; }
   .legal .row { display:flex; justify-content:space-between; margin-top:20px; font-size:12.5px; font-weight:400; color:#9E9EA0; flex-wrap:wrap; gap:8px; border-top:1px solid var(--hair); padding-top:20px; }
