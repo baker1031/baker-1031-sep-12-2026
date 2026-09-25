@@ -40,8 +40,8 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
 :root{ --page:#FFFFFF; --accent-2:#266EEF; --rose:#266EEF;
     /* Attio surface tokens: greys for labels and rails, the hairline, the chip,
        and the two shadows every raised thing on the site uses. */
-    --label:#717173;
-    --tertiary:#9E9EA0;
+    --label:#6E6E72;
+    --tertiary:#6B6B6F;
     --rail:#FBFBFB;
     --band:#F7F8F9;
     --hover:#F4F5F7;
@@ -54,8 +54,8 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     --shadow-btn:0 1px 2px rgba(16,24,40,.05);
     --black:#202022; --white:#FFFFFF;
     --accent:#266EEF;
-    --btn:#266EEF; --btn-hover:#1B57C7; --accent-text:#266EEF; --accent-hover:#1B57C7; --accent-soft:#F4F5F7;
-    --grey:#202022; --grey-light:rgba(32,32,34,.6); --hair:#ECECEE; --hair-strong:#ECECEE;
+    --btn:#266EEF; --btn-hover:#1B57C7; --accent-text:#2160D8; --accent-hover:#1B57C7; --accent-soft:#F4F5F7;
+    --grey:#202022; --grey-light:rgba(32,32,34,.7); --hair:#ECECEE; --hair-strong:#ECECEE;
     --radius:6px;
     --font:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --display:var(--font);
@@ -188,7 +188,8 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .nav__links a:hover .nav__word,
   .nav__links a:focus-visible .nav__word{ color:#202022; }
   .nav__links a[aria-current="page"] .nav__word{ color:#202022; }
-  .nav__login{ font-size:14px; font-weight:500; color:#54545A; }
+  /* padded so it is a real tap target on a phone, where it was 38x20 */
+  .nav__login{ font-size:14px; font-weight:500; color:#54545A; padding:8px 4px; }
   .nav__login:hover{ color:#202022; }
   .nav__cta{ margin:0; height:32px; padding:0 14px; font-size:13.5px; }
 
@@ -239,7 +240,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     padding:9px 34px 9px 12px; background:var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%234B5563' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center / 14px;
     border:1px solid var(--hair-strong); border-radius:var(--radius); outline:none; cursor:pointer;
   }
-  .select:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(36,56,86,.18); }
+  .select:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(38,110,239,.18); }
   .chipwrap{ position:relative; flex:0 0 auto; }
   .chipwrap.is-hidden{ display:none; }
   .chip{
@@ -277,14 +278,14 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .check__box svg{ width:11px; height:11px; opacity:0; }
   .check input:checked ~ .check__box{ background:var(--accent); border-color:var(--accent); }
   .check input:checked ~ .check__box svg{ opacity:1; }
-  .check input:focus-visible ~ .check__box{ box-shadow:0 0 0 3px rgba(36,56,86,.25); }
+  .check input:focus-visible ~ .check__box{ box-shadow:0 0 0 3px rgba(38,110,239,.25); }
   .check input:checked ~ .check__text{ color:var(--black); }
-  .check__count{ margin-left:auto; font-size:12px; color:rgba(32,32,34,.55); }
+  .check__count{ margin-left:auto; font-size:12px; color:rgba(32,32,34,.7); }
   .pop__range{ padding:14px 16px 8px; }
   .pop__rangehead{ display:flex; justify-content:space-between; align-items:baseline; margin:0 0 10px; font-size:13px; color:var(--grey); }
   .pop__rangehead output{ font-size:16px; font-weight:700; color:var(--accent-text); font-variant-numeric:tabular-nums; }
   input[type="range"]{ width:100%; accent-color:var(--accent); margin:0; }
-  .range__scale{ display:flex; justify-content:space-between; font-size:11.5px; color:rgba(32,32,34,.55); margin-top:4px; }
+  .range__scale{ display:flex; justify-content:space-between; font-size:11.5px; color:rgba(32,32,34,.7); margin-top:4px; }
   .pop__range.is-off input[type="range"]{ opacity:.35; }
   .pop__range.is-off .pop__rangehead{ opacity:.5; }
   .pop__alt{ padding:4px 12px 10px; }
@@ -381,7 +382,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   }
   .tip__box::before{ content:""; position:absolute; right:18px; top:-6px; border-left:6px solid transparent; border-right:6px solid transparent; border-bottom:6px solid #202022; }
   .tip__box strong{ display:block; margin-bottom:3px; color:#FFFFFF; }
-  .tip__box small{ display:block; margin-top:6px; font-size:11px; color:rgba(32,32,34,.55); }
+  .tip__box small{ display:block; margin-top:6px; font-size:11px; color:rgba(32,32,34,.7); }
   .tip:hover .tip__box, .tip:focus-within .tip__box{ opacity:1; visibility:visible; transform:none; transition-delay:0s; }
   .table .tip__box{ right:auto; left:0; } .table .tip__box::before{ right:auto; left:18px; }
   .card__type{ margin:0; font-size:11.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--grey-light); line-height:1.4; }
@@ -401,21 +402,22 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .card--sold:hover{ transform:none; box-shadow:none; border-color:var(--hair-strong); }
   .empty{ grid-column:1 / -1; text-align:center; padding:64px 24px; border:1px dashed var(--hair-strong); border-radius:var(--radius); color:var(--grey); }
   .empty .hand{ display:block; font-family:var(--hand); font-size:30px; font-weight:600; color:var(--accent-text); margin-bottom:6px; transform:rotate(-2deg); }
-  .inv__index{ margin:40px 0 0; font-size:12.5px; line-height:1.9; color:rgba(32,32,34,.6); }
-  .inv__index-label{ margin:0 0 4px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:rgba(32,32,34,.6); }
-  .inv__index a{ color:#202022; text-decoration:none; }
+  .inv__index{ margin:40px 0 0; font-size:12.5px; line-height:1.9; color:rgba(32,32,34,.7); }
+  .inv__index-label{ margin:0 0 4px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:rgba(32,32,34,.7); }
+  /* a dense jump list, so give each name a real tap target on a phone */
+  .inv__index a{ color:#202022; text-decoration:none; display:inline-block; padding:5px 0; }
   .inv__index a:hover{ color:var(--accent-text); text-decoration:underline; }
-  .inv__disclosure{ margin:24px 0 0; font-size:11px; line-height:1.6; color:rgba(32,32,34,.6); }
+  .inv__disclosure{ margin:24px 0 0; font-size:11px; line-height:1.6; color:rgba(32,32,34,.7); }
 
   /* ---------- Important Disclosure (foot of the offerings page) ---------- */
   .invdisc{ border-top:1px solid var(--hair-strong); margin:56px 0 0; padding:28px 0 8px; }
   .invdisc h2{ margin:0 0 14px; font-family:var(--display); font-weight:400; font-size:1.15rem; letter-spacing:-.01em; }
-  .invdisc p{ margin:0 0 10px; font-size:11px; line-height:1.6; color:rgba(32,32,34,.6); }
+  .invdisc p{ margin:0 0 10px; font-size:11px; line-height:1.6; color:rgba(32,32,34,.7); }
   .invdisc p:last-child{ margin-bottom:0; }
   .invdisc .invdisc__legend{ font-weight:700; letter-spacing:.04em; color:rgba(32,32,34,.75); }
   .invdisc h2 + p{ margin-top:0; }
   .invdisc h2:not(:first-of-type){ margin-top:24px; }
-  .invdisc .invdisc__note{ padding-left:12px; border-left:2px solid var(--hair-strong); color:rgba(32,32,34,.55); }
+  .invdisc .invdisc__note{ padding-left:12px; border-left:2px solid var(--hair-strong); color:rgba(32,32,34,.7); }
 
   /* ---------- List view (sortable table) ---------- */
   .tablewrap{ overflow-x:auto; border:1px solid var(--hair-strong); border-radius:var(--radius); }
@@ -471,7 +473,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .gate__list li{ display:flex; align-items:center; gap:8px; font-size:14px; color:var(--grey); }
   .gate__list li::before{ content:""; width:5px; height:5px; border-radius:50%; background:var(--accent); flex:none; }
   .gate__alt{ font-size:14px; color:var(--grey-light); }
-  .gate__alt a{ color:var(--accent-text); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(36,56,86,.35); }
+  .gate__alt a{ color:var(--accent-text); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(38,110,239,.35); }
   .gate__alt a:hover{ border-bottom-color:var(--accent); }
   /* locked state: the grid is inert and softly blurred, fading out toward the bottom; controls stay visible but can't be used */
   html:not(.is-logged-in) .lockwrap > .grid{
@@ -491,7 +493,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   @keyframes t-skel-pulse{ 0%,100%{ opacity:1; } 50%{ opacity:var(--pulse-min); } }
   @media (prefers-reduced-motion:reduce){ .sk{ animation:none; } }
   .gate__actions{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
-  .gate__note{ margin:20px 0 0; padding-top:16px; border-top:1px solid #ECECEE; font-size:11px; line-height:1.5; color:rgba(32,32,34,.5); }
+  .gate__note{ margin:20px 0 0; padding-top:16px; border-top:1px solid #ECECEE; font-size:11px; line-height:1.5; color:rgba(32,32,34,.7); }
   @media (max-width:560px){ .gate__list{ grid-template-columns:1fr; gap:7px; } .gate__card{ padding:22px 22px 20px; } }
   .is-logged-in .gate{ display:none; }
 
@@ -534,7 +536,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .footer__office a:hover{ color:var(--accent-text); text-decoration:underline; }
   .footer__col .footer__office a{ display:inline; padding:0; font-size:inherit; }
   .footer__col .footer__office a:hover{ color:var(--accent-text); }
-  .footer__disclosure a{ color:rgba(32,32,34,.6); text-decoration:underline; text-underline-offset:2px; }
+  .footer__disclosure a{ color:rgba(32,32,34,.7); text-decoration:underline; text-underline-offset:2px; }
   .footer__disclosure a:hover{ color:var(--accent-text); }
   .footer__label{
     margin:0 0 16px;
@@ -556,8 +558,8 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
     padding-top:28px;
     border-top:1px solid #ECECEE;
   }
-  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(32,32,34,.6); }
-  .footer__copy{ color:rgba(32,32,34,.55) !important; }
+  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(32,32,34,.7); }
+  .footer__copy{ color:rgba(32,32,34,.7) !important; }
 
   @media (max-width:900px){
     .footer__contact{ grid-template-columns:1fr; }
@@ -569,7 +571,7 @@ try{ if(/(?:^|;\s*)b31_ui=/.test(document.cookie)) document.documentElement.clas
   .footer{ background:#FFFFFF; border-top:1px solid var(--line); }
   .footer__label{ font-family:var(--font); text-transform:uppercase; letter-spacing:.06em;
                   font-weight:600; font-size:12px; color:var(--label); text-decoration:none; }
-  .footer__col a{ font-family:var(--font); font-size:14px; font-weight:450;
+  .footer__col a{ font-family:var(--font); font-size:14px; font-weight:500;
                   color:var(--black); padding:5px 0; }
   .footer__col a:hover{ color:var(--blue-text); }
   .footer__email a{ font-family:var(--font); color:var(--blue-text); }

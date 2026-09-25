@@ -42,8 +42,8 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
 :root{
     /* Attio surface tokens: greys for labels and rails, the hairline, the chip,
        and the two shadows every raised thing on the site uses. */
-    --label:#717173;
-    --tertiary:#9E9EA0;
+    --label:#6E6E72;
+    --tertiary:#6B6B6F;
     --rail:#FBFBFB;
     --band:#F7F8F9;
     --hover:#F4F5F7;
@@ -61,13 +61,14 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     --stone:#F4F5F7;
     --accent:#266EEF;
     --btn:#266EEF; --btn-hover:#1B57C7;
-    /* Text-safe green: brand #266EEF is 3.35:1 on white, under the 4.5:1 AA minimum for
-       normal-size text. #266EEF is 4.96:1. Backgrounds and borders keep --accent. */
-    --accent-text:#266EEF;
+    /* --accent is the fill; --accent-text is the AA-safe version of it for type. #266EEF is
+     4.61:1 on white but only 4.22:1 on the wash, under the 4.5:1 AA minimum for normal-size
+     text; #2160D8 clears it on every surface. Backgrounds and borders keep --accent. */
+    --accent-text:#2160D8;
     --accent-hover:#1B57C7;
     --accent-2:#266EEF;   /* AA-safe green for small text */
     --rose:#266EEF;
-    --muted:rgba(32,32,34,.6);
+    --muted:rgba(32,32,34,.7);
     --hairline:rgba(32,32,34,.12);
     --radius:6px;
     --font:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -349,7 +350,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   .results__disclosure{
     font-size:11px;
     line-height:1.5;
-    color:rgba(32,32,34,.6);
+    color:rgba(32,32,34,.7);
     margin:0;
   }
 
@@ -436,7 +437,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     height:48px;                   /* source logos are 2:1 boxes with built-in padding */
     display:flex; align-items:center;
     background:var(--page);
-    color:rgba(32,32,34,.6);
+    color:rgba(32,32,34,.7);
     font-size:15px;
     font-weight:700;
     letter-spacing:.08em;
@@ -464,7 +465,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     margin:28px auto 0;
     font-size:11px;
     line-height:1.5;
-    color:rgba(32,32,34,.6);
+    color:rgba(32,32,34,.7);
   }
   @media (prefers-reduced-motion:reduce){
     .marquee__track{ animation:none; flex-wrap:wrap; justify-content:center; width:auto; }
@@ -1132,7 +1133,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     margin:0;
     font-size:11px;
     line-height:1.5;
-    color:rgba(32,32,34,.6);
+    color:rgba(32,32,34,.7);
   }
 
   /* ---------- Why do investors work with me? ---------- */
@@ -1211,7 +1212,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     margin:24px 0 0 !important;
     font-size:11px !important;
     line-height:1.5 !important;
-    color:rgba(32,32,34,.6) !important;
+    color:rgba(32,32,34,.7) !important;
   }
 
   .chart{ margin:0; min-width:0; }
@@ -1262,7 +1263,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     margin:16px 0 0;
     font-size:11px;
     line-height:1.5;
-    color:rgba(32,32,34,.6);
+    color:rgba(32,32,34,.7);
   }
   .chart__sources a{ color:inherit; text-decoration:underline; text-decoration-color:#CBD5E1; text-underline-offset:2px; }
   .chart__sources a:hover{ color:var(--accent-text); text-decoration-color:var(--accent); }
@@ -1564,7 +1565,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   .footer__office a:hover{ color:var(--accent-text); text-decoration:underline; }
   .footer__col .footer__office a{ display:inline; padding:0; font-size:inherit; }
   .footer__col .footer__office a:hover{ color:var(--accent-text); }
-  .footer__disclosure a{ color:rgba(32,32,34,.6); text-decoration:underline; text-underline-offset:2px; }
+  .footer__disclosure a{ color:rgba(32,32,34,.7); text-decoration:underline; text-underline-offset:2px; }
   .footer__disclosure a:hover{ color:var(--accent-text); }
   .footer__label{
     margin:0 0 16px;
@@ -1586,8 +1587,8 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
     padding-top:28px;
     border-top:1px solid #ECECEE;
   }
-  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(32,32,34,.6); }
-  .footer__copy{ color:rgba(32,32,34,.55) !important; }
+  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(32,32,34,.7); }
+  .footer__copy{ color:rgba(32,32,34,.7) !important; }
 
   @media (max-width:900px){
     .footer__contact{ grid-template-columns:1fr; }
@@ -1599,7 +1600,7 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   .footer{ background:#FFFFFF; border-top:1px solid var(--line); }
   .footer__label{ font-family:var(--font); text-transform:uppercase; letter-spacing:.06em;
                   font-weight:600; font-size:12px; color:var(--label); text-decoration:none; }
-  .footer__col a{ font-family:var(--font); font-size:14px; font-weight:450;
+  .footer__col a{ font-family:var(--font); font-size:14px; font-weight:500;
                   color:var(--black); padding:5px 0; }
   .footer__col a:hover{ color:var(--blue-text); }
   .footer__email a{ font-family:var(--font); color:var(--blue-text); }
@@ -1739,7 +1740,8 @@ try{ if(sessionStorage.getItem('b31_dn_chart') === '1') document.documentElement
   .nav__links a:hover .nav__word,
   .nav__links a:focus-visible .nav__word{ color:#202022; }
   .nav__links a[aria-current="page"] .nav__word{ color:#202022; }
-  .nav__login{ font-size:14px; font-weight:500; color:#54545A; }
+  /* padded so it is a real tap target on a phone, where it was 38x20 */
+  .nav__login{ font-size:14px; font-weight:500; color:#54545A; padding:8px 4px; }
   .nav__login:hover{ color:#202022; }
   .nav__cta{ margin:0; height:32px; padding:0 14px; font-size:13.5px; }
 
@@ -2022,9 +2024,12 @@ h1:not(#_),h2:not(#_),h3:not(#_){font-family:var(--display);font-weight:600;lett
   /* The handwriting stays Caveat and takes the primary blue, so it reads as the one
      expressive mark in an otherwise neutral system. */
   .hand-name, .hand-inline, .faqsec__sub, .start__block-sub, .types__know,
-  .napkin__note, .napkin__split-title, .step__num, .stage__num{
+  .step__num, .stage__num{
     font-family:var(--hand); color:var(--accent);
   }
+  /* the napkin's hand is body copy at 20-22px/400, so it needs the AA-safe blue:
+     #266EEF is 4.41:1 on the napkin's cream */
+  .napkin__note, .napkin__split-title{ font-family:var(--hand); color:var(--accent-text); }
   /* on the blue bar itself blue on blue would vanish, so it stays white */
   .ctabar__hand{ font-family:var(--hand); color:#FFFFFF; }
 

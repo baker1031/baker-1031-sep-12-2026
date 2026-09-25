@@ -6,8 +6,8 @@
 :root{
     /* Attio surface tokens: greys for labels and rails, the hairline, the chip,
        and the two shadows every raised thing on the site uses. */
-    --label:#717173;
-    --tertiary:#9E9EA0;
+    --label:#6E6E72;
+    --tertiary:#6B6B6F;
     --rail:#FBFBFB;
     --band:#F7F8F9;
     --hover:#F4F5F7;
@@ -21,19 +21,20 @@
   --black:#202022; --white:#FFFFFF;
   --accent:#266EEF;
   --btn:#266EEF; --btn-hover:#1B57C7; --accent-hover:#1B57C7; --accent-soft:#F4F5F7;
-  /* Text-safe green. The brand green #266EEF is 3.35:1 on white, below the 4.5:1 WCAG AA
-     minimum for normal-size text, and most green text on this site is an 11-16px label.
-     #266EEF is 4.96:1. Backgrounds, borders, icons and rules keep --accent. */
-  --accent-text:#266EEF;
+  /* --accent is the fill; --accent-text is the AA-safe version of it for type. The brand
+     blue #266EEF is 4.61:1 on white but 4.22:1 on the wash, below the 4.5:1 WCAG AA minimum
+     for normal-size text -- and most blue text on this site is an 11-16px label. #2160D8
+     clears it on every surface. Backgrounds, borders, icons and rules keep --accent. */
+  --accent-text:#2160D8;
   --accent-2:#266EEF; --rose:#266EEF; --stone:#F4F5F7;
-  --grey:#202022; --grey-light:rgba(32,32,34,.6); --hair:#ECECEE; --hair-strong:#ECECEE;
+  --grey:#202022; --grey-light:rgba(32,32,34,.7); --hair:#ECECEE; --hair-strong:#ECECEE;
   --radius:6px;
   --font:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
   /* previous-site variable names -> this design */
-  --ink:#202022; --blue-d:#266EEF; --blue:#266EEF; --blue-lt:#ECECEE;
-  --pale:#F4F5F7; --grey1:#F4F5F7; --page:#FFFFFF; --body:#202022; --muted:rgba(32,32,34,.6);
-  --faint:rgba(32,32,34,.55); --steel:#202022; --lblue:#F4F5F7;
+  --ink:#202022; --blue-d:#2160D8; --blue:#266EEF; --blue-lt:#ECECEE;   /* --blue-d is the type blue: AA on the wash, where #266EEF is 4.22:1 */
+  --pale:#F4F5F7; --grey1:#F4F5F7; --page:#FFFFFF; --body:#202022; --muted:rgba(32,32,34,.7);
+  --faint:rgba(32,32,34,.7); --steel:#202022; --lblue:#F4F5F7;
   --display:var(--font); --sans:var(--font);
   --gut:max(24px, calc((100vw - 1200px) / 2));
   --hdr:64px;
@@ -140,7 +141,7 @@ p:last-child{margin-bottom:0}
 .prose p,.prose li{font-size:16.5px;line-height:1.78;color:var(--body)}
 .prose ul,.prose ol{padding-left:22px;margin:0 0 22px}
 .prose li{margin-bottom:10px}
-.prose a{color:var(--blue-d);border-bottom:1px solid rgba(36,56,86,.35)}
+.prose a{color:var(--blue-d);border-bottom:1px solid rgba(38,110,239,.35)}
 .prose a:hover{color:var(--blue-d);border-bottom-color:var(--blue-d)}
 .prose blockquote{margin:32px 0;padding:4px 0 4px 26px;border-left:2px solid var(--blue);
   font-family:var(--display);font-size:22px;line-height:1.45;color:var(--blue-d)}
@@ -247,21 +248,25 @@ p:last-child{margin-bottom:0}
    untouched. The container is renamed .calc -> .calcbox because the 2026
    sheet already defines .calc as a two-column grid; loading both would have
    turned every calculator panel into a grid and broken the layout. */
-.fineprint{border-top:1px solid var(--hair); margin-top:48px; padding-top:22px; font-size:13px; font-weight:300; line-height:1.8; color:var(--faint);}
-.calcbox{border:1px solid var(--hair); padding:36px 40px; margin-bottom:36px;}
+.fineprint{border-top:1px solid var(--hair); margin-top:48px; padding-top:22px; font-size:13px; font-weight:400; line-height:1.8; color:var(--faint);}
+/* The calculators kept the previous site's flat treatment -- square inputs, a
+   near-black results slab -- while everything around them moved to the Attio
+   surface. They are cards and controls like any other now. */
+.calcbox{border:1px solid var(--hair); border-radius:12px; box-shadow:var(--shadow-card);
+  background:#FFFFFF; padding:36px 40px; margin-bottom:36px;}
 .calcbox .grid{display:grid; grid-template-columns:1fr 1fr; gap:22px 32px;}
 .calcbox label{display:block; font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); margin-bottom:8px;}
-.calcbox input, .calcbox select{width:100%; border:1px solid var(--hair); background:#FFFFFF; font-family:inherit; font-size:15.5px; font-weight:300; color:var(--ink); padding:13px 14px; outline:none;}
-.calcbox input:focus, .calcbox select:focus{border-color:var(--steel);}
+.calcbox input, .calcbox select{width:100%; border:1px solid var(--btn-line); border-radius:8px; background:#FFFFFF; font-family:inherit; font-size:15px; font-weight:400; color:var(--ink); padding:10px 12px; outline:none; transition:border-color .15s ease, box-shadow .15s ease;}
+.calcbox input:focus, .calcbox select:focus{border-color:var(--accent); box-shadow:0 0 0 3px rgba(38,110,239,.15);}
 .calcbox .full{grid-column:1 / -1;}
-.results{background:var(--ink); color:#FFFFFF; padding:34px 40px; margin-bottom:16px;}
-.results .rrow{display:flex; justify-content:space-between; align-items:baseline; gap:20px; padding:11px 0; border-bottom:1px solid rgba(255,255,255,.14);}
+.results{background:#FFFFFF; color:var(--ink); border:1px solid var(--hair); border-radius:12px; box-shadow:var(--shadow-card); padding:28px 32px; margin-bottom:16px;}
+.results .rrow{display:flex; justify-content:space-between; align-items:baseline; gap:20px; padding:11px 0; border-bottom:1px solid var(--hair);}
 .results .rrow:last-child{border-bottom:0;}
-.results .rk{font-size:13px; font-weight:300; color:rgba(255,255,255,.75);}
-.results .rv{font-size:17px; font-weight:600;}
-.results .rrow.big .rv{font-size:24px; color:var(--lblue);}
-.results .warn{margin-top:14px; font-size:13px; font-weight:300; line-height:1.7; color:#F0DFA8;}
-.calcnote{font-size:13px; font-weight:300; line-height:1.8; color:var(--faint);}
+.results .rk{font-size:13px; font-weight:400; color:var(--label);}
+.results .rv{font-size:17px; font-weight:600; color:var(--ink);}
+.results .rrow.big .rv{font-size:24px; color:var(--accent);}
+.results .warn{margin-top:14px; font-size:13px; font-weight:400; line-height:1.7; color:var(--label);}
+.calcnote{font-size:13px; font-weight:400; line-height:1.8; color:var(--faint);}
 .calcbox .grid, .hublist{grid-template-columns:1fr;}
 .calcbox, .results{padding:26px 22px;}
 
@@ -779,7 +784,7 @@ table.perf td a:hover{text-decoration:underline}
   background:#FFFFFF;border:1px solid var(--hair);border-radius:2px;
   text-decoration:none;color:inherit;transition:border-color .18s,box-shadow .18s,transform .18s}
 .pt-card:hover,.pt-card:focus-visible{border-color:var(--blue);
-  box-shadow:0 6px 22px rgba(36,56,86,.10);transform:translateY(-2px)}
+  box-shadow:0 6px 22px rgba(38,110,239,.10);transform:translateY(-2px)}
 .pt-card h3{font-family:var(--display);font-size:20px;line-height:1.22;color:var(--blue-d);margin:0}
 .pt-card p{font-size:14.5px;line-height:1.65;color:var(--body);margin:0;flex:1}
 .pt-go{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.08em;

@@ -32,7 +32,7 @@
      defined here. They were previously undefined, which left the page rendering on the browser
      default rather than the site's palette. */
   :root{
-    --page:#FFFFFF; --ink:#202022; --body:#202022; --muted:rgba(32,32,34,.6);
+    --page:#FFFFFF; --ink:#202022; --body:#202022; --muted:rgba(32,32,34,.7);
     --hair:#ECECEE; --grey1:#F4F5F7; --blue:#266EEF; --accent-2:#266EEF; --rose:#266EEF;
     --sans:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
@@ -68,7 +68,7 @@
   .umi-field { margin-bottom:22px; }
   input[type=text], input[type=email], input[type=tel], input[type=date], select {
     width:100%; border:1px solid var(--hair); background:#FFFFFF; font-family:inherit; font-size:15.5px; font-weight:400; color:var(--ink); padding:13px 14px; outline:none; border-radius:2px; }
-  input:focus, select:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(36,56,86,.14); }
+  input:focus, select:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(38,110,239,.14); }
   input[disabled] { background:var(--grey1); color:var(--muted); }
   .hint { font-size:12.5px; font-weight:400; color:var(--muted); margin-top:6px; line-height:1.6; }
   .notice { display:none; border:1px solid #E8DCBB; background:#FBF6EA; color:#6B5A22; font-size:13.5px; font-weight:400; line-height:1.7; padding:14px 18px; margin:4px 0 22px; }
@@ -81,12 +81,12 @@
   .pillgroup { margin-bottom:26px; }
 
   .mselect { width:100%; border:1px solid var(--hair); background:#FFFFFF; font-family:inherit; font-size:15.5px; font-weight:400; color:var(--ink); padding:13px 14px; outline:none; border-radius:2px; }
-  .mselect:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(36,56,86,.14); }
+  .mselect:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(38,110,239,.14); }
   .msel { position:relative; }
   .msel-btn { width:100%; display:flex; justify-content:space-between; align-items:center; gap:12px; border:1px solid var(--hair); background:#FFFFFF; font-family:inherit; font-size:15px; font-weight:400; color:var(--muted); padding:13px 14px; border-radius:2px; cursor:pointer; text-align:left; }
   .msel-btn .msel-sum { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .msel-btn .msel-sum.has { color:var(--ink); font-weight:400; }
-  .msel.open .msel-btn { border-color:var(--blue); box-shadow:0 0 0 3px rgba(36,56,86,.14); }
+  .msel.open .msel-btn { border-color:var(--blue); box-shadow:0 0 0 3px rgba(38,110,239,.14); }
   .msel-panel { display:none; position:absolute; z-index:40; top:calc(100% + 6px); left:0; right:0; background:#FFFFFF; border:1px solid var(--hair); border-radius:2px; box-shadow:0 16px 44px rgba(51,46,36,.18); max-height:280px; overflow:auto; padding:6px; }
   .msel.open .msel-panel { display:block; }
   .msel-opt { display:flex; gap:11px; align-items:flex-start; padding:9px 10px; border-radius:2px; font-size:14px; font-weight:400; color:var(--ink); cursor:pointer; line-height:1.5; }
@@ -114,9 +114,10 @@
      grey on the rail, not white on a dark slab. */
   .footer { background:#FFFFFF; border-top:1px solid var(--hair); }
   .legal { padding:48px 24px; max-width:1240px; margin:0 auto; }
-  .legal .rule { font-size:12.5px; font-weight:400; line-height:1.6; color:#9E9EA0; }
-  .legal .row { display:flex; justify-content:space-between; margin-top:20px; font-size:12.5px; font-weight:400; color:#9E9EA0; flex-wrap:wrap; gap:8px; border-top:1px solid var(--hair); padding-top:20px; }
-  .legal a { color:#9E9EA0; text-decoration:underline; text-underline-offset:2px; }
+  .legal .rule { font-size:12.5px; font-weight:400; line-height:1.6; color:#6B6B6F; }
+  .legal .row { display:flex; justify-content:space-between; margin-top:20px; font-size:12.5px; font-weight:400; color:#6B6B6F; flex-wrap:wrap; gap:8px; border-top:1px solid var(--hair); padding-top:20px; }
+  .legal a { color:#6B6B6F; text-decoration:underline; text-underline-offset:2px;
+             display:inline-block; padding:5px 0; }
   .legal a:hover { color:var(--ink); }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Review & Update Your Information","url":"https://baker1031.com/update-my-info/","isPartOf":{"@type":"WebSite","name":"Baker 1031 Investments","url":"https://baker1031.com/"},"inLanguage":"en-US"}</script>

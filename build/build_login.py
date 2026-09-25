@@ -31,7 +31,7 @@ page = r'''<!DOCTYPE html>
 :root{
     --black:#202022; --white:#FFFFFF;
     --accent:#266EEF; --accent-hover:#1B57C7; --accent-soft:#F4F5F7;
-    --grey:#202022; --grey-light:rgba(32,32,34,.6); --hair:#ECECEE; --hair-strong:#ECECEE; --error:#DC2626;
+    --grey:#202022; --grey-light:rgba(32,32,34,.7); --hair:#ECECEE; --hair-strong:#ECECEE; --error:#DC2626;
     --radius:6px;
     --font:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --display:var(--font);
@@ -85,7 +85,7 @@ page = r'''<!DOCTYPE html>
     padding:12px 14px; outline:none; transition:border-color .2s ease, box-shadow .2s ease;
   }
   .field input::placeholder{ color:rgba(32,32,34,.45); }
-  .field input:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(36,56,86,.18); }
+  .field input:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(38,110,239,.18); }
   .field.is-invalid input{ border-color:var(--error); box-shadow:0 0 0 3px rgba(220,38,38,.12); }
   .field .btn{ width:100%; margin-top:14px; padding:13px 20px; font-size:15px; }
   .err{

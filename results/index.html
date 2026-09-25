@@ -40,8 +40,8 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
 :root{ --page:#FFFFFF; --accent-2:#266EEF; --rose:#266EEF;
     /* Attio surface tokens: greys for labels and rails, the hairline, the chip,
        and the two shadows every raised thing on the site uses. */
-    --label:#717173;
-    --tertiary:#9E9EA0;
+    --label:#6E6E72;
+    --tertiary:#6B6B6F;
     --rail:#FBFBFB;
     --band:#F7F8F9;
     --hover:#F4F5F7;
@@ -55,10 +55,12 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
     --black:#202022; --white:#FFFFFF;
     --accent:#266EEF;
     --btn:#266EEF; --btn-hover:#1B57C7;
-  /* Text-safe green: brand #266EEF is 3.35:1 on white, under the 4.5:1 AA minimum for
-     normal-size text. #266EEF is 4.96:1. Backgrounds and borders keep --accent. */
-  --accent-text:#266EEF; --accent-hover:#1B57C7; --accent-soft:#F4F5F7;
-    --grey:#202022; --grey-light:rgba(32,32,34,.6); --hair:#ECECEE; --hair-strong:#ECECEE;
+  /* --accent is the fill; --accent-text is the AA-safe version of it for type. #266EEF is
+     4.61:1 on white but only 4.22:1 on the wash, under the 4.5:1 AA minimum for normal-size
+     text; #2160D8 clears it on every surface the site uses. Backgrounds and borders keep
+     --accent. */
+  --accent-text:#2160D8; --accent-hover:#1B57C7; --accent-soft:#F4F5F7;
+    --grey:#202022; --grey-light:rgba(32,32,34,.7); --hair:#ECECEE; --hair-strong:#ECECEE;
     --radius:6px;
     --font:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --display:var(--font);
@@ -189,7 +191,8 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
   .nav__links a:hover .nav__word,
   .nav__links a:focus-visible .nav__word{ color:#202022; }
   .nav__links a[aria-current="page"] .nav__word{ color:#202022; }
-  .nav__login{ font-size:14px; font-weight:500; color:#54545A; }
+  /* padded so it is a real tap target on a phone, where it was 38x20 */
+  .nav__login{ font-size:14px; font-weight:500; color:#54545A; padding:8px 4px; }
   .nav__login:hover{ color:#202022; }
   .nav__cta{ margin:0; height:32px; padding:0 14px; font-size:13.5px; }
 
@@ -222,15 +225,15 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
     border:1px solid var(--hair-strong); border-radius:var(--radius); padding:9px 12px; height:40px;
   }
   .tools input{ flex:1 1 260px; min-width:200px; }
-  .tools input::placeholder{ color:rgba(32,32,34,.55); }
+  .tools input::placeholder{ color:rgba(32,32,34,.7); }
   .tools select{ flex:0 1 auto; max-width:100%; padding-right:32px; -webkit-appearance:none; appearance:none;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%234B5563' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat:no-repeat; background-position:right 12px center; }
-  .tools input:focus, .tools select:focus{ outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(36,56,86,.18); }
+  .tools input:focus, .tools select:focus{ outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(38,110,239,.18); }
   .tools__clear{ font:inherit; font-size:13.5px; font-weight:600; color:var(--accent-text); background:none; border:0; padding:8px 4px; cursor:pointer; }
   .tools__clear:hover{ color:var(--accent-hover); text-decoration:underline; }
   .tools__clear[hidden]{ display:none; }
-  .table td.na{ color:rgba(32,32,34,.55); font-weight:400; }
+  .table td.na{ color:rgba(32,32,34,.7); font-weight:400; }
   .empty{ padding:36px 16px; text-align:center; color:var(--grey); font-size:14.5px; }
   .tablewrap{ overflow-x:auto; border:1px solid var(--hair-strong); border-radius:var(--radius); }
   .table{ width:100%; border-collapse:collapse; font-size:14.5px; min-width:820px; }
@@ -269,7 +272,7 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
   .table tfoot tr:first-child td{ border-top:2px solid var(--hair-strong); }
   .table tfoot td.num{ font-weight:700; color:var(--black); }
   .table tfoot td.name{ font-weight:600; color:var(--black); }
-  .disclosure{ margin:28px 0 0; font-size:11px; line-height:1.55; color:rgba(32,32,34,.6); max-width:900px; }
+  .disclosure{ margin:28px 0 0; font-size:11px; line-height:1.55; color:rgba(32,32,34,.7); max-width:900px; }
 
   /* ---------- Footer (from the homepage) ---------- */
   /* ---------- Footer ---------- */
@@ -310,7 +313,7 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
   .footer__office a:hover{ color:var(--accent-text); text-decoration:underline; }
   .footer__col .footer__office a{ display:inline; padding:0; font-size:inherit; }
   .footer__col .footer__office a:hover{ color:var(--accent-text); }
-  .footer__disclosure a{ color:rgba(32,32,34,.6); text-decoration:underline; text-underline-offset:2px; }
+  .footer__disclosure a{ color:rgba(32,32,34,.7); text-decoration:underline; text-underline-offset:2px; }
   .footer__disclosure a:hover{ color:var(--accent-text); }
   .footer__label{
     margin:0 0 16px;
@@ -332,8 +335,8 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
     padding-top:28px;
     border-top:1px solid #ECECEE;
   }
-  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(32,32,34,.6); }
-  .footer__copy{ color:rgba(32,32,34,.55) !important; }
+  .footer__disclosure p{ margin:0 0 10px; font-size:12.5px; line-height:1.55; color:rgba(32,32,34,.7); }
+  .footer__copy{ color:rgba(32,32,34,.7) !important; }
 
   @media (max-width:900px){
     .footer__contact{ grid-template-columns:1fr; }
@@ -345,7 +348,7 @@ try{ if(sessionStorage.getItem('b31_dn_results') === '1') document.documentEleme
   .footer{ background:#FFFFFF; border-top:1px solid var(--line); }
   .footer__label{ font-family:var(--font); text-transform:uppercase; letter-spacing:.06em;
                   font-weight:600; font-size:12px; color:var(--label); text-decoration:none; }
-  .footer__col a{ font-family:var(--font); font-size:14px; font-weight:450;
+  .footer__col a{ font-family:var(--font); font-size:14px; font-weight:500;
                   color:var(--black); padding:5px 0; }
   .footer__col a:hover{ color:var(--blue-text); }
   .footer__email a{ font-family:var(--font); color:var(--blue-text); }

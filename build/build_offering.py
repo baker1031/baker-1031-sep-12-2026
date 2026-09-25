@@ -259,8 +259,8 @@ def render(O):
 :root{ --page:#FFFFFF; --accent-2:#266EEF; --rose:#266EEF;
     /* Attio surface tokens: greys for labels and rails, the hairline, the chip,
        and the two shadows every raised thing on the site uses. */
-    --label:#717173;
-    --tertiary:#9E9EA0;
+    --label:#6E6E72;
+    --tertiary:#6B6B6F;
     --rail:#FBFBFB;
     --band:#F7F8F9;
     --hover:#F4F5F7;
@@ -273,8 +273,8 @@ def render(O):
     --shadow-btn:0 1px 2px rgba(16,24,40,.05);
         --black:#202022; --white:#FFFFFF;
         --accent:#266EEF; --accent-hover:#1B57C7; --accent-soft:#F4F5F7;
-        --accent-text:#266EEF; --btn:#266EEF; --btn-hover:#1B57C7;
-        --grey:#202022; --grey-light:rgba(32,32,34,.6); --hair:#ECECEE; --hair-strong:#ECECEE;
+        --accent-text:#2160D8; --btn:#266EEF; --btn-hover:#1B57C7;
+        --grey:#202022; --grey-light:rgba(32,32,34,.7); --hair:#ECECEE; --hair-strong:#ECECEE;
         --radius:6px;
         --font:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --display:var(--font);
@@ -316,7 +316,7 @@ def render(O):
       /* ---------- Breadcrumb + title ---------- */
       .crumbs{ display:flex; align-items:center; gap:8px; margin:0; padding:20px 0 0; font-size:13px; color:var(--grey-light); list-style:none; flex-wrap:wrap; }
       .crumbs a{ color:var(--grey); text-decoration:none; } .crumbs a:hover{ color:var(--accent-text); }
-      .crumbs li + li::before{ content:"›"; margin-right:8px; color:rgba(32,32,34,.55); }
+      .crumbs li + li::before{ content:"›"; margin-right:8px; color:rgba(32,32,34,.7); }
       .title{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px; padding:22px 0 8px; flex-wrap:wrap; }
       .title__eyebrow{ margin:0 0 8px; font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--grey-light); display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
       .status{ display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--grey); }
@@ -338,7 +338,7 @@ def render(O):
       .gal__thumb{ padding:0; border:2px solid transparent; border-radius:var(--radius); overflow:hidden; background:#F4F5F7; cursor:pointer; min-height:0; }
       .gal__thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
       .gal__thumb.is-on{ border-color:var(--accent); }
-      .gal__thumb:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(36,56,86,.35); }
+      .gal__thumb:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(38,110,239,.35); }
 
       /* ---------- Key stats strip ---------- */
       .stats{ display:grid; grid-template-columns:repeat(6, minmax(0,1fr)); margin:24px 0 0; padding:0; border:1px solid var(--hair-strong); border-radius:var(--radius); overflow:hidden; }
@@ -422,7 +422,7 @@ def render(O):
       .backlink{ display:inline-flex; align-items:center; gap:6px; margin-top:16px; font-size:13px; color:var(--grey-light); text-decoration:none; }
       .backlink:hover{ color:var(--accent-text); }
 
-      .disclosure{ padding:24px 0 0; font-size:11px; line-height:1.55; color:rgba(32,32,34,.6); max-width:900px; }
+      .disclosure{ padding:24px 0 0; font-size:11px; line-height:1.55; color:rgba(32,32,34,.7); max-width:900px; }
 
       /* ---------- Approved-investor gate ----------
          Locked: the real content stays in the DOM but hidden (so its photos never download and the
@@ -445,9 +445,9 @@ def render(O):
       .gate__list li::before{ content:""; width:5px; height:5px; border-radius:50%; background:var(--accent); flex:none; }
       .gate__actions{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
       .gate__alt{ font-size:14px; color:var(--grey-light); }
-      .gate__alt a{ color:var(--accent-text); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(36,56,86,.35); }
+      .gate__alt a{ color:var(--accent-text); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(38,110,239,.35); }
       .gate__alt a:hover{ border-bottom-color:var(--accent); }
-      .gate__note{ margin:20px 0 0; padding-top:16px; border-top:1px solid #ECECEE; font-size:11px; line-height:1.5; color:rgba(32,32,34,.5); }
+      .gate__note{ margin:20px 0 0; padding-top:16px; border-top:1px solid #ECECEE; font-size:11px; line-height:1.5; color:rgba(32,32,34,.7); }
 
       /* the locked title: the real text stays in the DOM for crawlers and is painted over as a bar.
          box-decoration-break:clone keeps one bar per wrapped line; the negative margin cancels the
